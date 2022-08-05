@@ -1,0 +1,58 @@
+
+
+a{
+    margin-right: 5%;
+    color: white;
+    text-decoration: none;
+    font-size: 21px;
+    width: 300;
+}
+
+#navegador{
+    padding-top: 0.1rem;
+}
+
+#theBoxNav{
+    text-align: center;
+    background-color: #a40925;
+    width: 100%;
+    height: 2vw;
+    position: absolute;
+    top: 0%;
+    
+}
+
+#theBoxNav .navlink{
+    position: relative;
+    list-style: none;
+    height: 0;
+    margin: 0;
+}
+
+#firstnavlink li{
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    
+}
+
+#firstnavlink a:hover{
+    color: #202225;
+    
+}
+
+.fa-user{
+    justify-self: start;
+    font-size: 23px;
+    
+}
+
+#icon2nav{
+    text-align: right;
+   
+}
+
+#icon1nav{
+    text-align: left;
+    padding-left: 1vw;
+}
