@@ -5,6 +5,7 @@ import Contacte from "./components/others/Contacte";
 import Error404 from "./components/others/Error404";
 import FAQ from "./components/others/FAQ";
 import './App.css';
+import CalendarDates from "./components/Home/Calendar";
 import Footer from "./components/Home/Footer";
 import Sponsors from "./components/Home/Sponsors";
 
@@ -31,7 +32,7 @@ export default function App() {
                 <Route path="*" element = {<Error404 />}/>
           </Routes>
           </Router>
-
+            <CalendarDates />
             <Sponsors />
             <Footer />
 
