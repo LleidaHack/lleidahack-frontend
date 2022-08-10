@@ -7,6 +7,7 @@ import FAQ from "./components/others/FAQ";
 import './App.css';
 import Footer from "./components/Home/Footer";
 import Sponsors from "./components/Home/Sponsors";
+import Schedule from "./components/Home/Schedule"
 
 
 export default function App() {
@@ -31,7 +32,7 @@ export default function App() {
                 <Route path="*" element = {<Error404 />}/>
           </Routes>
           </Router>
-
+            <Schedule />
             <Sponsors />
             <Footer />
 
