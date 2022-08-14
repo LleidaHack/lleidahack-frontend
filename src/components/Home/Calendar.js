@@ -34,7 +34,7 @@ tenetur error, harum nesciunt ipsum debitis quas aliquid.</p>
                 </Col>
                 <Col>
                     <div className='calendar-container'>
-                        <Calendar value={[startDate, endDate]} locale={'ca'} />
+                        <Calendar value={[startDate, endDate]} locale={'ca'} minDetail={"month"} />
                     </div>
                 </Col>
             </Row>

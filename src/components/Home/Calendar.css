@@ -161,3 +161,7 @@
 .react-calendar__navigation__next2-button {
   display: none;
 }
+
+.react-calendar__navigation button:disabled {
+  background-color: #a40925;
+}
