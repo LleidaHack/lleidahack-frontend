@@ -11,6 +11,14 @@ import Schedule from "./components/Home/Schedule"
 
 
 export default function App() {
+
+    const events = [
+        {time: "10h", title: "Example", description: "Description"},
+        {time: "11h", title: "Example", description: "Description"},
+        {time: "12h", title: "Example", description: "Description"},
+        {time: "14h", title: "Example", description: "Description"},
+    ];
+
     return(
         <div className="App">
              <Router>
@@ -32,7 +40,7 @@ export default function App() {
                 <Route path="*" element = {<Error404 />}/>
           </Routes>
           </Router>
-            <Schedule />
+            <Schedule events={events} />
             <Sponsors />
             <Footer />
 

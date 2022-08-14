@@ -3,34 +3,25 @@ import 'react-vertical-timeline-component/style.min.css';
 import './Schedule.css';
 
 
-const Schedule = () => {
+const Schedule = (props) => {
+  const rendered_events = props.events.map((event) =>
+  {
+    return(
+        <VerticalTimelineElement key={event.time} date={event.time}>
+          <h3 className="vertical-timeline-element-title">{event.title}</h3>
+          <p className="vertical-timeline-element-description">
+            {event.description}
+          </p>
+        </VerticalTimelineElement>
+    );
+  });
 
   return (
-      <div style={{'backgroundColor': '#202225'}}>
-    <VerticalTimeline>
-  <VerticalTimelineElement date="10h"
-  >
-    <h3 className="vertical-timeline-element-title">Example</h3>
-    <p className="vertical-timeline-element-description">
-      Example Example Example Example Example Example ExampleExample Example
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement date="11h">
-    <h3 className="vertical-timeline-element-title">Example</h3>
-    <p className="vertical-timeline-element-description">
-      Example Example Example Example Example Example ExampleExample Example
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement date="12h">
-    <h3 className="vertical-timeline-element-title">Example</h3>
-    <p className="vertical-timeline-element-description">
-      Example Example Example Example Example Example ExampleExample Example
-    </p>
-  </VerticalTimelineElement>
-
-
-</VerticalTimeline>
-        </div>
+    <div style={{'backgroundColor': '#202225'}}>
+        <VerticalTimeline>
+            {rendered_events}
+        </VerticalTimeline>
+    </div>
   );
 }
 
