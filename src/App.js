@@ -11,6 +11,9 @@ import Sponsors from "./components/Home/Sponsors";
 
 
 export default function App() {
+    const startDate = new Date(2022, 10, 25);
+    const endDate = new Date(2022, 10, 27);
+
     return(
         <div className="App">
              <Router>
@@ -32,7 +35,7 @@ export default function App() {
                 <Route path="*" element = {<Error404 />}/>
           </Routes>
           </Router>
-            <CalendarDates />
+            <CalendarDates startDate={startDate} endDate={endDate} />
             <Sponsors />
             <Footer />
 

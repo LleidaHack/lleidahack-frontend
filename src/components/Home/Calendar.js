@@ -6,9 +6,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const CalendarDates = () => {
-  const [startDate, setStartDate] = useState(new Date(2022, 10, 25));
-  const [endDate, setEndDate] = useState(new Date(2022, 10, 27));
+const CalendarDates = (props) => {
+  const [startDate, setStartDate] = useState(props.startDate);
+  const [endDate, setEndDate] = useState(props.endDate);
 
   return (
     <div className='app' style={{'backgroundColor': '#202225'}}>
