@@ -7,9 +7,18 @@ import FAQ from "./components/others/FAQ";
 import './App.css';
 import Footer from "./components/Home/Footer";
 import Sponsors from "./components/Home/Sponsors";
+import Schedule from "./components/Home/Schedule"
 
 
 export default function App() {
+
+    const events = [
+        {time: "10h", title: "Example", description: "Description"},
+        {time: "11h", title: "Example", description: "Description"},
+        {time: "12h", title: "Example", description: "Description"},
+        {time: "14h", title: "Example", description: "Description"},
+    ];
+
     return(
         <div className="App">
              <Router>
@@ -31,7 +40,7 @@ export default function App() {
                 <Route path="*" element = {<Error404 />}/>
           </Routes>
           </Router>
-
+            <Schedule events={events} />
             <Sponsors />
             <Footer />
 
