@@ -5,12 +5,15 @@ import Contacte from "./components/others/Contacte";
 import Error404 from "./components/others/Error404";
 import FAQ from "./components/others/FAQ";
 import './App.css';
+import CalendarDates from "./components/Home/Calendar";
 import Footer from "./components/Home/Footer";
 import Sponsors from "./components/Home/Sponsors";
 import Schedule from "./components/Home/Schedule"
 
 
 export default function App() {
+    const startDate = new Date(2022, 10, 25);
+    const endDate = new Date(2022, 10, 27);
 
     const events = [
         {time: "10h", title: "Example", description: "Description"},
@@ -41,6 +44,7 @@ export default function App() {
           </Routes>
           </Router>
             <Schedule events={events} />
+            <CalendarDates startDate={startDate} endDate={endDate} />
             <Sponsors />
             <Footer />
 
