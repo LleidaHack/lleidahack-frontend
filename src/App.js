@@ -8,11 +8,19 @@ import './App.css';
 import CalendarDates from "./components/Home/Calendar";
 import Footer from "./components/Home/Footer";
 import Sponsors from "./components/Home/Sponsors";
+import Schedule from "./components/Home/Schedule"
 
 
 export default function App() {
     const startDate = new Date(2022, 10, 25);
     const endDate = new Date(2022, 10, 27);
+
+    const events = [
+        {time: "10h", title: "Example", description: "Description"},
+        {time: "11h", title: "Example", description: "Description"},
+        {time: "12h", title: "Example", description: "Description"},
+        {time: "14h", title: "Example", description: "Description"},
+    ];
 
     return(
         <div className="App">
@@ -35,6 +43,7 @@ export default function App() {
                 <Route path="*" element = {<Error404 />}/>
           </Routes>
           </Router>
+            <Schedule events={events} />
             <CalendarDates startDate={startDate} endDate={endDate} />
             <Sponsors />
             <Footer />
