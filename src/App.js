@@ -9,6 +9,7 @@ import CalendarDates from "./components/Home/Calendar";
 import Footer from "./components/Home/Footer";
 import Sponsors from "./components/Home/Sponsors";
 import Schedule from "./components/Home/Schedule"
+import QrCode from "./components/Home/QrCode";
 
 
 export default function App() {
@@ -45,6 +46,7 @@ export default function App() {
           </Router>
             <Schedule events={events} />
             <CalendarDates startDate={startDate} endDate={endDate} />
+            <QrCode url={"https://lleidahack.dev/"}/>
             <Sponsors />
             <Footer />
 
