@@ -8,12 +8,16 @@ import './App.css';
 import CalendarDates from "./components/Home/Calendar";
 import Footer from "./components/Home/Footer";
 import Sponsors from "./components/Home/Sponsors";
-import Schedule from "./components/Home/Schedule"
+import Schedule from "./components/Home/Schedule";
+import CountdownTimer from "./components/Home/Timer";
 
 
 export default function App() {
     const startDate = new Date(2022, 10, 25);
     const endDate = new Date(2022, 10, 27);
+    const startTime = new Date(2022, 10, 25, 11);
+    const endTime = new Date(2022, 10, 26, 11);
+    const timerActive = false;
 
     const events = [
         {time: "10h", title: "Example", description: "Description"},
@@ -21,9 +25,10 @@ export default function App() {
         {time: "12h", title: "Example", description: "Description"},
         {time: "14h", title: "Example", description: "Description"},
     ];
-
+ 
     return(
         <div className="App">
+
              <Router>
              
              <Header inside={[
@@ -43,11 +48,11 @@ export default function App() {
                 <Route path="*" element = {<Error404 />}/>
           </Routes>
           </Router>
+            <CountdownTimer startTime={startTime} endTime={endTime}  timerActive={timerActive}/>
             <Schedule events={events} />
-            <CalendarDates startDate={startDate} endDate={endDate} />
+            <CalendarDates startDate={startDate} endDate={endDate}/>
             <Sponsors />
             <Footer />
-
         </div>
     );
 }
