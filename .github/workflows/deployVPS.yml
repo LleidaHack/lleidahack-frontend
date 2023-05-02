@@ -26,7 +26,7 @@ jobs:
           local: build
           remote: ${{ secrets.PROJECT_PATH }}/${{ steps.extract_branch.outputs.branch }}
           host: ${{ secrets.SERVER_IP }}
-          port: ${{ SERVER_PORT }}
+          port: ${{ secrets.SERVER_PORT }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
