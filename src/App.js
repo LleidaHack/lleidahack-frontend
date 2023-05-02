@@ -32,27 +32,44 @@ export default function App() {
              <Router>
              
              <Header inside={[
-            { name: 'Home', url: '/'},
-            { name: 'Dates', url: 'Timetable' },
-            { name: 'Sponsors', url: 'Sponsors' }
+                { name: 'Home', url: '/'},
+                { name: 'Dates', url: 'Timetable' },
+                { name: 'Sponsors', url: 'Sponsors' }
+            
         
-    
-            ]} outsides={[
-                { name: 'FAQ', url: '/FAQ' },
-                { name: 'Contacte', url: '/Contacte' }
-            ]} />
-            <Routes>
-                <Route exact path="/" element = {<FAQ />}/>
-                <Route exact path="/FAQ" element = {<FAQ />}/>
-                <Route exact path="/Contacte" element = {<Contacte />}/>
-                <Route path="*" element = {<Error404 />}/>
+                ]} outsides={[
+                    { name: 'FAQ', url: '/FAQ' },
+                    { name: 'Contacte', url: '/Contacte' }
+                ]} />
+                <Routes>
+                    <Route exact path="/" element = {<FAQ />}/>
+                    <Route exact path="/FAQ" element = {<FAQ />}/>
+                    <Route exact path="/Contacte" element = {<Contacte />}/>
+                    <Route path="*" element = {<Error404 />}/>
           </Routes>
           </Router>
             <CountdownTimer startTime={startTime} endTime={endTime}  timerActive={timerActive}/>
             <Schedule events={events} />
             <CalendarDates startDate={startDate} endDate={endDate}/>
             <Sponsors />
-            <Footer />
+            <Router>
+              <Footer inside={[
+                { name: 'Home', url: '/'},
+                { name: 'Dates', url: 'Timetable' },
+                { name: 'Sponsors', url: 'Sponsors' }
+            
+        
+                ]} outsides={[
+                    { name: 'FAQ', url: '/FAQ' },
+                    { name: 'Contacte', url: '/Contacte' }
+                ]} />
+                 <Routes>
+                    <Route exact path="/" element = {<FAQ />}/>
+                    <Route exact path="/FAQ" element = {<FAQ />}/>
+                    <Route exact path="/Contacte" element = {<Contacte />}/>
+                    <Route path="*" element = {<Error404 />}/>
+                 </Routes>
+            </Router>
         </div>
     );
 }
