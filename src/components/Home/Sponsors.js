@@ -1,9 +1,13 @@
 import React from 'react'
+import './Sponsors.css';
 
 const Sponsors = () => {
   return (
-    <div id='test'>
-      <h1>Esto es un TEST. El component del test es Sponsors</h1>
+    <div className='sponsors'>
+      <h1 className='title1'>sponsors</h1>
+      <p>Vols participar?</p>
+      <p>No dubtis, contacta amb nosaltres!</p>
+      <button className='contacta'>Contacta</button>
     </div>
   )
 }
