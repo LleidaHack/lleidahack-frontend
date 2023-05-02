@@ -13,22 +13,25 @@ jobs:
         shell: bash
         run: echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >>$GITHUB_OUTPUT
         id: extract_branch
-      - uses: actions/checkout@v2
-      #- name: Use Node.js
-       # uses: actions/setup-node@v1
-        #with:
-         # node-version: '12.x'
-      #- run: npm ci
-      #- run: npm run build --if-present        
-      #  env:
-      #    CI: false
-      - name: Copy folder content recursively to vps
-        uses: garygrossgarten/github-action-scp@release
+      - name: Push to server
+        uses: appleboy/ssh-action@master
         with:
-          local: .
-          remote: ${{ secrets.PROJECT_PATH }}/${{ steps.extract_branch.outputs.branch }}
           host: ${{ secrets.SERVER_IP }}
           port: ${{ secrets.SERVER_PORT }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            cd ${{ secrets.PROJECT_PATH }}/${{ steps.extract_branch.outputs.branch }}
+            git pull
+            systemctl status frontend.${{ steps.extract_branch.outputs.branch }}.service
+      - name: check server status
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          port: ${{ secrets.SERVER_PORT }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            systemctl status backend.service
+ 
       
