@@ -22,6 +22,8 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             cd ${{ secrets.PROJECT_PATH }}/${{ steps.extract_branch.outputs.branch }}
+            git fetch
+            git checkout ${{ steps.extract_branch.outputs.branch }}
             git pull
             systemctl status frontend.${{ steps.extract_branch.outputs.branch }}.service
       - name: check server status
