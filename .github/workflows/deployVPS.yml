@@ -1,48 +1,39 @@
 name: deploy on VPS
 on:
   push:
-    branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches:
+      - main
+      - integration
   workflow_dispatch:
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%H:%M_%d-%m-%Y')"
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >>$GITHUB_OUTPUT
+        id: extract_branch
       - name: Push to server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
+          port: ${{ secrets.SERVER_PORT }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            cd ${{ secrets.PROJECT_PATH }}
+            cd ${{ secrets.PROJECT_PATH }}/${{ steps.extract_branch.outputs.branch }}
+            git fetch
+            git checkout ${{ steps.extract_branch.outputs.branch }}
             git pull
-      # - name: start server
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.SERVER_IP }}
-      #     username: ${{ secrets.SERVER_USERNAME }}
-      #     password: ${{ secrets.SERVER_PASSWORD }}
-      #     script: |
-      #       cd ${{ secrets.PROJECT_PATH }}
-      #       python3 -m pip install -r requirements.txt
-      #       cd ..
-      #       echo "${{ steps.date.outputs.date }}  ->  ${{ github.actor }}" >> deploy.log
-      #       echo > gunicorn_access.log
-      #       echo > gunicorn_error.log
-      #       alembic upgrade head
-      #       sudo systemctl restart backend.service
-      #       sudo systemctl status backend.service
-      # - name: check server status
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.SERVER_IP }}
-      #     username: ${{ secrets.SERVER_USERNAME }}
-      #     password: ${{ secrets.SERVER_PASSWORD }}
-      #     script: sudo systemctl status backend.service
+            systemctl status frontend.${{ steps.extract_branch.outputs.branch }}.service
+      - name: check server status
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          port: ${{ secrets.SERVER_PORT }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            systemctl status backend.service
+ 
+      
