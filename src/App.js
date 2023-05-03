@@ -8,7 +8,8 @@ import './App.css';
 import CalendarDates from "./components/Home/Calendar";
 import Footer from "./components/Home/Footer";
 import Sponsors from "./components/Home/Sponsors";
-import Schedule from "./components/Home/Schedule";
+import Schedule from "./components/Home/Schedule"
+import QrCode from "./components/Home/QrCode";
 import CountdownTimer from "./components/Home/Timer";
 
 
@@ -50,7 +51,8 @@ export default function App() {
           </Router>
             <CountdownTimer startTime={startTime} endTime={endTime}  timerActive={timerActive}/>
             <Schedule events={events} />
-            <CalendarDates startDate={startDate} endDate={endDate}/>
+            <CalendarDates startDate={startDate} endDate={endDate} />
+            <QrCode url={"https://lleidahack.dev/"}/>
             <Sponsors />
             <Router>
               <Footer inside={[
