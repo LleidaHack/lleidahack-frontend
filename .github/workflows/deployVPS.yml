@@ -25,7 +25,8 @@ jobs:
             git fetch
             git checkout ${{ steps.extract_branch.outputs.branch }}
             git pull
-            systemctl status frontend.${{ steps.extract_branch.outputs.branch }}.service
+            npm install
+            systemctl restart frontend.${{ steps.extract_branch.outputs.branch }}.service
       - name: check server status
         uses: appleboy/ssh-action@master
         with:
@@ -34,6 +35,6 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            systemctl status backend.service
+            systemctl status frontend.${{ steps.extract_branch.outputs.branch }}.service
  
       
