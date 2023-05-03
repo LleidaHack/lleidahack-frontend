@@ -26,7 +26,7 @@ jobs:
             git checkout ${{ steps.extract_branch.outputs.branch }}
             git pull
             npm install
-            systemctl restart frontend.${{ steps.extract_branch.outputs.branch }}.service
+            sudo systemctl restart frontend.${{ steps.extract_branch.outputs.branch }}.service
       - name: check server status
         uses: appleboy/ssh-action@master
         with:
