@@ -97,8 +97,8 @@ const Profile = () => {
         </div>
 
         {/* Calendar and Achievements */}
-        <div className="row m-5 w-50 mt-5 text-center m-auto">
-          <div className="col-6">
+        <div className="row m-5 gy-5 bottom-container text-center m-auto">
+          <div className="col-12 col-xl-6">
             <div className="container w-100 react-calendar p-4">
               <h2>Medalles</h2>
               <div className="container mt-2 text-center m-0">
@@ -122,7 +122,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-12 col-xl-6">
             <div className="calendar-container">
               <Calendar
                 value={[startDate, endDate]}
