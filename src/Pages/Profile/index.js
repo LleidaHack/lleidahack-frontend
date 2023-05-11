@@ -1,10 +1,12 @@
 import React from "react";
 import "../../../src/palette.css";
 
+import "./main.css";
+
 import userIcon from "../../icons/user2.png";
 import qrIcon from "../../icons/qr.png";
 import logo from "../../icons/logo.png";
-import medal from "../../icons/medal_example.png"
+import medal from "../../icons/medal_example.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
 
@@ -21,17 +23,17 @@ const Profile = () => {
     <div className="p-bg-black py-5 text-white">
       <div className="container-fluid container-xxl">
         {/* User info and qr */}
-        <div className="row align-middle my-3">
+        <div className="row align-middle mx-auto my-3">
           {/* User Image */}
-          <div className="col-4 text-end">
+          <div className="col-12 col-xl-4 m-auto text-center">
             <img
               style={{ height: `150px` }}
-              className="bg-white border rounded-circle m-auto float-end"
+              className="bg-white border rounded-circle m-auto"
               src={usrImage}
             />
           </div>
           {/* Center Column */}
-          <div className="col-4 px-0 text-center">
+          <div className="col-12 col-xl-4 px-0 my-3 text-center">
             <div className="row ">
               <h3 className="text-center">Benvingut/da, hacker!</h3>
             </div>
@@ -45,13 +47,16 @@ const Profile = () => {
             </div>
           </div>
           {/* QR Column */}
-          <div className="col-4">
-            <div
-              style={{ width: `130px`, height: `150px` }}
-              className="container p-bg-red p-2 text-center m-auto float-start"
-            >
-              <span>Mostra el teu tiquet</span>
-              <img className="w-75 m-auto p-3" src={qrIcon} />
+          <div className="col-12 col-xl-4 mx-auto">
+            <div className="container qr-container p-bg-red p-2 text-center m-auto">
+              <div className="row">
+                <div className="col-6 my-auto col-sm-12">
+                  Mostra el teu tiquet
+                </div>
+                <div className="col-6 col-sm-12">
+                  <img width="66" className="m-auto px-2" src={qrIcon} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -95,18 +100,26 @@ const Profile = () => {
         <div className="row m-5 w-50 mt-5 text-center m-auto">
           <div className="col-6">
             <div className="container w-100 react-calendar p-4">
-                <h2>Medalles</h2>
-                <div className="container mt-2 text-center m-0">
-                    <div className="row m-auto">
-                        <div className="col-4 mt-2 text-center "><img className=" m-auto" src={medal} alt="" /></div>
-                        <div className="col-4 mt-2 text-center "><img className=" m-auto" src={medal} alt="" /></div>
-                        <div className="col-4 mt-2 text-center "><img className=" m-auto" src={medal} alt="" /></div>
-                        <div className="col-4 mt-2 text-center "><img className=" m-auto" src={medal} alt="" /></div>
-                        <div className="col-4 mt-2 text-center "><img className=" m-auto" src={medal} alt="" /></div>
-                    </div>
-                   
-                    
+              <h2>Medalles</h2>
+              <div className="container mt-2 text-center m-0">
+                <div className="row m-auto">
+                  <div className="col-4 mt-2 text-center ">
+                    <img className=" m-auto" src={medal} alt="" />
+                  </div>
+                  <div className="col-4 mt-2 text-center ">
+                    <img className=" m-auto" src={medal} alt="" />
+                  </div>
+                  <div className="col-4 mt-2 text-center ">
+                    <img className=" m-auto" src={medal} alt="" />
+                  </div>
+                  <div className="col-4 mt-2 text-center ">
+                    <img className=" m-auto" src={medal} alt="" />
+                  </div>
+                  <div className="col-4 mt-2 text-center ">
+                    <img className=" m-auto" src={medal} alt="" />
+                  </div>
                 </div>
+              </div>
             </div>
           </div>
           <div className="col-6">
