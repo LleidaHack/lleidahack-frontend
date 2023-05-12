@@ -5,10 +5,11 @@ import "./main.css";
 
 import userIcon from "../../icons/user2.png";
 import qrIcon from "../../icons/qr.png";
-import logo from "../../icons/logo.png";
-import medal from "../../icons/medal_example.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
+import Medals from "./Medals";
+import LinkAccounts from "./LinkAccountsContainer";
+import Join from "./JoinContaienr";
 
 const Profile = () => {
   const name = "Nom cognom";
@@ -62,64 +63,15 @@ const Profile = () => {
         </div>
 
         {/* Accounts link */}
-        <div
-          className="row join-container p-bg-grey p-3 text-center m-auto mt-5"
-        >
-          <div className="col-8 col-sm-8 align-middle text-start m-auto pe-0">
-            Vincula els teus <br /> comptes per la Hack!
-          </div>
-          <div className="col-4 col-sm-4 m-auto px-0">
-            <i class="bi bi-github fa-2x me-3"></i>
-            <i class="bi bi-linkedin fa-2x me-3"></i>
-          </div>
-        </div>
+        <LinkAccounts/>
 
         {/* Join Box */}
-        <div
-          className="row join-container p-bg-grey p-5 text-center m-auto mt-5"
-          
-        >
-          <div className="col-12 p-bg-grey">
-            <div className="row">
-              <img className="p-5" src={logo} alt="" />
-            </div>
-            <div className="row text-center">
-              <a
-                href=""
-                style={{ width: `fit-content`, textDecoration: `none` }}
-                className="py-2 px-4 m-auto text-white p-bg-red"
-              >
-                Uneix-te
-              </a>
-            </div>
-          </div>
-        </div>
+        <Join/>
 
         {/* Calendar and Achievements */}
         <div className="row m-5 gy-5 bottom-container text-center m-auto">
           <div className="col-12 col-xl-6">
-            <div className="container w-100 react-calendar p-4">
-              <h2>Medalles</h2>
-              <div className="container mt-2 text-center m-0">
-                <div className="row m-auto">
-                  <div className="col-4 mt-2 text-center ">
-                    <img className=" m-auto" src={medal} alt="" />
-                  </div>
-                  <div className="col-4 mt-2 text-center ">
-                    <img className=" m-auto" src={medal} alt="" />
-                  </div>
-                  <div className="col-4 mt-2 text-center ">
-                    <img className=" m-auto" src={medal} alt="" />
-                  </div>
-                  <div className="col-4 mt-2 text-center ">
-                    <img className=" m-auto" src={medal} alt="" />
-                  </div>
-                  <div className="col-4 mt-2 text-center ">
-                    <img className=" m-auto" src={medal} alt="" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Medals />
           </div>
           <div className="col-12 col-xl-6">
             <div className="calendar-container">
