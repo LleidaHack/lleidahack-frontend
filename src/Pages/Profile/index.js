@@ -54,7 +54,7 @@ const Profile = () => {
                   Mostra el teu tiquet
                 </div>
                 <div className="col-6 col-sm-12">
-                  <img width="66" className="m-auto px-2" src={qrIcon} />
+                  <img width="66px" className="m-auto px-2" src={qrIcon} />
                 </div>
               </div>
             </div>
@@ -63,22 +63,21 @@ const Profile = () => {
 
         {/* Accounts link */}
         <div
-          className="row p-bg-grey p-3 text-center m-auto mt-5"
-          style={{ width: `35%` }}
+          className="row join-container p-bg-grey p-3 text-center m-auto mt-5"
         >
-          <div className="col-sm-8 align-middle text-start m-auto pe-0">
+          <div className="col-8 col-sm-8 align-middle text-start m-auto pe-0">
             Vincula els teus <br /> comptes per la Hack!
           </div>
-          <div className="col-sm-4 m-auto px-0">
-            <i class="bi bi-github fa-3x me-3"></i>
-            <i class="bi bi-linkedin fa-3x me-3"></i>
+          <div className="col-4 col-sm-4 m-auto px-0">
+            <i class="bi bi-github fa-2x me-3"></i>
+            <i class="bi bi-linkedin fa-2x me-3"></i>
           </div>
         </div>
 
         {/* Join Box */}
         <div
-          className="row p-bg-grey p-5 text-center m-auto mt-5"
-          style={{ width: `35%` }}
+          className="row join-container p-bg-grey p-5 text-center m-auto mt-5"
+          
         >
           <div className="col-12 p-bg-grey">
             <div className="row">

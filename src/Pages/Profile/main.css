@@ -2,8 +2,7 @@
 {
     .qr-container{
         height: 100%;
-        width: 40%;
-    
+        width: 40% !important;
     }
 
     .qr-container img{
@@ -13,6 +12,10 @@
 
     .bottom-container{
         width: 50%;
+    }
+
+    .join-container{
+        width: 35%;
     }
 
 }
