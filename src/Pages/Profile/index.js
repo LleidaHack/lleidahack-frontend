@@ -10,6 +10,7 @@ import Calendar from "react-calendar/dist/umd/Calendar";
 import Medals from "./Medals";
 import LinkAccounts from "./LinkAccountsContainer";
 import Join from "./JoinContaienr";
+import AnnouncementPanel from "./AnnouncementPanel";
 
 const Profile = () => {
   const name = "Nom cognom";
@@ -83,7 +84,11 @@ const Profile = () => {
             </div>
           </div>
         </div>
+
+        {/* TODO: If admin show new announcement message */}
+       <AnnouncementPanel></AnnouncementPanel>
       </div>
+
     </div>
   );
 };
