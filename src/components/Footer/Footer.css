@@ -1,0 +1,51 @@
+/* Footer.css */
+
+.footer {
+    background-color: #A40925;
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .social-icons img {
+    width: 30px;
+    margin: 0 5px;
+  }
+  
+  .made-by {
+    margin-top: 20px;
+  }
+  
+  .heart {
+    color: #fff;
+  }
+  
+  .hack-logo {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 100px; /* Ajusta el tamaño del logo */
+    height: auto;
+  }
+
+  
+/* Estilos para los enlaces en el footer */
+.footer-links a {
+    color: #fff; /* Color de texto para los enlaces */
+    text-decoration: none; /* Eliminar el subrayado de los enlaces */
+  }
+  
+.footer-links a:hover {
+    color: #232323; /* Cambiar el color del texto cuando el enlace está en hover */
+    font-weight: bold;
+  }
+  
