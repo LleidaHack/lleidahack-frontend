@@ -1,9 +1,8 @@
 import React from "react";
 import "./Footer.css"; // Importa el archivo de estilos CSS para el footer
-import instagramIcon from "../../icons/instagram.png";
-import linkedinIcon from "../../icons/linkedin.png";
-import twitterIcon from "../../icons/twitter.png";
-import hackLogo from "../../icons/hackLogo.png";
+import instagramIcon from "../../icons/instagram_negre.png";
+import linkedinIcon from "../../icons/linkedin_negre.png";
+import twitterIcon from "../../icons/twitter_negre.png";
 
 const Footer = () => {
   return (
@@ -24,12 +23,12 @@ const Footer = () => {
       </div>
       <div className="footer-links">
         <a href="https://lleidahack.dev/" target="_blank" rel="noopener noreferrer">
-          Términos y Condiciones 
+          Termes i Condicions 
         </a>
         <span className="footer-separator"> | </span>
         
         <a href="https://lleidahack.dev/politica-de-privacidad" target="_blank" rel="noopener noreferrer">
-          Política de Privacidad
+          Política de Privadesa
         </a>
       </div>
       <div className="made-by footer-links">

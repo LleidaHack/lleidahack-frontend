@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Contacte from "./components/others/Contacte";
-import Error404 from "./components/others/Error404";
+import Contacte from "./pages/Contacte";
+import Error404 from "./pages/Error404";
 import FAQPage from "./pages/FAQ";
 import './App.css';
 import Home from "./pages/Home";

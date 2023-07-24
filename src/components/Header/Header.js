@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Header.css"; // Importa el archivo de estilos CSS para el header
-import hackIcon from '../../icons/hackIcon.png'
+import "./Header.css"; 
+import hackIcon from '../../icons/hack_icon_negre.png'
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -17,7 +17,6 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-md fixed-top">
     <div className="container">
-      {/* Icono a la izquierda */}
       <Link to="/" className="navbar-brand icono">
         <img src={hackIcon} alt="Icono" className="icono" />
       </Link>
@@ -57,6 +56,11 @@ const Header = () => {
             <li className="nav-item">
               <Link to="/contacte" className="nav-link" onClick={closeMenu}>
                 Contacte
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/perfil" className="nav-link" onClick={closeMenu}>
+                El meu perfil
               </Link>
             </li>
           </ul>
