@@ -8,6 +8,7 @@ import QrCode from "../components/Home/QrCode.js";
 import CountdownTimer from "../components/Home/Timer.js";
 
 
+
 const Home = () => {
     const startDate = new Date(2022, 10, 25);
     const endDate = new Date(2022, 10, 27);
@@ -21,6 +22,7 @@ const Home = () => {
       { time: "12h", title: "Example", description: "Description" },
       { time: "14h", title: "Example", description: "Description" },
     ];
+
   
     return (
       <div>

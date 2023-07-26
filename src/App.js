@@ -1,12 +1,15 @@
-import React from "react";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Contacte from "./pages/Contacte";
 import Error404 from "./pages/Error404";
 import FAQPage from "./pages/FAQ";
-import './App.css';
 import Home from "./pages/Home";
+import React, { useEffect } from 'react';
 
 export default function App() {
+    useEffect(() => {
+      window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
+    }, []);
 
   return (
     <div className="App">
