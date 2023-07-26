@@ -1,0 +1,50 @@
+
+.footer {
+    background-color: var(--groc);
+    color: var(--negre);
+    padding: 50px;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .social-icons img {
+    width: 30px;
+    margin: 0 5px;
+  }
+  
+  .made-by {
+    margin-top: 20px;
+  }
+  
+  .heart {
+    color: var(--negre);
+  }
+  
+  .hack-logo {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 100px; 
+    height: auto;
+  }
+
+  
+.footer-links a {
+    color: var(--negre); 
+    text-decoration: none; 
+  }
+  
+.footer-links a:hover {
+    color: var(--negre); 
+    font-weight: 10;
+  }
+  

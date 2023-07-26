@@ -1,0 +1,31 @@
+.error-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gris);
+    padding: 100px 10%;
+  }
+
+  .title {
+    font-size: 120px;
+    color: var(--crema);
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .text {
+    font-size: 24px;
+    color: var(--crema);
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .button {
+    font-size: 20px;
+    color: var(--gris);
+    background-color: var(--groc);
+    border-radius: 8px;
+    margin: 20px ;
+  }

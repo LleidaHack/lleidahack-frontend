@@ -1,56 +1,26 @@
-import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Header } from "./components/Home/Header";
-import Contacte from "./components/others/Contacte";
-import Error404 from "./components/others/Error404";
-import './App.css';
-import Footer from "./components/Home/Footer";
-
-import Profile from "./Pages/Profile";
-import Main from "./Pages/Main";
-
-import FAQ from "./components/others/FAQ";
-
+import Contacte from "./pages/Contacte";
+import Error404 from "./pages/Error404";
+import FAQPage from "./pages/FAQ";
+import Home from "./pages/Home";
+import React, { useEffect } from 'react';
 
 export default function App() {
-    return (
-        <div className="App">
-            <Router>
-                {/* Render Header, this might cause to show IN ALL PAGES*/}
-                <Header inside={[
-                    { name: 'Home', url: '/' },
-                    { name: 'Dates', url: 'Timetable' },
-                    { name: 'Sponsors', url: 'Sponsors' }
+    useEffect(() => {
+      window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
+    }, []);
 
-
-                ]} outsides={[
-                    { name: 'FAQ', url: '/FAQ' },
-                    { name: 'Contacte', url: '/Contacte' }
-                ]} />
-
-                {/* TODO: Fix this crap of 33px */}
-                <div style={{marginTop: `33px`}}>
-                   <Routes>
-                    <Route exact path="/" element={<Main/>}/>
-                    <Route exact path="/FAQ" element={<FAQ />} />
-                    <Route exact path="/Contacte" element={<Contacte />} />
-                    <Route exact path="/Perfil" element={<Profile />} />
-                    <Route path="*" element={<Error404 />} />
-                    </Routes>  
-                </div>
-               
-                {/* Render Footer, this might cause to show IN ALL PAGES*/}
-                <Footer inside={[
-                    { name: 'Home', url: '/' },
-                    { name: 'Dates', url: 'Timetable' },
-                    { name: 'Sponsors', url: 'Sponsors' }
-
-
-                ]} outsides={[
-                    { name: 'FAQ', url: '/FAQ' },
-                    { name: 'Contacte', url: '/Contacte' }
-                ]} />
-            </Router>
-        </div>
-    );
+  return (
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/contacte" element={<Contacte />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="*" element={<Error404 />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }

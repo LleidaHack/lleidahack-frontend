@@ -1,0 +1,114 @@
+/* Header.css */
+
+/* Estilos generales del header */
+body {
+    background-color: var(--groc);
+    color: var(--crema);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    background-color: var(--groc);
+  }
+  
+  .navbar-brand {
+    color: var(--negre);
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: none;
+  }
+  
+  .navbar-nav .nav-link {
+    color: var(--negre);
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: var(--negre);
+    font-weight: 10;
+  }
+  
+  .nav-item {
+    margin-right: 50px;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    align-items: left;
+  }
+  
+  .navbar {
+    padding: 10px 0;
+  }
+  
+  .icono {
+    max-width: 100px;
+    height: auto;
+    margin-right: 50px;
+    margin-left: 0;
+  }
+  
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .navbar-toggler-icon {
+    color: var(--negre);
+  }
+
+  .menu-items.show {
+    display: flex;
+  }
+  
+  .navbar-toggler {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    color: var(--negre);
+  }
+  
+.navbar-nav {
+  margin-left: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para el menú desplegable */
+@media (max-width: 991px) {
+  .collapse.navbar-collapse.show {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--groc);
+    z-index: 1;
+    flex-direction: column;
+  }
+
+  .navbar-toggler {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .navbar-toggler .navbar-toggler-icon {
+    color: var(--negre);
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+}
+
+  
