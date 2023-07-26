@@ -18,6 +18,7 @@ export default function App() {
           <Route path="/contacte" element={<Contacte />} />
           <Route path="/home" element={<Home />} />
           <Route path="*" element={<Error404 />} />
+          <Route path="/perfil" element={<Profile />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </Router>
