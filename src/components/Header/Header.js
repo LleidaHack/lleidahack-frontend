@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css"; 
-import hackIcon from '../../icons/hack_icon_negre.png'
+import hackIcon from '../../icons/hack_icon_black.png'
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);

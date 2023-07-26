@@ -4,28 +4,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--gris);
+    background-color: var(--secondary);
     padding: 100px 10%;
   }
 
   .title {
     font-size: 120px;
-    color: var(--crema);
+    color: var(--white);
     justify-content: center;
     text-align: center;
   }
   
   .text {
     font-size: 24px;
-    color: var(--crema);
+    color: var(--white);
     justify-content: center;
     text-align: center;
   }
   
   .button {
     font-size: 20px;
-    color: var(--gris);
-    background-color: var(--groc);
+    color: var(--secondary);
+    background-color: var(--primary);
     border-radius: 8px;
     margin: 20px ;
   }

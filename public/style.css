@@ -11,9 +11,10 @@ body{
 /* variables.css */
 
 :root {
-    --groc: #EDAB11;
-    --gris: #232323;
-    --crema: #f5f5f5;
-    --negre: #000000;
+    --primary: #EDAB11;
+    --secondary: #232323;
+    --white: #f5f5f5;
+    --black: #000000;
   }
   
+
