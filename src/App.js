@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Contacte from "./pages/Contacte";
 import Error404 from "./pages/Error404";
