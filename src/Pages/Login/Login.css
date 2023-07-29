@@ -1,0 +1,79 @@
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #211f1f;
+  
+}
+
+.login-container {
+  padding: 2rem;
+  border-radius: 1rem;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal centering */
+  justify-content: center; /* Vertical centering */
+}
+
+.App-logo {
+  width: 10vw;
+  height:auto;
+  display: block;
+  margin:auto;
+}
+
+.h2-title{
+  font-size: 3rem;
+}
+
+.form-group{
+  font-weight: bold;
+}
+
+.custom-link{
+  color:gray;
+}
+
+.redirects{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.login-btn{
+  color: black;
+  border: none;
+  background: var(--groc);
+}
+
+.login-btn:hover{
+  color: black;
+  border: none;
+  background: #9f730a;
+}
+
+.login-btn:hover:active{
+  color: black;
+  border: none;
+  background: #553e09;
+}
+
+
+
+
+
+
