@@ -13,11 +13,7 @@ const validationSchema = Yup.object().shape({
 
 const LoginPage = () => {
   const handleSubmit = (values, { setSubmitting }) => {
-    // Replace this with your login logic (e.g., API call)
-    setTimeout(() => {
-      console.log('Form data:', values);
-      setSubmitting(false);
-    }, 1000);
+   console.log("iniciant sessió...")
   };
 
   return (
@@ -34,7 +30,7 @@ const LoginPage = () => {
                   initialValues={{ email: '', password: '' }}
                   validationSchema={validationSchema}
                   onSubmit={handleSubmit}
-                  submitButton={{ label: "Envia", style: { background: "#A40925" } }}
+                  submitButton={{ label: "Envia" }}
                 >
                   {({ isSubmitting, errors, touched }) => (
                     <Form>
@@ -80,10 +76,12 @@ const LoginPage = () => {
                         </p>
                       </div>
                       <div className='button-container'>
+
+                  
                       <Button
-                        type="button"
+                        type="submit"
                         disabled={isSubmitting}
-                        className='login-btn'
+                        className='btn btn-default'
                       > 
                         {isSubmitting ? 'Iniciant sessió...' : 'Inicia sessió'}
                       </Button>

@@ -20,8 +20,8 @@
   color: aliceblue;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Horizontal centering */
-  justify-content: center; /* Vertical centering */
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -54,23 +54,23 @@
   margin-top: 10%;
 }
 
-.login-btn{
-  color: black;
-  border: none;
-  background: var(--groc);
+.btn{
+  background: var(--groc) !important;
+  color: black !important;
+  border: none !important;
 }
 
-.login-btn:hover{
-  color: black;
+.btn:hover{
+  background: #9f730a !important;
   border: none;
-  background: #9f730a;
 }
 
-.login-btn:hover:active{
-  color: black;
-  border: none;
-  background: #553e09;
+.btn:hover:active{
+  background-color: #211f1f !important;
 }
+
+
+
 
 
 
