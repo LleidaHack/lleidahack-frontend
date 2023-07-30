@@ -8,11 +8,11 @@ export async function signupHacker(hacker) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return[]
     });
 }
@@ -21,24 +21,24 @@ export async function getAllHackers() {
     return fetch('https://backend.lleidahack.dev/hacker/all')
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });  
 }
 
-export async function getHackerById(id) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${id}`)
+export async function getHackerById(hackerId) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hackerId}`)
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });
 }
@@ -53,11 +53,11 @@ export async function updateHacker(hacker) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });
 }
@@ -72,17 +72,17 @@ export async function addHacker(hacker) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });
 }
 
-export async function banHackerById(id) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${id}/ban`, {
+export async function banHackerById(hackerId) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hackerId}/ban`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -90,17 +90,17 @@ export async function banHackerById(id) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });
 }
 
-export async function unbanHackerByID(id) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${id}/unban`, {
+export async function unbanHackerByID(hackerId) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hackerId}/unban`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -108,17 +108,17 @@ export async function unbanHackerByID(id) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });
 }
 
-export async function deleteHacker(id) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${id}`, {
+export async function deleteHacker(hackerId) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hackerId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -126,11 +126,11 @@ export async function deleteHacker(id) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });
 }

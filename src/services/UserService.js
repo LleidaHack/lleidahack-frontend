@@ -1,5 +1,3 @@
-//url="https://backend.lleidahack.dev/"
-
 export async function signupUser(user) {
     return fetch('https://backend.lleidahack.dev/user/signup', {
         method: 'POST',
@@ -10,11 +8,11 @@ export async function signupUser(user) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return[]
     });
 }
@@ -23,24 +21,24 @@ export async function getAllUsers() {
     return fetch('https://backend.lleidahack.dev/user/all')
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });  
 }
 
-export async function getUserById(id) {
-    return fetch(`https://backend.lleidahack.dev/user/${id}`)
+export async function getUserById(userId) {
+    return fetch(`https://backend.lleidahack.dev/user/${userId}`)
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });
 }
@@ -55,17 +53,17 @@ export async function updateUser(user) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });
 }
 
-export async function deleteUser(id) {
-    return fetch(`https://backend.lleidahack.dev/user/${id}`, {
+export async function deleteUser(userId) {
+    return fetch(`https://backend.lleidahack.dev/user/${userId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -73,11 +71,11 @@ export async function deleteUser(id) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });
 }
@@ -92,11 +90,11 @@ export async function addUser(user) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response  ', data);
+        console.log('response: ', data);
         return data;
     })
     .catch(error => {
-        //console.warn(error);
+        console.warn(error);
         return [];
     });
 }
