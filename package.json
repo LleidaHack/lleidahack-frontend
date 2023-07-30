@@ -13,6 +13,8 @@
     "bootstrap": "^5.2.0",
     "cdbreact": "^1.5.14",
     "qrcode.react": "^3.1.0",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.5",
     "dayjs": "^1.11.5",
     "formik": "^2.2.9",
     "formik-stepper": "^2.2.1",
