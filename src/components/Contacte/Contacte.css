@@ -35,6 +35,7 @@
     color: var(--white);
     font-size: 22px;
     margin-bottom: 30px;
+    text-align: center;
   }
 
   .logo {
@@ -108,6 +109,15 @@
     justify-content: center;
   }
 
+  .formik-field {
+    margin-bottom: 20px; 
+  }
+  
+  .error-message {
+    color: var(--primary); 
+  }
+
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -134,8 +144,9 @@
       }
     
       .title-logo {
-        font-size: 16px;
-        margin: 30px;
+        font-size: 14px;
+        margin: 20px;
+        
       }
     
       .social-logos {
@@ -160,3 +171,5 @@
       }
     
     }
+
+    
