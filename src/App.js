@@ -8,6 +8,7 @@ import './App.css';
 import CalendarDates from "./components/Home/Calendar";
 import Footer from "./components/Home/Footer";
 import Sponsors from "./components/Home/Sponsors";
+import QrCode from "./components/Home/QrCode";
 import CountdownTimer from "./components/Home/Timer";
 import Schedule from "./components/Home/Schedule"
 import HackerForm from "./components/Home/HackerForm";
@@ -33,28 +34,47 @@ export default function App() {
              <Router>
              
              <Header inside={[
-            { name: 'Home', url: '/'},
-            { name: 'Dates', url: 'Timetable' },
-            { name: 'Sponsors', url: 'Sponsors' }
-        
-    
-            ]} outsides={[
-                { name: 'FAQ', url: '/FAQ' },
-                { name: 'Contacte', url: '/Contacte' }
-            ]} />
-            <Routes>
-                <Route exact path="/" element = {<FAQ />}/>
-                <Route exact path="/FAQ" element = {<FAQ />}/>
-                <Route exact path="/Contacte" element = {<Contacte />}/>
-                <Route path="*" element = {<Error404 />}/>
+                { name: 'Home', url: '/'},
+                { name: 'Dates', url: 'Timetable' },
+                { name: 'Sponsors', url: 'Sponsors' }
+
+
+                ]} outsides={[
+                    { name: 'FAQ', url: '/FAQ' },
+                    { name: 'Contacte', url: '/Contacte' }
+                ]} />
+                <Routes>
+                    <Route exact path="/" element = {<FAQ />}/>
+                    <Route exact path="/FAQ" element = {<FAQ />}/>
+                    <Route exact path="/Contacte" element = {<Contacte />}/>
+                    <Route path="*" element = {<Error404 />}/>
           </Routes>
           </Router>
             <CountdownTimer startTime={startTime} endTime={endTime}  timerActive={timerActive}/>
             <Schedule events={events} />
             <CalendarDates startDate={startDate} endDate={endDate} />
+            <QrCode url={"https://lleidahack.dev/"}/>
+            <CalendarDates startDate={startDate} endDate={endDate} />
             <HackerForm/>
             <Sponsors />
-            <Footer />
+            <Router>
+              <Footer inside={[
+                { name: 'Home', url: '/'},
+                { name: 'Dates', url: 'Timetable' },
+                { name: 'Sponsors', url: 'Sponsors' }
+
+
+                ]} outsides={[
+                    { name: 'FAQ', url: '/FAQ' },
+                    { name: 'Contacte', url: '/Contacte' }
+                ]} />
+                 <Routes>
+                    <Route exact path="/" element = {<FAQ />}/>
+                    <Route exact path="/FAQ" element = {<FAQ />}/>
+                    <Route exact path="/Contacte" element = {<Contacte />}/>
+                    <Route path="*" element = {<Error404 />}/>
+                 </Routes>
+            </Router>
         </div>
     );
 }
