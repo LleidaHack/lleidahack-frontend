@@ -10,6 +10,7 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
     "dayjs": "^1.11.5",
+    "formik": "^2.4.2",
     "qrcode.react": "^3.1.0",
     "react": "^18.1.0",
     "react-bootstrap": "^2.5.0",
@@ -20,7 +21,8 @@
     "react-scripts": "^5.0.1",
     "react-scroll": "^1.8.7",
     "react-vertical-timeline-component": "^3.5.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
