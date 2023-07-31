@@ -19,7 +19,7 @@ const AnnouncementPanel = () => {
     <div className="row">
       <div className="col-12 col-xl-7 m-auto p-4 p-bg-grey">
         <h3 className="text-center mt-1 mb-1">Nou Anunci</h3>
-        <form action="">
+        <form className="d-inline" action="">
           {/* Title */}
           <label for="title" className="form-label">Titol</label>
           <input type="text" className="form-control rounded-0" id="title" placeholder="Titol de l'anunci" />
