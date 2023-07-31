@@ -8,6 +8,8 @@ function Button(props) {
   </a>);
 }
 
+// TODO Where should the form be sended out
+// TODO Bottom buttons where should they redirect or do
 
 const AnnouncementPanel = () => {
   return (<div className="container m-auto">
