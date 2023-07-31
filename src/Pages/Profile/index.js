@@ -12,6 +12,8 @@ import LinkAccounts from "./LinkAccountsContainer";
 import Join from "./JoinContaienr";
 import AnnouncementPanel from "./AnnouncementPanel";
 
+import Header from "../../components/Header/Header.js"
+
 const Profile = () => {
   const name = "Nom cognom";
   const usrImage = userIcon;
@@ -23,6 +25,7 @@ const Profile = () => {
 
   return (
     <div className="p-bg-black py-5 text-white">
+      <Header />
       <div className="container-fluid container-xxl">
         {/* User info and qr */}
         <div className="row align-middle mx-auto my-3">
