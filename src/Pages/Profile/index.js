@@ -7,10 +7,10 @@ import userIcon from "../../icons/user2.png";
 import qrIcon from "../../icons/qr.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
-import Medals from "./Medals";
-import LinkAccounts from "./LinkAccountsContainer";
-import Join from "./JoinContaienr";
-import AnnouncementPanel from "./AnnouncementPanel";
+import Medals from "../../components/Profile/Medals";
+import LinkAccounts from "../../components/Profile/LinkAccountsContainer";
+import Join from "../../components/Profile/JoinContaienr";
+import AnnouncementPanel from "../../components/Profile/AnnouncementPanel";
 
 import Header from "../../components/Header/Header.js"
 
@@ -67,10 +67,10 @@ const Profile = () => {
         </div>
 
         {/* Accounts link */}
-        <LinkAccounts/>
+        <LinkAccounts />
 
         {/* Join Box */}
-        <Join/>
+        <Join />
 
         {/* Calendar and Achievements */}
         <div className="row m-5 gy-5 bottom-container text-center m-auto">
@@ -89,7 +89,7 @@ const Profile = () => {
         </div>
 
         {/* TODO: If admin show new announcement message */}
-       <AnnouncementPanel></AnnouncementPanel>
+        <AnnouncementPanel></AnnouncementPanel>
       </div>
 
     </div>
