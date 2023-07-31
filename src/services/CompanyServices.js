@@ -1,5 +1,5 @@
-export async function getAllHackerGroups() {
-    return fetch('https://backend.lleidahack.dev/hacker/group/all')
+export async function getAllCompanies() {
+    return fetch('https://backend.lleidahack.dev/company/all')
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -11,8 +11,8 @@ export async function getAllHackerGroups() {
     });  
 }
 
-export async function getHackerGroupById(hackerGroupId) {
-    return fetch(`https://backend.lleidahack.dev/hacker/group/${hackerGroupId}`)
+export async function getCompanyById(companyId) {
+    return fetch(`https://backend.lleidahack.dev/company/${companyId}`)
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -24,13 +24,13 @@ export async function getHackerGroupById(hackerGroupId) {
     });
 }
 
-export async function updateHackerGroup(hackerGroup) {
-    return fetch(`https://backend.lleidahack.dev/hacker/group/${hackerGroup.id}`, {
+export async function updateCompany(company) {
+    return fetch(`https://backend.lleidahack.dev/company/${company.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(hackerGroup)
+        body: JSON.stringify(company)
     })
     .then(response => response.json())
     .then(data => {
@@ -43,8 +43,8 @@ export async function updateHackerGroup(hackerGroup) {
     });
 }
 
-export async function deleteHackerGroup(hackerGroupId) {
-    return fetch(`https://backend.lleidahack.dev/hacker/group/${hackerGroupId}`, {
+export async function deleteCompany(companyId) {
+    return fetch(`https://backend.lleidahack.dev/company/${companyId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -61,13 +61,13 @@ export async function deleteHackerGroup(hackerGroupId) {
     });
 }
 
-export async function addHackerGroup(hackerGroup) {
-    return fetch('https://backend.lleidahack.dev/hacker/group/', {
+export async function addCompany(company) {
+    return fetch('https://backend.lleidahack.dev/company/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(hackerGroup)
+        body: JSON.stringify(company)
     })
     .then(response => response.json())
     .then(data => {
@@ -80,8 +80,8 @@ export async function addHackerGroup(hackerGroup) {
     });
 }
 
-export async function getHackerGroupMembers(hackerGroupId) {
-    return fetch(`https://backend.lleidahack.dev/hacker/group/${hackerGroupId}/members`)
+export async function getCompanyUsers(companyId) {
+    return fetch(`https://backend.lleidahack.dev/company/${companyId}/users`)
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -93,12 +93,13 @@ export async function getHackerGroupMembers(hackerGroupId) {
     });
 }
 
-export async function addHackerToGroup(hackerId,groupId) {
-    return fetch(`https://backend.lleidahack.dev/hacker/group/${groupId}/members/${hackerId}`, {
+export async function addUserToCompany(companyUser, companyId) {
+    return fetch(`https://backend.lleidahack.dev/company/${companyId}/users/add`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify(companyUser)
     })
     .then(response => response.json())
     .then(data => {
@@ -111,8 +112,8 @@ export async function addHackerToGroup(hackerId,groupId) {
     });
 }
 
-export async function removeHackerFromGroup(hackerId,groupId) {
-    return fetch(`https://backend.lleidahack.dev/hacker/group/${groupId}/members/${hackerId}`, {
+export async function removeUserFromCompany(userId,companyId) {
+    return fetch(`https://backend.lleidahack.dev/company/${companyId}/users/${userId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
