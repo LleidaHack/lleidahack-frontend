@@ -4,7 +4,7 @@ import Error404 from "./pages/Error404";
 import FAQPage from "./pages/FAQ";
 import Home from "./pages/Home";
 import React, { useEffect } from 'react';
-import Profile from "./Pages/Profile/index.js"
+import Profile from "./pages/Profile/index.js"
 
 export default function App() {
     useEffect(() => {
