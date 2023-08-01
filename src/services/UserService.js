@@ -2,7 +2,8 @@ export async function signupUser(user) {
     return fetch('https://backend.lleidahack.dev/user/signup', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: JSON.stringify(user)
     })
@@ -18,7 +19,12 @@ export async function signupUser(user) {
 }
 
 export async function getAllUsers() {
-    return fetch('https://backend.lleidahack.dev/user/all')
+    return fetch('https://backend.lleidahack.dev/user/all', {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -31,7 +37,12 @@ export async function getAllUsers() {
 }
 
 export async function getUserById(userId) {
-    return fetch(`https://backend.lleidahack.dev/user/${userId}`)
+    return fetch(`https://backend.lleidahack.dev/user/${userId}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -47,7 +58,8 @@ export async function updateUser(user) {
     return fetch(`https://backend.lleidahack.dev/user/${user.id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: JSON.stringify(user)
     })
@@ -66,7 +78,8 @@ export async function deleteUser(userId) {
     return fetch(`https://backend.lleidahack.dev/user/${userId}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())
@@ -84,7 +97,8 @@ export async function addUser(user) {
     return fetch('https://backend.lleidahack.dev/user/', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: JSON.stringify(user)
     })

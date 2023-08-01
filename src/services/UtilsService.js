@@ -1,10 +1,10 @@
-export async function login(user) {
-    return fetch('https://backend.lleidahack.dev/login', {
+export async function uploadImage(image) {
+    return fetch('https://backend.lleidahack.dev/utils/uploadImage', {
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'username': user.username,
-            'password': user.password
-        }
+            'Content-Type': 'image/jpeg'
+        },
+        body: image
     })
     .then(response => response.json())
     .then(data => {
@@ -17,13 +17,12 @@ export async function login(user) {
     }); 
 }
 
-export async function confirmEmail(email) {
-    return fetch('https://backend.lleidahack.dev/confirm-email', {
+export async function sendMail(to) {
+    return fetch(`https://backend.lleidahack.dev/utils/sendMail/${to}`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'text/plain' //TODO TEXT O ALGO MÉS????
-        },
-        body: email
+            'Content-Type': 'application/json'
+        }
     })
     .then(response => response.json())
     .then(data => {
