@@ -34,3 +34,16 @@ export async function sendMail(to) {
         return [];
     }); 
 }
+
+export async function getImage(id) {
+    return fetch(`https://backend.lleidahack.dev/utils/imageUrl/${id}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log('response: ', data);
+        localStorage.setItem("userToken", data.access_token)
+    })
+    .catch(error => {
+        console.warn(error);
+        return [];
+    }); 
+}
