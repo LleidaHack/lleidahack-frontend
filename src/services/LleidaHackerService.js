@@ -18,7 +18,12 @@ export async function signupLleidaHacker(lleidaHacker) {
 }
 
 export async function getAllLleidaHackers() {
-    return fetch('https://backend.lleidahack.dev/lleidahacker/all')
+    return fetch('https://backend.lleidahack.dev/lleidahacker/all', {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -31,7 +36,12 @@ export async function getAllLleidaHackers() {
 }
 
 export async function getLleidaHackerById(lleidaHacker_id) {
-    return fetch(`https://backend.lleidahack.dev/lleidahacker/${lleidaHacker_id}`)
+    return fetch(`https://backend.lleidahack.dev/lleidahacker/${lleidaHacker_id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -47,7 +57,8 @@ export async function updateLleidaHacker(lleidaHacker) {
     return fetch(`https://backend.lleidahack.dev/lleidahacker/${lleidaHacker.id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: JSON.stringify(lleidaHacker)
     })
@@ -66,7 +77,8 @@ export async function deleteLleidaHacker(lleidaHacker_id) {
     return fetch(`https://backend.lleidahack.dev/lleidahacker/${lleidaHacker_id}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())
@@ -84,7 +96,8 @@ export async function addLleidaHacker(lleidaHacker) {
     return fetch('https://backend.lleidahack.dev/lleidahacker/', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: JSON.stringify(lleidaHacker)
     })

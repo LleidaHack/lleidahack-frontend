@@ -2,8 +2,7 @@ export async function signupUser(user) {
     return fetch('https://backend.lleidahack.dev/user/signup', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(user)
     })

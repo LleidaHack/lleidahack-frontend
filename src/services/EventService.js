@@ -1,5 +1,10 @@
 export async function getEvents() {
-    return fetch('https://backend.lleidahack.dev/event/')
+    return fetch('https://backend.lleidahack.dev/event/', {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -15,7 +20,8 @@ export async function createEvent(event) {
     return fetch('https://backend.lleidahack.dev/event/', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: JSON.stringify(event)
     })
@@ -31,7 +37,12 @@ export async function createEvent(event) {
 }
 
 export async function getEventById(event_id) {
-    return fetch(`https://backend.lleidahack.dev/event/${event_id}`)
+    return fetch(`https://backend.lleidahack.dev/event/${event_id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -47,7 +58,8 @@ export async function updateEvent(event) {
     return fetch(`https://backend.lleidahack.dev/event/${event.id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: JSON.stringify(event)
     })
@@ -66,7 +78,8 @@ export async function deleteEvent(event_id) {
     return fetch(`https://backend.lleidahack.dev/event/${event_id}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())
@@ -81,7 +94,12 @@ export async function deleteEvent(event_id) {
 }
 
 export async function getEventParticipants(event_id) {
-    return fetch(`https://backend.lleidahack.dev/event/${event_id}/participants`)
+    return fetch(`https://backend.lleidahack.dev/event/${event_id}/participants`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -94,7 +112,12 @@ export async function getEventParticipants(event_id) {
 }
 
 export async function getEventSponsors(event_id) {
-    return fetch(`https://backend.lleidahack.dev/event/${event_id}/sponsors`)
+    return fetch(`https://backend.lleidahack.dev/event/${event_id}/sponsors`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -107,7 +130,12 @@ export async function getEventSponsors(event_id) {
 }
 
 export async function getEventGroups(event_id) {
-    return fetch(`https://backend.lleidahack.dev/event/${event_id}/groups`)
+    return fetch(`https://backend.lleidahack.dev/event/${event_id}/groups`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -123,9 +151,9 @@ export async function addEventParticipant(event_id, hacker_id) {
     return fetch(`https://backend.lleidahack.dev/event/${event_id}/participants/${hacker_id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(event)
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
     })
     .then(response => response.json())
     .then(data => {
@@ -142,7 +170,8 @@ export async function deleteEventParticipant(event_id, hacker_id) {
     return fetch(`https://backend.lleidahack.dev/event/${event_id}/participants/${hacker_id}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())
@@ -160,9 +189,9 @@ export async function addEventSponsor(event_id, company_id) {
     return fetch(`https://backend.lleidahack.dev/event/${event_id}/sponsors/${company_id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(event)
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
     })
     .then(response => response.json())
     .then(data => {
@@ -179,7 +208,8 @@ export async function deleteEventSponsor(event_id, company_id) {
     return fetch(`https://backend.lleidahack.dev/event/${event_id}/sponsors/${company_id}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())
@@ -197,9 +227,9 @@ export async function addEventGroup(event_id, group_id) {
     return fetch(`https://backend.lleidahack.dev/event/${event_id}/group/${group_id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(event)
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
     })
     .then(response => response.json())
     .then(data => {
@@ -216,7 +246,8 @@ export async function deleteEventGroup(event_id, group_id) {
     return fetch(`https://backend.lleidahack.dev/event/${event_id}/group/${group_id}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())

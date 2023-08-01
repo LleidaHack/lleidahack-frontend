@@ -1,5 +1,10 @@
 export async function getAllHackerGroups() {
-    return fetch('https://backend.lleidahack.dev/hacker/group/all')
+    return fetch('https://backend.lleidahack.dev/hacker/group/all', {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -12,7 +17,12 @@ export async function getAllHackerGroups() {
 }
 
 export async function getHackerGroupById(hacker_group_id) {
-    return fetch(`https://backend.lleidahack.dev/hacker/group/${hacker_group_id}`)
+    return fetch(`https://backend.lleidahack.dev/hacker/group/${hacker_group_id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -28,7 +38,8 @@ export async function updateHackerGroup(hacker_group) {
     return fetch(`https://backend.lleidahack.dev/hacker/group/${hacker_group.id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: JSON.stringify(hackerGroup)
     })
@@ -47,7 +58,8 @@ export async function deleteHackerGroup(hacker_group_id) {
     return fetch(`https://backend.lleidahack.dev/hacker/group/${hacker_group_id}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())
@@ -65,7 +77,8 @@ export async function addHackerGroup(hacker_group) {
     return fetch('https://backend.lleidahack.dev/hacker/group/', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: JSON.stringify(hacker_group)
     })
@@ -81,7 +94,12 @@ export async function addHackerGroup(hacker_group) {
 }
 
 export async function getHackerGroupMembers(hacker_group_id) {
-    return fetch(`https://backend.lleidahack.dev/hacker/group/${hacker_group_id}/members`)
+    return fetch(`https://backend.lleidahack.dev/hacker/group/${hacker_group_id}/members`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -97,7 +115,8 @@ export async function addHackerToGroup(hacker_id, hacker_group_id) {
     return fetch(`https://backend.lleidahack.dev/hacker/group/${hacker_group_id}/members/${hacker_id}`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())
@@ -115,7 +134,8 @@ export async function removeHackerFromGroup(hacker_id, hacker_group_id) {
     return fetch(`https://backend.lleidahack.dev/hacker/group/${hacker_group_id}/members/${hacker_id}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())

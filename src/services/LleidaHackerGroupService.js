@@ -1,5 +1,10 @@
 export async function getAllLleidaHackerGroups() {
-    return fetch('https://backend.lleidahack.dev/lleidahacker/group/all')
+    return fetch('https://backend.lleidahack.dev/lleidahacker/group/all', {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -12,7 +17,12 @@ export async function getAllLleidaHackerGroups() {
 }
 
 export async function getLleidaHackerGroupById(lleidaHacker_group_id) {
-    return fetch(`https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}`)
+    return fetch(`https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -28,7 +38,8 @@ export async function deleteLleidaHackerGroup(lleidaHacker_group_id) {
     return fetch(`https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())
@@ -46,7 +57,8 @@ export async function addLleidaHackerGroup(lleidaHacker_group) {
     return fetch('https://backend.lleidahack.dev/lleidahacker/group/', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: JSON.stringify(lleidaHacker_group)
     })
@@ -62,7 +74,12 @@ export async function addLleidaHackerGroup(lleidaHacker_group) {
 }
 
 export async function getLleidaHackerGroupMembers(lleidaHacker_group_id) {
-    return fetch(`https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}/members`)
+    return fetch(`https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}/members`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -78,7 +95,8 @@ export async function addLleidaHackerToGroup(lleidaHacker_id, lleidaHacker_group
     return fetch(`https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}/members/${lleidaHacker_id}`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())
@@ -96,7 +114,8 @@ export async function removeLleidaHackerFromGroup(lleidaHacker_id, lleidaHacker_
     return fetch(`https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}/members/${lleidaHacker_id}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())
@@ -114,7 +133,8 @@ export async function setLleidaHackerGroupLeader(lleidaHacker_id, lleidaHacker_g
     return fetch(`https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}/leader/${lleidaHacker_id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         }
     })
     .then(response => response.json())

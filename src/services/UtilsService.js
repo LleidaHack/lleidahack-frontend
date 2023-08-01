@@ -2,7 +2,8 @@ export async function uploadImage(image) {
     return fetch('https://backend.lleidahack.dev/utils/uploadImage', {
         method: 'POST',
         headers: {
-            'Content-Type': 'image/jpeg'
+            'Content-Type': 'image/jpeg',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
         body: image
     })
@@ -36,7 +37,12 @@ export async function sendMail(to) {
 }
 
 export async function getImage(id) {
-    return fetch(`https://backend.lleidahack.dev/utils/imageUrl/${id}`)
+    return fetch(`https://backend.lleidahack.dev/utils/imageUrl/${id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
+    })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
