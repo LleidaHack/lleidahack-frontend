@@ -26,8 +26,8 @@ export async function sendMail(to) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('response: ', data);
-        localStorage.setItem("userToken", data.access_token)
+        console.log('response: ', data)
+        return data;
     })
     .catch(error => {
         console.warn(error);
@@ -40,7 +40,7 @@ export async function getImage(id) {
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
-        localStorage.setItem("userToken", data.access_token)
+        return data;
     })
     .catch(error => {
         console.warn(error);
