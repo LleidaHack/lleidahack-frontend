@@ -30,8 +30,8 @@ export async function getAllLleidaHackers() {
     });  
 }
 
-export async function getLleidaHackerById(lleidaHackerId) {
-    return fetch(`https://backend.lleidahack.dev/lleidahacker/${lleidaHackerId}`)
+export async function getLleidaHackerById(lleidaHacker_id) {
+    return fetch(`https://backend.lleidahack.dev/lleidahacker/${lleidaHacker_id}`)
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -62,8 +62,8 @@ export async function updateLleidaHacker(lleidaHacker) {
     });
 }
 
-export async function deleteLleidaHacker(lleidaHackerId) {
-    return fetch(`https://backend.lleidahack.dev/lleidahacker/${lleidaHackerId}`, {
+export async function deleteLleidaHacker(lleidaHacker_id) {
+    return fetch(`https://backend.lleidahack.dev/lleidahacker/${lleidaHacker_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

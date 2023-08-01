@@ -36,8 +36,8 @@ export async function getAllUsers() {
     });  
 }
 
-export async function getUserById(userId) {
-    return fetch(`https://backend.lleidahack.dev/user/${userId}`, {
+export async function getUserById(user_id) {
+    return fetch(`https://backend.lleidahack.dev/user/${user_id}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -74,8 +74,8 @@ export async function updateUser(user) {
     });
 }
 
-export async function deleteUser(userId) {
-    return fetch(`https://backend.lleidahack.dev/user/${userId}`, {
+export async function deleteUser(user_id) {
+    return fetch(`https://backend.lleidahack.dev/user/${user_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

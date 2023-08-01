@@ -30,8 +30,8 @@ export async function getAllHackers() {
     });  
 }
 
-export async function getHackerById(hackerId) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${hackerId}`)
+export async function getHackerById(hacker_id) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}`)
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -81,8 +81,8 @@ export async function addHacker(hacker) {
     });
 }
 
-export async function banHackerById(hackerId) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${hackerId}/ban`, {
+export async function banHackerById(hacker_id) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}/ban`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -99,8 +99,8 @@ export async function banHackerById(hackerId) {
     });
 }
 
-export async function unbanHackerByID(hackerId) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${hackerId}/unban`, {
+export async function unbanHackerByID(hacker_id) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}/unban`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -117,8 +117,8 @@ export async function unbanHackerByID(hackerId) {
     });
 }
 
-export async function deleteHacker(hackerId) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${hackerId}`, {
+export async function deleteHacker(hacker_id) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

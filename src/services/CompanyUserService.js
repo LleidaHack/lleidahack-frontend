@@ -1,10 +1,10 @@
-export async function signupCompanyUser(companyUser) {
+export async function signupCompanyUser(company_user) {
     return fetch('https://backend.lleidahack.dev/company/user/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(companyUser)
+        body: JSON.stringify(company_user)
     })
     .then(response => response.json())
     .then(data => {
@@ -34,8 +34,8 @@ export async function getAllCompanyUsers() {
     });  
 }
 
-export async function getCompanyUserById(companyUserId) {
-    return fetch(`https://backend.lleidahack.dev/company/user/${companyUserId}`, {
+export async function getCompanyUserById(company_user_id) {
+    return fetch(`https://backend.lleidahack.dev/company/user/${company_user_id}`, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -51,13 +51,13 @@ export async function getCompanyUserById(companyUserId) {
     });
 }
 
-export async function updateCompanyUser(companyUser) {
-    return fetch(`https://backend.lleidahack.dev/company/user/${companyUser.id}`, {
+export async function updateCompanyUser(company_user) {
+    return fetch(`https://backend.lleidahack.dev/company/user/${company_user.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(companyUser)
+        body: JSON.stringify(company_user)
     })
     .then(response => response.json())
     .then(data => {
@@ -70,8 +70,8 @@ export async function updateCompanyUser(companyUser) {
     });
 }
 
-export async function deleteCompanyUser(companyUserId) {
-    return fetch(`https://backend.lleidahack.dev/company/user/${companyUserId}`, {
+export async function deleteCompanyUser(company_user_id) {
+    return fetch(`https://backend.lleidahack.dev/company/user/${company_user_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -88,13 +88,13 @@ export async function deleteCompanyUser(companyUserId) {
     });
 }
 
-export async function addCompanyUser(companyUser) {
+export async function addCompanyUser(company_user) {
     return fetch('https://backend.lleidahack.dev/company/user/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(companyUser)
+        body: JSON.stringify(company_user)
     })
     .then(response => response.json())
     .then(data => {

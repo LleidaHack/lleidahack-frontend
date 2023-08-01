@@ -11,8 +11,8 @@ export async function getAllCompanies() {
     });  
 }
 
-export async function getCompanyById(companyId) {
-    return fetch(`https://backend.lleidahack.dev/company/${companyId}`)
+export async function getCompanyById(company_id) {
+    return fetch(`https://backend.lleidahack.dev/company/${company_id}`)
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -43,8 +43,8 @@ export async function updateCompany(company) {
     });
 }
 
-export async function deleteCompany(companyId) {
-    return fetch(`https://backend.lleidahack.dev/company/${companyId}`, {
+export async function deleteCompany(company_id) {
+    return fetch(`https://backend.lleidahack.dev/company/${company_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -80,8 +80,8 @@ export async function addCompany(company) {
     });
 }
 
-export async function getCompanyUsers(companyId) {
-    return fetch(`https://backend.lleidahack.dev/company/${companyId}/users`)
+export async function getCompanyUsers(company_id) {
+    return fetch(`https://backend.lleidahack.dev/company/${company_id}/users`)
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -93,13 +93,13 @@ export async function getCompanyUsers(companyId) {
     });
 }
 
-export async function addUserToCompany(companyUser, companyId) {
-    return fetch(`https://backend.lleidahack.dev/company/${companyId}/users/add`, {
+export async function addUserToCompany(company_user, company_id) {
+    return fetch(`https://backend.lleidahack.dev/company/${company_id}/users/add`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(companyUser)
+        body: JSON.stringify(company_user)
     })
     .then(response => response.json())
     .then(data => {
@@ -112,8 +112,8 @@ export async function addUserToCompany(companyUser, companyId) {
     });
 }
 
-export async function removeUserFromCompany(userId,companyId) {
-    return fetch(`https://backend.lleidahack.dev/company/${companyId}/users/${userId}`, {
+export async function removeUserFromCompany(company_user_id, company_id) {
+    return fetch(`https://backend.lleidahack.dev/company/${company_id}/users/${company_user_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
