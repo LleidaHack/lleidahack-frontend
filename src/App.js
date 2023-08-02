@@ -4,7 +4,8 @@ import Error404 from "./pages/Error404";
 import FAQPage from "./pages/FAQ";
 import Home from "./pages/Home";
 import React, { useEffect } from 'react';
-import Profile from "./Pages/Profile/index.js"
+import Profile from "./pages/Profile/index.js"
+import Inscripcio from "./pages/Inscripcio"
 
 export default function App() {
     useEffect(() => {
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/" element={<Home />} />
+          <Route path="/inscripcio" element={<Inscripcio />} />
         </Routes>
       </Router>
     </div>

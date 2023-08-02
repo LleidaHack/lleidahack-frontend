@@ -40,7 +40,7 @@ const ContactePage = () => {
             </a>
           </div>
         </div>
-        <div className="form-container">
+        <div className="form-container-contacte">
           <Formik
             initialValues={{
               name: '',
