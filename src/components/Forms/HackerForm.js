@@ -1,5 +1,7 @@
 // src/components/Forms/HackerForm.js
 
+import Header from '../Header/Header.js'
+import Footer from '../Footer/Footer.js'
 import './HackerForm.css';
 import "formik-stepper/dist/style.css";
 import Row from 'react-bootstrap/Row';
@@ -58,7 +60,7 @@ export const HackerStepperForm = () => {
         <Row>
           <HackerPanel></HackerPanel>
           <Col>
-            <h1>Crear compte</h1>
+            <h1 className='white-color'>Crear compte</h1>
             <InputField name="firstName" type="text" label="Nom" />
             <InputField name="lastName1" type="text" label="Cognom 1" />
             <InputField name="lastName2" type="text" label="Cognom 2" />
@@ -89,7 +91,7 @@ export const HackerStepperForm = () => {
         </Row>
       </FormikStepper.Step>
       <FormikStepper.Step label="Avatar" >
-        <h1>Crear compte</h1>
+        <h1  className='white-color'>Crear compte</h1>
         <InputField name="avatarImage" type="text" label="Avatar" />
         <InputField name="nickname" type="text" label="Nickname" />
       </FormikStepper.Step>
@@ -101,7 +103,11 @@ export const HackerStepperForm = () => {
 const HackerForm = () => {
 
   return (
-    <HackerStepperForm></HackerStepperForm>
+    <>
+      <Header />
+      <HackerStepperForm></HackerStepperForm>
+      <Footer />
+    </>
   );
 };
 

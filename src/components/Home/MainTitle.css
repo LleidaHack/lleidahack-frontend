@@ -15,3 +15,37 @@
     background-color: var(--white);
     border-radius: 4px;
 }
+
+.main-title-modal-button {
+    font-size: 20px;
+    background-color: var(--primary);
+    box-shadow: 0 0 0 0px var(--primary);
+    color: var(--white);
+    border: none;
+}
+
+.main-title-modal-button:hover {
+    background-color: var(--primary-strong);
+}
+
+.main-title-modal-button:focus {
+    background-color: var(--primary-strong);
+}
+
+.main-title-modal-button:active {
+    background-color: var(--primary-strong);
+}
+
+.button:hover {
+    background-color:#002ead;
+    transition: 0.7s;
+}
+
+.no-border {
+    border: none;
+}
+
+.center-elements {
+    display: flex;
+    justify-content: center;
+}

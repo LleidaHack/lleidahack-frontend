@@ -3,6 +3,7 @@
     background: var(--secondary);
     display: flex;
     align-items: center;
+    padding-bottom: 20px;
 }
 
 label {
@@ -37,4 +38,8 @@ h1 {
     color: var(--white);
     font-size: 30px;
     font-weight: regular;
+}
+
+.input-error {
+    color: red !important;
 }
