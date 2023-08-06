@@ -12,13 +12,12 @@ const CalendarDates = (props) => {
   const [endDate, setEndDate] = useState(props.endDate);
 
   return (
-    <div className='app dark-background'>
+    <div className='app dark-background' id="dates">
       <h1 className='text-center title-underline'>Dates</h1>
-
-        <Container>
-            <Row>
-                <Col className='calendar-content'>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+      <Container>
+        <Row>
+          <Col className='calendar-content'>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
 molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
 numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
 optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
@@ -32,16 +31,14 @@ optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
 obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
 nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
 tenetur error, harum nesciunt ipsum debitis quas aliquid.</p>
-                </Col>
-                <Col>
-                    <div className='calendar-container'>
-                        <Calendar value={[startDate, endDate]} locale={'ca'} minDetail={"month"} />
-                    </div>
-                </Col>
-            </Row>
-        </Container>
-
-
+          </Col>
+        <Col>
+        <div className='calendar-container'>
+          <Calendar value={[startDate, endDate]} locale={'ca'} minDetail={"month"} />
+        </div>
+      </Col>
+    </Row>
+    </Container>
     </div>
   );
 }

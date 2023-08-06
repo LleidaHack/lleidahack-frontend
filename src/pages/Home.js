@@ -28,9 +28,7 @@ const Home = () => {
       <div>
         <Header />
         <CountdownTimer startTime={startTime} endTime={endTime} timerActive={timerActive} />
-        <QrCode url="https://www.google.com/"></QrCode>
         <CalendarDates startDate={startDate} endDate={endDate} />
-        <HackerForm />
         <Schedule events={events} />
         <Sponsors />
         <Footer />

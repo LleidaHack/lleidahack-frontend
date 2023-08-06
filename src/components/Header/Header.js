@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
+
 import "./Header.css"; 
 import hackIcon from '../../icons/hack_icon_negre.png'
 
@@ -39,12 +40,12 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/dates" className="nav-link" onClick={closeMenu}>
+              <Link to="/#dates" className="nav-link" onClick={closeMenu}>
                 Dates
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/sponsors" className="nav-link" onClick={closeMenu}>
+              <Link to="/#sponsors" className="nav-link" onClick={closeMenu}>
                 Sponsors
               </Link>
             </li>
