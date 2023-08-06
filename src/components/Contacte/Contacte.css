@@ -1,6 +1,6 @@
 /* ContactPage.css */
 .container-all {
-    background-color: var(--gris);
+    background-color: var(--secondary);
     min-height: 100vh;
     padding-top: 100px; 
     
@@ -16,7 +16,7 @@
   .title-contacte {
     font-weight: bold;
     padding-bottom: 2%;
-    color: var(--crema); 
+    color: var(--white); 
     text-align: center;
     font-size: 50px;
     justify-content: center;
@@ -32,7 +32,7 @@
   
 
   .title-logo {
-    color: var(--crema);
+    color: var(--white);
     font-size: 22px;
     margin-bottom: 30px;
   }
@@ -71,14 +71,14 @@
   label {
     font-size: 16px;
     margin-bottom: 8px;
-    color: var(--crema);
+    color: var(--white);
   }
   
   input,
   textarea {
     padding: 10px;
     font-size: 12px;
-    border: 1px solid var(--crema);
+    border: 1px solid var(--white);
     border-radius: 4px;
     margin-bottom: 16px;
     width: 100%;
@@ -88,8 +88,8 @@
   .button-submit {
     padding: 12px 20px;
     font-size: 18px;
-    background-color: var(--groc);
-    color: var(--gris);
+    background-color: var(--primary);
+    color: var(--secondary);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -99,8 +99,8 @@
   }
   
   .button-submit:hover {
-    background-color: var(--crema);
-    color: var(--gris);
+    background-color: var(--white);
+    color: var(--secondary);
   }
 
   .button-submit-container {

@@ -5,18 +5,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import '../../styles/styles.css'
 
 const CalendarDates = (props) => {
   const [startDate, setStartDate] = useState(props.startDate);
   const [endDate, setEndDate] = useState(props.endDate);
 
   return (
-    <div className='app' style={{'backgroundColor': '#202225'}}>
-      <h1 className='text-center' style={{'color': 'white'}}>Dates</h1>
+    <div className='app dark-background'>
+      <h1 className='text-center title-underline'>Dates</h1>
 
         <Container>
             <Row>
-                <Col style={{'color': 'white'}}>
+                <Col className='calendar-content'>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
 molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
 numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium

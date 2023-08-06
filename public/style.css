@@ -11,9 +11,15 @@ body{
 /* variables.css */
 
 :root {
-    --groc: #EDAB11;
-    --gris: #232323;
-    --crema: #f5f5f5;
-    --negre: #000000;
+    --primary: #EDAB11;
+    --primary-strong: #ac7c0e;
+    --secondary: #232323;
+    --white: #f5f5f5;
+    --gray: #757575;
+    --gray-light: #bbb8b8;
+    --gray-light2: #e6e6e6;
+    --gray-strong: #444343;
+    --black: #000000;
+    --transaprent:rgba(255, 255, 255, 0);
   }
   

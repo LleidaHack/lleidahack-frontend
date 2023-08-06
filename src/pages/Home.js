@@ -4,9 +4,9 @@ import Footer from '../components/Footer/Footer.js'
 import CalendarDates from "../components/Home/Calendar.js";
 import Sponsors from "../components/Home/Sponsors.js";
 import Schedule from "../components/Home/Schedule.js";
-import QrCode from "../components/Home/QrCode.js";
 import CountdownTimer from "../components/Home/Timer.js";
-
+import HackerForm from "../components/Forms/HackerForm.js";
+import QrCode from '../components/Home/QrCode.js';
 
 
 const Home = () => {
@@ -28,9 +28,10 @@ const Home = () => {
       <div>
         <Header />
         <CountdownTimer startTime={startTime} endTime={endTime} timerActive={timerActive} />
-        <Schedule events={events} />
+        <QrCode url="https://www.google.com/"></QrCode>
         <CalendarDates startDate={startDate} endDate={endDate} />
-        <QrCode url={"https://lleidahack.dev/"} />
+        <HackerForm />
+        <Schedule events={events} />
         <Sponsors />
         <Footer />
       </div>

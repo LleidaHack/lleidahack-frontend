@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-md fixed-top">
+    <nav className="navbar navbar-expand-md inherited-top">
     <div className="container">
       <Link to="/" className="navbar-brand icono">
         <img src={hackIcon} alt="Icono" className="icono" />

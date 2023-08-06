@@ -17,7 +17,8 @@ const Schedule = (props) => {
   });
 
   return (
-    <div style={{'backgroundColor': '#202225'}}>
+    <div className='dark-background'>
+        <h1 className='text-center title-underline'>Horari</h1>
         <VerticalTimeline>
             {rendered_events}
         </VerticalTimeline>

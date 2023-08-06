@@ -1,4 +1,4 @@
-// src/components/HackerForm.js
+// src/components/Forms/HackerForm.js
 
 import './HackerForm.css';
 import "formik-stepper/dist/style.css";
@@ -22,32 +22,21 @@ const validationSchema = Yup.object().shape({
 
 const HackerPanel = () => {
     return (
-        <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                <Row>
-                    <img src={require('../../imgs/hacker_image.svg').default} alt='Hacker' />
-                </Row>
-                <Row>
-                <div
-                    style={{
-                        textAlign: 'center',
-                        padding: '20px 0 10px 0',
-                        color: '#F5F5F5',
-                        fontSize: '30px',
-                        fontWeight: 'regular',
-                    }}
-                    >
-                    Hacker
-                    </div>
-                    </Row>
-        </Col>
-
+      <Col className='hacker-panel'>
+        <Row>
+          <img src={require('../../imgs/hacker_image.svg').default} alt='Hacker' />
+        </Row>
+        <Row>
+          <h2 className='hacker-panel-title'>Hacker</h2>
+        </Row>
+      </Col>
     );
 };
 
 export const HackerStepperForm = () => {
 
   return (
-    <div style={{background:"#202225"}}>
+    <div id="hackerForm" className="custom-form">
     <FormikStepper
       /// Accept all Formik props
       onSubmit={() => { console.log("submit!"); }} /// onSubmit Function
@@ -61,9 +50,9 @@ export const HackerStepperForm = () => {
       }}
       validationSchema={validationSchema}
       withStepperLine /// false as default and If it is false, it hides stepper line
-      nextButton={{ label: "Següent", style: {background: "#A40925"} }}
-      prevButton={{ label: "Enrere", style: {background: "#A40925"} }}
-      submitButton={{ label: "Envia", style: { background: "#A40925" } }}
+      nextButton={{ label: "Següent", style: {background: "var(--primary)"} }}
+      prevButton={{ label: "Enrere", style: {background: "var(--primary)"} }}
+      submitButton={{ label: "Envia", style: { background: "var(--primary)" } }}
     >
       <FormikStepper.Step label="Informació personal">
         <Row>
@@ -81,7 +70,7 @@ export const HackerStepperForm = () => {
         <Row>
           <HackerPanel></HackerPanel>
           <Col>
-            <h1>Crear compte</h1>
+            <h1 className='white-color'>Crear compte</h1>
             <InputField name="phone" type="text" label="Telèfon" />
             <InputField name="email" type="email" label="E-mail" />
             <div>

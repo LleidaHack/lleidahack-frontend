@@ -9,7 +9,7 @@ import qrIcon from "../../icons/qr.png";
 import Calendar from "react-calendar/dist/umd/Calendar";
 import Medals from "./Medals";
 import LinkAccounts from "./LinkAccountsContainer";
-import Join from "./JoinContaienr";
+import Join from "./JoinContainer";
 
 import Header from "../../components/Header/Header.js"
 
