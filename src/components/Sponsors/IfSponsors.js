@@ -3,11 +3,20 @@ import './IfSponsors.css'
 import { Link } from 'react-router-dom';
 
 const InfoSponsors = (id) => {
+    let SpnName = "LleidaHack"  //Nom del Sponsor
+    let text   //Variable necesaria per a realizar la concatenació de codi HTML depenent de si te web o no.
+    let linkedintag = "https://www.lleidahack.dev"  //Enllaç del likedin tag de la empresa.
+    let correu = "https://www.lleidahack.dev" //Correu de la empresa 
+    let webtag = "https://www.lleidahack.dev"  //Web de la empresa
+    let xarxes = false   //Variable que servira per a informar si la empresa te enllaç web o no. Per defecte false. Si te web, s'ha de posar true
 
-    let pepe = "LleidaHack"
-    let xarxes = true
-    let text
+    //Get de los datos a partir de la id + asignació de variables. Si no hi ha web, ficar el xarxes a false
+    
 
+
+
+
+    
     const images = [
         'https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
         'https://cdn.freebiesupply.com/logos/large/2x/ajuntament-de-lleida-logo-png-transparent.png',
@@ -19,19 +28,19 @@ const InfoSponsors = (id) => {
         'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png','https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
         'https://cdn.freebiesupply.com/logos/large/2x/ajuntament-de-lleida-logo-png-transparent.png',
         'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png',
-        // ... y así sucesivamente
+        // ... y así sucesivamente con tal de meter la cantidad de logos disponibles que se obtendran de base de datos. (Se puede obtener simplementa el año y concatenarlo a un enlace junto a un bucle for que añada tantas insignias como se obtengan.)
       ];
 
     if(xarxes){
-        text = [<a href="https://www.lleidahack.dev" target="_blank" className='rel'>
+        text = [<a href= {linkedintag} target="_blank" className='rel'>
             <i class="fa-brands fa-linkedin"></i> LinkedIn  
         </a> , '|' ,
-        <a href="https://www.lleidahack.dev" target="_blank" className='rel'>
+        <a href={webtag} target="_blank" className='rel'>
             <i class="fa-solid fa-globe"></i> Web  
         </a>];
         
     }else{
-        text = [<a href="https://www.lleidahack.dev" target="_blank" className='rel'>
+        text = [<a href={linkedintag} target="_blank" className='rel'>
             <i class="fa-brands fa-linkedin"></i> LinkedIn  
         </a>];
     }
@@ -40,7 +49,7 @@ const InfoSponsors = (id) => {
         <div className='The-Grand-Phather'>
             <section className='SpnTitle'>
               
-                <h1 className='title-Info-sponsors'>- {pepe} -</h1>
+                <h1 className='title-Info-sponsors'>- {SpnName} -</h1>
                 <br></br>
              
                 <p class="text-aftTitle">Benvingut/da <br></br> al panell de patrocinador</p>
@@ -51,7 +60,7 @@ const InfoSponsors = (id) => {
             </section>
             <br></br>
             <section className='redesYOthers p-bg-grey'>
-                <p className='text-aftTitle'>📩 lotfi.bouakel@lleidahack.dev |   
+                <p className='text-aftTitle'>📩 {correu} |   
                     {text}
                 </p>
             </section>

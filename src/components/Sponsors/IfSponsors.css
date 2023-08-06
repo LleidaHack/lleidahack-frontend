@@ -31,7 +31,7 @@
 }
 
 .Imagecontener{  
-   width: 37%;
+   width: 40%;
    height: 40%;
    
   
@@ -45,7 +45,7 @@
 
 .redesYOthers{
     height: 10%;
-    width: 37%;
+    width: 40%;
 }
 
 .rel {
@@ -66,12 +66,12 @@
 
 .descriptions{
     color: var(--white);
-    width: 37%;
+    width: 40%;
     height: auto;   
 }
 
 .businesActivity{
-    width: 37%;
+    width: 40%;
     background-color: var(--primary);
     height: auto;
     text-align: center;
@@ -87,4 +87,24 @@
 .logos img {
 max-width: 13%;
 margin: 0.7vw;
+}
+
+
+@media screen and (max-width: 768px) {
+    .descriptions {
+       width: 87%;
+    }
+
+    .Imagecontener{
+        width: 87%;
+    }
+
+    .redesYOthers{
+        width: 87%;
+    }
+
+    .businesActivity{
+        width: 87%;
+    }
+
 }
