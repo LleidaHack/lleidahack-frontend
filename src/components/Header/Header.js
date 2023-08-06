@@ -35,7 +35,7 @@ const Header = () => {
       <div className={`collapse navbar-collapse ${showMenu ? "show" : ""} justify-content-lg-end`}>
         <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link to="/home" className="nav-link" onClick={closeMenu}>
+              <Link to="/#home" className="nav-link" onClick={closeMenu}>
                 Home
               </Link>
             </li>

@@ -7,6 +7,7 @@ import Schedule from "../components/Home/Schedule.js";
 import CountdownTimer from "../components/Home/Timer.js";
 import HackerForm from "../components/Forms/HackerForm.js";
 import QrCode from '../components/Home/QrCode.js';
+import MainTitle from '../components/Home/MainTitle.js';
 
 
 const Home = () => {
@@ -27,6 +28,7 @@ const Home = () => {
     return (
       <div>
         <Header />
+        <MainTitle />
         <CountdownTimer startTime={startTime} endTime={endTime} timerActive={timerActive} />
         <CalendarDates startDate={startDate} endDate={endDate} />
         <Schedule events={events} />
