@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import hackLogo from "../../icons/hack_icon_black.png";
+import hackLogo from "../../icons/hack_icon_negre.png";
 import './MainTitle.css';
 import { useNavigate } from 'react-router-dom';
 
