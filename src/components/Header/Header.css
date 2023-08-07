@@ -11,6 +11,11 @@ body {
   
   .navbar {
     background-color: var(--primary);
+    padding: 10px 0;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+    position: sticky !important;
+    top: 0;
+    z-index: 100;
   }
   
   .navbar-brand {
@@ -40,10 +45,6 @@ body {
   .navbar-nav {
     display: flex;
     align-items: left;
-  }
-  
-  .navbar {
-    padding: 10px 0;
   }
   
   .icono {

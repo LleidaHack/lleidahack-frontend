@@ -7,6 +7,7 @@ import CountdownTimer from "../../components/Home/Timer";
 import CalendarDates from "../../components/Home/Calendar";
 
 import Sponsors from "../../components/Home/Sponsors";
+import HackerForm from "../../components/Forms/HackerForm";
 
 
 
