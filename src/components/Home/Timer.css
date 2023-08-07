@@ -2,7 +2,7 @@
     width: 100vw;
     max-width: 100%;
     height: 20vw;
-    background: #f7f7f2;
+    background: var(--white);
 
     font-size: 9vw;
     font-family: monospace;
