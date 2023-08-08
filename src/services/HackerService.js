@@ -2,7 +2,8 @@ export async function signupHacker(hacker) {
     return fetch('https://backend.lleidahack.dev/hacker/signup', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "mode":"no-cors"
         },
         body: JSON.stringify(hacker)
     })

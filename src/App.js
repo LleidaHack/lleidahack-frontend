@@ -7,11 +7,11 @@ import FAQ from "./components/others/FAQ";
 import './App.css';
 import CalendarDates from "./components/Home/Calendar";
 import Footer from "./components/Home/Footer";
+import Testing from "./components/others/Testing";
 import Sponsors from "./components/Home/Sponsors";
 import Schedule from "./components/Home/Schedule"
 import QrCode from "./components/Home/QrCode";
 import CountdownTimer from "./components/Home/Timer";
-
 
 export default function App() {
     const startDate = new Date(2022, 10, 25);
@@ -19,29 +19,12 @@ export default function App() {
     const startTime = new Date(2022, 10, 25, 11);
     const endTime = new Date(2022, 10, 26, 11);
     const timerActive = false;
-
-    const events = [
-        {time: "10h", title: "Example", description: "Description"},
-        {time: "11h", title: "Example", description: "Description"},
-        {time: "12h", title: "Example", description: "Description"},
-        {time: "14h", title: "Example", description: "Description"},
-    ];
+    
  
     return(
         <div className="App">
 
              <Router>
-             
-             <Header inside={[
-                { name: 'Home', url: '/'},
-                { name: 'Dates', url: 'Timetable' },
-                { name: 'Sponsors', url: 'Sponsors' }
-            
-        
-                ]} outsides={[
-                    { name: 'FAQ', url: '/FAQ' },
-                    { name: 'Contacte', url: '/Contacte' }
-                ]} />
                 <Routes>
                     <Route exact path="/" element = {<FAQ />}/>
                     <Route exact path="/FAQ" element = {<FAQ />}/>
@@ -49,22 +32,8 @@ export default function App() {
                     <Route path="*" element = {<Error404 />}/>
           </Routes>
           </Router>
-            <CountdownTimer startTime={startTime} endTime={endTime}  timerActive={timerActive}/>
-            <Schedule events={events} />
-            <CalendarDates startDate={startDate} endDate={endDate} />
-            <QrCode url={"https://lleidahack.dev/"}/>
-            <Sponsors />
+            <Testing></Testing>
             <Router>
-              <Footer inside={[
-                { name: 'Home', url: '/'},
-                { name: 'Dates', url: 'Timetable' },
-                { name: 'Sponsors', url: 'Sponsors' }
-            
-        
-                ]} outsides={[
-                    { name: 'FAQ', url: '/FAQ' },
-                    { name: 'Contacte', url: '/Contacte' }
-                ]} />
                  <Routes>
                     <Route exact path="/" element = {<FAQ />}/>
                     <Route exact path="/FAQ" element = {<FAQ />}/>
