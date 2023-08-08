@@ -112,7 +112,7 @@ export async function banHackerById(hacker_id) {
     });
 }
 
-export async function unbanHackerByID(hacker_id) {
+export async function unbanHackerById(hacker_id) {
     return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}/unban`, {
         method: 'POST',
         headers: {

@@ -41,7 +41,7 @@ export async function updateHackerGroup(hacker_group) {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
-        body: JSON.stringify(hackerGroup)
+        body: JSON.stringify(hacker_group)
     })
     .then(response => response.json())
     .then(data => {

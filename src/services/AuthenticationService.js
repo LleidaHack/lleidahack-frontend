@@ -2,14 +2,17 @@ export async function login(user) {
     return fetch('https://backend.lleidahack.dev/login', {
         headers: {
             'Content-Type': 'application/json',
-            'username': user.username,
+            'username': user.mail   ,
             'password': user.password
         }
     })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
-        localStorage.setItem("userToken", data.access_token)
+        //if (!data.hasOwnProperty('token')) {
+        //    throw new Error('Token parameter not found in the data object.');
+        //}
+        localStorage.setItem("userToken", data.token)
     })
     .catch(error => {
         console.warn(error);
@@ -17,18 +20,17 @@ export async function login(user) {
     }); 
 }
 
-export async function confirmEmail(email) {
+export async function confirmEmail(e_mail) {
     return fetch('https://backend.lleidahack.dev/confirm-email', {
         method: 'POST',
         headers: {
-            'Content-Type': 'text/plain' //TODO TEXT O ALGO MÉS????
+            'Content-Type': 'application/json' //TODO TEXT O ALGO MÉS????
         },
-        body: email
+        body: JSON.stringify({querry:{email:e_mail}}),
     })
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
-        localStorage.setItem("userToken", data.access_token)
     })
     .catch(error => {
         console.warn(error);
