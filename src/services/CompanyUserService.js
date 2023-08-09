@@ -1,11 +1,10 @@
-export async function signupUser(user) {
-    return fetch('https://backend.lleidahack.dev/user/signup', {
+export async function signupCompanyUser(company_user) {
+    return fetch('https://backend.lleidahack.dev/company/user/signup', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            // '': '',
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(company_user)
     })
     .then(response => response.json())
     .then(data => {
@@ -18,9 +17,8 @@ export async function signupUser(user) {
     });
 }
 
-export async function getAllUsers() {
-    console.log(localStorage.getItem("userToken"))
-    return fetch('https://backend.lleidahack.dev/user/all', {
+export async function getAllCompanyUsers() {
+    return fetch('https://backend.lleidahack.dev/company/user/all', {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -37,8 +35,8 @@ export async function getAllUsers() {
     });  
 }
 
-export async function getUserById(user_id) {
-    return fetch(`https://backend.lleidahack.dev/user/${user_id}`, {
+export async function getCompanyUserById(company_user_id) {
+    return fetch(`https://backend.lleidahack.dev/company/user/${company_user_id}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -55,14 +53,14 @@ export async function getUserById(user_id) {
     });
 }
 
-export async function updateUser(user) {
-    return fetch(`https://backend.lleidahack.dev/user/${user.id}`, {
+export async function updateCompanyUser(company_user) {
+    return fetch(`https://backend.lleidahack.dev/company/user/${company_user.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(company_user)
     })
     .then(response => response.json())
     .then(data => {
@@ -75,8 +73,8 @@ export async function updateUser(user) {
     });
 }
 
-export async function deleteUser(user_id) {
-    return fetch(`https://backend.lleidahack.dev/user/${user_id}`, {
+export async function deleteCompanyUser(company_user_id) {
+    return fetch(`https://backend.lleidahack.dev/company/user/${company_user_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -94,14 +92,14 @@ export async function deleteUser(user_id) {
     });
 }
 
-export async function addUser(user) {
-    return fetch('https://backend.lleidahack.dev/user/', {
+export async function addCompanyUser(company_user) {
+    return fetch('https://backend.lleidahack.dev/company/user/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(company_user)
     })
     .then(response => response.json())
     .then(data => {

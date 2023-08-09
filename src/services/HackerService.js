@@ -1,11 +1,11 @@
-export async function signupUser(user) {
-    return fetch('https://backend.lleidahack.dev/user/signup', {
+export async function signupHacker(hacker) {
+    return fetch('https://backend.lleidahack.dev/hacker/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            // '': '',
+            "mode":"no-cors"
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(hacker)
     })
     .then(response => response.json())
     .then(data => {
@@ -18,9 +18,8 @@ export async function signupUser(user) {
     });
 }
 
-export async function getAllUsers() {
-    console.log(localStorage.getItem("userToken"))
-    return fetch('https://backend.lleidahack.dev/user/all', {
+export async function getAllHackers() {
+    return fetch('https://backend.lleidahack.dev/hacker/all', {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -37,8 +36,8 @@ export async function getAllUsers() {
     });  
 }
 
-export async function getUserById(user_id) {
-    return fetch(`https://backend.lleidahack.dev/user/${user_id}`, {
+export async function getHackerById(hacker_id) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -55,14 +54,14 @@ export async function getUserById(user_id) {
     });
 }
 
-export async function updateUser(user) {
-    return fetch(`https://backend.lleidahack.dev/user/${user.id}`, {
+export async function updateHacker(hacker) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hacker.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(hacker)
     })
     .then(response => response.json())
     .then(data => {
@@ -75,9 +74,29 @@ export async function updateUser(user) {
     });
 }
 
-export async function deleteUser(user_id) {
-    return fetch(`https://backend.lleidahack.dev/user/${user_id}`, {
-        method: 'DELETE',
+export async function addHacker(hacker) {
+    return fetch('https://backend.lleidahack.dev/hacker/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        },
+        body: JSON.stringify(hacker)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('response: ', data);
+        return data;
+    })
+    .catch(error => {
+        console.warn(error);
+        return [];
+    });
+}
+
+export async function banHackerById(hacker_id) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}/ban`, {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -94,14 +113,32 @@ export async function deleteUser(user_id) {
     });
 }
 
-export async function addUser(user) {
-    return fetch('https://backend.lleidahack.dev/user/', {
+export async function unbanHackerById(hacker_id) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}/unban`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
-        },
-        body: JSON.stringify(user)
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('response: ', data);
+        return data;
+    })
+    .catch(error => {
+        console.warn(error);
+        return [];
+    });
+}
+
+export async function deleteHacker(hacker_id) {
+    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem("userToken")
+        }
     })
     .then(response => response.json())
     .then(data => {
