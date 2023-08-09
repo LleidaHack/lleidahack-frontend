@@ -1,9 +1,10 @@
+import {decode as atob, encode as btoa} from 'base-64'  
+
 export async function login(user) {
     return fetch('https://backend.lleidahack.dev/login', {
         headers: {
             'Content-Type': 'application/json',
-            'username': user.mail   ,
-            'password': user.password
+            "Authorization": "Basic " + btoa(`${user.email}:${user.password}`)
         }
     })
     .then(response => response.json())
@@ -12,7 +13,7 @@ export async function login(user) {
         //if (!data.hasOwnProperty('token')) {
         //    throw new Error('Token parameter not found in the data object.');
         //}
-        localStorage.setItem("userToken", data.token)
+        localStorage.setItem("userToken", data.access_token)
     })
     .catch(error => {
         console.warn(error);

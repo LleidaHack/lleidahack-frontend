@@ -17,19 +17,31 @@ import {signupCompanyUser,getAllCompanyUsers,getCompanyUserById,updateCompanyUse
 const Testing = () => {
     const [user, setUser] = useState({
         "name": "joel",
-        "nickname": `elver`,
-        "password": `12345678a`,
-        "birthdate": "20/06/03",
+        "nickname": "elver",
+        "password": "12345678a",
+        "birthdate": "06/20/03",
         "food_restrictions": "NO",
-        "email": `joelros2003@gmail.com`,
+        "email": "joelros2008@gmail.com",
         "telephone": "693931391",
-        "address": "casa",
+        "address": "casa",  
         "shirt_size": "L",
         "image_id": "0",
-        "id": 1,
-        "banned": false,
-        "github":"a",
-        "linkedin":"a"
+    });
+
+    const [hacker, setHacker] = useState({
+        "name": "joel",
+        "nickname": "elver",
+        "password": "12345678a",
+        "birthdate": "06/20/03",
+        "food_restrictions": "NO",
+        "email": "joelros2000@gmail.com",
+        "telephone": "693931391",
+        "address": "casa",  
+        "shirt_size": "L",
+        "image_id": "0",
+        "banned": true,
+        "github": "string",
+        "linkedin": "string"
     });
 
     const [grup, setGrup] = useState({
@@ -63,11 +75,11 @@ const Testing = () => {
     const [lleidahacker, setLleidahacker] = useState({
         "name": "joel",
         "id":6,
-        "nickname": `elver`,
-        "password": `12345678a`,
-        "birthdate": "20/06/03",
+        "nickname": "elver",
+        "password": "12345678a",
+        "birthdate": "06/20/03", 
         "food_restrictions": "NO",
-        "email": `joelros2003@gmail.com`,
+        "email": "joelros2001@gmail.com",
         "telephone": "693931391",
         "address": "casa",
         "shirt_size": "L",
@@ -180,7 +192,7 @@ const Testing = () => {
             body:[
                 {
                     body:signupHacker, 
-                    params:[user], 
+                    params:[hacker], 
                     status:false
                 },{
                     body:getAllHackers, 
@@ -188,27 +200,27 @@ const Testing = () => {
                     status:true
                 },{
                     body:getHackerById, 
-                    params:[user.id], 
+                    params:[74], 
                     status:true
                 },{
                     body:updateHacker, 
-                    params:[user], 
+                    params:[hacker], 
                     status:false
                 },{
                     body:addHacker, 
-                    params:[user], 
+                    params:[hacker], 
                     status:false
                 },{
                     body:banHackerById, 
-                    params:[user.id], 
+                    params:[74], 
                     status:false
                 },{
                     body:unbanHackerById, 
-                    params:[user.id], 
+                    params:[74], 
                     status:false
                 },{
                     body:deleteHacker, 
-                    params:[user.id], 
+                    params:[hacker.id], 
                     status:false
                 }
             ]
@@ -533,7 +545,7 @@ const Testing = () => {
             id: {user.id}<br />
             nick: {user.nickname}<br />
             pass: {user.password}<br />
-            mail: {user.email}
+            email: {user.email}
         </p>
         <button onClick={() => redoUser()}>
             redoUser

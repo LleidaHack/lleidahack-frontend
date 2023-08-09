@@ -3,6 +3,7 @@ export async function signupUser(user) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            // '': '',
         },
         body: JSON.stringify(user)
     })
@@ -18,6 +19,7 @@ export async function signupUser(user) {
 }
 
 export async function getAllUsers() {
+    console.log(localStorage.getItem("userToken"))
     return fetch('https://backend.lleidahack.dev/user/all', {
         headers: {
             'Content-Type': 'application/json',
