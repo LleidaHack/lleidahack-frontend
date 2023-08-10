@@ -1,13 +1,13 @@
 import React from "react";
 import "../../../src/palette.css";
 
-import "./main.css";
+import "./Profile.css";
 
 import userIcon from "../../icons/user2.png";
 import qrIcon from "../../icons/qr.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
-import Medals from "../../componens/Medals/Medals";
+import Medals from "../../components/Medals/Medals";
 import LinkAccounts from "../../components/LinkAccounts/LinkAccounts";
 import Join from "../../components/Join/Join";
 
