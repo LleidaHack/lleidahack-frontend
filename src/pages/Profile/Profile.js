@@ -7,33 +7,23 @@ import userIcon from "../../icons/user2.png";
 import qrIcon from "../../icons/qr.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
-import Medals from "../../components/Profile/Medals";
-import LinkAccounts from "../../components/Profile/LinkAccountsContainer";
-import Join from "../../components/Profile/JoinContaienr";
-import AnnouncementPanel from "../../components/Profile/AnnouncementPanel";
+import Medals from "../../componens/Medals/Medals";
+import LinkAccounts from "../../components/LinkAccounts/LinkAccounts";
+import Join from "../../components/Join/Join";
 
 import Header from "../../components/Header/Header.js"
-import { getUserById } from "../../services/UserService";
 
 const Profile = () => {
-  // TODO: When authentication done, change -1 to stored user id
-  // const user = getUserById(?????);
+  const name = "Nom cognom";
+  const usrImage = userIcon;
 
-  const user = { name: "Nom Cognoms Cognoms" }
-
-
-  // TODO: You can get the image id of the user i dont know the endpoint to the images
-  const usrImage = user.image_id ? null : userIcon;
-
-
-  // TODO: Looking in the backend shemas, it does not appear to be a member since or anything
   const yearsMember = "x";
 
   const startDate = new Date(2022, 10, 25);
   const endDate = new Date(2022, 10, 27);
 
   return (
-    <div className="p-bg-black py-5 mt-5 text-white">
+    <div className="p-bg-black py-5 text-white">
       <Header />
       <div className="container-fluid container-xxl">
         {/* User info and qr */}
@@ -44,7 +34,6 @@ const Profile = () => {
               style={{ height: `150px` }}
               className="bg-white border rounded-circle m-auto"
               src={usrImage}
-              alt="Foto de perfil"
             />
           </div>
           {/* Center Column */}
@@ -53,9 +42,7 @@ const Profile = () => {
               <h3 className="text-center">Benvingut/da, hacker!</h3>
             </div>
             <div className="row my-3">
-              <h1 className="col-xxl-1 col-2 text-center">-</h1>
-              <h1 className="col-xxl-10 col-8">{user.name}</h1>
-              <h1 className="col-xxl-1 col-2 text-center">-</h1>
+              <h1>- {name} -</h1>
             </div>
             <div className="row">
               <span className="text-center">
@@ -70,8 +57,8 @@ const Profile = () => {
                 <div className="col-6 my-auto col-sm-12">
                   Mostra el teu tiquet
                 </div>
-                <div className="col-6 col-sm-12 my-auto">
-                  <img width="66px" className="m-auto px-2" src={qrIcon} alt="Icona QR" />
+                <div className="col-6 col-sm-12">
+                  <img width="66px" className="m-auto px-2" src={qrIcon} />
                 </div>
               </div>
             </div>
@@ -99,11 +86,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-
-        {/* TODO: If admin show new announcement message */}
-        <AnnouncementPanel></AnnouncementPanel>
       </div>
-
     </div>
   );
 };
