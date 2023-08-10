@@ -34,7 +34,7 @@ img {
 input {
   width: 100%;
   padding: 1em 0.75em;
-  border: 1px solid #444343;
+  border: 1px solid var(--gray-strong);
   border-radius: 3px;
   margin-bottom: 2em;
   margin-top: 0.75em;
@@ -70,5 +70,5 @@ button {
 }
 
 .ticket_col {
-  background: #F7F7F2;
+  background: var(--white);
 }
