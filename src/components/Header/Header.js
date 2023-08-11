@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
+
 import "./Header.css"; 
 import hackIcon from '../../icons/hack_icon_black.png'
 
@@ -15,7 +16,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-md inherit-top">
+    <nav className="navbar navbar-expand-md inherited-top">
     <div className="container">
       <Link to="/" className="navbar-brand icono">
         <img src={hackIcon} alt="Icono" className="icono" />
@@ -34,17 +35,17 @@ const Header = () => {
       <div className={`collapse navbar-collapse ${showMenu ? "show" : ""} justify-content-lg-end`}>
         <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link to="/home" className="nav-link" onClick={closeMenu}>
+              <Link to="/#home" className="nav-link" onClick={closeMenu}>
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/dates" className="nav-link" onClick={closeMenu}>
+              <Link to="/#dates" className="nav-link" onClick={closeMenu}>
                 Dates
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/sponsors" className="nav-link" onClick={closeMenu}>
+              <Link to="/#sponsors" className="nav-link" onClick={closeMenu}>
                 Sponsors
               </Link>
             </li>

@@ -22,7 +22,7 @@ const QrCode = (props) => {
   return (
       <Container>
           <Row>
-              <Col id="ticket_col" className={"border mx-auto m-3 text-center"} md={4} style={{'backgroundColor': '#F7F7F2'}} >
+              <Col id="ticket_col" className={"border mx-auto m-3 text-center"} md={4} >
                   <h1>Ticket</h1>
                   <p>Quan estiguis en un esdeveniment actiu, aquí apareixeran els tickets que necessitis (acreditació, menjador...)</p>
                   <div className="qrcode__container" style={{'margin': 30}}>
