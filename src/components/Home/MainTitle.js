@@ -1,8 +1,5 @@
 // src/components/MainTitle.js
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -30,7 +27,7 @@ const MainTitle = () => {
               <div className="row text-center">
                 <a
                   href="#"
-                  style={{ width: `fit-content`, textDecoration: `none` }}
+                  style={{ width: 'fit-content', textDecoration: 'none' }}
                   className="py-2 px-4 m-auto apuntat-button" onClick={handleShow}
                 >
                   Apunta't!

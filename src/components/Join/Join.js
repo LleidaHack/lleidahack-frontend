@@ -13,7 +13,7 @@ const Join = () => {
                 <a
                   href=""
                   style={{ width: `fit-content`, textDecoration: `none` }}
-                  className="py-2 px-4 m-auto text-white p-bg-red"
+                  className="py-2 px-4 m-auto text-white p-bg-primary"
                 >
                   Uneix-te
                 </a>
