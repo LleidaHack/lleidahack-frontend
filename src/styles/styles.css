@@ -9,9 +9,17 @@
   }
 
 .dark-background {
-    background-color: var(--secondary)
+    background-color: var(--secondary);
 }
 
 .white-color {
-    color: var(--white)
+    color: var(--white);
+}
+
+.black-color {
+    color: var(--black);
+}
+
+.no-border {
+    border: none;
 }

@@ -11,6 +11,7 @@ import qrIcon from "../../icons/qr.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
 import Medals from "../../components/Medals/Medals";
+import Team from "../../components/Team/Team";
 import LinkAccounts from "../../components/LinkAccounts/LinkAccounts";
 import Join from "../../components/Join/Join";
 import QrCode from '../../components/Home/QrCode.js';
@@ -29,6 +30,14 @@ const Profile = () => {
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
+
+  const members = [{"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
+  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
+  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
+  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
+  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
+  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
+  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"}]
 
 
   return (
@@ -83,6 +92,8 @@ const Profile = () => {
 
         {/* Join Box */}
         <Join/>
+
+        <Team teamName={"Team test"} teamCode={"123456"} members={members} />
 
         {/* Calendar and Achievements */}
         <div className="row m-5 gy-5 bottom-container text-center m-auto">

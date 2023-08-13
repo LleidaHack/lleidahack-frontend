@@ -1,10 +1,10 @@
 // src/components/MainTitle.js
-
+import './MainTitle.css';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import hackLogo from "../../icons/hack_icon_black.png";
-import './MainTitle.css';
+
 import { useNavigate } from 'react-router-dom';
 
 const MainTitle = () => {
@@ -42,7 +42,7 @@ const MainTitle = () => {
           <Modal.Title>Inici de sessió</Modal.Title>
         </Modal.Header>
         <Modal.Body className="no-border">Has d'iniciar sessió per apuntar-te!</Modal.Body>
-        <Modal.Footer className="no-border center-buttons">
+        <Modal.Footer className="no-border justify-content-center">
           <Button className="main-title-modal-button" onClick={handleSignIn}>
             Tinc compte
           </Button>
