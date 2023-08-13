@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react';
-import './Timer.css';
+import 'src/components/Home/Timer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import dayjs from 'dayjs';
 

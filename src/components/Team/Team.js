@@ -1,11 +1,11 @@
 import React from "react";
-import './Team.css'
+import 'src/components/Team/Team.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import user from "../../icons/user.png";
+import user from "src/icons/user.png";
 import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -23,7 +23,7 @@ const Team = (props) => {
     const handleShowJoinTeam = () => setShowJoinTeam(true);
     const handleCloseJoinTeam = () => setShowJoinTeam(false);
 
-    const isInTeam = false;
+    const isInTeam = true;
 
     function TeamButtons() {
         const validationSchemaJoinTeam = Yup.object().shape({

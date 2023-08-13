@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
-import './QrCode.css';
+import 'src/components/Home/QrCode.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';

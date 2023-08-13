@@ -1,9 +1,9 @@
 // src/components/MainTitle.js
-import './MainTitle.css';
+import 'src/components/Home/MainTitle.css';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import hackLogo from "../../icons/hack_icon_black.png";
+import hackLogo from "src/icons/hack_icon_black.png";
 
 import { useNavigate } from 'react-router-dom';
 

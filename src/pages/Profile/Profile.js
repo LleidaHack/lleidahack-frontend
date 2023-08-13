@@ -1,23 +1,25 @@
 import React from "react";
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import "../../../src/palette.css";
+import { useNavigate, useParams } from 'react-router-dom';
+import "src/palette.css";
 import Modal from 'react-bootstrap/Modal';
 
 //import "./main.css"; // TODO: No existeix aquest fitxer
 
-import userIcon from "../../icons/user2.png";
-import qrIcon from "../../icons/qr.png";
+import userIcon from "src/icons/user2.png";
+import qrIcon from "src/icons/qr.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
-import Medals from "../../components/Medals/Medals";
-import Team from "../../components/Team/Team";
-import LinkAccounts from "../../components/LinkAccounts/LinkAccounts";
-import Join from "../../components/Join/Join";
-import QrCode from '../../components/Home/QrCode.js';
-import Header from "../../components/Header/Header.js"
+import Medals from "src/components/Medals/Medals";
+import Team from "src/components/Team/Team";
+import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
+import Join from "src/components/Join/Join";
+import QrCode from 'src/components/Home/QrCode.js';
+import Header from "src/components/Header/Header.js"
 
 const Profile = () => {
+  const { id } = useParams();
+
   const name = "Nom cognom";
   const usrImage = userIcon;
 
@@ -39,6 +41,7 @@ const Profile = () => {
   {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
   {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"}]
 
+  console.log(id);
 
   return (
     <>

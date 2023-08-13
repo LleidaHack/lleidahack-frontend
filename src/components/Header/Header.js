@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { HashLink as Link } from 'react-router-hash-link';
 
-import "./Header.css"; 
-import hackIcon from '../../icons/hack_icon_black.png'
+import "src/components/Header/Header.css"; 
+import hackIcon from 'src/icons/hack_icon_black.png'
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);

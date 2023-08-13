@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../icons/logo.png";
+import logo from "src/icons/logo.png";
 
 const Join = () => {
 

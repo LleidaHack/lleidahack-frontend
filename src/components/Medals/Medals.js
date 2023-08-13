@@ -1,5 +1,5 @@
 import React from "react";
-import medal from "../../icons/medal_example.png";
+import medal from "src/icons/medal_example.png";
 
 
 const Medals = () => {
