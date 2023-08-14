@@ -1,26 +1,25 @@
-name: Format
+name: Continuous Integration
+
 on:
   pull_request:
-    branches:
-      - main
-      - integration
+    branches: [main]
+
 jobs:
-  format:
+  prettier:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
+          # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
-      - uses: actions/setup-node@v2
+          # This is important to fetch the changes to the previous commit
+          fetch-depth: 0
+
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.3
         with:
-          node-version: "18.x"
-      - run: npm install
-      - run: npm ci
-      - run: npm run format
-      - name: Push changes
-        run: |
-          git config --global user.name 'github-actions' 
-          git config --global user.email 'github-actions@github.com' 
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git commit -am "Automated prettier fixes"
-          git push
+          # This part is also where you can pass other options, for example:
+          prettier_options: --write **/*.{js,md}
+          only_changed: True
