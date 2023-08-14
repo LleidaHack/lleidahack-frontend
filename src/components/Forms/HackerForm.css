@@ -1,0 +1,45 @@
+.custom-form {
+  justify-content: center;
+  background: var(--secondary);
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+label {
+  color: var(--white);
+}
+
+.stepper-horizontal {
+  color: var(--white);
+}
+.stepper-step.active-step {
+  color: var(--primary);
+}
+
+.stepper-horizontal .stepper-step.active-step .stepper-title {
+  color: var(--primary) !important;
+}
+
+h1 {
+  color: var(--white);
+}
+
+.hacker-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hacker-panel-title {
+  text-align: center;
+  padding: 20px 0 10px 0;
+  color: var(--white);
+  font-size: 30px;
+  font-weight: regular;
+}
+
+.input-error {
+  color: red !important;
+}

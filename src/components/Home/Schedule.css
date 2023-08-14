@@ -1,31 +1,31 @@
 .vertical-timeline {
-    --line-color: #A40925;
+  --line-color: var(--primary);
 }
 
 .vertical-timeline-element-content {
-    box-shadow: 0 0px 0;
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0);
-    background: rgba(32,34,37,0);
+  box-shadow: 0 0px 0;
+  color: var(--white);
+  background-color: var(--transparent);
+  background: var(--transparent);
 }
 
 .vertical-timeline-element-icon {
-    background: #a40925;
-    box-shadow: 0 0 0 0px #a40925;
+  background: var(--primary);
+  box-shadow: 0 0 0 0px var(--primary);
 }
 
 .vertical-timeline-element-title {
-    color: #ffffff;
-    text-decoration: underline;
-    text-underline-offset: 1em;
-    padding-bottom: 1em;
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 1em;
+  padding-bottom: 1em;
 }
 
 .vertical-timeline-element-description {
-    color: #A6A7A5;
-    font-size: 0.8em !important;
+  color: var(--gray);
+  font-size: 0.8em !important;
 }
 
 .vertical-timeline-element-content-arrow {
-    display: none;
+  display: none;
 }

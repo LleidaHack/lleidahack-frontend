@@ -4,13 +4,14 @@ import Error404 from "./pages/Error404";
 import FAQPage from "./pages/FAQ";
 import Home from "./pages/Home";
 import React, { useEffect } from 'react';
-import Profile from "./Pages/Profile/index.js"
-import Login from "./pages/Login";
+import Profile from "./pages/Profile/Profile.js";
+import HackerForm from "./components/Forms/HackerForm";
+import Login from "./pages";
 
 export default function App() {
-    useEffect(() => {
-      window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
+  }, []);
 
   return (
     <div className="App">
@@ -22,7 +23,6 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </div>
