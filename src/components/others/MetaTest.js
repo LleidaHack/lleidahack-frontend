@@ -1,5 +1,5 @@
-import React from 'react'
-import Grups from "./Grups"
+import React from "react";
+import Grups from "./Grups";
 
 const MetaTest = ({ functionsList, autotest}) => {
   return (
@@ -8,7 +8,7 @@ const MetaTest = ({ functionsList, autotest}) => {
           <Grups key={i} data={data} autotest={autotest}/>
         ))}
     </div>
-  )
-}
+  );
+};
 
-export default MetaTest
+export default MetaTest;

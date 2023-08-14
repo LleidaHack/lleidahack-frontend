@@ -10,9 +10,9 @@ export async function registerHackerToEvent(hacker_id,event_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -28,9 +28,9 @@ export async function unregisterHackerToEvent(hacker_id,event_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -41,9 +41,9 @@ export async function getEventStatus(event_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -59,8 +59,8 @@ export async function hackerEatsFoodFrom(hacker_id,meal_id,event_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }

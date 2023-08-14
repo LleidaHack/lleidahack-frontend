@@ -10,10 +10,10 @@ export async function getEvents() {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function createEvent(event) {
@@ -30,9 +30,9 @@ export async function createEvent(event) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return[]
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -48,10 +48,10 @@ export async function getEventById(event_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function updateEvent(event) {
@@ -68,10 +68,10 @@ export async function updateEvent(event) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function deleteEvent(event_id) {
@@ -87,10 +87,10 @@ export async function deleteEvent(event_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function getEventParticipants(event_id) {
@@ -105,10 +105,10 @@ export async function getEventParticipants(event_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function getEventSponsors(event_id) {
@@ -123,10 +123,10 @@ export async function getEventSponsors(event_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function getEventGroups(event_id) {
@@ -141,10 +141,10 @@ export async function getEventGroups(event_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function addEventParticipant(event_id, hacker_id) {
@@ -160,10 +160,10 @@ export async function addEventParticipant(event_id, hacker_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function deleteEventParticipant(event_id, hacker_id) {
@@ -179,10 +179,10 @@ export async function deleteEventParticipant(event_id, hacker_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function addEventSponsor(event_id, company_id) {
@@ -198,10 +198,10 @@ export async function addEventSponsor(event_id, company_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function deleteEventSponsor(event_id, company_id) {
@@ -217,10 +217,10 @@ export async function deleteEventSponsor(event_id, company_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function addEventGroup(event_id, group_id) {
@@ -236,10 +236,10 @@ export async function addEventGroup(event_id, group_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function deleteEventGroup(event_id, group_id) {
@@ -255,8 +255,8 @@ export async function deleteEventGroup(event_id, group_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }

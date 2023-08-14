@@ -11,9 +11,9 @@ export async function signupLleidaHacker(lleidaHacker) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return[]
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -29,10 +29,10 @@ export async function getAllLleidaHackers() {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function getLleidaHackerById(lleidaHacker_id) {
@@ -47,9 +47,9 @@ export async function getLleidaHackerById(lleidaHacker_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -67,9 +67,9 @@ export async function updateLleidaHacker(lleidaHacker) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -86,9 +86,9 @@ export async function deleteLleidaHacker(lleidaHacker_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -106,8 +106,8 @@ export async function addLleidaHacker(lleidaHacker) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }

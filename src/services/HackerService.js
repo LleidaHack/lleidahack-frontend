@@ -30,10 +30,10 @@ export async function getAllHackers() {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function getHackerById(hacker_id) {
@@ -48,9 +48,9 @@ export async function getHackerById(hacker_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -68,9 +68,9 @@ export async function updateHacker(hacker) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -88,9 +88,9 @@ export async function addHacker(hacker) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -107,9 +107,9 @@ export async function banHackerById(hacker_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -126,9 +126,9 @@ export async function unbanHackerById(hacker_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -145,8 +145,8 @@ export async function deleteHacker(hacker_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }

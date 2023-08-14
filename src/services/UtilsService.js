@@ -12,10 +12,10 @@ export async function uploadImage(image) {
         console.log('response: ', data);
         localStorage.setItem("userToken", data.access_token)
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    }); 
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function sendMail(to) {
@@ -30,10 +30,10 @@ export async function sendMail(to) {
         console.log('response: ', data)
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    }); 
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function getImage(id) {
@@ -48,8 +48,8 @@ export async function getImage(id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    }); 
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }

@@ -10,10 +10,10 @@ export async function getAllCompanies() {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function getCompanyById(company_id) {
@@ -28,9 +28,9 @@ export async function getCompanyById(company_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -48,9 +48,9 @@ export async function updateCompany(company) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -67,9 +67,9 @@ export async function deleteCompany(company_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -87,9 +87,9 @@ export async function addCompany(company) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -105,9 +105,9 @@ export async function getCompanyUsers(company_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -125,9 +125,9 @@ export async function addUserToCompany(company_user, company_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -144,8 +144,8 @@ export async function removeUserFromCompany(company_user_id, company_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }

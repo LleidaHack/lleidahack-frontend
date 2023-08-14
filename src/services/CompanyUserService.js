@@ -11,9 +11,9 @@ export async function signupCompanyUser(company_user) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return[]
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -29,10 +29,10 @@ export async function getAllCompanyUsers() {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function getCompanyUserById(company_user_id) {
@@ -47,9 +47,9 @@ export async function getCompanyUserById(company_user_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -67,9 +67,9 @@ export async function updateCompanyUser(company_user) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -86,9 +86,9 @@ export async function deleteCompanyUser(company_user_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -106,8 +106,8 @@ export async function addCompanyUser(company_user) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }

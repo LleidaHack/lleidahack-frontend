@@ -10,10 +10,10 @@ export async function getAllLleidaHackerGroups() {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function getLleidaHackerGroupById(lleidaHacker_group_id) {
@@ -28,9 +28,9 @@ export async function getLleidaHackerGroupById(lleidaHacker_group_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -47,9 +47,9 @@ export async function deleteLleidaHackerGroup(lleidaHacker_group_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -67,9 +67,9 @@ export async function addLleidaHackerGroup(lleidaHacker_group) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -85,9 +85,9 @@ export async function getLleidaHackerGroupMembers(lleidaHacker_group_id) {
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -104,9 +104,9 @@ export async function addLleidaHackerToGroup(lleidaHacker_id, lleidaHacker_group
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -123,9 +123,9 @@ export async function removeLleidaHackerFromGroup(lleidaHacker_id, lleidaHacker_
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
@@ -142,8 +142,8 @@ export async function setLleidaHackerGroupLeader(lleidaHacker_id, lleidaHacker_g
         console.log('response: ', data);
         return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
