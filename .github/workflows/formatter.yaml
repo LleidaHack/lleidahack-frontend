@@ -8,20 +8,16 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-            with:
-              ref: ${{ github.head_ref }}
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
       - uses: actions/setup-node@v2
         with:
           node-version: "18.x"
       - run: npm install
       - run: npm ci
       - run: npm run format
-      - name: Check for modified files
-          id: git-check
-          run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
       - name: Push changes
-        if: steps.git-check.outputs.modified == 'true'
         run: |
           git config --global user.name 'github-actions' 
           git config --global user.email 'github-actions@github.com' 
