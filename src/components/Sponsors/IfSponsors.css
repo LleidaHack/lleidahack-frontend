@@ -20,7 +20,7 @@
     padding-bottom: 2%;
     color: var(--white);
     text-align: center;
-    font-size: 50px;
+    font-size:2em; /* 50px */
     justify-content: center;
 }
 
@@ -30,18 +30,33 @@
     text-align: center;
 }
 
+.text-aftTitle2{
+    color: var(--white);
+    text-align: center;
+   font-size: 1.1rem;
+    margin-top: 12px;
+}
+
 .Imagecontener{  
    width: 40%;
    height: 40%;
    
-  
 }
+
+.Imagecontener2{  
+    width: 20%;
+    height: 20%;
+    
+ 
+ }
 
 .peperoni {
     width: 100%;
     height: 100%;
     object-fit: cover
 }
+
+
 
 .redesYOthers{
     height: 10%;

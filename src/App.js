@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import React, { useEffect } from 'react';
 import Profile from "./pages/Profile/Profile.js"
 import HackerForm from "./components/Forms/HackerForm";
+import Sponsors from "./pages/Sponsors";
 
 export default function App() {
     useEffect(() => {
@@ -23,7 +24,8 @@ export default function App() {
           <Route path="/perfil" element={<Profile />} />
           <Route path="/" element={<Home />} />
           <Route path="/hacker-form" element={<HackerForm />} />
-          <Route path="/sponsors" element={<Sponsors/>} />
+          <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
+          <Route path="/sponsors/:ids" element={<Sponsors />} />
         </Routes>
       </Router>
     </div>

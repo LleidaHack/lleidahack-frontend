@@ -1,15 +1,19 @@
 import Header from '../components/Header/Header.js'
 import Footer from '../components/Footer/Footer.js'
 import IfSponsors from '../components/Sponsors/IfSponsors.js'
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
 
 const Home = () => {
-   
-
+  const { ids } = useParams();
+  console.log('ID desde la ruta:', ids);
+  const sponsorId = ids || 0;
   
     return (
       <div>
         <Header />
-        <IfSponsors name="pepe" urlImage1="www.google.es" correu="lleidahack.dev" ind="goo" description="Aixo es una des ben bonica" activityRoute="Lorem"/>
+        <IfSponsors id={sponsorId}/>
         <Footer />
       </div>
     );
