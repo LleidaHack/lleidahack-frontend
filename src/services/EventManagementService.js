@@ -1,5 +1,5 @@
 export async function registerHackerToEvent(hacker_id,event_id) {
-    return fetch(`https://backend.lleidahack.dev/eventmanagment/${event_id}/register/${hacker_id}`, {
+    return fetch(process.env.DOMAIN+`/eventmanagment/${event_id}/register/${hacker_id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -17,7 +17,7 @@ export async function registerHackerToEvent(hacker_id,event_id) {
 }
 
 export async function unregisterHackerToEvent(hacker_id,event_id) {
-    return fetch(`https://backend.lleidahack.dev/eventmanagment/${event_id}/unregister/${hacker_id}`, {
+    return fetch(process.env.DOMAIN+`/eventmanagment/${event_id}/unregister/${hacker_id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ export async function unregisterHackerToEvent(hacker_id,event_id) {
 }
 
 export async function getEventStatus(event_id) {
-    return fetch(`https://backend.lleidahack.dev/eventmanagment/${event_id}/status`)
+    return fetch(process.env.DOMAIN+`/eventmanagment/${event_id}/status`)
     .then(response => response.json())
     .then(data => {
         console.log('response: ', data);
@@ -48,7 +48,7 @@ export async function getEventStatus(event_id) {
 }
 
 export async function hackerEatsFoodFrom(hacker_id,meal_id,event_id) {
-    return fetch(`https://backend.lleidahack.dev/eventmanagment/${event_id}/eat/${meal_id}/${hacker_id}`, {
+    return fetch(process.env.DOMAIN+`/eventmanagment/${event_id}/eat/${meal_id}/${hacker_id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
