@@ -11,7 +11,7 @@ import Medals from "../../components/Medals/Medals";
 import LinkAccounts from "../../components/LinkAccounts/LinkAccounts";
 import Join from "../../components/Join/Join";
 
-import Header from "../../components/Header/Header.js"
+import Header from "../../components/Header/Header.js";
 
 const Profile = () => {
   const name = "Nom cognom";
