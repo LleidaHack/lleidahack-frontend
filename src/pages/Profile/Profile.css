@@ -1,21 +1,19 @@
-@media (min-width: 576px)
-{
-    .qr-container{
-        height: 100%;
-        width: 40% !important;
-    }
+@media (min-width: 576px) {
+  .qr-container {
+    height: 100%;
+    width: 40% !important;
+  }
 
-    .qr-container img{
-        padding-top: 30px;
-        width: 70%;
-    }
+  .qr-container img {
+    padding-top: 30px;
+    width: 70%;
+  }
 
-    .bottom-container{
-        width: 50%;
-    }
+  .bottom-container {
+    width: 50%;
+  }
 
-    .join-container{
-        width: 35%;
-    }
-
+  .join-container {
+    width: 35%;
+  }
 }

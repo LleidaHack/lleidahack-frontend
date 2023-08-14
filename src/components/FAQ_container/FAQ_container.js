@@ -1,6 +1,6 @@
-import React from 'react';
-import FAQCard from '../FAQ_card/FAQ_card';
-import './FAQ_container.css'; // Importa el archivo de estilos CSS para FAQContainer
+import React from "react";
+import FAQCard from "../FAQ_card/FAQ_card";
+import "./FAQ_container.css"; // Importa el archivo de estilos CSS para FAQContainer
 
 const FAQContainer = ({ faqs }) => {
   return (

@@ -1,5 +1,5 @@
 .calendar-content {
-  color: var(--white)
+  color: var(--white);
 }
 
 /*https://blog.loprimaryket.com/react-calendar-tutorial-build-customize-calendar/*/
@@ -122,7 +122,7 @@
   border-radius: 5px;
 }
 .react-calendar__tile--hasActive {
-    background: var(--white);
+  background: var(--white);
   color: var(--primary);
   font-weight: bold;
   border-radius: 5px;
