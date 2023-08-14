@@ -16,11 +16,9 @@ import Header from "../../components/Header/Header.js";
 import { getUserById } from "../../services/UserService";
 
 const Profile = () => {
-
-
   let user = { name: "Nom Cognom Cognom" };
   getUserById(localStorage.getItem("userID")).then((data) => {
-    if (!user.id) return
+    if (!user.id) return;
 
     user = data;
   });
@@ -57,9 +55,15 @@ const Profile = () => {
               <h3 className="text-center">Benvingut/da, hacker!</h3>
             </div>
             <div className="row my-3">
-              <div className="col-1 align-self-center"><h1 className="text-center m-auto">-</h1></div>
-              <div className="col-10"><h1 className="text-center m-auto">{user.name}</h1></div>
-              <div className="col-1 align-self-center"><h1 className="text-center m-auto">-</h1></div>
+              <div className="col-1 align-self-center">
+                <h1 className="text-center m-auto">-</h1>
+              </div>
+              <div className="col-10">
+                <h1 className="text-center m-auto">{user.name}</h1>
+              </div>
+              <div className="col-1 align-self-center">
+                <h1 className="text-center m-auto">-</h1>
+              </div>
             </div>
             <div className="row">
               <span className="text-center">

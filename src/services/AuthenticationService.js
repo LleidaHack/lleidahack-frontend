@@ -1,4 +1,4 @@
-import { decode as atob, encode as btoa } from 'base-64'
+import { decode as atob, encode as btoa } from "base-64";
 
 export async function login(user) {
   return fetch("https://backend.lleidahack.dev/login", {
@@ -15,35 +15,35 @@ export async function login(user) {
       //}
       localStorage.setItem("userToken", data.access_token);
     })
-        .then(response => response.json())
-        .then(data => {
-            console.log('response: ', data);
-            //if (!data.hasOwnProperty('token')) {
-            //    throw new Error('Token parameter not found in the data object.');
-            //}
-            localStorage.setItem("userToken", data.access_token)
-            localStorage.setItem("userID", data.user_id)
-        })
-        .catch(error => {
-            console.warn(error);
-            return [];
-        });
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      //if (!data.hasOwnProperty('token')) {
+      //    throw new Error('Token parameter not found in the data object.');
+      //}
+      localStorage.setItem("userToken", data.access_token);
+      localStorage.setItem("userID", data.user_id);
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function confirmEmail(e_mail) {
-    return fetch('https://backend.lleidahack.dev/confirm-email', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json' //TODO TEXT O ALGO MÉS????
-        },
-        body: JSON.stringify({ querry: { email: e_mail } }),
+  return fetch("https://backend.lleidahack.dev/confirm-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json", //TODO TEXT O ALGO MÉS????
+    },
+    body: JSON.stringify({ querry: { email: e_mail } }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
     })
-        .then(response => response.json())
-        .then(data => {
-            console.log('response: ', data);
-        })
-        .catch(error => {
-            console.warn(error);
-            return [];
-        });
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
