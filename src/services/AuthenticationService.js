@@ -1,7 +1,7 @@
 import {decode as atob, encode as btoa} from 'base-64'  
 
 export async function login(user) {
-    return fetch(process.env.DOMAIN+'/login', {
+    return fetch(process.env.REACT_APP_DOMAIN+'/login', {
         headers: {
             'Content-Type': 'application/json',
             "Authorization": "Basic " + btoa(`${user.email}:${user.password}`)
@@ -22,7 +22,7 @@ export async function login(user) {
 }
 
 export async function confirmEmail(e_mail) {
-    return fetch(process.env.DOMAIN+'/confirm-email', {
+    return fetch(process.env.REACT_APP_DOMAIN+'/confirm-email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' //TODO TEXT O ALGO MÉS????

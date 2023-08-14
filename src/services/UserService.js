@@ -1,5 +1,5 @@
 export async function signupUser(user) {
-    return fetch(process.env.DOMAIN+'/user/signup', {
+    return fetch(process.env.REACT_APP_DOMAIN+'/user/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ export async function signupUser(user) {
 
 export async function getAllUsers() {
     console.log(localStorage.getItem("userToken"))
-    return fetch(process.env.DOMAIN+'/user/all', {
+    return fetch(process.env.REACT_APP_DOMAIN+'/user/all', {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -38,7 +38,7 @@ export async function getAllUsers() {
 }
 
 export async function getUserById(user_id) {
-    return fetch(process.env.DOMAIN+`/user/${user_id}`, {
+    return fetch(process.env.REACT_APP_DOMAIN+`/user/${user_id}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -56,7 +56,7 @@ export async function getUserById(user_id) {
 }
 
 export async function updateUser(user) {
-    return fetch(process.env.DOMAIN+`/user/${user.id}`, {
+    return fetch(process.env.REACT_APP_DOMAIN+`/user/${user.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ export async function updateUser(user) {
 }
 
 export async function deleteUser(user_id) {
-    return fetch(process.env.DOMAIN+`/user/${user_id}`, {
+    return fetch(process.env.REACT_APP_DOMAIN+`/user/${user_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ export async function deleteUser(user_id) {
 }
 
 export async function addUser(user) {
-    return fetch(process.env.DOMAIN+'/user/', {
+    return fetch(process.env.REACT_APP_DOMAIN+'/user/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

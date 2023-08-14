@@ -1,5 +1,5 @@
 export async function uploadImage(image) {
-    return fetch(process.env.DOMAIN+'/utils/uploadImage', {
+    return fetch(process.env.REACT_APP_DOMAIN+'/utils/uploadImage', {
         method: 'POST',
         headers: {
             'Content-Type': 'image/jpeg',
@@ -19,7 +19,7 @@ export async function uploadImage(image) {
 }
 
 export async function sendMail(to) {
-    return fetch(process.env.DOMAIN+`/utils/sendMail/${to}`, {
+    return fetch(process.env.REACT_APP_DOMAIN+`/utils/sendMail/${to}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ export async function sendMail(to) {
 }
 
 export async function getImage(id) {
-    return fetch(process.env.DOMAIN+`/utils/imageUrl/${id}`, {
+    return fetch(process.env.REACT_APP_DOMAIN+`/utils/imageUrl/${id}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")

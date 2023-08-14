@@ -1,5 +1,5 @@
 export async function signupCompanyUser(company_user) {
-    return fetch(process.env.DOMAIN+'/company/user/signup', {
+    return fetch(process.env.REACT_APP_DOMAIN+'/company/user/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -18,7 +18,7 @@ export async function signupCompanyUser(company_user) {
 }
 
 export async function getAllCompanyUsers() {
-    return fetch(process.env.DOMAIN+'/company/user/all', {
+    return fetch(process.env.REACT_APP_DOMAIN+'/company/user/all', {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -36,7 +36,7 @@ export async function getAllCompanyUsers() {
 }
 
 export async function getCompanyUserById(company_user_id) {
-    return fetch(process.env.DOMAIN+`/company/user/${company_user_id}`, {
+    return fetch(process.env.REACT_APP_DOMAIN+`/company/user/${company_user_id}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -54,7 +54,7 @@ export async function getCompanyUserById(company_user_id) {
 }
 
 export async function updateCompanyUser(company_user) {
-    return fetch(process.env.DOMAIN+`/company/user/${company_user.id}`, {
+    return fetch(process.env.REACT_APP_DOMAIN+`/company/user/${company_user.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ export async function updateCompanyUser(company_user) {
 }
 
 export async function deleteCompanyUser(company_user_id) {
-    return fetch(process.env.DOMAIN+`/company/user/${company_user_id}`, {
+    return fetch(process.env.REACT_APP_DOMAIN+`/company/user/${company_user_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ export async function deleteCompanyUser(company_user_id) {
 }
 
 export async function addCompanyUser(company_user) {
-    return fetch(process.env.DOMAIN+'/company/user/', {
+    return fetch(process.env.REACT_APP_DOMAIN+'/company/user/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

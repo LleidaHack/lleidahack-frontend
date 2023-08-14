@@ -15,17 +15,19 @@ import {registerHackerToEvent,unregisterHackerToEvent,getEventStatus,hackerEatsF
 import {signupCompanyUser,getAllCompanyUsers,getCompanyUserById,updateCompanyUser,deleteCompanyUser,addCompanyUser} from "../../services/CompanyUserService";
 
 const Testing = () => {
+    const [autoTest, setAutoTest] = useState(false)
     const [user, setUser] = useState({
         "name": "joel",
         "nickname": "elver",
         "password": "12345678a",
-        "birthdate": "06/20/03",
+        "birthdate": "07/20/03",
         "food_restrictions": "NO",
-        "email": "joelros2008@gmail.com",
+        "email": "joelros2087@gmail.com",
         "telephone": "693931391",
         "address": "casa",  
         "shirt_size": "L",
         "image_id": "0",
+        "id":79
     });
 
     const [hacker, setHacker] = useState({
@@ -152,7 +154,7 @@ const Testing = () => {
         "id":1
       });
 
-    //NOMÉS FUNCIONEN GETS
+    
     const Fuctions=[
         {
             name: "user",
@@ -162,7 +164,7 @@ const Testing = () => {
                 {
                     body:signupUser, 
                     params:[user], 
-                    status:false
+                    status:true
                 },{
                     body:getAllUsers, 
                     params:[], 
@@ -174,7 +176,7 @@ const Testing = () => {
                 },{
                     body:updateUser, 
                     params:[user], 
-                    status:false
+                    status:true
                 },{
                     body:deleteUser, 
                     params:[user.id], 
@@ -442,7 +444,7 @@ const Testing = () => {
                 {
                     body:login, 
                     params:[user], 
-                    status:false
+                    status:true
                 },{
                     body:confirmEmail, 
                     params:["a@a.a"], 
@@ -540,6 +542,7 @@ const Testing = () => {
     };
   return (
     <div>
+        <button onClick={() => setAutoTest(!autoTest)}>testingmode: {autoTest?"auto":"manual"}</button>
         <h1>User rn</h1>
         <p>
             id: {user.id}<br />
@@ -553,7 +556,7 @@ const Testing = () => {
         <button onClick={() => changeID()}>
             changeId
         </button>
-        <MetaTest functionsList={Fuctions}/>
+        <MetaTest functionsList={Fuctions} autotest={autoTest}/>
     </div>
   )
 }
