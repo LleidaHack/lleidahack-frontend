@@ -1,8 +1,8 @@
 import React from "react";
 import "./Footer.css"; // Importa el archivo de estilos CSS para el footer
-import instagramIcon from "../../icons/instagram_negre.png";
-import linkedinIcon from "../../icons/linkedin_negre.png";
-import twitterIcon from "../../icons/twitter_negre.png";
+import instagramIcon from "../../icons/instagram_black.png";
+import linkedinIcon from "../../icons/linkedin_black.png";
+import twitterIcon from "../../icons/twitter_black.png";
 
 const Footer = () => {
   return (
