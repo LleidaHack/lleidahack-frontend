@@ -5,15 +5,31 @@ import { Container, Row, Col, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import logo from '../../icons/llhlogow.png';
+import { login, confirmEmail } from "../../services/AuthenticationService";
+
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email('Usuari o correu invàlid').required('Usuari o correu requerit'),
+  email: Yup.string().required('Usuari o correu requerit'),
   password: Yup.string().required('Contrassenya requerida'),
 });
 
 const LoginPage = () => {
-  const handleSubmit = (values, { setSubmitting }) => {
-   console.log("iniciant sessió...")
+  const handleSubmit = async (values, { setSubmitting }) => {
+    console.log("submitting...");
+    console.log(values.email)
+    console.log(values.password)
+    try {
+      const loginResponse = await login({
+        email: values.email,
+        password: values.password,
+      });
+  
+      console.log(loginResponse);
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -32,7 +48,7 @@ const LoginPage = () => {
                   onSubmit={handleSubmit}
                   submitButton={{ label: "Envia" }}
                 >
-                  {({ isSubmitting, errors, touched }) => (
+                  {({ isSubmitting, submitForm, errors, touched }) => (
                     <Form>
                       <div className="form-group">
                         <label htmlFor="email">Usuari o correu</label>
@@ -82,6 +98,7 @@ const LoginPage = () => {
                         type="submit"
                         disabled={isSubmitting}
                         className='btn btn-default'
+                        onClick={submitForm}
                       > 
                         {isSubmitting ? 'Iniciant sessió...' : 'Inicia sessió'}
                       </Button>

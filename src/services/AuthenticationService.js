@@ -1,7 +1,7 @@
 import { decode as atob, encode as btoa } from "base-64";
 
 export async function login(user) {
-  return fetch("https://backend.lleidahack.dev/login", {
+  return fetch("https://backend.integration.lleidahack.dev/login", {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Basic " + btoa(`${user.email}:${user.password}`),

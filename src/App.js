@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Contacte from "./pages/Contacte";
 import Error404 from "./pages/Error404";
-import FAQPage from "./pages/FAQ";
+import FAQPage from "./pages/FAQ"
 import Home from "./pages/Home";
 import React, { useEffect } from 'react';
 import Profile from "./pages/Profile/Profile.js";
 import HackerForm from "./components/Forms/HackerForm";
-import Login from "./pages";
+import Login from "./pages/Login";
 
 export default function App() {
   useEffect(() => {
@@ -23,6 +23,7 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </div>
