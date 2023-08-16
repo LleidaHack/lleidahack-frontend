@@ -3,15 +3,15 @@ import Contacte from "./pages/Contacte";
 import Error404 from "./pages/Error404";
 import FAQPage from "./pages/FAQ";
 import Home from "./pages/Home";
-import React, { useEffect } from 'react';
-import Profile from "./pages/Profile/Profile.js"
+import React, { useEffect } from "react";
+import Profile from "./pages/Profile/Profile.js";
 import HackerForm from "./components/Forms/HackerForm";
 import Sponsors from "./pages/Sponsors";
 
 export default function App() {
-    useEffect(() => {
-      window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
+  }, []);
 
   return (
     <div className="App">

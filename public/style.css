@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
-*{
-    font-family: 'Space Mono', monospace;
+* {
+  font-family: "Space Mono", monospace;
 }
-body{
-    margin: 0;
-    width: 100%;
+body {
+  margin: 0;
+  width: 100%;
 }
 
 /* variables.css */

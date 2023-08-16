@@ -12,16 +12,28 @@ import Medals from "../../components/Medals/Medals";
 import LinkAccounts from "../../components/LinkAccounts/LinkAccounts";
 import Join from "../../components/Join/Join";
 
-import Header from "../../components/Header/Header.js"
+import Header from "../../components/Header/Header.js";
+
+import { getUserById } from "../../services/UserService";
 
 const Profile = () => {
-  const name = "Nom cognom";
+  let user = { name: "Nom Cognom Cognom" };
+  getUserById(localStorage.getItem("userID")).then((data) => {
+    if (!user.id) return;
+
+    user = data;
+  });
+
+  if (user);
+
+  console.log(user);
+
   const usrImage = userIcon;
 
   const yearsMember = "x";
 
-  const startDate = new Date(2022, 10, 25);
-  const endDate = new Date(2022, 10, 27);
+  const startDate = new Date(2023, 10, 25);
+  const endDate = new Date(2023, 10, 27);
 
   useEffect(() => {
     // Coloca el scroll en la parte superior cuando el componente se monta
@@ -40,6 +52,7 @@ const Profile = () => {
               style={{ height: `150px` }}
               className="bg-white border rounded-circle m-auto"
               src={usrImage}
+              alt="Imatge de perfil"
             />
           </div>
           {/* Center Column */}
@@ -48,7 +61,15 @@ const Profile = () => {
               <h3 className="text-center">Benvingut/da, hacker!</h3>
             </div>
             <div className="row my-3">
-              <h1>- {name} -</h1>
+              <div className="col-1 align-self-center">
+                <h1 className="text-center m-auto">-</h1>
+              </div>
+              <div className="col-10">
+                <h1 className="text-center m-auto">{user.name}</h1>
+              </div>
+              <div className="col-1 align-self-center">
+                <h1 className="text-center m-auto">-</h1>
+              </div>
             </div>
             <div className="row">
               <span className="text-center">
@@ -72,10 +93,10 @@ const Profile = () => {
         </div>
 
         {/* Accounts link */}
-        <LinkAccounts/>
+        <LinkAccounts />
 
         {/* Join Box */}
-        <Join/>
+        <Join />
 
         {/* Calendar and Achievements */}
         <div className="row m-5 gy-5 bottom-container text-center m-auto">

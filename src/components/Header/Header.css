@@ -66,25 +66,25 @@ body {
     max-width: 100%;
   }
 
-  .navbar-toggler-icon {
-    color: var(--black);
-  }
+.navbar-toggler-icon {
+  color: var(--black);
+}
 
-  .menu-items.show {
-    display: flex;
-  }
-  
-  .navbar-toggler {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  .navbar-toggler .navbar-toggler-icon {
-    color: var(--black);
-  }
-  
+.menu-items.show {
+  display: flex;
+}
+
+.navbar-toggler {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  color: var(--black);
+}
+
 .navbar-nav {
   margin-left: 0;
   display: flex;
