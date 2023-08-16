@@ -12,7 +12,8 @@ const CalendarDates = (props) => {
   const [endDate, setEndDate] = useState(props.endDate);
 
   return (
-    <div className='dark-background p-5' id="dates">
+    <div className='dark-background p-5' >
+      <div className='claseGhosting' id="dates"></div>
       <h1 className='text-center title-underline'>Dates</h1>
       <Container>
         <Row>

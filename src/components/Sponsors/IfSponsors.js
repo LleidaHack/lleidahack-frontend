@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './IfSponsors.css'
 import {getCompanyById} from '../../services/CompanyService'
+import UserCircle from './others/circles';
+
 const InfoSponsors = ({id}) => {
     const [infoCompany, setInfoCompany] = useState(null);
 
@@ -30,7 +32,7 @@ const InfoSponsors = ({id}) => {
         let SpnName = infoCompany.name //Nom del Sponsor
         let text   //Variable necesaria per a realizar la concatenació de codi HTML depenent de si te web o no.
         let linkedintag = infoCompany.linkedin  //Enllaç del likedin tag de la empresa.
-        let correu = infoCompany.adress //Correu de la empresa 
+        let correu = infoCompany.address //Correu de la empresa 
         let webtag = infoCompany.website  //Web de la empresa
         let imgLogo = infoCompany.logo
         let description = infoCompany.description
@@ -53,6 +55,28 @@ const InfoSponsors = ({id}) => {
             'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png',*/
             // ... y así sucesivamente con tal de meter la cantidad de logos disponibles que se obtendran de base de datos. (Se puede obtener simplementa el año y concatenarlo a un enlace junto a un bucle for que añada tantas insignias como se obtengan.)
         ];
+
+        const users = [
+            {
+                imageSrc: 'https://cdn.openart.ai/stable_diffusion/8bf72432bf8515ebdac9fa6f921cddaa94a61ecf_2000x2000.webp',
+                name: 'Manolo Mallin',
+                description: 'Es un muchayo muy majo que se le da bien darle patadas a la pelota. De vez en cuando, juega a la nintento y se hecha unas risas con el gato'
+            },
+            {
+                imageSrc: 'https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcR5flXcU-23Auy8k0wNejkPSmb3yq5vinWZoGuexKZro3FCOHnbFC0FrGcdDO6hG5TF',
+                name: 'Javier Mallin',
+                description: 'Javier Gerardo Milei  es un economista, político y docente argentino, líder del espacio político La Libertad Avanza.'
+            },
+            {
+                imageSrc: 'https://concertmusicfestival.com/wp-content/uploads/2022/12/TINI_1000x1000.jpg',
+                name: 'Tini Tini Tini',
+                description: 'Martina Stoessel​​ , conocida artísticamente como Tini, es una actriz, cantante y compositora argentina'
+            },
+           
+            // Agrega más usuarios aquí
+        ];
+
+
         if(edicions.length > 0){
             images = edicions
         }
@@ -98,6 +122,32 @@ const InfoSponsors = ({id}) => {
                     </p>
                     <br></br>
                 </section>
+                
+                <section className='descriptions'>
+                <br></br>
+                    <h2>Representants de l'Empresa</h2>
+                    <br></br>
+                    <p>Com a representants de l'empresa conteu amb els seguents membres juntament amb la seva eina de contacte d'empresa</p>
+                    <br></br>
+                    <div className="circle-list">
+                        {users.map((user, index) => (
+                            <UserCircle
+                                key={index}
+                                imageSrc={user.imageSrc}
+                                name={user.name}
+                                description={user.description}
+                            />
+                        ))}
+                    </div>
+                </section>
+                
+                <br></br>
+                <br></br>
+
+                <br></br>
+                <br></br>
+
+
                 <section className='businesActivity'>
                     <br></br>
                     <h2 >Historial d'activitats</h2>

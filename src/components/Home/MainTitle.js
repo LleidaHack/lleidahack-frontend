@@ -10,6 +10,7 @@ import hackLogo from "../../icons/hack_icon_black.png";
 import './MainTitle.css';
 import { useNavigate } from 'react-router-dom';
 
+
 const MainTitle = () => {
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
@@ -21,7 +22,9 @@ const MainTitle = () => {
 
     return (
     <>
-    <div id="home" style={{backgroundColor: "var(--primary)"}}>
+    
+    <div  style={{backgroundColor: "var(--primary)"}}>
+          <div className='fantasma' id="home"></div>
           <div className="row join-container p-5 text-center m-auto">
             <div className="col-12">
               <div className="row">

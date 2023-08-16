@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Contacte.css';
 import logo from '../../icons/imagotip_lleidahack_blanc.png';
 import instagramLogo from '../../icons/instagram.png';
@@ -20,6 +20,11 @@ const ContactePage = () => {
     // Aquí puedes manejar la lógica de envío del formulario.
     console.log(values);
   };
+
+  useEffect(() => {
+    // Coloca el scroll en la parte superior cuando el componente se monta
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container-all">

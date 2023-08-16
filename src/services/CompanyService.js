@@ -17,7 +17,7 @@ export async function getAllCompanies() {
 }
 
 export async function getCompanyById(company_id) {
-    return fetch(`https://backend.lleidahack.dev/company/${company_id}`, {
+    return fetch(`https://backend.main.lleidahack.dev/company/${company_id}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
