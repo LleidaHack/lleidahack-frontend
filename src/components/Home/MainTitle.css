@@ -46,11 +46,11 @@
 }
 
 .center-elements {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-.fantasma{
-    position: relative;
-    top: -1000px;
+.fantasma {
+  position: relative;
+  top: -1000px;
 }
