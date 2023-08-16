@@ -31,15 +31,14 @@
   padding: 0.5vw;
 }
 
-.title1{
-    color: var(--secondary);
-    padding-top: 5%;
-    font-weight: bold;
-    text-align: center;
+.title1 {
+  color: var(--secondary);
+  padding-top: 5%;
+  font-weight: bold;
+  text-align: center;
 }
 
-.gostHunter{
-    position: relative;
-    top: -9.4vh;
+.gostHunter {
+  position: relative;
+  top: -9.4vh;
 }
-

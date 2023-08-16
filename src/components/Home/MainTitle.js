@@ -7,9 +7,8 @@ import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import hackLogo from "../../icons/hack_icon_black.png";
-import './MainTitle.css';
-import { useNavigate } from 'react-router-dom';
-
+import "./MainTitle.css";
+import { useNavigate } from "react-router-dom";
 
 const MainTitle = () => {
   const navigate = useNavigate();
@@ -22,26 +21,26 @@ const MainTitle = () => {
 
   return (
     <>
-    
-    <div  style={{backgroundColor: "var(--primary)"}}>
-          <div className='fantasma' id="home"></div>
-          <div className="row join-container p-5 text-center m-auto">
-            <div className="col-12">
-              <div className="row">
-                <img className="p-5" src={hackLogo} alt="" />
-              </div>
-              <div className="row text-center">
-                <a
-                  href="#"
-                  style={{ width: `fit-content`, textDecoration: `none` }}
-                  className="py-2 px-4 m-auto apuntat-button" onClick={handleShow}
-                >
-                  Apunta't!
-                </a>
-              </div>
+      <div style={{ backgroundColor: "var(--primary)" }}>
+        <div className="fantasma" id="home"></div>
+        <div className="row join-container p-5 text-center m-auto">
+          <div className="col-12">
+            <div className="row">
+              <img className="p-5" src={hackLogo} alt="" />
+            </div>
+            <div className="row text-center">
+              <a
+                href="#"
+                style={{ width: `fit-content`, textDecoration: `none` }}
+                className="py-2 px-4 m-auto apuntat-button"
+                onClick={handleShow}
+              >
+                Apunta't!
+              </a>
             </div>
           </div>
         </div>
+      </div>
 
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton className="no-border">
