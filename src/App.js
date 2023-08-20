@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Contacte from "./Pages/Contacte";
-import Error404 from "./Pages/Error404";
-import FAQPage from "./Pages/FAQ";
-import Home from "./Pages/Home";
-import React, { useEffect } from 'react';
-import Profile from "./Pages/Profile/index.js"
+import Contacte from "./pages/Contacte";
+import Error404 from "./pages/Error404";
+import FAQPage from "./pages/FAQ";
+import Home from "./pages/Home";
+import React, { useEffect } from "react";
+import Profile from "./pages/Profile/Profile.js";
 import HackerForm from "./components/Forms/HackerForm";
 
 export default function App() {
-    useEffect(() => {
-      window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
+  }, []);
 
   return (
     <div className="App">
