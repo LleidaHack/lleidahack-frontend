@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-import React from "react";
-import "./FAQ_card.css"; // Agregar el archivo de estilos CSS para FAQCard
-=======
+
 import React from 'react';
 import 'src/components/FAQ_card/FAQ_card.css'; // Agregar el archivo de estilos CSS para FAQCard
->>>>>>> 21-svila-inscripcions-equip
+
 
 const FAQCard = ({ question, answer }) => {
   return (

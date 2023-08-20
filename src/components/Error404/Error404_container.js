@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-import React from "react";
-import "./Error404_container.css";
-import { Link } from "react-router-dom";
-=======
 import React from 'react'
 import 'src/components/Error404/Error404_container.css'
 import { Link } from 'react-router-dom';
->>>>>>> 21-svila-inscripcions-equip
+
 
 const Error404 = () => {
   return (
