@@ -51,17 +51,16 @@ const CountdownTimer = (props) => {
     if (numberString.length >= minLength) return numberString;
     return "0".repeat(minLength - numberString.length) + numberString;
   }
-  if(timestampDayjs.diff(nowDayjs, "seconds") >= 0 && active){
-    return(
-          <div className="countdown-timer">
-              <span>{remainingTime.months}</span>
-              <span className="countdown-timer-text">mesos</span>
-              <span>{remainingTime.days}</span>
-              <span className="countdown-timer-text">dies</span>
-              <span>{remainingTime.hours}</span>
-              <span className="countdown-timer-text">hores</span>
-          </div>
-
+  if (timestampDayjs.diff(nowDayjs, "seconds") >= 0 && active) {
+    return (
+      <div className="countdown-timer">
+        <span>{remainingTime.months}</span>
+        <span className="countdown-timer-text">mesos</span>
+        <span>{remainingTime.days}</span>
+        <span className="countdown-timer-text">dies</span>
+        <span>{remainingTime.hours}</span>
+        <span className="countdown-timer-text">hores</span>
+      </div>
     );
   } else if (eventendDayjs.diff(nowDayjs, "seconds") >= 0 && active) {
     return (
@@ -72,8 +71,7 @@ const CountdownTimer = (props) => {
         <span className="countdown-timer-text">minuts</span>
         <span>{remainingTime.seconds}</span>
         <span className="countdown-timer-text">segons</span>
-    </div>
-
+      </div>
     );
   }
   return;
