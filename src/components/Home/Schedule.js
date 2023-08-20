@@ -1,7 +1,9 @@
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-import 'src/components/Home/Schedule.css';
-
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import "src/components/Home/Schedule.css";
 
 const Schedule = (props) => {
   const rendered_events = props.events.map((event) => {

@@ -1,5 +1,5 @@
-import React from 'react'
-import 'src/components/Home/Sponsors.css';
+import React from "react";
+import "src/components/Home/Sponsors.css";
 
 const Sponsors = () => {
   return (

@@ -1,8 +1,8 @@
 // FAQPage.js
-import React from 'react';
-import FAQContainer from 'src/components/FAQ_container/FAQ_container.js'
-import Header from 'src/components/Header/Header.js'
-import Footer from 'src/components/Footer/Footer.js'
+import React from "react";
+import FAQContainer from "src/components/FAQ_container/FAQ_container.js";
+import Header from "src/components/Header/Header.js";
+import Footer from "src/components/Footer/Footer.js";
 
 const faqs = [
   {

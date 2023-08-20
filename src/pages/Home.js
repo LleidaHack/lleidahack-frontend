@@ -1,12 +1,11 @@
-import React from 'react';
-import Header from 'src/components/Header/Header.js'
-import Footer from 'src/components/Footer/Footer.js'
+import React from "react";
+import Header from "src/components/Header/Header.js";
+import Footer from "src/components/Footer/Footer.js";
 import CalendarDates from "src/components/Home/Calendar.js";
 import Sponsors from "src/components/Home/Sponsors.js";
 import Schedule from "src/components/Home/Schedule.js";
 import CountdownTimer from "src/components/Home/Timer.js";
-import MainTitle from 'src/components/Home/MainTitle.js';
-
+import MainTitle from "src/components/Home/MainTitle.js";
 
 const Home = () => {
   const startDate = new Date(2023, 10, 25);
