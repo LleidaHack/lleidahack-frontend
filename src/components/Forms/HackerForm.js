@@ -1,8 +1,8 @@
 // src/components/Forms/HackerForm.js
 
-import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
-import "./HackerForm.css";
+import Header from 'src/components/Header/Header.js'
+import Footer from 'src/components/Footer/Footer.js'
+import 'src/components/Forms/HackerForm.css';
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -24,19 +24,16 @@ const validationSchema = Yup.object().shape({
 });
 
 const HackerPanel = () => {
-  return (
-    <Col className="hacker-panel">
-      <Row>
-        <img
-          src={require("../../imgs/hacker_image.svg").default}
-          alt="Hacker"
-        />
-      </Row>
-      <Row>
-        <h2 className="hacker-panel-title">Hacker</h2>
-      </Row>
-    </Col>
-  );
+    return (
+      <Col className='hacker-panel'>
+        <Row>
+          <img src={require('src/imgs/hacker_image.svg').default} alt='Hacker' />
+        </Row>
+        <Row>
+          <h2 className='hacker-panel-title'>Hacker</h2>
+        </Row>
+      </Col>
+    );
 };
 
 export const HackerStepperForm = () => {

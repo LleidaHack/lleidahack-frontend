@@ -1,95 +1,18 @@
 import React from "react";
 import { useState } from "react";
 
-import MetaTest from "./MetaTest";
-import {
-  signupUser,
-  getAllUsers,
-  getUserById,
-  updateUser,
-  deleteUser,
-  addUser,
-} from "../../services/UserService";
-import {
-  signupHacker,
-  getAllHackers,
-  getHackerById,
-  updateHacker,
-  deleteHacker,
-  addHacker,
-  banHackerById,
-  unbanHackerById,
-} from "../../services/HackerService";
-import {
-  getAllHackerGroups,
-  getHackerGroupById,
-  updateHackerGroup,
-  deleteHackerGroup,
-  addHackerGroup,
-  getHackerGroupMembers,
-  addHackerToGroup,
-  removeHackerFromGroup,
-} from "../../services/HackerGroupService";
-import {
-  signupLleidaHacker,
-  getAllLleidaHackers,
-  getLleidaHackerById,
-  updateLleidaHacker,
-  deleteLleidaHacker,
-  addLleidaHacker,
-} from "../../services/LleidaHackerService";
-import {
-  getAllLleidaHackerGroups,
-  getLleidaHackerGroupById,
-  deleteLleidaHackerGroup,
-  addLleidaHackerGroup,
-  getLleidaHackerGroupMembers,
-  addLleidaHackerToGroup,
-  removeLleidaHackerFromGroup,
-  setLleidaHackerGroupLeader,
-} from "../../services/LleidaHackerGroupService";
-import {
-  getAllCompanies,
-  getCompanyById,
-  updateCompany,
-  deleteCompany,
-  addCompany,
-  getCompanyUsers,
-  addUserToCompany,
-  removeUserFromCompany,
-} from "../../services/CompanyService";
-import {
-  getEvents,
-  createEvent,
-  getEventById,
-  updateEvent,
-  deleteEvent,
-  getEventParticipants,
-  getEventSponsors,
-  getEventGroups,
-  addEventParticipant,
-  deleteEventParticipant,
-  addEventSponsor,
-  deleteEventSponsor,
-  addEventGroup,
-  deleteEventGroup,
-} from "../../services/EventService";
-import { confirmEmail, login } from "../../services/AuthenticationService";
-import { uploadImage, sendMail, getImage } from "../../services/UtilsService";
-import {
-  registerHackerToEvent,
-  unregisterHackerToEvent,
-  getEventStatus,
-  hackerEatsFoodFrom,
-} from "../../services/EventManagementService";
-import {
-  signupCompanyUser,
-  getAllCompanyUsers,
-  getCompanyUserById,
-  updateCompanyUser,
-  deleteCompanyUser,
-  addCompanyUser,
-} from "../../services/CompanyUserService";
+import MetaTest from 'src/components/others/MetaTest';
+import {signupUser,getAllUsers,getUserById,updateUser,deleteUser,addUser} from "src/services/UserService";
+import {signupHacker,getAllHackers,getHackerById,updateHacker,deleteHacker,addHacker,banHackerById,unbanHackerById} from "src/services/HackerService";
+import {getAllHackerGroups,getHackerGroupById,updateHackerGroup,deleteHackerGroup,addHackerGroup,getHackerGroupMembers,addHackerToGroup,removeHackerFromGroup} from "src/services/HackerGroupService";
+import {signupLleidaHacker,getAllLleidaHackers,getLleidaHackerById,updateLleidaHacker,deleteLleidaHacker,addLleidaHacker} from "src/services/LleidaHackerService";
+import {getAllLleidaHackerGroups,getLleidaHackerGroupById,deleteLleidaHackerGroup,addLleidaHackerGroup,getLleidaHackerGroupMembers,addLleidaHackerToGroup,removeLleidaHackerFromGroup,setLleidaHackerGroupLeader} from "src/services/LleidaHackerGroupService";
+import {getAllCompanies,getCompanyById,updateCompany,deleteCompany,addCompany,getCompanyUsers,addUserToCompany,removeUserFromCompany} from "src/services/CompanyService";
+import {getEvents,createEvent,getEventById,updateEvent,deleteEvent,getEventParticipants,getEventSponsors,getEventGroups,addEventParticipant,deleteEventParticipant,addEventSponsor,deleteEventSponsor,addEventGroup,deleteEventGroup} from "src/services/EventService";
+import {confirmEmail,login} from "src/services/AuthenticationService";
+import {uploadImage,sendMail,getImage} from "src/services/UtilsService";
+import {registerHackerToEvent,unregisterHackerToEvent,getEventStatus,hackerEatsFoodFrom} from "src/services/EventManagementService";
+import {signupCompanyUser,getAllCompanyUsers,getCompanyUserById,updateCompanyUser,deleteCompanyUser,addCompanyUser} from "src/services/CompanyUserService";
 
 const Testing = () => {
   const [user, setUser] = useState({
