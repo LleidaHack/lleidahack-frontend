@@ -1,11 +1,11 @@
-.p-bg-black {
-  background-color: #222 !important;
+.p-bg-black{
+    background-color: var(--secondary);
 }
 
-.p-bg-grey {
-  background-color: #393939 !important;
+.p-bg-grey{
+    background-color: var(--gray-strong);
 }
 
-.p-bg-red {
-  background-color: #a41525 !important;
+.p-bg-primary{
+    background-color: var(--primary);
 }

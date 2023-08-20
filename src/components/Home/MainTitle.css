@@ -37,8 +37,8 @@
 }
 
 .button:hover {
-  background-color: #002ead;
-  transition: 0.7s;
+    background-color:var(--primary-strong);
+    transition: 0.7s;
 }
 
 .no-border {

@@ -1,0 +1,43 @@
+.team-button {
+    color: var(--secondary) !important;
+    background-color: var(--primary) !important;
+    border-width: 0px !important;
+}
+
+.team-button:hover {
+    background-color: var(--primary-strong) !important;
+}
+
+.team-button:focus {
+    background-color: var(--primary-strong) !important;
+}
+
+.team-button:active {
+    background-color: var(--primary-strong) !important;
+}
+
+.team-button-fit {
+    width: fit-content !important;
+    text-decoration: none !important;
+}
+
+.team-member-name {
+    font-size: 2em;
+    color: var(--secondary);
+}
+
+.team-member-image {
+    border-radius: 100%;
+}
+
+.team-modal-no-border {
+    border-width: 0px !important;
+}
+
+.team-form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
