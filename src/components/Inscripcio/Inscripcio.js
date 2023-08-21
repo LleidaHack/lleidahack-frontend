@@ -6,6 +6,8 @@ import debounce from 'lodash.debounce';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { FormikStepper, InputField, SelectField } from "formik-stepper";
+
 
 const validationSchema = Yup.object().shape({
     studies: Yup.string().required('Aquest camp és obligatori'),
@@ -44,23 +46,29 @@ const InscripcioForm = () => {
 
   const fetchCities = async (searchText) => {
     try {
-      const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${searchText}&format=json`);
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?q=${searchText}&format=json`
+      );
       if (!response.ok) {
         throw new Error('Error al obtener la lista de ciudades');
       }
       const data = await response.json();
+      console.log(data);
       if (!data || data.length === 0) {
         throw new Error('La lista de ciudades está vacía');
       }
-      const cities = data.map((city) => ({
-        value: city.display_name,
-        label: city.display_name,
+      const cities = data.map((location) => ({
+        value: location.display_name,
+        label: `${location.display_name}`,
+        boundingBox: location.boundingbox, // Opcional: puedes incluir el boundingBox si es útil
       }));
       setCityOptions(cities);
     } catch (error) {
       console.error(error);
     }
   };
+  
+  
 
   // Función para obtener la lista de ciudades con debounce
   const debouncedFetchCities = debounce(fetchCities, 1000);
@@ -100,15 +108,21 @@ const InscripcioForm = () => {
                     <div className="formik-field">
                         <label htmlFor="location">D'on vens?:</label>
                         <Field name="location">
-                            {({ field }) => (
-                                <Select
-                                {...field}
-                                options={cityOptions}
-                                placeholder="Selecciona una ciutat"
-                                onInputChange={(searchText) => debouncedFetchCities(searchText)}
-                                />
-                            )}
+                          {({ field }) => (
+                            <Select
+                              {...field}
+                              value={field.value} // Establece el valor seleccionado
+                              options={cityOptions}
+                              placeholder="Selecciona una ciudad"
+                              onInputChange={(searchText) => debouncedFetchCities(searchText)}
+                              onChange={(selectedOption) => {
+                                // Establece el valor seleccionado en Formik
+                                setFieldValue('location', selectedOption ? selectedOption.value : '');
+                              }}
+                            />
+                          )}
                         </Field>
+
                         <ErrorMessage name="location" component="div" className="error-message" />
                     </div>
 
@@ -126,7 +140,7 @@ const InscripcioForm = () => {
                     </div>
 
                     <div className="formik-field">
-                        <label htmlFor="food">Tens alguna restricció alimentària o alergia?</label>
+                        <label htmlFor="food">Tens alguna restricció alimentària o alèrgia?</label>
                         <Field type="text" id="food" name="food" />
                         <ErrorMessage name="food" component="div" className="error-message" />
                     </div>
@@ -153,23 +167,19 @@ const InscripcioForm = () => {
                         <Field as="textarea" id="cvinfo_links" name="cvinfo_links" rows="4" />
                     </div>
 
-                    <div className="formik-field">
-                        <p className="subtitle">Puja el teu currículum (opcional):</p>
-                        <div className="file-input-container">
-                        <input
-                            type="file"
-                            name='cvinfo_file'
-                            capture="user"
-                            onChange={(event) => {
-                                const file = event.target.files[0];
-                                setFieldValue('cvinfo_file', file);
-                                setCvFile(file); 
-                            }}
-                        />
-                        <span className="file-name">
-                            {cvFile ? cvFile.name : 'Selecciona un arxiu'} 
-                        </span>
-                        </div>
+                    <div className="file-input-container">
+                      <input
+                        type="file"
+                        name='cvinfo_file'
+                        onChange={(event) => {
+                          const file = event.target.files[0];
+                          setFieldValue('cvinfo_file', file);
+                          console.log(file);
+                        }}
+                      />
+                      <span className="file-name">
+                        {values.cvinfo_file ? values.cvinfo_file.name : 'Selecciona un arxiu'} 
+                      </span>
                     </div>
 
               <ErrorMessage name="cvinfo_links" component="div" className="error-message" />

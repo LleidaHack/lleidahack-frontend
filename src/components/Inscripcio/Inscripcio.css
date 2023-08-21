@@ -118,6 +118,12 @@
     margin-bottom: 20px;
   }
 
+  .file.name {
+    color: var(--white);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
 
   @keyframes fadeIn {
     from {

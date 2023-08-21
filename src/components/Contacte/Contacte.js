@@ -51,7 +51,7 @@ const ContactePage = () => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            <Form>
+            <Form className='form-contacte'>
               <div className="formik-field">
                 <label htmlFor="name">Nom:</label>
                 <Field type="text" id="name" name="name" />
