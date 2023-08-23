@@ -41,37 +41,22 @@ const InscripcioForm = () => {
     console.log(values);
   };
 
-  const [cityOptions, setCityOptions] = useState([]);
   const [cvFile, setCvFile] = useState(null);
 
-  const fetchCities = async (searchText) => {
-    try {
-      const response = await fetch(
-        `https://nominatim.openstreetmap.org/search?q=${searchText}&format=json`
-      );
-      if (!response.ok) {
-        throw new Error('Error al obtener la lista de ciudades');
-      }
-      const data = await response.json();
-      console.log(data);
-      if (!data || data.length === 0) {
-        throw new Error('La lista de ciudades está vacía');
-      }
-      const cities = data.map((location) => ({
-        value: location.display_name,
-        label: `${location.display_name}`,
-        boundingBox: location.boundingbox, // Opcional: puedes incluir el boundingBox si es útil
-      }));
-      setCityOptions(cities);
-    } catch (error) {
-      console.error(error);
-    }
+  const handleFileChange = (event) => {
+      const file = event.target.files[0];
+      setCvFile(file);
+      console.log(file);
   };
-  
-  
 
-  // Función para obtener la lista de ciudades con debounce
-  const debouncedFetchCities = debounce(fetchCities, 1000);
+  const clearFile = () => {
+      setCvFile(null);
+      // Clear the input field to allow selecting the same file again
+      const inputElement = document.getElementById('cvinfo_file');
+      if (inputElement) {
+          inputElement.value = '';
+      }
+  };
 
   return (
     <div className="container-all">
@@ -87,7 +72,10 @@ const InscripcioForm = () => {
               food:'',
               cvinfo: '',
               meet: '',
-            }}
+              linkedin: '', 
+              github: '',   
+              devpost: '',
+            }}  
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
@@ -107,22 +95,7 @@ const InscripcioForm = () => {
 
                     <div className="formik-field">
                         <label htmlFor="location">D'on vens?:</label>
-                        <Field name="location">
-                          {({ field }) => (
-                            <Select
-                              {...field}
-                              value={field.value} // Establece el valor seleccionado
-                              options={cityOptions}
-                              placeholder="Selecciona una ciudad"
-                              onInputChange={(searchText) => debouncedFetchCities(searchText)}
-                              onChange={(selectedOption) => {
-                                // Establece el valor seleccionado en Formik
-                                setFieldValue('location', selectedOption ? selectedOption.value : '');
-                              }}
-                            />
-                          )}
-                        </Field>
-
+                        <Field type="text" id="location" name="location" />
                         <ErrorMessage name="location" component="div" className="error-message" />
                     </div>
 
@@ -158,34 +131,57 @@ const InscripcioForm = () => {
                     </div>
                     <div className="formik-field">
                         <label htmlFor="cvinfo_links">
-                        Vols que les empreses de Lleida et coneguin? (Opcional)
+                            Vols que les empreses de Lleida et coneguin? (Opcional)
                         </label>
                         <p className="subtitle">
-                        Deixa'ns els enllaços dels teus projectes personals o les teves xarxes sociales
-                        per a que les empreses patrocinadores puguin contactar-te
+                            Tens expeciència en altres hackatons? Algun projecte personal que vulguis compartir? Explica'ns què t'apassiona i deixa aquí els enllaços de les teves xarxes socials.
                         </p>
                         <Field as="textarea" id="cvinfo_links" name="cvinfo_links" rows="4" />
+
+                        {/* Agrupamos los campos de LinkedIn, GitHub y Devpost uno debajo del otro */}
+                        <div className="subfields-container">
+                            <div className="subfield">
+                                <Field type="text" id="linkedin" name="linkedin" placeholder="Enllaç de LinkedIn" />
+                                <ErrorMessage name="linkedin" component="div" className="error-message" />
+                            </div>
+                        </div>
+
+                        <div className="subfields-container">
+                            <div className="subfield">
+                                <Field type="text" id="github" name="github" placeholder="Enllaç de GitHub" />
+                                <ErrorMessage name="github" component="div" className="error-message" />
+                            </div>
+                        </div>
+
+                        <div className="subfields-container">
+                            <div className="subfield">
+                                <Field type="text" id="devpost" name="devpost" placeholder="Enllaç de Devpost" />
+                                <ErrorMessage name="devpost" component="div" className="error-message" />
+                            </div>
+                        </div>
                     </div>
 
                     <div className="file-input-container">
-                      <input
-                        type="file"
-                        name='cvinfo_file'
-                        onChange={(event) => {
-                          const file = event.target.files[0];
-                          setFieldValue('cvinfo_file', file);
-                          console.log(file);
-                        }}
-                      />
-                      <span className="file-name">
-                        {values.cvinfo_file ? values.cvinfo_file.name : 'Selecciona un arxiu'} 
-                      </span>
+                        <label htmlFor="cvinfo_file">Adjunta el teu CV (Opcional)</label>
+                        <input
+                            type="file"
+                            id="cvinfo_file"
+                            name='cvinfo_file'
+                            onChange={handleFileChange}
+                        />
+                        {cvFile && (
+                            <div className="file-info">
+                                <span className="file-name">{cvFile.name}</span>
+                                <button
+                                    type="button"
+                                    className="delete-button"
+                                    onClick={clearFile}
+                                >
+                                    &#10005;
+                                </button>
+                            </div>
+                        )}
                     </div>
-
-              <ErrorMessage name="cvinfo_links" component="div" className="error-message" />
-              <ErrorMessage name="cvinfo_file" component="div" className="error-message" />
-
-
                     <div className="button-submit-container">
                         <button className="button-submit" type="submit">Enviar</button>
                     </div>

@@ -118,11 +118,40 @@
     margin-bottom: 20px;
   }
 
-  .file.name {
+  .file-name {
     color: var(--white);
     font-size: 14px;
     margin-bottom: 20px;
   }
+
+  .subfields-container {
+    margin-top: 10px; /* Espacio entre los subcampos */
+  }
+
+  .file-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+  }
+
+  .delete-button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+
+  .select-field .react-select__control,
+  input[type="text"] {
+    height: 50px; /* Ajusta esta altura según tus preferencias */
+  }
+
+
+
+
 
 
   @keyframes fadeIn {
