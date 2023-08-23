@@ -38,28 +38,13 @@ const Profile = () => {
   const [hacker, setHacker] = useState(null)
   const [team, setTeam] = useState(null)
 
-  function loadHacker() {
-    console.log(hacker_id);
-    getHackerById(hacker_id).then((response) => {
-      setHacker(response);
-      return response;
-    }).then((response) => {
-      let fetched_team = {teamName: "Team name", teamCode: "123456", members: []}
-      let num_members = 6;
-      for(let i=0; i<num_members; i++) {
-        fetched_team.members.push({"name": "AAA", "imageUrl": "aa", "profileLink": "bb"});
-      }
-      setTeam(fetched_team);
-    })
-  }
-
   useEffect(() => {
     console.log(hacker_id);
     getHackerById(hacker_id).then((response) => {
       setHacker(response);
       return response;
     }).then((response) => {
-      let fetched_team = {teamName: "Team name", teamCode: "123456", members: []}
+      let fetched_team = {id: 1, teamName: "Team name", teamCode: "123456", members: []}
       let num_members = 6;
       for(let i=0; i<num_members; i++) {
         fetched_team.members.push({"name": "AAA", "imageUrl": "aa", "profileLink": i});
