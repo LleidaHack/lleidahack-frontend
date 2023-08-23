@@ -1,5 +1,5 @@
 export async function signupHacker(hacker) {
-    return fetch('https://backend.lleidahack.dev/hacker/signup', {
+    return fetch('https://backend.integration.lleidahack.dev/hacker/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ export async function signupHacker(hacker) {
 }
 
 export async function getAllHackers() {
-    return fetch('https://backend.lleidahack.dev/hacker/all', {
+    return fetch('https://backend.integration.lleidahack.dev/hacker/all', {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -35,9 +35,10 @@ export async function getAllHackers() {
         return [];
     });  
 }
-
+// 6540aa4d-cfba-4fea-a582-0d33529e48d4
 export async function getHackerById(hacker_id) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}`, {
+    console.log(hacker_id);
+    return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker_id}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + localStorage.getItem("userToken")
@@ -55,7 +56,7 @@ export async function getHackerById(hacker_id) {
 }
 
 export async function updateHacker(hacker) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${hacker.id}`, {
+    return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -75,7 +76,7 @@ export async function updateHacker(hacker) {
 }
 
 export async function addHacker(hacker) {
-    return fetch('https://backend.lleidahack.dev/hacker/', {
+    return fetch('https://backend.integration.lleidahack.dev/hacker/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -95,7 +96,7 @@ export async function addHacker(hacker) {
 }
 
 export async function banHackerById(hacker_id) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}/ban`, {
+    return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker_id}/ban`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -114,7 +115,7 @@ export async function banHackerById(hacker_id) {
 }
 
 export async function unbanHackerById(hacker_id) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}/unban`, {
+    return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker_id}/unban`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -133,7 +134,7 @@ export async function unbanHackerById(hacker_id) {
 }
 
 export async function deleteHacker(hacker_id) {
-    return fetch(`https://backend.lleidahack.dev/hacker/${hacker_id}`, {
+    return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker_id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

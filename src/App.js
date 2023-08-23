@@ -21,7 +21,7 @@ export default function App() {
           <Route path="/home" element={<Home />} />
           <Route path="*" element={<Error404 />} />
           <Route path="/perfil" element={<Profile />} />
-          <Route path="/perfil/:id" element={<Profile />} />
+          <Route path="/perfil/:hacker_id" element={<Profile />} />
           <Route path="/" element={<Home />} />
           <Route path="/hacker-form" element={<HackerForm />} />
         </Routes>

@@ -1,8 +1,9 @@
 import React from "react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import "src/palette.css";
 import Modal from 'react-bootstrap/Modal';
+import HSkeleton from 'src/components/others/HSkeleton';
 
 //import "./main.css"; // TODO: No existeix aquest fitxer
 
@@ -15,10 +16,11 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from 'src/components/Home/QrCode.js';
-import Header from "src/components/Header/Header.js"
+import Header from "src/components/Header/Header.js";
+import { getHackerById } from "src/services/HackerService";
 
 const Profile = () => {
-  const { id } = useParams();
+  const { hacker_id } = useParams();
 
   const name = "Nom cognom";
   const usrImage = userIcon;
@@ -33,30 +35,57 @@ const Profile = () => {
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
 
-  const members = [{"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
-  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
-  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
-  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
-  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
-  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"},
-  {"name": "AAA", "imageUrl": "aa", "profileLink": "bb"}]
+  const [hacker, setHacker] = useState(null)
+  const [team, setTeam] = useState(null)
 
-  console.log(id);
+  function loadHacker() {
+    console.log(hacker_id);
+    getHackerById(hacker_id).then((response) => {
+      setHacker(response);
+      return response;
+    }).then((response) => {
+      let fetched_team = {teamName: "Team name", teamCode: "123456", members: []}
+      let num_members = 6;
+      for(let i=0; i<num_members; i++) {
+        fetched_team.members.push({"name": "AAA", "imageUrl": "aa", "profileLink": "bb"});
+      }
+      setTeam(fetched_team);
+    })
+  }
+
+  useEffect(() => {
+    console.log(hacker_id);
+    getHackerById(hacker_id).then((response) => {
+      setHacker(response);
+      return response;
+    }).then((response) => {
+      let fetched_team = {teamName: "Team name", teamCode: "123456", members: []}
+      let num_members = 6;
+      for(let i=0; i<num_members; i++) {
+        fetched_team.members.push({"name": "AAA", "imageUrl": "aa", "profileLink": i});
+      }
+      setTeam(fetched_team);
+      //setTeam({'id': null});
+    })
+  }, []);
 
   return (
     <>
-    <div className="p-bg-black py-5 text-white">
+    <div className="p-bg-black text-white">
       <Header />
       <div className="container-fluid container-xxl">
         {/* User info and qr */}
         <div className="row align-middle mx-auto my-3">
           {/* User Image */}
           <div className="col-12 col-xl-4 m-auto text-center">
-            <img
-              style={{ height: `150px` }}
-              className="bg-white border rounded-circle m-auto"
-              src={usrImage}
-            />
+            { hacker ? 
+                <img
+                style={{ height: `150px` }}
+                className="bg-white border rounded-circle m-auto"
+                src={"https://xsgames.co/randomusers/avatar.php?g=pixel"}
+              />
+              : <HSkeleton height={'150px'} width={'150px'} circle={true} />
+             }
           </div>
           {/* Center Column */}
           <div className="col-12 col-xl-4 px-0 my-3 text-center">
@@ -64,16 +93,17 @@ const Profile = () => {
               <h3 className="text-center">Benvingut/da, hacker!</h3>
             </div>
             <div className="row my-3">
-              <h1>- {name} -</h1>
+              <h1>- {hacker ? hacker.name : <HSkeleton width={"50%"} inline />} -</h1>
             </div>
             <div className="row">
               <span className="text-center">
-                Membre desde fa {yearsMember} anys
+                Membre desde fa {hacker ? "PENDENT" : <HSkeleton width={"5%"} inline />} anys
               </span>
             </div>
           </div>
           {/* QR Column */}
           <div className="col-12 col-xl-4 mx-auto">
+          { hacker ?
           <a href="#" onClick={handleShowQR}>
             <div className="container qr-container p-bg-primary p-2 text-center m-auto">
               <div className="row">
@@ -86,7 +116,8 @@ const Profile = () => {
               </div>
             </div>
             </a>
-
+          : <HSkeleton height={"100%"} />
+          }
           </div>
         </div>
 
@@ -96,7 +127,7 @@ const Profile = () => {
         {/* Join Box */}
         <Join/>
 
-        <Team teamName={"Team test"} teamCode={"123456"} members={members} />
+        { team ? <Team team={team} /> : <></> }
 
         {/* Calendar and Achievements */}
         <div className="row m-5 gy-5 bottom-container text-center m-auto">
@@ -117,7 +148,7 @@ const Profile = () => {
     </div>
 
     <Modal show={showQR} onHide={handleCloseQR} centered>
-      <QrCode url="www.google.com" />
+      <QrCode url="{hacker.qrCode}" />
     </Modal>
     </>
   );
