@@ -1,6 +1,6 @@
 .circle-item {
   position: relative;
-  width: 35%;
+  width: 28%;
   height: auto;
   overflow: hidden;
   cursor: pointer;
@@ -20,7 +20,7 @@
   cursor: default;
   margin-top: 30px;
   margin-bottom: 30px;
-  min-width: 250px;
+  min-width: 210px;
 }
 
 @media (max-width: 768px) {
@@ -31,6 +31,7 @@
     margin-top: 10px; /* Reducir margen superior en pantallas pequeñas */
     margin-bottom: 10px; /* Reducir margen inferior en pantallas pequeñas */
     min-width: none;
+    scale: 0.9;
   }
 }
 
@@ -42,8 +43,8 @@
 }
 
 .popup-icon {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 10px;

@@ -1,10 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "./IfSponsors.css";
-import { getCompanyById } from "../../services/CompanyService";
+import { getCompanyById, getCompanyEvents } from "../../services/CompanyService";
 import UserCircle from "./others/circles";
+
+
+let images = [
+  /*'https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
+        'https://cdn.freebiesupply.com/logos/large/2x/ajuntament-de-lleida-logo-png-transparent.png',
+        'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png',
+        'https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
+        'https://cdn.freebiesupply.com/logos/large/2x/ajuntament-de-lleida-logo-png-transparent.png',
+        'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png','https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
+        'https://cdn.freebiesupply.com/logos/large/2x/ajuntament-de-lleida-logo-png-transparent.png',
+        'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png','https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
+        'https://cdn.freebiesupply.com/logos/large/2x/ajuntament-de-lleida-logo-png-transparent.png',
+        'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png',*/
+  // ... y así sucesivamente con tal de meter la cantidad de logos disponibles que se obtendran de base de datos. (Se puede obtener simplementa el año y concatenarlo a un enlace junto a un bucle for que añada tantas insignias como se obtengan.)
+];
+
 
 const InfoSponsors = ({ id }) => {
   const [infoCompany, setInfoCompany] = useState(null);
+  const [events, setInfoCompany2] = useState(null);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,6 +30,19 @@ const InfoSponsors = ({ id }) => {
         const companyData = await getCompanyById(id);
         setInfoCompany(companyData);
         console.log("La información obtenida es:", companyData);
+        try{
+          const companyEvents = await getCompanyEvents(id)
+          setInfoCompany2(companyEvents)
+          console.log(companyEvents)
+          companyEvents.map((events, index) => (
+            
+            images[index] = events.image
+            
+          ))
+          
+        } catch (errors){
+          console.log("El error obtenido es:", errors)
+        }
       } catch (error) {
         console.log("El error obtenido es:", error);
       }
@@ -20,7 +51,7 @@ const InfoSponsors = ({ id }) => {
     fetchData();
   }, [id]);
 
-  console.log("cargando");
+ 
 
   if (!infoCompany) {
     return <div className="The-Grand-Phather">Cargando...</div>;
@@ -32,7 +63,7 @@ const InfoSponsors = ({ id }) => {
 
     let SpnName = infoCompany.name; //Nom del Sponsor
     let text; //Variable necesaria per a realizar la concatenació de codi HTML depenent de si te web o no.
-    let linkedintag = infoCompany.linkedin; //Enllaç del likedin tag de la empresa.
+    let linkedintag = infoCompany.linkdin; //Enllaç del likedin tag de la empresa.
     let correu = infoCompany.address; //Correu de la empresa
     let webtag = infoCompany.website; //Web de la empresa
     let imgLogo = infoCompany.logo;
@@ -43,19 +74,7 @@ const InfoSponsors = ({ id }) => {
       xarxes = true;
     }
 
-    let images = [
-      /*'https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
-            'https://cdn.freebiesupply.com/logos/large/2x/ajuntament-de-lleida-logo-png-transparent.png',
-            'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png',
-            'https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
-            'https://cdn.freebiesupply.com/logos/large/2x/ajuntament-de-lleida-logo-png-transparent.png',
-            'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png','https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
-            'https://cdn.freebiesupply.com/logos/large/2x/ajuntament-de-lleida-logo-png-transparent.png',
-            'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png','https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
-            'https://cdn.freebiesupply.com/logos/large/2x/ajuntament-de-lleida-logo-png-transparent.png',
-            'https://www.diputaciolleida.cat/wp-content/uploads/2021/01/DLL-for%C3%A7a_municipis-1024x568.png',*/
-      // ... y así sucesivamente con tal de meter la cantidad de logos disponibles que se obtendran de base de datos. (Se puede obtener simplementa el año y concatenarlo a un enlace junto a un bucle for que añada tantas insignias como se obtengan.)
-    ];
+ 
 
     const users = [
       {
@@ -153,9 +172,6 @@ const InfoSponsors = ({ id }) => {
             ))}
           </div>
         </section>
-
-        <br></br>
-        <br></br>
 
         <br></br>
         <br></br>
