@@ -97,7 +97,7 @@ const Testing = () => {
         "name": "joel",
         "nickname": "elver",
         "password": "12345678a",
-        "birthdate": "06/20/03",
+        "birthdate": "2003-06-20",
         "food_restrictions": "NO",
         "email": "joelros2008@gmail.com",
         "telephone": "693931391",
@@ -108,10 +108,10 @@ const Testing = () => {
     });
 
   const [hacker, setHacker] = useState({
-    name: "joel",
+    name: "aaaaaaaa",
     nickname: "elver",
     password: "12345678a",
-    birthdate: "06/20/03",
+    birthdate: "2003-06-20",
     food_restrictions: "NO",
     email: "joelros2000@gmail.com",
     telephone: "693931391",
@@ -121,6 +121,7 @@ const Testing = () => {
     banned: true,
     github: "string",
     linkedin: "string",
+    id: 29
   });
 
   const [grup, setGrup] = useState({
@@ -129,24 +130,21 @@ const Testing = () => {
     id: 2,
     members: [
       {
-        name: "string",
-        nickname: "string",
-        password: "string",
-        birthdate: "string",
-        food_restrictions: "string",
-        email: "string",
-        telephone: "string",
-        address: "string",
-        shirt_size: "string",
-        image_id: "string",
+        name: "aaaaaaaa",
+        nickname: "elver",
+        password: "12345678a",
+        birthdate: "2003-06-20",
+        food_restrictions: "NO",
+        email: "joelros2000@gmail.com",
+        telephone: "693931391",
+        address: "casa",
+        shirt_size: "L",
+        image_id: "0",
         banned: true,
-        role: "string",
-        nif: "48255629L",
-        student: true,
-        active: true,
         github: "string",
         linkedin: "string",
-      },
+        id: 29
+      }
     ],
     leader: 0,
   });
@@ -156,7 +154,7 @@ const Testing = () => {
     id: 6,
     nickname: "elver",
     password: "12345678a",
-    birthdate: "06/20/03",
+    birthdate: "2003-06-20",
     food_restrictions: "NO",
     email: "joelros2001@gmail.com",
     telephone: "693931391",
@@ -272,14 +270,14 @@ const Testing = () => {
             {
                 body:signupHacker, 
                 params:[hacker], 
-                status:false
+                status:true
             },{
                 body:getAllHackers, 
                 params:[], 
-                status:true
+                status:false
             },{
                 body:getHackerById, 
-                params:[74], 
+                params:[29], 
                 status:true
             },{
                 body:updateHacker, 
@@ -291,11 +289,11 @@ const Testing = () => {
                 status:false
             },{
                 body:banHackerById, 
-                params:[74], 
+                params:[29], 
                 status:false
             },{
                 body:unbanHackerById, 
-                params:[74], 
+                params:[29], 
                 status:false
             },{
                 body:deleteHacker, 
@@ -520,7 +518,7 @@ const Testing = () => {
         body:[
             {
                 body:login, 
-                params:[user], 
+                params:[hacker], 
                 status:true
             },{
                 body:confirmEmail, 
