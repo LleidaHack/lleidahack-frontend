@@ -225,6 +225,13 @@ const Testing = () => {
     id: 1,
   });
 
+  const [meal, setMeal] = useState({
+    name: "macarrons",
+    description: "macarrons (amb lleteta",
+    event_id: 1,
+    id: 1,
+  });
+
   const Fuctions = [
     {
       name: "hacker",
@@ -270,16 +277,18 @@ const Testing = () => {
           body: deleteHacker,
           params: [hacker.id],
           status: false,
-        },{
+        },
+        {
           body: getHackerEvents,
           params: [hacker.id],
           status: false,
-        },{
+        },
+        {
           body: getHackerGroups,
           params: [hacker.id],
           status: false,
         }
-      ],
+      ]
     },
     {
       name: "hackerGroup",
@@ -325,8 +334,8 @@ const Testing = () => {
           body: removeHackerFromGroup,
           params: [hacker.id, grup.id],
           status: false,
-        },
-      ],
+        }
+      ]
     },
     {
       name: "lleidaHacker",
@@ -383,8 +392,8 @@ const Testing = () => {
           body: deactivateLleidaHacker,
           params: [lleidahacker.id],
           status: false,
-        },
-      ],
+        }
+      ]
     },
     {
       name: "lleidahacker group",
@@ -430,8 +439,8 @@ const Testing = () => {
           body: setLleidaHackerGroupLeader,
           params: [lleidahacker.id, grup.id],
           status: false,
-        },
-      ],
+        }
+      ]
     },
     {
       name: "company",
@@ -483,7 +492,7 @@ const Testing = () => {
           params: [company.id],
           status: false,
         }
-      ],
+      ]
     },
     {
       name: "event",
@@ -550,16 +559,6 @@ const Testing = () => {
           params: [event.id, company.id],
           status: false,
         },
-        /*{
-          body: addEventGroup,
-          params: [event.id, grup.id],
-          status: false,
-        },
-        {
-          body: deleteEventGroup,
-          params: [event.id, grup.id],
-          status: false,
-        },*/
         {
           body: getEventMeals,
           params: [event.id, company.id],
@@ -570,6 +569,7 @@ const Testing = () => {
     {
       name: "auth",
       left: 0,
+      comentaris: "",
       body: [
         {
           body: login,
@@ -586,22 +586,13 @@ const Testing = () => {
     {
       name: "utils",
       left: 0,
+      comentaris: "",
       body: [
         {
           body: sendMail,
           params: ["joelros2003@gmail.com","xd, hola"],
           status: false,
-        },
-        /*{
-          body: getImage,
-          params: ["1"],
-          status: false,
-        },
-        {
-          body: uploadImage,
-          params: [],
-          status: false,
-        },*/
+        }
       ],
     },
     {
@@ -685,12 +676,7 @@ const Testing = () => {
           body: deleteCompanyUser,
           params: [companyUser.id],
           status: false,
-        },
-        /*{
-          body: addCompanyUser,
-          params: [companyUser],
-          status: false,
-        },*/
+        }
       ],
     },
     {
@@ -722,9 +708,9 @@ const Testing = () => {
           body: createMeal,
           params: [companyUser.id],
           status: false,
-        },
-      ],
-    },
+        }
+      ]
+    }
   ];
 
   const redoUser = () => {
