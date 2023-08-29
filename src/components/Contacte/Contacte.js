@@ -1,9 +1,9 @@
 import React from "react";
-import "./Contacte.css";
-import logo from "../../icons/imagotip_lleidahack_blanc.png";
-import instagramLogo from "../../icons/instagram.png";
-import linkedinLogo from "../../icons/linkedin.png";
-import twitterLogo from "../../icons/twitter.png";
+import "src/components/Contacte/Contacte.css";
+import logo from "src/icons/imagotip_lleidahack_blanc.png";
+import instagramLogo from "src/icons/instagram.png";
+import linkedinLogo from "src/icons/linkedin.png";
+import twitterLogo from "src/icons/twitter.png";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
