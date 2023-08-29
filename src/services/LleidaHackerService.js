@@ -120,3 +120,79 @@ export async function addLleidaHacker(lleidaHacker) {
       return [];
     });
 }
+
+export async function acceptLleidaHacker(lleidaHacker_id) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/lleidahacker/${lleidaHacker_id}/accept`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    }
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function rejectLleidaHacker(lleidaHacker_id) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/lleidahacker/${lleidaHacker_id}/reject`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    }
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function activateLleidaHacker(lleidaHacker_id) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/lleidahacker/${lleidaHacker_id}/activate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    }
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function deactivateLleidaHacker(lleidaHacker_id) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/lleidahacker/${lleidaHacker_id}/deactivate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    }
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}

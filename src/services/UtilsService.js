@@ -18,11 +18,13 @@ export async function uploadImage(image) {
     });
 }
 
-export async function sendMail(to) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/utils/sendMail/${to}`, {
+export async function sendMail(to, content) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/utils/send-email/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      email: to,
+      template: content
     },
   })
     .then((response) => response.json())

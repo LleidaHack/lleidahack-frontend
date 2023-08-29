@@ -283,3 +283,21 @@ export async function deleteEventGroup(event_id, group_id) {
       return [];
     });
 }
+
+export async function getEventMeals(event_id) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/meals`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
