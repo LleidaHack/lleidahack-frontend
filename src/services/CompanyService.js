@@ -160,7 +160,6 @@ export async function removeUserFromCompany(company_user_id, company_id) {
     });
 }
 
-
 export async function getCompanyEvents(company_id) {
   return fetch(process.env.REACT_APP_DOMAIN + `/company/${company_id}/events`, {
     headers: {
