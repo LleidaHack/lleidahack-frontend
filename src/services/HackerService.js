@@ -35,7 +35,7 @@ export async function getAllHackers() {
         return [];
     });  
 }
-// 6540aa4d-cfba-4fea-a582-0d33529e48d4
+
 export async function getHackerById(hacker_id) {
     console.log(hacker_id);
     return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker_id}`, {
