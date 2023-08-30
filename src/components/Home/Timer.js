@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Timer.css";
+import "src/components/Home/Timer.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import dayjs from "dayjs";
 
@@ -55,22 +55,22 @@ const CountdownTimer = (props) => {
     return (
       <div className="countdown-timer">
         <span>{remainingTime.months}</span>
-        <span style={{ "font-size": "2vw" }}>mesos</span>
+        <span className="countdown-timer-text">mesos</span>
         <span>{remainingTime.days}</span>
-        <span style={{ "font-size": "2vw" }}>dies</span>
+        <span className="countdown-timer-text">dies</span>
         <span>{remainingTime.hours}</span>
-        <span style={{ "font-size": "2vw" }}>hores</span>
+        <span className="countdown-timer-text">hores</span>
       </div>
     );
   } else if (eventendDayjs.diff(nowDayjs, "seconds") >= 0 && active) {
     return (
       <div className="countdown-timer">
         <span>{remainingTime.hours}</span>
-        <span style={{ "font-size": "2vw" }}>hores</span>
+        <span className="countdown-timer-text">hores</span>
         <span>{remainingTime.minutes}</span>
-        <span style={{ "font-size": "2vw" }}>minuts</span>
+        <span className="countdown-timer-text">minuts</span>
         <span>{remainingTime.seconds}</span>
-        <span style={{ "font-size": "2vw" }}>segons</span>
+        <span className="countdown-timer-text">segons</span>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 export async function signupLleidaHacker(lleidaHacker) {
-  return fetch("https://backend.lleidahack.dev/lleidahacker/signup", {
+  return fetch(process.env.REACT_APP_DOMAIN + "/lleidahacker/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export async function signupLleidaHacker(lleidaHacker) {
 }
 
 export async function getAllLleidaHackers() {
-  return fetch("https://backend.lleidahack.dev/lleidahacker/all", {
+  return fetch(process.env.REACT_APP_DOMAIN + "/lleidahacker/all", {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),
@@ -37,7 +37,7 @@ export async function getAllLleidaHackers() {
 
 export async function getLleidaHackerById(lleidaHacker_id) {
   return fetch(
-    `https://backend.lleidahack.dev/lleidahacker/${lleidaHacker_id}`,
+    process.env.REACT_APP_DOMAIN + `/lleidahacker/${lleidaHacker_id}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export async function getLleidaHackerById(lleidaHacker_id) {
 
 export async function updateLleidaHacker(lleidaHacker) {
   return fetch(
-    `https://backend.lleidahack.dev/lleidahacker/${lleidaHacker.id}`,
+    process.env.REACT_APP_DOMAIN + `/lleidahacker/${lleidaHacker.id}`,
     {
       method: "PUT",
       headers: {
@@ -81,7 +81,7 @@ export async function updateLleidaHacker(lleidaHacker) {
 
 export async function deleteLleidaHacker(lleidaHacker_id) {
   return fetch(
-    `https://backend.lleidahack.dev/lleidahacker/${lleidaHacker_id}`,
+    process.env.REACT_APP_DOMAIN + `/lleidahacker/${lleidaHacker_id}`,
     {
       method: "DELETE",
       headers: {
@@ -102,7 +102,7 @@ export async function deleteLleidaHacker(lleidaHacker_id) {
 }
 
 export async function addLleidaHacker(lleidaHacker) {
-  return fetch("https://backend.lleidahack.dev/lleidahacker/", {
+  return fetch(process.env.REACT_APP_DOMAIN + "/lleidahacker/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

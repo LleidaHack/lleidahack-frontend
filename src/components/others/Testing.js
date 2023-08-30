@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-import MetaTest from "./MetaTest";
+import MetaTest from "src/components/others/MetaTest";
 import {
   signupUser,
   getAllUsers,
@@ -9,7 +9,7 @@ import {
   updateUser,
   deleteUser,
   addUser,
-} from "../../services/UserService";
+} from "src/services/UserService";
 import {
   signupHacker,
   getAllHackers,
@@ -19,7 +19,7 @@ import {
   addHacker,
   banHackerById,
   unbanHackerById,
-} from "../../services/HackerService";
+} from "src/services/HackerService";
 import {
   getAllHackerGroups,
   getHackerGroupById,
@@ -29,7 +29,7 @@ import {
   getHackerGroupMembers,
   addHackerToGroup,
   removeHackerFromGroup,
-} from "../../services/HackerGroupService";
+} from "src/services/HackerGroupService";
 import {
   signupLleidaHacker,
   getAllLleidaHackers,
@@ -37,7 +37,7 @@ import {
   updateLleidaHacker,
   deleteLleidaHacker,
   addLleidaHacker,
-} from "../../services/LleidaHackerService";
+} from "src/services/LleidaHackerService";
 import {
   getAllLleidaHackerGroups,
   getLleidaHackerGroupById,
@@ -47,7 +47,7 @@ import {
   addLleidaHackerToGroup,
   removeLleidaHackerFromGroup,
   setLleidaHackerGroupLeader,
-} from "../../services/LleidaHackerGroupService";
+} from "src/services/LleidaHackerGroupService";
 import {
   getAllCompanies,
   getCompanyById,
@@ -57,7 +57,7 @@ import {
   getCompanyUsers,
   addUserToCompany,
   removeUserFromCompany,
-} from "../../services/CompanyService";
+} from "src/services/CompanyService";
 import {
   getEvents,
   createEvent,
@@ -73,15 +73,15 @@ import {
   deleteEventSponsor,
   addEventGroup,
   deleteEventGroup,
-} from "../../services/EventService";
-import { confirmEmail, login } from "../../services/AuthenticationService";
-import { uploadImage, sendMail, getImage } from "../../services/UtilsService";
+} from "src/services/EventService";
+import { confirmEmail, login } from "src/services/AuthenticationService";
+import { uploadImage, sendMail, getImage } from "src/services/UtilsService";
 import {
   registerHackerToEvent,
   unregisterHackerToEvent,
   getEventStatus,
   hackerEatsFoodFrom,
-} from "../../services/EventManagementService";
+} from "src/services/EventManagementService";
 import {
   signupCompanyUser,
   getAllCompanyUsers,
@@ -89,9 +89,10 @@ import {
   updateCompanyUser,
   deleteCompanyUser,
   addCompanyUser,
-} from "../../services/CompanyUserService";
+} from "src/services/CompanyUserService";
 
 const Testing = () => {
+  const [autoTest, setAutoTest] = useState(false);
   const [user, setUser] = useState({
     name: "joel",
     nickname: "elver",
@@ -103,6 +104,7 @@ const Testing = () => {
     address: "casa",
     shirt_size: "L",
     image_id: "0",
+    id: 79,
   });
 
   const [hacker, setHacker] = useState({
@@ -229,7 +231,6 @@ const Testing = () => {
     id: 1,
   });
 
-  //NOMÉS FUNCIONEN GETS
   const Fuctions = [
     {
       name: "user",
@@ -240,7 +241,7 @@ const Testing = () => {
         {
           body: signupUser,
           params: [user],
-          status: false,
+          status: true,
         },
         {
           body: getAllUsers,
@@ -255,7 +256,7 @@ const Testing = () => {
         {
           body: updateUser,
           params: [user],
-          status: false,
+          status: true,
         },
         {
           body: deleteUser,
@@ -579,7 +580,7 @@ const Testing = () => {
         {
           body: login,
           params: [user],
-          status: false,
+          status: true,
         },
         {
           body: confirmEmail,
@@ -692,6 +693,9 @@ const Testing = () => {
   };
   return (
     <div>
+      <button onClick={() => setAutoTest(!autoTest)}>
+        testingmode: {autoTest ? "auto" : "manual"}
+      </button>
       <h1>User rn</h1>
       <p>
         id: {user.id}
@@ -704,7 +708,7 @@ const Testing = () => {
       </p>
       <button onClick={() => redoUser()}>redoUser</button>
       <button onClick={() => changeID()}>changeId</button>
-      <MetaTest functionsList={Fuctions} />
+      <MetaTest functionsList={Fuctions} autotest={autoTest} />
     </div>
   );
 };
