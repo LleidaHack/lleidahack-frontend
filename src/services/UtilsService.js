@@ -24,7 +24,7 @@ export async function sendMail(to, content) {
     headers: {
       "Content-Type": "application/json",
       email: to,
-      template: content
+      template: content,
     },
   })
     .then((response) => response.json())

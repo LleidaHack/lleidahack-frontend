@@ -117,7 +117,7 @@ const Testing = () => {
     banned: true,
     github: "string",
     linkedin: "string",
-    id: 29
+    id: 29,
   });
 
   const [grup, setGrup] = useState({
@@ -139,8 +139,8 @@ const Testing = () => {
         banned: true,
         github: "string",
         linkedin: "string",
-        id: 29
-      }
+        id: 29,
+      },
     ],
     leader: 0,
   });
@@ -287,8 +287,8 @@ const Testing = () => {
           body: getHackerGroups,
           params: [hacker.id],
           status: false,
-        }
-      ]
+        },
+      ],
     },
     {
       name: "hackerGroup",
@@ -334,8 +334,8 @@ const Testing = () => {
           body: removeHackerFromGroup,
           params: [hacker.id, grup.id],
           status: false,
-        }
-      ]
+        },
+      ],
     },
     {
       name: "lleidaHacker",
@@ -392,8 +392,8 @@ const Testing = () => {
           body: deactivateLleidaHacker,
           params: [lleidahacker.id],
           status: false,
-        }
-      ]
+        },
+      ],
     },
     {
       name: "lleidahacker group",
@@ -439,8 +439,8 @@ const Testing = () => {
           body: setLleidaHackerGroupLeader,
           params: [lleidahacker.id, grup.id],
           status: false,
-        }
-      ]
+        },
+      ],
     },
     {
       name: "company",
@@ -491,8 +491,8 @@ const Testing = () => {
           body: getCompanyEvents,
           params: [company.id],
           status: false,
-        }
-      ]
+        },
+      ],
     },
     {
       name: "event",
@@ -563,7 +563,7 @@ const Testing = () => {
           body: getEventMeals,
           params: [event.id, company.id],
           status: false,
-        }
+        },
       ],
     },
     {
@@ -590,9 +590,9 @@ const Testing = () => {
       body: [
         {
           body: sendMail,
-          params: ["joelros2003@gmail.com","xd, hola"],
+          params: ["joelros2003@gmail.com", "xd, hola"],
           status: false,
-        }
+        },
       ],
     },
     {
@@ -676,7 +676,7 @@ const Testing = () => {
           body: deleteCompanyUser,
           params: [companyUser.id],
           status: false,
-        }
+        },
       ],
     },
     {
@@ -708,9 +708,9 @@ const Testing = () => {
           body: createMeal,
           params: [companyUser.id],
           status: false,
-        }
-      ]
-    }
+        },
+      ],
+    },
   ];
 
   const redoUser = () => {
