@@ -76,7 +76,7 @@ const InfoSponsors = ({ id }) => {
 
  
 
-    const users = [
+    /*const users = [
       {
         imageSrc:
           "https://cdn.openart.ai/stable_diffusion/8bf72432bf8515ebdac9fa6f921cddaa94a61ecf_2000x2000.webp",
@@ -100,7 +100,7 @@ const InfoSponsors = ({ id }) => {
       },
 
       // Agrega más usuarios aquí
-    ];
+    ];*/
 
     if (edicions.length > 0) {
       images = edicions;
@@ -152,7 +152,7 @@ const InfoSponsors = ({ id }) => {
           <br></br>
         </section>
 
-        <section className="descriptions">
+        {/*<section className="descriptions">
           <br></br>
           <h2>Representants de l'Empresa</h2>
           <br></br>
@@ -171,7 +171,7 @@ const InfoSponsors = ({ id }) => {
               />
             ))}
           </div>
-        </section>
+            </section>*/}
 
         <br></br>
         <br></br>
