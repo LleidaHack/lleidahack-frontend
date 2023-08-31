@@ -77,7 +77,7 @@ const Profile = () => {
                   <h1 className="text-center m-auto">-</h1>
                 </div>
                 <div className="col-10">
-                  <h1 className="text-center m-auto">{user.name}</h1>
+                  <h1 className="text-center m-auto">{name}</h1>
                 </div>
                 <div className="col-1 align-self-center">
                   <h1 className="text-center m-auto">-</h1>
