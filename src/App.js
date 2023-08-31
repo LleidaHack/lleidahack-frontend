@@ -9,7 +9,6 @@ import HackerForm from "./components/Forms/HackerForm";
 import Testing from "./components/others/Testing";
 import Sponsors from "./pages/Sponsors";
 
-
 export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
