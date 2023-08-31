@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./IfSponsors.css";
-import { getCompanyById, getCompanyEvents } from "../../services/CompanyService";
+import {
+  getCompanyById,
+  getCompanyEvents,
+} from "../../services/CompanyService";
 import UserCircle from "./others/circles";
-
 
 let images = [
   /*'https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',
@@ -18,11 +20,9 @@ let images = [
   // ... y así sucesivamente con tal de meter la cantidad de logos disponibles que se obtendran de base de datos. (Se puede obtener simplementa el año y concatenarlo a un enlace junto a un bucle for que añada tantas insignias como se obtengan.)
 ];
 
-
 const InfoSponsors = ({ id }) => {
   const [infoCompany, setInfoCompany] = useState(null);
   const [events, setInfoCompany2] = useState(null);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,18 +30,13 @@ const InfoSponsors = ({ id }) => {
         const companyData = await getCompanyById(id);
         setInfoCompany(companyData);
         console.log("La información obtenida es:", companyData);
-        try{
-          const companyEvents = await getCompanyEvents(id)
-          setInfoCompany2(companyEvents)
-          console.log(companyEvents)
-          companyEvents.map((events, index) => (
-            
-            images[index] = events.image
-            
-          ))
-          
-        } catch (errors){
-          console.log("El error obtenido es:", errors)
+        try {
+          const companyEvents = await getCompanyEvents(id);
+          setInfoCompany2(companyEvents);
+          console.log(companyEvents);
+          companyEvents.map((events, index) => (images[index] = events.image));
+        } catch (errors) {
+          console.log("El error obtenido es:", errors);
         }
       } catch (error) {
         console.log("El error obtenido es:", error);
@@ -50,8 +45,6 @@ const InfoSponsors = ({ id }) => {
 
     fetchData();
   }, [id]);
-
- 
 
   if (!infoCompany) {
     return <div className="The-Grand-Phather">Cargando...</div>;
@@ -73,8 +66,6 @@ const InfoSponsors = ({ id }) => {
     if (webtag.length > 0) {
       xarxes = true;
     }
-
- 
 
     /*const users = [
       {
