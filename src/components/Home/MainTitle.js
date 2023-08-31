@@ -1,13 +1,10 @@
 // src/components/MainTitle.js
-
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import "src/components/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import hackLogo from "../../icons/hack_icon_black.png";
-import "./MainTitle.css";
+import hackLogo from "src/icons/hack_icon_black.png";
+
 import { useNavigate } from "react-router-dom";
 
 const MainTitle = () => {
@@ -30,7 +27,7 @@ const MainTitle = () => {
             <div className="row text-center">
               <a
                 href="#"
-                style={{ width: `fit-content`, textDecoration: `none` }}
+                style={{ width: "fit-content", textDecoration: "none" }}
                 className="py-2 px-4 m-auto apuntat-button"
                 onClick={handleShow}
               >
@@ -48,7 +45,7 @@ const MainTitle = () => {
         <Modal.Body className="no-border">
           Has d'iniciar sessió per apuntar-te!
         </Modal.Body>
-        <Modal.Footer className="no-border center-buttons">
+        <Modal.Footer className="no-border justify-content-center">
           <Button className="main-title-modal-button" onClick={handleSignIn}>
             Tinc compte
           </Button>

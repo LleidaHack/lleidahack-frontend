@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
-import "./Calendar.css";
+import "src/components/Home/Calendar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../../styles/styles.css";
+import "src/styles/styles.css";
 
 const CalendarDates = (props) => {
   const [startDate, setStartDate] = useState(props.startDate);

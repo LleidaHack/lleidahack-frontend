@@ -1,5 +1,5 @@
 export async function getAllLleidaHackerGroups() {
-  return fetch("https://backend.lleidahack.dev/lleidahacker/group/all", {
+  return fetch(process.env.REACT_APP_DOMAIN + "/lleidahacker/group/all", {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),
@@ -18,7 +18,8 @@ export async function getAllLleidaHackerGroups() {
 
 export async function getLleidaHackerGroupById(lleidaHacker_group_id) {
   return fetch(
-    `https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}`,
+    process.env.REACT_APP_DOMAIN +
+      `/lleidahacker/group/${lleidaHacker_group_id}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +40,8 @@ export async function getLleidaHackerGroupById(lleidaHacker_group_id) {
 
 export async function deleteLleidaHackerGroup(lleidaHacker_group_id) {
   return fetch(
-    `https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}`,
+    process.env.REACT_APP_DOMAIN +
+      `/lleidahacker/group/${lleidaHacker_group_id}`,
     {
       method: "DELETE",
       headers: {
@@ -60,7 +62,7 @@ export async function deleteLleidaHackerGroup(lleidaHacker_group_id) {
 }
 
 export async function addLleidaHackerGroup(lleidaHacker_group) {
-  return fetch("https://backend.lleidahack.dev/lleidahacker/group/", {
+  return fetch(process.env.REACT_APP_DOMAIN + "/lleidahacker/group/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -81,7 +83,8 @@ export async function addLleidaHackerGroup(lleidaHacker_group) {
 
 export async function getLleidaHackerGroupMembers(lleidaHacker_group_id) {
   return fetch(
-    `https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}/members`,
+    process.env.REACT_APP_DOMAIN +
+      `/lleidahacker/group/${lleidaHacker_group_id}/members`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -105,7 +108,8 @@ export async function addLleidaHackerToGroup(
   lleidaHacker_group_id,
 ) {
   return fetch(
-    `https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}/members/${lleidaHacker_id}`,
+    process.env.REACT_APP_DOMAIN +
+      `/lleidahacker/group/${lleidaHacker_group_id}/members/${lleidaHacker_id}`,
     {
       method: "POST",
       headers: {
@@ -130,7 +134,8 @@ export async function removeLleidaHackerFromGroup(
   lleidaHacker_group_id,
 ) {
   return fetch(
-    `https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}/members/${lleidaHacker_id}`,
+    process.env.REACT_APP_DOMAIN +
+      `/lleidahacker/group/${lleidaHacker_group_id}/members/${lleidaHacker_id}`,
     {
       method: "DELETE",
       headers: {
@@ -155,7 +160,8 @@ export async function setLleidaHackerGroupLeader(
   lleidaHacker_group_id,
 ) {
   return fetch(
-    `https://backend.lleidahack.dev/lleidahacker/group/${lleidaHacker_group_id}/leader/${lleidaHacker_id}`,
+    process.env.REACT_APP_DOMAIN +
+      `/lleidahacker/group/${lleidaHacker_group_id}/leader/${lleidaHacker_id}`,
     {
       method: "PUT",
       headers: {
