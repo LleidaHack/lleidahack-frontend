@@ -1,11 +1,13 @@
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Container, Row, Col, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import logo from '../../icons/llhlogow.png';
-import { login, confirmEmail } from "../../services/AuthenticationService";
+import { login } from "../../services/AuthenticationService";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const validationSchema = Yup.object().shape({
@@ -14,19 +16,22 @@ const validationSchema = Yup.object().shape({
 });
 
 const LoginPage = () => {
-  const handleSubmit = async (values, { setSubmitting }) => {
-    console.log("submitting...");
-    console.log(values.email)
-    console.log(values.password)
+
+  const navigate = useNavigate();
+  const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
-      const loginResponse = await login({
-        email: values.email,
-        password: values.password,
-      });
-  
-      console.log(loginResponse);
+      await login(values);
+      
+      if(localStorage.getItem("userToken") !== "undefined"){
+        console.log("Login successful")
+        navigate("/");
+      } else {
+        console.error("Login unsuccessful")
+        setFieldError('password', 'Correu o contrassenya incorrectes');
+      }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Login error:', error);
+      
     } finally {
       setSubmitting(false);
     }
@@ -77,11 +82,12 @@ const LoginPage = () => {
                           }`}
                         />
                         {touched.password && errors.password && (
-                          <div className="invalid-feedback">
-                            {errors.password}
+                          <div className="invalid-feedback">{errors.password}
                           </div>
                         )}
                       </div>
+                      
+                        
                       
                       <div className="redirects">
                         <p className="mb-1">
