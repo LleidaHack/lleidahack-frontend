@@ -4,13 +4,13 @@ import Footer from "../components/Footer/Footer";
 import LoginPage from "../components/Login/Login";
 
 const Login = () => {
-    return (
-        <div>
-            <Header />
-            <LoginPage />
-            <Footer />
-        </div>
-    )
-}
+  return (
+    <div>
+      <Header />
+      <LoginPage />
+      <Footer />
+    </div>
+  );
+};
 
-export default Login
+export default Login;

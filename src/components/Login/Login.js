@@ -1,37 +1,33 @@
-import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { Container, Row, Col, Button} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import './Login.css';
-import logo from '../../icons/llhlogow.png';
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "./Login.css";
+import logo from "../../icons/llhlogow.png";
 import { login } from "../../services/AuthenticationService";
-import { useNavigate } from 'react-router-dom';
-
-
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().required('Usuari o correu requerit'),
-  password: Yup.string().required('Contrassenya requerida'),
+  email: Yup.string().required("Usuari o correu requerit"),
+  password: Yup.string().required("Contrassenya requerida"),
 });
 
 const LoginPage = () => {
-
   const navigate = useNavigate();
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
       await login(values);
-      
-      if(localStorage.getItem("userToken") !== "undefined"){
-        console.log("Login successful")
+
+      if (localStorage.getItem("userToken") !== "undefined") {
+        console.log("Login successful");
         navigate("/");
       } else {
-        console.error("Login unsuccessful")
-        setFieldError('password', 'Correu o contrassenya incorrectes');
+        console.error("Login unsuccessful");
+        setFieldError("password", "Correu o contrassenya incorrectes");
       }
     } catch (error) {
-      console.error('Login error:', error);
-      
+      console.error("Login error:", error);
     } finally {
       setSubmitting(false);
     }
@@ -39,7 +35,6 @@ const LoginPage = () => {
 
   return (
     <div className="login-page">
-    
       <div className="content">
         <Container>
           <Row className="justify-content-center">
@@ -48,7 +43,7 @@ const LoginPage = () => {
                 <img src={logo} className="App-logo" alt="logo" />
                 <h2 className="mb-4 h2-title">Hola de nou!</h2>
                 <Formik
-                  initialValues={{ email: '', password: '' }}
+                  initialValues={{ email: "", password: "" }}
                   validationSchema={validationSchema}
                   onSubmit={handleSubmit}
                   submitButton={{ label: "Envia" }}
@@ -62,7 +57,7 @@ const LoginPage = () => {
                           name="email"
                           id="email"
                           className={`form-control ${
-                            touched.email && errors.email ? 'is-invalid' : ''
+                            touched.email && errors.email ? "is-invalid" : ""
                           }`}
                         />
                         {touched.email && errors.email && (
@@ -77,37 +72,40 @@ const LoginPage = () => {
                           id="password"
                           className={`form-control ${
                             touched.password && errors.password
-                              ? 'is-invalid'
-                              : ''
+                              ? "is-invalid"
+                              : ""
                           }`}
                         />
                         {touched.password && errors.password && (
-                          <div className="invalid-feedback">{errors.password}
+                          <div className="invalid-feedback">
+                            {errors.password}
                           </div>
                         )}
                       </div>
-                      
-                        
-                      
+
                       <div className="redirects">
                         <p className="mb-1">
-                          <Link to="/forgot-password" className='custom-link'>Has oblidat les teves credencials?</Link>
+                          <Link to="/forgot-password" className="custom-link">
+                            Has oblidat les teves credencials?
+                          </Link>
                         </p>
                         <p className="mb-0">
-                          <Link to="/sign-up" className='custom-link'>Encara no tens compte?</Link>
+                          <Link to="/sign-up" className="custom-link">
+                            Encara no tens compte?
+                          </Link>
                         </p>
                       </div>
-                      <div className='button-container'>
-
-                  
-                      <Button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className='btn btn-default'
-                        onClick={submitForm}
-                      > 
-                        {isSubmitting ? 'Iniciant sessió...' : 'Inicia sessió'}
-                      </Button>
+                      <div className="button-container">
+                        <Button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="btn btn-default"
+                          onClick={submitForm}
+                        >
+                          {isSubmitting
+                            ? "Iniciant sessió..."
+                            : "Inicia sessió"}
+                        </Button>
                       </div>
                     </Form>
                   )}

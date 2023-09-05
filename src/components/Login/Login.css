@@ -22,62 +22,54 @@
 
 .App-logo {
   width: 20vh;
-  height:auto;
+  height: auto;
   display: block;
-  margin:auto;
+  margin: auto;
 }
 
-.h2-title{
+.h2-title {
   font-size: 5vh;
   align-items: center;
   text-align: center;
 }
 
-.form-group{
+.form-group {
   font-weight: bold;
   font-size: 3vh;
 }
 
-.custom-link{
-  color:gray;
+.custom-link {
+  color: gray;
 }
 
-.redirects{
+.redirects {
   margin-top: 5%;
   margin-bottom: 5%;
   font-size: 1.5vh;
   text-align: center;
 }
 
-.button-container{
+.button-container {
   display: flex;
   justify-content: center;
   margin-top: 5%;
 }
 
-.btn{
+.btn {
   background: var(--primary) !important;
   color: black !important;
   border: none !important;
 }
 
-.btn:hover{
+.btn:hover {
   background: #9f730a !important;
   border: none;
 }
 
-.btn:hover:active{
+.btn:hover:active {
   background-color: #211f1f !important;
 }
-
 
 .invalid-feedback {
   font-size: 1.5vh !important;
 }
-
-
-
-
-
-
-
