@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import Profile from "src/pages/Profile/Profile.js";
 import HackerForm from "src/components/Forms/HackerForm";
 import Testing from "src/components/others/Testing";
+import Inscripcio from "src/pages/Inscripcio"
 
 export default function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/testing" element={<Testing />} />
+          <Route path="/inscripcio" element={<Inscripcio />} />
         </Routes>
       </Router>
     </div>

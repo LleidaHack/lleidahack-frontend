@@ -35,70 +35,71 @@
   text-align: center;
 }
 
-.logo {
-  width: 500px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.social-logos {
-  display: flex;
-  margin-top: 20px;
-}
-
-.social-logo {
-  width: 50px;
-  height: auto;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.form-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
-}
-
-form {
-  width: 100%;
-  max-width: 70%;
-}
-
-label {
-  font-size: 16px;
-  margin-bottom: 8px;
-  color: var(--white);
-}
-
-input,
-textarea {
-  padding: 10px;
-  font-size: 12px;
-  border: 1px solid var(--white);
-  border-radius: 4px;
-  margin-bottom: 16px;
-  width: 100%;
-}
-
-.button-submit {
-  padding: 12px 20px;
-  font-size: 18px;
-  background-color: var(--primary);
-  color: var(--secondary);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  width: fit-content;
-  margin: 20px;
-  justify-content: center;
-}
-
-.button-submit:hover {
-  background-color: var(--white);
-  color: var(--secondary);
-}
+  .logo {
+    width: 500px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .social-logos {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .social-logo {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .form-container-contacte {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+  }
+  
+  .form-contacte {
+    width: 100%; 
+    max-width: 70%; 
+  }
+  
+  label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+  
+  input,
+  textarea {
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  
+  
+  .button-submit {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: fit-content;
+    margin: 20px;
+    justify-content: center;
+  }
+  
+  .button-submit:hover {
+    background-color: var(--white);
+    color: var(--secondary);
+  }
 
 .button-submit-container {
   display: flex;
@@ -153,14 +154,17 @@ textarea {
     width: 40px;
   }
 
-  .form-container {
-    flex-direction: row;
-    width: 100%;
-    max-width: 100%;
-    margin: 10px;
-  }
+      .form-container-contacte {
+        flex-direction: row; 
+        width: 100%; 
+        max-width: 100%; 
+        margin: 10px; 
+      }
+    
+      .form-container-contacte {
+        margin-top: 40px; 
+      }
+    
+    }
 
-  .form-container {
-    margin-top: 40px;
-  }
-}
+    
