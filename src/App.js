@@ -1,13 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
-import Contacte from "./pages/Contacte";
-import Error404 from "./pages/Error404";
-import FAQPage from "./pages/FAQ";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile/Profile.js";
-import HackerForm from "./components/Forms/HackerForm";
-import Testing from "./components/others/Testing";
-import Sponsors from "./pages/Sponsors";
+import Profile from "src/pages/Profile/Profile.js";
+import HackerForm from "src/components/Forms/HackerForm";
+import Testing from "src/components/others/Testing";
+import Inscripcio from "src/pages/Inscripcio"
+import Sponsors from "src/pages/Sponsors";
 
 export default function App() {
   useEffect(() => {
@@ -29,6 +26,7 @@ export default function App() {
           <Route path="/testing" element={<Testing />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
+          <Route path="/inscripcio" element={<Inscripcio />} />
         </Routes>
       </Router>
     </div>
