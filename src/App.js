@@ -1,5 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
+import Contacte from "src/pages/Contacte";
+import Error404 from "src/pages/Error404";
+import FAQPage from "src/pages/FAQ";
+import Home from "src/pages/Home";
 import Profile from "src/pages/Profile/Profile.js";
 import HackerForm from "src/components/Forms/HackerForm";
 import Testing from "src/components/others/Testing";
