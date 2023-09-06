@@ -26,6 +26,9 @@ export async function getCompanyById(company_id) {
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);
+      if (data.length === 0) {
+        return [];
+      }
       return data;
     })
     .catch((error) => {

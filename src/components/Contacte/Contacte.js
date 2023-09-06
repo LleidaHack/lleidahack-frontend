@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "src/components/Contacte/Contacte.css";
 import logo from "src/icons/imagotip_lleidahack_blanc.png";
 import instagramLogo from "src/icons/instagram.png";
@@ -22,6 +22,11 @@ const ContactePage = () => {
     // Aquí puedes manejar la lógica de envío del formulario.
     console.log(values);
   };
+
+  useEffect(() => {
+    // Coloca el scroll en la parte superior cuando el componente se monta
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container-all">
@@ -69,7 +74,7 @@ const ContactePage = () => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            <Form className='form-contacte'>
+            <Form className="form-contacte">
               <div className="formik-field">
                 <label htmlFor="name">Nom:</label>
                 <Field type="text" id="name" name="name" />

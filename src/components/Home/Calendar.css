@@ -167,3 +167,8 @@
 .react-calendar__navigation button:disabled {
   background-color: var(--primary);
 }
+
+.claseGhosting {
+  position: relative;
+  top: -13.2vh;
+}
