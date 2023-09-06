@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "src/components/Home/Sponsors.css";
-import {getAllCompanies} from "../../services/CompanyService";
+import {getAllCompanies} from "src/services/CompanyService";
 
 let imgs1 = [
   {image: "https://www.risogallo.es/wp-content/uploads/2023/05/logo-carrefour.jpg", url: "1"},
@@ -12,11 +12,12 @@ let imgs1 = [
 ];
 
 let imgs2 = [
-  {image: "https://www.revistaaral.com/images/showid2/4847764?w=900&mh=700", importance: 3},
-  {image: "https://brandemia.org/sites/default/files/inline/images/zara_nuevo_logo.jpg", importance: 2},
-  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 3},    
-  {image: "https://logos-world.net/wp-content/uploads/2020/03/Microsoft-Word-Symbol.png", importance: 1},
-  {image: "https://1000marcas.net/wp-content/uploads/2020/12/Microsoft-Excel-Logo.png", importance: 1},
+  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 3},
+  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 3}, 
+  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 2},
+  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 2},
+  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 1},
+  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 1},
 ]
 
 const Sponsors = () => {

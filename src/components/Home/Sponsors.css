@@ -136,32 +136,34 @@ img {
 }
 
 .sponsors-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3vw;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr); /* Tres filas */
+  grid-template-columns: 1fr; /* Una columna */
+  justify-items:center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+
   justify-content: center; /* Espaciado uniforme entre las imágenes */
   max-width: 64%;
-  margin: 2vw;
+    
 }
 
 
 .sponsor-group-group-1{
   display: flex;
-  padding-top: 2vw;
-  padding-bottom: 1vw;
   width: 18%;
+  scale: 1;
 }
 
 .sponsor-group-group-2{
   display: flex;
-  padding-top: 2vw;
-  padding-bottom: 1vw;
+
   width: 18%;
+  scale: 0.7;
 }
 
 .sponsor-group-group-3{
   display: flex;
-  padding-top: 2vw;
-  padding-bottom: 1vw;
+
   width: 18%;
+  scale: 0.5;
 }
