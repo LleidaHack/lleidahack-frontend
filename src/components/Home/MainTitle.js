@@ -18,7 +18,8 @@ const MainTitle = () => {
 
   return (
     <>
-      <div id="home" style={{ backgroundColor: "var(--primary)" }}>
+      <div style={{ backgroundColor: "var(--primary)" }}>
+        <div className="fantasma" id="home"></div>
         <div className="row join-container p-5 text-center m-auto">
           <div className="col-12">
             <div className="row">

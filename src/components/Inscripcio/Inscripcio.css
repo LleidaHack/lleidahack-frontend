@@ -2,13 +2,6 @@
 .container-all {
   background-color: var(--secondary);
   min-height: 100vh;
-  padding-top: 100px;
-}
-
-.contact-container {
-  display: flex;
-  width: 100%;
-  animation: fadeIn 0.5s ease-in-out;
 }
 
 .title-contacte {
@@ -53,22 +46,24 @@
   margin-right: 10px;
 }
 
-.form-container-contacte {
-  flex: 1;
+.form-container {
+  align-items: center;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+
   display: flex;
   flex-direction: column;
-  align-items: left;
   justify-content: center;
 }
 
-.form-contacte {
+form {
   width: 100%;
-  max-width: 70%;
+  max-width: 55%;
 }
 
 label {
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-size: 18px;
+  margin-bottom: 16px;
   color: var(--white);
 }
 
@@ -83,11 +78,11 @@ textarea {
 }
 
 .button-submit {
-  padding: 12px 20px;
+  padding: 12px 32px;
   font-size: 18px;
-  background-color: var(--primary);
-  color: var(--secondary);
-  border: none;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: 2px solid var(--primary);
   border-radius: 8px;
   cursor: pointer;
   width: fit-content;
@@ -96,7 +91,7 @@ textarea {
 }
 
 .button-submit:hover {
-  background-color: var(--white);
+  background-color: var(--primary);
   color: var(--secondary);
 }
 
@@ -106,11 +101,48 @@ textarea {
 }
 
 .formik-field {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .error-message {
   color: var(--primary);
+}
+
+.subtitle {
+  color: var(--white);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.file-name {
+  color: var(--white);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.subfields-container {
+  margin-top: 10px; /* Espacio entre los subcampos */
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-field .react-select__control,
+input[type="text"] {
+  height: 50px; /* Ajusta esta altura según tus preferencias */
 }
 
 @keyframes fadeIn {
@@ -153,14 +185,14 @@ textarea {
     width: 40px;
   }
 
-  .form-container-contacte {
+  .form-container {
     flex-direction: row;
     width: 100%;
     max-width: 100%;
     margin: 10px;
   }
 
-  .form-container-contacte {
+  .form-container {
     margin-top: 40px;
   }
 }

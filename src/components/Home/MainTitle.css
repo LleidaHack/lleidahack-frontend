@@ -49,3 +49,8 @@
   display: flex;
   justify-content: center;
 }
+
+.fantasma {
+  position: relative;
+  top: -1000px;
+}

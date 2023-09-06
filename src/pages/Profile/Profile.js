@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "src/palette.css";
@@ -27,6 +28,11 @@ const Profile = () => {
 
   const startDate = new Date(2022, 10, 25);
   const endDate = new Date(2022, 10, 27);
+
+  useEffect(() => {
+    // Coloca el scroll en la parte superior cuando el componente se monta
+    window.scrollTo(0, 0);
+  }, []);
 
   const navigate = useNavigate();
   const [showQR, setShowQR] = useState(false);
