@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Inscripcio.css";
+import "src/components/Inscripcio/Inscripcio.css";
 import Select from "react-select";
 import debounce from "lodash.debounce";
 

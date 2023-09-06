@@ -1,6 +1,6 @@
 // src/components/HackerForm.js
 
-import "./HackerForm.css";
+import "src/components/Home/HackerForm.css";
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -33,7 +33,7 @@ const HackerPanel = () => {
     >
       <Row>
         <img
-          src={require("../../imgs/hacker_image.svg").default}
+          src={require("src/imgs/hacker_image.svg").default}
           alt="Hacker"
         />
       </Row>

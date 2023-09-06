@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./IfSponsors.css";
+import "src/components/Sponsors/IfSponsors.css";
 import {
   getCompanyById,
   getCompanyEvents,
-} from "../../services/CompanyService";
-import UserCircle from "./others/circles";
+} from "src/services/CompanyService";
+//import UserCircle from "./others/circles";
 
 let images = [
   /*'https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',

@@ -1,6 +1,6 @@
-import Header from "../components/Header/Header.js";
-import Footer from "../components/Footer/Footer.js";
-import IfSponsors from "../components/Sponsors/IfSponsors.js";
+import Header from "src/components/Header/Header.js";
+import Footer from "src/components/Footer/Footer.js";
+import IfSponsors from "src/components/Sponsors/IfSponsors.js";
 import React from "react";
 import { useParams } from "react-router-dom";
 

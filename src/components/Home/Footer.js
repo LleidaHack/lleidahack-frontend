@@ -1,8 +1,8 @@
 import React from "react";
-import "./Footer.css";
+import "src/components/Home/Footer.css";
 import { Link as LinkS } from "react-scroll";
 import { Link as LinkR } from "react-router-dom";
-import llhlogo1 from "../../icons/llhlogow.png";
+import llhlogo1 from "src/icons/llhlogow.png";
 export function Footer({ inside, outsides }) {
   return (
     <div id="Footer">

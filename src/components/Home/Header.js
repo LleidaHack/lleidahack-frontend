@@ -1,9 +1,9 @@
 import React from "react";
 import { Link as LinkS } from "react-scroll";
 import { Link as LinkR } from "react-router-dom";
-import userlog from "../../icons/user.png";
-import llhlogo1 from "../../icons/llhlogow.png";
-import "./Header.css";
+import userlog from "src/icons/user.png";
+import llhlogo1 from "src/icons/llhlogow.png";
+import "src/components/Home/Header.css";
 export function Header({ inside, outsides }) {
   return (
     <div id="theBoxNav">
