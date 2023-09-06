@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "src/components/Sponsors/IfSponsors.css";
-import {
-  getCompanyById,
-  getCompanyEvents,
-} from "src/services/CompanyService";
+import { getCompanyById, getCompanyEvents } from "src/services/CompanyService";
 //import UserCircle from "./others/circles";
 
 let images = [

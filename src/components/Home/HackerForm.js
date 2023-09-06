@@ -32,10 +32,7 @@ const HackerPanel = () => {
       }}
     >
       <Row>
-        <img
-          src={require("src/imgs/hacker_image.svg").default}
-          alt="Hacker"
-        />
+        <img src={require("src/imgs/hacker_image.svg").default} alt="Hacker" />
       </Row>
       <Row>
         <div
