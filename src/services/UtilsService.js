@@ -1,23 +1,3 @@
-export async function uploadImage(image) {
-  return fetch(process.env.REACT_APP_DOMAIN + "/utils/uploadImage", {
-    method: "POST",
-    headers: {
-      "Content-Type": "image/jpeg",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-    body: image,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      localStorage.setItem("userToken", data.access_token);
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
-}
-
 export async function sendMail(to, content) {
   return fetch(process.env.REACT_APP_DOMAIN + `/utils/send-email/`, {
     method: "POST",
@@ -31,6 +11,26 @@ export async function sendMail(to, content) {
     .then((data) => {
       console.log("response: ", data);
       return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+/*export async function uploadImage(image) {
+  return fetch(process.env.REACT_APP_DOMAIN + "/utils/uploadImage", {
+    method: "POST",
+    headers: {
+      "Content-Type": "image/jpeg",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+    body: image,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      localStorage.setItem("userToken", data.access_token);
     })
     .catch((error) => {
       console.warn(error);
@@ -54,4 +54,4 @@ export async function getImage(id) {
       console.warn(error);
       return [];
     });
-}
+}*/

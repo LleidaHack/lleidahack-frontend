@@ -68,9 +68,9 @@ import {
   getEventSponsors,
   getEventGroups,
   addEventParticipant,
-  deleteEventParticipant,
+  removeEventParticipant,
   addEventSponsor,
-  deleteEventSponsor,
+  removeEventSponsor,
 } from "src/services/EventService";
 import {
   registerHackerToEvent,
@@ -545,7 +545,7 @@ const Testing = () => {
           status: false,
         },
         {
-          body: deleteEventParticipant,
+          body: removeEventParticipant,
           params: [event.id, hacker.id],
           status: false,
         },
@@ -555,7 +555,7 @@ const Testing = () => {
           status: false,
         },
         {
-          body: deleteEventSponsor,
+          body: removeEventSponsor,
           params: [event.id, company.id],
           status: false,
         },
