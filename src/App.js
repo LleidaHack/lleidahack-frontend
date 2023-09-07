@@ -9,6 +9,7 @@ import HackerForm from "src/components/Forms/HackerForm";
 import Testing from "src/components/others/Testing";
 import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 export default function App() {
   useEffect(() => {
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
           <Route path="/inscripcio" element={<Inscripcio />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </div>
