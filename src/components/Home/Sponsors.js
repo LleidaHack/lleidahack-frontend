@@ -1,23 +1,47 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "src/components/Home/Sponsors.css";
 import {getAllCompanies} from "src/services/CompanyService";
 
-let imgs1 = [
-  {image: "https://www.risogallo.es/wp-content/uploads/2023/05/logo-carrefour.jpg", url: "1"},
-  {image: "https://www.risogallo.es/wp-content/uploads/2023/05/logo-carrefour.jpg", url: "2"},
-  {image: "https://www.risogallo.es/wp-content/uploads/2023/05/logo-carrefour.jpg", url: "3"},    
-  {image: "https://www.risogallo.es/wp-content/uploads/2023/05/logo-carrefour.jpg", url: "4"},
-  {image: "https://www.risogallo.es/wp-content/uploads/2023/05/logo-carrefour.jpg", url: "5"},
+/*IMAGES IMPORTS*/
+import Eurecat from "src/icons/sponsors logos/1st/Eurecat_JPG.jpg"
+import bonarea from "src/icons/sponsors logos/1st/bonArea_Agrupa.png"
+import bofill from "src/icons/sponsors logos/1st/Logo_Fundació_Bofill.png"
+import ingroup from "src/icons/sponsors logos/1st/Logo-Ingroup.png"
+import restb from "src/icons/sponsors logos/1st/restb.jpeg"
+/*----...---2nds--..-..-----*/
+import Alter from "src/icons/sponsors logos/2nd/Alter Software.jpeg"
+import EPS from "src/icons/sponsors logos/2nd/Eps Logo.jpg"
+import GFT from "src/icons/sponsors logos/2nd/GFT_Logo_CMYK.jpg"
+import eCityclic from "src/icons/sponsors logos/2nd/Logo eCityclic OK.png"
+import paeria from "src/icons/sponsors logos/2nd/paeria_0.png"
+import actium from "src/icons/sponsors logos/2nd/logo-actium.jpg"
 
+
+
+
+/*End Imports 😭*/
+
+
+let imgs1 = [
+  {image: Eurecat, url: "1"},
+  {image: bonarea, url: "2"},
+  {image: bofill, url: "3"},    
+  {image: ingroup, url: "4"},
+  {image: restb, url: "5"},
 ];
 
 let imgs2 = [
-  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 3},
-  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 3}, 
-  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 2},
-  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 2},
-  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 1},
-  {image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wikipedia-logo-v2-es.svg/1200px-Wikipedia-logo-v2-es.svg.png", importance: 1},
+  {image: Alter, importance: 1},
+  {image: EPS, importance: 1}, 
+  {image: paeria, importance: 1}, 
+  {image: GFT, importance: 2}, 
+  {image: actium, importance: 2}, 
+  {image: eCityclic, importance: 2}, 
+
+
+  
+
 ]
 
 const Sponsors = () => {
@@ -49,12 +73,11 @@ const Sponsors = () => {
   const groups = {
     1: [],
     2: [],
-    3: [],
   };
 
   imgs2.forEach((img) => {
     groups[img.importance].push(
-      <img key={img.image} src={img.image} alt={`Logo ${img.importance}`} />
+      <img key={img.image} src={img.image} alt={`Logo ${img.importance}`} className="pepers" />
     );
   });
 
@@ -70,9 +93,13 @@ const Sponsors = () => {
       <section className="spnsection">
         <div className="cuadrados-container">
         {imgs1.map((pos, index) => (
+          
           <div key={index + 1} className="cuadrado">
+            <Link to={`/sponsors/${pos.url}`}>
             <img src={pos.image} alt={`Image ${index + 1}`}/>
+            </Link>
           </div>
+          
         ))}
       </div>
       </section>
@@ -87,9 +114,7 @@ const Sponsors = () => {
           <div className="sponsor-group-group-2">
             {groups[2]}
           </div>
-          <div className="sponsor-group-group-3">
-            {groups[3]}
-          </div>
+         
       </div>
       </section>
     </div>

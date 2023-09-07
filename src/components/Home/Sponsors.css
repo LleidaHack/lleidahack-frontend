@@ -62,13 +62,18 @@
 
 .cuadrado {
   width: 30%; /* Ancho de las imágenes con espacio entre ellas */
-  max-height: 300px; /* Altura máxima para controlar la relación de aspecto */
-  margin-bottom: 2vw; /* Espacio inferior entre las imágenes */
+  height: 50%;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative; /* Añade posición relativa para centrar las imágenes */
-  transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out , box-shadow 0.3s ease-in-out;
+  border: 10px double var(--primary);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.5); /* Desplazamiento de -10px a la izquierda y -10px hacia arriba, con un radio de 10px y un color de sombra */
+
 }
 
 img {
@@ -82,6 +87,7 @@ img {
 .cuadrado:hover{
   scale: 1.2;
   transform: translate(-3px, -4px);
+  box-shadow: -10px -10px 10px var(--primary); /* Desplazamiento de -10px a la izquierda y -10px hacia arriba, con un radio de 10px y un color de sombra */
 
 }
 
@@ -98,6 +104,11 @@ img {
     width: 63%; /* Ocupar todo el ancho disponible en dispositivos móviles */
     max-height: 300px; /* Altura máxima para controlar la relación de aspecto */
     margin-bottom: 2vw; /* Espacio inferior entre las imágenes */
+    height: auto;
+    overflow: hidden;
+    border: none;
+    border-radius: 0%;
+
   }
 
   /* Estilo para imágenes impares en dispositivos móviles */
@@ -137,14 +148,16 @@ img {
 
 .sponsors-container {
   display: grid;
-  grid-template-rows: repeat(3, 1fr); /* Tres filas */
+  grid-template-rows: repeat(2, 1fr); /* Tres filas */
   grid-template-columns: 1fr; /* Una columna */
   justify-items:center; /* Centrar horizontalmente */
   align-items: center; /* Centrar verticalmente */
-
   justify-content: center; /* Espaciado uniforme entre las imágenes */
   max-width: 64%;
-    
+  border: 10px double var(--primary);
+  border-radius: 20px;
+  margin-bottom: 4vh;
+  box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.5); /* Desplazamiento de -10px a la izquierda y -10px hacia arriba, con un radio de 10px y un color de sombra */
 }
 
 
@@ -152,18 +165,43 @@ img {
   display: flex;
   width: 18%;
   scale: 1;
+  justify-content: center;
 }
 
 .sponsor-group-group-2{
   display: flex;
-
   width: 18%;
   scale: 0.7;
+  justify-content: center;
 }
 
 .sponsor-group-group-3{
   display: flex;
-
   width: 18%;
   scale: 0.5;
+  justify-content: center;
+}
+
+
+.pepers{
+  margin: 1.4rem;
+  border: 10px double var(--primary);
+  border-radius: 20px;
+  padding: 0.4rem;
+  height: 10rem;
+  
+}
+
+
+
+@media (max-width: 998px) {
+  .pepers{
+    height: 5rem;
+    scale: 1.6;
+    border: none;
+    padding: 1.2vw;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
 }
