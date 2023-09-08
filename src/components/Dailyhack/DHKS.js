@@ -3,9 +3,11 @@ import "src/components/Dailyhack/DHKSS.css"
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 
 import * as Yup from "yup";
 import { FormikStepper, InputField, SelectField } from "formik-stepper";
+import { Formik, Form, Field, ErrorMessage  } from 'formik';
 
 const validationSchema = Yup.object().shape({
   nick: Yup.string().required("Nom / Nickname requerit"),
@@ -51,7 +53,7 @@ export const HackerStepperForm = (props) => {
       //Hacer que al pulsar el submit, se ejecute el servicio de envio y se muestre un loading de minimo 2 segundos.
       //Cuando finalize la respuesta, si es afirmativa, se editará la componente mostrando en la pagina un texto de Enviado con exito junto a un boton de Volver a Inicio.
       //Si la respuesta es Negativa, le saldrá un texto de "Algo ha salido mál, vuelve a Introducir la Informacion. Si el problema perciste contacta con nosotros des del apartado de Contacto. y un boton de Volver a la Página."
-      onBotonClic(true, actions);  //Se enviará true o false ya para indicar si algo salió mal o no cambiando el true o false
+      onBotonClic(false, actions);  //Se enviará true o false ya para indicar si algo salió mal o no cambiando el true o false
           console.log("submit!");
         }} /// onSubmit Function
         initialValues={{
@@ -79,9 +81,47 @@ export const HackerStepperForm = (props) => {
           <Row>
             <HackerPanel></HackerPanel>
             <Col>
-              <InputField name="nick" type="text" label="Nom / NickName" />
-              <InputField name="repositori" type="text" label="Repositori GitHub" />
-              <InputField name="Comment" type="text" label="Comentaris"  />
+            <div className='piterrs'>
+            <label htmlFor="Reposit" className="blackt">Nom / Nickname</label>
+
+              <Field 
+                name="nick" 
+                type="text" 
+                id="namenick" 
+                placeholder="Nom / NickName"
+                className="BoxForm"
+               />
+              <ErrorMessage name="nick" component="div" className="error-message" />
+
+              <br></br>
+              <br></br>
+
+              <label htmlFor="Reposit" className="blackt">Repositori GitHub</label>
+              <Field 
+                name="repositori" 
+                type="text" 
+                id="Reposit" 
+                placeholder="Repositori del dailyhack.."
+                className="BoxForm"
+              />
+              <ErrorMessage name="repositori" component="div" className="error-message" />
+
+
+              <br></br>
+              <br></br>
+
+              <label htmlFor="textareaField" className="blackt">Comentaris</label>
+              <Field
+                  as="textarea" // Usa "textarea" para el campo de texto
+                  id="textareaField"
+                  name="Comment"
+                  rows={4} // Personaliza el número de filas según tus necesidades
+                  placeholder="Puedes dejarnos cualquier comentario aqui..."
+                  className="BoxForm"
+              />
+              
+              
+            </div>
               
             </Col>
           </Row>
@@ -118,6 +158,9 @@ const DHKS = () => {
     console.log("El valor es:", value)
     console.log("La accion es:", actions)
     setEstadoPadre(!estadoPadre);
+  };
+  const handleRefreshClick = () => {
+    window.location.reload();
   };
 
     return (
@@ -166,12 +209,47 @@ const DHKS = () => {
         ) : (
           <>
             {!correct ? (
-              <section className="informative">
-             <p>Aqui se mostraria el contenido en caso que haya fallado alguna cosa</p>
+                 <section className="informative">
+                 <div className="Part2">
+                  
+                      <div className='iconBox'>
+                      <div className="wrapper">
+                        <svg className="crossmarker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle className="cross__circle" cx="26" cy="26" r="25" fill="none"/><path className="checkmark_check" fill="none" d="M14.1 14.1l23.8 23.8 m0,-23.8 l-23.8,23.8"/></svg>
+                      </div>                      
+                        <h2>Error registrant la teva Participació.</h2>
+                        <p>Sembla que algo ha fallat mentre registravem la teva participació.</p>
+                        <p><i>Torna a intentar registrar novament el teu repositori. En cas que segueixi fallant, contacta amb nosaltres.</i></p>
+                      </div>
+
+                      <div className='infbuttonok'>
+                        
+                          <button onClick={handleRefreshClick} className='contacta' >Intentar novament</button>
+                        
+                      </div>
+
+                 </div>
               </section>
             ) : (
               <section className="informative">
-              <p>Ahora se mostraria el contenido en caso que todo haya ido bien, junto al boton y todo eso</p>
+                 <div className="Part2">
+                  
+                      <div className='iconBox'>
+                        <div className="wrapper"> 
+                          <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                          </svg>
+                        </div>                        
+                        <h2>Participació registrada correctament</h2>
+                        <p>En breus rebràs un correu electrònic de confirmació a la teva bustia d'entrada.</p>
+                        <p><i>Si no ho reps, comproba la bustia de spam.</i></p>
+                      </div>
+
+                      <div className='infbuttonok'>
+                      <Link to="/">
+                          <button  className='contacta' >Tornar al Inici</button>
+                          </Link>
+                      </div>
+
+                 </div>
               </section>
             )}
           </>
