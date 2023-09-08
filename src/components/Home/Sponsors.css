@@ -26,14 +26,14 @@
   position: relative;
   border: none;
   border-radius: 4px;
-  margin-bottom: 2vw;
-  margin-top: 4vw;
+  margin-bottom: 1.2vw;
+  margin-top: 1.5vw;
   padding: 0.5vw;
 }
 
 .title1 {
   color: var(--secondary);
-  padding-top: 5%;
+  padding-top: 2%;
   font-weight: bold;
   text-align: center;
 }
@@ -73,7 +73,7 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.5); /* Desplazamiento de -10px a la izquierda y -10px hacia arriba, con un radio de 10px y un color de sombra */
-
+  scale: 0.9;
 }
 
 img {
@@ -85,7 +85,7 @@ img {
 /* Estilo para centrar las dos últimas imágenes */
 
 .cuadrado:hover{
-  scale: 1.2;
+  scale: 1.1;
   transform: translate(-3px, -4px);
   box-shadow: -10px -10px 10px var(--primary); /* Desplazamiento de -10px a la izquierda y -10px hacia arriba, con un radio de 10px y un color de sombra */
 
