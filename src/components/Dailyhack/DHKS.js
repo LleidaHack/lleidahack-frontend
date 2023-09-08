@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import "src/components/Dailyhack/DHKSS.css"
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
@@ -13,6 +13,7 @@ const validationSchema = Yup.object().shape({
   
  
 });
+
 
 const HackerPanel = () => {
   return (
@@ -40,12 +41,17 @@ const HackerPanel = () => {
   );
 };
 
-export const HackerStepperForm = () => {
+export const HackerStepperForm = (props) => {
+  const { onBotonClic } = props;
   return (
     <div id="hackerForm" className="custom-form-Dailyhack">
       <FormikStepper
         /// Accept all Formik props
-        onSubmit={() => {
+        onSubmit={(values, actions) => {
+      //Hacer que al pulsar el submit, se ejecute el servicio de envio y se muestre un loading de minimo 2 segundos.
+      //Cuando finalize la respuesta, si es afirmativa, se editará la componente mostrando en la pagina un texto de Enviado con exito junto a un boton de Volver a Inicio.
+      //Si la respuesta es Negativa, le saldrá un texto de "Algo ha salido mál, vuelve a Introducir la Informacion. Si el problema perciste contacta con nosotros des del apartado de Contacto. y un boton de Volver a la Página."
+      onBotonClic(true, actions);  //Se enviará true o false ya para indicar si algo salió mal o no cambiando el true o false
           console.log("submit!");
         }} /// onSubmit Function
         initialValues={{
@@ -103,48 +109,75 @@ export const HackerStepperForm = () => {
 
 
 const DHKS = () => {
+  const [estadoPadre, setEstadoPadre] = useState(false);
+  const [correct, setCorrect] = useState(false); // Usar estado para rastrear correct
+
+  
+  const cambiarEstadoPadre = (value, actions) => {
+    setCorrect(value);
+    console.log("El valor es:", value)
+    console.log("La accion es:", actions)
+    setEstadoPadre(!estadoPadre);
+  };
+
     return (
       <div className="BGPhather">
-        <h1 className="title1 title-underline">Dailyhack Section</h1>
-        <section className="informative">
-            <div className="Part1">
-                <div className="IntroText">
-                
-                 
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu porta quam. Mauris libero justo, dictum non est sed, 
-                    interdum finibus ligula. Morbi consectetur, odio nec dapibus pharetra, arcu dui tincidunt libero, at sodales dolor 
-                    dui et urna. Integer ac tincidunt massa, nec bibendum nisl. Etiam sed turpis rutrum ligula faucibus aliquet. 
-                    Aliquam egestas massa pharetra dolor feugiat, congue aliquam nibh semper. Sed pharetra nisi porttitor nisi pulvinar efficitur. 
-                    Mauris non justo et nibh iaculis convallis vitae et quam. Sed ut purus dolor. Aenean justo enim, consectetur vel efficitur eu, 
-                    porttitor quis nisl. Suspendisse vestibulum sapien in libero aliquet, a blandit arcu suscipit. Pellentesque varius non odio 
-                    tincidunt convallis
-                    </p>
-                </div>
+        {!estadoPadre ? (
+          <>
+                      <h1 className="title2 title-underline">Dailyhack Section</h1>
+                        <section className="informative">
+                            <div className="Part1">
+                                <div className="IntroText">
+                                
+                                
+                                    <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu porta quam. Mauris libero justo, dictum non est sed, 
+                                    interdum finibus ligula. Morbi consectetur, odio nec dapibus pharetra, arcu dui tincidunt libero, at sodales dolor 
+                                    dui et urna. Integer ac tincidunt massa, nec bibendum nisl. Etiam sed turpis rutrum ligula faucibus aliquet. 
+                                    Aliquam egestas massa pharetra dolor feugiat, congue aliquam nibh semper. Sed pharetra nisi porttitor nisi pulvinar efficitur. 
+                                    Mauris non justo et nibh iaculis convallis vitae et quam. Sed ut purus dolor. Aenean justo enim, consectetur vel efficitur eu, 
+                                    porttitor quis nisl. Suspendisse vestibulum sapien in libero aliquet, a blandit arcu suscipit. Pellentesque varius non odio 
+                                    tincidunt convallis
+                                    </p>
+                                </div>
 
-                <div className="fotovidIntro">
-                <img src="https://t9z6z8s3.rocketcdn.me/wp-content/uploads/2017/01/Hackathon.png"></img>
-                </div>
-                <br></br>
-                <br></br>
-                <br></br>
-            </div>
+                                <div className="fotovidIntro">
+                                <img src="https://t9z6z8s3.rocketcdn.me/wp-content/uploads/2017/01/Hackathon.png"></img>
+                                </div>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                            </div>
 
-        </section>
-        <br></br>
-        <br></br>
-        <section className="upload">
-            <br></br>
-            <h2>Vols Presentar el teu repositori?</h2>
+                        </section>
+                        <br></br>
+                        <br></br>
+                        <section className="upload">
+                            <br></br>
+                            <h2>¿Vols presentar el teu repositori?</h2>
 
-            <br></br>
-            <HackerStepperForm></HackerStepperForm>
-        </section>
-<br></br>
-<br></br>
+                            <br></br>
+                            <HackerStepperForm onBotonClic={cambiarEstadoPadre}></HackerStepperForm>
+                        </section>
+                        <br></br>
+                        <br></br>
+                        </>
 
+        ) : (
+          <>
+            {!correct ? (
+              <section className="informative">
+             <p>Aqui se mostraria el contenido en caso que haya fallado alguna cosa</p>
+              </section>
+            ) : (
+              <section className="informative">
+              <p>Ahora se mostraria el contenido en caso que todo haya ido bien, junto al boton y todo eso</p>
+              </section>
+            )}
+          </>
+        )}
       </div>
     );
   };
   
-  export default DHKS;
+export default DHKS;
