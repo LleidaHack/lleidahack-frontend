@@ -1,0 +1,71 @@
+
+
+.BGPhather{
+    height: auto;
+    background-color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.informative{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title1 {
+    color: var(--white);
+    padding-top: 5%;
+    font-weight: bold;
+    text-align: center;
+    
+
+}
+
+.informative{
+  
+    width: 68%;
+    justify-content: center;
+    border-radius: 18px;
+    color: var(--white);
+    padding: 20px;
+   
+
+}
+
+.Part1{
+    display: flex;
+    justify-content: space-between; /* Distribuirá los elementos a izquierda y derecha */
+    align-items: center; /* Centrar verticalmente los elementos */
+
+}
+
+.IntroText{
+    width: 40%;
+    padding-left: 20px;
+    text-align: justify;
+}
+
+.fotovidIntro{
+    outline: 10px    double  var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 40%;
+    
+
+}
+
+
+.upload{
+    width: 68%;
+    height: auto;
+    background-color: var(--white);
+    outline: 10px double  var(--primary);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form{
+    width: 100%;
+    max-width: 100%;
+}

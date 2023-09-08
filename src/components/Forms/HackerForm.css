@@ -5,6 +5,15 @@
   align-items: center;
   padding-bottom: 20px;
 }
+.custom-form-Dailyhack {
+  width: 100%;
+  justify-content: center;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  
+}
 
 label {
   color: var(--white);
@@ -42,4 +51,9 @@ h1 {
 
 .input-error {
   color: red !important;
+}
+
+.peperonis{
+  scale: 0.8;
+  margin-right: 15px;
 }
