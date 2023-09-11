@@ -76,8 +76,8 @@ import {
   getEventGroups,
   addEventGroup,
   removeEventGroup,
-  addEventParticipant,
-  removeEventParticipant,
+  //addEventParticipant,
+  //removeEventParticipant,
   addEventSponsor,
   removeEventSponsor,
   getHackeps,
@@ -627,7 +627,7 @@ const Testing = () => {
           params: [event.id, grup.id],
           status: false,
         },
-        {
+        /*{
           body: addEventParticipant,
           params: [event.id, hacker.id],
           status: false,
@@ -636,7 +636,7 @@ const Testing = () => {
           body: removeEventParticipant,
           params: [event.id, hacker.id],
           status: false,
-        },
+        },*/
         {
           body: addEventSponsor,
           params: [event.id, company.id],
