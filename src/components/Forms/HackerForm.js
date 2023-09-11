@@ -6,14 +6,17 @@ import "src/components/Forms/HackerForm.css";
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useState, useEffect } from "react";
 
 import * as Yup from "yup";
 import { FormikStepper, InputField, SelectField } from "formik-stepper";
+import { signupHacker } from "src/services/HackerService";
+import FileBase from "react-file-base64";
+import userIcon from "src/icons/user2.png";
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required("Nom requerit"),
-  lastName1: Yup.string().required("Cognom 1 requerit"),
-  lastName2: Yup.string().required("Cognom 2 requerit"),
+  lastName: Yup.string().required("Cognoms requerits"),
   birthDate: Yup.date().required("Data de naixment requerida"),
   email: Yup.string()
     .email("The email must be a valid email address.")
@@ -37,17 +40,40 @@ const HackerPanel = () => {
 };
 
 export const HackerStepperForm = () => {
+  const [avatar, setAvatar] = useState(null);
+
+  const onSubmit = async (values, { setSubmitting }) => {
+    console.log(values);
+    const hacker = {
+      name: [values.firstName, values.lastName].join(" "),
+      nickname: values.nickname,
+      password: "string",
+      birthdate: values.birthDate,
+      food_restrictions: "",
+      email: values.email,
+      telephone: values.phone,
+      address: "",
+      shirt_size: values.shirtSize,
+      image: avatar,
+      is_image_url: false,
+      github: "",
+      linkedin: "",
+    };
+    signupHacker(hacker);
+    setSubmitting(false);
+  };
+
+  const handleImageChange = (event) => {
+    setAvatar(event.base64);
+  };
   return (
     <div id="hackerForm" className="custom-form">
       <FormikStepper
         /// Accept all Formik props
-        onSubmit={() => {
-          console.log("submit!");
-        }} /// onSubmit Function
+        onSubmit={onSubmit}
         initialValues={{
           firstName: "",
-          lastName1: "",
-          lastName2: "",
+          lastName: "",
           phone: "",
           email: "",
           nickname: "",
