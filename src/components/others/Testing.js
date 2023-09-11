@@ -35,7 +35,7 @@ import {
   getLleidaHackerById,
   updateLleidaHacker,
   deleteLleidaHacker,
-  addLleidaHacker,
+  //addLleidaHacker,
   acceptLleidaHacker,
   rejectLleidaHacker,
   activateLleidaHacker,
@@ -431,11 +431,11 @@ const Testing = () => {
           params: [lleidahacker.id],
           status: false,
         },
-        {
+        /*{
           body: addLleidaHacker,
           params: [lleidahacker],
           status: false,
-        },
+        },*/
         {
           body: acceptLleidaHacker,
           params: [lleidahacker.id],

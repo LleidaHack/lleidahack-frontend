@@ -101,7 +101,7 @@ export async function deleteLleidaHacker(lleidaHacker_id) {
     });
 }
 
-export async function addLleidaHacker(lleidaHacker) {
+/*export async function addLleidaHacker(lleidaHacker) {
   return fetch(process.env.REACT_APP_DOMAIN + "/lleidahacker/", {
     method: "POST",
     headers: {
@@ -119,7 +119,7 @@ export async function addLleidaHacker(lleidaHacker) {
       console.warn(error);
       return [];
     });
-}
+}*/
 
 export async function acceptLleidaHacker(lleidaHacker_id) {
   return fetch(
