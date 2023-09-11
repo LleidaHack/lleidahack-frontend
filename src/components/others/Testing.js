@@ -74,8 +74,8 @@ import {
 } from "src/services/EventService";
 import {
   registerHackerToEvent,
-  unregisterHackerToEvent,
-  participateHackerToEvent,
+  // unregisterHackerToEvent,
+  // participateHackerToEvent,
   unparticipateHackerToEvent,
   acceptHackerToEvent,
   rejectHackerToEvent,
@@ -605,16 +605,16 @@ const Testing = () => {
           params: [hacker.id, event.id],
           status: false,
         },
-        {
-          body: unregisterHackerToEvent,
-          params: [hacker.id, event.id],
-          status: false,
-        },
-        {
-          body: participateHackerToEvent,
-          params: [hacker.id, event.id],
-          status: false,
-        },
+        // {
+        //   body: unregisterHackerToEvent,
+        //   params: [hacker.id, event.id],
+        //   status: false,
+        // },
+        // {
+        //   body: participateHackerToEvent,
+        //   params: [hacker.id, event.id],
+        //   status: false,
+        // },
         {
           body: unparticipateHackerToEvent,
           params: [hacker.id, event.id],

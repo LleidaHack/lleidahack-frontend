@@ -301,4 +301,3 @@ export async function deleteEventGroup(event_id, group_id) {
       return [];
     });
 }
-
