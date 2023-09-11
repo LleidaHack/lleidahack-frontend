@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import LoginPage from "../components/Login/Login";
+import Header from "src/components/Header/Header";
+import Footer from "src/components/Footer/Footer";
+import LoginPage from "src/components/Login/Login";
 
 const Login = () => {
   return (
