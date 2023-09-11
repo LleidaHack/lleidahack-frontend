@@ -32,13 +32,18 @@
 .tarjeta {
     width: 240px; /* Ancho de cada tarjeta */
     background-color: #fff;
-    box-shadow: 10px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 13px -8px 5px rgba(0, 0, 0, 0.3);
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    margin-right: 5rem;
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
+}
+
+.tarjeta .second:last-child{
+    margin-right: 50rem;
 }
 
 .tarjeta img {

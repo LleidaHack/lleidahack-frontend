@@ -8,7 +8,6 @@
 .custom-form-Dailyhack {
   width: 100%;
   justify-content: center;
-  background: var(--white);
   display: flex;
   align-items: center;
   padding-bottom: 20px;
@@ -53,7 +52,3 @@ h1 {
   color: red !important;
 }
 
-.peperonis{
-  scale: 0.8;
-  margin-right: 15px;
-}

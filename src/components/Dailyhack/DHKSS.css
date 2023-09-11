@@ -57,10 +57,14 @@
 .upload{
     width: 68%;
     height: auto;
-    background-color: var(--white);
     outline: 10px double  var(--primary);
     border-radius: 10px;
     text-align: center;
+}
+
+.white{
+    background-color: var(--white);
+ 
 }
 
 .form{
@@ -164,3 +168,13 @@
     border-color: rgb(204, 202, 202);
     border-radius: 5px;
 }
+
+.second{
+    transform: translate(0, 2rem);
+    
+}
+
+.peperonis{
+    scale: 0.8;
+    margin-right: 15px;
+  }

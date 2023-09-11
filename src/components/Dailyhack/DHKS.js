@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import "src/components/Dailyhack/DHKSS.css"
+import "src/components/Dailyhack/main/maindailyhack.css"
+
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -10,7 +12,7 @@ import { FormikStepper, InputField, SelectField } from "formik-stepper";
 import { Formik, Form, Field, ErrorMessage  } from 'formik';
 
 const validationSchema = Yup.object().shape({
-  nick: Yup.string().required("Nom / Nickname requerit"),
+  //nick: Yup.string().required("Nom / Nickname requerit"),
   repositori: Yup.string().required("Et falta l'enllaç del teu repositori de Github"),
   
  
@@ -82,7 +84,7 @@ export const HackerStepperForm = (props) => {
             <HackerPanel></HackerPanel>
             <Col>
             <div className='piterrs'>
-            <label htmlFor="Reposit" className="blackt">Nom / Nickname</label>
+            {/*<label htmlFor="Reposit" className="blackt">Nom / Nickname</label>
 
               <Field 
                 name="nick" 
@@ -92,7 +94,7 @@ export const HackerStepperForm = (props) => {
                 className="BoxForm"
                />
               <ErrorMessage name="nick" component="div" className="error-message" />
-
+            */}
               <br></br>
               <br></br>
 
@@ -109,17 +111,17 @@ export const HackerStepperForm = (props) => {
 
               <br></br>
               <br></br>
-
-              <label htmlFor="textareaField" className="blackt">Comentaris</label>
+            {/*
+              <label htmlFor="textareaField" className="blackt">Explicació + Exemples</label>
               <Field
                   as="textarea" // Usa "textarea" para el campo de texto
                   id="textareaField"
                   name="Comment"
                   rows={4} // Personaliza el número de filas según tus necesidades
-                  placeholder="Puedes dejarnos cualquier comentario aqui..."
+                  placeholder="Haurás de deixar-nos una explicació de que has fet en aquest repositori i indicar-nos alguns exemples."
                   className="BoxForm"
               />
-              
+          */}
               
             </div>
               
@@ -197,10 +199,37 @@ const DHKS = () => {
                         <br></br>
                         <section className="upload">
                             <br></br>
-                            <h2>¿Vols presentar el teu repositori?</h2>
+                            <h2 className='title2'>¿Vols presentar el teu repositori?</h2>
 
                             <br></br>
                             <HackerStepperForm onBotonClic={cambiarEstadoPadre}></HackerStepperForm>
+                        </section>
+                        <br></br>
+                        <br></br>
+
+                        <section className="upload white">
+                            <h1 className="title3 title-underline">Premis </h1>
+
+                            <div class="contenedorx">
+                                <div class="tarjeta second">
+                                    <img src="https://m.media-amazon.com/images/I/71xNjrzG69L._AC_SX425_.jpg" alt="Imagen 1"></img>
+                                    <h2 className='title3'>2on Lloc</h2>
+                                    <p>Logitech G733 LIGHTSPEED</p>
+                                   
+                                </div>
+                                <div class="tarjeta">
+                                    <img src="https://m.media-amazon.com/images/I/816KtWjRsoL._AC_SX679_.jpg" alt="Imagen 2"></img>
+                                    <h2 className='title3'>1er Lloc</h2>
+                                    <p>Razer Huntsman V2 (Purple Switch)</p>
+                                    
+                                </div>
+                                <div class="tarjeta second">
+                                    <img src="https://m.media-amazon.com/images/I/61AcT0ZuO3L._AC_SX679_.jpg" alt="Imagen 3"></img>
+                                    <h2 className='title3'>3er Lloc</h2>
+                                    <p>Razer Basilisk V3</p>
+                                </div>
+                                <br></br>
+                            </div>
                         </section>
                         <br></br>
                         <br></br>

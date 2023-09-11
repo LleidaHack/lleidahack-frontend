@@ -10,7 +10,7 @@ import Testing from "src/components/others/Testing";
 import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
 import Dailyhack from "src/pages/Dailyhack.js"
-import HomeDailyhack from "src/pages/homedailyhacks.js"
+
 
 export default function App() {
   useEffect(() => {
@@ -34,7 +34,6 @@ export default function App() {
           <Route path="/sponsors/:ids" element={<Sponsors />} />
           <Route path="/inscripcio" element={<Inscripcio />} />
           <Route path="/dailyhacks" element={<Dailyhack />} />
-          <Route path="/homedailyhack" element={<HomeDailyhack />} />
 
         </Routes>
       </Router>

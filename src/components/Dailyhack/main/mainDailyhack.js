@@ -54,6 +54,8 @@ const HOMEDHKS = () => {
                             </div>
 
                         </section>
+                        <br></br>
+                        <br></br>
                         <section className="upload">
                             <h1 className="title3 title-underline">Dailyhacks </h1>
 
