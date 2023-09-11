@@ -11,7 +11,6 @@ import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
 import Login from "src/pages/Login";
 
-
 export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
