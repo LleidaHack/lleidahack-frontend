@@ -29,6 +29,7 @@ import {
   getHackerGroupMembers,
   addHackerToGroup,
   removeHackerFromGroup,
+  addHackerToGroupByCode,
 } from "src/services/HackerGroupService";
 import {
   signupLleidaHacker,
@@ -407,6 +408,11 @@ const Testing = () => {
           params: [hacker.id, grup.id],
           status: false,
         },
+        {
+          body: addHackerToGroupByCode,
+          params: [hacker.id, grup.id],
+          status: false,
+        }
       ],
     },
     {
