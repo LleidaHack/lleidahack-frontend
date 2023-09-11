@@ -99,8 +99,7 @@ export const HackerStepperForm = () => {
             <Col>
               <h1 className="white-color">Crear compte</h1>
               <InputField name="firstName" type="text" label="Nom" />
-              <InputField name="lastName1" type="text" label="Cognom 1" />
-              <InputField name="lastName2" type="text" label="Cognom 2" />
+              <InputField name="lastName" type="text" label="Cognoms" />
               <InputField
                 name="birthDate"
                 type="date"
@@ -131,10 +130,29 @@ export const HackerStepperForm = () => {
             </Col>
           </Row>
         </FormikStepper.Step>
-        <FormikStepper.Step label="Avatar">
-          <h1 className="white-color">Crear compte</h1>
-          <InputField name="avatarImage" type="text" label="Avatar" />
+        <Row>
+          <Col>
+            { avatar ?
+              <img style={{ height: `150px`, width: `150px`}}
+                  className="avatar-image bg-white rounded-circle m-auto" src={avatar}></img> :
+              <img
+                  style={{ height: `150px`, width: `150px`}}
+                  className="avatar-image bg-white rounded-circle m-auto"
+                  src={userIcon}
+                />
+            }
+            <FileBase
+            id="avatarInput"
+            type="file"
+            multiple={false}
+            onDone={handleImageChange}
+            />
+          </Col>
+        <Col>
+          <h1  className='white-color'>Crear compte</h1>
           <InputField name="nickname" type="text" label="Nickname" />
+        </Col>
+        </Row>
         </FormikStepper.Step>
       </FormikStepper>
     </div>
