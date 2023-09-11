@@ -1,14 +1,14 @@
-import React from 'react'
-import Grups from "src/components/others/Grups"
+import React from "react";
+import Grups from "src/components/others/Grups";
 
-const MetaTest = ({ functionsList}) => {
+const MetaTest = ({ functionsList, autotest }) => {
   return (
     <div>
-      {functionsList.map((data,i) => (
-          <Grups key={i} data={data} />
-        ))}
+      {functionsList.map((data, i) => (
+        <Grups key={i} data={data} autotest={autotest} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default MetaTest
+export default MetaTest;

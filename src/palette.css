@@ -1,11 +1,11 @@
-.p-bg-black{
-    background-color: var(--secondary);
+.p-bg-black {
+  background-color: var(--secondary);
 }
 
-.p-bg-grey{
-    background-color: var(--gray-strong);
+.p-bg-grey {
+  background-color: var(--gray-strong);
 }
 
-.p-bg-primary{
-    background-color: var(--primary);
+.p-bg-primary {
+  background-color: var(--primary);
 }

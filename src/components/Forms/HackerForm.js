@@ -1,8 +1,8 @@
 // src/components/Forms/HackerForm.js
 
-import Header from 'src/components/Header/Header.js'
-import Footer from 'src/components/Footer/Footer.js'
-import 'src/components/Forms/HackerForm.css';
+import Header from "src/components/Header/Header.js";
+import Footer from "src/components/Footer/Footer.js";
+import "src/components/Forms/HackerForm.css";
 import "formik-stepper/dist/style.css";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -18,7 +18,8 @@ const validationSchema = Yup.object().shape({
   firstName: Yup.string().required("Nom requerit"),
   lastName: Yup.string().required("Cognoms requerits"),
   birthDate: Yup.date().required("Data de naixment requerida"),
-  email: Yup.string().email("The email must be a valid email address.")
+  email: Yup.string()
+    .email("The email must be a valid email address.")
     .required("The Email field is required"),
   phone: Yup.string().required("Telèfon requerit"),
   shirtSize: Yup.string().required("Talla de camiseta requerida"),
@@ -26,16 +27,16 @@ const validationSchema = Yup.object().shape({
 });
 
 const HackerPanel = () => {
-    return (
-      <Col className='hacker-panel'>
-        <Row>
-          <img src={require('src/imgs/hacker_image.svg').default} alt='Hacker' />
-        </Row>
-        <Row>
-          <h2 className='hacker-panel-title'>Hacker</h2>
-        </Row>
-      </Col>
-    );
+  return (
+    <Col className="hacker-panel">
+      <Row>
+        <img src={require("src/imgs/hacker_image.svg").default} alt="Hacker" />
+      </Row>
+      <Row>
+        <h2 className="hacker-panel-title">Hacker</h2>
+      </Row>
+    </Col>
+  );
 };
 
 export const HackerStepperForm = () => {
@@ -67,7 +68,6 @@ export const HackerStepperForm = () => {
   const handleImageChange = (event) => {
     setAvatar(event.base64);
   }
-
   return (
     <div id="hackerForm" className="custom-form">
     <FormikStepper
@@ -86,19 +86,18 @@ export const HackerStepperForm = () => {
       prevButton={{ label: "Enrere", style: {background: "var(--primary)"} }}
       submitButton={{ label: "Envia", style: { background: "var(--primary)" } }}
     >
-
       <FormikStepper.Step label="Informació personal">
         <Row>
           <HackerPanel></HackerPanel>
           <Col>
             <h1 className='white-color'>Crear compte</h1>
             <InputField name="firstName" type="text" label="Nom" />
-            <InputField name="lastName" type="text" label="Cognoms" />
+            <InputField name="lastName1" type="text" label="Cognom 1" />
+            <InputField name="lastName2" type="text" label="Cognom 2" />
             <InputField name="birthDate" type="date" label="Data de naixement" />
           </Col>
         </Row>
       </FormikStepper.Step>
-
       <FormikStepper.Step label="Contacte">
         <Row>
           <HackerPanel></HackerPanel>
@@ -121,32 +120,10 @@ export const HackerStepperForm = () => {
           </Col>
         </Row>
       </FormikStepper.Step>
-
       <FormikStepper.Step label="Avatar" >
-      <Row>
-        <Col>
-          
-          { avatar ?
-            <img style={{ height: `150px`, width: `150px`}}
-                className="avatar-image bg-white rounded-circle m-auto" src={avatar}></img> :
-            <img
-                style={{ height: `150px`, width: `150px`}}
-                className="avatar-image bg-white rounded-circle m-auto"
-                src={userIcon}
-              />
-          }
-          <FileBase
-          id="avatarInput"
-          type="file"
-          multiple={false}
-          onDone={handleImageChange}
-          />
-        </Col>
-        <Col>
-          <h1  className='white-color'>Crear compte</h1>
-          <InputField name="nickname" type="text" label="Nickname" />
-        </Col>
-        </Row>
+        <h1  className='white-color'>Crear compte</h1>
+        <InputField name="avatarImage" type="text" label="Avatar" />
+        <InputField name="nickname" type="text" label="Nickname" />
       </FormikStepper.Step>
     </FormikStepper>
     </div>
@@ -154,7 +131,6 @@ export const HackerStepperForm = () => {
 };
 
 const HackerForm = () => {
-
   return (
     <>
       <Header />

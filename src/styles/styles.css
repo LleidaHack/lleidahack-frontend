@@ -1,25 +1,17 @@
 .title-underline {
-    color: var(--white);
-    text-decoration: underline;
-    text-decoration-color: var(--primary);
-    text-underline-offset: 0.2em;
-    text-decoration-thickness: 0.2em;
-    border-radius: 5px;
-    padding-bottom: 1em;
-  }
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.2em;
+  border-radius: 5px;
+  padding-bottom: 1em;
+}
 
 .dark-background {
-    background-color: var(--secondary);
+  background-color: var(--secondary);
 }
 
 .white-color {
-    color: var(--white);
-}
-
-.black-color {
-    color: var(--black);
-}
-
-.no-border {
-    border: none;
+  color: var(--white);
 }

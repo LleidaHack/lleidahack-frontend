@@ -1,18 +1,20 @@
-import React from 'react';
-import 'src/components/Contacte/Contacte.css';
-import logo from 'src/icons/imagotip_lleidahack_blanc.png';
-import instagramLogo from 'src/icons/instagram.png';
-import linkedinLogo from 'src/icons/linkedin.png';
-import twitterLogo from 'src/icons/twitter.png';
+import React, { useEffect } from "react";
+import "src/components/Contacte/Contacte.css";
+import logo from "src/icons/imagotip_lleidahack_blanc.png";
+import instagramLogo from "src/icons/instagram.png";
+import linkedinLogo from "src/icons/linkedin.png";
+import twitterLogo from "src/icons/twitter.png";
 
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Nom requerit'),
-  email: Yup.string().email('El correu ha de ser una adreça de correu vàlida.').required('El camp de correu és obligatori.'),
-  subject: Yup.string().required('El títol del missatge és requerit.'),
-  message: Yup.string().required('El missatge és requerit.'),
+  name: Yup.string().required("Nom requerit"),
+  email: Yup.string()
+    .email("El correu ha de ser una adreça de correu vàlida.")
+    .required("El camp de correu és obligatori."),
+  subject: Yup.string().required("El títol del missatge és requerit."),
+  message: Yup.string().required("El missatge és requerit."),
 });
 
 const ContactePage = () => {
@@ -20,6 +22,11 @@ const ContactePage = () => {
     // Aquí puedes manejar la lógica de envío del formulario.
     console.log(values);
   };
+
+  useEffect(() => {
+    // Coloca el scroll en la parte superior cuando el componente se monta
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container-all">
@@ -29,54 +36,88 @@ const ContactePage = () => {
           <h2 className="title-logo">Esdeveniment organitzat per LleidaHack</h2>
           <img src={logo} alt="Logo" className="logo" />
           <div className="social-logos">
-            <a href="https://www.instagram.com/lleidahack" target="_blank" rel="noopener noreferrer">
-              <img src={instagramLogo} alt="Instagram" className="social-logo" />
+            <a
+              href="https://www.instagram.com/lleidahack"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={instagramLogo}
+                alt="Instagram"
+                className="social-logo"
+              />
             </a>
-            <a href="https://www.linkedin.com/company/lleidahack" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/company/lleidahack"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={linkedinLogo} alt="LinkedIn" className="social-logo" />
             </a>
-            <a href="https://www.twitter.com/lleidahack" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.twitter.com/lleidahack"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={twitterLogo} alt="Twitter" className="social-logo" />
             </a>
           </div>
         </div>
-        <div className="form-container">
+        <div className="form-container-contacte">
           <Formik
             initialValues={{
-              name: '',
-              email: '',
-              subject: '',
-              message: '',
+              name: "",
+              email: "",
+              subject: "",
+              message: "",
             }}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            <Form>
+            <Form className="form-contacte">
               <div className="formik-field">
                 <label htmlFor="name">Nom:</label>
                 <Field type="text" id="name" name="name" />
-                <ErrorMessage name="name" component="div" className="error-message" />
+                <ErrorMessage
+                  name="name"
+                  component="div"
+                  className="error-message"
+                />
               </div>
 
               <div className="formik-field">
                 <label htmlFor="email">Correu:</label>
                 <Field type="email" id="email" name="email" />
-                <ErrorMessage name="email" component="div" className="error-message" />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="error-message"
+                />
               </div>
 
               <div className="formik-field">
                 <label htmlFor="subject">Títol del missatge:</label>
                 <Field type="text" id="subject" name="subject" />
-                <ErrorMessage name="subject" component="div" className="error-message" />
+                <ErrorMessage
+                  name="subject"
+                  component="div"
+                  className="error-message"
+                />
               </div>
 
               <div className="formik-field">
                 <label htmlFor="message">Missatge:</label>
                 <Field as="textarea" id="message" name="message" rows="4" />
-                <ErrorMessage name="message" component="div" className="error-message" />
+                <ErrorMessage
+                  name="message"
+                  component="div"
+                  className="error-message"
+                />
               </div>
               <div className="button-submit-container">
-                <button className="button-submit" type="submit">Enviar</button>
+                <button className="button-submit" type="submit">
+                  Enviar
+                </button>
               </div>
             </Form>
           </Formik>

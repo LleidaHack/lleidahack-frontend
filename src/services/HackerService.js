@@ -1,153 +1,188 @@
 export async function signupHacker(hacker) {
-    return fetch('https://backend.integration.lleidahack.dev/hacker/signup', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            "mode":"no-cors"
-        },
-        body: JSON.stringify(hacker)
+  return fetch(process.env.REACT_APP_DOMAIN + "/hacker/signup", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      mode: "no-cors",
+    },
+    body: JSON.stringify(hacker),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('response: ', data);
-        return data;
-    })
-    .catch(error => {
-        console.warn(error);
-        return[]
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
 export async function getAllHackers() {
-    return fetch('https://backend.integration.lleidahack.dev/hacker/all', {
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem("userToken")
-        }
+  return fetch(process.env.REACT_APP_DOMAIN + "/hacker/all", {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('response: ', data);
-        return data;
-    })
-    .catch(error => {
-        console.warn(error);
-        return [];
-    });  
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
 }
 
 export async function getHackerById(hacker_id) {
-    console.log(hacker_id);
-    return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker_id}`, {
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem("userToken")
-        }
+  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('response: ', data);
-        return data;
-    })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
 export async function updateHacker(hacker) {
-    return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker.id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem("userToken")
-        },
-        body: JSON.stringify(hacker)
+  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+    body: JSON.stringify(hacker),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('response: ', data);
-        return data;
-    })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
 export async function addHacker(hacker) {
-    return fetch('https://backend.integration.lleidahack.dev/hacker/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem("userToken")
-        },
-        body: JSON.stringify(hacker)
+  return fetch(process.env.REACT_APP_DOMAIN + "/hacker/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+    body: JSON.stringify(hacker),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('response: ', data);
-        return data;
-    })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
 export async function banHackerById(hacker_id) {
-    return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker_id}/ban`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem("userToken")
-        }
+  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}/ban`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('response: ', data);
-        return data;
-    })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
 export async function unbanHackerById(hacker_id) {
-    return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker_id}/unban`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem("userToken")
-        }
+  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}/unban`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('response: ', data);
-        return data;
-    })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }
 
 export async function deleteHacker(hacker_id) {
-    return fetch(`https://backend.integration.lleidahack.dev/hacker/${hacker_id}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem("userToken")
-        }
+  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('response: ', data);
-        return data;
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function getHackerEvents(hacker_id) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}/events`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
     })
-    .catch(error => {
-        console.warn(error);
-        return [];
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function getHackerGroups(hacker_id) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}/groups`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
     });
 }

@@ -1,16 +1,17 @@
 import React from "react";
 /*import ReactDOM from "react-dom";*/
-import ReactDOM from 'react-dom/client';
-import App from "src/App";
+
+import ReactDOM from "react-dom/client";
+import App from "src/App.js";
 
 // Bootstrap
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import "bootstrap/dist/css/bootstrap.css";
 
+import "bootstrap-icons/font/bootstrap-icons.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
- /* <React.StrictMode>*/
-    <App />
+  /* <React.StrictMode>*/
+  <App />,
   /*</React.StrictMode>*/
 );

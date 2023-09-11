@@ -1,0 +1,18 @@
+label {
+  color: #f5f5f5;
+}
+
+.stepper-horizontal {
+  color: #f5f5f5;
+}
+.stepper-step.active-step {
+  color: #a40925;
+}
+
+.stepper-horizontal .stepper-step.active-step .stepper-title {
+  color: #a40925 !important;
+}
+
+h1 {
+  color: #f5f5f5;
+}

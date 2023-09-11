@@ -30,6 +30,11 @@ const Profile = () => {
   const startDate = new Date(2022, 10, 25);
   const endDate = new Date(2022, 10, 27);
 
+  useEffect(() => {
+    // Coloca el scroll en la parte superior cuando el componente se monta
+    window.scrollTo(0, 0);
+  }, []);
+
   const navigate = useNavigate();
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
@@ -106,31 +111,31 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Accounts link */}
-        <LinkAccounts/>
+          {/* Accounts link */}
+          <LinkAccounts />
 
-        {/* Join Box */}
-        <Join/>
+          {/* Join Box */}
+          <Join />
 
         { team ? <Team team={team} /> : <></> }
 
-        {/* Calendar and Achievements */}
-        <div className="row m-5 gy-5 bottom-container text-center m-auto">
-          <div className="col-12 col-xl-6">
-            <Medals />
-          </div>
-          <div className="col-12 col-xl-6">
-            <div className="calendar-container">
-              <Calendar
-                value={[startDate, endDate]}
-                locale={"ca"}
-                minDetail={"month"}
-              />
+          {/* Calendar and Achievements */}
+          <div className="row m-5 gy-5 bottom-container text-center m-auto">
+            <div className="col-12 col-xl-6">
+              <Medals />
+            </div>
+            <div className="col-12 col-xl-6">
+              <div className="calendar-container">
+                <Calendar
+                  value={[startDate, endDate]}
+                  locale={"ca"}
+                  minDetail={"month"}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
     <Modal show={showQR} onHide={handleCloseQR} centered>
       <QrCode url="{hacker.qrCode}" />
