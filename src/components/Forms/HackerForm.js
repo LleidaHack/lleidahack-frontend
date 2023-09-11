@@ -65,7 +65,6 @@ export const HackerStepperForm = () => {
 };
 
   const handleImageChange = (event) => {
-    console.log(event);
     setAvatar(event.base64);
   }
 
