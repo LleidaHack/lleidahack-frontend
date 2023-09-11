@@ -31,6 +31,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
+          <Route path="/testing" element={<Testing />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
           <Route path="/inscripcio" element={<Inscripcio />} />
