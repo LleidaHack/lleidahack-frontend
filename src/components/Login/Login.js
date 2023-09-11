@@ -5,7 +5,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "src/components/Login/Login.css";
 import logo from "src/icons/llhlogow.png";
-import { login } from "src./services/AuthenticationService";
+import { login } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({

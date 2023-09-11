@@ -11,9 +11,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const Team = (props) => {
-  const teamName = props.teamName;
-  const teamCode = props.teamCode;
-  const members = props.members;
+  const team = props.team;
 
   const [showCreateTeam, setShowCreateTeam] = useState(false);
   const handleShowCreateTeam = () => setShowCreateTeam(true);
@@ -23,7 +21,7 @@ const Team = (props) => {
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
 
-  const isInTeam = true;
+  const isInTeam = team.id != null;
 
   function TeamButtons() {
     const validationSchemaJoinTeam = Yup.object().shape({
@@ -146,17 +144,17 @@ const Team = (props) => {
     return (
       <Container className="p-bg-grey text-center mt-5 m-0 p-3">
         <h1>
-          {teamName} (Codi: #{teamCode})
+          {team.teamName} (Codi: #{team.teamCode})
         </h1>
         <p>El teu equip:</p>
         <Container className="p-2">
           <Row className="g-3 justify-content-center">
-            {members.map((member, index) => (
+            {team.members.map((member, index) => (
               <Col className="col-3" key={index}>
                 <div className="p-3 text-center bg-white">
                   <img
                     className="team-member-image bg-black"
-                    src={user}
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel"
                     alt=""
                   />
                   <p className="team-member-name">{member.name}</p>
