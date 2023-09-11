@@ -1,6 +1,6 @@
 import React from "react";
-import "./UserEnter.css"; // Importa el archivo de estilos CSS para el footer
-import hackLogo from "../../icons/hackIcon.png";
+import "src/components/UserEnters/UserEnter.css"; // Importa el archivo de estilos CSS para el footer
+import hackLogo from "src/icons/hackIcon.png";
 import { Link } from "react-router-dom";
 
 const LinkAccounts = () => {
