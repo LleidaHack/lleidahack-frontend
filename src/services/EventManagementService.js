@@ -1,4 +1,4 @@
-export async function addDailyhack(event_id,hacker_id,url) {
+export async function addDailyhack(event_id, hacker_id, url) {
   return fetch(
     `https://backend.lleidahack.dev/eventmanagment/${event_id}/add_dailyhack/${hacker_id}`,
     {
@@ -7,7 +7,7 @@ export async function addDailyhack(event_id,hacker_id,url) {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
-      body: JSON.stringify({ querry: {"url":url}})
+      body: JSON.stringify({ querry: { url: url } }),
     },
   ).catch((error) => {
     console.warn(error);
@@ -15,7 +15,7 @@ export async function addDailyhack(event_id,hacker_id,url) {
   });
 }
 
-export async function updateDailyhack(event_id,hacker_id,url) {
+export async function updateDailyhack(event_id, hacker_id, url) {
   return fetch(
     `https://backend.lleidahack.dev/eventmanagment/${event_id}/update_dailyhack/${hacker_id}`,
     {
@@ -24,7 +24,7 @@ export async function updateDailyhack(event_id,hacker_id,url) {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
-      body: JSON.stringify({ querry: {"url":url}})
+      body: JSON.stringify({ querry: { url: url } }),
     },
   ).catch((error) => {
     console.warn(error);
@@ -32,7 +32,7 @@ export async function updateDailyhack(event_id,hacker_id,url) {
   });
 }
 
-export async function getDailyhackById(event_id,hacker_id) {
+export async function getDailyhackById(event_id, hacker_id) {
   return fetch(
     `https://backend.lleidahack.dev/eventmanagment/${event_id}/dailyhack/${hacker_id}`,
     {
@@ -47,7 +47,7 @@ export async function getDailyhackById(event_id,hacker_id) {
   });
 }
 
-export async function deleteDailyhack(event_id,hacker_id) {
+export async function deleteDailyhack(event_id, hacker_id) {
   return fetch(
     `https://backend.lleidahack.dev/eventmanagment/${event_id}/dailyhack/${hacker_id}`,
     {
