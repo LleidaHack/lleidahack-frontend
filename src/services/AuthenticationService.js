@@ -10,9 +10,6 @@ export async function login(user) {
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);
-      //if (!data.hasOwnProperty('token')) {
-      //    throw new Error('Token parameter not found in the data object.');
-      //}
       localStorage.setItem("userToken", data.access_token);
       localStorage.setItem("userID", data.user_id);
     })

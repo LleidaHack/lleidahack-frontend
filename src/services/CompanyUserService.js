@@ -101,7 +101,7 @@ export async function deleteCompanyUser(company_user_id) {
     });
 }
 
-export async function addCompanyUser(company_user) {
+/*export async function addCompanyUser(company_user) {
   return fetch(process.env.REACT_APP_DOMAIN + "/company/user/", {
     method: "POST",
     headers: {
@@ -119,4 +119,4 @@ export async function addCompanyUser(company_user) {
       console.warn(error);
       return [];
     });
-}
+}*/
