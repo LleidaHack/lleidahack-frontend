@@ -1,67 +1,16 @@
 export async function registerHackerToEvent(hacker_id, event_id) {
   return fetch(
-    process.env.REACT_APP_DOMAIN +
-      `/eventmanagment/${event_id}/register/${hacker_id}`,
+    `https://backend.lleidahack.dev/eventmanagment/${event_id}/register/${hacker_id}`,
     {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
     },
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
-}
-
-export async function unregisterHackerToEvent(hacker_id, event_id) {
-  return fetch(
-    process.env.REACT_APP_DOMAIN +
-      `/eventmanagment/${event_id}/unregister/${hacker_id}`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    },
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
-}
-
-export async function participateHackerToEvent(hacker_id, event_id) {
-  return fetch(
-    process.env.REACT_APP_DOMAIN +
-      `/eventmanagment/${event_id}/participate/${hacker_id}`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    },
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  ).catch((error) => {
+    console.warn(error);
+    return [];
+  });
 }
 
 export async function unparticipateHackerToEvent(hacker_id, event_id) {
