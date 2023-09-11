@@ -5,6 +5,7 @@ import MetaTest from "src/components/others/MetaTest";
 import {
   getAllUsers,
   getUserById,
+  getUserByCode,
   addUser,
 } from "src/services/UserService";
 import {
@@ -81,6 +82,7 @@ import {
   addEventSponsor,
   removeEventSponsor,
   getHackeps,
+  getEventHackerGroup,
 } from "src/services/EventService";
 import {
   addDailyhack,
@@ -138,6 +140,7 @@ const Testing = () => {
     shirt_size: "L",
     image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
     is_image_url: true,
+    code:""
   });
 
   const [hacker, setHacker] = useState({
@@ -288,6 +291,11 @@ const Testing = () => {
         {
           body: getUserById,
           params: [user.id],
+          status: false
+        },
+        {
+          body: getUserByCode,
+          params: [code.code],
           status: false
         },
         {
@@ -731,6 +739,11 @@ const Testing = () => {
         },
         {
           body: getPendingHackersGruped,
+          params: [event.id],
+          status: false,
+        },
+        {
+          body: getRejectedHackers,
           params: [event.id],
           status: false,
         },

@@ -94,6 +94,24 @@ export async function deleteUser(user_id) {
     });
 }*/
 
+export async function getUserByCode(code) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/user/${code}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
 export async function addUser(user) {
   return fetch(process.env.REACT_APP_DOMAIN + "/user/", {
     method: "POST",
