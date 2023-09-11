@@ -37,7 +37,7 @@
 }
 
 .button:hover {
-  background-color: #002ead;
+  background-color: var(--primary-strong);
   transition: 0.7s;
 }
 
@@ -48,4 +48,9 @@
 .center-elements {
   display: flex;
   justify-content: center;
+}
+
+.fantasma {
+  position: relative;
+  top: -1000px;
 }

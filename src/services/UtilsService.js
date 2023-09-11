@@ -1,5 +1,5 @@
 export async function uploadImage(image) {
-  return fetch("https://backend.lleidahack.dev/utils/uploadImage", {
+  return fetch(process.env.REACT_APP_DOMAIN + "/utils/uploadImage", {
     method: "POST",
     headers: {
       "Content-Type": "image/jpeg",
@@ -18,11 +18,13 @@ export async function uploadImage(image) {
     });
 }
 
-export async function sendMail(to) {
-  return fetch(`https://backend.lleidahack.dev/utils/sendMail/${to}`, {
+export async function sendMail(to, content) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/utils/send-email/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      email: to,
+      template: content,
     },
   })
     .then((response) => response.json())
@@ -37,7 +39,7 @@ export async function sendMail(to) {
 }
 
 export async function getImage(id) {
-  return fetch(`https://backend.lleidahack.dev/utils/imageUrl/${id}`, {
+  return fetch(process.env.REACT_APP_DOMAIN + `/utils/imageUrl/${id}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),

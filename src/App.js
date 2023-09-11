@@ -1,12 +1,16 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Contacte from "./pages/Contacte";
-import Error404 from "./pages/Error404";
-import FAQPage from "./pages/FAQ";
-import Home from "./pages/Home";
 import React, { useEffect } from "react";
-import Profile from "./pages/Profile/Profile.js";
-import HackerForm from "./components/Forms/HackerForm";
-import Login from "./pages/Login";
+import Contacte from "src/pages/Contacte";
+import Error404 from "src/pages/Error404";
+import FAQPage from "src/pages/FAQ";
+import Home from "src/pages/Home";
+import Profile from "src/pages/Profile/Profile.js";
+import HackerForm from "src/components/Forms/HackerForm";
+import Testing from "src/components/others/Testing";
+import Inscripcio from "src/pages/Inscripcio";
+import Sponsors from "src/pages/Sponsors";
+import Login from "src/pages/Login";
+
 
 export default function App() {
   useEffect(() => {
@@ -22,8 +26,14 @@ export default function App() {
           <Route path="/home" element={<Home />} />
           <Route path="*" element={<Error404 />} />
           <Route path="/perfil" element={<Profile />} />
+          <Route path="/perfil/:id" element={<Profile />} />
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/hacker-form" element={<HackerForm />} />
+          <Route path="/testing" element={<Testing />} />
+          <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
+          <Route path="/sponsors/:ids" element={<Sponsors />} />
+          <Route path="/inscripcio" element={<Inscripcio />} />
         </Routes>
       </Router>
     </div>

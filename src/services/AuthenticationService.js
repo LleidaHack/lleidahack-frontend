@@ -1,7 +1,7 @@
 import { decode as atob, encode as btoa } from "base-64";
 
 export async function login(user) {
-  return fetch(process.env.REACT_APP_DOMAIN + "login", {
+  return fetch(process.env.REACT_APP_DOMAIN + "/login", {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Basic " + btoa(`${user.email}:${user.password}`),

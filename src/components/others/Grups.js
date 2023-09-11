@@ -1,15 +1,22 @@
 import React from "react";
+import { useState } from "react";
 
-const Grups = ({ data }) => {
-  const handleFunctionCall = (func, params) => {
-    if (params.length === 0) {
-      return func();
-    } else if (params.length === 1) {
-      return func(params[0]);
-    } else if (params.length === 2) {
-      return func(params[0], params[1]);
+const Grups = ({ data, autotest }) => {
+  const handleFunctionCall = async (func, params, i) => {
+    const a = await func(params?.[0], params?.[1]);
+    if (Array.isArray(a) && a.length === 0) {
+      return a;
     }
+    if (a === { detail: "Insufficient permissions" }) {
+      return a;
+    }
+    const updatedItems = [...buttonStates];
+    updatedItems[i] = true;
+    setButtonStates(updatedItems);
+    return a;
   };
+
+  const [buttonStates, setButtonStates] = useState(data.body.map(() => false));
 
   return (
     <div>
@@ -18,9 +25,16 @@ const Grups = ({ data }) => {
       {data.body.map((data, index) => (
         <button
           key={index}
-          onClick={() => handleFunctionCall(data.body, data.params)}
+          onClick={() => handleFunctionCall(data.body, data.params, index)}
         >
-          {data.body.name} {data.status ? "✅" : "🟥"}
+          {data.body.name}{" "}
+          {autotest
+            ? buttonStates[index]
+              ? "✅"
+              : "🟥"
+            : data.status
+            ? "✅"
+            : "🟥"}
         </button>
       ))}
     </div>

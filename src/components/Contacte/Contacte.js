@@ -1,9 +1,9 @@
-import React from "react";
-import "./Contacte.css";
-import logo from "../../icons/imagotip_lleidahack_blanc.png";
-import instagramLogo from "../../icons/instagram.png";
-import linkedinLogo from "../../icons/linkedin.png";
-import twitterLogo from "../../icons/twitter.png";
+import React, { useEffect } from "react";
+import "src/components/Contacte/Contacte.css";
+import logo from "src/icons/imagotip_lleidahack_blanc.png";
+import instagramLogo from "src/icons/instagram.png";
+import linkedinLogo from "src/icons/linkedin.png";
+import twitterLogo from "src/icons/twitter.png";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -22,6 +22,11 @@ const ContactePage = () => {
     // Aquí puedes manejar la lógica de envío del formulario.
     console.log(values);
   };
+
+  useEffect(() => {
+    // Coloca el scroll en la parte superior cuando el componente se monta
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container-all">
@@ -58,7 +63,7 @@ const ContactePage = () => {
             </a>
           </div>
         </div>
-        <div className="form-container">
+        <div className="form-container-contacte">
           <Formik
             initialValues={{
               name: "",
@@ -69,7 +74,7 @@ const ContactePage = () => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            <Form>
+            <Form className="form-contacte">
               <div className="formik-field">
                 <label htmlFor="name">Nom:</label>
                 <Field type="text" id="name" name="name" />

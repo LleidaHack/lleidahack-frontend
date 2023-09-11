@@ -1,18 +1,19 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
-import "./Calendar.css";
+import "src/components/Home/Calendar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../../styles/styles.css";
+import "src/styles/styles.css";
 
 const CalendarDates = (props) => {
   const [startDate, setStartDate] = useState(props.startDate);
   const [endDate, setEndDate] = useState(props.endDate);
 
   return (
-    <div className="dark-background p-5" id="dates">
+    <div className="dark-background p-5">
+      <div className="claseGhosting" id="dates"></div>
       <h1 className="text-center title-underline">Dates</h1>
       <Container>
         <Row>

@@ -1,5 +1,5 @@
 export async function getEvents() {
-  return fetch("https://backend.lleidahack.dev/event/", {
+  return fetch(process.env.REACT_APP_DOMAIN + "/event/", {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),
@@ -17,7 +17,7 @@ export async function getEvents() {
 }
 
 export async function createEvent(event) {
-  return fetch("https://backend.lleidahack.dev/event/", {
+  return fetch(process.env.REACT_APP_DOMAIN + "/event/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export async function createEvent(event) {
 }
 
 export async function getEventById(event_id) {
-  return fetch(`https://backend.lleidahack.dev/event/${event_id}`, {
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),
@@ -55,7 +55,7 @@ export async function getEventById(event_id) {
 }
 
 export async function updateEvent(event) {
-  return fetch(`https://backend.lleidahack.dev/event/${event.id}`, {
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export async function updateEvent(event) {
 }
 
 export async function deleteEvent(event_id) {
-  return fetch(`https://backend.lleidahack.dev/event/${event_id}`, {
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -95,7 +95,7 @@ export async function deleteEvent(event_id) {
 
 export async function getEventParticipants(event_id) {
   return fetch(
-    `https://backend.lleidahack.dev/event/${event_id}/participants`,
+    process.env.REACT_APP_DOMAIN + `/event/${event_id}/participants`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -115,7 +115,7 @@ export async function getEventParticipants(event_id) {
 }
 
 export async function getEventSponsors(event_id) {
-  return fetch(`https://backend.lleidahack.dev/event/${event_id}/sponsors`, {
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/sponsors`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),
@@ -133,7 +133,7 @@ export async function getEventSponsors(event_id) {
 }
 
 export async function getEventGroups(event_id) {
-  return fetch(`https://backend.lleidahack.dev/event/${event_id}/groups`, {
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/groups`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),
@@ -152,7 +152,8 @@ export async function getEventGroups(event_id) {
 
 export async function addEventParticipant(event_id, hacker_id) {
   return fetch(
-    `https://backend.lleidahack.dev/event/${event_id}/participants/${hacker_id}`,
+    process.env.REACT_APP_DOMAIN +
+      `/event/${event_id}/participants/${hacker_id}`,
     {
       method: "PUT",
       headers: {
@@ -174,7 +175,8 @@ export async function addEventParticipant(event_id, hacker_id) {
 
 export async function deleteEventParticipant(event_id, hacker_id) {
   return fetch(
-    `https://backend.lleidahack.dev/event/${event_id}/participants/${hacker_id}`,
+    process.env.REACT_APP_DOMAIN +
+      `/event/${event_id}/participants/${hacker_id}`,
     {
       method: "DELETE",
       headers: {
@@ -196,7 +198,7 @@ export async function deleteEventParticipant(event_id, hacker_id) {
 
 export async function addEventSponsor(event_id, company_id) {
   return fetch(
-    `https://backend.lleidahack.dev/event/${event_id}/sponsors/${company_id}`,
+    process.env.REACT_APP_DOMAIN + `/event/${event_id}/sponsors/${company_id}`,
     {
       method: "PUT",
       headers: {
@@ -218,7 +220,7 @@ export async function addEventSponsor(event_id, company_id) {
 
 export async function deleteEventSponsor(event_id, company_id) {
   return fetch(
-    `https://backend.lleidahack.dev/event/${event_id}/sponsors/${company_id}`,
+    process.env.REACT_APP_DOMAIN + `/event/${event_id}/sponsors/${company_id}`,
     {
       method: "DELETE",
       headers: {
@@ -240,7 +242,7 @@ export async function deleteEventSponsor(event_id, company_id) {
 
 export async function addEventGroup(event_id, group_id) {
   return fetch(
-    `https://backend.lleidahack.dev/event/${event_id}/group/${group_id}`,
+    process.env.REACT_APP_DOMAIN + `/event/${event_id}/group/${group_id}`,
     {
       method: "PUT",
       headers: {
@@ -262,7 +264,7 @@ export async function addEventGroup(event_id, group_id) {
 
 export async function deleteEventGroup(event_id, group_id) {
   return fetch(
-    `https://backend.lleidahack.dev/event/${event_id}/group/${group_id}`,
+    process.env.REACT_APP_DOMAIN + `/event/${event_id}/group/${group_id}`,
     {
       method: "DELETE",
       headers: {
@@ -271,6 +273,24 @@ export async function deleteEventGroup(event_id, group_id) {
       },
     },
   )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function getEventMeals(event_id) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/meals`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);
