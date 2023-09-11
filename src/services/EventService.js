@@ -168,21 +168,16 @@ export async function getEventParticipants(event_id) {
 }
 
 export async function getEventSponsors(event_id) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/sponsors`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/sponsors`)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("response: ", data);
+    return data;
   })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  .catch((error) => {
+    console.warn(error);
+    return [];
+  });
 }
 
 export async function getEventGroups(event_id) {
