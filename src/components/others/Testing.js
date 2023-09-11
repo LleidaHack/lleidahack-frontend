@@ -12,7 +12,7 @@ import {
   getAllHackers,
   getHackerById,
   updateHacker,
-  addHacker,
+  //addHacker,
   banHackerById,
   unbanHackerById,
   deleteHacker,
@@ -173,7 +173,8 @@ const Testing = () => {
         telephone: "693931391",
         address: "casa",
         shirt_size: "L",
-        image_id: "0",
+        image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+        is_image_url: true,
         banned: true,
         github: "string",
         linkedin: "string",
@@ -194,7 +195,8 @@ const Testing = () => {
     telephone: "693931391",
     address: "casa",
     shirt_size: "L",
-    image_id: "0",
+    image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+    is_image_url: true,
     role: "string",
     nif: "48255629L",
     student: true,
@@ -234,7 +236,8 @@ const Testing = () => {
         telephone: "string",
         address: "string",
         shirt_size: "string",
-        image_id: "string",
+        image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+        is_image_url: true,
         banned: true,
         role: "string",
         nif: "48255629L",
@@ -257,7 +260,8 @@ const Testing = () => {
     telephone: "string",
     address: "string",
     shirt_size: "string",
-    image_id: "string",
+    image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+    is_image_url: true,
     role: "string",
     company_id: 1,
     id: 1,
@@ -274,6 +278,7 @@ const Testing = () => {
     {
       name: "user",
       left: 0,
+      comentaris: "funcionen sense bearer",
       body:[
         {
           body: getAllUsers,
@@ -295,6 +300,7 @@ const Testing = () => {
     {
       name: "hacker",
       left: 0,
+      comentaris: "funcionen sense bearer",
       body: [
         {
           body: signupHacker,
@@ -316,11 +322,11 @@ const Testing = () => {
           params: [hacker],
           status: false,
         },
-        {
+        /*{
           body: addHacker,
           params: [hacker],
           status: false,
-        },
+        },*/
         {
           body: banHackerById,
           params: [74],
@@ -398,8 +404,7 @@ const Testing = () => {
     {
       name: "lleidaHacker",
       left: 0,
-      comentaris:
-        "funcionen sense bearer, get lleidahacker by id no va peruqe no hi ha lleidahackers",
+      comentaris: "funcionen sense bearer",
       body: [
         {
           body: signupLleidaHacker,
@@ -563,11 +568,6 @@ const Testing = () => {
           status: true,
         },
         {
-          body: createEvent,
-          params: [event],
-          status: false,
-        },
-        {
           body: getEventById,
           params: [event.id],
           status: true,
@@ -583,6 +583,26 @@ const Testing = () => {
           status: false,
         },
         {
+          body: createEvent,
+          params: [event],
+          status: false,
+        },
+        {
+          body: getEventIsHackerRegistered,
+          params: [event.id,hacker.id],
+          status: false,
+        },
+        {
+          body: getEventIsHackerAccepted,
+          params: [event.id,hacker.id],
+          status: false,
+        },
+        {
+          body: getEventMeals,
+          params: [event.id, company.id],
+          status: false,
+        },
+        {
           body: getEventParticipants,
           params: [event.id],
           status: false,
@@ -595,6 +615,16 @@ const Testing = () => {
         {
           body: getEventGroups,
           params: [event.id],
+          status: false,
+        },
+        {
+          body: addEventGroup,
+          params: [event.id, grup.id],
+          status: false,
+        },
+        {
+          body: removeEventGroup,
+          params: [event.id, grup.id],
           status: false,
         },
         {
@@ -618,8 +648,8 @@ const Testing = () => {
           status: false,
         },
         {
-          body: getEventMeals,
-          params: [event.id, company.id],
+          body: getHackeps,
+          params: [],
           status: false,
         },
       ],
