@@ -3,9 +3,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./Login.css";
-import logo from "../../icons/llhlogow.png";
-import { login } from "../../services/AuthenticationService";
+import "src/components/Login/Login.css";
+import logo from "src/icons/llhlogow.png";
+import { login } from "src./services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
