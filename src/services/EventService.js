@@ -16,26 +16,6 @@ export async function getEvents() {
     });
 }
 
-export async function createEvent(event) {
-  return fetch(process.env.REACT_APP_DOMAIN + "/event/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-    body: JSON.stringify(event),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
-}
-
 export async function getEventById(event_id) {
   return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}`, {
     headers: {
@@ -77,6 +57,44 @@ export async function updateEvent(event) {
 export async function deleteEvent(event_id) {
   return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}`, {
     method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function createEvent(event) {
+  return fetch(process.env.REACT_APP_DOMAIN + "/event/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+    body: JSON.stringify(event),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function getEventMeals(event_id) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/meals`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),
@@ -173,7 +191,7 @@ export async function addEventParticipant(event_id, hacker_id) {
     });
 }
 
-export async function deleteEventParticipant(event_id, hacker_id) {
+export async function removeEventParticipant(event_id, hacker_id) {
   return fetch(
     process.env.REACT_APP_DOMAIN +
       `/event/${event_id}/participants/${hacker_id}`,
@@ -218,7 +236,7 @@ export async function addEventSponsor(event_id, company_id) {
     });
 }
 
-export async function deleteEventSponsor(event_id, company_id) {
+export async function removeEventSponsor(event_id, company_id) {
   return fetch(
     process.env.REACT_APP_DOMAIN + `/event/${event_id}/sponsors/${company_id}`,
     {
@@ -273,24 +291,6 @@ export async function deleteEventGroup(event_id, group_id) {
       },
     },
   )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
-}
-
-export async function getEventMeals(event_id) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/meals`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-  })
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);
