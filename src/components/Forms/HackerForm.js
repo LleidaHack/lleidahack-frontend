@@ -129,6 +129,8 @@ export const HackerStepperForm = () => {
               </div>
             </Col>
           </Row>
+          </FormikStepper.Step>
+          <FormikStepper.Step label="Avatar" >
           <Row>
             <Col>
               {avatar ? (
