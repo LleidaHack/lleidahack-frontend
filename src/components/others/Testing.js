@@ -666,6 +666,11 @@ const Testing = () => {
           params: [],
           status: false,
         },
+        {
+          body: getEventHackerGroup,
+          params: [event.id, hacker.id],
+          status: false,
+        }
       ],
     },
     {
