@@ -7,7 +7,7 @@ export async function addDailyhack(event_id,hacker_id,url) {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
-      body: {"url":url}
+      body: JSON.stringify({ querry: {"url":url}})
     },
   ).catch((error) => {
     console.warn(error);
@@ -24,7 +24,7 @@ export async function updateDailyhack(event_id,hacker_id,url) {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
-      body: {"url":url}
+      body: JSON.stringify({ querry: {"url":url}})
     },
   ).catch((error) => {
     console.warn(error);

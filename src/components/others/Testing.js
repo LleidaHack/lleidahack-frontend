@@ -273,7 +273,7 @@ const Testing = () => {
     event_id: 1,
     id: 1,
   });
-
+  const refresh_token = "a"
   const Fuctions = [
     {
       name: "user",
@@ -754,6 +754,11 @@ const Testing = () => {
         {
           body: login,
           params: [hacker],
+          status: true,
+        },
+        {
+          body: refreshToken,
+          params: [],
           status: true,
         },
         {
