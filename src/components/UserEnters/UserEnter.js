@@ -40,7 +40,7 @@ const LinkAccounts = () => {
                 />
               </svg>
             </div>
-            <Link to="/hacker-form/hacker">
+            <Link to="/hacker-form">
               <button className="buttoner">Hacker</button>
             </Link>
           </div>
@@ -70,8 +70,10 @@ const LinkAccounts = () => {
                         </button>
                     </Link>
                 </div>*/}
-
-          <div class="columna">
+          {
+            //TODO: Veure si s'acaba necesitant o no i si no es necesita, borrar-ho
+          }
+          {/* <div class="columna">
             <div className="iconContainer">
               <svg
                 width="81"
@@ -134,6 +136,7 @@ const LinkAccounts = () => {
               <button className="buttoner">Organitzador</button>
             </Link>
           </div>
+*/}
         </div>
       </section>
     </div>
