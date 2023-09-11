@@ -70,9 +70,10 @@ const LinkAccounts = () => {
                         </button>
                     </Link>
                 </div>*/}
-{//TODO: Veure si s'acaba necesitant o no i si no es necesita, borrar-ho
-}
-         {/* <div class="columna">
+          {
+            //TODO: Veure si s'acaba necesitant o no i si no es necesita, borrar-ho
+          }
+          {/* <div class="columna">
             <div className="iconContainer">
               <svg
                 width="81"
