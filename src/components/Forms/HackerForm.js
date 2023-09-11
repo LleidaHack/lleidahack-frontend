@@ -131,24 +131,28 @@ export const HackerStepperForm = () => {
           </Row>
           <Row>
             <Col>
-              { avatar ?
-                <img style={{ height: `150px`, width: `150px`}}
-                    className="avatar-image bg-white rounded-circle m-auto" src={avatar}></img> :
+              {avatar ? (
                 <img
-                    style={{ height: `150px`, width: `150px`}}
-                    className="avatar-image bg-white rounded-circle m-auto"
-                    src={userIcon}
-                  />
-              }
+                  style={{ height: `150px`, width: `150px` }}
+                  className="avatar-image bg-white rounded-circle m-auto"
+                  src={avatar}
+                ></img>
+              ) : (
+                <img
+                  style={{ height: `150px`, width: `150px` }}
+                  className="avatar-image bg-white rounded-circle m-auto"
+                  src={userIcon}
+                />
+              )}
               <FileBase
-              id="avatarInput"
-              type="file"
-              multiple={false}
-              onDone={handleImageChange}
+                id="avatarInput"
+                type="file"
+                multiple={false}
+                onDone={handleImageChange}
               />
             </Col>
             <Col>
-              <h1  className='white-color'>Crear compte</h1>
+              <h1 className="white-color">Crear compte</h1>
               <InputField name="nickname" type="text" label="Nickname" />
             </Col>
           </Row>
