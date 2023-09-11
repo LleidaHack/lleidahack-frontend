@@ -169,37 +169,108 @@ const DHKS = () => {
       <div className="BGPhather">
         {!estadoPadre ? (
           <>
-                      <h1 className="title2 title-underline">Dailyhack Section</h1>
+                      <h1 className="title2 title-underline">Dailyhack</h1>
                         <section className="informative">
+                          
+                          <div className="Part1">
+                            <p>Molt bones, Hackers!
+                                Des de LleidaHack venim a presentar-vos el DailyHack d'aquest any!
+                                Alguns us preguntareu: que es això del DailyHack? 
+                                Bé, tots els anys hem preparat abans de la HackEPS una serie de mini-reptes per tal d'anar calentant motors. 
+                                Aquest any hem decidit modificar una mica aquest format, preparant un únic repte amb diversos premis!
+                              </p>
+                          </div>
+                          <br></br>
+                          
+                          <div className="Part1">
+                            <div className="IntroTexte">
+
+                                
+
+                                <h1 className='title2 left '> En que consisteix el repte?</h1>
+                            
+                                <p>
+                                Fent un resum molt resumit, el repte consisteix a crear el nostre propi llenguatge de signes i establir les normes d'aquest, per després automatitzar-ne la traducció a llenguatge escrit.
+                                <br></br>
+                                <br></br>
+                                  A partir d'aquest dataset de kaggle:
+                                  https://www.kaggle.com/datasets/gti-upm/leapgestrecog
+                                  que consisteix en diverses imatges de mans en diferents posicions es demana realitzar un projecte que 
+                                  consta de dues parts:
+                                </p>
+                            </div>
+                              <div className="fotovidIntro">
+                              </div>
+                          </div>
+
                             <div className="Part1">
-                                <div className="IntroText">
+                                <div className="IntroTexte">
+                                  <h1 className='title2 left '> Que demanem del repte? </h1>
                                 
-                                
-                                    <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu porta quam. Mauris libero justo, dictum non est sed, 
-                                    interdum finibus ligula. Morbi consectetur, odio nec dapibus pharetra, arcu dui tincidunt libero, at sodales dolor 
-                                    dui et urna. Integer ac tincidunt massa, nec bibendum nisl. Etiam sed turpis rutrum ligula faucibus aliquet. 
-                                    Aliquam egestas massa pharetra dolor feugiat, congue aliquam nibh semper. Sed pharetra nisi porttitor nisi pulvinar efficitur. 
-                                    Mauris non justo et nibh iaculis convallis vitae et quam. Sed ut purus dolor. Aenean justo enim, consectetur vel efficitur eu, 
-                                    porttitor quis nisl. Suspendisse vestibulum sapien in libero aliquet, a blandit arcu suscipit. Pellentesque varius non odio 
-                                    tincidunt convallis
-                                    </p>
+                                    <ul>
+                                      <li>
+                                      Primerament, fent ús de IA, preparar i entrenar un model que pugui distingir en quina posició es troba la mà de la imatge.
+                                      </li>
+                                      <br></br>
+                                      <li>
+                                      Un cop identificada la posició (o un conjunt de posicions), realitzar una traducció per tal que funcioni com un llenguatge natural.
+                                      </li>
+                                    </ul>
+                                    <h2 className='title2 left '> Algun exemple? </h2>
+                                    <p>Per exemple: decidim assignar les següents traduccions:</p>
+                                    <ul>
+                                      <li>Ma cara amunt oberta: A</li>
+                                      <li>Ma cara amunt tancada: O</li>
+                                      <li> Ma cara abaix oberta: H</li>
+                                      <li>Ma cara abaix tancada: L</li>
+                                    </ul>
+                                    <br></br>
+                                    <p>Si ens trobem amb la seqüencia d'imatges "cara abaix oberta, cara amunt tancada, cara abaix tancada, cara amunt oberta", aquesta representaria la paraula "Hola".</p>
+
+                                    <br></br>
                                 </div>
 
                                 <div className="fotovidIntro">
-                                <img src="https://t9z6z8s3.rocketcdn.me/wp-content/uploads/2017/01/Hackathon.png"></img>
                                 </div>
-                                <br></br>
-                                <br></br>
-                                <br></br>
+                              
+                              </div>
+
+                              <div className="Part1">
+                                <div className="fotovidIntro">
+                                </div>
+                                
+                                <div className="IntroTexte">
+
+                                   
+
+                                    <h1 className='title2 left '> Que valorarem del repte?</h1>
+                                
+                                    <p>
+                                    Es valorarà primordialment la creativitat del llenguatge, per tant, no tingueu por de "complicar-vos" en aquest aspecte😉                                    <br></br>
+                                    <br></br>
+                                    Per la correcta avaluació del repte, necessitarem que ens entregueu:
+                                    </p>
+                                    <br></br>
+                                    <ul>
+                                      <li>El vostre projecte (enllaç a github, model que heu creat a kaggle...).</li>
+                                      <li>Ha de tenir un Readme amb:
+                                        <li>Interpretació del llenguatge que heu creat</li>
+                                        <li>Exemple d'ús i petita explicació de com funciona.</li>
+                                      </li>
+                                    </ul>
+
+                                </div>
                             </div>
+                            <br></br>
+
+                            <p> Molta sort a tots, i que guanyi el millor!</p>
 
                         </section>
                         <br></br>
                         <br></br>
-                        <section className="upload">
+                        <section className="upload white">
                             <br></br>
-                            <h2 className='title2'>¿Vols presentar el teu repositori?</h2>
+                            <h2 className='title1'>¿Vols presentar el teu repositori?</h2>
 
                             <br></br>
                             <HackerStepperForm onBotonClic={cambiarEstadoPadre}></HackerStepperForm>
@@ -207,25 +278,25 @@ const DHKS = () => {
                         <br></br>
                         <br></br>
 
-                        <section className="upload white">
-                            <h1 className="title3 title-underline">Premis </h1>
+                        <section className="upload">
+                            <h1 className="title2 title-underline">Premis </h1>
 
                             <div class="contenedorx">
-                                <div class="tarjeta second">
-                                    <img src="https://m.media-amazon.com/images/I/71xNjrzG69L._AC_SX425_.jpg" alt="Imagen 1"></img>
-                                    <h2 className='title3'>2on Lloc</h2>
-                                    <p>Logitech G733 LIGHTSPEED</p>
-                                   
-                                </div>
-                                <div class="tarjeta">
-                                    <img src="https://m.media-amazon.com/images/I/816KtWjRsoL._AC_SX679_.jpg" alt="Imagen 2"></img>
-                                    <h2 className='title3'>1er Lloc</h2>
+                            <div class="tarjeta ">
+                                    <img src="https://media.discordapp.net/attachments/991404325941289070/1150854311543316540/image_48.png?width=1014&height=675" alt="Imagen 2"></img>
+                                    <h2 className='title3'>1r</h2>
                                     <p>Razer Huntsman V2 (Purple Switch)</p>
                                     
                                 </div>
-                                <div class="tarjeta second">
-                                    <img src="https://m.media-amazon.com/images/I/61AcT0ZuO3L._AC_SX679_.jpg" alt="Imagen 3"></img>
-                                    <h2 className='title3'>3er Lloc</h2>
+                                <div class="tarjeta ">
+                                    <img src="https://media.discordapp.net/attachments/991404325941289070/1150854312533164133/image_47.png?width=539&height=404" alt="Imagen 1"></img>
+                                    <h2 className='title3'>2n </h2>
+                                    <p>Logitech G733 LIGHTSPEED</p>
+                                   
+                                </div>
+                                <div class="tarjeta ">
+                                    <img src="https://media.discordapp.net/attachments/991404325941289070/1150854313036492800/image_46.png?width=1038&height=675" alt="Imagen 3"></img>
+                                    <h2 className='title3'>3r</h2>
                                     <p>Razer Basilisk V3</p>
                                 </div>
                                 <br></br>

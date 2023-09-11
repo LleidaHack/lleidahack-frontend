@@ -3,7 +3,6 @@
 
 .IntroTexte{
     width: 40%;
-    padding-left: 20px;
     text-align: left;
 }
 
@@ -30,9 +29,9 @@
 }
 
 .tarjeta {
-    width: 240px; /* Ancho de cada tarjeta */
-    background-color: #fff;
-    box-shadow: 13px -8px 5px rgba(0, 0, 0, 0.3);
+    width: 300px; /* Ancho de cada tarjeta */
+    background-color: var(--white);
+    border-radius: 5px;
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -76,7 +75,6 @@
 
 .tarjeta:hover {
     transform: translate(-10px, -10px);
-    box-shadow: 10px 2px 5px var(--gray);
 }
 
 .title3 {

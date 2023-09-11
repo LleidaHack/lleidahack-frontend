@@ -47,7 +47,6 @@
 }
 
 .fotovidIntro{
-    outline: 10px    double  var(--black);
     border-radius: 10px;
     overflow: hidden;
     width: 40%;
@@ -55,10 +54,8 @@
 
 
 .upload{
-    width: 68%;
+    width: 100%;
     height: auto;
-    outline: 10px double  var(--primary);
-    border-radius: 10px;
     text-align: center;
 }
 
