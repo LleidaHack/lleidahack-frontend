@@ -1,4 +1,4 @@
-import { decode as atob, encode as btoa } from "base-64";
+import { encode as btoa } from "base-64";
 
 export async function login(user) {
   return fetch(process.env.REACT_APP_DOMAIN + "/login", {
@@ -12,6 +12,29 @@ export async function login(user) {
       console.log("response: ", data);
       localStorage.setItem("userToken", data.access_token);
       localStorage.setItem("userID", data.user_id);
+      localStorage.setItem("refreshToken", data.refresh_token);
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function refreshToken() {
+  return fetch(process.env.REACT_APP_DOMAIN + "/refresh_token", {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      querry: { refresh_token: localStorage.getItem("refreshToken") },
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      localStorage.setItem("userToken", data.access_token);
+      localStorage.setItem("userID", data.user_id);
+      localStorage.setItem("refreshToken", data.refresh_token);
     })
     .catch((error) => {
       console.warn(error);
@@ -23,7 +46,7 @@ export async function confirmEmail(e_mail) {
   return fetch(process.env.REACT_APP_DOMAIN + "/confirm-email", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json", //TODO TEXT O ALGO MÉS????
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ querry: { email: e_mail } }),
   })
