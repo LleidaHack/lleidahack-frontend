@@ -3,6 +3,11 @@ import { useState } from "react";
 
 import MetaTest from "src/components/others/MetaTest";
 import {
+  getAllUsers,
+  getUserById,
+  addUser,
+} from "src/services/UserService";
+import {
   signupHacker,
   getAllHackers,
   getHackerById,
@@ -63,27 +68,45 @@ import {
   updateEvent,
   deleteEvent,
   createEvent,
+  getEventIsHackerRegistered,
+  getEventIsHackerAccepted,
   getEventMeals,
   getEventParticipants,
   getEventSponsors,
   getEventGroups,
+  addEventGroup,
+  removeEventGroup,
   addEventParticipant,
   removeEventParticipant,
   addEventSponsor,
   removeEventSponsor,
+  getHackeps,
 } from "src/services/EventService";
 import {
+  addDailyhack,
+  updateDailyhack,
+  getDailyhackById,
+  deleteDailyhack,
+  getDailyHacks,
   registerHackerToEvent,
-  // unregisterHackerToEvent,
-  // participateHackerToEvent,
+  unregisterHackerToEvent,
+  participateHackerToEvent,
   unparticipateHackerToEvent,
   acceptHackerToEvent,
+  acceptGroupToEvent,
   rejectHackerToEvent,
+  rejectGroupToEvent,
   getPendingHackers,
+  getPendingHackersGrouped,
+  getRejectedHackers,
   getEventStatus,
   hackerEatsFoodFrom,
 } from "src/services/EventManagementService";
-import { confirmEmail, login } from "src/services/AuthenticationService";
+import { 
+  login,
+  refreshToken,
+  confirmEmail,
+} from "src/services/AuthenticationService";
 import { sendMail } from "src/services/UtilsService";
 import {
   signupCompanyUser,
@@ -103,6 +126,20 @@ import {
 const Testing = () => {
   const [autoTest, setAutoTest] = useState(false);
 
+  const [user, setuser] = useState({
+    name: "string",
+    nickname: "elver",
+    password: "12345678a",
+    birthdate: "2003-06-20",
+    food_restrictions: "NO",
+    email: "joelros2000@gmail.com",
+    telephone: "693931391",
+    address: "casa",
+    shirt_size: "L",
+    image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+    is_image_url: true,
+  });
+
   const [hacker, setHacker] = useState({
     name: "aaaaaaaa",
     nickname: "elver",
@@ -113,7 +150,8 @@ const Testing = () => {
     telephone: "693931391",
     address: "casa",
     shirt_size: "L",
-    image_id: "0",
+    image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+    is_image_url: true,
     banned: true,
     github: "string",
     linkedin: "string",
@@ -234,9 +272,29 @@ const Testing = () => {
 
   const Fuctions = [
     {
+      name: "user",
+      left: 0,
+      body:[
+        {
+          body: getAllUsers,
+          params: [],
+          status: false
+        },
+        {
+          body: getUserById,
+          params: [user.id],
+          status: false
+        },
+        {
+          body: addUser,
+          params: [user],
+          status: false
+        },
+      ]
+    },
+    {
       name: "hacker",
       left: 0,
-      comentaris: "funcionen sense bearer",
       body: [
         {
           body: signupHacker,
