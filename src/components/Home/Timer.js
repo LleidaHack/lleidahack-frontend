@@ -51,27 +51,27 @@ const CountdownTimer = (props) => {
     if (numberString.length >= minLength) return numberString;
     return "0".repeat(minLength - numberString.length) + numberString;
   }
-  if(timestampDayjs.diff(nowDayjs, "seconds") >= 0 && active){
-    return(
-          <div className="countdown-timer">
-              <span>{remainingTime.months}</span>
-              <span style={{'fontSize': '2vw'}}>mesos</span>
-              <span>{remainingTime.days}</span>
-              <span style={{'fontSize': '2vw'}}>dies</span>
-              <span>{remainingTime.hours}</span>
-              <span style={{'fontSize': '2vw'}}>hores</span>
-          </div>
+  if (timestampDayjs.diff(nowDayjs, "seconds") >= 0 && active) {
+    return (
+      <div className="countdown-timer">
+        <span>{remainingTime.months}</span>
+        <span style={{ fontSize: "2vw" }}>mesos</span>
+        <span>{remainingTime.days}</span>
+        <span style={{ fontSize: "2vw" }}>dies</span>
+        <span>{remainingTime.hours}</span>
+        <span style={{ fontSize: "2vw" }}>hores</span>
+      </div>
     );
   } else if (eventendDayjs.diff(nowDayjs, "seconds") >= 0 && active) {
     return (
       <div className="countdown-timer">
         <span>{remainingTime.hours}</span>
-        <span style={{'fontSize': '2vw'}}>hores</span>
+        <span style={{ fontSize: "2vw" }}>hores</span>
         <span>{remainingTime.minutes}</span>
-        <span style={{'fontSize': '2vw'}}>minuts</span>
+        <span style={{ fontSize: "2vw" }}>minuts</span>
         <span>{remainingTime.seconds}</span>
-        <span style={{'fontSize': '2vw'}}>segons</span>
-    </div>
+        <span style={{ fontSize: "2vw" }}>segons</span>
+      </div>
     );
   }
   return;

@@ -45,7 +45,7 @@ h1 {
 }
 
 .avatar-image {
-    border-style: solid;
-    border-color: var(--primary);
-    border-width: 5px;
+  border-style: solid;
+  border-color: var(--primary);
+  border-width: 5px;
 }
