@@ -1,4 +1,6 @@
-export async function getHackEPS() {}
+export async function getPendingGroups() {}
+
+export async function getPending() {}
 
 export async function accept(id) {}
 
