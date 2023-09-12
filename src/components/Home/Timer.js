@@ -55,22 +55,22 @@ const CountdownTimer = (props) => {
     return (
       <div className="countdown-timer">
         <span>{remainingTime.months}</span>
-        <span className="countdown-timer-text">mesos</span>
+        <span style={{ fontSize: "2vw" }}>mesos</span>
         <span>{remainingTime.days}</span>
-        <span className="countdown-timer-text">dies</span>
+        <span style={{ fontSize: "2vw" }}>dies</span>
         <span>{remainingTime.hours}</span>
-        <span className="countdown-timer-text">hores</span>
+        <span style={{ fontSize: "2vw" }}>hores</span>
       </div>
     );
   } else if (eventendDayjs.diff(nowDayjs, "seconds") >= 0 && active) {
     return (
       <div className="countdown-timer">
         <span>{remainingTime.hours}</span>
-        <span className="countdown-timer-text">hores</span>
+        <span style={{ fontSize: "2vw" }}>hores</span>
         <span>{remainingTime.minutes}</span>
-        <span className="countdown-timer-text">minuts</span>
+        <span style={{ fontSize: "2vw" }}>minuts</span>
         <span>{remainingTime.seconds}</span>
-        <span className="countdown-timer-text">segons</span>
+        <span style={{ fontSize: "2vw" }}>segons</span>
       </div>
     );
   }

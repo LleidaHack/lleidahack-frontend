@@ -168,3 +168,26 @@ export async function removeHackerFromGroup(hacker_id, hacker_group_id) {
       return [];
     });
 }
+
+export async function addHackerToGroupByCode(group_code, hacker_id) {
+  return fetch(
+    process.env.REACT_APP_DOMAIN +
+      `/hacker/group/${group_code}/members/${hacker_id}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+    },
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
