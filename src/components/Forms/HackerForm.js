@@ -6,7 +6,7 @@ import "src/components/Forms/HackerForm.css";
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import * as Yup from "yup";
 import { FormikStepper, InputField, SelectField } from "formik-stepper";
@@ -66,6 +66,7 @@ export const HackerStepperForm = () => {
   const handleImageChange = (event) => {
     setAvatar(event.base64);
   };
+
   return (
     <div id="hackerForm" className="custom-form">
       <FormikStepper
@@ -95,22 +96,18 @@ export const HackerStepperForm = () => {
       >
         <FormikStepper.Step label="Informació personal">
           <Row>
-            <HackerPanel></HackerPanel>
+            <HackerPanel/>
             <Col>
               <h1 className="white-color">Crear compte</h1>
               <InputField name="firstName" type="text" label="Nom" />
               <InputField name="lastName" type="text" label="Cognoms" />
-              <InputField
-                name="birthDate"
-                type="date"
-                label="Data de naixement"
-              />
+              <InputField name="birthDate" type="date" label="Data de naixement" />
             </Col>
           </Row>
         </FormikStepper.Step>
         <FormikStepper.Step label="Contacte">
           <Row>
-            <HackerPanel></HackerPanel>
+            <HackerPanel/>
             <Col>
               <h1 className="white-color">Crear compte</h1>
               <InputField name="phone" type="text" label="Telèfon" />
@@ -138,12 +135,14 @@ export const HackerStepperForm = () => {
                   style={{ height: `150px`, width: `150px` }}
                   className="avatar-image bg-white rounded-circle m-auto"
                   src={avatar}
-                ></img>
+                  alt="avatar"
+                />
               ) : (
                 <img
                   style={{ height: `150px`, width: `150px` }}
                   className="avatar-image bg-white rounded-circle m-auto"
                   src={userIcon}
+                  alt="avatar"
                 />
               )}
               <FileBase
@@ -168,7 +167,7 @@ const HackerForm = () => {
   return (
     <>
       <Header />
-      <HackerStepperForm></HackerStepperForm>
+      <HackerStepperForm />
       <Footer />
     </>
   );
