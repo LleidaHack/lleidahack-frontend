@@ -105,7 +105,7 @@ import {
   getEventStatus,
   hackerEatsFoodFrom,
 } from "src/services/EventManagementService";
-import { 
+import {
   login,
   refreshToken,
   confirmEmail,
@@ -141,7 +141,7 @@ const Testing = () => {
     shirt_size: "L",
     image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
     is_image_url: true,
-    code:""
+    code: "",
   });
 
   const [hacker, setHacker] = useState({
@@ -285,16 +285,16 @@ const Testing = () => {
       name: "user",
       left: 0,
       comentaris: "funcionen sense bearer",
-      body:[
+      body: [
         {
           body: getAllUsers,
           params: [],
-          status: false
+          status: false,
         },
         {
           body: getUserById,
           params: [user.id],
-          status: false
+          status: false,
         },
         {
           body: getUserByCode,
@@ -304,9 +304,9 @@ const Testing = () => {
         {
           body: addUser,
           params: [user],
-          status: false
+          status: false,
         },
-      ]
+      ],
     },
     {
       name: "hacker",
@@ -414,7 +414,7 @@ const Testing = () => {
           body: addHackerToGroupByCode,
           params: [hacker.id, grup.id],
           status: false,
-        }
+        },
       ],
     },
     {
@@ -605,12 +605,12 @@ const Testing = () => {
         },
         {
           body: getEventIsHackerRegistered,
-          params: [event.id,hacker.id],
+          params: [event.id, hacker.id],
           status: false,
         },
         {
           body: getEventIsHackerAccepted,
-          params: [event.id,hacker.id],
+          params: [event.id, hacker.id],
           status: false,
         },
         {
@@ -672,7 +672,7 @@ const Testing = () => {
           body: getEventHackerGroup,
           params: [event.id, hacker.id],
           status: false,
-        }
+        },
       ],
     },
     {

@@ -25,7 +25,9 @@ export async function refreshToken() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ querry: { refresh_token: localStorage.getItem("refreshToken") }}),
+    body: JSON.stringify({
+      querry: { refresh_token: localStorage.getItem("refreshToken") },
+    }),
   })
     .then((response) => response.json())
     .then((data) => {
@@ -46,7 +48,7 @@ export async function confirmEmail(e_mail) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ querry: { email: e_mail }}),
+    body: JSON.stringify({ querry: { email: e_mail } }),
   })
     .then((response) => response.json())
     .then((data) => {
