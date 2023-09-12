@@ -277,7 +277,9 @@ const Testing = () => {
     event_id: 1,
     id: 1,
   });
-  const refresh_token = "a";
+
+  const url = "https://google.es";
+
   const Fuctions = [
     {
       name: "user",
@@ -296,7 +298,7 @@ const Testing = () => {
         },
         {
           body: getUserByCode,
-          params: [code.code],
+          params: [user.code],
           status: false,
         },
         {
