@@ -69,10 +69,8 @@
   justify-content: center;
   position: relative; /* Añade posición relativa para centrar las imágenes */
   transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out , box-shadow 0.3s ease-in-out;
-  border: 10px double var(--primary);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.5); /* Desplazamiento de -10px a la izquierda y -10px hacia arriba, con un radio de 10px y un color de sombra */
   scale: 0.9;
 }
 
@@ -87,7 +85,6 @@ img {
 .cuadrado:hover{
   scale: 1.1;
   transform: translate(-3px, -4px);
-  box-shadow: -10px -10px 10px var(--primary); /* Desplazamiento de -10px a la izquierda y -10px hacia arriba, con un radio de 10px y un color de sombra */
 
 }
 
@@ -154,11 +151,11 @@ img {
   align-items: center; /* Centrar verticalmente */
   justify-content: center; /* Espaciado uniforme entre las imágenes */
   max-width: 64%;
-  border: 10px double var(--primary);
   border-radius: 20px;
   margin-bottom: 4vh;
-  box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.5); /* Desplazamiento de -10px a la izquierda y -10px hacia arriba, con un radio de 10px y un color de sombra */
 }
+
+
 
 
 .sponsor-group-group-1{
@@ -185,11 +182,15 @@ img {
 
 .pepers{
   margin: 1.4rem;
-  border: 10px double var(--primary);
   border-radius: 20px;
   padding: 0.4rem;
   height: 10rem;
-  
+  transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out ;
+}
+
+.pepers:hover{
+  scale: 1.1;
+  transform: translate(-3px, -4px);
 }
 
 
@@ -204,4 +205,20 @@ img {
     padding-bottom: 0;
   }
 
+  .sponsor-group-group-2{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    scale: 1.2;
+    flex-wrap: wrap;
+  }
+
+  .sponsor-group-group-2 img{
+    object-fit:contain;
+    object-position: center;
+    width: 13%;
+    height: auto;
+  }
 }
