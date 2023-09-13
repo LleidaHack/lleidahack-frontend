@@ -44,7 +44,7 @@ export const HackerStepperForm = () => {
   const [urlImage, setUrlImage] = useState("");
   const [isUrl, setIsUrl] = useState(false);
   const onSubmit = async (values, { setSubmitting }) => {
-    const pfp = isUrl ? urlImage : avatar
+    const pfp = isUrl ? urlImage : avatar;
     console.log(values);
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
@@ -68,12 +68,12 @@ export const HackerStepperForm = () => {
 
   const handleImageChange = (event) => {
     setAvatar(event.base64);
-    setIsUrl(false)
+    setIsUrl(false);
   };
   const handleImageUrlChange = (event) => {
-    console.log(event)
+    console.log(event);
     setUrlImage(event.target.value);
-    setIsUrl(true)
+    setIsUrl(true);
   };
 
   return (
@@ -106,18 +106,22 @@ export const HackerStepperForm = () => {
       >
         <FormikStepper.Step label="Informació personal">
           <Row>
-            <HackerPanel/>
+            <HackerPanel />
             <Col>
               <h1 className="white-color">Crear compte</h1>
               <InputField name="firstName" type="text" label="Nom" />
               <InputField name="lastName" type="text" label="Cognoms" />
-              <InputField name="birthDate" type="date" label="Data de naixement" />
+              <InputField
+                name="birthDate"
+                type="date"
+                label="Data de naixement"
+              />
             </Col>
           </Row>
         </FormikStepper.Step>
         <FormikStepper.Step label="Contacte">
           <Row>
-            <HackerPanel/>
+            <HackerPanel />
             <Col>
               <h1 className="white-color">Crear compte</h1>
               <InputField name="phone" type="text" label="Telèfon" />
@@ -140,30 +144,29 @@ export const HackerStepperForm = () => {
         <FormikStepper.Step label="Avatar">
           <Row>
             <Col>
+              {isUrl && urlImage !== "" ? (
+                <img
+                  style={{ height: "150px", width: "150px" }}
+                  className="avatar-image bg-white rounded-circle m-auto"
+                  src={urlImage}
+                  alt="avatar"
+                />
+              ) : avatar ? (
+                <img
+                  style={{ height: "150px", width: "150px" }}
+                  className="avatar-image bg-white rounded-circle m-auto"
+                  src={avatar}
+                  alt="avatar"
+                />
+              ) : (
+                <img
+                  style={{ height: "150px", width: "150px" }}
+                  className="avatar-image bg-white rounded-circle m-auto"
+                  src={userIcon}
+                  alt="avatar"
+                />
+              )}
 
-            {isUrl&&urlImage!==""?(
-              <img
-              style={{ height: '150px', width: '150px' }}
-              className="avatar-image bg-white rounded-circle m-auto"
-              src={urlImage}
-              alt="avatar"
-            />
-            ) : (avatar ? (
-              <img
-                style={{ height: '150px', width: '150px' }}
-                className="avatar-image bg-white rounded-circle m-auto"
-                src={avatar}
-                alt="avatar"
-              />
-            ) : (
-              <img
-                style={{ height: '150px', width: '150px' }}
-                className="avatar-image bg-white rounded-circle m-auto"
-                src={userIcon}
-                alt="avatar"
-              />
-            ))}
-            
               <div>
                 <label htmlFor="imageUrl">Image URL:</label>
                 <input
