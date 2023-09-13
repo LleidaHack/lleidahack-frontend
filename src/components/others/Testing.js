@@ -278,8 +278,8 @@ const Testing = () => {
     id: 1,
   });
 
-  const url = "https://google.es"
-  
+  const url = "https://google.es";
+
   const Fuctions = [
     {
       name: "user",
@@ -299,7 +299,7 @@ const Testing = () => {
         {
           body: getUserByCode,
           params: [user.code],
-          status: false
+          status: false,
         },
         {
           body: addUser,
