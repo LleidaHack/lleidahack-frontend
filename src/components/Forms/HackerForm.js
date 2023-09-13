@@ -41,8 +41,10 @@ const HackerPanel = () => {
 
 export const HackerStepperForm = () => {
   const [avatar, setAvatar] = useState(null);
-
+  const [urlImage, setUrlImage] = useState("");
+  const [isUrl, setIsUrl] = useState(false);
   const onSubmit = async (values, { setSubmitting }) => {
+    const pfp = isUrl ? urlImage : avatar
     console.log(values);
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
@@ -54,17 +56,24 @@ export const HackerStepperForm = () => {
       telephone: values.phone,
       address: "",
       shirt_size: values.shirtSize,
-      image: avatar,
-      is_image_url: false,
+      image: pfp,
+      is_image_url: isUrl,
       github: "",
       linkedin: "",
     };
+    console.log(hacker);
     signupHacker(hacker);
     setSubmitting(false);
   };
 
   const handleImageChange = (event) => {
     setAvatar(event.base64);
+    setIsUrl(false)
+  };
+  const handleImageUrlChange = (event) => {
+    console.log(event)
+    setUrlImage(event.target.value);
+    setIsUrl(true)
   };
 
   return (
@@ -72,6 +81,7 @@ export const HackerStepperForm = () => {
       <FormikStepper
         /// Accept all Formik props
         onSubmit={onSubmit}
+        isSubmiting={true}
         initialValues={{
           firstName: "",
           lastName: "",
@@ -130,21 +140,38 @@ export const HackerStepperForm = () => {
         <FormikStepper.Step label="Avatar">
           <Row>
             <Col>
-              {avatar ? (
-                <img
-                  style={{ height: `150px`, width: `150px` }}
-                  className="avatar-image bg-white rounded-circle m-auto"
-                  src={avatar}
-                  alt="avatar"
+
+            {isUrl&&urlImage!==""?(
+              <img
+              style={{ height: '150px', width: '150px' }}
+              className="avatar-image bg-white rounded-circle m-auto"
+              src={urlImage}
+              alt="avatar"
+            />
+            ) : (avatar ? (
+              <img
+                style={{ height: '150px', width: '150px' }}
+                className="avatar-image bg-white rounded-circle m-auto"
+                src={avatar}
+                alt="avatar"
+              />
+            ) : (
+              <img
+                style={{ height: '150px', width: '150px' }}
+                className="avatar-image bg-white rounded-circle m-auto"
+                src={userIcon}
+                alt="avatar"
+              />
+            ))}
+            
+              <div>
+                <label htmlFor="imageUrl">Image URL:</label>
+                <input
+                  type="text"
+                  id="imageUrl"
+                  onChange={handleImageUrlChange}
                 />
-              ) : (
-                <img
-                  style={{ height: `150px`, width: `150px` }}
-                  className="avatar-image bg-white rounded-circle m-auto"
-                  src={userIcon}
-                  alt="avatar"
-                />
-              )}
+              </div>
               <FileBase
                 id="avatarInput"
                 type="file"
