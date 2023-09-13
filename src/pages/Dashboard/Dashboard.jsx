@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPendingGroups } from "src/services/HackService";
+import { accept, getPendingGroups } from "src/services/HackService";
 
 export default function Dashboard() {
   const [data, setData] = useState({});
@@ -24,8 +24,10 @@ export default function Dashboard() {
 function TableRow({ user, isGroup }) {
   const [isApproved, setIsApproved] = useState(user.approved);
 
-  function handleAcceptar() {
-    // cridar al servei bla bla bla
+  async function handleAcceptar() {
+    if (await accept(user.id)) {
+      setIsApproved(true);
+    }
   }
 
   function handleDenegar() {
