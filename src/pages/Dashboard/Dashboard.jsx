@@ -47,25 +47,25 @@ function TableRow({ user, isGroup }) {
 
   return (
     <tr>
-      <th className="text-center">
+      {isGroup && <th></th>}
+      <th>
         {isApproved ? (
           <span className="badge bg-success">Approved</span>
         ) : (
           <span className="badge bg-warning">Pending</span>
         )}
       </th>
-      {isGroup && <th></th>}
 
       <th>{user.name}</th>
       {!isGroup && <th></th>}
-      <td className="text-center">{new Date(user.birthdate).getFullYear()}</td>
-      <td className="text-center">{user.shirt_size}</td>
-      <td>{user.food_restrictions}</td>
-      <td className="text-center">
-        <button className="btn btn-success me-1" onClick={handleAcceptar}>
+      <td>{new Date(user.birthdate).getFullYear()}</td>
+      <td>{user.shirt_size}</td>
+      <td className="text-start">{user.food_restrictions}</td>
+      <td>
+        <button className="btn btn-success me-1 p-1" onClick={handleAcceptar}>
           Acceptar
         </button>
-        <button className="btn btn-danger" onClick={handleDenegar}>
+        <button className="btn btn-danger p-1" onClick={handleDenegar}>
           Denegar
         </button>
       </td>
@@ -78,30 +78,31 @@ function DashboardGrid({ data }) {
     <table className="table table-bordered">
       <thead>
         <tr>
-          <th className="text-center">Status</th>
+          <th>Status</th>
           <th colSpan={2}>Nom</th>
-          <th className="text-center">Any</th>
-          <th className="text-center">Talla</th>
-          <th className="w-50">Alergies</th>
+          <th>Any</th>
+          <th>Talla</th>
+          <th className="w-50 text-start">Alergies</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        {data.groups.map((group) => (
+        {data.nogroup.map((user) => (
+          <TableRow key={user.id} user={user} isGroup={false}></TableRow>
+        ))}
+        {data.groups.map((group, index) => (
           <>
             <tr>
-              <th className="text-center">---</th>
-              <th colSpan={6}>
+              <th>Grup {index + 1}</th>
+              <th colSpan={2}>
                 {group.name} ({group.members.length}/4)
               </th>
+              <th colSpan={4}></th>
             </tr>
             {group.members.map((user) => (
               <TableRow isGroup={true} user={user} key={user.id}></TableRow>
             ))}
           </>
-        ))}
-        {data.nogroup.map((user) => (
-          <TableRow key={user.id} user={user} isGroup={false}></TableRow>
         ))}
       </tbody>
     </table>
