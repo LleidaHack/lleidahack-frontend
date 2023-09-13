@@ -1,20 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getPendingGroups } from "src/services/HackService";
 
-export default function Dashboard({}) {
+export default function Dashboard() {
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const callService = async () => {
+      setData(await getPendingGroups());
+      setIsLoading(false);
+    };
+    callService();
+  }, []);
+
   return (
     <div className="container-fluid">
       <h2 className="m-3">Pendents d'acceptar</h2>
-      <DashboardGrid data={[{ name: "Racista 1" }]}></DashboardGrid>
+      {!isLoading && <DashboardGrid data={data}></DashboardGrid>}
     </div>
   );
 }
 
-function TableRow({ index, user }) {
-  const [isHidden, setIsHidden] = useState(false);
+function TableRow({ user, isGroup }) {
+  const [isApproved, setIsApproved] = useState(user.approved);
 
   function handleAcceptar() {
     // cridar al servei bla bla bla
-    setIsHidden(true);
   }
 
   function handleDenegar() {
@@ -30,18 +41,26 @@ function TableRow({ index, user }) {
 
       if (res !== user.name) return;
 
-      setIsHidden(true);
       return;
     }
   }
 
   return (
-    <tr hidden={isHidden}>
-      <th className="text-center">{index}</th>
-      <td>{user.name}</td>
-      <td>Info extra 1</td>
-      <td>Info extra 2</td>
-      <td>Info extra 3</td>
+    <tr>
+      <th className="text-center">
+        {isApproved ? (
+          <span className="badge bg-success">Approved</span>
+        ) : (
+          <span className="badge bg-warning">Pending</span>
+        )}
+      </th>
+      {isGroup && <th></th>}
+
+      <th>{user.name}</th>
+      {!isGroup && <th></th>}
+      <td className="text-center">{new Date(user.birthdate).getFullYear()}</td>
+      <td className="text-center">{user.shirt_size}</td>
+      <td>{user.food_restrictions}</td>
       <td className="text-center">
         <button className="btn btn-success me-1" onClick={handleAcceptar}>
           Acceptar
@@ -59,17 +78,30 @@ function DashboardGrid({ data }) {
     <table className="table table-bordered">
       <thead>
         <tr>
-          <th className="text-center">#</th>
-          <th>Nom</th>
-          <th>Info 1</th>
-          <th>Info 2</th>
-          <th className="w-50">Info 3</th>
+          <th className="text-center">Status</th>
+          <th colSpan={2}>Nom</th>
+          <th className="text-center">Any</th>
+          <th className="text-center">Talla</th>
+          <th className="w-50">Alergies</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        {data.map((user, index) => (
-          <TableRow key={index} index={index} user={user}></TableRow>
+        {data.groups.map((group) => (
+          <>
+            <tr>
+              <th className="text-center">---</th>
+              <th colSpan={6}>
+                {group.name} ({group.members.length}/4)
+              </th>
+            </tr>
+            {group.members.map((user) => (
+              <TableRow isGroup={true} user={user} key={user.id}></TableRow>
+            ))}
+          </>
+        ))}
+        {data.nogroup.map((user) => (
+          <TableRow key={user.id} user={user} isGroup={false}></TableRow>
         ))}
       </tbody>
     </table>
