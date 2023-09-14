@@ -14,7 +14,7 @@ const MainTitle = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleSignUp = () => navigate("/hacker-form");
-  const handleSignIn = () => navigate("/perfil");
+  const handleSignIn = () => navigate("/login");
 
   return (
     <>
