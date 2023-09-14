@@ -25,11 +25,11 @@ export default function App() {
           <Route path="/contacte" element={<Contacte />} />
           <Route path="/home" element={<Home />} />
           <Route path="*" element={<Error404 />} />
-          <Route path="/perfil" element={<Profile />} />
+          <Route path="/perfil" element={<Profile defaultId={0} />} />
           <Route path="/perfil/:hacker_id" element={<Profile />} />
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/hacker-form" element={<HackerForm />} />
+          <Route path="/sign-up" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />

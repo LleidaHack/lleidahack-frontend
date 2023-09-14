@@ -17,10 +17,12 @@ import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
 import Header from "src/components/Header/Header.js";
-import { getHackerById } from "src/services/HackerService";
-
+import { getHackerById, getHackerGroups, getHackerEvents } from "src/services/HackerService";
+import {getEventIsHackerRegistered, getEventIsHackerAccepted} from "src/services/EventService";
 const Profile = () => {
-  const { hacker_id } = useParams();
+  let { hacker_id } = useParams();
+  hacker_id = hacker_id || localStorage.getItem("userID");
+  const event_id = 1; // TODO Change to the correct event ID. S'ha de fer el fetch de get_hackeps per agafar el id correcte
 
   const name = "Nom cognom";
   const usrImage = userIcon;
@@ -42,13 +44,18 @@ const Profile = () => {
 
   const [hacker, setHacker] = useState(null);
   const [team, setTeam] = useState(null);
+  const [event, setEvent] = useState(null);
+  const [qrCodeLink, setQrCodeLink] = useState(null);
 
   useEffect(() => {
-    console.log(hacker_id);
     getHackerById(hacker_id)
       .then((response) => {
         setHacker(response);
+        setQrCodeLink(process.env.REACT_APP_DOMAIN + "/user/code/" + response.code);
         return response;
+      })
+      .catch(err => {
+        alert(err);
       })
       .then((response) => {
         let fetched_team = {
@@ -70,6 +77,34 @@ const Profile = () => {
       });
   }, []);
 
+  useEffect(() => {
+    getHackerGroups(hacker_id)
+      .then((response) => {
+        console.log(response);
+      });
+  }, []);
+
+  useEffect(() => {
+    getEventIsHackerAccepted(event_id, hacker_id)
+      .then((response) => {
+        if(response == true) {
+          setEvent({"event_id": event_id, "accepted": true, "registered": true});
+          console.log({"event_id": event_id, "accepted": true, "registered": true});
+        } else {
+          getEventIsHackerRegistered(event_id, hacker_id)
+          .then((response) => {
+            if(response == true) {
+              setEvent({"event_id": event_id, "accepted": false, "registered": true});
+              console.log({"event_id": event_id, "accepted": false, "registered": true});
+            } else {
+              setEvent({"event_id": event_id, "accepted": false, "registered": false});
+              console.log({"event_id": event_id, "accepted": false, "registered": false});
+            }
+          })
+        }
+      })
+  }, []);
+
   return (
     <>
       <div className="p-bg-black text-white">
@@ -83,7 +118,7 @@ const Profile = () => {
                 <img
                   style={{ height: `150px` }}
                   className="bg-white border rounded-circle m-auto"
-                  src={"https://xsgames.co/randomusers/avatar.php?g=pixel"}
+                  src={hacker.image}
                 />
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
@@ -136,7 +171,7 @@ const Profile = () => {
           <LinkAccounts />
 
           {/* Join Box */}
-          <Join />
+          <Join event={event} />
 
           {team ? <Team team={team} /> : <></>}
 
@@ -159,7 +194,7 @@ const Profile = () => {
       </div>
 
       <Modal show={showQR} onHide={handleCloseQR} centered>
-        <QrCode url="{hacker.qrCode}" />
+        <QrCode url={qrCodeLink} />
       </Modal>
     </>
   );
