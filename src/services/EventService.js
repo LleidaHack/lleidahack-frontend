@@ -16,26 +16,6 @@ export async function getEvents() {
     });
 }
 
-export async function createEvent(event) {
-  return fetch(process.env.REACT_APP_DOMAIN + "/event/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-    body: JSON.stringify(event),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
-}
-
 export async function getEventById(event_id) {
   return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}`, {
     headers: {
@@ -93,6 +73,88 @@ export async function deleteEvent(event_id) {
     });
 }
 
+export async function createEvent(event) {
+  return fetch(process.env.REACT_APP_DOMAIN + "/event/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+    body: JSON.stringify(event),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function getEventIsHackerRegistered(event_id, hacker_id) {
+  return fetch(
+    process.env.REACT_APP_DOMAIN +
+      `/event/${event_id}/is_registered/${hacker_id}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+    },
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function getEventIsHackerAccepted(event_id, hacker_id) {
+  return fetch(
+    process.env.REACT_APP_DOMAIN +
+      `/event/${event_id}/is_accepted/${hacker_id}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+    },
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function getEventMeals(event_id) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/meals`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
 export async function getEventParticipants(event_id) {
   return fetch(
     process.env.REACT_APP_DOMAIN + `/event/${event_id}/participants`,
@@ -115,12 +177,7 @@ export async function getEventParticipants(event_id) {
 }
 
 export async function getEventSponsors(event_id) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/sponsors`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-  })
+  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/sponsors`)
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);
@@ -150,7 +207,51 @@ export async function getEventGroups(event_id) {
     });
 }
 
-export async function addEventParticipant(event_id, hacker_id) {
+export async function addEventGroup(event_id, group_id) {
+  return fetch(
+    process.env.REACT_APP_DOMAIN + `/event/${event_id}/groups/${group_id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+    },
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function removeEventGroup(event_id, group_id) {
+  return fetch(
+    process.env.REACT_APP_DOMAIN + `/event/${event_id}/groups/${group_id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+    },
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+/*export async function addEventParticipant(event_id, hacker_id) {
   return fetch(
     process.env.REACT_APP_DOMAIN +
       `/event/${event_id}/participants/${hacker_id}`,
@@ -173,7 +274,7 @@ export async function addEventParticipant(event_id, hacker_id) {
     });
 }
 
-export async function deleteEventParticipant(event_id, hacker_id) {
+export async function removeEventParticipant(event_id, hacker_id) {
   return fetch(
     process.env.REACT_APP_DOMAIN +
       `/event/${event_id}/participants/${hacker_id}`,
@@ -194,7 +295,7 @@ export async function deleteEventParticipant(event_id, hacker_id) {
       console.warn(error);
       return [];
     });
-}
+}*/
 
 export async function addEventSponsor(event_id, company_id) {
   return fetch(
@@ -218,7 +319,7 @@ export async function addEventSponsor(event_id, company_id) {
     });
 }
 
-export async function deleteEventSponsor(event_id, company_id) {
+export async function removeEventSponsor(event_id, company_id) {
   return fetch(
     process.env.REACT_APP_DOMAIN + `/event/${event_id}/sponsors/${company_id}`,
     {
@@ -240,57 +341,35 @@ export async function deleteEventSponsor(event_id, company_id) {
     });
 }
 
-export async function addEventGroup(event_id, group_id) {
-  return fetch(
-    process.env.REACT_APP_DOMAIN + `/event/${event_id}/group/${group_id}`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("userToken"),
-      },
-    },
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
-}
-
-export async function deleteEventGroup(event_id, group_id) {
-  return fetch(
-    process.env.REACT_APP_DOMAIN + `/event/${event_id}/group/${group_id}`,
-    {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("userToken"),
-      },
-    },
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
-}
-
-export async function getEventMeals(event_id) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/event/${event_id}/meals`, {
+export async function getHackeps() {
+  return fetch(process.env.REACT_APP_DOMAIN + "/event/get_hackeps", {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),
     },
   })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}
+
+export async function getEventHackerGroup(event_id, hacker_id) {
+  return fetch(
+    process.env.REACT_APP_DOMAIN +
+      `/event/${event_id}/get_hacker_group/${hacker_id}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+    },
+  )
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);

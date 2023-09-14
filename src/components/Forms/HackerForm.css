@@ -52,3 +52,8 @@ h1 {
   color: red !important;
 }
 
+.avatar-image {
+  border-style: solid;
+  border-color: var(--primary);
+  border-width: 5px;
+}

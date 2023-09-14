@@ -1,4 +1,4 @@
-export async function signupUser(user) {
+/*export async function signupUser(user) {
   return fetch(process.env.REACT_APP_DOMAIN + "/user/signup", {
     method: "POST",
     headers: {
@@ -16,7 +16,7 @@ export async function signupUser(user) {
       console.warn(error);
       return [];
     });
-}
+}*/
 
 export async function getAllUsers() {
   console.log(localStorage.getItem("userToken"));
@@ -55,7 +55,7 @@ export async function getUserById(user_id) {
     });
 }
 
-export async function updateUser(user) {
+/*export async function updateUser(user) {
   return fetch(process.env.REACT_APP_DOMAIN + `/user/${user.id}`, {
     method: "PUT",
     headers: {
@@ -78,6 +78,24 @@ export async function updateUser(user) {
 export async function deleteUser(user_id) {
   return fetch(process.env.REACT_APP_DOMAIN + `/user/${user_id}`, {
     method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("userToken"),
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response: ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.warn(error);
+      return [];
+    });
+}*/
+
+export async function getUserByCode(code) {
+  return fetch(process.env.REACT_APP_DOMAIN + `/user/${code}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),

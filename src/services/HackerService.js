@@ -74,7 +74,7 @@ export async function updateHacker(hacker) {
     });
 }
 
-export async function addHacker(hacker) {
+/*export async function addHacker(hacker) {
   return fetch(process.env.REACT_APP_DOMAIN + "/hacker/", {
     method: "POST",
     headers: {
@@ -92,7 +92,7 @@ export async function addHacker(hacker) {
       console.warn(error);
       return [];
     });
-}
+}*/
 
 export async function banHackerById(hacker_id) {
   return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}/ban`, {

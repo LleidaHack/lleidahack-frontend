@@ -9,6 +9,8 @@ import HackerForm from "src/components/Forms/HackerForm";
 import Testing from "src/components/others/Testing";
 import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
+import Login from "src/pages/Login";
+import Entrances from "src/pages/UsersEntrance.js";
 import Dailyhack from "src/pages/Dailyhack.js"
 
 
@@ -21,18 +23,20 @@ export default function App() {
     <div className="App">
       <Router>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contacte" element={<Contacte />} />
           <Route path="/home" element={<Home />} />
-          <Route path="*" element={<Error404 />} />
           <Route path="/perfil" element={<Profile />} />
-          <Route path="/perfil/:id" element={<Profile />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/perfil/:hacker_id" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/hacker-form" element={<HackerForm />} />
+          <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
           <Route path="/inscripcio" element={<Inscripcio />} />
+          <Route path="*" element={<Error404 />} />
           <Route path="/dailyhacks" element={<Dailyhack />} />
 
         </Routes>
