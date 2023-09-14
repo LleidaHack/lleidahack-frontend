@@ -17,8 +17,15 @@ import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
 import Header from "src/components/Header/Header.js";
-import { getHackerById, getHackerGroups, getHackerEvents } from "src/services/HackerService";
-import {getEventIsHackerRegistered, getEventIsHackerAccepted} from "src/services/EventService";
+import {
+  getHackerById,
+  getHackerGroups,
+  getHackerEvents,
+} from "src/services/HackerService";
+import {
+  getEventIsHackerRegistered,
+  getEventIsHackerAccepted,
+} from "src/services/EventService";
 const Profile = () => {
   let { hacker_id } = useParams();
   hacker_id = hacker_id || localStorage.getItem("userID");
@@ -51,10 +58,12 @@ const Profile = () => {
     getHackerById(hacker_id)
       .then((response) => {
         setHacker(response);
-        setQrCodeLink(process.env.REACT_APP_DOMAIN + "/user/code/" + response.code);
+        setQrCodeLink(
+          process.env.REACT_APP_DOMAIN + "/user/code/" + response.code,
+        );
         return response;
       })
-      .catch(err => {
+      .catch((err) => {
         alert(err);
       })
       .then((response) => {
@@ -78,31 +87,40 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
-    getHackerGroups(hacker_id)
-      .then((response) => {
-        console.log(response);
-      });
+    getHackerGroups(hacker_id).then((response) => {
+      console.log(response);
+    });
   }, []);
 
   useEffect(() => {
-    getEventIsHackerAccepted(event_id, hacker_id)
-      .then((response) => {
-        if(response == true) {
-          setEvent({"event_id": event_id, "accepted": true, "registered": true});
-          console.log({"event_id": event_id, "accepted": true, "registered": true});
-        } else {
-          getEventIsHackerRegistered(event_id, hacker_id)
-          .then((response) => {
-            if(response == true) {
-              setEvent({"event_id": event_id, "accepted": false, "registered": true});
-              console.log({"event_id": event_id, "accepted": false, "registered": true});
-            } else {
-              setEvent({"event_id": event_id, "accepted": false, "registered": false});
-              console.log({"event_id": event_id, "accepted": false, "registered": false});
-            }
-          })
-        }
-      })
+    getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
+      if (response == true) {
+        setEvent({ event_id: event_id, accepted: true, registered: true });
+        console.log({ event_id: event_id, accepted: true, registered: true });
+      } else {
+        getEventIsHackerRegistered(event_id, hacker_id).then((response) => {
+          if (response == true) {
+            setEvent({ event_id: event_id, accepted: false, registered: true });
+            console.log({
+              event_id: event_id,
+              accepted: false,
+              registered: true,
+            });
+          } else {
+            setEvent({
+              event_id: event_id,
+              accepted: false,
+              registered: false,
+            });
+            console.log({
+              event_id: event_id,
+              accepted: false,
+              registered: false,
+            });
+          }
+        });
+      }
+    });
   }, []);
 
   return (

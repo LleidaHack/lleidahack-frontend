@@ -7,39 +7,36 @@ const Join = (props) => {
   const [event, setEvent] = useState(props.event);
 
   function ManageButton() {
-      
-    if(!event) {
-      return (
-        <HSkeleton width={"20%"} height={"40px"} inline />
-      );
+    if (!event) {
+      return <HSkeleton width={"20%"} height={"40px"} inline />;
     }
 
-    if(event.accepted) {
+    if (event.accepted) {
       <a
-      href=""
-      style={{ width: `fit-content`, textDecoration: `none` }}
-      className="py-2 px-4 m-auto text-white p-bg-primary"
-    >
-      Acceptat!
-    </a>
+        href=""
+        style={{ width: `fit-content`, textDecoration: `none` }}
+        className="py-2 px-4 m-auto text-white p-bg-primary"
+      >
+        Acceptat!
+      </a>;
     }
 
-    if(event.registered) {
+    if (event.registered) {
       <a
-      href=""
-      style={{ width: `fit-content`, textDecoration: `none` }}
-      className="py-2 px-4 m-auto text-white p-bg-primary"
-    >
-      Registrat!
-    </a>
+        href=""
+        style={{ width: `fit-content`, textDecoration: `none` }}
+        className="py-2 px-4 m-auto text-white p-bg-primary"
+      >
+        Registrat!
+      </a>;
     } else {
       <a
-      href="" // Fer put a /eventmanagement/{event_id}/register/{hacker_id}
-      style={{ width: `fit-content`, textDecoration: `none` }}
-      className="py-2 px-4 m-auto text-white p-bg-primary"
-    >
-      Inscriure's
-    </a>
+        href="" // Fer put a /eventmanagement/{event_id}/register/{hacker_id}
+        style={{ width: `fit-content`, textDecoration: `none` }}
+        className="py-2 px-4 m-auto text-white p-bg-primary"
+      >
+        Inscriure's
+      </a>;
     }
   }
 
