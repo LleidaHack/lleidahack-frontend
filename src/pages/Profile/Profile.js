@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "src/palette.css";
+import "./Profile.css";
 import Modal from "react-bootstrap/Modal";
 import HSkeleton from "src/components/others/HSkeleton";
 
@@ -69,7 +70,7 @@ const Profile = () => {
     <>
       <div className="p-bg-black text-white">
         <Header />
-        <div className="container-fluid container-xxl m-auto">
+        <div className="container-fluid container-xxl m-auto ">
           {/* User info and qr */}
           <div className="row align-middle mx-auto my-3">
             {/* User Image */}
@@ -107,7 +108,7 @@ const Profile = () => {
               </div>
             </div>
             {/* QR Column */}
-            <div className="col-12 col-xl-4 mx-auto">
+            <div className="col-12 col-xl-4 mx-auto my-auto">
               {hacker ? (
                 <div className="col-12 col-xl-4 mx-auto my-auto">
                   <a
