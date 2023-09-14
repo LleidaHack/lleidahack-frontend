@@ -15,6 +15,16 @@ const Header = () => {
     setShowMenu(false);
   };
 
+
+  let dailyhackss = ""
+  console.log("El token es: ", localStorage.getItem("userToken"))
+
+  if (localStorage.getItem("userToken") && localStorage.getItem("userToken") !== "undefined") {
+    dailyhackss = [ <li className="nav-item">
+   <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}> Dailyhack</Link>
+    </li>]
+  }
+
   return (
     <nav className="navbar navbar-expand-md inherited-top">
       <div className="container">
@@ -63,6 +73,9 @@ const Header = () => {
                 Contacte
               </Link>
             </li>
+            
+            {dailyhackss}
+
             <li className="nav-item">
               <Link to="/perfil" className="nav-link" onClick={closeMenu}>
                 El meu perfil

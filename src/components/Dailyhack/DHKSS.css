@@ -36,7 +36,7 @@
 .Part1{
     display: flex;
     justify-content: space-between; /* Distribuirá los elementos a izquierda y derecha */
-    align-items: center; /* Centrar verticalmente los elementos */
+    /*align-items: center; /* Centrar verticalmente los elementos */
 
 }
 
@@ -150,11 +150,7 @@
 @keyframes filler{100%{box-shadow: inset 0px 0px 0px 30px #bd4209}}
 
 
-.piterrs{
-    display: inline; /* Hace que el contenedor sea flexible */
-    flex-direction: row; /* Distribución horizontal de elementos (predeterminado) */
-    justify-content: space-between; /* Elimina espacio entre los elementos */
-}
+
 
 .blackt{
     color: var(--black);
@@ -174,4 +170,47 @@
 .peperonis{
     scale: 0.8;
     margin-right: 15px;
-  }
+
+}
+
+.pergar{
+    scale: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+
+
+
+    .descriptionss{
+        font-size: 0.7rem;
+    }
+}
+
+
+.Winidpu{
+    flex-grow: 2;
+
+}
+
+col{
+    flex-grow: 0;
+}
+
+
+.eulen{
+    display: flex;
+
+}
+
+.panel{
+    flex-grow: 1;
+    scale: 0.5;
+}
+
+.piterrs{
+    display: inline; /* Hace que el contenedor sea flexible */
+    flex-direction: row; /* Distribución horizontal de elementos (predeterminado) */
+    justify-content: space-between; /* Elimina espacio entre los elementos */
+    flex-grow: 2;
+    margin-right: 3rem;
+}

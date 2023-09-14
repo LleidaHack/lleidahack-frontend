@@ -29,7 +29,7 @@
 }
 
 .tarjeta {
-    width: 300px; /* Ancho de cada tarjeta */
+    width: 15vw; /* Ancho de cada tarjeta */
     background-color: var(--white);
     border-radius: 5px;
     padding: 20px;
@@ -83,4 +83,19 @@
     font-weight: bold;
     text-align: center;
 
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .tarjeta{
+        width: 26vw;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        padding: 0px;
+    }
+
+    .descriptionss{
+
+    }
 }

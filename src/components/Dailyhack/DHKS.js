@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { FormikStepper, InputField, SelectField } from "formik-stepper";
 import { Formik, Form, Field, ErrorMessage  } from 'formik';
+import pergamino from 'src/icons/pergamino.png'
 
 const validationSchema = Yup.object().shape({
   //nick: Yup.string().required("Nom / Nickname requerit"),
@@ -21,7 +22,7 @@ const validationSchema = Yup.object().shape({
 
 const HackerPanel = () => {
   return (
-    <Col className="hacker-panel">
+    <Col className="hacker-panel platiss">
       <Row>
         
             <svg className="peperonis"
@@ -81,51 +82,58 @@ export const HackerStepperForm = (props) => {
       >
         <FormikStepper.Step label="Informació personal">
           <Row>
-            <HackerPanel></HackerPanel>
-            <Col>
-            <div className='piterrs'>
-            {/*<label htmlFor="Reposit" className="blackt">Nom / Nickname</label>
+            
+            
+            <Col >
+              <div className='eulen'>
+                <div className='panel'>
+                <HackerPanel></HackerPanel>
+                </div>
+              <div className='piterrs' >
+              
+              {/*<label htmlFor="Reposit" className="blackt">Nom / Nickname</label>
 
-              <Field 
-                name="nick" 
-                type="text" 
-                id="namenick" 
-                placeholder="Nom / NickName"
-                className="BoxForm"
-               />
-              <ErrorMessage name="nick" component="div" className="error-message" />
-            */}
-              <br></br>
-              <br></br>
-
-              <label htmlFor="Reposit" className="blackt">Repositori GitHub</label>
-              <Field 
-                name="repositori" 
-                type="text" 
-                id="Reposit" 
-                placeholder="Repositori del dailyhack.."
-                className="BoxForm"
-              />
-              <ErrorMessage name="repositori" component="div" className="error-message" />
-
-
-              <br></br>
-              <br></br>
-            {/*
-              <label htmlFor="textareaField" className="blackt">Explicació + Exemples</label>
-              <Field
-                  as="textarea" // Usa "textarea" para el campo de texto
-                  id="textareaField"
-                  name="Comment"
-                  rows={4} // Personaliza el número de filas según tus necesidades
-                  placeholder="Haurás de deixar-nos una explicació de que has fet en aquest repositori i indicar-nos alguns exemples."
+                <Field 
+                  name="nick" 
+                  type="text" 
+                  id="namenick" 
+                  placeholder="Nom / NickName"
                   className="BoxForm"
-              />
-          */}
-              
-            </div>
-              
+                />
+                <ErrorMessage name="nick" component="div" className="error-message" />
+              */}
+                <br></br>
+                <br></br>
+
+                <label htmlFor="Reposit" className="blackt">Repositori GitHub</label>
+                <Field 
+                  name="repositori" 
+                  type="text" 
+                  id="Reposit" 
+                  placeholder="Repositori del dailyhack.."
+                  className="BoxForm"
+                />
+                <ErrorMessage name="repositori" component="div" className="error-message" />
+                <p>Recorda que has d'afegir informació al ReadMe del repositori</p>
+
+                <br></br>
+                <br></br>
+              {/*
+                <label htmlFor="textareaField" className="blackt">Explicació + Exemples</label>
+                <Field
+                    as="textarea" // Usa "textarea" para el campo de texto
+                    id="textareaField"
+                    name="Comment"
+                    rows={4} // Personaliza el número de filas según tus necesidades
+                    placeholder="Haurás de deixar-nos una explicació de que has fet en aquest repositori i indicar-nos alguns exemples."
+                    className="BoxForm"
+                />
+            */}
+                
+              </div>
+              </div>
             </Col>
+          
           </Row>
         </FormikStepper.Step>
       </FormikStepper>
@@ -196,72 +204,19 @@ const DHKS = () => {
                                   A partir d'aquest dataset de kaggle:
                                   https://www.kaggle.com/datasets/gti-upm/leapgestrecog
                                   que consisteix en diverses imatges de mans en diferents posicions es demana realitzar un projecte que 
-                                  consta de dues parts:
+                                  consta de dues parts.
+                                </p>
+                                <br></br>
+                                <p> Trobaréu més informació al ReadMe del repositori:
                                 </p>
                             </div>
                               <div className="fotovidIntro">
+                                <img src={ pergamino} alt='pergamino' className='pergar'/>
                               </div>
                           </div>
-
-                            <div className="Part1">
-                                <div className="IntroTexte">
-                                  <h1 className='title2 left '> Que demanem del repte? </h1>
-                                
-                                    <ul>
-                                      <li>
-                                      Primerament, fent ús de IA, preparar i entrenar un model que pugui distingir en quina posició es troba la mà de la imatge.
-                                      </li>
-                                      <br></br>
-                                      <li>
-                                      Un cop identificada la posició (o un conjunt de posicions), realitzar una traducció per tal que funcioni com un llenguatge natural.
-                                      </li>
-                                    </ul>
-                                    <h2 className='title2 left '> Algun exemple? </h2>
-                                    <p>Per exemple: decidim assignar les següents traduccions:</p>
-                                    <ul>
-                                      <li>Ma cara amunt oberta: A</li>
-                                      <li>Ma cara amunt tancada: O</li>
-                                      <li> Ma cara abaix oberta: H</li>
-                                      <li>Ma cara abaix tancada: L</li>
-                                    </ul>
-                                    <br></br>
-                                    <p>Si ens trobem amb la seqüencia d'imatges "cara abaix oberta, cara amunt tancada, cara abaix tancada, cara amunt oberta", aquesta representaria la paraula "Hola".</p>
-
-                                    <br></br>
-                                </div>
-
-                                <div className="fotovidIntro">
-                                </div>
-                              
-                              </div>
-
-                              <div className="Part1">
-                                <div className="fotovidIntro">
-                                </div>
-                                
-                                <div className="IntroTexte">
-
-                                   
-
-                                    <h1 className='title2 left '> Que valorarem del repte?</h1>
-                                
-                                    <p>
-                                    Es valorarà primordialment la creativitat del llenguatge, per tant, no tingueu por de "complicar-vos" en aquest aspecte😉                                    <br></br>
-                                    <br></br>
-                                    Per la correcta avaluació del repte, necessitarem que ens entregueu:
-                                    </p>
-                                    <br></br>
-                                    <ul>
-                                      <li>El vostre projecte (enllaç a github, model que heu creat a kaggle...).</li>
-                                      <li>Ha de tenir un Readme amb:
-                                        <li>Interpretació del llenguatge que heu creat</li>
-                                        <li>Exemple d'ús i petita explicació de com funciona.</li>
-                                      </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                            <br></br>
+                          <br></br>
+                          <br></br>
+                          <br></br> 
 
                             <p> Molta sort a tots, i que guanyi el millor!</p>
 
@@ -285,19 +240,19 @@ const DHKS = () => {
                             <div class="tarjeta ">
                                     <img src="https://media.discordapp.net/attachments/991404325941289070/1150854311543316540/image_48.png?width=1014&height=675" alt="Imagen 2"></img>
                                     <h2 className='title3'>1r</h2>
-                                    <p>Razer Huntsman V2 (Purple Switch)</p>
+                                    <p className='descriptionss'>Razer Huntsman V2 (Purple Switch)</p>
                                     
                                 </div>
                                 <div class="tarjeta ">
                                     <img src="https://media.discordapp.net/attachments/991404325941289070/1150854312533164133/image_47.png?width=539&height=404" alt="Imagen 1"></img>
                                     <h2 className='title3'>2n </h2>
-                                    <p>Logitech G733 LIGHTSPEED</p>
+                                    <p className='descriptionss'>Logitech G733 LIGHTSPEED</p>
                                    
                                 </div>
                                 <div class="tarjeta ">
                                     <img src="https://media.discordapp.net/attachments/991404325941289070/1150854313036492800/image_46.png?width=1038&height=675" alt="Imagen 3"></img>
                                     <h2 className='title3'>3r</h2>
-                                    <p>Razer Basilisk V3</p>
+                                    <p className='descriptionss'>Razer Basilisk V3</p>
                                 </div>
                                 <br></br>
                             </div>
