@@ -62,12 +62,12 @@ const Header = () => {
               <Link to="/contacte" className="nav-link" onClick={closeMenu}>
                 Contacte
               </Link>
-            </li>
+            </li>{localStorage.getItem("userToken")?
             <li className="nav-item">
               <Link to="/perfil" className="nav-link" onClick={closeMenu}>
                 El meu perfil
               </Link>
-            </li>
+            </li>:""}
           </ul>
         </div>
       </div>
