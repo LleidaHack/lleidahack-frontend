@@ -72,14 +72,18 @@ const Header = () => {
                 Contacte
               </Link>
             </li>
-            
+            {localStorage.getItem("userToken") ? (
+              
             {dailyhackss}
 
             <li className="nav-item">
-              <Link to="/perfil" className="nav-link" onClick={closeMenu}>
-                El meu perfil
-              </Link>
-            </li>
+                <Link to="/perfil" className="nav-link" onClick={closeMenu}>
+                  El meu perfil
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
       </div>

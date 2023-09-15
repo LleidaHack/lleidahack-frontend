@@ -94,8 +94,9 @@ const Sponsors = () => {
       <h1 className="title1 title-underline">Sponsors</h1>
       <p>Vols participar?</p>
       <p>No dubtis, contacta amb nosaltres!</p>
-      <button className="contacta">Contacta</button>
-
+      <Link to={"/contacte"}>
+        <button className="contacta">Contacta</button>
+      </Link>
       <section className="spnsection">
         <div className="cuadrados-container">
           {imgs1.map((pos, index) => (
