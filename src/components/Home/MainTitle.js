@@ -17,16 +17,16 @@ const MainTitle = () => {
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
     } else {
-      await registerHackerToEvent(localStorage.getItem("userID"),32,{
-        "shirt_size": "string",
-        "food_restrictions": "string",
-        "cv": "string",
-        "description": "string",
-        "github": "string",
-        "linkedin": "string",
-        "dailyhack_url": "string",
-        "update_user": true
-      })
+      await registerHackerToEvent(localStorage.getItem("userID"), 32, {
+        shirt_size: "string",
+        food_restrictions: "string",
+        cv: "string",
+        description: "string",
+        github: "string",
+        linkedin: "string",
+        dailyhack_url: "string",
+        update_user: true,
+      });
     }
   }
   const handleSignUp = () => navigate("/hacker-form");
