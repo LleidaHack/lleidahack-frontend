@@ -13,6 +13,7 @@ export async function login(user) {
       localStorage.setItem("userToken", data.access_token);
       localStorage.setItem("userID", data.user_id);
       localStorage.setItem("refreshToken", data.refresh_token);
+      return data
     })
     .catch((error) => {
       console.warn(error);
@@ -28,6 +29,7 @@ export async function refreshToken() {
       localStorage.setItem("userToken", data.access_token);
       localStorage.setItem("userID", data.user_id);
       localStorage.setItem("refreshToken", data.refresh_token);
+      return data
     })
     .catch((error) => {
       console.warn(error);
@@ -45,6 +47,7 @@ export async function confirmEmail(e_mail) {
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);
+      return data
     })
     .catch((error) => {
       console.warn(error);
@@ -62,6 +65,7 @@ export async function me() {
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);
+      return data
     })
     .catch((error) => {
       console.warn(error);
