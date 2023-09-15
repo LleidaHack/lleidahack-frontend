@@ -13,28 +13,31 @@ const MainTitle = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  async function handleShow(){
-    if(localStorage.getItem("userToken")===null){
-      setShow(true)
+  async function handleShow() {
+    if (localStorage.getItem("userToken") === null) {
+      setShow(true);
     } else {
-      const a = await registerHackerToEvent(localStorage.getItem("userID"),32,{
-        "shirt_size": "string",
-        "food_restrictions": "string",
-        "cv": "string",
-        "description": "string",
-        "github": "string",
-        "linkedin": "string",
-        "dailyhack_url": "string",
-        "update_user": true
-      }) //Canviar per hackeps quan funcioni
-      console.log(a)
-      if (a=={"detail": "Invalid token or expired token."}){
-        navigate("/login")
+      const a = await registerHackerToEvent(
+        localStorage.getItem("userID"),
+        32,
+        {
+          shirt_size: "string",
+          food_restrictions: "string",
+          cv: "string",
+          description: "string",
+          github: "string",
+          linkedin: "string",
+          dailyhack_url: "string",
+          update_user: true,
+        },
+      ); //Canviar per hackeps quan funcioni
+      console.log(a);
+      if (a == { detail: "Invalid token or expired token." }) {
+        navigate("/login");
       } else {
-
       }
     }
-  };
+  }
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => navigate("/login");
 

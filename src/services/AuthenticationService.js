@@ -66,7 +66,7 @@ export async function me() {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),
-    }
+    },
   })
     .then((response) => response.json())
     .then((data) => {
