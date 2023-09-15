@@ -177,14 +177,7 @@
     scale: 0.6;
 }
 
-@media screen and (max-width: 768px) {
 
-
-
-    .descriptionss{
-        font-size: 0.7rem;
-    }
-}
 
 
 .Winidpu{
@@ -214,3 +207,26 @@ col{
     flex-grow: 2;
     margin-right: 3rem;
 }
+
+
+@media screen and (max-width: 768px) {
+
+    .descriptionss{
+        font-size: 0.7rem;
+    }
+
+    .eulen {
+        display: table-cell;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+    .piterrs{
+        margin-right: 20rem;
+    }
+
+    .panel{
+        margin-bottom: -5rem;
+    }
+}
+

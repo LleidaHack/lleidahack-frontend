@@ -17,7 +17,6 @@ const Header = () => {
 
 
   let dailyhackss = ""
-  console.log("El token es: ", localStorage.getItem("userToken"))
 
   if (localStorage.getItem("userToken") && localStorage.getItem("userToken") !== "undefined") {
     dailyhackss = [ <li className="nav-item">

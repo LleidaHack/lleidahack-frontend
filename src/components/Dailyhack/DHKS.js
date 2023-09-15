@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import "src/components/Dailyhack/DHKSS.css"
 import "src/components/Dailyhack/main/maindailyhack.css"
 
@@ -11,6 +11,8 @@ import * as Yup from "yup";
 import { FormikStepper, InputField, SelectField } from "formik-stepper";
 import { Formik, Form, Field, ErrorMessage  } from 'formik';
 import pergamino from 'src/icons/pergamino.png'
+
+import {getHackeps} from 'src/services/EventService.js'
 
 const validationSchema = Yup.object().shape({
   //nick: Yup.string().required("Nom / Nickname requerit"),
@@ -39,8 +41,8 @@ const HackerPanel = () => {
                 <path d="M53.1 25c0 1.1-.9 2-2 2H13c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2h38c1.1 0 2 .9 2 2l.1 18ZM23 40h18M18.2 40H21M13.1 40H16M8 40h3M10.2 36H13M15 36h3M20 36h3M25 36h3M30 36h3M35 36h3M40 36h3M46 36h3M51 36h3M48 33h3M43 33h3M38 33h3M33 33h3M28 33h3M23 33h3M18.1 33H21M13 33h3M43 40h2.8M48 40h2.9M53 40h3M27.5 10.2l-9.2 9.2M21.4 10.2l-5.7 4.6" />
                 </g>
             </svg>
-        
-      </Row>
+            
+      </Row>  
       
     </Col>
   );
@@ -48,6 +50,33 @@ const HackerPanel = () => {
 
 export const HackerStepperForm = (props) => {
   const { onBotonClic } = props;
+  const [Actualhack, setHack] = useState(null);
+
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const hackepse = await getHackeps();
+           
+
+      } catch (errors) {
+       
+      }
+
+
+    };
+
+    getData();
+  }, []);
+
+
+
+
+
+
+
+
+
   return (
     <div id="hackerForm" className="custom-form-Dailyhack">
       <FormikStepper
@@ -58,6 +87,10 @@ export const HackerStepperForm = (props) => {
       //Si la respuesta es Negativa, le saldrá un texto de "Algo ha salido mál, vuelve a Introducir la Informacion. Si el problema perciste contacta con nosotros des del apartado de Contacto. y un boton de Volver a la Página."
       onBotonClic(false, actions);  //Se enviará true o false ya para indicar si algo salió mal o no cambiando el true o false
           console.log("submit!");
+         
+
+
+          
         }} /// onSubmit Function
         initialValues={{
           nick: "",
@@ -77,14 +110,14 @@ export const HackerStepperForm = (props) => {
         }}
         submitButton={{
           label: "Envia",
-          style: { background: "var(--primary)" },
+          style: { background: "var(--primary)", marginRight: "2rem", marginBottom: "1rem"  },
         }}
       >
         <FormikStepper.Step label="Informació personal">
-          <Row>
+        
             
             
-            <Col >
+            
               <div className='eulen'>
                 <div className='panel'>
                 <HackerPanel></HackerPanel>
@@ -132,9 +165,6 @@ export const HackerStepperForm = (props) => {
                 
               </div>
               </div>
-            </Col>
-          
-          </Row>
         </FormikStepper.Step>
       </FormikStepper>
     </div>

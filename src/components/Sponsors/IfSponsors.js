@@ -30,7 +30,6 @@ const InfoSponsors = ({ id }) => {
         try {
           const companyEvents = await getCompanyEvents(id);
           setInfoCompany2(companyEvents);
-          console.log(companyEvents);
           companyEvents.map((events, index) => (images[index] = events.image));
         } catch (errors) {
           console.log("El error obtenido es:", errors);
