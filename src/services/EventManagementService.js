@@ -79,7 +79,7 @@ export async function getDailyhacks(event_id) {
   });
 }
 
-export async function registerHackerToEvent(hacker_id, event_id) {
+export async function registerHackerToEvent(hacker_id, event_id, data) {
   return fetch(
     `https://backend.lleidahack.dev/eventmanagment/${event_id}/register/${hacker_id}`,
     {
@@ -88,6 +88,7 @@ export async function registerHackerToEvent(hacker_id, event_id) {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
+      body: JSON.stringify(data),
     },
   ).catch((error) => {
     console.warn(error);
