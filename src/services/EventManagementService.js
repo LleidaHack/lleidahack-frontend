@@ -1,15 +1,20 @@
 export async function addDailyhack(event_id, hacker_id, url) {
   return fetch(
-    `https://backend.lleidahack.dev/eventmanagment/${event_id}/add_dailyhack/${hacker_id}`,
+    process.env.REACT_APP_DOMAIN + `/eventmanagment/${event_id}/add_dailyhack/${hacker_id}?url=${url}`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
-      body: JSON.stringify({ querry: { url: url } }),
     },
-  ).catch((error) => {
+  )
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    return data
+  })
+  .catch((error) => {
     console.warn(error);
     return [];
   });
@@ -17,7 +22,7 @@ export async function addDailyhack(event_id, hacker_id, url) {
 
 export async function updateDailyhack(event_id, hacker_id, url) {
   return fetch(
-    `https://backend.lleidahack.dev/eventmanagment/${event_id}/update_dailyhack/${hacker_id}`,
+    process.env.REACT_APP_DOMAIN + `/eventmanagment/${event_id}/update_dailyhack/${hacker_id}`,
     {
       method: "PUT",
       headers: {
@@ -26,7 +31,13 @@ export async function updateDailyhack(event_id, hacker_id, url) {
       },
       body: JSON.stringify({ querry: { url: url } }),
     },
-  ).catch((error) => {
+  )
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    return data
+  })
+  .catch((error) => {
     console.warn(error);
     return [];
   });
@@ -34,14 +45,20 @@ export async function updateDailyhack(event_id, hacker_id, url) {
 
 export async function getDailyhackById(event_id, hacker_id) {
   return fetch(
-    `https://backend.lleidahack.dev/eventmanagment/${event_id}/dailyhack/${hacker_id}`,
+    process.env.REACT_APP_DOMAIN + `/eventmanagment/${event_id}/dailyhack/${hacker_id}`,
     {
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
     },
-  ).catch((error) => {
+  )
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    return data
+  })
+  .catch((error) => {
     console.warn(error);
     return [];
   });
@@ -49,7 +66,7 @@ export async function getDailyhackById(event_id, hacker_id) {
 
 export async function deleteDailyhack(event_id, hacker_id) {
   return fetch(
-    `https://backend.lleidahack.dev/eventmanagment/${event_id}/dailyhack/${hacker_id}`,
+    process.env.REACT_APP_DOMAIN +`/eventmanagment/${event_id}/dailyhack/${hacker_id}`,
     {
       method: "DELETE",
       headers: {
@@ -57,7 +74,13 @@ export async function deleteDailyhack(event_id, hacker_id) {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
     },
-  ).catch((error) => {
+  )
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    return data
+  })
+  .catch((error) => {
     console.warn(error);
     return [];
   });
@@ -65,7 +88,7 @@ export async function deleteDailyhack(event_id, hacker_id) {
 
 export async function getDailyhacks(event_id) {
   return fetch(
-    `https://backend.lleidahack.dev/eventmanagment/${event_id}/dailyhacks/`,
+    process.env.REACT_APP_DOMAIN + `/eventmanagment/${event_id}/dailyhacks/`,
     {
       method: "POST",
       headers: {
@@ -73,7 +96,13 @@ export async function getDailyhacks(event_id) {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
     },
-  ).catch((error) => {
+  )
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    return data
+  })
+  .catch((error) => {
     console.warn(error);
     return [];
   });
@@ -81,7 +110,7 @@ export async function getDailyhacks(event_id) {
 
 export async function registerHackerToEvent(hacker_id, event_id, data) {
   return fetch(
-    `https://backend.lleidahack.dev/eventmanagment/${event_id}/register/${hacker_id}`,
+    process.env.REACT_APP_DOMAIN + `/eventmanagment/${event_id}/register/${hacker_id}`,
     {
       method: "PUT",
       headers: {
@@ -90,7 +119,13 @@ export async function registerHackerToEvent(hacker_id, event_id, data) {
       },
       body: JSON.stringify(data),
     },
-  ).catch((error) => {
+  )
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    return data
+  })
+  .catch((error) => {
     console.warn(error);
     return [];
   });
@@ -98,7 +133,7 @@ export async function registerHackerToEvent(hacker_id, event_id, data) {
 
 export async function unregisterHackerToEvent(hacker_id, event_id) {
   return fetch(
-    `https://backend.lleidahack.dev/eventmanagment/${event_id}/unregister/${hacker_id}`,
+    process.env.REACT_APP_DOMAIN + `/eventmanagment/${event_id}/unregister/${hacker_id}`,
     {
       method: "PUT",
       headers: {
@@ -106,7 +141,13 @@ export async function unregisterHackerToEvent(hacker_id, event_id) {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
     },
-  ).catch((error) => {
+  )
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    return data
+  })
+  .catch((error) => {
     console.warn(error);
     return [];
   });
