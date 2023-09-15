@@ -63,11 +63,15 @@ const Header = () => {
                 Contacte
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/perfil" className="nav-link" onClick={closeMenu}>
-                El meu perfil
-              </Link>
-            </li>
+            {localStorage.getItem("userToken") ? (
+              <li className="nav-item">
+                <Link to="/perfil" className="nav-link" onClick={closeMenu}>
+                  El meu perfil
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
       </div>
