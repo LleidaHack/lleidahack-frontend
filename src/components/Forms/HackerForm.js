@@ -44,7 +44,7 @@ export const HackerStepperForm = () => {
   const [urlImage, setUrlImage] = useState("");
   const [isUrl, setIsUrl] = useState(false);
   const onSubmit = async (values, { setSubmitting }) => {
-    const pfp = isUrl ? urlImage : avatar
+    const pfp = isUrl ? urlImage : avatar;
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
       nickname: values.nickname,

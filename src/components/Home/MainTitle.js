@@ -13,9 +13,9 @@ const MainTitle = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  async function handleShow(){
-    if(localStorage.getItem("userToken")===null){
-      setShow(true)
+  async function handleShow() {
+    if (localStorage.getItem("userToken") === null) {
+      setShow(true);
     } else {
       await registerHackerToEvent(localStorage.getItem("userID"),32,{
         "shirt_size": "string",
@@ -28,7 +28,7 @@ const MainTitle = () => {
         "update_user": true
       })
     }
-  };
+  }
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => navigate("/login");
 
