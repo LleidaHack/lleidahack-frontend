@@ -21,7 +21,10 @@ export async function login(user) {
 }
 
 export async function refreshToken() {
-  return fetch(process.env.REACT_APP_DOMAIN + `/refresh_token?refresh_token=${localStorage.getItem("refreshToken")}`)
+  return fetch(
+    process.env.REACT_APP_DOMAIN +
+      `/refresh_token?refresh_token=${localStorage.getItem("refreshToken")}`,
+  )
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);
@@ -36,12 +39,15 @@ export async function refreshToken() {
 }
 
 export async function confirmEmail(e_mail) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/confirm-email?email=${e_mail}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  return fetch(
+    process.env.REACT_APP_DOMAIN + `/confirm-email?email=${e_mail}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
     },
-  })
+  )
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);
