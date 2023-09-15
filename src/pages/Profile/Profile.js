@@ -111,25 +111,23 @@ const Profile = () => {
             {/* QR Column */}
             <div className="col-12 col-xl-4 mx-auto">
               {hacker ? (
-                <a
-                  className="text-decoration-none text-light"
+                <div
+                  className="container qr-container p-bg-primary p-2 text-center m-auto"
                   onClick={handleShowQR}
                 >
-                  <div className="container qr-container p-bg-primary p-2 text-center m-auto">
-                    <div className="row">
-                      <div className="col-6 my-auto col-sm-12">
-                        Mostra el teu tiquet
-                      </div>
-                      <div className="col-6 col-sm-12 my-auto">
-                        <img
-                          style={{ aspectRatio: "1/1", width: "70%" }}
-                          className="px-2 mx-auto my-auto"
-                          src={qrIcon}
-                        />
-                      </div>
+                  <div className="row">
+                    <div className="col-6 my-auto col-sm-12">
+                      Mostra el teu tiquet
+                    </div>
+                    <div className="col-6 col-sm-12 my-auto">
+                      <img
+                        style={{ aspectRatio: "1/1", width: "70%" }}
+                        className="px-2 mx-auto my-auto"
+                        src={qrIcon}
+                      />
                     </div>
                   </div>
-                </a>
+                </div>
               ) : (
                 <HSkeleton height={"100%"} />
               )}
