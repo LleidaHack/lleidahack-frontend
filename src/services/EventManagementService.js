@@ -12,7 +12,7 @@ export async function addDailyhack(event_id, hacker_id, url) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log("response: ", data);
       return data;
     })
     .catch((error) => {
@@ -24,19 +24,18 @@ export async function addDailyhack(event_id, hacker_id, url) {
 export async function updateDailyhack(event_id, hacker_id, url) {
   return fetch(
     process.env.REACT_APP_DOMAIN +
-      `/eventmanagment/${event_id}/update_dailyhack/${hacker_id}`,
+      `/eventmanagment/${event_id}/update_dailyhack/${hacker_id}?url=${url}`,
     {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
-      body: JSON.stringify({ querry: { url: url } }),
     },
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log("response: ", data);
       return data;
     })
     .catch((error) => {
@@ -58,7 +57,7 @@ export async function getDailyhackById(event_id, hacker_id) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log("response: ", data);
       return data;
     })
     .catch((error) => {
@@ -81,7 +80,7 @@ export async function deleteDailyhack(event_id, hacker_id) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log("response: ", data);
       return data;
     })
     .catch((error) => {
@@ -93,6 +92,7 @@ export async function deleteDailyhack(event_id, hacker_id) {
 export async function getDailyhacks(event_id) {
   return fetch(
     process.env.REACT_APP_DOMAIN + `/eventmanagment/${event_id}/dailyhacks/`,
+    process.env.REACT_APP_DOMAIN + `/eventmanagment/${event_id}/dailyhacks/`,
     {
       method: "POST",
       headers: {
@@ -103,7 +103,7 @@ export async function getDailyhacks(event_id) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log("response: ", data);
       return data;
     })
     .catch((error) => {
@@ -127,7 +127,7 @@ export async function registerHackerToEvent(hacker_id, event_id, data) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log("response: ", data);
       return data;
     })
     .catch((error) => {
@@ -150,7 +150,7 @@ export async function unregisterHackerToEvent(hacker_id, event_id) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log("response: ", data);
       return data;
     })
     .catch((error) => {

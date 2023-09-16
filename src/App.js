@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Contacte from "src/pages/Contacte";
 import Error404 from "src/pages/Error404";
 import FAQPage from "src/pages/FAQ";
@@ -11,11 +11,32 @@ import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
 import Login from "src/pages/Login";
 import Entrances from "src/pages/UsersEntrance.js";
+import Dailyhack from "src/pages/Dailyhack.js";
+import PopupInicioSesion from "src/components/popup/popup";
+import { eventEmitter } from "src/modules/emmiterModule";
 
 export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
   }, []);
+
+  const [tokenState, SetStateToken] = useState(false);
+
+  useEffect(() => {
+    const mostrarPopup = (mostrar) => {
+      if (mostrar) {
+        SetStateToken(true);
+      }
+    };
+
+    eventEmitter.on("mostrarPopup", mostrarPopup);
+
+    return () => {
+      eventEmitter.removeListener("mostrarPopup", mostrarPopup);
+    };
+  }, []);
+
+  // Simulación de detección de token caducado
 
   return (
     <div className="App">
@@ -35,8 +56,14 @@ export default function App() {
           <Route path="/sponsors/:ids" element={<Sponsors />} />
           <Route path="/inscripcio" element={<Inscripcio />} />
           <Route path="*" element={<Error404 />} />
+          <Route path="/dailyhacks" element={<Dailyhack />} />
         </Routes>
       </Router>
+
+      <PopupInicioSesion
+        mostrar={tokenState}
+        cerrarPopup={() => SetStateToken(false)}
+      />
     </div>
   );
 }
