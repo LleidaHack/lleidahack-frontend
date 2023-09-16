@@ -13,6 +13,9 @@ import { Formik, Form, Field, ErrorMessage  } from 'formik';
 import pergamino from 'src/icons/pergamino.png'
 
 import {getHackeps} from 'src/services/EventService.js'
+import { me } from "src/services/AuthenticationService";
+import { getDailyhackById } from "src/services/EventManagementService";
+import { addDailyhack } from "src/services/EventManagementService";
 
 const validationSchema = Yup.object().shape({
   //nick: Yup.string().required("Nom / Nickname requerit"),
@@ -51,19 +54,25 @@ const HackerPanel = () => {
 export const HackerStepperForm = (props) => {
   const { onBotonClic } = props;
   const [Actualhack, setHack] = useState(null);
+  const [identity, setIdentity] = useState(null);
+  const [isDaily, setDailyReady] = useState(null);
+
+
 
 
   useEffect(() => {
     const getData = async () => {
-      try {
-        const hackepse = await getHackeps();
-           
 
-      } catch (errors) {
-       
+      const hackepse = await getHackeps();
+      const istMeMario = await me();
+      const getInfo = await getDailyhackById(hackepse.id, istMeMario.id);
+      setHack(hackepse)
+      setIdentity(istMeMario)
+      let hasDailyhack = false
+      if(getInfo.startsWith("https://github")){
+        hasDailyhack = true
       }
-
-
+      setDailyReady(hasDailyhack)
     };
 
     getData();
@@ -85,11 +94,22 @@ export const HackerStepperForm = (props) => {
       //Hacer que al pulsar el submit, se ejecute el servicio de envio y se muestre un loading de minimo 2 segundos.
       //Cuando finalize la respuesta, si es afirmativa, se editará la componente mostrando en la pagina un texto de Enviado con exito junto a un boton de Volver a Inicio.
       //Si la respuesta es Negativa, le saldrá un texto de "Algo ha salido mál, vuelve a Introducir la Informacion. Si el problema perciste contacta con nosotros des del apartado de Contacto. y un boton de Volver a la Página."
-      onBotonClic(false, actions);  //Se enviará true o false ya para indicar si algo salió mal o no cambiando el true o false
           console.log("submit!");
-         
+          
+            const sendDailyHack = async () => {
+              const res = await addDailyhack(Actualhack.id, identity.id, values.repositori)
+              if(Object.keys(res).length > 3){
+                onBotonClic(true, actions);  //Se enviará true o false ya para indicar si algo salió mal o no cambiando el true o false
+              }else{
+                onBotonClic(false, actions);  //Se enviará true o false ya para indicar si algo salió mal o no cambiando el true o false
 
+              }
 
+              
+            };
+
+            sendDailyHack();
+          
           
         }} /// onSubmit Function
         initialValues={{
@@ -195,8 +215,6 @@ const DHKS = () => {
   
   const cambiarEstadoPadre = (value, actions) => {
     setCorrect(value);
-    console.log("El valor es:", value)
-    console.log("La accion es:", actions)
     setEstadoPadre(!estadoPadre);
   };
   const handleRefreshClick = () => {

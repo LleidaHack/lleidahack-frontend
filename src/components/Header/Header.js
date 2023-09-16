@@ -18,7 +18,7 @@ const Header = () => {
 
   let dailyhackss = ""
 
-  if (localStorage.getItem("userToken") && localStorage.getItem("userToken") !== "undefined") {
+  if (localStorage.getItem("userToken")) {
     dailyhackss = [ <li className="nav-item">
    <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}> Dailyhack</Link>
     </li>]
@@ -72,10 +72,9 @@ const Header = () => {
                 Contacte
               </Link>
             </li>
-            {localStorage.getItem("userToken") ? (
-              
             {dailyhackss}
 
+            {localStorage.getItem("userToken") ? (
             <li className="nav-item">
                 <Link to="/perfil" className="nav-link" onClick={closeMenu}>
                   El meu perfil
