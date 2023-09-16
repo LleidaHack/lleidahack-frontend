@@ -1,7 +1,5 @@
 // src/components/Forms/HackerForm.js
 
-import Header from "src/components/Header/Header.js";
-import Footer from "src/components/Footer/Footer.js";
 import "src/components/Forms/HackerForm.css";
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
@@ -75,7 +73,7 @@ export const HackerStepperForm = () => {
   };
 
   return (
-    <div id="hackerForm" className="custom-form">
+    <div id="hackerForm" className="custom-form" style={{ flex: 1 }}>
       <FormikStepper
         /// Accept all Formik props
         onSubmit={onSubmit}
@@ -190,15 +188,3 @@ export const HackerStepperForm = () => {
     </div>
   );
 };
-
-const HackerForm = () => {
-  return (
-    <>
-      <Header />
-      <HackerStepperForm />
-      <Footer />
-    </>
-  );
-};
-
-export default HackerForm;
