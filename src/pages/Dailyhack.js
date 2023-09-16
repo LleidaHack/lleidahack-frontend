@@ -13,5 +13,5 @@ const Dailyhack = () => {
       </div>
     );
 };
-  
-  export default Dailyhack;
+
+export default Dailyhack;
