@@ -1,333 +1,320 @@
-
-
-.BGPhather{
-    height: auto;
-    background-color: var(--secondary);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.BGPhather {
+  height: auto;
+  background-color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.informative{
-    display: flex;
-    flex-wrap: wrap;
+.informative {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .title2 {
-    color: var(--white);
-    padding-top: 5%;
-    font-weight: bold;
-    text-align: center;
-    
-
+  color: var(--white);
+  padding-top: 5%;
+  font-weight: bold;
+  text-align: center;
 }
 
-.informative{
-  
-    width: 68%;
-    justify-content: center;
-    border-radius: 18px;
-    color: var(--white);
-    padding: 20px;
-   
-
+.informative {
+  width: 68%;
+  justify-content: center;
+  border-radius: 18px;
+  color: var(--white);
+  padding: 20px;
 }
 
-.Part1{
-    display: flex;
-    justify-content: space-between; /* Distribuirá los elementos a izquierda y derecha */
-    /*align-items: center; /* Centrar verticalmente los elementos */
-
+.Part1 {
+  display: flex;
+  justify-content: space-between; /* Distribuirá los elementos a izquierda y derecha */
+  /*align-items: center; /* Centrar verticalmente los elementos */
 }
 
-.IntroText{
-    width: 40%;
-    padding-left: 20px;
-    text-align: justify;
+.IntroText {
+  width: 40%;
+  padding-left: 20px;
+  text-align: justify;
 }
 
-.fotovidIntro{
-    border-radius: 10px;
-    overflow: hidden;
-    width: 40%;
+.fotovidIntro {
+  border-radius: 10px;
+  overflow: hidden;
+  width: 40%;
 }
 
-
-.upload{
-    width: 100%;
-    height: auto;
-    text-align: center;
+.upload {
+  width: 100%;
+  height: auto;
+  text-align: center;
 }
 
-.white{
-    background-color: var(--white);
- 
+.white {
+  background-color: var(--white);
 }
 
-.form{
-    width: 100%;
-    max-width: 100%;
+.form {
+  width: 100%;
+  max-width: 100%;
 }
 
-
-.iconBox{
-    margin-top: 10rem;
-    margin-bottom: 3rem;
-    text-align: center;
+.iconBox {
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
-
-
-.infbuttonok{
-    text-align: center;
-    margin-bottom: 3.5rem;
+.infbuttonok {
+  text-align: center;
+  margin-bottom: 3.5rem;
 }
 
-
-
-.wrapper{height:auto;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background-color:#53505000
+.wrapper {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #53505000;
 }
 
-.checkmark__circle{
-    stroke-dasharray: 166;
-    stroke-dashoffset: 166;
-    stroke-width: 2;
-    stroke-miterlimit: 10;
-    stroke: #7ac142;fill: none;
-    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 
-.cross__circle{
-    stroke-dasharray: 166;
-    stroke-dashoffset: 166;
-    stroke-width: 2;
-    stroke-miterlimit: 10;
-    stroke: #c4372d;fill: none;
-    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+.cross__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #c4372d;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 
-
-.checkmark{
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: block;
-    stroke-width: 2;
-    stroke: #fff;
-    stroke-miterlimit: 10;
-    margin: 10% auto;
-    box-shadow: inset 0px 0px 0px #7ac142;
-    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation:
+    fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
 }
 
-.crossmarker{
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: block;
-    stroke-width: 2;
-    stroke: #fff;
-    stroke-miterlimit: 10;
-    margin: 10% auto;
-    box-shadow: inset 0px 0px 0px #bd4209;
-    animation: filler .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+.crossmarker {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #bd4209;
+  animation:
+    filler 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
 }
-.checkmark__check{
-    transform-origin: 50% 50%;
-    stroke-dasharray: 48;
-    stroke-dashoffset: 48;
-    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
-}
-
-
-@keyframes stroke{100%{stroke-dashoffset: 0}}
-@keyframes scale{0%, 100%{transform: none}50%{transform: scale3d(1.1, 1.1, 1)}}
-@keyframes fill{100%{box-shadow: inset 0px 0px 0px 30px #7ac142}}
-@keyframes filler{100%{box-shadow: inset 0px 0px 0px 30px #bd4209}}
-
-
-
-
-.blackt{
-    color: var(--black);
-    text-align: left;
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
 }
 
-.BoxForm{
-    border-color: rgb(204, 202, 202);
-    border-radius: 5px;
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}
+@keyframes filler {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #bd4209;
+  }
 }
 
-.second{
-    transform: translate(0, 2rem);
-    
+.blackt {
+  color: var(--black);
+  text-align: left;
 }
 
-.peperonis{
-    scale: 0.8;
-    margin-right: 15px;
-
+.BoxForm {
+  border-color: rgb(204, 202, 202);
+  border-radius: 5px;
 }
 
-.pergar{
-    scale: 0.6;
+.second {
+  transform: translate(0, 2rem);
 }
 
-
-
-
-.Winidpu{
-    flex-grow: 2;
-
+.peperonis {
+  scale: 0.8;
+  margin-right: 15px;
 }
 
-col{
-    flex-grow: 0;
+.pergar {
+  scale: 0.6;
 }
 
-
-.eulen{
-    display: flex;
-
+.Winidpu {
+  flex-grow: 2;
 }
 
-.panel{
-    flex-grow: 1;
-    scale: 0.5;
+col {
+  flex-grow: 0;
 }
 
-.piterrs{
-    display: inline; /* Hace que el contenedor sea flexible */
-    flex-direction: row; /* Distribución horizontal de elementos (predeterminado) */
-    justify-content: space-between; /* Elimina espacio entre los elementos */
-    flex-grow: 2;
-    margin-right: 3rem;
+.eulen {
+  display: flex;
 }
 
+.panel {
+  flex-grow: 1;
+  scale: 0.5;
+}
+
+.piterrs {
+  display: inline; /* Hace que el contenedor sea flexible */
+  flex-direction: row; /* Distribución horizontal de elementos (predeterminado) */
+  justify-content: space-between; /* Elimina espacio entre los elementos */
+  flex-grow: 2;
+  margin-right: 3rem;
+}
 
 @media screen and (max-width: 768px) {
+  .descriptionss {
+    font-size: 0.7rem;
+  }
 
-    .descriptionss{
-        font-size: 0.7rem;
-    }
+  .eulen {
+    display: table-cell;
+  }
 
-    .eulen {
-        display: table-cell;
-       
-    }
+  .piterrs {
+    margin-right: 20rem;
+  }
 
-    .piterrs{
-        margin-right: 20rem;
-    }
-
-    .panel{
-        margin-bottom: -5rem;
-    }
+  .panel {
+    margin-bottom: -5rem;
+  }
 }
 
-
-
-
-
-.IntroTexte{
-    width: 40%;
-    text-align: left;
+.IntroTexte {
+  width: 40%;
+  text-align: left;
 }
 
-.left{
-    text-align: left;
-    margin-bottom: 2rem;
+.left {
+  text-align: left;
+  margin-bottom: 2rem;
 }
 
-.right{
-    text-align: right;
-    margin-bottom: 2rem;
+.right {
+  text-align: right;
+  margin-bottom: 2rem;
 }
-
-
-
 
 .contenedorx {
-    display: flex;
-    justify-content: center;
-    width: 100%; /* Ancho total del contenedor */
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    height: auto;
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Ancho total del contenedor */
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  height: auto;
 }
 
 .tarjeta {
-    width: 15vw; /* Ancho de cada tarjeta */
-    background-color: var(--white);
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    margin-right: 2.5rem;
-    margin-left: 2.5rem;
+  width: 15vw; /* Ancho de cada tarjeta */
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  margin-right: 2.5rem;
+  margin-left: 2.5rem;
 }
 
-.tarjeta .second:last-child{
-    margin-right: 50rem;
+.tarjeta .second:last-child {
+  margin-right: 50rem;
 }
 
 .tarjeta img {
-    max-width: 100%;
-    max-height: 200px; /* Altura máxima de la imagen */
+  max-width: 100%;
+  max-height: 200px; /* Altura máxima de la imagen */
 }
 
 .tarjeta h2 {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .tarjeta p {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .tarjeta button {
-    margin-top: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .tarjeta button:hover {
-    background-color: var(--primary);
+  background-color: var(--primary);
 }
 
 .tarjeta:hover {
-    transform: translate(-10px, -10px);
+  transform: translate(-10px, -10px);
 }
 
 .title3 {
-    color: var(--black);
-    padding-top: 5%;
-    font-weight: bold;
-    text-align: center;
-
+  color: var(--black);
+  padding-top: 5%;
+  font-weight: bold;
+  text-align: center;
 }
 
-
 @media screen and (max-width: 768px) {
+  .tarjeta {
+    width: 26vw;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0px;
+  }
 
-    .tarjeta{
-        width: 26vw;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        padding: 0px;
-    }
-
-    .descriptionss{
-
-    }
+  .descriptionss {
+  }
 }
