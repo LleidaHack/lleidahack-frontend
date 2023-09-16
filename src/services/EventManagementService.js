@@ -88,6 +88,7 @@ export async function deleteDailyhack(event_id, hacker_id) {
 export async function getDailyhacks(event_id) {
   return fetch(
     process.env.REACT_APP_DOMAIN + `/eventmanagment/${event_id}/dailyhacks/`,
+    process.env.REACT_APP_DOMAIN + `/eventmanagment/${event_id}/dailyhacks/`,
     {
       method: "POST",
       headers: {
