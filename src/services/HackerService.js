@@ -1,9 +1,9 @@
+import { mostrarPopupHandler } from 'src/modules/emmiterModule';
 export async function signupHacker(hacker) {
   return fetch(process.env.REACT_APP_DOMAIN + "/hacker/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      mode: "no-cors",
     },
     body: JSON.stringify(hacker),
   })
@@ -28,7 +28,12 @@ export async function getAllHackers() {
       Authorization: "Bearer " + localStorage.getItem("userToken"),
     },
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (response.status===403) {
+        mostrarPopupHandler();
+      }
+      response.json()
+    })
     .then((data) => {
       console.log("response: ", data);
       return data;
