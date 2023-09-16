@@ -54,7 +54,7 @@ export const HackerStepperForm = (props) => {
   const { onBotonClic } = props;
   const [Actualhack, setHack] = useState(null);
   const [identity, setIdentity] = useState(null);
-  const [isDaily, setDailyReady] = useState(null);
+  /*const [isDaily, setDailyReady] = useState(null); //comprobacio de estat*/
 
 
 
@@ -67,11 +67,9 @@ export const HackerStepperForm = (props) => {
       const getInfo = await getDailyhackById(hackepse.id, istMeMario.id);
       setHack(hackepse)
       setIdentity(istMeMario)
-      let hasDailyhack = false
-      if(getInfo.startsWith("https://github")){
-        hasDailyhack = true
-      }
-      setDailyReady(hasDailyhack)
+      
+      
+     
     };
 
     getData();
