@@ -15,13 +15,17 @@ const Header = () => {
     setShowMenu(false);
   };
 
-
-  let dailyhackss = ""
+  let dailyhackss = "";
 
   if (localStorage.getItem("userToken")) {
-    dailyhackss = [ <li className="nav-item">
-   <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}> Dailyhack</Link>
-    </li>]
+    dailyhackss = [
+      <li className="nav-item">
+        <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}>
+          {" "}
+          Dailyhack
+        </Link>
+      </li>,
+    ];
   }
 
   return (
@@ -75,7 +79,7 @@ const Header = () => {
             {dailyhackss}
 
             {localStorage.getItem("userToken") ? (
-            <li className="nav-item">
+              <li className="nav-item">
                 <Link to="/perfil" className="nav-link" onClick={closeMenu}>
                   El meu perfil
                 </Link>

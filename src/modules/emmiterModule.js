@@ -1,9 +1,9 @@
-const EventEmitter = require('events');
+const EventEmitter = require("events");
 
 const eventEmitter = new EventEmitter();
 
-const mostrarPopupHandler  = () => {
-  eventEmitter.emit('mostrarPopup', true);
+const mostrarPopupHandler = () => {
+  eventEmitter.emit("mostrarPopup", true);
 };
 
-module.exports = { mostrarPopupHandler , eventEmitter };
+module.exports = { mostrarPopupHandler, eventEmitter };
