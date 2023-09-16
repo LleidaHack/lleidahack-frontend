@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "src/components/Dailyhack/DHKSS.css"
-import "src/components/Dailyhack/main/maindailyhack.css"
+import "src/components/Dailyhack/DailyHacks.css"
 
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
@@ -208,7 +207,7 @@ export const HackerStepperForm = (props) => {
 
 
 
-const DHKS = () => {
+const Dailyhacks = () => {
   const [estadoPadre, setEstadoPadre] = useState(false);
   const [correct, setCorrect] = useState(false); // Usar estado para rastrear correct
 
@@ -361,4 +360,4 @@ const DHKS = () => {
     );
   };
   
-export default DHKS;
+export default Dailyhacks;
