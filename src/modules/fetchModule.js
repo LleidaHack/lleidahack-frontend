@@ -8,16 +8,17 @@ export async function fetchPlus({
     Querry,
     hasUserauth = false,
     saveLoginInfo = false,
-    nextScreen
+    nextScreen,
+    loginAuth = false
 }){
     const headers = {"Content-Type": "application/json"}
-    if (hasUserauth) { headers.Authorization = "Bearer " + localStorage.getItem("userToken"); }
+    if (hasUserauth||loginAuth) { headers.Authorization = loginAuth? "Basic " + btoa(`${loginAuth.email}:${loginAuth.password}`) : "Bearer " + localStorage.getItem("userToken"); }
     const args = {
         method: Method,
         headers: headers,
         body: JSON.stringify(Body)
     }
-    const querry = Querry ? `?${Querry.keys()[0]}=${Querry[Querry.keys()[0]]}` : ""
+    const querry = Querry ? `?${Object.keys(Querry)[0]}=${Querry[Object.keys(Querry)[0]]}` : ""
     return fetch(process.env.REACT_APP_DOMAIN + Url+querry,args)
         .then((response) => {
             if(hasUserauth && response.status===403) {
