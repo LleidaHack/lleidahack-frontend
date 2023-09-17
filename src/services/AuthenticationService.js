@@ -63,6 +63,7 @@ export async function confirmEmail(e_mail) {
 
 export async function me() {
   return fetch(process.env.REACT_APP_DOMAIN + "/me", {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken"),
