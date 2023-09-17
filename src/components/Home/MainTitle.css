@@ -54,3 +54,33 @@
   position: relative;
   top: -1000px;
 }
+
+
+.backgrounder{
+  background-color: var(--primary);
+  background-image: url(../../icons/icons_home.png);
+  background-size: cover;
+  max-height: 50vh;
+  overflow: hidden;
+}
+
+
+.imagelogo{
+  width: 12vw; 
+  height: auto; 
+  justify-content: center;
+  text-align: center;
+}
+
+.rowe {
+  display: flex; /* O cualquier otro estilo que necesites */
+  justify-content: center;
+  margin-bottom: 1vw;
+  
+}
+
+
+.apuntat-button {
+
+  display: inline-block; /* Asegura que el botón no desaparezca al hacer zoom */
+}

@@ -3,7 +3,7 @@ import "src/components/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import hackLogo from "src/icons/hack_icon_black.png";
+import hackLogo from "src/icons/hackLogo_black_cover.png";
 
 import { useNavigate } from "react-router-dom";
 import { registerHackerToEvent } from "src/services/EventManagementService";
@@ -34,12 +34,12 @@ const MainTitle = () => {
 
   return (
     <>
-      <div style={{ backgroundColor: "var(--primary)" }}>
+      <div className="backgrounder">
         <div className="fantasma" id="home"></div>
         <div className="row join-container p-5 text-center m-auto">
           <div className="col-12">
-            <div className="row">
-              <img className="p-5" src={hackLogo} alt="" />
+            <div className="rowe">
+              <img className="imagelogo" src={hackLogo} alt="" />
             </div>
             <div className="row text-center">
               <a

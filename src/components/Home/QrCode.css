@@ -11,6 +11,7 @@
 }
 body {
   color: hsl(var(--font-color));
+  
 }
 img {
   max-width: 100%;
