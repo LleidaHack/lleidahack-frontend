@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename='/hackeps'>
         <Routes>
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contacte" element={<Contacte />} />
