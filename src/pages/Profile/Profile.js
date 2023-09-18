@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "src/palette.css";
 import "./Profile.css";
 import Modal from "react-bootstrap/Modal";
@@ -8,7 +8,6 @@ import HSkeleton from "src/components/others/HSkeleton";
 
 //import "./main.css"; // TODO: No existeix aquest fitxer
 
-import userIcon from "src/icons/user2.png";
 import qrIcon from "src/icons/qr.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
@@ -73,7 +72,7 @@ const Profile = () => {
     let seconds = (now - first) / 1000;
     let days = seconds / 60 / 60 / 24;
 
-    if (days > 365) return `${~~(days / 365)} ays`;
+    if (days > 365) return `${~~(days / 365)} anys`;
 
     if (days > 30) return `${~~(days / 30)} mesos`;
 
