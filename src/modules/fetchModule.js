@@ -1,6 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { mostrarPopupHandler } from 'src/modules/emmiterModule';
 
+
 export async function fetchPlus({
     Url,
     Method = "GET",
