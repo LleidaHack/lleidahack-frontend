@@ -19,14 +19,10 @@ import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
 import Header from "src/components/Header/Header.js";
 import { getHackerById } from "src/services/HackerService";
+import { months } from "moment";
 
 const Profile = () => {
   const { hacker_id } = useParams();
-
-  const name = "Nom cognom";
-  const usrImage = userIcon;
-
-  const yearsMember = "x";
 
   const startDate = new Date(2022, 10, 25);
   const endDate = new Date(2022, 10, 27);
@@ -36,7 +32,6 @@ const Profile = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const navigate = useNavigate();
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
@@ -71,6 +66,20 @@ const Profile = () => {
       });
   }, []);
 
+  function generateMemberTime(creationDate) {
+    let first = new Date(creationDate);
+    let now = Date.now();
+
+    let seconds = (now - first) / 1000;
+    let days = seconds / 60 / 60 / 24;
+
+    if (days > 365) return `${~~(days / 365)} ays`;
+
+    if (days > 30) return `${~~(days / 30)} mesos`;
+
+    return `${~~days} dies`;
+  }
+
   return (
     <>
       <div className="p-bg-black text-white">
@@ -104,7 +113,7 @@ const Profile = () => {
               <div className="row">
                 <span className="text-center">
                   Membre desde fa{" "}
-                  {hacker ? "PENDENT" : <HSkeleton width={"5%"} inline />} anys
+                  {hacker ? generateMemberTime(hacker.created_at) : ""}
                 </span>
               </div>
             </div>
