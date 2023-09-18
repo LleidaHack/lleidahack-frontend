@@ -29,7 +29,7 @@ const Team = (props) => {
         .required("Codi de l'equip requerit")
         .matches(
           /^#[0-9]{6}$/,
-          "El format ha de ser #XXXXXX on les Xs són números",
+          "El format ha de ser #XXXXXX on les Xs són números"
         ),
     });
 
@@ -150,7 +150,7 @@ const Team = (props) => {
         <Container className="p-2">
           <Row className="g-3 justify-content-center">
             {team.members.map((member, index) => (
-              <Col className="col-3" key={index}>
+              <Col className="col-xxl-3 col-6" key={index}>
                 <div className="p-3 text-center bg-white">
                   <img
                     className="team-member-image bg-black"
