@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import { useState } from "react";
 
 import * as Yup from "yup";
-import { FormikStepper, InputField, SelectField } from "formik-stepper";
+import { CheckBoxField, FormikStepper, InputField, SelectField } from "formik-stepper";
 import { signupHacker } from "src/services/HackerService";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
@@ -160,6 +160,17 @@ export const InscripcioForm = () => {
            </Col>
          </Row>
         </FormikStepper.Step>
+        <FormikStepper.Step label="Definir Grups">
+        <Row>
+           
+           <Col>
+             <h1 className="white-color">Definir Grups</h1>
+            <br></br>
+             
+             
+           </Col>
+         </Row>
+        </FormikStepper.Step>
         <FormikStepper.Step label="Termes i condicions">
         <Row>
            
@@ -168,12 +179,20 @@ export const InscripcioForm = () => {
            <br></br>
             <div className="TermsSpace">
                 <p className="white-color box"> Al marcar el seguent check, acceptes els termes i condicións de l'esdeveniment juntament amb el compromís d'asistir a l'esdeveniment.</p>
-
+                <p className="white-color box">Podrás trobar els terminis i condicions en els seguents apartats</p>
+                <p className="white-color box">Terminis i condicions</p>
+                <br></br>
+                
             </div>
-            <label htmlFor="termsAndConditions" className="white-color">Acceptes els terminis i condicions</label>
-            <Field type="checkbox" name="termsAndConditions" className="pepps"/>
-
-
+            <label>
+          <input
+            name="healthBackground"
+            type="checkbox"
+            value="test2"
+          />
+          Acceptes els termes i condicion per a poder participar a la 7ª edicio de la Hackeps
+        </label>
+            
            </Col>
          </Row>
         </FormikStepper.Step>
