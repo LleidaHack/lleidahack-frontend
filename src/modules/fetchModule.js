@@ -19,8 +19,14 @@ export async function fetchPlus({
         headers: headers,
         body: JSON.stringify(Body)
     }
-    const querry = Querry ? `?${Object.keys(Querry)[0]}=${Querry[Object.keys(Querry)[0]]}` : ""
-    return fetch(process.env.REACT_APP_DOMAIN + Url+querry,args)
+    let querryArgs = "?"
+    if (Querry){
+        for (const key in Querry) {
+            querryArgs+=`${key}=${Querry[key]}&`
+        }
+    }
+    const querry = Querry ? querryArgs : ""
+    return fetch(process.env.REACT_APP_DOMAIN + Url + querry, args)
         .then((response) => {
             if(hasUserauth && response.status===403) {
                 mostrarPopupHandler();
