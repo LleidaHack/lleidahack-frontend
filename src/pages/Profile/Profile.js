@@ -105,10 +105,13 @@ const Profile = () => {
                 <h3 className="text-center">Benvingut/da, hacker!</h3>
               </div>
               <div className="row my-3">
-                <h1>
-                  - {hacker ? hacker.name : <HSkeleton width={"50%"} inline />}{" "}
-                  -
-                </h1>
+                <div className="col-xxl-1 col-2 d-flex">
+                  <h1 className="text-center m-auto">-</h1>
+                </div>
+                <h1 className="col-xxl-10 col-8">{hacker && hacker.name}</h1>
+                <div className="col-xxl-1 col-2 d-flex">
+                  <h1 className="text-center m-auto">-</h1>
+                </div>
               </div>
               <div className="row">
                 <span className="text-center">
