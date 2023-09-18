@@ -6,31 +6,24 @@ export async function fetchPlus({
     Url,
     Method = "GET",
     Body,
-    Querry,
+    Query,
     hasUserauth = false,
     saveLoginInfo = false,
     nextScreen,
-    loginAuth = false
+    loginAuth
 }){
     const headers = {"Content-Type": "application/json"}
-    if (hasUserauth||loginAuth) { headers.Authorization = loginAuth? "Basic " + btoa(`${loginAuth.email}:${loginAuth.password}`) : "Bearer " + localStorage.getItem("userToken"); }
+    if (hasUserauth || loginAuth) headers.Authorization = loginAuth ? "Basic " + btoa(`${loginAuth.email}:${loginAuth.password}`) : "Bearer " + localStorage.getItem("userToken");
     const args = {
         method: Method,
         headers: headers,
-        body: JSON.stringify(Body)
     }
-    let querryArgs = "?"
-    if (Querry){
-        for (const key in Querry) {
-            querryArgs+=`${key}=${Querry[key]}&`
-        }
-    }
-    const querry = Querry ? querryArgs : ""
-    return fetch(process.env.REACT_APP_DOMAIN + Url + querry, args)
+    if (Body) args.body = Body
+    let query = "";
+    if (Query) query = `?${Object.entries(Query).map(([key, value]) => `${key}=${value}`).join('&')}`;
+    return fetch(process.env.REACT_APP_DOMAIN + Url + query, args)
         .then((response) => {
-            if(hasUserauth && response.status===403) {
-                mostrarPopupHandler();
-            }
+            if(hasUserauth && response.status===403) mostrarPopupHandler();
             return response.json()
         })
         .then((data) => {
@@ -40,9 +33,7 @@ export async function fetchPlus({
                 localStorage.setItem("userID", data.user_id);
                 localStorage.setItem("refreshToken", data.refresh_token);
             }
-            if(nextScreen){
-                Navigate(nextScreen)
-            }
+            if(nextScreen) Navigate(nextScreen)
             return data;
         })
         .catch((error) => {

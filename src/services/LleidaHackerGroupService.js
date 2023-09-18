@@ -38,10 +38,7 @@ export async function getLleidaHackerGroupMembers(lleidaHacker_group_id) {
   });
 }
 
-export async function addLleidaHackerToGroup(
-  lleidaHacker_id,
-  lleidaHacker_group_id,
-) {
+export async function addLleidaHackerToGroup(lleidaHacker_id, lleidaHacker_group_id) {
   return fetchPlus({
     Url: `/lleidahacker/group/${lleidaHacker_group_id}/members/${lleidaHacker_id}`,
     Method: "POST",
@@ -49,10 +46,7 @@ export async function addLleidaHackerToGroup(
   });
 }
 
-export async function removeLleidaHackerFromGroup(
-  lleidaHacker_id,
-  lleidaHacker_group_id,
-) {
+export async function removeLleidaHackerFromGroup(lleidaHacker_id, lleidaHacker_group_id) {
   return fetchPlus({
     Url: `/lleidahacker/group/${lleidaHacker_group_id}/members/${lleidaHacker_id}`,
     Method: "DELETE",
@@ -60,10 +54,7 @@ export async function removeLleidaHackerFromGroup(
   });
 }
 
-export async function setLleidaHackerGroupLeader(
-  lleidaHacker_id,
-  lleidaHacker_group_id,
-) {
+export async function setLleidaHackerGroupLeader(lleidaHacker_id, lleidaHacker_group_id) {
   return fetchPlus({
     Url: `/lleidahacker/group/${lleidaHacker_group_id}/leader/${lleidaHacker_id}`,
     Method: "PUT",
