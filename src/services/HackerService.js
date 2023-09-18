@@ -10,6 +10,9 @@ export async function signupHacker(hacker) {
     .then((response) => response.json())
     .then((data) => {
       console.log("response: ", data);
+      localStorage.setItem("userToken", data.access_token);
+      localStorage.setItem("userID", data.user_id);
+      localStorage.setItem("refreshToken", data.refresh_token);
       return data;
     })
     .catch((error) => {
