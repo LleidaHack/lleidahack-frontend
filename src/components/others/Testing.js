@@ -115,7 +115,6 @@ import {
   resendVerification,
   checkToken
 } from "src/services/AuthenticationService";
-import { sendMail } from "src/services/UtilsService";
 import {
   signupCompanyUser,
   getAllCompanyUsers,
@@ -791,18 +790,6 @@ const Testing = () => {
           body: refreshToken,
           params: [],
           status: true,
-        },
-      ],
-    },
-    {
-      name: "utils",
-      left: 0,
-      comentaris: "",
-      body: [
-        {
-          body: sendMail,
-          params: ["joelros2003@gmail.com", "xd, hola"],
-          status: false,
         },
       ],
     },
