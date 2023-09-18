@@ -65,7 +65,7 @@ export async function removeHackerFromGroup(hacker_id, hacker_group_id) {
 
 export async function addHackerToGroupByCode(group_code, hacker_id) {
   return fetchPlus({
-    Url: `/hacker/group/${group_code}/members/${hacker_id}`,
+    Url: `/hacker/group/${group_code}/members_by_code/${hacker_id}`,
     Method: "POST",
     hasUserauth: true
   });

@@ -16,7 +16,7 @@ export async function getUserById(user_id) {
 
 export async function getUserByCode(code) {
   return fetchPlus({
-    Url: `/user/${code}`,
+    Url: `/user/code/${code}`,
     hasUserauth: true
   });
 }
