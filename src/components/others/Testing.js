@@ -113,7 +113,7 @@ import {
   me,
   verify,
   resendVerification,
-  checkToken
+  checkToken,
 } from "src/services/AuthenticationService";
 import {
   signupCompanyUser,

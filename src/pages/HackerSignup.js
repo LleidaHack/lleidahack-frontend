@@ -5,7 +5,9 @@ import { HackerStepperForm } from "src/components/Forms/HackerForm";
 
 const HackerForm = () => {
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div
+      style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
+    >
       <Header />
       <HackerStepperForm />
       <Footer />
@@ -14,4 +16,3 @@ const HackerForm = () => {
 };
 
 export default HackerForm;
-  

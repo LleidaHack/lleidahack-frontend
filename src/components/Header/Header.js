@@ -41,7 +41,7 @@ const Header = () => {
             type="button"
             onClick={toggleMenu}
           >
-            <span className="navbar-toggler-icon"/>
+            <span className="navbar-toggler-icon" />
           </button>
         </div>
 

@@ -4,7 +4,7 @@ export async function login(user) {
   return fetchPlus({
     Url: "/auth/login",
     loginAuth: user,
-    saveLoginInfo: true
+    saveLoginInfo: true,
   });
 }
 
@@ -12,7 +12,7 @@ export async function resetPassword(e_mail) {
   return fetchPlus({
     Url: "/auth/reset-password",
     Method: "POST",
-    Query: {email: e_mail},
+    Query: { email: e_mail },
   });
 }
 
@@ -22,8 +22,8 @@ export async function confirmResetPassword(Token, Password) {
     Method: "POST",
     Query: {
       token: Token,
-      password: Password
-    }
+      password: Password,
+    },
   });
 }
 
@@ -31,23 +31,23 @@ export async function refreshToken() {
   return fetchPlus({
     Url: "/auth/refresh-token",
     Method: "POST",
-    Query: {refresh_token: localStorage.getItem("refreshToken")},
-    saveLoginInfo: true
+    Query: { refresh_token: localStorage.getItem("refreshToken") },
+    saveLoginInfo: true,
   });
 }
 
 export async function me() {
   return fetchPlus({
     Url: "/auth/me",
-    hasUserauth: true
-  })
+    hasUserauth: true,
+  });
 }
 
 export async function verify(Token) {
   return fetchPlus({
     Url: "/auth/verify",
     Method: "POST",
-    Query: {token: Token}
+    Query: { token: Token },
   });
 }
 
@@ -55,13 +55,13 @@ export async function resendVerification(e_mail) {
   return fetchPlus({
     Url: "/auth/resend-verification",
     Method: "POST",
-    Query: {email: e_mail},
-  })
+    Query: { email: e_mail },
+  });
 }
 
 export async function checkToken() {
   return fetchPlus({
     Url: "/auth/check_token",
-    hasUserauth: true
-  })
+    hasUserauth: true,
+  });
 }

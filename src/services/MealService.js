@@ -3,14 +3,14 @@ import { fetchPlus } from "src/modules/fetchModule";
 export async function getMeals(id) {
   return fetchPlus({
     Url: `/meal/${id}/all`,
-    hasUserauth: true
+    hasUserauth: true,
   });
 }
 
 export async function getMealById(id, meal_id) {
   return fetchPlus({
     Url: `/meal/${id}/${meal_id}`,
-    hasUserauth: true
+    hasUserauth: true,
   });
 }
 
@@ -19,7 +19,7 @@ export async function updateMeal(id, meal) {
     Url: `/meal/${id}/${meal.id}`,
     Method: "PUT",
     hasUserauth: true,
-    Body: meal
+    Body: meal,
   });
 }
 
@@ -36,6 +36,6 @@ export async function createMeal(meal) {
     Url: "/meal/",
     Method: "POST",
     hasUserauth: true,
-    Body: meal
+    Body: meal,
   });
 }
