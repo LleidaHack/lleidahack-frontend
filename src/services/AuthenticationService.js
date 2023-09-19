@@ -67,3 +67,14 @@ export async function checkToken() {
     ignorePoppup: true,
   });
 }
+
+export async function contacte(Name, e_mail, Message) {
+  return fetchPlus({
+    Url: "/auth/contact",
+    Query: {
+      name: Name,
+      email: e_mail,
+      message: Message
+    }
+  });
+}
