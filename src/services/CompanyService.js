@@ -2,13 +2,13 @@ import { fetchPlus } from "src/modules/fetchModule";
 
 export async function getAllCompanies() {
   return fetchPlus({
-    Url: "/company/all"
+    Url: "/company/all",
   });
 }
 
 export async function getCompanyById(company_id) {
   return fetchPlus({
-    Url: `/company/${company_id}`
+    Url: `/company/${company_id}`,
   });
 }
 

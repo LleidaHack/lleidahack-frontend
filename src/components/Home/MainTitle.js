@@ -17,10 +17,10 @@ const MainTitle = () => {
   async function handleShow() {
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
-    } else if(checkToken()) { //TODO return de checktoken
-      navigate("/login")
-    }
-    else {
+    } else if (checkToken()) {
+      //TODO return de checktoken
+      navigate("/login");
+    } else {
       await registerHackerToEvent(localStorage.getItem("userID"), 32, {
         shirt_size: "string",
         food_restrictions: "string",
