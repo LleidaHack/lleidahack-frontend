@@ -26,7 +26,7 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/perfil/:id" element={<Profile />} />
-          <Route path="/verify/:token" element={<Verify />} />
+          <Route path="/reset-password/" element={<Verify />} />
           <Route path="/" element={<Home />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/testing" element={<Testing />} />
