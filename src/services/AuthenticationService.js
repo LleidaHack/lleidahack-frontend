@@ -32,7 +32,8 @@ export async function refreshToken() {
     Url: "/auth/refresh-token",
     Method: "POST",
     Query: { refresh_token: localStorage.getItem("refreshToken") },
-    saveLoginInfo: true,
+    hasUserauth: true,
+    saveLoginInfo: true
   });
 }
 
