@@ -120,8 +120,6 @@ export async function removeEventSponsor(event_id, company_id) {
   });
 }
 
-
-
 export async function getEventHackerGroup(event_id, hacker_id) {
   return fetchPlus({
     Url: `/event/${event_id}/get_hacker_group/${hacker_id}`,
