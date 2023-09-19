@@ -30,7 +30,8 @@ export async function fetchPlus({
       .join("&")}`;
   return fetch(process.env.REACT_APP_DOMAIN + Url + query, args)
     .then((response) => {
-      if (hasUserauth && response.status === 403 && !ignorePoppup) mostrarPopupHandler();
+      if (hasUserauth && response.status === 403 && !ignorePoppup)
+        mostrarPopupHandler();
       return response.json();
     })
     .then((data) => {

@@ -33,7 +33,7 @@ export async function refreshToken() {
     Method: "POST",
     Query: { refresh_token: localStorage.getItem("refreshToken") },
     hasUserauth: true,
-    saveLoginInfo: true
+    saveLoginInfo: true,
   });
 }
 
@@ -64,6 +64,6 @@ export async function checkToken() {
   return fetchPlus({
     Url: "/auth/check_token",
     hasUserauth: true,
-    ignorePoppup: true
+    ignorePoppup: true,
   });
 }
