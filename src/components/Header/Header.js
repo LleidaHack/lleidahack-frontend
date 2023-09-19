@@ -87,7 +87,7 @@ function togglePopup() {
             type="button"
             onClick={toggleMenu}
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon" />
           </button>
         </div>
 
