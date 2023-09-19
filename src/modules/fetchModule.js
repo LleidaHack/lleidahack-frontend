@@ -11,7 +11,7 @@ export async function fetchPlus({
   nextScreen,
   loginAuth,
   ignorePoppup = false,
-  logger = false
+  logger = false,
 }) {
   const headers = { "Content-Type": "application/json" };
   if (hasUserauth || loginAuth)
@@ -35,7 +35,7 @@ export async function fetchPlus({
       return response.json();
     })
     .then((data) => {
-      if(logger) console.log("response: ", data);
+      if (logger) console.log("response: ", data);
       if (saveLoginInfo) {
         localStorage.setItem("userToken", data.access_token);
         localStorage.setItem("userID", data.user_id);
