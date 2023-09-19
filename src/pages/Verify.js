@@ -10,7 +10,8 @@ export default function Verify() {
 
   useEffect(() => {
     async function callService() {
-      if (await verify(params.get("token"))) window.location = "/";
+      const res = await verify(params.get("token"));
+      if (res.sucess) window.location = "/";
 
       setMessage("Token Expired...");
       window.alert(
