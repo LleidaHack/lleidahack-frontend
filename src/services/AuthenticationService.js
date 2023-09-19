@@ -65,18 +65,3 @@ export async function checkToken() {
     hasUserauth: true,
   });
 }
-
-export async function verify(token) {
-  return fetch(process.env.REACT_APP_DOMAIN + "/auth/verify", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query: { token: token } }),
-  })
-    .then((response) => response.status === 200)
-    .catch((error) => {
-      console.warn(error);
-      return false;
-    });
-}
