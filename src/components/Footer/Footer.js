@@ -2,7 +2,7 @@ import React from "react";
 import "src/components/Footer/Footer.css"; // Importa el archivo de estilos CSS para el footer
 import instagramIcon from "src/icons/instagram_black.png";
 import linkedinIcon from "src/icons/linkedin_black.png";
-import twitterIcon from "src/icons/twitter_black.png";
+import twitterIcon from "src/icons/X_negre.png";
 
 const Footer = () => {
   return (
@@ -10,11 +10,11 @@ const Footer = () => {
       <div className="container">
         <div className="social-icons">
           <a
-            href="https://www.instagram.com/hackeps_/"
+            href="https://twitter.com/hackeps"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={instagramIcon} alt="Instagram" />
+            <img src={twitterIcon} alt="Twitter" />
           </a>
           <a
             href="https://www.linkedin.com/company/hackeps/"
@@ -24,11 +24,11 @@ const Footer = () => {
             <img src={linkedinIcon} alt="LinkedIn" />
           </a>
           <a
-            href="https://twitter.com/hackeps"
+            href="https://www.instagram.com/hackeps_/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={twitterIcon} alt="Twitter" />
+            <img src={instagramIcon} alt="Instagram" />
           </a>
         </div>
       </div>

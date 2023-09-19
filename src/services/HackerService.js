@@ -1,188 +1,71 @@
+import { fetchPlus } from "src/modules/fetchModule";
+
 export async function signupHacker(hacker) {
-  return fetch(process.env.REACT_APP_DOMAIN + "/hacker/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      mode: "no-cors",
-    },
-    body: JSON.stringify(hacker),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  return fetchPlus({
+    Url: "/hacker/signup",
+    Method: "POST",
+    Body: hacker,
+    saveLoginInfo: true,
+  });
 }
 
 export async function getAllHackers() {
-  return fetch(process.env.REACT_APP_DOMAIN + "/hacker/all", {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  return fetchPlus({
+    Url: "/hacker/all",
+    hasUserauth: true,
+  });
 }
 
 export async function getHackerById(hacker_id) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  return fetchPlus({
+    Url: `/hacker/${hacker_id}`,
+    hasUserauth: true,
+  });
 }
 
 export async function updateHacker(hacker) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker.id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-    body: JSON.stringify(hacker),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
-}
-
-export async function addHacker(hacker) {
-  return fetch(process.env.REACT_APP_DOMAIN + "/hacker/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-    body: JSON.stringify(hacker),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  return fetchPlus({
+    Url: `/hacker/${hacker.id}`,
+    Method: "PUT",
+    hasUserauth: true,
+    Body: hacker,
+  });
 }
 
 export async function banHackerById(hacker_id) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}/ban`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  return fetchPlus({
+    Url: `/hacker/${hacker_id}/ban`,
+    Method: "POST",
+    hasUserauth: true,
+  });
 }
 
 export async function unbanHackerById(hacker_id) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}/unban`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  return fetchPlus({
+    Url: `/hacker/${hacker_id}/unban`,
+    Method: "POST",
+    hasUserauth: true,
+  });
 }
 
 export async function deleteHacker(hacker_id) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  return fetchPlus({
+    Url: `/hacker/${hacker_id}`,
+    Method: "DELETE",
+    hasUserauth: true,
+  });
 }
 
 export async function getHackerEvents(hacker_id) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}/events`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  return fetchPlus({
+    Url: `/hacker/${hacker_id}/events`,
+    hasUserauth: true,
+  });
 }
 
 export async function getHackerGroups(hacker_id) {
-  return fetch(process.env.REACT_APP_DOMAIN + `/hacker/${hacker_id}/groups`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("userToken"),
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      return data;
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  return fetchPlus({
+    Url: `/hacker/${hacker_id}/groups`,
+    hasUserauth: true,
+  });
 }

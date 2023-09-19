@@ -3,7 +3,7 @@ import "src/components/Contacte/Contacte.css";
 import logo from "src/icons/imagotip_lleidahack_blanc.png";
 import instagramLogo from "src/icons/instagram.png";
 import linkedinLogo from "src/icons/linkedin.png";
-import twitterLogo from "src/icons/twitter.png";
+import twitterLogo from "src/icons/X.png";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -37,15 +37,11 @@ const ContactePage = () => {
           <img src={logo} alt="Logo" className="logo" />
           <div className="social-logos">
             <a
-              href="https://www.instagram.com/lleidahack"
+              href="https://www.twitter.com/lleidahack"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
-                src={instagramLogo}
-                alt="Instagram"
-                className="social-logo"
-              />
+              <img src={twitterLogo} alt="Twitter" className="social-logo" />
             </a>
             <a
               href="https://www.linkedin.com/company/lleidahack"
@@ -55,11 +51,15 @@ const ContactePage = () => {
               <img src={linkedinLogo} alt="LinkedIn" className="social-logo" />
             </a>
             <a
-              href="https://www.twitter.com/lleidahack"
+              href="https://www.instagram.com/lleidahack"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={twitterLogo} alt="Twitter" className="social-logo" />
+              <img
+                src={instagramLogo}
+                alt="Instagram"
+                className="social-logo"
+              />
             </a>
           </div>
         </div>
