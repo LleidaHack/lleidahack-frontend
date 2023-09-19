@@ -41,7 +41,7 @@ export async function confirmEmail(e_mail) {
 }
 
 export async function verify(token) {
-  return fetch(process.env.REACT_APP_DOMAIN + "/confirm-email", {
+  return fetch(process.env.REACT_APP_DOMAIN + "/auth/verify", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
