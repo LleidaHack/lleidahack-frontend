@@ -39,3 +39,18 @@ export async function confirmEmail(e_mail) {
       return [];
     });
 }
+
+export async function verify(token) {
+  return fetch(process.env.REACT_APP_DOMAIN + "/confirm-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query: { token: token } }),
+  })
+    .then((response) => response.status === 200)
+    .catch((error) => {
+      console.warn(error);
+      return false;
+    });
+}
