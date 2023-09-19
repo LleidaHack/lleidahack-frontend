@@ -4,13 +4,13 @@ import * as Yup from "yup";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "src/components/Login/Login.css";
-import logo from "src/icons/llhlogow.png";
+import logo from "src/icons/hackIcon.png";
 import { login } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required("Usuari o correu requerit"),
-  password: Yup.string().required("Contrassenya requerida"),
+  password: Yup.string().required("Contrasenya requerida"),
 });
 
 const LoginPage = () => {
@@ -24,7 +24,7 @@ const LoginPage = () => {
         navigate("/");
       } else {
         console.error("Login unsuccessful");
-        setFieldError("password", "Correu o contrassenya incorrectes");
+        setFieldError("password", "Correu o contrasenya incorrectes");
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -65,7 +65,7 @@ const LoginPage = () => {
                         )}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="password">Contrassenya</label>
+                        <label htmlFor="password">Contrasenya</label>
                         <Field
                           type="password"
                           name="password"

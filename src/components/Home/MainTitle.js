@@ -7,6 +7,7 @@ import hackLogo from "src/icons/hack_icon_black.png";
 
 import { useNavigate } from "react-router-dom";
 import { registerHackerToEvent } from "src/services/EventManagementService";
+import { checkToken } from "src/services/AuthenticationService";
 
 const MainTitle = () => {
   const navigate = useNavigate();
@@ -16,7 +17,10 @@ const MainTitle = () => {
   async function handleShow() {
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
-    } else {
+    } else if(checkToken()) { //TODO return de checktoken
+      navigate("/login")
+    }
+    else {
       await registerHackerToEvent(localStorage.getItem("userID"), 32, {
         shirt_size: "string",
         food_restrictions: "string",

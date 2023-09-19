@@ -64,5 +64,6 @@ export async function checkToken() {
   return fetchPlus({
     Url: "/auth/check_token",
     hasUserauth: true,
+    ignorePoppup: true
   });
 }
