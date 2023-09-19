@@ -74,7 +74,7 @@ export async function contacte(Name, e_mail, Message) {
     Query: {
       name: Name,
       email: e_mail,
-      message: Message
-    }
+      message: Message,
+    },
   });
 }
