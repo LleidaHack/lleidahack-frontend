@@ -10,6 +10,8 @@ export async function fetchPlus({
   saveLoginInfo = false,
   nextScreen,
   loginAuth,
+  ignorePoppup = false,
+  logger = false,
 }) {
   const headers = { "Content-Type": "application/json" };
   if (hasUserauth || loginAuth)
@@ -28,11 +30,12 @@ export async function fetchPlus({
       .join("&")}`;
   return fetch(process.env.REACT_APP_DOMAIN + Url + query, args)
     .then((response) => {
-      if (hasUserauth && response.status === 403) mostrarPopupHandler();
+      if (hasUserauth && response.status === 403 && !ignorePoppup)
+        mostrarPopupHandler();
       return response.json();
     })
     .then((data) => {
-      console.log("response: ", data);
+      if (logger) console.log("response: ", data);
       if (saveLoginInfo) {
         localStorage.setItem("userToken", data.access_token);
         localStorage.setItem("userID", data.user_id);
