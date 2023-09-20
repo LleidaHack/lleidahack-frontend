@@ -79,8 +79,8 @@ const PopupInicioSesion = ({ mostrar, cerrarPopup }) => {
           />
           <ErrorMessage name="nick" component="div" className="error-message" />
         */}
-                <br></br>
-                <br></br>
+                <br/>
+                <br/>
 
                 <label htmlFor="email" className="blackt">
                   Usuari
@@ -97,8 +97,8 @@ const PopupInicioSesion = ({ mostrar, cerrarPopup }) => {
                   component="div"
                   className="error-message"
                 />
-                <br></br>
-                <br></br>
+                <br/>
+                <br/>
                 <label htmlFor="password" className="blackt">
                   Contraseña
                 </label>
@@ -115,8 +115,8 @@ const PopupInicioSesion = ({ mostrar, cerrarPopup }) => {
                   className="error-message"
                 />
 
-                <br></br>
-                <br></br>
+                <br/>
+                <br/>
 
                 {loginError && <div style={{ color: "red" }}>{loginError}</div>}
               </div>

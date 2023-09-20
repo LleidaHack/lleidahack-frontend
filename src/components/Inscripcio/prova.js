@@ -20,7 +20,7 @@
 >
   <FormikStepper.Step label="Informació personal">
     <Row>
-      <HackerPanel></HackerPanel>
+      <HackerPanel/>
       <Col>
         <h1 className="white-color">Crear compte</h1>
         <InputField name="firstName" type="text" label="Nom" />
@@ -32,7 +32,7 @@
   </FormikStepper.Step>
   <FormikStepper.Step label="Contacte">
     <Row>
-      <HackerPanel></HackerPanel>
+      <HackerPanel/>
       <Col>
         <h1 className="white-color">Crear compte</h1>
         <InputField name="phone" type="text" label="Telèfon" />

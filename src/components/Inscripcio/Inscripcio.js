@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "src/components/Inscripcio/Inscripcio.css";
-import Select from "react-select";
-import debounce from "lodash.debounce";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { FormikStepper, InputField, SelectField } from "formik-stepper";
+import { SelectField } from "formik-stepper";
 import { registerHackerToEvent } from "src/services/EventManagementService";
 import { getHackeps } from "src/services/EventService";
 
@@ -70,7 +68,7 @@ const InscripcioForm = () => {
 
   return (
     <div className="container-all">
-      <br></br>
+      <br/>
       <h1 className="title-contacte">Inscripció HackEPS 2023</h1>
       <div className="form-container">
         <Formik
@@ -89,7 +87,6 @@ const InscripcioForm = () => {
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
-          
             <Form>
               <div className="formik-field">
                 <label htmlFor="studies">Què estudies o has estudiat?</label>
@@ -121,7 +118,7 @@ const InscripcioForm = () => {
                 />
               </div>
 
-              <div className="formik-field">
+              <div className="formik-field">  
                 <SelectField
                   id="size"
                   name="size"
@@ -252,7 +249,6 @@ const InscripcioForm = () => {
                 </button>
               </div>
             </Form>
-          
         </Formik>
       </div>
     </div>

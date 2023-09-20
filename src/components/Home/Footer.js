@@ -13,9 +13,9 @@ export function Footer({ inside, outsides }) {
               <p id="smalltext">Made With ❤️ by LleidaHack</p>
 
               <div id="logosxxss">
-                <i className="fa-brands fa-twitter"></i>
-                <i className="fa-brands fa-linkedin"></i>
-                <i className="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-twitter"/>
+                <i className="fa-brands fa-linkedin"/>
+                <i className="fa-brands fa-instagram"/>
                 <p id="smalltext2">Termes i Condicions</p>
                 <p id="smalltext3">Política de privacitat</p>
               </div>
@@ -24,7 +24,7 @@ export function Footer({ inside, outsides }) {
           <div className="box" id="centerbox">
             <ul id="nostyle">
               <h3>Mapa Web</h3>
-              <br></br>
+              <br/>
 
               {inside.map((item, index) => (
                 <li key={index}>
@@ -46,9 +46,9 @@ export function Footer({ inside, outsides }) {
           <div className="box" id="rightbox">
             <div id="logosxxss2">
               <div>
-                <i className="fa-brands fa-twitter"></i>
-                <i className="fa-brands fa-linkedin"></i>
-                <i className="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-twitter"/>
+                <i className="fa-brands fa-linkedin"/>
+                <i className="fa-brands fa-instagram"/>
               </div>
               <div>
                 <p id="smalltext2">Termes i Condicions</p>
@@ -57,7 +57,7 @@ export function Footer({ inside, outsides }) {
             </div>
 
             <LinkR to="/">
-              <img id="llhlogo2" src={llhlogo1}></img>{" "}
+              <img id="llhlogo2" src={llhlogo1}/>{" "}
             </LinkR>
           </div>
         </div>

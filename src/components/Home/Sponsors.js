@@ -108,7 +108,7 @@ const Sponsors = () => {
           ))}
         </div>
       </section>
-      <br></br>
+      <br/>
       <h1 className="title1 title-underline">Partners</h1>
 
       <section className="spnsection">
