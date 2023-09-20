@@ -6,6 +6,8 @@ import debounce from "lodash.debounce";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { FormikStepper, InputField, SelectField } from "formik-stepper";
+import { registerHackerToEvent } from "src/services/EventManagementService";
+import { getHackeps } from "src/services/EventService";
 
 const validationSchema = Yup.object().shape({
   studies: Yup.string().required("Aquest camp és obligatori"),
@@ -34,11 +36,22 @@ const InscripcioForm = () => {
   ];
 
   const handleSubmit = (values) => {
-    // Aquí puedes manejar la lógica de envío del formulario.
-    console.log(values);
+    //TODO: estudis, centre, lloc, coneixer? on va això?
+    console.log(values)
+    const data = {
+      "shirt_size": values.size,
+      "food_restrictions": values.food,
+      "cv": cvFile,
+      "description": values.cvinfo,
+      "github": values.github,
+      "linkedin": values.linkedin,
+      "update_user": true
+    }
+    registerHackerToEvent(localStorage.getItem("userID"),getHackeps(),data)
+    //TODO: posar feedback
   };
 
-  const [cvFile, setCvFile] = useState(null);
+  const [cvFile, setCvFile] = useState("");
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -47,7 +60,7 @@ const InscripcioForm = () => {
   };
 
   const clearFile = () => {
-    setCvFile(null);
+    setCvFile("");
     // Clear the input field to allow selecting the same file again
     const inputElement = document.getElementById("cvinfo_file");
     if (inputElement) {
@@ -76,7 +89,7 @@ const InscripcioForm = () => {
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
-          {({ values, setFieldValue }) => (
+          
             <Form>
               <div className="formik-field">
                 <label htmlFor="studies">Què estudies o has estudiat?</label>
@@ -109,18 +122,12 @@ const InscripcioForm = () => {
               </div>
 
               <div className="formik-field">
-                <label htmlFor="size">Talla de samarreta:</label>
-                <Select
+                <SelectField
                   id="size"
                   name="size"
+                  label="Talla de samarreta:"
                   options={sizeOptions}
                   placeholder="La meva talla de samarreta és..."
-                  value={sizeOptions.find(
-                    (option) => option.value === values.size,
-                  )} // Obtenemos el valor seleccionado de Formik
-                  onChange={(selectedOption) =>
-                    setFieldValue("size", selectedOption.value)
-                  } // Actualizamos el valor en Formik
                 />
                 <ErrorMessage
                   name="size"
@@ -142,18 +149,12 @@ const InscripcioForm = () => {
               </div>
 
               <div className="formik-field">
-                <label htmlFor="meet">Com ens has conegut?</label>
-                <Select
+                <SelectField
                   id="meet"
                   name="meet"
                   options={meetOptions}
+                  label="Com ens has conegut?"
                   placeholder="Us he conegut per..."
-                  value={meetOptions.find(
-                    (option) => option.value === values.size,
-                  )} // Obtenemos el valor seleccionado de Formik
-                  onChange={(selectedOption) =>
-                    setFieldValue("size", selectedOption.value)
-                  } // Actualizamos el valor en Formik
                 />
               </div>
               <div className="formik-field">
@@ -251,7 +252,7 @@ const InscripcioForm = () => {
                 </button>
               </div>
             </Form>
-          )}
+          
         </Formik>
       </div>
     </div>
