@@ -68,11 +68,12 @@ export async function checkToken() {
   });
 }
 
-export async function contacte(Name, e_mail, Message) {
+export async function contacte(Name, Title, e_mail, Message) {
   return fetchPlus({
     Url: "/auth/contact",
     Query: {
       name: Name,
+      title: Title,
       email: e_mail,
       message: Message,
     },

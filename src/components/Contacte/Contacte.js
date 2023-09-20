@@ -7,6 +7,7 @@ import twitterLogo from "src/icons/X.png";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { contacte } from "src/services/AuthenticationService";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Nom requerit"),
@@ -19,8 +20,8 @@ const validationSchema = Yup.object().shape({
 
 const ContactePage = () => {
   const handleSubmit = (values) => {
-    // Aquí puedes manejar la lógica de envío del formulario.
-    console.log(values);
+    contacte(values.name, values.subject, values.email, values.message);
+    //TODO: posar feedback
   };
 
   useEffect(() => {
