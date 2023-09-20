@@ -48,14 +48,6 @@ const PopupInicioSesion = ({ mostrar, cerrarPopup }) => {
           }}
           validationSchema={validationSchema}
           withStepperLine /// false as default and If it is false, it hides stepper line
-          nextButton={{
-            label: "Següent",
-            style: { background: "var(--primary)" },
-          }}
-          prevButton={{
-            label: "Enrere",
-            style: { background: "var(--primary)" },
-          }}
           submitButton={{
             label: "Envia",
             style: {
@@ -68,17 +60,6 @@ const PopupInicioSesion = ({ mostrar, cerrarPopup }) => {
           <FormikStepper.Step label="Informació personal">
             <div>
               <div className="piterrs">
-                {/*<label htmlFor="Reposit" className="blackt">Nom / Nickname</label>
-
-          <Field 
-            name="nick" 
-            type="text" 
-            id="namenick" 
-            placeholder="Nom / NickName"
-            className="BoxForm"
-          />
-          <ErrorMessage name="nick" component="div" className="error-message" />
-        */}
                 <br/>
                 <br/>
 

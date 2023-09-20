@@ -92,7 +92,7 @@ const LoginPage = () => {
                           </Link>
                         </p>
                         <p className="mb-0">
-                          <Link to="/sign-up" className="custom-link">
+                          <Link to="/hacker-form" className="custom-link">
                             Encara no tens compte?
                           </Link>
                         </p>
