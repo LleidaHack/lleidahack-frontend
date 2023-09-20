@@ -16,13 +16,17 @@ const MainTitle = () => {
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
     } else if (checkToken().then((key) => {return key["detail"];})) {
+      localStorage.setItem("nextScreen", "/inscripcio")
       navigate("/login"); //in case of annoyance, swap to mostrarPopupHandler(); en cas de redireccio, posar localStorage.clear() a la consola
     } else {
       navigate("/inscripcio");
     }
   }
   const handleSignUp = () => navigate("/hacker-form");
-  const handleSignIn = () => navigate("/login");
+  const handleSignIn = () => {
+    localStorage.setItem("nextScreen", "/inscripcio")
+    navigate("/login")
+  };
 
   return (
     <>

@@ -18,10 +18,12 @@ const LoginPage = () => {
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
       await login(values);
-
-      if (localStorage.getItem("userToken") !== "undefined") {
+      if (localStorage.getItem("userToken") !== undefined) {
         console.log("Login successful");
-        navigate("/");
+        if(localStorage.getItem("nextScreen") !== undefined)
+          navigate(localStorage.getItem("nextScreen"))
+        else
+          navigate("/");
       } else {
         console.error("Login unsuccessful");
         setFieldError("password", "Correu o contrasenya incorrectes");
