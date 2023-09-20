@@ -55,7 +55,7 @@
   padding: 10px 20px;
 }
 
-.button-container{
+.button-container {
   display: flex;
   justify-content: space-between;
 }

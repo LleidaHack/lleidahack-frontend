@@ -75,7 +75,7 @@ export const HackerStepperForm = () => {
       >
         <FormikStepper.Step label="Informació personal">
           <Row>
-            <HackerPanel/>
+            <HackerPanel />
             <Col>
               <h1>Crear compte</h1>
               <InputField name="firstName" type="text" label="Nom" />
@@ -91,7 +91,7 @@ export const HackerStepperForm = () => {
         </FormikStepper.Step>
         <FormikStepper.Step label="Contacte">
           <Row>
-            <HackerPanel/>
+            <HackerPanel />
             <Col>
               <h1>Crear compte</h1>
               <InputField name="phone" type="text" label="Telèfon" />
@@ -122,7 +122,7 @@ export const HackerStepperForm = () => {
 };
 
 const HackerForm = () => {
-  return <HackerStepperForm/>;
+  return <HackerStepperForm />;
 };
 
 export default HackerForm;

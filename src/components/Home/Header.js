@@ -10,10 +10,10 @@ export function Header({ inside, outsides }) {
       <div id="navmobile" className="fadable">
         <div id="top">
           <button className="togglet" onClick={() => StatNav(false)}>
-            <i className="fa-solid fa-xmark"/>
+            <i className="fa-solid fa-xmark" />
           </button>
           <LinkR to="/" id="loglnk">
-            <img id="userimage" src={userlog}/>{" "}
+            <img id="userimage" src={userlog} />{" "}
           </LinkR>
         </div>
         <div id="content">
@@ -40,7 +40,7 @@ export function Header({ inside, outsides }) {
         <ul className="navlink" id="barsbtn">
           <li>
             <button className="toggle">
-              <i className="fas fa-bars" onClick={() => StatNav(true)}/>
+              <i className="fas fa-bars" onClick={() => StatNav(true)} />
             </button>
           </li>
         </ul>
@@ -48,7 +48,7 @@ export function Header({ inside, outsides }) {
         <ul className="navlink" id="icon1nav">
           <li>
             <LinkR to="/" id="logoLink">
-              <img id="llhlogo" src={llhlogo1}/>{" "}
+              <img id="llhlogo" src={llhlogo1} />{" "}
             </LinkR>
           </li>
         </ul>
@@ -56,7 +56,7 @@ export function Header({ inside, outsides }) {
         <ul className="navlink" id="icon2nav">
           <li>
             <LinkR to="/" id="loglnk">
-              <img id="userimage" src={userlog}/>{" "}
+              <img id="userimage" src={userlog} />{" "}
             </LinkR>
           </li>
         </ul>
@@ -81,7 +81,7 @@ export function Header({ inside, outsides }) {
       </nav>
       <div id="semicircle">
         <LinkR to="/" id="logoLink2">
-          <img id="llhlogo" src={llhlogo1}/>{" "}
+          <img id="llhlogo" src={llhlogo1} />{" "}
         </LinkR>
       </div>
     </div>

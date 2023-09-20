@@ -20,10 +20,9 @@ const LoginPage = () => {
       await login(values);
       if (localStorage.getItem("userToken") !== undefined) {
         console.log("Login successful");
-        if(localStorage.getItem("nextScreen") !== undefined)
-          navigate(localStorage.getItem("nextScreen"))
-        else
-          navigate("/");
+        if (localStorage.getItem("nextScreen") !== undefined)
+          navigate(localStorage.getItem("nextScreen"));
+        else navigate("/");
       } else {
         console.error("Login unsuccessful");
         setFieldError("password", "Correu o contrasenya incorrectes");

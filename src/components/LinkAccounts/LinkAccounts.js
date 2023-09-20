@@ -8,8 +8,8 @@ const LinkAccounts = () => {
           Vincula els teus <br /> comptes per la Hack!
         </div>
         <div className="col-4 col-sm-4 m-auto px-0">
-          <i className="bi bi-github fa-2x me-3"/>
-          <i className="bi bi-linkedin fa-2x me-3"/>
+          <i className="bi bi-github fa-2x me-3" />
+          <i className="bi bi-linkedin fa-2x me-3" />
         </div>
       </div>
     </div>

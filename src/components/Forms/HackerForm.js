@@ -54,7 +54,7 @@ export const HackerStepperForm = () => {
       image: pfp,
       is_image_url: isUrl,
       github: "",
-      linkedin: ""
+      linkedin: "",
     };
     signupHacker(hacker);
     setSubmitting(false);

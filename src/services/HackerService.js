@@ -5,7 +5,7 @@ export async function signupHacker(hacker) {
     Url: "/hacker/signup",
     Method: "POST",
     Body: hacker,
-    saveLoginInfo: true
+    saveLoginInfo: true,
   });
 }
 

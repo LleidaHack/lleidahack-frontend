@@ -15,8 +15,12 @@ const MainTitle = () => {
   async function handleShow() {
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
-    } else if (checkToken().then((key) => {return key["detail"];})) {
-      localStorage.setItem("nextScreen", "/inscripcio")
+    } else if (
+      checkToken().then((key) => {
+        return key["detail"];
+      })
+    ) {
+      localStorage.setItem("nextScreen", "/inscripcio");
       navigate("/login"); //in case of annoyance, swap to mostrarPopupHandler(); en cas de redireccio, posar localStorage.clear() a la consola
     } else {
       navigate("/inscripcio");
@@ -24,8 +28,8 @@ const MainTitle = () => {
   }
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => {
-    localStorage.setItem("nextScreen", "/inscripcio")
-    navigate("/login")
+    localStorage.setItem("nextScreen", "/inscripcio");
+    navigate("/login");
   };
 
   return (

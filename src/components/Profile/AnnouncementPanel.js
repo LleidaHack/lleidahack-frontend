@@ -50,9 +50,9 @@ const AnnouncementPanel = () => {
           </form>
           <hr />
           {/* Buttons to other pages */}
-          <Button text="Gestionar Grups" href="/"/>
-          <Button text="Gestionar Tiquets" href="/"/>
-          <Button text="Gestionar Horaris" href="/"/>
+          <Button text="Gestionar Grups" href="/" />
+          <Button text="Gestionar Tiquets" href="/" />
+          <Button text="Gestionar Horaris" href="/" />
         </div>
       </div>
     </div>

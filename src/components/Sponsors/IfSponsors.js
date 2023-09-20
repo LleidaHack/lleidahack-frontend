@@ -96,17 +96,17 @@ const InfoSponsors = ({ id }) => {
     if (xarxes) {
       text = [
         <a href={linkedintag} target="_blank" rel="noreferrer" className="rel">
-          <i class="fa-brands fa-linkedin"/> LinkedIn
+          <i class="fa-brands fa-linkedin" /> LinkedIn
         </a>,
         "|",
         <a href={webtag} target="_blank" rel="noreferrer" className="rel">
-          <i class="fa-solid fa-globe"/> Web
+          <i class="fa-solid fa-globe" /> Web
         </a>,
       ];
     } else {
       text = [
         <a href={linkedintag} target="_blank" rel="noreferrer" className="rel">
-          <i class="fa-brands fa-linkedin"/> LinkedIn
+          <i class="fa-brands fa-linkedin" /> LinkedIn
         </a>,
       ];
     }
@@ -115,28 +115,28 @@ const InfoSponsors = ({ id }) => {
       <div className="The-Grand-Phather">
         <section className="SpnTitle">
           <h1 className="title-Info-sponsors">- {SpnName} -</h1>
-          <br/>
+          <br />
 
           <p class="text-aftTitle">
-            Benvingut/da <br/> al panell de patrocinador
+            Benvingut/da <br /> al panell de patrocinador
           </p>
-          <br/>
+          <br />
         </section>
         <section className="Imagecontener">
           <img className="peperoni" src={imgLogo} alt="Logo de la empresa" />
         </section>
-        <br/>
+        <br />
         <section className="redesYOthers p-bg-grey">
           <p className="text-aftTitle2 ">
             📩 {correu} |{text}
           </p>
         </section>
         <section className="descriptions">
-          <br/>
+          <br />
           <h2>Descripció</h2>
-          <br/>
+          <br />
           <p>{description}</p>
-          <br/>
+          <br />
         </section>
 
         {/*<section className="descriptions">
@@ -160,22 +160,22 @@ const InfoSponsors = ({ id }) => {
           </div>
             </section>*/}
 
-        <br/>
-        <br/>
+        <br />
+        <br />
 
         <section className="businesActivity">
-          <br/>
+          <br />
           <h2>Historial d'activitats</h2>
 
-          <br/>
+          <br />
           <div className="logos">
             {images.map((image, index) => (
               <img key={index} src={image} alt={`Imagen ${index}`} /> //Editar aixo per a que sigui una url fixa i nomes camvii la edicio Eg: C/wefwf/efwef/2021.jpg, C/wefwf/efwef/2022.jpg...
             ))}
           </div>
         </section>
-        <br/>
-        <br/>
+        <br />
+        <br />
       </div>
     );
   } else {
@@ -197,7 +197,7 @@ const InfoSponsors = ({ id }) => {
       <div className="The-Grand-Phather">
         <section className="Imagecontener2">
           <h1 className="title-Info-sponsors">Oh No, Something happened..</h1>
-          <br/>
+          <br />
           <img className="peperoni" src={errorImage} alt="Gif" />
         </section>
 
