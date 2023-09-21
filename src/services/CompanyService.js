@@ -3,7 +3,6 @@ import { fetchPlus } from "src/modules/fetchModule";
 export async function getAllCompanies() {
   return fetchPlus({
     Url: "/company/all",
-    hasUserauth: true,
   });
 }
 

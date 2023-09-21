@@ -34,16 +34,17 @@ function togglePopup() {
  
 
   let dailyhackss = "";
+  const pages = [
+    ["Home", "/#home"],
+    ["Dates", "/#dates"],
+    ["Sponsors", "/#sponsors"],
+    ["FAQ", "/faq"],
+    ["Contacte", "/contacte"],
+  ];
 
   if (localStorage.getItem("userToken")) {
-    dailyhackss = [
-      <li className="nav-item">
-        <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}>
-          {" "}
-          Dailyhack
-        </Link>
-      </li>,
-    ];
+    pages.push(["Dailyhack", "/dailyhacks"]);
+    pages.push(["El meu perfil", "/perfil"]);
   }
 
   let imageProfileUrl = "https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
@@ -97,6 +98,7 @@ function togglePopup() {
           } justify-content-lg-end`}
         >
           <ul className="navbar-nav ml-auto">
+
             {/*<li className="nav-item">
               <Link to="/#home" className="nav-link" onClick={closeMenu}>
                 Home
@@ -131,9 +133,11 @@ function togglePopup() {
                 <div className="profileImage2">
                   <img className="Profile2" src={icon}></img>
                 </div>
+
                 </Link>
                   
               </li>
+
             ) : (  //Aixo es quan no existeix sesió
               <li className="nav-item" >
                 <Link to="" className="nav-link" onClick={togglePopup}>
@@ -141,6 +145,7 @@ function togglePopup() {
                 </Link>
                 </li>
             )}
+
           </ul>
         </div>
       </div>

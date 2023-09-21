@@ -32,6 +32,7 @@ export async function refreshToken() {
     Url: "/auth/refresh-token",
     Method: "POST",
     Query: { refresh_token: localStorage.getItem("refreshToken") },
+    hasUserauth: true,
     saveLoginInfo: true,
   });
 }
@@ -63,5 +64,18 @@ export async function checkToken() {
   return fetchPlus({
     Url: "/auth/check_token",
     hasUserauth: true,
+    ignorePoppup: true,
+  });
+}
+
+export async function contacte(Name, Title, e_mail, Message) {
+  return fetchPlus({
+    Url: "/auth/contact",
+    Query: {
+      name: Name,
+      title: Title,
+      email: e_mail,
+      message: Message,
+    },
   });
 }

@@ -23,7 +23,7 @@ const LinkAccounts = () => {
 
       <section className="Inferior-Part">
         <p>Crea un compte</p>
-        <br></br>
+        <br />
         <div className="GridContainer">
           <div class="columna">
             <div className="iconContainer">
