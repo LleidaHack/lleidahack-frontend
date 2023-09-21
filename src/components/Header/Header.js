@@ -92,7 +92,7 @@ function togglePopup() {
         </div>
 
         <div
-          className={`collapse navbar-collapse ${
+          className={`collapse navbar-collapse peperse ${
             showMenu ? "show" : ""
           } justify-content-lg-end`}
         >
@@ -127,9 +127,10 @@ function togglePopup() {
             {localStorage.getItem("userToken") ? (
               <li className="nav-item" >
                 <Link to="" className="nav-link" onClick={togglePopup}>
+                  
                 <div className="profileImage2">
-                <img className="Profile2" src={icon}></img>
-            </div>
+                  <img className="Profile2" src={icon}></img>
+                </div>
                 </Link>
                   
               </li>

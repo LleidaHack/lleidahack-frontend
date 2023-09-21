@@ -102,6 +102,7 @@ body {
     background-color: var(--primary);
     z-index: 1;
     flex-direction: column;
+    
   }
 
   .navbar-toggler {
@@ -109,6 +110,7 @@ body {
     border: none;
     outline: none;
     cursor: pointer;
+    
   }
 
   .navbar-toggler .navbar-toggler-icon {
@@ -117,6 +119,11 @@ body {
 
   .navbar-nav {
     display: none;
+  }
+
+  .peperse{
+    max-width: 100%;
+    scale: 0.85;
   }
 }
 
@@ -143,18 +150,18 @@ body {
 
 .popup-contenter {
   display: none;
-  position:fixed;
+  position: fixed;
   right: 20px;
-  top: 40px;
+  top: 3%;
   background-color: var(--white);
   padding: 1vw;
-  width: 20%;
-  margin: 5% 2%;
+  width: 40%;
+  margin: 6rem 2rem;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   z-index: 100;
   border-radius: 5px;
-  
+  max-width: 22rem;
 
 }
 
@@ -188,8 +195,8 @@ body {
 }
 
 .profileImage{
-  width: 3.5vw; /* Ajusta el tamaño del círculo según tus necesidades */
-  height: 3.5vw; /* Ajusta el tamaño del círculo según tus necesidades */
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%; /* Hace que el div sea un círculo */
   overflow: hidden; /* Oculta cualquier contenido que se desborde del círculo */
   border: 2px solid var(--primary);
@@ -221,12 +228,11 @@ body {
 }
 
 .profileImage2{
-  width: 2.5vw; /* Ajusta el tamaño del círculo según tus necesidades */
-  height: 2.5vw; /* Ajusta el tamaño del círculo según tus necesidades */
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%; /* Hace que el div sea un círculo */
   overflow: hidden; /* Oculta cualquier contenido que se desborde del círculo */
   border: 0.5px solid var(--secondary);
-  margin-right: 1rem;
 }
 
 .Profile2{
@@ -244,4 +250,24 @@ body {
 
 .logOut:hover{
 color: red;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+
+  .popup-contenter{
+    align-items: center;
+    width: 16rem;
+
+  }
+
+  .peperse{
+    max-width: 100%;
+    scale: 1;
+  }
+
+
 }

@@ -36,7 +36,7 @@ const MainTitle = () => {
     <>
       <div className="backgrounder">
         <div className="fantasma" id="home"></div>
-        <div className="row join-container p-5 text-center m-auto">
+        <div className="magic_div">
           <div className="col-12">
             <div className="rowe">
               <img className="imagelogo" src={hackLogo} alt="" />
