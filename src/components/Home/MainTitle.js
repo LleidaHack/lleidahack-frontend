@@ -12,6 +12,7 @@ const MainTitle = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
+
   async function handleShow() {
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
@@ -26,6 +27,7 @@ const MainTitle = () => {
       navigate("/inscripcio");
     }
   }
+  
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => {
     localStorage.setItem("nextScreen", "/inscripcio");
