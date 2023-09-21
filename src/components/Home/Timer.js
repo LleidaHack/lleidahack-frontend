@@ -3,15 +3,16 @@ import "src/components/Home/Timer.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import dayjs from "dayjs";
 
-const defaultRemainingTime = {
-  seconds: "00",
-  minutes: "00",
-  hours: "00",
-  days: "00",
-  months: "00",
-};
+
 
 const CountdownTimer = (props) => {
+  const defaultRemainingTime = {
+  seconds: padWithZeros(props.startTime.diff(nowDayjs, "seconds") % 60, 2),
+  minutes: padWithZeros(props.startTime.diff(nowDayjs, "minutes") % 60, 2),
+  hours: padWithZeros(props.startTime.diff(nowDayjs, "hours") % 24, 2),
+  days: padWithZeros(props.startTime.diff(nowDayjs, "days") % 30, 2),
+  months: props.startTime.diff(nowDayjs, "months"),
+};
   const [remainingTime, setRemainingTime] = useState(defaultRemainingTime);
 
   const timestampDayjs = dayjs(props.startTime);
