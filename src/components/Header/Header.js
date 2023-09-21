@@ -77,7 +77,7 @@ function togglePopup() {
     <>
     <nav className="navbar navbar-expand-md inherited-top">
       <div className="container">
-        <Link to="/" className="navbar-brand icono">
+        <Link to="/#home" className="navbar-brand icono">
           <img src={hackIcon} alt="Icono" className="icono" />
         </Link>
 
@@ -97,11 +97,11 @@ function togglePopup() {
           } justify-content-lg-end`}
         >
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
+            {/*<li className="nav-item">
               <Link to="/#home" className="nav-link" onClick={closeMenu}>
                 Home
               </Link>
-            </li>
+            </li>*/}
             <li className="nav-item">
               <Link to="/#dates" className="nav-link" onClick={closeMenu}>
                 Dates
