@@ -31,19 +31,14 @@ const Header = () => {
     Navigate("/");
   }
 
-  let dailyhackss = "";
   const pages = [
     ["Home", "/#home"],
     ["Dates", "/#dates"],
     ["Sponsors", "/#sponsors"],
     ["FAQ", "/faq"],
     ["Contacte", "/contacte"],
+    ["Dailyhack", "/dailyhacks"]
   ];
-
-  if (localStorage.getItem("userToken")) {
-    pages.push(["Dailyhack", "/dailyhacks"]);
-    pages.push(["El meu perfil", "/perfil"]);
-  }
 
   let imageProfileUrl =
     "https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png";
@@ -109,6 +104,11 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}>
+                  Dailyhack
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link to="/faq" className="nav-link" onClick={closeMenu}>
                   FAQ
                 </Link>
@@ -118,7 +118,6 @@ const Header = () => {
                   Contacte
                 </Link>
               </li>
-              {dailyhackss}
 
               {localStorage.getItem("userToken") ? (
                 <li className="nav-item">
