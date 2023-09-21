@@ -17,7 +17,7 @@ const MainTitle = () => {
       setShow(true);
     } else if (
       checkToken().then((key) => {
-        return key["detail"];
+        return key["detail"] == "Invalid token or expired token."
       })
     ) {
       localStorage.setItem("nextScreen", "/inscripcio");
