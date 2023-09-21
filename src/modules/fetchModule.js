@@ -10,8 +10,7 @@ export async function fetchPlus({
   saveLoginInfo = false,
   nextScreen,
   loginAuth,
-  ignorePoppup = false,
-  debugging = false,
+  ignorePoppup = false
 }) {
   const headers = { "Content-Type": "application/json" };
   if (hasUserauth || loginAuth)
@@ -34,7 +33,8 @@ export async function fetchPlus({
       if (process.env.REACT_APP_DEBUG === 'true') console.log("response: ", response);
       if (hasUserauth && response.status === 403 && !ignorePoppup)
         mostrarPopupHandler();
-      return response.json();
+      if (response.status == 200) return response.json();
+      throw  new Error("ni idea de que ha passat", response)
     })
     .then((data) => {
       if (process.env.REACT_APP_DEBUG === 'true') console.log("data: ", data);
