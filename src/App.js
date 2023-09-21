@@ -4,7 +4,7 @@ import Contacte from "src/pages/Contacte";
 import Error404 from "src/pages/Error404";
 import FAQPage from "src/pages/FAQ";
 import Home from "src/pages/Home";
-import Profile from "src/pages/Profile/Profile.js";
+import Profile from "src/pages/Profile.js";
 import HackerForm from "src/pages/HackerSignup";
 import Testing from "src/components/others/Testing";
 import Inscripcio from "src/pages/Inscripcio";

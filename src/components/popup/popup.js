@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "src/components/popup/popup.css";
-import { FormikStepper, InputField, SelectField } from "formik-stepper";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { login } from "src/services/AuthenticationService";
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
   //nick: Yup.string().required("Nom / Nickname requerit"),
@@ -12,6 +13,11 @@ const validationSchema = Yup.object().shape({
 });
 
 const PopupInicioSesion = ({ mostrar, cerrarPopup }) => {
+  //const navigate = useNavigate();
+
+  const redirectToRoute = (route) => {
+    //navigate(route);
+  };
   const [loginError, setLoginError] = useState(null);
 
   const handleSubmit = async (values) => {
@@ -35,53 +41,15 @@ const PopupInicioSesion = ({ mostrar, cerrarPopup }) => {
         </span>
         <h2 className="title1">Identifica't</h2>
 
-        {/* Contenido del popup */}
-        <FormikStepper
-          /// Accept all Formik props
-          onSubmit={(values, actions) => {
-            console.log(values);
-            handleSubmit(values);
-          }} /// onSubmit Function
-          initialValues={{
-            email: "",
-            password: "",
-          }}
+        <Formik
+          onSubmit={handleSubmit}
+          initialValues={{ email: "", password: "" }}
           validationSchema={validationSchema}
-          withStepperLine /// false as default and If it is false, it hides stepper line
-          nextButton={{
-            label: "Següent",
-            style: { background: "var(--primary)" },
-          }}
-          prevButton={{
-            label: "Enrere",
-            style: { background: "var(--primary)" },
-          }}
-          submitButton={{
-            label: "Envia",
-            style: {
-              background: "var(--primary)",
-              marginRight: "2rem",
-              marginBottom: "1rem",
-            },
-          }}
+          submitButton={{ label: "Envia" }}
         >
-          <FormikStepper.Step label="Informació personal">
-            <div>
+          {({ isSubmitting, submitForm, errors, touched }) => (
+            <Form>
               <div className="piterrs">
-                {/*<label htmlFor="Reposit" className="blackt">Nom / Nickname</label>
-
-          <Field 
-            name="nick" 
-            type="text" 
-            id="namenick" 
-            placeholder="Nom / NickName"
-            className="BoxForm"
-          />
-          <ErrorMessage name="nick" component="div" className="error-message" />
-        */}
-                <br></br>
-                <br></br>
-
                 <label htmlFor="email" className="blackt">
                   Usuari
                 </label>
@@ -92,37 +60,44 @@ const PopupInicioSesion = ({ mostrar, cerrarPopup }) => {
                   placeholder="Usuari / Correu"
                   className="BoxForm"
                 />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="error-message"
-                />
-                <br></br>
-                <br></br>
-                <label htmlFor="password" className="blackt">
-                  Contraseña
-                </label>
-                <Field
-                  name="password"
-                  type="password"
-                  id="password"
-                  placeholder="Contraseña.."
-                  className="BoxForm"
-                />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className="error-message"
-                />
-
-                <br></br>
-                <br></br>
-
-                {loginError && <div style={{ color: "red" }}>{loginError}</div>}
+                {touched.email && errors.email && (
+                  <div className="invalid-feedback">{errors.email}</div>
+                )}
               </div>
-            </div>
-          </FormikStepper.Step>
-        </FormikStepper>
+              <div className="form-group">
+                <label htmlFor="password">Contrasenya</label>
+                <Field
+                  type="password"
+                  name="password"
+                  placeholder="Contraseña.."
+                  id="password"
+                  className={`form-control ${
+                    touched.password && errors.password ? "is-invalid" : ""
+                  }`}
+                />
+                {touched.password && errors.password && (
+                  <div className="invalid-feedback">{errors.password}</div>
+                )}
+              </div>
+              <div className="button-container">
+                <Button
+                  className="btn btn-default"
+                  onClick={() => redirectToRoute("/hacker-form")}
+                >
+                  Registra't
+                </Button>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn btn-default"
+                  onClick={submitForm}
+                >
+                  {isSubmitting ? "Iniciant sessió..." : "Inicia sessió"}
+                </Button>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </div>
     </div>
   );

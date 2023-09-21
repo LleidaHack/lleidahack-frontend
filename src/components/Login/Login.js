@@ -18,12 +18,17 @@ const LoginPage = () => {
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
       await login(values);
-
       if (localStorage.getItem("userToken") !== "undefined") {
-        console.log("Login successful");
-        navigate("/");
+        if (process.env.REACT_APP_DEBUG === "true")
+          console.log("Login successful");
+        if (localStorage.getItem("nextScreen") !== "undefined") {
+          const move = localStorage.getItem("nextScreen");
+          localStorage.removeItem("nextScreen");
+          navigate(move);
+        } else navigate("/");
       } else {
-        console.error("Login unsuccessful");
+        if (process.env.REACT_APP_DEBUG === "true")
+          console.error("Login unsuccessful");
         setFieldError("password", "Correu o contrasenya incorrectes");
       }
     } catch (error) {
@@ -90,7 +95,7 @@ const LoginPage = () => {
                           </Link>
                         </p>
                         <p className="mb-0">
-                          <Link to="/sign-up" className="custom-link">
+                          <Link to="/hacker-form" className="custom-link">
                             Encara no tens compte?
                           </Link>
                         </p>

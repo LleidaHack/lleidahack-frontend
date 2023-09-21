@@ -120,7 +120,7 @@ export const HackerStepperForm = (props) => {
         <FormikStepper.Step label="Informació personal">
           <div className="eulen">
             <div className="panel">
-              <HackerPanel></HackerPanel>
+              <HackerPanel />
             </div>
             <div className="piterrs">
               {/*<label htmlFor="Reposit" className="blackt">Nom / Nickname</label>
@@ -134,8 +134,8 @@ export const HackerStepperForm = (props) => {
                 />
                 <ErrorMessage name="nick" component="div" className="error-message" />
               */}
-              <br></br>
-              <br></br>
+              <br />
+              <br />
 
               <label htmlFor="Reposit" className="blackt">
                 Repositori GitHub
@@ -156,8 +156,8 @@ export const HackerStepperForm = (props) => {
                 Recorda que has d'afegir informació al ReadMe del repositori
               </p>
 
-              <br></br>
-              <br></br>
+              <br />
+              <br />
               {/*
                 <label htmlFor="textareaField" className="blackt">Explicació + Exemples</label>
                 <Field
@@ -205,7 +205,7 @@ const Dailyhacks = () => {
                 únic repte amb diversos premis!
               </p>
             </div>
-            <br></br>
+            <br />
 
             <div className="Part1">
               <div className="IntroTexte">
@@ -216,38 +216,36 @@ const Dailyhacks = () => {
                   nostre propi llenguatge de signes i establir les normes
                   d'aquest, per després automatitzar-ne la traducció a
                   llenguatge escrit.
-                  <br></br>
-                  <br></br>A partir d'aquest dataset de kaggle:
+                  <br />
+                  <br />A partir d'aquest dataset de kaggle:
                   https://www.kaggle.com/datasets/gti-upm/leapgestrecog que
                   consisteix en diverses imatges de mans en diferents posicions
                   es demana realitzar un projecte que consta de dues parts.
                 </p>
-                <br></br>
+                <br />
                 <p> Trobaréu més informació al ReadMe del repositori:</p>
               </div>
               <div className="fotovidIntro">
                 <img src={pergamino} alt="pergamino" className="pergar" />
               </div>
             </div>
-            <br></br>
-            <br></br>
-            <br></br>
+            <br />
+            <br />
+            <br />
 
             <p> Molta sort a tots, i que guanyi el millor!</p>
           </section>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
           <section className="upload white">
-            <br></br>
+            <br />
             <h2 className="title1">¿Vols presentar el teu repositori?</h2>
 
-            <br></br>
-            <HackerStepperForm
-              onBotonClic={cambiarEstadoPadre}
-            ></HackerStepperForm>
+            <br />
+            <HackerStepperForm onBotonClic={cambiarEstadoPadre} />
           </section>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
 
           <section className="upload">
             <h1 className="title2 title-underline">Premis </h1>
@@ -257,7 +255,7 @@ const Dailyhacks = () => {
                 <img
                   src="https://media.discordapp.net/attachments/991404325941289070/1150854311543316540/image_48.png?width=1014&height=675"
                   alt="Imagen 2"
-                ></img>
+                />
                 <h2 className="title3">1r</h2>
                 <p className="descriptionss">
                   Razer Huntsman V2 (Purple Switch)
@@ -267,7 +265,7 @@ const Dailyhacks = () => {
                 <img
                   src="https://media.discordapp.net/attachments/991404325941289070/1150854312533164133/image_47.png?width=539&height=404"
                   alt="Imagen 1"
-                ></img>
+                />
                 <h2 className="title3">2n </h2>
                 <p className="descriptionss">Logitech G733 LIGHTSPEED</p>
               </div>
@@ -275,15 +273,15 @@ const Dailyhacks = () => {
                 <img
                   src="https://media.discordapp.net/attachments/991404325941289070/1150854313036492800/image_46.png?width=1038&height=675"
                   alt="Imagen 3"
-                ></img>
+                />
                 <h2 className="title3">3r</h2>
                 <p className="descriptionss">Razer Basilisk V3</p>
               </div>
-              <br></br>
+              <br />
             </div>
           </section>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
         </>
       ) : (
         <>
