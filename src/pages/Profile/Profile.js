@@ -20,10 +20,11 @@ import QrCode from "src/components/Home/QrCode.js";
 import Header from "src/components/Header/Header.js";
 import { getHackerById, getHackerGroups } from "src/services/HackerService";
 import { getHackerGroupMembers } from "src/services/HackerGroupService";
+import Footer from "src/components/Footer/Footer";
 
 const Profile = () => {
   let { hacker_id } = useParams();
-
+  const isUser = hacker_id===localStorage.getItem("userID")
   const name = "Nom cognom";
   const usrImage = userIcon;
 
@@ -37,7 +38,6 @@ const Profile = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const navigate = useNavigate();
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
@@ -52,16 +52,19 @@ const Profile = () => {
     getHackerById(hacker_id)
       .then((response) => {
         setHacker(response);
-        return getHackerGroups(hacker_id);
+        return getHackerGroups(hacker_id).then((response)=> {return response});
       })
       .then((response) => {
-        setTeam(response);
-        return response.length ? getHackerGroupMembers(response[0].id) : [];
+        if(response.length) setTeam(response[0]);
+        console.log("suic1!",response)
+        return response.length ? getHackerGroupMembers(response[0].id).then((response) => {return response}) : [];
       })
       .then((response) => {
+        console.log("suic", response.members)
+        console.log(hacker)
         setTeam({
           ...team,
-          members: response.members,
+          members: response,
         });
       });
   }, []);
@@ -132,10 +135,9 @@ const Profile = () => {
           {/* Accounts link */}
           <LinkAccounts />
 
-          {/* Join Box */}
-          <Join />
+          {isUser ? <Join />:<></>}
 
-          {team ? <Team team={team} /> : <></>}
+          <Team team={team} is_user={isUser} has_team={Boolean(team)}/>
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
@@ -152,12 +154,14 @@ const Profile = () => {
               </div>
             </div>
           </div>
+          <br/>
         </div>
       </div>
 
       <Modal show={showQR} onHide={handleCloseQR} centered>
         <QrCode url="{hacker.qrCode}" />
       </Modal>
+      <Footer/>
     </>
   );
 };

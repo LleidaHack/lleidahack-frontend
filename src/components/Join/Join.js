@@ -11,7 +11,7 @@ const Join = () => {
           </div>
           <div className="row text-center">
             <a
-              href=""
+              href="/inscripcio"
               style={{ width: `fit-content`, textDecoration: `none` }}
               className="py-2 px-4 m-auto text-white p-bg-primary"
             >
