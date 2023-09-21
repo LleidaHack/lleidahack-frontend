@@ -16,16 +16,17 @@ const Header = () => {
   };
 
   let dailyhackss = "";
+  const pages = [
+    ["Home", "/#home"],
+    ["Dates", "/#dates"],
+    ["Sponsors", "/#sponsors"],
+    ["FAQ", "/faq"],
+    ["Contacte", "/contacte"],
+  ];
 
   if (localStorage.getItem("userToken")) {
-    dailyhackss = [
-      <li className="nav-item">
-        <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}>
-          {" "}
-          Dailyhack
-        </Link>
-      </li>,
-    ];
+    pages.push(["Dailyhack", "/dailyhacks"]);
+    pages.push(["El meu perfil", "/perfil"]);
   }
 
   return (
@@ -41,7 +42,7 @@ const Header = () => {
             type="button"
             onClick={toggleMenu}
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon" />
           </button>
         </div>
 
@@ -51,42 +52,13 @@ const Header = () => {
           } justify-content-lg-end`}
         >
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to="/#home" className="nav-link" onClick={closeMenu}>
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/#dates" className="nav-link" onClick={closeMenu}>
-                Dates
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/#sponsors" className="nav-link" onClick={closeMenu}>
-                Sponsors
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/faq" className="nav-link" onClick={closeMenu}>
-                FAQ
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/contacte" className="nav-link" onClick={closeMenu}>
-                Contacte
-              </Link>
-            </li>
-            {dailyhackss}
-
-            {localStorage.getItem("userToken") ? (
-              <li className="nav-item">
-                <Link to="/perfil" className="nav-link" onClick={closeMenu}>
-                  El meu perfil
+            {pages.map((item, index) => (
+              <li key={index} className="nav-item">
+                <Link to={item[1]} className="nav-link" onClick={closeMenu}>
+                  {item[0]}
                 </Link>
               </li>
-            ) : (
-              ""
-            )}
+            ))}
           </ul>
         </div>
       </div>

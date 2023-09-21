@@ -1,4 +1,3 @@
-// src/components/MainTitle.js
 import "src/components/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
@@ -6,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import hackLogo from "src/icons/hack_icon_black.png";
 
 import { useNavigate } from "react-router-dom";
-import { registerHackerToEvent } from "src/services/EventManagementService";
+import { checkToken } from "src/services/AuthenticationService";
 
 const MainTitle = () => {
   const navigate = useNavigate();
@@ -16,21 +15,22 @@ const MainTitle = () => {
   async function handleShow() {
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
+    } else if (
+      checkToken().then((key) => {
+        return key["detail"] == "Invalid token or expired token."
+      })
+    ) {
+      localStorage.setItem("nextScreen", "/inscripcio");
+      navigate("/login"); //in case of annoyance, swap to mostrarPopupHandler(); en cas de redireccio, posar localStorage.clear() a la consola
     } else {
-      await registerHackerToEvent(localStorage.getItem("userID"), 32, {
-        shirt_size: "string",
-        food_restrictions: "string",
-        cv: "string",
-        description: "string",
-        github: "string",
-        linkedin: "string",
-        dailyhack_url: "string",
-        update_user: true,
-      });
+      navigate("/inscripcio");
     }
   }
   const handleSignUp = () => navigate("/hacker-form");
-  const handleSignIn = () => navigate("/login");
+  const handleSignIn = () => {
+    localStorage.setItem("nextScreen", "/inscripcio");
+    navigate("/login");
+  };
 
   return (
     <>

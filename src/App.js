@@ -4,8 +4,8 @@ import Contacte from "src/pages/Contacte";
 import Error404 from "src/pages/Error404";
 import FAQPage from "src/pages/FAQ";
 import Home from "src/pages/Home";
-import Profile from "src/pages/Profile/Profile.js";
-import HackerForm from "src/components/Forms/HackerForm";
+import Profile from "src/pages/Profile.js";
+import HackerForm from "src/pages/HackerSignup";
 import Testing from "src/components/others/Testing";
 import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
@@ -40,7 +40,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename="/hackeps">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/faq" element={<FAQPage />} />
@@ -55,8 +55,8 @@ export default function App() {
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
           <Route path="/inscripcio" element={<Inscripcio />} />
-          <Route path="*" element={<Error404 />} />
           <Route path="/dailyhacks" element={<Dailyhack />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
 
