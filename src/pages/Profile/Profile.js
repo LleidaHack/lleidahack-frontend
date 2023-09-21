@@ -21,7 +21,7 @@ import Header from "src/components/Header/Header.js";
 import { getHackerById } from "src/services/HackerService";
 
 const Profile = () => {
-  const { hacker_id } = useParams();
+  let { hacker_id } = useParams();
 
   const name = "Nom cognom";
   const usrImage = userIcon;
@@ -45,30 +45,32 @@ const Profile = () => {
   const [team, setTeam] = useState(null);
 
   useEffect(() => {
-    console.log(hacker_id);
-    getHackerById(hacker_id)
-      .then((response) => {
-        setHacker(response);
-        return response;
-      })
-      .then((response) => {
-        let fetched_team = {
-          id: 1,
-          teamName: "Team name",
-          teamCode: "123456",
-          members: [],
-        };
-        let num_members = 6;
-        for (let i = 0; i < num_members; i++) {
-          fetched_team.members.push({
-            name: "AAA",
-            imageUrl: "aa",
-            profileLink: i,
-          });
-        }
-        setTeam(fetched_team);
-        //setTeam({'id': null});
-      });
+    if (process.env.REACT_APP_DEBUG === 'true') console.log("hacker id:" + hacker_id);
+    if (!hacker_id) hacker_id=localStorage.getItem("userID")
+      getHackerById(hacker_id)
+        .then((response) => {
+          setHacker(response);
+          return response;
+        })
+        .then((response) => {
+          let fetched_team = {
+            id: 1,
+            teamName: "Team name",
+            teamCode: "123456",
+            members: [],
+          };
+          let num_members = 6;
+          for (let i = 0; i < num_members; i++) {
+            fetched_team.members.push({
+              name: "AAA",
+              imageUrl: "aa",
+              profileLink: i,
+            });
+          }
+          setTeam(fetched_team);
+          //setTeam({'id': null});
+        });
+    
   }, []);
 
   return (

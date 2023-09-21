@@ -13,10 +13,10 @@ const validationSchema = Yup.object().shape({
 });
 
 const PopupInicioSesion = ({ mostrar, cerrarPopup }) => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const redirectToRoute = (route) => {
-    navigate(route);
+    //navigate(route);
   };
   const [loginError, setLoginError] = useState(null);
 
