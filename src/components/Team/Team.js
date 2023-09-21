@@ -13,7 +13,7 @@ const Team = (props) => {
   let team = props.team;
   let is_user = props.is_user;
   let is_in_team = props.isInTeam;
-  
+
   const [showCreateTeam, setShowCreateTeam] = useState(false);
   const handleShowCreateTeam = () => setShowCreateTeam(true);
   const handleCloseCreateTeam = () => setShowCreateTeam(false);
@@ -21,7 +21,6 @@ const Team = (props) => {
   const [showJoinTeam, setShowJoinTeam] = useState(false);
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
-
 
   function TeamButtons() {
     const validationSchemaJoinTeam = Yup.object().shape({
@@ -47,7 +46,7 @@ const Team = (props) => {
 
     return (
       <>
-        {is_user && is_in_team ? 
+        {is_user && is_in_team ? (
           <Container className="p-bg-grey text-center mt-5 m-0 p-3">
             <h1>Inscripcions</h1>
             <Row className="justify-content-center">
@@ -65,7 +64,9 @@ const Team = (props) => {
               </Button>
             </Row>
           </Container>
-        : "" }
+        ) : (
+          ""
+        )}
         <Modal show={showJoinTeam} onHide={handleCloseJoinTeam} centered>
           <Modal.Header closeButton className="team-modal-no-border">
             <Modal.Title>Inscripció</Modal.Title>

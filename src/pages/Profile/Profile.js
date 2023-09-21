@@ -24,7 +24,7 @@ import Footer from "src/components/Footer/Footer";
 
 const Profile = () => {
   let { hacker_id } = useParams();
-  const isUser = hacker_id===localStorage.getItem("userID")
+  const isUser = hacker_id === localStorage.getItem("userID");
   const name = "Nom cognom";
   const usrImage = userIcon;
 
@@ -52,16 +52,22 @@ const Profile = () => {
     getHackerById(hacker_id)
       .then((response) => {
         setHacker(response);
-        return getHackerGroups(hacker_id).then((response)=> {return response});
+        return getHackerGroups(hacker_id).then((response) => {
+          return response;
+        });
       })
       .then((response) => {
-        if(response.length) setTeam(response[0]);
-        console.log("suic1!",response)
-        return response.length ? getHackerGroupMembers(response[0].id).then((response) => {return response}) : [];
+        if (response.length) setTeam(response[0]);
+        console.log("suic1!", response);
+        return response.length
+          ? getHackerGroupMembers(response[0].id).then((response) => {
+              return response;
+            })
+          : [];
       })
       .then((response) => {
-        console.log("suic", response.members)
-        console.log(hacker)
+        console.log("suic", response.members);
+        console.log(hacker);
         setTeam({
           ...team,
           members: response,
@@ -135,9 +141,9 @@ const Profile = () => {
           {/* Accounts link */}
           <LinkAccounts />
 
-          {isUser ? <Join />:<></>}
+          {isUser ? <Join /> : <></>}
 
-          <Team team={team} is_user={isUser} has_team={Boolean(team)}/>
+          <Team team={team} is_user={isUser} has_team={Boolean(team)} />
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
@@ -154,14 +160,14 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <br/>
+          <br />
         </div>
       </div>
 
       <Modal show={showQR} onHide={handleCloseQR} centered>
         <QrCode url="{hacker.qrCode}" />
       </Modal>
-      <Footer/>
+      <Footer />
     </>
   );
 };
