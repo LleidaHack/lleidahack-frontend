@@ -1,5 +1,4 @@
 import { Navigate } from "react-router-dom";
-import { mostrarPopupHandler } from "src/modules/emmiterModule";
 
 export async function fetchPlus({
   Url,
@@ -33,7 +32,7 @@ export async function fetchPlus({
       if (process.env.REACT_APP_DEBUG === "true")
         console.log("response: ", response);
       if (hasUserauth && response.status === 403 && !ignorePoppup)
-        mostrarPopupHandler();
+        //mostrarPopupHandler();
       return response.json();
     })
     .then((data) => {

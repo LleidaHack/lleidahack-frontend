@@ -22,7 +22,7 @@ const MainTitle = () => {
       })
     ) {
       localStorage.setItem("nextScreen", "/inscripcio");
-      navigate("/login"); //in case of annoyance, swap to mostrarPopupHandler(); en cas de redireccio, posar localStorage.clear() a la consola
+      navigate("/login"); 
     } else {
       navigate("/inscripcio");
     }
