@@ -3,16 +3,13 @@ import "src/components/Home/Timer.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import dayjs from "dayjs";
 
-
-
 const CountdownTimer = (props) => {
-  
   const timestampDayjs = dayjs(props.startTime);
   const eventendDayjs = dayjs(props.endTime);
   const nowDayjs = dayjs();
   const active = Boolean(props.timerActive);
 
-  let countdown
+  let countdown;
 
   if (timestampDayjs.diff(nowDayjs, "seconds") >= 0) {
     countdown = timestampDayjs;
