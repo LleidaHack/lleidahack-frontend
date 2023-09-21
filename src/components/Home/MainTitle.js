@@ -22,7 +22,7 @@ const MainTitle = () => {
       })
     ) {
       localStorage.setItem("nextScreen", "/inscripcio");
-      navigate("/login"); 
+      navigate("/login");
     } else {
       navigate("/inscripcio");
     }

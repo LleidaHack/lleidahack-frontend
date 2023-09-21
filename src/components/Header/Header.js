@@ -37,7 +37,7 @@ const Header = () => {
     ["Sponsors", "/#sponsors"],
     ["FAQ", "/faq"],
     ["Contacte", "/contacte"],
-    ["Dailyhack", "/dailyhacks"]
+    ["Dailyhack", "/dailyhacks"],
   ];
 
   let imageProfileUrl =
