@@ -46,23 +46,24 @@ const Profile = () => {
   const [team, setTeam] = useState(null);
 
   useEffect(() => {
-    if (process.env.REACT_APP_DEBUG === 'true') console.log("hacker id:" + hacker_id);
-    if (!hacker_id) hacker_id=localStorage.getItem("userID")
-      getHackerById(hacker_id)
-        .then((response) => {
-          setHacker(response);
-          return getHackerGroups(hacker_id);
-        })
-        .then((response) => {
-          setTeam(response)
-          return response.length?getHackerGroupMembers(response[0].id):[]
-        })
-        .then((response) => {
-          setTeam({
-            ...team,
-            members: response.members
-          })
+    if (process.env.REACT_APP_DEBUG === "true")
+      console.log("hacker id:" + hacker_id);
+    if (!hacker_id) hacker_id = localStorage.getItem("userID");
+    getHackerById(hacker_id)
+      .then((response) => {
+        setHacker(response);
+        return getHackerGroups(hacker_id);
+      })
+      .then((response) => {
+        setTeam(response);
+        return response.length ? getHackerGroupMembers(response[0].id) : [];
+      })
+      .then((response) => {
+        setTeam({
+          ...team,
+          members: response.members,
         });
+      });
   }, []);
 
   return (

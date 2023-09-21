@@ -17,16 +17,16 @@ const Header = () => {
 
   let dailyhackss = "";
   const pages = [
-    ["Home","/#home"],
-    ["Dates","/#dates"],
-    ["Sponsors","/#sponsors"],
-    ["FAQ","/faq"],
-    ["Contacte","/contacte"],
-  ]
+    ["Home", "/#home"],
+    ["Dates", "/#dates"],
+    ["Sponsors", "/#sponsors"],
+    ["FAQ", "/faq"],
+    ["Contacte", "/contacte"],
+  ];
 
   if (localStorage.getItem("userToken")) {
-    pages.push(["Dailyhack", "/dailyhacks"])
-    pages.push(["El meu perfil", "/perfil"])
+    pages.push(["Dailyhack", "/dailyhacks"]);
+    pages.push(["El meu perfil", "/perfil"]);
   }
 
   return (
@@ -52,13 +52,13 @@ const Header = () => {
           } justify-content-lg-end`}
         >
           <ul className="navbar-nav ml-auto">
-            {pages.map((item, index) =>
+            {pages.map((item, index) => (
               <li key={index} className="nav-item">
                 <Link to={item[1]} className="nav-link" onClick={closeMenu}>
                   {item[0]}
                 </Link>
               </li>
-            )}
+            ))}
           </ul>
         </div>
       </div>
