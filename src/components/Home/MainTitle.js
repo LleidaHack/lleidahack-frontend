@@ -16,8 +16,8 @@ const MainTitle = () => {
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
     } else if (
-      checkToken().then((key) => {
-        return key["detail"] == "Invalid token or expired token."
+      await checkToken().then((key) => {
+        return !key["success"]
       })
     ) {
       localStorage.setItem("nextScreen", "/inscripcio");
