@@ -24,7 +24,7 @@ import Footer from "src/components/Footer/Footer";
 
 const Profile = () => {
   let { hacker_id } = useParams();
-  const isUser = hacker_id === localStorage.getItem("userID");
+  const [isUser, setIsUser] = useState(hacker_id===localStorage.getItem("userID"))
   const name = "Nom cognom";
   const usrImage = userIcon;
 
@@ -48,7 +48,10 @@ const Profile = () => {
   useEffect(() => {
     if (process.env.REACT_APP_DEBUG === "true")
       console.log("hacker id:" + hacker_id);
-    if (!hacker_id) hacker_id = localStorage.getItem("userID");
+    if (!hacker_id){ 
+      setIsUser(true)
+      hacker_id = localStorage.getItem("userID")
+    }
     getHackerById(hacker_id)
       .then((response) => {
         setHacker(response);
