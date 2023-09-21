@@ -1,10 +1,10 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "src/components/Login/Login.css";
-import logo from "src/icons/hackIcon.png";
+import logo from "src/icons/hackLogoWellDone.png";
 import { login } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 
