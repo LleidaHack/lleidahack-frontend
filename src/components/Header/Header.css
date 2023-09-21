@@ -215,6 +215,7 @@ body {
   border-radius: 4px;
   text-decoration: none;
   transition: background-color 0.1s ease-in-out;
+  scale: 0.9;
 }
 
 .apuntat-buttonex:hover {
@@ -267,6 +268,10 @@ color: red;
   .peperse{
     max-width: 100%;
     scale: 1;
+  }
+
+  .apuntat-buttonex{
+    scale: 0.9;
   }
 
 
