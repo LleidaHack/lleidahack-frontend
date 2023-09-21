@@ -18,7 +18,8 @@ import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
 import Header from "src/components/Header/Header.js";
-import { getHackerById } from "src/services/HackerService";
+import { getHackerById, getHackerGroups } from "src/services/HackerService";
+import { getHackerGroupMembers } from "src/services/HackerGroupService";
 
 const Profile = () => {
   let { hacker_id } = useParams();
@@ -50,27 +51,18 @@ const Profile = () => {
       getHackerById(hacker_id)
         .then((response) => {
           setHacker(response);
-          return response;
+          return getHackerGroups(hacker_id);
         })
         .then((response) => {
-          let fetched_team = {
-            id: 1,
-            teamName: "Team name",
-            teamCode: "123456",
-            members: [],
-          };
-          let num_members = 6;
-          for (let i = 0; i < num_members; i++) {
-            fetched_team.members.push({
-              name: "AAA",
-              imageUrl: "aa",
-              profileLink: i,
-            });
-          }
-          setTeam(fetched_team);
-          //setTeam({'id': null});
+          setTeam(response)
+          return response.length?getHackerGroupMembers(response[0].id):[]
+        })
+        .then((response) => {
+          setTeam({
+            ...team,
+            members: response.members
+          })
         });
-    
   }, []);
 
   return (
