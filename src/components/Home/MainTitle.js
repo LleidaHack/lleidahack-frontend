@@ -18,7 +18,7 @@ const MainTitle = () => {
       setShow(true);
     } else if (
       await checkToken().then((key) => {
-        return !key["success"]
+        return !key["success"];
       })
     ) {
       localStorage.setItem("nextScreen", "/inscripcio");
@@ -27,7 +27,7 @@ const MainTitle = () => {
       navigate("/inscripcio");
     }
   }
-  
+
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => {
     localStorage.setItem("nextScreen", "/inscripcio");

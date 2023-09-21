@@ -123,7 +123,7 @@ export const HackerStepperForm = () => {
                 <SelectField
                   name="shirtSize"
                   label="Talla de samarreta"
-                  options={[      
+                  options={[
                     { value: "S", label: "S" },
                     { value: "M", label: "M" },
                     { value: "L", label: "L" },
