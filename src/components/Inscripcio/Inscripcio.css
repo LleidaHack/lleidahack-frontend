@@ -196,3 +196,18 @@ input[type="text"] {
     margin-top: 40px;
   }
 }
+
+.box {
+  width: 80%;
+  margin: 20px;
+}
+
+.pepps {
+  top: 0;
+  left: 0;
+}
+
+.checkbox-label {
+  display: inline-block;
+  margin-right: "10px";
+}

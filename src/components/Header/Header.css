@@ -118,6 +118,11 @@ body {
   .navbar-nav {
     display: none;
   }
+
+  .peperse {
+    max-width: 100%;
+    scale: 0.85;
+  }
 }
 
 .collapse.navbar-collapse.justify-content-lg-end {
@@ -137,4 +142,118 @@ body {
   align-items: center;
   justify-content: space-between;
   max-width: 100%;
+}
+
+.popup-contenter {
+  display: none;
+  position: fixed;
+  right: 20px;
+  top: 3%;
+  background-color: var(--white);
+  padding: 1vw;
+  width: 40%;
+  margin: 6rem 2rem;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 100;
+  border-radius: 5px;
+  max-width: 22rem;
+}
+
+.popup-contenter.active {
+  display: block;
+  opacity: 1; /* Al hacerse visible, la opacidad es 1 */
+}
+
+.popup-options button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.buttonsFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.InfoProfile {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Cambia la dirección principal a columna */
+}
+
+.profileImage {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%; /* Hace que el div sea un círculo */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde del círculo */
+  border: 2px solid var(--primary);
+}
+
+.Profile {
+  width: 100%; /* La imagen ocupará todo el círculo */
+  height: 100%; /* La imagen ocupará todo el círculo */
+  object-fit: cover; /* Ajusta el tamaño de la imagen para que cubra el círculo */
+}
+
+.apuntat-buttonex {
+  color: var(--white);
+  background-color: var(--secondary);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.1s ease-in-out;
+  scale: 0.9;
+}
+
+.apuntat-buttonex:hover {
+  background-color: var(--primary);
+}
+
+.fa-user {
+  margin-right: 2rem;
+}
+
+.profileImage2 {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%; /* Hace que el div sea un círculo */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde del círculo */
+  border: 0.5px solid var(--secondary);
+}
+
+.Profile2 {
+  width: 100%; /* La imagen ocupará todo el círculo */
+  height: 100%; /* La imagen ocupará todo el círculo */
+  object-fit: cover; /* Ajusta el tamaño de la imagen para que cubra el círculo */
+}
+
+.logOut {
+  text-decoration: none;
+  color: var(--black);
+  transition: color 0.2s ease-in-out;
+}
+
+.logOut:hover {
+  color: red;
+}
+
+@media (max-width: 768px) {
+  .popup-contenter {
+    align-items: center;
+    width: 16rem;
+  }
+
+  .peperse {
+    max-width: 100%;
+    scale: 1;
+  }
+
+  .apuntat-buttonex {
+    scale: 0.9;
+  }
 }
