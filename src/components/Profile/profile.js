@@ -20,9 +20,8 @@ import QrCode from "src/components/Home/QrCode.js";
 import Header from "src/components/Header/Header.js";
 import { getHackerById, getHackerGroups } from "src/services/HackerService";
 import { getHackerGroupMembers } from "src/services/HackerGroupService";
-import Footer from "src/components/Footer/Footer";
 
-const Profile = () => {
+const Profile_component = () => {
   let { hacker_id } = useParams();
   const [isUser, setIsUser] = useState(
     hacker_id === localStorage.getItem("userID"),
@@ -83,7 +82,6 @@ const Profile = () => {
   return (
     <>
       <div className="p-bg-black text-white">
-        <Header />
         <div className="container-fluid container-xxl">
           {/* User info and qr */}
           <div className="row align-middle mx-auto my-3">
@@ -172,9 +170,8 @@ const Profile = () => {
       <Modal show={showQR} onHide={handleCloseQR} centered>
         <QrCode url="{hacker.qrCode}" />
       </Modal>
-      <Footer />
     </>
   );
 };
 
-export default Profile;
+export default Profile_component;
