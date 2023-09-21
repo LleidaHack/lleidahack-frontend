@@ -59,9 +59,6 @@ export const HackerStepperForm = (props) => {
       setHack(hackepse);
       setIdentity(istMeMario);
       let hasDailyhack = false;
-      if (getInfo.startsWith("https://github")) {
-        hasDailyhack = true;
-      }
       setDailyReady(hasDailyhack);
     };
 
