@@ -3,21 +3,32 @@ import "src/components/Home/Timer.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import dayjs from "dayjs";
 
-const defaultRemainingTime = {
-  seconds: "00",
-  minutes: "00",
-  hours: "00",
-  days: "00",
-  months: "00",
-};
+
 
 const CountdownTimer = (props) => {
-  const [remainingTime, setRemainingTime] = useState(defaultRemainingTime);
-
+  
   const timestampDayjs = dayjs(props.startTime);
   const eventendDayjs = dayjs(props.endTime);
   const nowDayjs = dayjs();
   const active = Boolean(props.timerActive);
+
+  let countdown
+
+  if (timestampDayjs.diff(nowDayjs, "seconds") >= 0) {
+    countdown = timestampDayjs;
+  } else {
+    countdown = eventendDayjs;
+  }
+
+  const defaultRemainingTime = {
+    seconds: padWithZeros(countdown.diff(nowDayjs, "seconds") % 60, 2),
+    minutes: padWithZeros(countdown.diff(nowDayjs, "minutes") % 60, 2),
+    hours: padWithZeros(countdown.diff(nowDayjs, "hours") % 24, 2),
+    days: padWithZeros(countdown.diff(nowDayjs, "days") % 30, 2),
+    months: countdown.diff(nowDayjs, "months"),
+  };
+
+  const [remainingTime, setRemainingTime] = useState(defaultRemainingTime);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
