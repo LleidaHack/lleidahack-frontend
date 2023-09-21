@@ -7,7 +7,7 @@ const Profile = () => {
   return (
     <>
       <Header />
-      <Profile_component/>
+      <Profile_component />
       <Footer />
     </>
   );
