@@ -128,6 +128,8 @@ export const HackerStepperForm = () => {
                     { value: "M", label: "M" },
                     { value: "L", label: "L" },
                     { value: "XL", label: "XL" },
+                    { value: "XXL", label: "XXL" },
+                    { value: "XXXL", label: "XXXL" },
                   ]}
                 />
               </div>

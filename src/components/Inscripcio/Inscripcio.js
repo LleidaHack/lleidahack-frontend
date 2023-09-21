@@ -23,6 +23,7 @@ const InscripcioForm = () => {
     { value: "L", label: "L" },
     { value: "XL", label: "XL" },
     { value: "XXL", label: "XXL" },
+    { value: "XXXL", label: "XXXL" },
   ];
 
   const meetOptions = [

@@ -12,12 +12,13 @@ const MainTitle = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
+
   async function handleShow() {
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
     } else if (
-      checkToken().then((key) => {
-        return key["detail"] == "Invalid token or expired token.";
+      await checkToken().then((key) => {
+        return !key["success"];
       })
     ) {
       localStorage.setItem("nextScreen", "/inscripcio");
@@ -26,6 +27,7 @@ const MainTitle = () => {
       navigate("/inscripcio");
     }
   }
+
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => {
     localStorage.setItem("nextScreen", "/inscripcio");
