@@ -10,7 +10,7 @@ export async function fetchPlus({
   saveLoginInfo = false,
   nextScreen,
   loginAuth,
-  ignorePoppup = false
+  ignorePoppup = false,
 }) {
   const headers = { "Content-Type": "application/json" };
   if (hasUserauth || loginAuth)
@@ -27,16 +27,17 @@ export async function fetchPlus({
     query = `?${Object.entries(Query)
       .map(([key, value]) => `${key}=${value}`)
       .join("&")}`;
-  if (process.env.REACT_APP_DEBUG === 'true') console.log("headers: ", args);
+  if (process.env.REACT_APP_DEBUG === "true") console.log("headers: ", args);
   return fetch(process.env.REACT_APP_DOMAIN + Url + query, args)
     .then((response) => {
-      if (process.env.REACT_APP_DEBUG === 'true') console.log("response: ", response);
+      if (process.env.REACT_APP_DEBUG === "true")
+        console.log("response: ", response);
       if (hasUserauth && response.status === 403 && !ignorePoppup)
         mostrarPopupHandler();
       return response.json();
     })
     .then((data) => {
-      if (process.env.REACT_APP_DEBUG === 'true') console.log("data: ", data);
+      if (process.env.REACT_APP_DEBUG === "true") console.log("data: ", data);
       if (saveLoginInfo) {
         localStorage.setItem("userToken", data.access_token);
         localStorage.setItem("userID", data.user_id);

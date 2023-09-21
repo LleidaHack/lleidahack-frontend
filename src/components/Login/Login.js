@@ -19,14 +19,16 @@ const LoginPage = () => {
     try {
       await login(values);
       if (localStorage.getItem("userToken") !== "undefined") {
-        if (process.env.REACT_APP_DEBUG === 'true') console.log("Login successful");
+        if (process.env.REACT_APP_DEBUG === "true")
+          console.log("Login successful");
         if (localStorage.getItem("nextScreen") !== "undefined"){
           const move = localStorage.getItem("nextScreen")
           localStorage.removeItem("nextScreen")
           navigate(move);
         } else navigate("/");
       } else {
-        if (process.env.REACT_APP_DEBUG === 'true') console.error("Login unsuccessful");
+        if (process.env.REACT_APP_DEBUG === "true")
+          console.error("Login unsuccessful");
         setFieldError("password", "Correu o contrasenya incorrectes");
       }
     } catch (error) {
