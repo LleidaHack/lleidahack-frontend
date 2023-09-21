@@ -102,7 +102,6 @@ body {
     background-color: var(--primary);
     z-index: 1;
     flex-direction: column;
-    
   }
 
   .navbar-toggler {
@@ -110,7 +109,6 @@ body {
     border: none;
     outline: none;
     cursor: pointer;
-    
   }
 
   .navbar-toggler .navbar-toggler-icon {
@@ -121,7 +119,7 @@ body {
     display: none;
   }
 
-  .peperse{
+  .peperse {
     max-width: 100%;
     scale: 0.85;
   }
@@ -146,8 +144,6 @@ body {
   max-width: 100%;
 }
 
-
-
 .popup-contenter {
   display: none;
   position: fixed;
@@ -162,13 +158,11 @@ body {
   z-index: 100;
   border-radius: 5px;
   max-width: 22rem;
-
 }
 
 .popup-contenter.active {
   display: block;
   opacity: 1; /* Al hacerse visible, la opacidad es 1 */
-  
 }
 
 .popup-options button {
@@ -180,21 +174,20 @@ body {
   padding: 20px;
 }
 
-.buttonsFlex{
+.buttonsFlex {
   display: flex;
   justify-content: space-between;
 }
 
-.InfoProfile{
+.InfoProfile {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column; /* Cambia la dirección principal a columna */
-
 }
 
-.profileImage{
+.profileImage {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%; /* Hace que el div sea un círculo */
@@ -202,11 +195,10 @@ body {
   border: 2px solid var(--primary);
 }
 
-.Profile{
+.Profile {
   width: 100%; /* La imagen ocupará todo el círculo */
   height: 100%; /* La imagen ocupará todo el círculo */
   object-fit: cover; /* Ajusta el tamaño de la imagen para que cubra el círculo */
-
 }
 
 .apuntat-buttonex {
@@ -220,15 +212,13 @@ body {
 
 .apuntat-buttonex:hover {
   background-color: var(--primary);
-
 }
 
-
-.fa-user{
+.fa-user {
   margin-right: 2rem;
 }
 
-.profileImage2{
+.profileImage2 {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%; /* Hace que el div sea un círculo */
@@ -236,43 +226,34 @@ body {
   border: 0.5px solid var(--secondary);
 }
 
-.Profile2{
+.Profile2 {
   width: 100%; /* La imagen ocupará todo el círculo */
   height: 100%; /* La imagen ocupará todo el círculo */
-  object-fit:cover; /* Ajusta el tamaño de la imagen para que cubra el círculo */
-
+  object-fit: cover; /* Ajusta el tamaño de la imagen para que cubra el círculo */
 }
 
-.logOut{
+.logOut {
   text-decoration: none;
   color: var(--black);
   transition: color 0.2s ease-in-out;
 }
 
-.logOut:hover{
-color: red;
+.logOut:hover {
+  color: red;
 }
 
-
-
-
-
 @media (max-width: 768px) {
-
-  .popup-contenter{
+  .popup-contenter {
     align-items: center;
     width: 16rem;
-
   }
 
-  .peperse{
+  .peperse {
     max-width: 100%;
     scale: 1;
   }
 
-  .apuntat-buttonex{
+  .apuntat-buttonex {
     scale: 0.9;
   }
-
-
 }

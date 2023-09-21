@@ -55,8 +55,7 @@
   top: -1000px;
 }
 
-
-.backgrounder{
+.backgrounder {
   background-color: var(--primary);
   background-image: url(../../icons/icons_home.png);
   background-size: cover;
@@ -64,8 +63,7 @@
   overflow: hidden;
 }
 
-
-.imagelogo{ 
+.imagelogo {
   justify-content: center;
   text-align: center;
 }
@@ -78,21 +76,15 @@
   margin-bottom: 2rem;
 }
 
-
 .apuntat-button {
-
   display: inline-block; /* Asegura que el botón no desaparezca al hacer zoom */
 }
 
-
 @media (max-width: 768px) {
-
-  .rowe{
+  .rowe {
     height: 24vh;
   }
-
 }
-
 
 .magic_div {
   padding-top: 5vh;
