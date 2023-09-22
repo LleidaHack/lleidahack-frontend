@@ -28,7 +28,7 @@ const Team = (props) => {
         .required("Codi de l'equip requerit")
         .matches(
           /^#[0-9]{6}$/,
-          "El format ha de ser #XXXXXX on les Xs són números"
+          "El format ha de ser #XXXXXX on les Xs són números",
         ),
     });
 
