@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required("Contrasenya requerida"),
 });
 
-const LoginPage = ({nextScreen}) => {
+const LoginPage = ({ nextScreen }) => {
   const navigate = useNavigate();
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
