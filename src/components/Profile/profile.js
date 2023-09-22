@@ -60,24 +60,17 @@ const Profile_component = () => {
         return response_1;
       })
       .then(async (response) => {
-        if (response.length) setTeam({
-          ...response[0]
-        });
-        team1 = response[0]
+        team1 = {...response[0]}
         return response.length
           ? await getHackerGroupMembers(response[0].id)
           : [];
       })
       .then((response) => {
-        setTeam({
-          ...team,
-          members: response,
-        });
-        if (response.length>0) team1 = {
-          ...team1,
-          members: response.members
-        }
-        setTeam(team1);
+        if (response.members.length>0)
+          setTeam({
+            ...team1,
+            members: [...response.members],
+          });
       });
   }, []);
 
@@ -148,7 +141,7 @@ const Profile_component = () => {
 
           {isUser ? <Join /> : <></>}
 
-          <Team team={team} is_user={isUser} has_team={Boolean(team)} />
+          <Team team={team} is_user={isUser} />
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">

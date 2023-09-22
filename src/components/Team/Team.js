@@ -11,7 +11,6 @@ import * as Yup from "yup";
 
 const Team = (props) => {
   let team = props.team;
-  console.log("inteam",team)
   let is_user = props.is_user;
 
   const [showCreateTeam, setShowCreateTeam] = useState(false);
@@ -151,12 +150,12 @@ const Team = (props) => {
         <p>El teu equip:</p>
         <Container className="p-2">
           <Row className="g-3 justify-content-center">
-            {team.members?team.members.map((member, index) => (
+            {team.members.map((member, index) => (
               <Col className="col-3" key={index}>
                 <div className="p-3 text-center bg-white">
                   <img
                     className="team-member-image bg-black"
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                    src={member.is_image_url ? member.image : "https://xsgames.co/randomusers/avatar.php?g=pixel"}
                     alt=""
                   />
                   <p className="team-member-name">{member.name}</p>
@@ -165,7 +164,7 @@ const Team = (props) => {
                   </Button>
                 </div>
               </Col>
-            )):<></>}
+            ))}
           </Row>
         </Container>
       </Container>
