@@ -21,7 +21,8 @@ import { getHackerById } from "src/services/HackerService";
 import { months } from "moment";
 
 const Profile = () => {
-  const { hacker_id } = useParams();
+  let { hacker_id } = useParams();
+  if (!hacker_id) hacker_id = localStorage.getItem("userID");
 
   const startDate = new Date(2022, 10, 25);
   const endDate = new Date(2022, 10, 27);
