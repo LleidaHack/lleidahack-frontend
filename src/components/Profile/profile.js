@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "src/palette.css";
 import "./Profile.css";
 import Modal from "react-bootstrap/Modal";
@@ -17,7 +17,6 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
-import Header from "src/components/Header/Header.js";
 import { getHackerById, getHackerGroups } from "src/services/HackerService";
 import { getHackerGroupMembers } from "src/services/HackerGroupService";
 
@@ -54,24 +53,21 @@ const Profile_component = () => {
       hacker_id = localStorage.getItem("userID");
     }
     getHackerById(hacker_id)
-      .then((response) => {
+      .then(async (response) => {
         setHacker(response);
-        return getHackerGroups(hacker_id).then((response) => {
-          return response;
-        });
+        const response_1 = await getHackerGroups(hacker_id);
+        return response_1;
       })
-      .then((response) => {
+      .then(async (response) => {
         if (response.length) setTeam(response[0]);
-        console.log("suic1!", response);
+        console.log(team);
         return response.length
-          ? getHackerGroupMembers(response[0].id).then((response) => {
+          ? await getHackerGroupMembers(response[0].id).then((response) => {
               return response;
             })
           : [];
       })
       .then((response) => {
-        console.log("suic", response.members);
-        console.log(hacker);
         setTeam({
           ...team,
           members: response,
@@ -82,7 +78,7 @@ const Profile_component = () => {
   return (
     <>
       <div className="p-bg-black text-white">
-        <div className="container-fluid container-xxl">
+        <div className="container-xxl">
           {/* User info and qr */}
           <div className="row align-middle mx-auto my-3">
             {/* User Image */}

@@ -96,17 +96,17 @@ const InfoSponsors = ({ id }) => {
     if (xarxes) {
       text = [
         <a href={linkedintag} target="_blank" rel="noreferrer" className="rel">
-          <i class="fa-brands fa-linkedin" /> LinkedIn
+          <i className="fa-brands fa-linkedin" /> LinkedIn
         </a>,
         "|",
         <a href={webtag} target="_blank" rel="noreferrer" className="rel">
-          <i class="fa-solid fa-globe" /> Web
+          <i className="fa-solid fa-globe" /> Web
         </a>,
       ];
     } else {
       text = [
         <a href={linkedintag} target="_blank" rel="noreferrer" className="rel">
-          <i class="fa-brands fa-linkedin" /> LinkedIn
+          <i className="fa-brands fa-linkedin" /> LinkedIn
         </a>,
       ];
     }
@@ -117,7 +117,7 @@ const InfoSponsors = ({ id }) => {
           <h1 className="title-Info-sponsors">- {SpnName} -</h1>
           <br />
 
-          <p class="text-aftTitle">
+          <p className="text-aftTitle">
             Benvingut/da <br /> al panell de patrocinador
           </p>
           <br />

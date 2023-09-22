@@ -19,13 +19,13 @@ const LinkAccounts = () => {
         </Link>
       </section>
 
-      <div class="separator"> o també </div>
+      <div className="separator"> o també </div>
 
       <section className="Inferior-Part">
         <p>Crea un compte</p>
         <br />
         <div className="GridContainer">
-          <div class="columna">
+          <div className="columna">
             <div className="iconContainer">
               <svg
                 width="55"
@@ -45,7 +45,7 @@ const LinkAccounts = () => {
             </Link>
           </div>
 
-          {/*<div class="columna">
+          {/*<div className="columna">
                     <div className="iconContainer">
                         <svg width="83" height="80" viewBox="0 0 83 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.6457 4.11426H7.17442C6.44441 4.11426 5.85254 4.70613 5.85254 5.43613C5.85254 6.16614 6.44441 6.75801 7.17442 6.75801H13.6457C14.3757 6.75801 14.9675 6.16614 14.9675 5.43613C14.9675 4.70613 14.3757 4.11426 13.6457 4.11426Z" fill="#F5F5F5"/>
@@ -73,7 +73,7 @@ const LinkAccounts = () => {
           {
             //TODO: Veure si s'acaba necesitant o no i si no es necesita, borrar-ho
           }
-          {/* <div class="columna">
+          {/* <div className="columna">
             <div className="iconContainer">
               <svg
                 width="81"
