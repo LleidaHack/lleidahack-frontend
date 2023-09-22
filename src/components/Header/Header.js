@@ -131,7 +131,7 @@ const Header = () => {
                 //Aixo es quan no existeix sesió
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
-                    <i class="fa-solid fa-user"></i>
+                    <i className="fa-solid fa-user"></i>
                   </Link>
                 </li>
               )}
@@ -161,7 +161,7 @@ const Header = () => {
               <Link to="/" className="logOut" onClick={logOut}>
                 <p>
                   {" "}
-                  <i class="fa-solid fa-door-open"></i> Surt de la sesió
+                  <i className="fa-solid fa-door-open"></i> Surt de la sesió
                 </p>
               </Link>
             </>

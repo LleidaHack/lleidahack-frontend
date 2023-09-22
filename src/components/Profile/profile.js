@@ -58,18 +58,16 @@ const Profile_component = () => {
         const response_1 = await getHackerGroups(hacker_id);
         return response_1;
       })
-      .then((response) => {
+      .then(async (response) => {
         if (response.length) setTeam(response[0]);
-        console.log("suic1!", response);
+        console.log(team);
         return response.length
-          ? getHackerGroupMembers(response[0].id).then((response) => {
+          ? await getHackerGroupMembers(response[0].id).then((response) => {
               return response;
             })
           : [];
       })
       .then((response) => {
-        console.log("suic", response.members);
-        console.log(hacker);
         setTeam({
           ...team,
           members: response,

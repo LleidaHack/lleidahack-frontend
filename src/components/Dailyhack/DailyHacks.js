@@ -247,8 +247,8 @@ const Dailyhacks = () => {
           <section className="upload">
             <h1 className="title2 title-underline">Premis </h1>
 
-            <div class="contenedorx">
-              <div class="tarjeta ">
+            <div className="contenedorx">
+              <div className="tarjeta ">
                 <img
                   src="https://media.discordapp.net/attachments/991404325941289070/1150854311543316540/image_48.png?width=1014&height=675"
                   alt="Imagen 2"
@@ -258,7 +258,7 @@ const Dailyhacks = () => {
                   Razer Huntsman V2 (Purple Switch)
                 </p>
               </div>
-              <div class="tarjeta ">
+              <div className="tarjeta ">
                 <img
                   src="https://media.discordapp.net/attachments/991404325941289070/1150854312533164133/image_47.png?width=539&height=404"
                   alt="Imagen 1"
@@ -266,7 +266,7 @@ const Dailyhacks = () => {
                 <h2 className="title3">2n </h2>
                 <p className="descriptionss">Logitech G733 LIGHTSPEED</p>
               </div>
-              <div class="tarjeta ">
+              <div className="tarjeta ">
                 <img
                   src="https://media.discordapp.net/attachments/991404325941289070/1150854313036492800/image_46.png?width=1038&height=675"
                   alt="Imagen 3"
