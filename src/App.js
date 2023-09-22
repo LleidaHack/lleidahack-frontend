@@ -13,6 +13,7 @@ import Login from "src/pages/Login";
 import Entrances from "src/pages/UsersEntrance.js";
 import Dailyhack from "src/pages/Dailyhack.js";
 import RequireAuth from "src/modules/RequireAuth";
+import ResetPassword from "./pages/ResetPassword";
 
 export default function App() {
   useEffect(() => {
@@ -29,28 +30,45 @@ export default function App() {
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contacte" element={<Contacte />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/perfil" element={
-            <RequireAuth>
-              <Profile />
-            </RequireAuth>} />
-          <Route path="/perfil/:hacker_id" element={
-            <RequireAuth>
-              <Profile />
-            </RequireAuth>} />
+          <Route
+            path="/perfil"
+            element={
+              <RequireAuth>
+                <Profile />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/perfil/:hacker_id"
+            element={
+              <RequireAuth>
+                <Profile />
+              </RequireAuth>
+            }
+          />
           <Route path="/login" element={<Login />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
-          <Route path="/inscripcio" element={
-            <RequireAuth>
-              <Inscripcio />
-            </RequireAuth>} />
-          <Route path="/dailyhacks" element={
-            <RequireAuth>
-              <Dailyhack />
-            </RequireAuth>} />
+          <Route
+            path="/inscripcio"
+            element={
+              <RequireAuth>
+                <Inscripcio />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/dailyhacks"
+            element={
+              <RequireAuth>
+                <Dailyhack />
+              </RequireAuth>
+            }
+          />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
