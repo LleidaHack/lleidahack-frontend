@@ -1,7 +1,3 @@
-// src/components/Forms/HackerForm.js
-
-import Header from "src/components/Header/Header.js";
-import Footer from "src/components/Footer/Footer.js";
 import "src/components/Forms/HackerForm.css";
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
@@ -45,11 +41,10 @@ export const HackerStepperForm = () => {
   const [isUrl, setIsUrl] = useState(false);
   const onSubmit = async (values, { setSubmitting }) => {
     const pfp = isUrl ? urlImage : avatar;
-    console.log(values);
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
       nickname: values.nickname,
-      password: "string",
+      password: "123456789Aa",
       birthdate: values.birthDate,
       food_restrictions: "",
       email: values.email,
@@ -61,7 +56,6 @@ export const HackerStepperForm = () => {
       github: "",
       linkedin: "",
     };
-    console.log(hacker);
     signupHacker(hacker);
     setSubmitting(false);
   };
@@ -71,13 +65,12 @@ export const HackerStepperForm = () => {
     setIsUrl(false);
   };
   const handleImageUrlChange = (event) => {
-    console.log(event);
     setUrlImage(event.target.value);
     setIsUrl(true);
   };
 
   return (
-    <div id="hackerForm" className="custom-form">
+    <div id="hackerForm" className="custom-form" style={{ flex: 1 }}>
       <FormikStepper
         /// Accept all Formik props
         onSubmit={onSubmit}
@@ -135,6 +128,8 @@ export const HackerStepperForm = () => {
                     { value: "M", label: "M" },
                     { value: "L", label: "L" },
                     { value: "XL", label: "XL" },
+                    { value: "XXL", label: "XXL" },
+                    { value: "XXXL", label: "XXXL" },
                   ]}
                 />
               </div>
@@ -192,15 +187,3 @@ export const HackerStepperForm = () => {
     </div>
   );
 };
-
-const HackerForm = () => {
-  return (
-    <>
-      <Header />
-      <HackerStepperForm />
-      <Footer />
-    </>
-  );
-};
-
-export default HackerForm;

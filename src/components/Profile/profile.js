@@ -16,14 +16,14 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
-import Header from "src/components/Header/Header.js";
-import { getHackerById } from "src/services/HackerService";
-import { months } from "moment";
+import { getHackerById, getHackerGroups } from "src/services/HackerService";
+import { getHackerGroupMembers } from "src/services/HackerGroupService";
 
-const Profile = () => {
+const Profile_component = () => {
   let { hacker_id } = useParams();
-  if (!hacker_id) hacker_id = localStorage.getItem("userID");
-
+  const [isUser, setIsUser] = useState(
+    hacker_id === localStorage.getItem("userID")
+  );
   const startDate = new Date(2022, 10, 25);
   const endDate = new Date(2022, 10, 27);
 
@@ -40,29 +40,32 @@ const Profile = () => {
   const [team, setTeam] = useState(null);
 
   useEffect(() => {
-    console.log(hacker_id);
+    if (process.env.REACT_APP_DEBUG === "true")
+      console.log("hacker id:" + hacker_id);
+    if (!hacker_id) {
+      setIsUser(true);
+      hacker_id = localStorage.getItem("userID");
+    }
     getHackerById(hacker_id)
-      .then((response) => {
+      .then(async (response) => {
         setHacker(response);
-        return response;
+        const response_1 = await getHackerGroups(hacker_id);
+        return response_1;
+      })
+      .then(async (response) => {
+        if (response.length) setTeam(response[0]);
+        console.log(team);
+        return response.length
+          ? await getHackerGroupMembers(response[0].id).then((response) => {
+              return response;
+            })
+          : [];
       })
       .then((response) => {
-        let fetched_team = {
-          id: 1,
-          teamName: "Team name",
-          teamCode: "123456",
-          members: [],
-        };
-        let num_members = 6;
-        for (let i = 0; i < num_members; i++) {
-          fetched_team.members.push({
-            name: "AAA",
-            imageUrl: "aa",
-            profileLink: i,
-          });
-        }
-        setTeam(fetched_team);
-        //setTeam({'id': null});
+        setTeam({
+          ...team,
+          members: response,
+        });
       });
   }, []);
 
@@ -83,8 +86,7 @@ const Profile = () => {
   return (
     <>
       <div className="p-bg-black text-white">
-        <Header />
-        <div className="container-fluid container-xxl">
+        <div className="container-xxl">
           {/* User info and qr */}
           <div className="row align-middle mx-auto my-3">
             {/* User Image */}
@@ -149,10 +151,9 @@ const Profile = () => {
           {/* Accounts link */}
           <LinkAccounts />
 
-          {/* Join Box */}
-          <Join />
+          {isUser ? <Join /> : <></>}
 
-          {team ? <Team team={team} /> : <></>}
+          <Team team={team} is_user={isUser} has_team={Boolean(team)} />
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
@@ -169,6 +170,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
+          <br />
         </div>
       </div>
 
@@ -179,4 +181,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Profile_component;

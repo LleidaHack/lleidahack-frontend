@@ -107,10 +107,14 @@ import {
 } from "src/services/EventManagementService";
 import {
   login,
+  resetPassword,
+  confirmResetPassword,
   refreshToken,
-  confirmEmail,
+  me,
+  verify,
+  resendVerification,
+  checkToken,
 } from "src/services/AuthenticationService";
-import { sendMail } from "src/services/UtilsService";
 import {
   signupCompanyUser,
   getAllCompanyUsers,
@@ -786,23 +790,6 @@ const Testing = () => {
           body: refreshToken,
           params: [],
           status: true,
-        },
-        {
-          body: confirmEmail,
-          params: ["joelros2003@gmail.com"],
-          status: false,
-        },
-      ],
-    },
-    {
-      name: "utils",
-      left: 0,
-      comentaris: "",
-      body: [
-        {
-          body: sendMail,
-          params: ["joelros2003@gmail.com", "xd, hola"],
-          status: false,
         },
       ],
     },
