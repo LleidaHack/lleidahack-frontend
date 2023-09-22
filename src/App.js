@@ -30,11 +30,11 @@ export default function App() {
           <Route path="/contacte" element={<Contacte />} />
           <Route path="/home" element={<Home />} />
           <Route path="/perfil" element={
-            <RequireAuth>
+            <RequireAuth originalRoute="/perfil">
               <Profile />
             </RequireAuth>} />
           <Route path="/perfil/:hacker_id" element={
-            <RequireAuth>
+            <RequireAuth originalRoute="/perfil">
               <Profile />
             </RequireAuth>} />
           <Route path="/login" element={<Login />} />
@@ -44,11 +44,11 @@ export default function App() {
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
           <Route path="/inscripcio" element={
-            <RequireAuth>
+            <RequireAuth originalRoute="/inscripcio">
               <Inscripcio />
             </RequireAuth>} />
           <Route path="/dailyhacks" element={
-            <RequireAuth>
+            <RequireAuth originalRoute="/dailyhacks">
               <Dailyhack />
             </RequireAuth>} />
           <Route path="*" element={<Error404 />} />
