@@ -32,8 +32,8 @@ export async function fetchPlus({
       if (process.env.REACT_APP_DEBUG === "true")
         console.log("response: ", response);
       if (hasUserauth && response.status === 403 && !ignorePoppup)
-        //mostrarPopupHandler();
-        return response.json();
+        {}//mostrarPopupHandler();
+      return response.json();
     })
     .then((data) => {
       if (process.env.REACT_APP_DEBUG === "true") console.log("data: ", data);
