@@ -155,11 +155,11 @@ const Profile = () => {
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
-            <div className="col-12 col-xl-6">
+            {/* <div className="col-12 col-xl-6">
               <Medals />
-            </div>
-            <div className="col-12 col-xl-6">
-              <div className="calendar-container">
+            </div> */}
+            <div className="col-12 col-xl-12 d-flex justify-content-center">
+              <div className="calendar-container mx-auto">
                 <Calendar
                   value={[startDate, endDate]}
                   locale={"ca"}
