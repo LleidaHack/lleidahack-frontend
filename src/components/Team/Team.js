@@ -159,7 +159,7 @@ const Team = (props) => {
                     alt=""
                   />
                   <p className="team-member-name">{member.name}</p>
-                  <Button className="team-button" href={member.profileLink}>
+                  <Button className="team-button" href={"/hackeps/perfil/"+member.id /* //TODO hardcoded*/ }> 
                     Veure perfil
                   </Button>
                 </div>
