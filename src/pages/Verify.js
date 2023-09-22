@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useParams, useSearchParams } from "react-router-dom";
-import { verify } from "src/services/AuthenticationService";
+import { resendVerification, verify } from "src/services/AuthenticationService";
 
 export default function Verify() {
   const [params] = useSearchParams();
@@ -11,13 +11,19 @@ export default function Verify() {
   useEffect(() => {
     async function callService() {
       const res = await verify(params.get("token"));
-      if (res.sucess) window.location = "/";
+      if (res.sucess) window.location = "/hackeps/";
 
       setMessage("Token Expired...");
-      window.alert(
-        "El correu ha caducat, intenta fer login un altre cop per a que tornis a rebre el correu."
+
+      let mail;
+      while (
+        !(mail = window.prompt(
+          "Introdueix el teu mail per tornar a general el token"
+        ))
       );
-      // window.location = "/login";
+
+      resendVerification(mail);
+      window.location = "/hackeps/login";
     }
     callService();
   }, []);
