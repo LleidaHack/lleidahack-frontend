@@ -44,7 +44,7 @@ export const HackerStepperForm = () => {
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
       nickname: values.nickname,
-      password: "123456789",
+      password: "123456789Aa",
       birthdate: values.birthDate,
       food_restrictions: "",
       email: values.email,
