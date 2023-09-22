@@ -25,7 +25,7 @@ const LoginPage = () => {
           const move = localStorage.getItem("nextScreen");
           localStorage.removeItem("nextScreen");
           navigate(move);
-          console.log("redir successful")
+          console.log("redir successful");
         } else navigate("/home");
       } else {
         if (process.env.REACT_APP_DEBUG === "true")
