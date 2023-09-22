@@ -21,11 +21,12 @@ const LoginPage = () => {
       if (localStorage.getItem("userToken") !== "undefined") {
         if (process.env.REACT_APP_DEBUG === "true")
           console.log("Login successful");
-        if (localStorage.getItem("nextScreen") !== "undefined") {
+        if (localStorage.getItem("nextScreen")) {
           const move = localStorage.getItem("nextScreen");
           localStorage.removeItem("nextScreen");
           navigate(move);
-        } else navigate("/");
+          console.log("redir successful")
+        } else navigate("/home");
       } else {
         if (process.env.REACT_APP_DEBUG === "true")
           console.error("Login unsuccessful");
