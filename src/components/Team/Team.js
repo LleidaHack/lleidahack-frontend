@@ -154,12 +154,13 @@ const Team = (props) => {
               <Col className="col-3" key={index}>
                 <div className="p-3 text-center bg-white">
                   <img
+                    style={{aspectRatio: "1/1"}}
                     className="team-member-image bg-black"
                     src={member.is_image_url ? member.image : "https://xsgames.co/randomusers/avatar.php?g=pixel"}
                     alt=""
                   />
                   <p className="team-member-name">{member.name}</p>
-                  <Button className="team-button" href={"/hackeps/perfil/"+member.id /* //TODO hardcoded*/ }> 
+                  <Button className="team-button" href={"/hackeps/perfil/"+member.id /* / /TODO hardcoded*/ }> 
                     Veure perfil
                   </Button>
                 </div>
