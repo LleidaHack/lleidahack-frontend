@@ -46,6 +46,7 @@ const Profile_component = () => {
   const [team, setTeam] = useState(null);
 
   useEffect(() => {
+    let team1 = null
     if (process.env.REACT_APP_DEBUG === "true")
       console.log("hacker id:" + hacker_id);
     if (!hacker_id) {
@@ -59,12 +60,12 @@ const Profile_component = () => {
         return response_1;
       })
       .then(async (response) => {
-        if (response.length) setTeam(response[0]);
-        console.log(team);
+        if (response.length) setTeam({
+          ...response[0]
+        });
+        team1 = response[0]
         return response.length
-          ? await getHackerGroupMembers(response[0].id).then((response) => {
-              return response;
-            })
+          ? await getHackerGroupMembers(response[0].id)
           : [];
       })
       .then((response) => {
@@ -72,6 +73,11 @@ const Profile_component = () => {
           ...team,
           members: response,
         });
+        if (response.length>0) team1 = {
+          ...team1,
+          members: response.members
+        }
+        setTeam(team1);
       });
   }, []);
 
@@ -87,7 +93,7 @@ const Profile_component = () => {
                 <img
                   style={{ aspectRatio: "1/1", width: "15vh" }}
                   className="bg-white border rounded-circle m-auto"
-                  src={"https://xsgames.co/randomusers/avatar.php?g=pixel"}
+                  src={hacker.is_image_url ? hacker.image : "https://xsgames.co/randomusers/avatar.php?g=pixel"}
                 />
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />

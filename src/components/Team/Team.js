@@ -11,8 +11,8 @@ import * as Yup from "yup";
 
 const Team = (props) => {
   let team = props.team;
+  console.log("inteam",team)
   let is_user = props.is_user;
-  let is_in_team = props.isInTeam;
 
   const [showCreateTeam, setShowCreateTeam] = useState(false);
   const handleShowCreateTeam = () => setShowCreateTeam(true);
@@ -46,7 +46,7 @@ const Team = (props) => {
 
     return (
       <>
-        {is_user && is_in_team ? (
+        {is_user ? (
           <Container className="p-bg-grey text-center mt-5 m-0 p-3">
             <h1>Inscripcions</h1>
             <Row className="justify-content-center">
@@ -146,12 +146,12 @@ const Team = (props) => {
     return (
       <Container className="p-bg-grey text-center mt-5 m-0 p-3">
         <h1>
-          {team.teamName} (Codi: #{team.teamCode})
+          {team.name} (Codi: #{team.code})
         </h1>
         <p>El teu equip:</p>
         <Container className="p-2">
           <Row className="g-3 justify-content-center">
-            {team.members.map((member, index) => (
+            {team.members?team.members.map((member, index) => (
               <Col className="col-3" key={index}>
                 <div className="p-3 text-center bg-white">
                   <img
@@ -165,13 +165,13 @@ const Team = (props) => {
                   </Button>
                 </div>
               </Col>
-            ))}
+            )):<></>}
           </Row>
         </Container>
       </Container>
     );
   }
 
-  return <>{is_in_team ? <TeamInfo /> : <TeamButtons />}</>;
+  return <>{team ? <TeamInfo /> : <TeamButtons />}</>;
 };
 export default Team;
