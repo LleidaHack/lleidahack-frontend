@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { FormikStepper, InputField, SelectField } from "formik-stepper";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import pergamino from "src/icons/pergamino.png";
+import pergamino from "src/imgs/dataset-cover.png";
 
 import { getHackeps } from "src/services/EventService.js";
 import { me } from "src/services/AuthenticationService";
@@ -214,8 +214,8 @@ const Dailyhacks = () => {
                   d'aquest, per després automatitzar-ne la traducció a
                   llenguatge escrit.
                   <br />
-                  <br />A partir d'aquest dataset de kaggle:
-                  https://www.kaggle.com/datasets/gti-upm/leapgestrecog que
+                  <br />A partir d'aquest dataset de kaggle ( 
+                  <a  href="https://www.kaggle.com/datasets/gti-upm/leapgestrecog" target="_blank">Kaggle Project</a> ) que
                   consisteix en diverses imatges de mans en diferents posicions
                   es demana realitzar un projecte que consta de dues parts.
                 </p>
