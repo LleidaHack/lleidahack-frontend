@@ -4,7 +4,7 @@ import { HashLink as Link } from "react-router-hash-link";
 
 import "src/components/Header/Header.css";
 import hackIcon from "src/icons/hack_icon_black.png";
-import { me } from "src/services/AuthenticationService";
+import { me, checkToken } from "src/services/AuthenticationService";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -46,9 +46,21 @@ const Header = () => {
 
   const [icon, setUserIcon] = useState(null);
   const [username, writeUserName] = useState(null);
+  const [validToken, setValidToken] = useState(false);
+
 
   useEffect(() => {
     const fetchData = async () => {
+      if(localStorage.getItem("userToken")){
+        const verification = await checkToken()
+        if(verification.success){
+          setValidToken(true)
+        }
+
+
+
+
+      }
       try {
         const info = await me();
         if (info.nickname) {
@@ -57,7 +69,6 @@ const Header = () => {
           setUserIcon(info.image);
         }
       } catch (error) {
-        console.log("El error obtenido es:", error);
       }
     };
 
@@ -103,11 +114,14 @@ const Header = () => {
                   Sponsors
                 </Link>
               </li>
+              {validToken ? (
               <li className="nav-item">
                 <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}>
                   Dailyhack
                 </Link>
               </li>
+              ):(<>
+              </>)}
               <li className="nav-item">
                 <Link to="/faq" className="nav-link" onClick={closeMenu}>
                   FAQ
@@ -119,7 +133,7 @@ const Header = () => {
                 </Link>
               </li>
 
-              {localStorage.getItem("userToken") ? (
+              {validToken ? (
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
                     <div className="profileImage2">
@@ -141,7 +155,7 @@ const Header = () => {
       </nav>
       <div id="popupp" className="popup-contenter">
         <div className="popup-options">
-          {localStorage.getItem("userToken") ? (
+          {validToken ? (
             <>
               <div className="InfoProfile">
                 <div className="profileImage">
