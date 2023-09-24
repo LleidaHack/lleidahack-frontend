@@ -48,7 +48,13 @@ const Join = (props) => {
             <img className="p-5" src={logo} alt="" />
           </div>
           <div className="row text-center">
-            <ManageButton />
+            <a
+              href="/hackeps/inscripcio" //TODO hardcoded??
+              style={{ width: `fit-content`, textDecoration: `none` }}
+              className="py-2 px-4 m-auto text-white p-bg-primary"
+            >
+              Uneix-te
+            </a>
           </div>
         </div>
       </div>

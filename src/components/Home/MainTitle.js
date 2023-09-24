@@ -1,29 +1,45 @@
-// src/components/MainTitle.js
 import "src/components/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import hackLogo from "src/icons/hack_icon_black.png";
+import hackLogo from "src/icons/hackLogo_black_cover.png";
 
 import { useNavigate } from "react-router-dom";
+import { checkToken } from "src/services/AuthenticationService";
 
 const MainTitle = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const handleSignUp = () => navigate("/sign-up");
-  const handleSignIn = () => navigate("/perfil");
+
+  async function handleShow() {
+    if (localStorage.getItem("userToken") === null) {
+      setShow(true);
+    } else if (
+      await checkToken().then((key) => {
+        return !key["success"];
+      })
+    ) {
+      navigate("/login", { state: { nextScreen: "/inscripcio" } });
+    } else {
+      navigate("/inscripcio");
+    }
+  }
+
+  const handleSignUp = () => navigate("/hacker-form");
+  const handleSignIn = () => {
+    navigate("/login", { state: { nextScreen: "/inscripcio" } });
+  };
 
   return (
     <>
-      <div style={{ backgroundColor: "var(--primary)" }}>
+      <div className="backgrounder">
         <div className="fantasma" id="home"></div>
-        <div className="row join-container p-5 text-center m-auto">
+        <div className="magic_div">
           <div className="col-12">
-            <div className="row">
-              <img className="p-5" src={hackLogo} alt="" />
+            <div className="rowe">
+              <img className="imagelogo" src={hackLogo} alt="" />
             </div>
             <div className="row text-center">
               <a

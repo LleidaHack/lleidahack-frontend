@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "src/palette.css";
+import "./Profile.css";
 import Modal from "react-bootstrap/Modal";
 import HSkeleton from "src/components/others/HSkeleton";
 
@@ -16,21 +17,14 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
-import Header from "src/components/Header/Header.js";
-import {
-  getHackerById,
-  getHackerGroups,
-  getHackerEvents,
-} from "src/services/HackerService";
-import {
-  getEventIsHackerRegistered,
-  getEventIsHackerAccepted,
-} from "src/services/EventService";
-const Profile = () => {
-  let { hacker_id } = useParams();
-  hacker_id = hacker_id || localStorage.getItem("userID");
-  const event_id = 1; // TODO Change to the correct event ID. S'ha de fer el fetch de get_hackeps per agafar el id correcte
+import { getHackerById, getHackerGroups } from "src/services/HackerService";
+import { getHackerGroupMembers } from "src/services/HackerGroupService";
 
+const Profile_component = () => {
+  let { hacker_id } = useParams();
+  const [isUser, setIsUser] = useState(
+    hacker_id === localStorage.getItem("userID"),
+  );
   const name = "Nom cognom";
   const usrImage = userIcon;
 
@@ -44,99 +38,56 @@ const Profile = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const navigate = useNavigate();
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
 
   const [hacker, setHacker] = useState(null);
   const [team, setTeam] = useState(null);
-  const [event, setEvent] = useState(null);
-  const [qrCodeLink, setQrCodeLink] = useState(null);
 
   useEffect(() => {
+    if (process.env.REACT_APP_DEBUG === "true")
+      console.log("hacker id:" + hacker_id);
+    if (!hacker_id) {
+      setIsUser(true);
+      hacker_id = localStorage.getItem("userID");
+    }
     getHackerById(hacker_id)
-      .then((response) => {
+      .then(async (response) => {
         setHacker(response);
-        setQrCodeLink(
-          process.env.REACT_APP_DOMAIN + "/user/code/" + response.code,
-        );
-        return response;
+        const response_1 = await getHackerGroups(hacker_id);
+        return response_1;
       })
-      .catch((err) => {
-        alert(err);
+      .then(async (response) => {
+        if (response.length) setTeam(response[0]);
+        console.log(team);
+        return response.length
+          ? await getHackerGroupMembers(response[0].id).then((response) => {
+              return response;
+            })
+          : [];
       })
       .then((response) => {
-        let fetched_team = {
-          id: 1,
-          teamName: "Team name",
-          teamCode: "123456",
-          members: [],
-        };
-        let num_members = 6;
-        for (let i = 0; i < num_members; i++) {
-          fetched_team.members.push({
-            name: "AAA",
-            imageUrl: "aa",
-            profileLink: i,
-          });
-        }
-        setTeam(fetched_team);
-        //setTeam({'id': null});
-      });
-  }, []);
-
-  useEffect(() => {
-    getHackerGroups(hacker_id).then((response) => {
-      console.log(response);
-    });
-  }, []);
-
-  useEffect(() => {
-    getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
-      if (response == true) {
-        setEvent({ event_id: event_id, accepted: true, registered: true });
-        console.log({ event_id: event_id, accepted: true, registered: true });
-      } else {
-        getEventIsHackerRegistered(event_id, hacker_id).then((response) => {
-          if (response == true) {
-            setEvent({ event_id: event_id, accepted: false, registered: true });
-            console.log({
-              event_id: event_id,
-              accepted: false,
-              registered: true,
-            });
-          } else {
-            setEvent({
-              event_id: event_id,
-              accepted: false,
-              registered: false,
-            });
-            console.log({
-              event_id: event_id,
-              accepted: false,
-              registered: false,
-            });
-          }
+        setTeam({
+          ...team,
+          members: response,
         });
-      }
-    });
+      });
   }, []);
 
   return (
     <>
       <div className="p-bg-black text-white">
-        <Header />
-        <div className="container-fluid container-xxl">
+        <div className="container-xxl">
           {/* User info and qr */}
           <div className="row align-middle mx-auto my-3">
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
               {hacker ? (
                 <img
-                  style={{ height: `150px` }}
+                  style={{ aspectRatio: "1/1", width: "15vh" }}
                   className="bg-white border rounded-circle m-auto"
-                  src={hacker.image}
+                  src={"https://xsgames.co/randomusers/avatar.php?g=pixel"}
                 />
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
@@ -163,22 +114,23 @@ const Profile = () => {
             {/* QR Column */}
             <div className="col-12 col-xl-4 mx-auto">
               {hacker ? (
-                <a href="#" onClick={handleShowQR}>
-                  <div className="container qr-container p-bg-primary p-2 text-center m-auto">
-                    <div className="row">
-                      <div className="col-6 my-auto col-sm-12">
-                        Mostra el teu tiquet
-                      </div>
-                      <div className="col-6 col-sm-12">
-                        <img
-                          width="66px"
-                          className="m-auto px-2"
-                          src={qrIcon}
-                        />
-                      </div>
+                <div
+                  className="container qr-container p-bg-primary p-2 text-center m-auto"
+                  onClick={handleShowQR}
+                >
+                  <div className="row">
+                    <div className="col-6 my-auto col-sm-12">
+                      Mostra el teu tiquet
+                    </div>
+                    <div className="col-6 col-sm-12 my-auto">
+                      <img
+                        style={{ aspectRatio: "1/1", width: "70%" }}
+                        className="px-2 mx-auto my-auto"
+                        src={qrIcon}
+                      />
                     </div>
                   </div>
-                </a>
+                </div>
               ) : (
                 <HSkeleton height={"100%"} />
               )}
@@ -188,10 +140,9 @@ const Profile = () => {
           {/* Accounts link */}
           <LinkAccounts />
 
-          {/* Join Box */}
-          <Join event={event} />
+          {isUser ? <Join /> : <></>}
 
-          {team ? <Team team={team} /> : <></>}
+          <Team team={team} is_user={isUser} has_team={Boolean(team)} />
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
@@ -208,14 +159,15 @@ const Profile = () => {
               </div>
             </div>
           </div>
+          <br />
         </div>
       </div>
 
       <Modal show={showQR} onHide={handleCloseQR} centered>
-        <QrCode url={qrCodeLink} />
+        <QrCode url="{hacker.qrCode}" />
       </Modal>
     </>
   );
 };
 
-export default Profile;
+export default Profile_component;
