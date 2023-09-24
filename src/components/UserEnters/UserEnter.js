@@ -40,7 +40,7 @@ const LinkAccounts = () => {
                 />
               </svg>
             </div>
-            <Link to="/hacker-form">
+            <Link to="/sign-up">
               <button className="buttoner">Hacker</button>
             </Link>
           </div>
@@ -132,7 +132,7 @@ const LinkAccounts = () => {
                 />
               </svg>
             </div>
-            <Link to="/hacker-form/lleidahack">
+            <Link to="/sign-up/lleidahack">
               <button className="buttoner">Organitzador</button>
             </Link>
           </div>

@@ -13,6 +13,23 @@ import userIcon from "src/icons/user2.png";
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required("Nom requerit"),
   lastName: Yup.string().required("Cognoms requerits"),
+  password: Yup.string()
+    .min(8, "La contrasenya requereix d'almenys 8 caràcters")
+    .matches(/[0-9]/, "La contrasenya requereix d'almenys un número")
+    .matches(
+      /[a-z]/,
+      "La contrasenya requereix d'almenys una lletra en minúscules",
+    )
+    .matches(
+      /[A-Z]/,
+      "La contrasenya requereix d'almenys una lletra en majúscules",
+    )
+    .matches(/[^\w]/, "La contrasenya requereix almenys d'un símbol")
+    .required("Contrasenya requerida"),
+  confirmPassword: Yup.string().oneOf(
+    [Yup.ref("password"), null],
+    "La contrasenya ha de coincidir",
+  ),
   birthDate: Yup.date().required("Data de naixment requerida"),
   email: Yup.string()
     .email("The email must be a valid email address.")
@@ -44,7 +61,7 @@ export const HackerStepperForm = () => {
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
       nickname: values.nickname,
-      password: "123456789Aa",
+      password: values.password,
       birthdate: values.birthDate,
       food_restrictions: "",
       email: values.email,
@@ -56,7 +73,8 @@ export const HackerStepperForm = () => {
       github: "",
       linkedin: "",
     };
-    signupHacker(hacker);
+    const signupResponse = signupHacker(hacker);
+    console.log(signupResponse);
     setSubmitting(false);
   };
 
@@ -104,6 +122,12 @@ export const HackerStepperForm = () => {
               <h1 className="white-color">Crear compte</h1>
               <InputField name="firstName" type="text" label="Nom" />
               <InputField name="lastName" type="text" label="Cognoms" />
+              <InputField name="password" type="password" label="Contrasenya" />
+              <InputField
+                name="confirmPassword"
+                type="password"
+                label="Repetir contrasenya"
+              />
               <InputField
                 name="birthDate"
                 type="date"
@@ -124,6 +148,7 @@ export const HackerStepperForm = () => {
                   name="shirtSize"
                   label="Talla de samarreta"
                   options={[
+                    { value: "XS", label: "XS" },
                     { value: "S", label: "S" },
                     { value: "M", label: "M" },
                     { value: "L", label: "L" },

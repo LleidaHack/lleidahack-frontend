@@ -38,7 +38,7 @@ export default function App() {
               <Profile />
             </RequireAuth>} />
           <Route path="/login" element={<Login />} />
-          <Route path="/hacker-form" element={<HackerForm />} />
+          <Route path="/sign-up" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
