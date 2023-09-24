@@ -55,20 +55,17 @@ const Header = () => {
         const verification = await checkToken()
         if(verification.success){
           setValidToken(true)
+
+          try {
+            const info = await me();
+            if (info.nickname) {
+              //Si te nickname vol dir que la obtencio de dades es posible i que tambe hi haurá imatge
+              writeUserName(info.nickname);
+              setUserIcon(info.image);
+            }
+          } catch (error) {
+          }
         }
-
-
-
-
-      }
-      try {
-        const info = await me();
-        if (info.nickname) {
-          //Si te nickname vol dir que la obtencio de dades es posible i que tambe hi haurá imatge
-          writeUserName(info.nickname);
-          setUserIcon(info.image);
-        }
-      } catch (error) {
       }
     };
 
