@@ -30,28 +30,44 @@ export default function App() {
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contacte" element={<Contacte />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/perfil" element={
-            <RequireAuth originalRoute="/perfil">
-              <Profile />
-            </RequireAuth>} />
-          <Route path="/perfil/:hacker_id" element={
-            <RequireAuth originalRoute="/perfil">
-              <Profile />
-            </RequireAuth>} />
+          <Route
+            path="/perfil"
+            element={
+              <RequireAuth originalRoute="/perfil">
+                <Profile />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/perfil/:hacker_id"
+            element={
+              <RequireAuth originalRoute="/perfil">
+                <Profile />
+              </RequireAuth>
+            }
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
-          <Route path="/inscripcio" element={
-            <RequireAuth originalRoute="/inscripcio">
-              <Inscripcio />
-            </RequireAuth>} />
-          <Route path="/dailyhacks" element={
-            <RequireAuth originalRoute="/dailyhacks">
-              <Dailyhack />
-            </RequireAuth>} />
+          <Route
+            path="/inscripcio"
+            element={
+              <RequireAuth originalRoute="/inscripcio">
+                <Inscripcio />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/dailyhacks"
+            element={
+              <RequireAuth originalRoute="/dailyhacks">
+                <Dailyhack />
+              </RequireAuth>
+            }
+          />
           <Route path="*" element={<Error404 />} />
           <Route path="/forget-password" element={<PasswordForget />} />
         </Routes>
