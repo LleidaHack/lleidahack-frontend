@@ -106,3 +106,8 @@
     margin-top: 10px; /* Agrega espacio entre el último elemento y los anteriores */
   }
 }
+
+
+.image{
+  width: 20rem;
+}
