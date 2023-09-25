@@ -1,30 +1,34 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "src/components/Login/Login.css";
-import logo from "src/icons/llhlogow.png";
+import logo from "src/icons/hackLogoWellDone.png";
 import { login } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required("Usuari o correu requerit"),
-  password: Yup.string().required("Contrassenya requerida"),
+  password: Yup.string().required("Contrasenya requerida"),
 });
 
-const LoginPage = () => {
+const LoginPage = ({ nextScreen }) => {
   const navigate = useNavigate();
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
       await login(values);
-
       if (localStorage.getItem("userToken") !== "undefined") {
-        console.log("Login successful");
-        navigate("/");
+        if (process.env.REACT_APP_DEBUG === "true")
+          console.log("Login successful");
+        if (nextScreen) {
+          navigate(nextScreen);
+          console.log("redir successful");
+        } else navigate("/home");
       } else {
-        console.error("Login unsuccessful");
-        setFieldError("password", "Correu o contrassenya incorrectes");
+        if (process.env.REACT_APP_DEBUG === "true")
+          console.error("Login unsuccessful");
+        setFieldError("password", "Correu o contrasenya incorrectes");
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -65,7 +69,7 @@ const LoginPage = () => {
                         )}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="password">Contrassenya</label>
+                        <label htmlFor="password">Contrasenya</label>
                         <Field
                           type="password"
                           name="password"
@@ -90,7 +94,7 @@ const LoginPage = () => {
                           </Link>
                         </p>
                         <p className="mb-0">
-                          <Link to="/sign-up" className="custom-link">
+                          <Link to="/hacker-form" className="custom-link">
                             Encara no tens compte?
                           </Link>
                         </p>

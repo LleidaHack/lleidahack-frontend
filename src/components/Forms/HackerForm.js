@@ -1,5 +1,3 @@
-// src/components/Forms/HackerForm.js
-
 import "src/components/Forms/HackerForm.css";
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
@@ -46,7 +44,7 @@ export const HackerStepperForm = () => {
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
       nickname: values.nickname,
-      password: "string",
+      password: "123456789Aa",
       birthdate: values.birthDate,
       food_restrictions: "",
       email: values.email,
@@ -58,7 +56,6 @@ export const HackerStepperForm = () => {
       github: "",
       linkedin: "",
     };
-    console.log(hacker);
     signupHacker(hacker);
     setSubmitting(false);
   };
@@ -131,6 +128,8 @@ export const HackerStepperForm = () => {
                     { value: "M", label: "M" },
                     { value: "L", label: "L" },
                     { value: "XL", label: "XL" },
+                    { value: "XXL", label: "XXL" },
+                    { value: "XXXL", label: "XXXL" },
                   ]}
                 />
               </div>

@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Contacte from "src/pages/Contacte";
 import Error404 from "src/pages/Error404";
 import FAQPage from "src/pages/FAQ";
 import Home from "src/pages/Home";
-import Profile from "src/pages/Profile/Profile.js";
+import Profile from "src/pages/Profile.js";
 import HackerForm from "src/pages/HackerSignup";
 import Testing from "src/components/others/Testing";
 import Inscripcio from "src/pages/Inscripcio";
@@ -13,28 +13,12 @@ import Verify from "./pages/Verify";
 import Login from "src/pages/Login";
 import Entrances from "src/pages/UsersEntrance.js";
 import Dailyhack from "src/pages/Dailyhack.js";
-import PopupInicioSesion from "src/components/popup/popup";
-import { eventEmitter } from "src/modules/emmiterModule";
+import RequireAuth from "src/modules/RequireAuth";
+import PasswordForget from "./pages/ForgetPassword";
 
 export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
-  }, []);
-
-  const [tokenState, SetStateToken] = useState(false);
-
-  useEffect(() => {
-    const mostrarPopup = (mostrar) => {
-      if (mostrar) {
-        SetStateToken(true);
-      }
-    };
-
-    eventEmitter.on("mostrarPopup", mostrarPopup);
-
-    return () => {
-      eventEmitter.removeListener("mostrarPopup", mostrarPopup);
-    };
   }, []);
 
   // Simulación de detección de token caducado
@@ -47,8 +31,22 @@ export default function App() {
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contacte" element={<Contacte />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/perfil" element={<Profile />} />
-          <Route path="/perfil/:hacker_id" element={<Profile />} />
+          <Route
+            path="/perfil"
+            element={
+              <RequireAuth originalRoute="/perfil">
+                <Profile />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/perfil/:hacker_id"
+            element={
+              <RequireAuth originalRoute="/perfil">
+                <Profile />
+              </RequireAuth>
+            }
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/validate-email/" element={<Verify />} />
           <Route path="/hacker-form" element={<HackerForm />} />
@@ -56,16 +54,26 @@ export default function App() {
           <Route path="/testing" element={<Testing />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
-          <Route path="/inscripcio" element={<Inscripcio />} />
-          <Route path="/dailyhacks" element={<Dailyhack />} />
+          <Route
+            path="/inscripcio"
+            element={
+              <RequireAuth originalRoute="/inscripcio">
+                <Inscripcio />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/dailyhacks"
+            element={
+              <RequireAuth originalRoute="/dailyhacks">
+                <Dailyhack />
+              </RequireAuth>
+            }
+          />
           <Route path="*" element={<Error404 />} />
+          <Route path="/forget-password" element={<PasswordForget />} />
         </Routes>
       </Router>
-
-      <PopupInicioSesion
-        mostrar={tokenState}
-        cerrarPopup={() => SetStateToken(false)}
-      />
     </div>
   );
 }
