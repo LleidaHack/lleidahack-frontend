@@ -13,6 +13,7 @@ import Login from "src/pages/Login";
 import Entrances from "src/pages/UsersEntrance.js";
 import Dailyhack from "src/pages/Dailyhack.js";
 import RequireAuth from "src/modules/RequireAuth";
+import PasswordForget from "./pages/ForgetPassword";
 
 export default function App() {
   useEffect(() => {
@@ -68,6 +69,7 @@ export default function App() {
             }
           />
           <Route path="*" element={<Error404 />} />
+          <Route path="/forget-password" element={<PasswordForget />} />
         </Routes>
       </Router>
     </div>

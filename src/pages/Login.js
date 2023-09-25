@@ -5,12 +5,10 @@ import LoginPage from "src/components/Login/Login";
 import { useLocation } from "react-router-dom";
 
 const Login = (props) => {
-  let nextScreen;
+  let nextScreen = "/home";
   const { state } = useLocation();
-  if (props) {
+  if (state !== null) {
     nextScreen = state.nextScreen;
-  } else {
-    nextScreen = "/home";
   }
   return (
     <div>
