@@ -3,13 +3,19 @@ import { useState } from "react";
 
 import MetaTest from "src/components/others/MetaTest";
 import {
+  getAllUsers,
+  getUserById,
+  getUserByCode,
+  addUser,
+} from "src/services/UserService";
+import {
   signupHacker,
   getAllHackers,
   getHackerById,
-  addHacker,
+  updateHacker,
+  //addHacker,
   banHackerById,
   unbanHackerById,
-  updateHacker,
   deleteHacker,
   getHackerEvents,
   getHackerGroups,
@@ -23,6 +29,7 @@ import {
   getHackerGroupMembers,
   addHackerToGroup,
   removeHackerFromGroup,
+  addHackerToGroupByCode,
 } from "src/services/HackerGroupService";
 import {
   signupLleidaHacker,
@@ -30,7 +37,7 @@ import {
   getLleidaHackerById,
   updateLleidaHacker,
   deleteLleidaHacker,
-  addLleidaHacker,
+  //addLleidaHacker,
   acceptLleidaHacker,
   rejectLleidaHacker,
   activateLleidaHacker,
@@ -63,28 +70,51 @@ import {
   updateEvent,
   deleteEvent,
   createEvent,
+  getEventIsHackerRegistered,
+  getEventIsHackerAccepted,
   getEventMeals,
   getEventParticipants,
   getEventSponsors,
   getEventGroups,
-  addEventParticipant,
-  deleteEventParticipant,
+  addEventGroup,
+  removeEventGroup,
+  //addEventParticipant,
+  //removeEventParticipant,
   addEventSponsor,
-  deleteEventSponsor,
+  removeEventSponsor,
+  getHackeps,
+  getEventHackerGroup,
 } from "src/services/EventService";
 import {
+  addDailyhack,
+  updateDailyhack,
+  getDailyhackById,
+  deleteDailyhack,
+  getDailyhacks,
   registerHackerToEvent,
   unregisterHackerToEvent,
   participateHackerToEvent,
   unparticipateHackerToEvent,
   acceptHackerToEvent,
+  acceptGroupToEvent,
   rejectHackerToEvent,
+  rejectGroupToEvent,
   getPendingHackers,
+  getPendingHackersGruped,
+  getRejectedHackers,
   getEventStatus,
   hackerEatsFoodFrom,
 } from "src/services/EventManagementService";
-import { confirmEmail, login } from "src/services/AuthenticationService";
-import { sendMail } from "src/services/UtilsService";
+import {
+  login,
+  resetPassword,
+  confirmResetPassword,
+  refreshToken,
+  me,
+  verify,
+  resendVerification,
+  checkToken,
+} from "src/services/AuthenticationService";
 import {
   signupCompanyUser,
   getAllCompanyUsers,
@@ -103,6 +133,21 @@ import {
 const Testing = () => {
   const [autoTest, setAutoTest] = useState(false);
 
+  const [user, setuser] = useState({
+    name: "string",
+    nickname: "elver",
+    password: "12345678a",
+    birthdate: "2003-06-20",
+    food_restrictions: "NO",
+    email: "joelros2000@gmail.com",
+    telephone: "693931391",
+    address: "casa",
+    shirt_size: "L",
+    image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+    is_image_url: true,
+    code: "",
+  });
+
   const [hacker, setHacker] = useState({
     name: "aaaaaaaa",
     nickname: "elver",
@@ -113,7 +158,8 @@ const Testing = () => {
     telephone: "693931391",
     address: "casa",
     shirt_size: "L",
-    image_id: "0",
+    image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+    is_image_url: true,
     banned: true,
     github: "string",
     linkedin: "string",
@@ -135,7 +181,8 @@ const Testing = () => {
         telephone: "693931391",
         address: "casa",
         shirt_size: "L",
-        image_id: "0",
+        image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+        is_image_url: true,
         banned: true,
         github: "string",
         linkedin: "string",
@@ -156,7 +203,8 @@ const Testing = () => {
     telephone: "693931391",
     address: "casa",
     shirt_size: "L",
-    image_id: "0",
+    image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+    is_image_url: true,
     role: "string",
     nif: "48255629L",
     student: true,
@@ -196,7 +244,8 @@ const Testing = () => {
         telephone: "string",
         address: "string",
         shirt_size: "string",
-        image_id: "string",
+        image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+        is_image_url: true,
         banned: true,
         role: "string",
         nif: "48255629L",
@@ -219,7 +268,8 @@ const Testing = () => {
     telephone: "string",
     address: "string",
     shirt_size: "string",
-    image_id: "string",
+    image: "https://i.ytimg.com/vi/viszafbV3lg/hqdefault.jpg",
+    is_image_url: true,
     role: "string",
     company_id: 1,
     id: 1,
@@ -232,7 +282,36 @@ const Testing = () => {
     id: 1,
   });
 
+  const url = "https://google.es";
+
   const Fuctions = [
+    {
+      name: "user",
+      left: 0,
+      comentaris: "funcionen sense bearer",
+      body: [
+        {
+          body: getAllUsers,
+          params: [],
+          status: false,
+        },
+        {
+          body: getUserById,
+          params: [user.id],
+          status: false,
+        },
+        {
+          body: getUserByCode,
+          params: [user.code],
+          status: false,
+        },
+        {
+          body: addUser,
+          params: [user],
+          status: false,
+        },
+      ],
+    },
     {
       name: "hacker",
       left: 0,
@@ -258,11 +337,11 @@ const Testing = () => {
           params: [hacker],
           status: false,
         },
-        {
+        /*{
           body: addHacker,
           params: [hacker],
           status: false,
-        },
+        },*/
         {
           body: banHackerById,
           params: [74],
@@ -335,13 +414,17 @@ const Testing = () => {
           params: [hacker.id, grup.id],
           status: false,
         },
+        {
+          body: addHackerToGroupByCode,
+          params: [hacker.id, grup.id],
+          status: false,
+        },
       ],
     },
     {
       name: "lleidaHacker",
       left: 0,
-      comentaris:
-        "funcionen sense bearer, get lleidahacker by id no va peruqe no hi ha lleidahackers",
+      comentaris: "funcionen sense bearer",
       body: [
         {
           body: signupLleidaHacker,
@@ -368,11 +451,11 @@ const Testing = () => {
           params: [lleidahacker.id],
           status: false,
         },
-        {
+        /*{
           body: addLleidaHacker,
           params: [lleidahacker],
           status: false,
-        },
+        },*/
         {
           body: acceptLleidaHacker,
           params: [lleidahacker.id],
@@ -505,11 +588,6 @@ const Testing = () => {
           status: true,
         },
         {
-          body: createEvent,
-          params: [event],
-          status: false,
-        },
-        {
           body: getEventById,
           params: [event.id],
           status: true,
@@ -522,6 +600,26 @@ const Testing = () => {
         {
           body: deleteEvent,
           params: [event.id],
+          status: false,
+        },
+        {
+          body: createEvent,
+          params: [event],
+          status: false,
+        },
+        {
+          body: getEventIsHackerRegistered,
+          params: [event.id, hacker.id],
+          status: false,
+        },
+        {
+          body: getEventIsHackerAccepted,
+          params: [event.id, hacker.id],
+          status: false,
+        },
+        {
+          body: getEventMeals,
+          params: [event.id, company.id],
           status: false,
         },
         {
@@ -540,57 +638,43 @@ const Testing = () => {
           status: false,
         },
         {
+          body: addEventGroup,
+          params: [event.id, grup.id],
+          status: false,
+        },
+        {
+          body: removeEventGroup,
+          params: [event.id, grup.id],
+          status: false,
+        },
+        /*{
           body: addEventParticipant,
           params: [event.id, hacker.id],
           status: false,
         },
         {
-          body: deleteEventParticipant,
+          body: removeEventParticipant,
           params: [event.id, hacker.id],
           status: false,
-        },
+        },*/
         {
           body: addEventSponsor,
           params: [event.id, company.id],
           status: false,
         },
         {
-          body: deleteEventSponsor,
+          body: removeEventSponsor,
           params: [event.id, company.id],
           status: false,
         },
         {
-          body: getEventMeals,
-          params: [event.id, company.id],
+          body: getHackeps,
+          params: [],
           status: false,
         },
-      ],
-    },
-    {
-      name: "auth",
-      left: 0,
-      comentaris: "",
-      body: [
         {
-          body: login,
-          params: [hacker],
-          status: true,
-        },
-        {
-          body: confirmEmail,
-          params: ["joelros2003@gmail.com"],
-          status: false,
-        },
-      ],
-    },
-    {
-      name: "utils",
-      left: 0,
-      comentaris: "",
-      body: [
-        {
-          body: sendMail,
-          params: ["joelros2003@gmail.com", "xd, hola"],
+          body: getEventHackerGroup,
+          params: [event.id, hacker.id],
           status: false,
         },
       ],
@@ -600,6 +684,31 @@ const Testing = () => {
       left: 0,
       comentaris: "",
       body: [
+        {
+          body: addDailyhack,
+          params: [event.id, hacker.id, url],
+          status: false,
+        },
+        {
+          body: updateDailyhack,
+          params: [event.id, hacker.id, url],
+          status: false,
+        },
+        {
+          body: getDailyhackById,
+          params: [event.id, hacker.id],
+          status: false,
+        },
+        {
+          body: deleteDailyhack,
+          params: [event.id, hacker.id],
+          status: false,
+        },
+        {
+          body: getDailyhacks,
+          params: [event.id],
+          status: false,
+        },
         {
           body: registerHackerToEvent,
           params: [hacker.id, event.id],
@@ -626,12 +735,32 @@ const Testing = () => {
           status: false,
         },
         {
+          body: acceptGroupToEvent,
+          params: [grup.id, event.id],
+          status: false,
+        },
+        {
           body: rejectHackerToEvent,
           params: [hacker.id, event.id],
           status: false,
         },
         {
+          body: rejectGroupToEvent,
+          params: [grup.id, event.id],
+          status: false,
+        },
+        {
           body: getPendingHackers,
+          params: [event.id],
+          status: false,
+        },
+        {
+          body: getPendingHackersGruped,
+          params: [event.id],
+          status: false,
+        },
+        {
+          body: getRejectedHackers,
           params: [event.id],
           status: false,
         },
@@ -644,6 +773,23 @@ const Testing = () => {
           body: hackerEatsFoodFrom,
           params: [hacker.id, 1, event.id],
           status: false,
+        },
+      ],
+    },
+    {
+      name: "auth",
+      left: 0,
+      comentaris: "",
+      body: [
+        {
+          body: login,
+          params: [hacker],
+          status: true,
+        },
+        {
+          body: refreshToken,
+          params: [],
+          status: true,
         },
       ],
     },

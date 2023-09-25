@@ -1,6 +1,15 @@
 .custom-form {
   justify-content: center;
+  min-height: 100vh;
   background: var(--secondary);
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.custom-form-Dailyhack {
+  width: 100%;
+  justify-content: center;
   display: flex;
   align-items: center;
   padding-bottom: 20px;
@@ -42,4 +51,10 @@ h1 {
 
 .input-error {
   color: red !important;
+}
+
+.avatar-image {
+  border-style: solid;
+  border-color: var(--primary);
+  border-width: 5px;
 }
