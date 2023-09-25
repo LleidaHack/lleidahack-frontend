@@ -122,8 +122,12 @@ const Header = () => {
               {localStorage.getItem("userToken") ? (
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
-                    <div className="profileImage2">
-                      <img className="Profile2" src={icon}></img>
+                    <div className="profileImage2 d-flex">
+                      {icon !== "string" ? (
+                        <img className="Profile" src={icon}></img>
+                      ) : (
+                        <i class="fa-solid fa-user m-auto"></i>
+                      )}
                     </div>
                   </Link>
                 </li>
