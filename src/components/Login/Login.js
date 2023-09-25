@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required("Contrasenya requerida"),
 });
 
-const LoginPage = () => {
+const LoginPage = ({ nextScreen }) => {
   const navigate = useNavigate();
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
@@ -21,10 +21,8 @@ const LoginPage = () => {
       if (localStorage.getItem("userToken") !== "undefined") {
         if (process.env.REACT_APP_DEBUG === "true")
           console.log("Login successful");
-        if (localStorage.getItem("nextScreen")) {
-          const move = localStorage.getItem("nextScreen");
-          localStorage.removeItem("nextScreen");
-          navigate(move);
+        if (nextScreen) {
+          navigate(nextScreen);
           console.log("redir successful");
         } else navigate("/home");
       } else {

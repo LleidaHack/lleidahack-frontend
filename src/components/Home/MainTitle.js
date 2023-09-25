@@ -21,8 +21,7 @@ const MainTitle = () => {
         return !key["success"];
       })
     ) {
-      localStorage.setItem("nextScreen", "/inscripcio");
-      navigate("/login");
+      navigate("/login", { state: { nextScreen: "/inscripcio" } });
     } else {
       navigate("/inscripcio");
     }
@@ -30,8 +29,7 @@ const MainTitle = () => {
 
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => {
-    localStorage.setItem("nextScreen", "/inscripcio");
-    navigate("/login");
+    navigate("/login", { state: { nextScreen: "/inscripcio" } });
   };
 
   return (

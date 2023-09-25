@@ -14,6 +14,7 @@ import Entrances from "src/pages/UsersEntrance.js";
 import Dailyhack from "src/pages/Dailyhack.js";
 import RequireAuth from "src/modules/RequireAuth";
 import ResetPassword from "./pages/ResetPassword";
+import PasswordForget from "./pages/ForgetPassword";
 
 export default function App() {
   useEffect(() => {
@@ -33,7 +34,7 @@ export default function App() {
           <Route
             path="/perfil"
             element={
-              <RequireAuth>
+              <RequireAuth originalRoute="/perfil">
                 <Profile />
               </RequireAuth>
             }
@@ -41,7 +42,7 @@ export default function App() {
           <Route
             path="/perfil/:hacker_id"
             element={
-              <RequireAuth>
+              <RequireAuth originalRoute="/perfil">
                 <Profile />
               </RequireAuth>
             }
@@ -56,7 +57,7 @@ export default function App() {
           <Route
             path="/inscripcio"
             element={
-              <RequireAuth>
+              <RequireAuth originalRoute="/inscripcio">
                 <Inscripcio />
               </RequireAuth>
             }
@@ -64,12 +65,13 @@ export default function App() {
           <Route
             path="/dailyhacks"
             element={
-              <RequireAuth>
+              <RequireAuth originalRoute="/dailyhacks">
                 <Dailyhack />
               </RequireAuth>
             }
           />
           <Route path="*" element={<Error404 />} />
+          <Route path="/forget-password" element={<PasswordForget />} />
         </Routes>
       </Router>
     </div>
