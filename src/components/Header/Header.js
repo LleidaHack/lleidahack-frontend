@@ -148,8 +148,12 @@ const Header = () => {
           {localStorage.getItem("userToken") ? (
             <>
               <div className="InfoProfile">
-                <div className="profileImage">
-                  <img className="Profile" src={icon}></img>
+                <div className="profileImage d-flex">
+                  {icon !== "string" ? (
+                    <img className="Profile" src={icon}></img>
+                  ) : (
+                    <i class="fa-solid fa-user m-auto text-black"></i>
+                  )}
                 </div>
                 <p className="title3">{username}</p>
               </div>
