@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { resendVerification, verify } from "src/services/AuthenticationService";
 
 export default function Verify() {
   const [params] = useSearchParams();
+  const navigate = useNavigate();
 
   const [message, setMessage] = useState("Verificant...");
 
   useEffect(() => {
     async function callService() {
       const res = await verify(params.get("token"));
-      if (res.sucess) window.location = "/hackeps/";
+      if (res.sucess) navigate("/");
 
       setMessage("Token Expired...");
 
