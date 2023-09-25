@@ -9,15 +9,26 @@ export default function ResetPassword() {
   const [firstPassword, setFirstPassword] = useState();
   const [secondPassword, setSecondPassword] = useState();
 
+  const [errorMsg, setErrorMsg] = useState();
+
+  function handleResetPassword(e) {
+    e.preventDefault();
+
+    if (firstPassword !== secondPassword)
+      setErrorMsg("Les contrassenyes no coincideixen");
+  }
+
   return (
     <>
       <Header />
       <div className="containter">
         <form
-          action=""
-          className="p-bg-black p-3 mx-auto col-12 col-xxl-3 my-3"
+          onSubmit={(e) => handleResetPassword(e)}
+          className="p-bg-black p-3 mx-auto col-12 col-xxl-4 my-3"
         >
-          <h2 className="text-light mb-3 ms-3">Restablir Contrassenya</h2>
+          <h2 className="text-light mb-3 ms-3 text-center">
+            Restablir Contrassenya
+          </h2>
           <div className="w-75 mx-auto">
             <div className="form-group p-2">
               <label className="form-label">Nova Contrassenya</label>
@@ -43,6 +54,9 @@ export default function ResetPassword() {
               <li>Majuscules, Minuscules, Numeros</li>
               <li>8 caracters minim</li>
             </ul>
+            <small className="text-center text-danger mx-auto d-block">
+              {errorMsg}
+            </small>
             <button className="btn w-100 mt-2">Restablir Contrassenya</button>
           </div>
         </form>
