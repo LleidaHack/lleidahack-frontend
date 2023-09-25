@@ -24,11 +24,11 @@ const Profile_component = () => {
   const [isUser, setIsUser] = useState(
     hacker_id === localStorage.getItem("userID")
   );
+
   const startDate = new Date(2022, 10, 25);
   const endDate = new Date(2022, 10, 27);
 
   useEffect(() => {
-    // Coloca el scroll en la parte superior cuando el componente se monta
     window.scrollTo(0, 0);
   }, []);
 
@@ -95,7 +95,7 @@ const Profile_component = () => {
                 <img
                   style={{ aspectRatio: "1/1", width: "15vh" }}
                   className="bg-white border rounded-circle m-auto"
-                  src={"https://xsgames.co/randomusers/avatar.php?g=pixel"}
+                  src={hacker.image}
                 />
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
