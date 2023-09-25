@@ -1,30 +1,41 @@
 import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import { confirmResetPassword } from "src/services/AuthenticationService";
 
 export default function ResetPassword() {
-  // const [params] = useSearchParams();
+  const [params] = useSearchParams();
+  const navigate = useNavigate();
 
   const [firstPassword, setFirstPassword] = useState();
   const [secondPassword, setSecondPassword] = useState();
 
   const [errorMsg, setErrorMsg] = useState();
 
-  function handleResetPassword(e) {
+  async function handleResetPassword(e) {
     e.preventDefault();
 
-    if (firstPassword !== secondPassword)
+    if (firstPassword !== secondPassword) {
       setErrorMsg("Les contrassenyes no coincideixen");
+      return;
+    }
+
+    await confirmResetPassword(params.get("token"), secondPassword);
+
+    navigate("/");
   }
 
   return (
     <>
       <Header />
-      <div className="containter">
+      <div
+        className="containter-fluid p-bg-black d-flex"
+        style={{ height: "90vh" }}
+      >
         <form
           onSubmit={(e) => handleResetPassword(e)}
-          className="p-bg-black p-3 mx-auto col-12 col-xxl-4 my-3"
+          className="p-bg-black p-3 mx-auto my-auto col-12 col-xxl-4 "
         >
           <h2 className="text-light mb-3 ms-3 text-center">
             Restablir Contrassenya
