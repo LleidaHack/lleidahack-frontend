@@ -92,11 +92,15 @@ const Profile_component = () => {
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
               {hacker ? (
-                <img
-                  style={{ aspectRatio: "1/1", width: "15vh" }}
-                  className="bg-white border rounded-circle m-auto"
-                  src={hacker.image}
-                />
+                hacker.image !== "string" ? (
+                  <img
+                    style={{ aspectRatio: "1/1", width: "15vh" }}
+                    className="bg-white border rounded-circle m-auto"
+                    src={hacker.image}
+                  />
+                ) : (
+                  <i class="fa-solid fa-user fa-8x"></i>
+                )
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
               )}
