@@ -18,6 +18,7 @@ import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
 import { getHackerById, getHackerGroups } from "src/services/HackerService";
 import { getHackerGroupMembers } from "src/services/HackerGroupService";
+import UserNotFound from "./UserNotFound";
 
 const Profile_component = () => {
   let { hacker_id } = useParams();
@@ -82,6 +83,9 @@ const Profile_component = () => {
 
     return `${~~days} dies`;
   }
+  if (hacker)
+    if (hacker.message === "Hacker not found")
+      return <UserNotFound></UserNotFound>;
 
   return (
     <>
