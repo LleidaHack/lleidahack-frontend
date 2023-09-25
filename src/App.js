@@ -9,6 +9,7 @@ import HackerForm from "src/pages/HackerSignup";
 import Testing from "src/components/others/Testing";
 import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
+import Verify from "./pages/Verify";
 import Login from "src/pages/Login";
 import Entrances from "src/pages/UsersEntrance.js";
 import Dailyhack from "src/pages/Dailyhack.js";
@@ -48,6 +49,7 @@ export default function App() {
             }
           />
           <Route path="/login" element={<Login />} />
+          <Route path="/validate-email/" element={<Verify />} />
           <Route path="/confirm-password" element={<ResetPassword />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
