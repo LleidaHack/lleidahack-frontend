@@ -50,7 +50,7 @@ export default function App() {
           <Route path="/perfil" element={<Profile />} />
           <Route path="/perfil/:hacker_id" element={<Profile />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/reset-password/" element={<Verify />} />
+          <Route path="/validate-email/" element={<Verify />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
