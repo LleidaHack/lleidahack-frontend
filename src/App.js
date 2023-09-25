@@ -13,6 +13,7 @@ import Login from "src/pages/Login";
 import Entrances from "src/pages/UsersEntrance.js";
 import Dailyhack from "src/pages/Dailyhack.js";
 import RequireAuth from "src/modules/RequireAuth";
+import ResetPassword from "./pages/ResetPassword";
 import PasswordForget from "./pages/ForgetPassword";
 
 export default function App() {
@@ -47,6 +48,7 @@ export default function App() {
             }
           />
           <Route path="/login" element={<Login />} />
+          <Route path="/confirm-password" element={<ResetPassword />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
