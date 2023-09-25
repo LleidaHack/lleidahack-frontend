@@ -169,7 +169,7 @@ const Header = () => {
                 </Link>
               </div>
               <br></br>
-              <Link to="/" className="logOut" onClick={logOut}>
+              <Link to="/home" className="logOut" onClick={logOut}>
                 <p>
                   {" "}
                   <i className="fa-solid fa-door-open"></i> Surt de la sesió
