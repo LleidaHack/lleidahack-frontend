@@ -19,7 +19,7 @@ export default function Verify() {
       let mail;
       while (
         !(mail = window.prompt(
-          "Introdueix el teu mail per tornar a general el token"
+          "Introdueix el teu mail per tornar a general el token",
         ))
       );
 
