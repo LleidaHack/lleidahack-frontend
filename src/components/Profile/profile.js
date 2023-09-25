@@ -22,7 +22,7 @@ import { getHackerGroupMembers } from "src/services/HackerGroupService";
 const Profile_component = () => {
   let { hacker_id } = useParams();
   const [isUser, setIsUser] = useState(
-    hacker_id === localStorage.getItem("userID"),
+    hacker_id === localStorage.getItem("userID")
   );
   const startDate = new Date(2022, 10, 25);
   const endDate = new Date(2022, 10, 27);
@@ -86,9 +86,9 @@ const Profile_component = () => {
   return (
     <>
       <div className="p-bg-black text-white">
-        <div className="container-xxl">
+        <div className="container-xxl pt-3">
           {/* User info and qr */}
-          <div className="row align-middle mx-auto my-3">
+          <div className="row align-middle mx-auto mb-3">
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
               {hacker ? (
