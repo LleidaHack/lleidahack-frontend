@@ -149,7 +149,7 @@ const Profile_component = () => {
           </div>
 
           {/* Accounts link */}
-          <LinkAccounts />
+          {hacker && <LinkAccounts hacker={hacker} />}
 
           {isUser ? <Join /> : <></>}
 
