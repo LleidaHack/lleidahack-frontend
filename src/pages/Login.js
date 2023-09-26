@@ -7,13 +7,9 @@ import { useLocation } from "react-router-dom";
 const Login = (props) => {
   let nextScreen;
   const { state } = useLocation();
-  console.log("pro:",props)
-  console.log("sta:",state)
   if (state) {
     nextScreen = state.nextScreen;
-  } else {
-    nextScreen = "/home";
-  }
+  } else {nextScreen = "/home"}
   return (
     <div>
       <Header />
