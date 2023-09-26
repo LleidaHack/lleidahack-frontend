@@ -98,7 +98,8 @@ const Profile_component = () => {
               {hacker ? (
                 hacker.image !== "string" ? (
                   <img
-                    style={{ aspectRatio: "1/1", width: "15vh" }}
+                    id="profile-image"
+                    style={{ aspectRatio: "1/1", width: "25vh" }}
                     className="bg-white border rounded-circle m-auto"
                     src={hacker.image}
                   />

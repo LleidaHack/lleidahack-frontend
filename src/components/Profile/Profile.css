@@ -21,3 +21,11 @@
 .qr-container:hover {
   cursor: pointer;
 }
+
+#profile-image {
+  position: relative;
+  color: white;
+  object-fit: cover;
+  border-color: var(--primary) !important;
+  border-width: 3px !important;
+}

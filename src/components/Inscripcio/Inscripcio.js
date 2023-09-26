@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "src/components/Inscripcio/Inscripcio.css";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -34,6 +34,19 @@ const InscripcioForm = () => {
     { value: "Altre mitjà", label: "Altre mitjà" },
   ];
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+          const hackepsEvent = await getHackeps();
+          setHackepsEvent(hackepsEvent)
+      } catch (error) {
+        console.log("El error obtenido es:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleSubmit = (values) => {
     //TODO: estudis, centre, lloc, coneixer? on va això?
     console.log(values);
@@ -51,6 +64,7 @@ const InscripcioForm = () => {
   };
 
   const [cvFile, setCvFile] = useState("");
+  const [hackepsEvent, setHackepsEvent] = useState(null);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];

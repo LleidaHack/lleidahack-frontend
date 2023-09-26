@@ -123,7 +123,7 @@ const Header = () => {
                   </Link>
                 </li>
               ) : (
-                //Aixo es quan no existeix sesió
+                //Aixo es quan no existeix sessió
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
                     <i className="fa-solid fa-user" />
@@ -160,7 +160,7 @@ const Header = () => {
               <Link to="/" className="logOut" onClick={logOut}>
                 <p>
                   {" "}
-                  <i className="fa-solid fa-door-open" /> Surt de la sesió
+                  <i className="fa-solid fa-door-open" /> Surt de la sessió
                 </p>
               </Link>
             </>
