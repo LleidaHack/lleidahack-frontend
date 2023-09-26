@@ -1,61 +1,81 @@
-import { encode as btoa } from "base-64";
+import { fetchPlus } from "src/modules/fetchModule";
 
 export async function login(user) {
-  return fetch(process.env.REACT_APP_DOMAIN + "/login", {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Basic " + btoa(`${user.email}:${user.password}`),
+  return fetchPlus({
+    Url: "/auth/login",
+    loginAuth: user,
+    saveLoginInfo: true,
+  });
+}
+
+export async function resetPassword(e_mail) {
+  return fetchPlus({
+    Url: "/auth/reset-password",
+    Method: "POST",
+    Query: { email: e_mail },
+  });
+}
+
+export async function confirmResetPassword(Token, Password) {
+  return fetchPlus({
+    Url: "/auth/confirm-reset-password",
+    Method: "POST",
+    Query: {
+      token: Token,
+      password: Password,
     },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      localStorage.setItem("userToken", data.access_token);
-      localStorage.setItem("userID", data.user_id);
-      localStorage.setItem("refreshToken", data.refresh_token);
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  });
 }
 
 export async function refreshToken() {
-  return fetch(process.env.REACT_APP_DOMAIN + "/refresh_token", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      querry: { refresh_token: localStorage.getItem("refreshToken") },
-    }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-      localStorage.setItem("userToken", data.access_token);
-      localStorage.setItem("userID", data.user_id);
-      localStorage.setItem("refreshToken", data.refresh_token);
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  return fetchPlus({
+    Url: "/auth/refresh-token",
+    Method: "POST",
+    Query: { refresh_token: localStorage.getItem("refreshToken") },
+    hasUserauth: true,
+    saveLoginInfo: true,
+  });
 }
 
-export async function confirmEmail(e_mail) {
-  return fetch(process.env.REACT_APP_DOMAIN + "/confirm-email", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+export async function me() {
+  return fetchPlus({
+    Url: "/auth/me",
+    hasUserauth: true,
+  });
+}
+
+export async function verify(Token) {
+  return fetchPlus({
+    Url: "/auth/verify",
+    Method: "POST",
+    Query: { token: Token },
+  });
+}
+
+export async function resendVerification(e_mail) {
+  return fetchPlus({
+    Url: "/auth/resend-verification",
+    Method: "POST",
+    Query: { email: e_mail },
+  });
+}
+
+export async function checkToken() {
+  return fetchPlus({
+    Url: "/auth/check_token",
+    hasUserauth: true,
+    ignorePoppup: true,
+  });
+}
+
+export async function contacte(Name, Title, e_mail, Message) {
+  return fetchPlus({
+    Url: "/auth/contact",
+    Query: {
+      name: Name,
+      title: Title,
+      email: e_mail,
+      message: Message,
     },
-    body: JSON.stringify({ querry: { email: e_mail } }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("response: ", data);
-    })
-    .catch((error) => {
-      console.warn(error);
-      return [];
-    });
+  });
 }

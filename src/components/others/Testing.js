@@ -107,10 +107,14 @@ import {
 } from "src/services/EventManagementService";
 import {
   login,
+  resetPassword,
+  confirmResetPassword,
   refreshToken,
-  confirmEmail,
+  me,
+  verify,
+  resendVerification,
+  checkToken,
 } from "src/services/AuthenticationService";
-import { sendMail } from "src/services/UtilsService";
 import {
   signupCompanyUser,
   getAllCompanyUsers,
@@ -129,7 +133,7 @@ import {
 const Testing = () => {
   const [autoTest, setAutoTest] = useState(false);
 
-  const [user, setuser] = useState({
+  const [user] = useState({
     name: "string",
     nickname: "elver",
     password: "12345678a",
@@ -162,7 +166,7 @@ const Testing = () => {
     id: 29,
   });
 
-  const [grup, setGrup] = useState({
+  const [grup] = useState({
     name: "string",
     description: "string",
     id: 2,
@@ -188,7 +192,7 @@ const Testing = () => {
     leader: 0,
   });
 
-  const [lleidahacker, setLleidahacker] = useState({
+  const [lleidahacker] = useState({
     name: "joel",
     id: 6,
     nickname: "elver",
@@ -208,7 +212,7 @@ const Testing = () => {
     github: "a",
   });
 
-  const [event, setEvent] = useState({
+  const [event] = useState({
     name: "string",
     id: 1,
     description: "string",
@@ -221,7 +225,7 @@ const Testing = () => {
     max_sponsors: 0,
   });
 
-  const [company, setCompany] = useState({
+  const [company] = useState({
     name: "string",
     description: "string",
     website: "string",
@@ -254,7 +258,7 @@ const Testing = () => {
     ],
   });
 
-  const [companyUser, setCompanyUser] = useState({
+  const [companyUser] = useState({
     name: "string",
     nickname: "string",
     password: "string",
@@ -271,13 +275,15 @@ const Testing = () => {
     id: 1,
   });
 
-  const [meal, setMeal] = useState({
+  const [meal] = useState({
     name: "macarrons",
     description: "macarrons (amb lleteta",
     event_id: 1,
     id: 1,
   });
-  const refresh_token = "a";
+
+  const url = "https://google.es";
+
   const Fuctions = [
     {
       name: "user",
@@ -296,7 +302,7 @@ const Testing = () => {
         },
         {
           body: getUserByCode,
-          params: [code.code],
+          params: [user.code],
           status: false,
         },
         {
@@ -781,26 +787,39 @@ const Testing = () => {
           status: true,
         },
         {
+          body: resetPassword,
+          params: ["joelros2003@gmail.com"],
+          status: true,
+        },
+        {
+          body: confirmResetPassword,
+          params: ["", "123456789aA"], //token
+          status: true,
+        },
+        {
           body: refreshToken,
           params: [],
           status: true,
         },
         {
-          body: confirmEmail,
-          params: ["joelros2003@gmail.com"],
-          status: false,
+          body: me,
+          params: [],
+          status: true,
         },
-      ],
-    },
-    {
-      name: "utils",
-      left: 0,
-      comentaris: "",
-      body: [
         {
-          body: sendMail,
-          params: ["joelros2003@gmail.com", "xd, hola"],
-          status: false,
+          body: verify,
+          params: [""], //token
+          status: true,
+        },
+        {
+          body: resendVerification,
+          params: [hacker.email],
+          status: true,
+        },
+        {
+          body: checkToken,
+          params: [],
+          status: true,
         },
       ],
     },
@@ -843,7 +862,7 @@ const Testing = () => {
       body: [
         {
           body: getMeals,
-          params: [companyUser],
+          params: [event.id],
           status: false,
         },
         {
@@ -853,17 +872,17 @@ const Testing = () => {
         },
         {
           body: updateMeal,
-          params: [companyUser.id],
+          params: [event, meal],
           status: false,
         },
         {
           body: deleteMeal,
-          params: [companyUser],
+          params: [event, meal.id],
           status: false,
         },
         {
           body: createMeal,
-          params: [companyUser.id],
+          params: [meal],
           status: false,
         },
       ],

@@ -1,4 +1,5 @@
 .The-Grand-Phather {
+  min-height: 100vh;
   height: auto;
   background-color: var(--secondary);
   display: flex;

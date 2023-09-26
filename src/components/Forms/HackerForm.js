@@ -1,7 +1,3 @@
-// src/components/Forms/HackerForm.js
-
-import Header from "src/components/Header/Header.js";
-import Footer from "src/components/Footer/Footer.js";
 import "src/components/Forms/HackerForm.css";
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
@@ -47,9 +43,10 @@ const HackerPanel = () => {
 
 export const HackerStepperForm = () => {
   const [avatar, setAvatar] = useState(null);
-
+  const [urlImage, setUrlImage] = useState("");
+  const [isUrl, setIsUrl] = useState(false);
   const onSubmit = async (values, { setSubmitting }) => {
-    console.log(values);
+    const pfp = isUrl ? urlImage : avatar;
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
       nickname: values.nickname,
@@ -60,8 +57,8 @@ export const HackerStepperForm = () => {
       telephone: values.phone,
       address: "",
       shirt_size: values.shirtSize,
-      image: avatar,
-      is_image_url: false,
+      image: pfp,
+      is_image_url: isUrl,
       github: "",
       linkedin: "",
     };
@@ -72,12 +69,19 @@ export const HackerStepperForm = () => {
 
   const handleImageChange = (event) => {
     setAvatar(event.base64);
+    setIsUrl(false);
   };
+  const handleImageUrlChange = (event) => {
+    setUrlImage(event.target.value);
+    setIsUrl(true);
+  };
+
   return (
-    <div id="hackerForm" className="custom-form">
+    <div id="hackerForm" className="custom-form" style={{ flex: 1 }}>
       <FormikStepper
         /// Accept all Formik props
         onSubmit={onSubmit}
+        isSubmiting={true}
         initialValues={{
           firstName: "",
           lastName: "",
@@ -102,7 +106,7 @@ export const HackerStepperForm = () => {
       >
         <FormikStepper.Step label="Informació personal">
           <Row>
-            <HackerPanel></HackerPanel>
+            <HackerPanel />
             <Col>
               <h1 className="white-color">Crear compte</h1>
               <InputField name="firstName" type="text" label="Nom" />
@@ -119,7 +123,7 @@ export const HackerStepperForm = () => {
         </FormikStepper.Step>
         <FormikStepper.Step label="Contacte">
           <Row>
-            <HackerPanel></HackerPanel>
+            <HackerPanel />
             <Col>
               <h1 className="white-color">Crear compte</h1>
               <InputField name="phone" type="text" label="Telèfon" />
@@ -141,23 +145,41 @@ export const HackerStepperForm = () => {
               </div>
             </Col>
           </Row>
-          </FormikStepper.Step>
-          <FormikStepper.Step label="Avatar" >
+        </FormikStepper.Step>
+        <FormikStepper.Step label="Avatar">
           <Row>
             <Col>
-              {avatar ? (
+              {isUrl && urlImage !== "" ? (
                 <img
-                  style={{ height: `150px`, width: `150px` }}
+                  style={{ height: "150px", width: "150px" }}
+                  className="avatar-image bg-white rounded-circle m-auto"
+                  src={urlImage}
+                  alt="avatar"
+                />
+              ) : avatar ? (
+                <img
+                  style={{ height: "150px", width: "150px" }}
                   className="avatar-image bg-white rounded-circle m-auto"
                   src={avatar}
-                ></img>
+                  alt="avatar"
+                />
               ) : (
                 <img
-                  style={{ height: `150px`, width: `150px` }}
+                  style={{ height: "150px", width: "150px" }}
                   className="avatar-image bg-white rounded-circle m-auto"
                   src={userIcon}
+                  alt="avatar"
                 />
               )}
+
+              <div>
+                <label htmlFor="imageUrl">Image URL:</label>
+                <input
+                  type="text"
+                  id="imageUrl"
+                  onChange={handleImageUrlChange}
+                />
+              </div>
               <FileBase
                 id="avatarInput"
                 type="file"
@@ -175,15 +197,3 @@ export const HackerStepperForm = () => {
     </div>
   );
 };
-
-const HackerForm = () => {
-  return (
-    <>
-      <Header />
-      <HackerStepperForm></HackerStepperForm>
-      <Footer />
-    </>
-  );
-};
-
-export default HackerForm;

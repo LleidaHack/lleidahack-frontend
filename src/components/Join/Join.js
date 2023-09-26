@@ -1,13 +1,13 @@
 import React from "react";
-import logo from "src/icons/logo.png";
 import { useState, useEffect } from "react";
 import HSkeleton from "src/components/others/HSkeleton";
+import logo from "src/icons/hackLogoWellDone.png";
 
 const Join = (props) => {
   const [event, setEvent] = useState(props.event);
 
   function ManageButton() {
-      
+
     if(!event) {
       return (
         <HSkeleton width={"20%"} height={"40px"} inline />
@@ -44,7 +44,7 @@ const Join = (props) => {
   }
 
   return (
-    <div className="container m-0 p-0">
+    <div className="container-fluid m-0 p-0">
       <div className="row join-container p-bg-grey p-5 text-center m-auto mt-5">
         <div className="col-12 p-bg-grey">
           <div className="row">
