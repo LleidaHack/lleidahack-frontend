@@ -37,8 +37,8 @@ const InscripcioForm = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-          const hackepsEvent = await getHackeps();
-          setHackepsEvent(hackepsEvent)
+        const hackepsEvent = await getHackeps();
+        setHackepsEvent(hackepsEvent);
       } catch (error) {
         console.log("El error obtenido es:", error);
       }

@@ -4,39 +4,41 @@ import HSkeleton from "src/components/others/HSkeleton";
 import logo from "src/icons/hackLogoWellDone.png";
 
 const Join = (props) => {
-
   function ManageButton() {
+    if (!props.event) {
+      return <HSkeleton width={"20%"} height={"40px"} inline />;
+    }
 
-    if(!props.event) {
+    if (props.event.accepted) {
       return (
-        <HSkeleton width={"20%"} height={"40px"} inline />
+        <div
+          style={{ width: `fit-content`, textDecoration: `none` }}
+          className="py-2 px-4 m-auto text-white p-bg-primary"
+        >
+          Acceptat!
+        </div>
       );
     }
 
-    if(props.event.accepted) {
-      return(<div
-      style={{ width: `fit-content`, textDecoration: `none` }}
-      className="py-2 px-4 m-auto text-white p-bg-primary"
-    >
-      Acceptat!
-    </div>)
-    }
-
-    if(props.event.registered) {
-      return(<div
-      style={{ width: `fit-content`, textDecoration: `none` }}
-      className="py-2 px-4 m-auto text-white p-bg-primary"
-    >
-      Pendent d'acceptació
-    </div>)
+    if (props.event.registered) {
+      return (
+        <div
+          style={{ width: `fit-content`, textDecoration: `none` }}
+          className="py-2 px-4 m-auto text-white p-bg-primary"
+        >
+          Pendent d'acceptació
+        </div>
+      );
     } else {
-      return(<a
-      href="/hackeps/inscripcio"
-      style={{ width: `fit-content`, textDecoration: `none` }}
-      className="py-2 px-4 m-auto text-white p-bg-primary"
-    >
-      Inscriure's
-    </a>)
+      return (
+        <a
+          href="/hackeps/inscripcio"
+          style={{ width: `fit-content`, textDecoration: `none` }}
+          className="py-2 px-4 m-auto text-white p-bg-primary"
+        >
+          Inscriure's
+        </a>
+      );
     }
   }
 

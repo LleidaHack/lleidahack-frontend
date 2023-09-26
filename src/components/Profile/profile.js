@@ -6,7 +6,11 @@ import "./Profile.css";
 import Modal from "react-bootstrap/Modal";
 import HSkeleton from "src/components/others/HSkeleton";
 import { getHackerById, getHackerGroups } from "src/services/HackerService";
-import {getHackeps, getEventIsHackerRegistered, getEventIsHackerAccepted} from "src/services/EventService";
+import {
+  getHackeps,
+  getEventIsHackerRegistered,
+  getEventIsHackerAccepted,
+} from "src/services/EventService";
 
 //import "./main.css"; // TODO: No existeix aquest fitxer
 
@@ -57,7 +61,7 @@ const Profile_component = () => {
         const response_1 = await getHackerGroups(hacker_id);
         return response_1;
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       })
       .then(async (response) => {
@@ -78,33 +82,36 @@ const Profile_component = () => {
   }, []);
 
   useEffect(() => {
-    getHackerGroups(hacker_id)
-      .then((response) => {
-        console.log(response);
-      });
+    getHackerGroups(hacker_id).then((response) => {
+      console.log(response);
+    });
   }, []);
 
   useEffect(() => {
-    getHackeps()
-    .then((response) => {
+    getHackeps().then((response) => {
       const event_id = response.id;
-      getEventIsHackerAccepted(event_id, hacker_id)
-      .then((response) => {
-        if(response) {
-          setEvent({"event_id": event_id, "accepted": true, "registered": true});
+      getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
+        if (response) {
+          setEvent({ event_id: event_id, accepted: true, registered: true });
         } else {
-          getEventIsHackerRegistered(event_id, hacker_id)
-          .then((response) => {
-            if(response) {
-              setEvent({"event_id": event_id, "accepted": false, "registered": true});
+          getEventIsHackerRegistered(event_id, hacker_id).then((response) => {
+            if (response) {
+              setEvent({
+                event_id: event_id,
+                accepted: false,
+                registered: true,
+              });
             } else {
-              setEvent({"event_id": event_id, "accepted": false, "registered": false});
+              setEvent({
+                event_id: event_id,
+                accepted: false,
+                registered: false,
+              });
             }
-          })
+          });
         }
-      })
-    } 
-    )
+      });
+    });
   }, []);
 
   function generateMemberTime(creationDate) {
@@ -199,11 +206,11 @@ const Profile_component = () => {
 
           {isUser ? <Join event={event} /> : <></>}
 
-          {(event && event.accepted) ?
+          {event && event.accepted ? (
             <Team team={team} is_user={isUser} has_team={Boolean(team)} />
-            : <></>
-          }
-          
+          ) : (
+            <></>
+          )}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
