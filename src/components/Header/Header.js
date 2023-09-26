@@ -171,7 +171,7 @@ const Header = () => {
               </div>
 
               <div className="buttonsFlex">
-                <Link to="/login" className="py-2 px-4 m-auto apuntat-buttonex">
+                <Link to="/login" state={{nextScreen:"/perfil"}} className="py-2 px-4 m-auto apuntat-buttonex">
                   Inicia sesió
                 </Link>
 
