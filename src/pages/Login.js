@@ -9,7 +9,9 @@ const Login = (props) => {
   const { state } = useLocation();
   if (state) {
     nextScreen = state.nextScreen;
-  } else {nextScreen = "/home"}
+  } else {
+    nextScreen = "/home";
+  }
   return (
     <div>
       <Header />
