@@ -28,7 +28,6 @@ const Header = () => {
 
   function logOut() {
     localStorage.clear();
-    Navigate("/");
   }
 
   const pages = [

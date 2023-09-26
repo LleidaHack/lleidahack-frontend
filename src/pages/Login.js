@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 const Login = (props) => {
   let nextScreen;
   const { state } = useLocation();
-  if (props) {
+  if (props && Object.keys(props).length>0) {
     nextScreen = state.nextScreen;
   } else {
     nextScreen = "/home";
