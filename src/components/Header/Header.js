@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 
 import "src/components/Header/Header.css";
@@ -29,19 +28,6 @@ const Header = () => {
   function logOut() {
     localStorage.clear();
   }
-
-  const pages = [
-    ["Home", "/#home"],
-    ["Dates", "/#dates"],
-    ["Sponsors", "/#sponsors"],
-    ["FAQ", "/faq"],
-    ["Contacte", "/contacte"],
-    ["Dailyhack", "/dailyhacks"],
-  ];
-
-  let imageProfileUrl =
-    "https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png";
-  let nickname = "ewfwef";
 
   const [icon, setUserIcon] = useState(null);
   const [username, writeUserName] = useState(null);
@@ -123,9 +109,9 @@ const Header = () => {
                   <Link to="" className="nav-link" onClick={togglePopup}>
                     <div className="profileImage2 d-flex">
                       {icon !== "string" ? (
-                        <img className="Profile" src={icon}></img>
+                        <img className="Profile" src={icon} alt="foto de perfil"/>
                       ) : (
-                        <i class="fa-solid fa-user m-auto"></i>
+                        <i class="fa-solid fa-user m-auto"/>
                       )}
                     </div>
                   </Link>
@@ -134,7 +120,7 @@ const Header = () => {
                 //Aixo es quan no existeix sesió
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
-                    <i className="fa-solid fa-user"></i>
+                    <i className="fa-solid fa-user"/>
                   </Link>
                 </li>
               )}
@@ -149,9 +135,9 @@ const Header = () => {
               <div className="InfoProfile">
                 <div className="profileImage d-flex">
                   {icon !== "string" ? (
-                    <img className="Profile" src={icon}></img>
+                    <img className="Profile" src={icon} alt="foto de perfil"/>
                   ) : (
-                    <i class="fa-solid fa-user m-auto text-black"></i>
+                    <i class="fa-solid fa-user m-auto text-black"/>
                   )}
                 </div>
                 <p className="title3">{username}</p>
@@ -164,11 +150,11 @@ const Header = () => {
                   El meu perfil
                 </Link>
               </div>
-              <br></br>
+              <br/>
               <Link to="/" className="logOut" onClick={logOut}>
                 <p>
                   {" "}
-                  <i className="fa-solid fa-door-open"></i> Surt de la sesió
+                  <i className="fa-solid fa-door-open"/> Surt de la sesió
                 </p>
               </Link>
             </>
@@ -194,7 +180,7 @@ const Header = () => {
                   Crear compte {/*Aquesta porta a user-enter */}
                 </Link>
               </div>
-              <br></br>
+              <br/>
             </>
           )}
         </div>
