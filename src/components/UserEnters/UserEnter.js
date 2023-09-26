@@ -8,7 +8,7 @@ const LinkAccounts = () => {
     <div className="The-Boxy">
       <section className="Superior-Part">
         <div className="ImgContainer">
-          <img className="p-5 KeImage" src={hackLogo} alt="" />
+          <img className="p-5 image" src={hackLogo} alt="" />
         </div>
 
         <div className="Title">

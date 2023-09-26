@@ -73,7 +73,7 @@ export default function App() {
             }
           />
           <Route path="*" element={<Error404 />} />
-          <Route path="/forget-password" element={<PasswordForget />} />
+          <Route path="/forgot-password" element={<PasswordForget />} />
         </Routes>
       </Router>
     </div>

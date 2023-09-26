@@ -156,14 +156,14 @@ img {
 
 .sponsor-group-group-1 {
   display: flex;
-  width: 18%;
-  scale: 1;
+  width: 100%;
   justify-content: center;
+  scale: 1;
 }
 
 .sponsor-group-group-2 {
   display: flex;
-  width: 18%;
+  width: 90%;
   scale: 0.7;
   justify-content: center;
 }
@@ -179,7 +179,8 @@ img {
   margin: 1.4rem;
   border-radius: 20px;
   padding: 0.4rem;
-  height: 10rem;
+  max-width: 14%;
+  height: auto;
   transition:
     transform 0.3s ease-in-out,
     scale 0.3s ease-in-out;
@@ -198,6 +199,7 @@ img {
     padding: 1.2vw;
     padding-top: 0;
     padding-bottom: 0;
+    max-width: 25%; /*Si empitjora, s'elimina*/
   }
 
   .sponsor-group-group-2 {
