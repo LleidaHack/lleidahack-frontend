@@ -1,67 +1,31 @@
-url="https://backend.lleidahack.dev/"
+import { fetchPlus } from "src/modules/fetchModule";
+
 export async function getAllUsers() {
-    try{
-        const response = await fetch(url+'users');
-        // console.log('response  ', response)
-        return await response.json();
-    }catch(error) {
-        return [];
-    }   
+  return fetchPlus({
+    Url: "/user/all",
+    hasUserauth: true,
+  });
 }
 
-export async function getUserById(id) {
-    try{
-        const response = await fetch(`https://backend.lleidahack.dev/users/${id}`);
-        // console.log('response  ', response)
-        return await response.json();
-    }catch(error) {
-        return [];
-    }   
+export async function getUserById(user_id) {
+  return fetchPlus({
+    Url: `/user/${user_id}`,
+    hasUserauth: true,
+  });
+}
+
+export async function getUserByCode(code) {
+  return fetchPlus({
+    Url: `/user/code/${code}`,
+    hasUserauth: true,
+  });
 }
 
 export async function addUser(user) {
-    try{
-        const response = await fetch('https://backend.lleidahack.dev/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        });
-        // console.log('response  ', response)
-        return await response.json();
-    }catch(error) {
-        return [];
-    }   
-}
-
-export async function updateUser(user) {
-    try{
-        const response = await fetch(`https://backend.lleidahack.dev/users/${user.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        });
-        // console.log('response  ', response)
-        return await response.json();
-    }catch(error) {
-        return [];
-    }   
-}
-
-export async function deleteUser(id) {
-    try{
-        const response = await fetch(`https://backend.lleidahack.dev/users/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        // console.log('response  ', response)
-        return await response.json();
-    }catch(error) {
-        return [];
-    }   
+  return fetchPlus({
+    Url: "/user/",
+    Method: "POST",
+    hasUserauth: true,
+    Body: user,
+  });
 }

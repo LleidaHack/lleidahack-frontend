@@ -1,1 +1,3 @@
- apt-get update && apt-get upgrade && apt-get install curl gnupg2 gcc g++ make libssl-dev -y
+---
+apt-get update && apt-get upgrade && apt-get install curl gnupg2 gcc g++ make
+libssl-dev -y
