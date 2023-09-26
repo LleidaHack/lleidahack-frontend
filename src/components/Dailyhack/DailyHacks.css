@@ -207,8 +207,6 @@ col {
   margin-right: 3rem;
 }
 
-
-
 .IntroTexte {
   width: 40%;
   text-align: left;
@@ -317,10 +315,8 @@ col {
 
   .informative {
     width: 78%;
-    justify-content:left;
+    justify-content: left;
   }
-
-  
 
   .Part1 {
     display: block;
@@ -331,12 +327,11 @@ col {
     text-align: none;
   }
 
-  .left{
+  .left {
     text-align: center;
   }
 
-  .fotovidIntro{
+  .fotovidIntro {
     width: 100%;
   }
-
 }

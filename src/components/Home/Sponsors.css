@@ -159,7 +159,6 @@ img {
   width: 100%;
   justify-content: center;
   scale: 1;
-  
 }
 
 .sponsor-group-group-2 {
@@ -185,7 +184,6 @@ img {
   transition:
     transform 0.3s ease-in-out,
     scale 0.3s ease-in-out;
-
 }
 
 .pepers:hover {
@@ -201,7 +199,7 @@ img {
     padding: 1.2vw;
     padding-top: 0;
     padding-bottom: 0;
-    max-width: 25%;  /*Si empitjora, s'elimina*/
+    max-width: 25%; /*Si empitjora, s'elimina*/
   }
 
   .sponsor-group-group-2 {

@@ -34,13 +34,12 @@ const Header = () => {
   const [username, writeUserName] = useState(null);
   const [validToken, setValidToken] = useState(false);
 
-
   useEffect(() => {
     const fetchData = async () => {
-      if(localStorage.getItem("userToken")){
-        const verification = await checkToken()
-        if(verification.success){
-          setValidToken(true)
+      if (localStorage.getItem("userToken")) {
+        const verification = await checkToken();
+        if (verification.success) {
+          setValidToken(true);
 
           try {
             const info = await me();
@@ -49,8 +48,7 @@ const Header = () => {
               writeUserName(info.nickname);
               setUserIcon(info.image);
             }
-          } catch (error) {
-          }
+          } catch (error) {}
         }
       }
     };
@@ -98,13 +96,18 @@ const Header = () => {
                 </Link>
               </li>
               {validToken ? (
-              <li className="nav-item">
-                <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}>
-                  Dailyhack
-                </Link>
-              </li>
-              ):(<>
-              </>)}
+                <li className="nav-item">
+                  <Link
+                    to="/dailyhacks"
+                    className="nav-link"
+                    onClick={closeMenu}
+                  >
+                    Dailyhack
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
               <li className="nav-item">
                 <Link to="/faq" className="nav-link" onClick={closeMenu}>
                   FAQ

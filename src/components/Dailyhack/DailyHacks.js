@@ -214,10 +214,16 @@ const Dailyhacks = () => {
                   d'aquest, per després automatitzar-ne la traducció a
                   llenguatge escrit.
                   <br />
-                  <br />A partir d'aquest dataset de kaggle ( 
-                  <a  href="https://www.kaggle.com/datasets/gti-upm/leapgestrecog" target="_blank">Kaggle Project</a> ) que
-                  consisteix en diverses imatges de mans en diferents posicions
-                  es demana realitzar un projecte que consta de dues parts.
+                  <br />A partir d'aquest dataset de kaggle (
+                  <a
+                    href="https://www.kaggle.com/datasets/gti-upm/leapgestrecog"
+                    target="_blank"
+                  >
+                    Kaggle Project
+                  </a>{" "}
+                  ) que consisteix en diverses imatges de mans en diferents
+                  posicions es demana realitzar un projecte que consta de dues
+                  parts.
                 </p>
                 <br />
                 <p> Trobaréu més informació al ReadMe del repositori:</p>
