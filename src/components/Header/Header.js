@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
-
+import { Navigate } from "react-router-dom";
 import "src/components/Header/Header.css";
 import hackIcon from "src/icons/hack_icon_black.png";
 import { me, checkToken } from "src/services/AuthenticationService";
@@ -27,7 +27,7 @@ const Header = () => {
 
   function logOut() {
     localStorage.clear();
-    setIsLogged(false);
+    Navigate("/");
   }
 
   const [icon, setUserIcon] = useState(null);
