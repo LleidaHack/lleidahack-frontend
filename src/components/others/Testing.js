@@ -133,7 +133,7 @@ import {
 const Testing = () => {
   const [autoTest, setAutoTest] = useState(false);
 
-  const [user, ] = useState({
+  const [user] = useState({
     name: "string",
     nickname: "elver",
     password: "12345678a",
@@ -166,7 +166,7 @@ const Testing = () => {
     id: 29,
   });
 
-  const [grup, ] = useState({
+  const [grup] = useState({
     name: "string",
     description: "string",
     id: 2,
@@ -192,7 +192,7 @@ const Testing = () => {
     leader: 0,
   });
 
-  const [lleidahacker, ] = useState({
+  const [lleidahacker] = useState({
     name: "joel",
     id: 6,
     nickname: "elver",
@@ -212,7 +212,7 @@ const Testing = () => {
     github: "a",
   });
 
-  const [event, ] = useState({
+  const [event] = useState({
     name: "string",
     id: 1,
     description: "string",
@@ -225,7 +225,7 @@ const Testing = () => {
     max_sponsors: 0,
   });
 
-  const [company, ] = useState({
+  const [company] = useState({
     name: "string",
     description: "string",
     website: "string",
@@ -258,7 +258,7 @@ const Testing = () => {
     ],
   });
 
-  const [companyUser, ] = useState({
+  const [companyUser] = useState({
     name: "string",
     nickname: "string",
     password: "string",
@@ -275,7 +275,7 @@ const Testing = () => {
     id: 1,
   });
 
-  const [meal, ] = useState({
+  const [meal] = useState({
     name: "macarrons",
     description: "macarrons (amb lleteta",
     event_id: 1,
@@ -793,7 +793,7 @@ const Testing = () => {
         },
         {
           body: confirmResetPassword,
-          params: ["","123456789aA"], //token 
+          params: ["", "123456789aA"], //token
           status: true,
         },
         {
@@ -808,7 +808,7 @@ const Testing = () => {
         },
         {
           body: verify,
-          params: [""],//token
+          params: [""], //token
           status: true,
         },
         {
@@ -872,12 +872,12 @@ const Testing = () => {
         },
         {
           body: updateMeal,
-          params: [event,meal],
+          params: [event, meal],
           status: false,
         },
         {
           body: deleteMeal,
-          params: [event,meal.id],
+          params: [event, meal.id],
           status: false,
         },
         {

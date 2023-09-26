@@ -109,9 +109,13 @@ const Header = () => {
                   <Link to="" className="nav-link" onClick={togglePopup}>
                     <div className="profileImage2 d-flex">
                       {icon !== "string" ? (
-                        <img className="Profile" src={icon} alt="foto de perfil"/>
+                        <img
+                          className="Profile"
+                          src={icon}
+                          alt="foto de perfil"
+                        />
                       ) : (
-                        <i class="fa-solid fa-user m-auto"/>
+                        <i class="fa-solid fa-user m-auto" />
                       )}
                     </div>
                   </Link>
@@ -120,7 +124,7 @@ const Header = () => {
                 //Aixo es quan no existeix sesió
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
-                    <i className="fa-solid fa-user"/>
+                    <i className="fa-solid fa-user" />
                   </Link>
                 </li>
               )}
@@ -135,9 +139,9 @@ const Header = () => {
               <div className="InfoProfile">
                 <div className="profileImage d-flex">
                   {icon !== "string" ? (
-                    <img className="Profile" src={icon} alt="foto de perfil"/>
+                    <img className="Profile" src={icon} alt="foto de perfil" />
                   ) : (
-                    <i class="fa-solid fa-user m-auto text-black"/>
+                    <i class="fa-solid fa-user m-auto text-black" />
                   )}
                 </div>
                 <p className="title3">{username}</p>
@@ -150,11 +154,11 @@ const Header = () => {
                   El meu perfil
                 </Link>
               </div>
-              <br/>
+              <br />
               <Link to="/" className="logOut" onClick={logOut}>
                 <p>
                   {" "}
-                  <i className="fa-solid fa-door-open"/> Surt de la sesió
+                  <i className="fa-solid fa-door-open" /> Surt de la sesió
                 </p>
               </Link>
             </>
@@ -180,7 +184,7 @@ const Header = () => {
                   Crear compte {/*Aquesta porta a user-enter */}
                 </Link>
               </div>
-              <br/>
+              <br />
             </>
           )}
         </div>
