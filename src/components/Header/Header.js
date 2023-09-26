@@ -27,10 +27,12 @@ const Header = () => {
 
   function logOut() {
     localStorage.clear();
+    setIsLogged(false)
   }
 
   const [icon, setUserIcon] = useState(null);
   const [username, writeUserName] = useState(null);
+  const [isLogged, setIsLogged] = useState(localStorage.getItem("userToken"))
 
   useEffect(() => {
     const fetchData = async () => {
@@ -104,7 +106,7 @@ const Header = () => {
                 </Link>
               </li>
 
-              {localStorage.getItem("userToken") ? (
+              {isLogged ? (
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
                     <div className="profileImage2 d-flex">
@@ -134,7 +136,7 @@ const Header = () => {
       </nav>
       <div id="popupp" className="popup-contenter">
         <div className="popup-options">
-          {localStorage.getItem("userToken") ? (
+          {isLogged ? (
             <>
               <div className="InfoProfile">
                 <div className="profileImage d-flex">
