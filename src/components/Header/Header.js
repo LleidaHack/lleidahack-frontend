@@ -27,12 +27,12 @@ const Header = () => {
 
   function logOut() {
     localStorage.clear();
-    setIsLogged(false)
+    setIsLogged(false);
   }
 
   const [icon, setUserIcon] = useState(null);
   const [username, writeUserName] = useState(null);
-  const [isLogged, setIsLogged] = useState(localStorage.getItem("userToken"))
+  const [isLogged, setIsLogged] = useState(localStorage.getItem("userToken"));
 
   useEffect(() => {
     const fetchData = async () => {
