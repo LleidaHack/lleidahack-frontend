@@ -4,42 +4,39 @@ import HSkeleton from "src/components/others/HSkeleton";
 import logo from "src/icons/hackLogoWellDone.png";
 
 const Join = (props) => {
-  const [event, setEvent] = useState(props.event);
 
   function ManageButton() {
 
-    if(!event) {
+    if(!props.event) {
       return (
         <HSkeleton width={"20%"} height={"40px"} inline />
       );
     }
 
-    if(event.accepted) {
-      <a
-      href=""
+    if(props.event.accepted) {
+      return(<div
       style={{ width: `fit-content`, textDecoration: `none` }}
       className="py-2 px-4 m-auto text-white p-bg-primary"
     >
       Acceptat!
-    </a>
+    </div>)
     }
 
-    if(event.registered) {
-      <a
-      href=""
+    if(props.event.registered) {
+      return(<div
       style={{ width: `fit-content`, textDecoration: `none` }}
       className="py-2 px-4 m-auto text-white p-bg-primary"
     >
-      Registrat!
-    </a>
+      Pendent d'acceptació
+    </div>)
     } else {
-      <a
-      href="" // Fer put a /eventmanagement/{event_id}/register/{hacker_id}
+      return(<a
+      href="/hackeps/inscripcio"
       style={{ width: `fit-content`, textDecoration: `none` }}
       className="py-2 px-4 m-auto text-white p-bg-primary"
     >
       Inscriure's
-    </a>
+    </a>)
     }
   }
 

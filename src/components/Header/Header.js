@@ -117,7 +117,7 @@ const Header = () => {
                           alt="foto de perfil"
                         />
                       ) : (
-                        <i class="fa-solid fa-user m-auto" />
+                        <i className="fa-solid fa-user m-auto" />
                       )}
                     </div>
                   </Link>
@@ -143,7 +143,7 @@ const Header = () => {
                   {icon !== "string" ? (
                     <img className="Profile" src={icon} alt="foto de perfil" />
                   ) : (
-                    <i class="fa-solid fa-user m-auto text-black" />
+                    <i className="fa-solid fa-user m-auto text-black" />
                   )}
                 </div>
                 <p className="title3">{username}</p>
