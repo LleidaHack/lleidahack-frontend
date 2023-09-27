@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
-
 import "src/components/Header/Header.css";
 import hackIcon from "src/icons/hack_icon_black.png";
-import { me } from "src/services/AuthenticationService";
+import { me, checkToken } from "src/services/AuthenticationService";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -27,24 +26,29 @@ const Header = () => {
 
   function logOut() {
     localStorage.clear();
-    setIsLogged(false);
+    setValidToken(false)
   }
 
   const [icon, setUserIcon] = useState(null);
   const [username, writeUserName] = useState(null);
-  const [isLogged, setIsLogged] = useState(localStorage.getItem("userToken"));
+  const [validToken, setValidToken] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const info = await me();
-        if (info.nickname) {
-          //Si te nickname vol dir que la obtencio de dades es posible i que tambe hi haurá imatge
-          writeUserName(info.nickname);
-          setUserIcon(info.image);
+      if (localStorage.getItem("userToken")) {
+        const verification = await checkToken();
+        if (verification.success) {
+          setValidToken(true);
+
+          try {
+            const info = await me();
+            if (info.nickname) {
+              //Si te nickname vol dir que la obtencio de dades es posible i que tambe hi haurá imatge
+              writeUserName(info.nickname);
+              setUserIcon(info.image);
+            }
+          } catch (error) {}
         }
-      } catch (error) {
-        console.log("El error obtenido es:", error);
       }
     };
 
@@ -90,11 +94,19 @@ const Header = () => {
                   Sponsors
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}>
-                  Dailyhack
-                </Link>
-              </li>
+              {validToken ? (
+                <li className="nav-item">
+                  <Link
+                    to="/dailyhacks"
+                    className="nav-link"
+                    onClick={closeMenu}
+                  >
+                    Dailyhack
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
               <li className="nav-item">
                 <Link to="/faq" className="nav-link" onClick={closeMenu}>
                   FAQ
@@ -106,7 +118,7 @@ const Header = () => {
                 </Link>
               </li>
 
-              {isLogged ? (
+              {validToken ? (
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
                     <div className="profileImage2 d-flex">
@@ -136,7 +148,7 @@ const Header = () => {
       </nav>
       <div id="popupp" className="popup-contenter">
         <div className="popup-options">
-          {isLogged ? (
+          {validToken ? (
             <>
               <div className="InfoProfile">
                 <div className="profileImage d-flex">
@@ -156,8 +168,8 @@ const Header = () => {
                   El meu perfil
                 </Link>
               </div>
-              <br />
-              <Link to="/" className="logOut" onClick={logOut}>
+              <br></br>
+              <Link to="/home" className="logOut" onClick={logOut}>
                 <p>
                   {" "}
                   <i className="fa-solid fa-door-open" /> Surt de la sessió

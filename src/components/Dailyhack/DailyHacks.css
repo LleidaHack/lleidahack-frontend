@@ -179,7 +179,7 @@
 }
 
 .pergar {
-  scale: 0.6;
+  scale: 1;
 }
 
 .Winidpu {
@@ -205,24 +205,6 @@ col {
   justify-content: space-between; /* Elimina espacio entre los elementos */
   flex-grow: 2;
   margin-right: 3rem;
-}
-
-@media screen and (max-width: 768px) {
-  .descriptionss {
-    font-size: 0.7rem;
-  }
-
-  .eulen {
-    display: table-cell;
-  }
-
-  .piterrs {
-    margin-right: 20rem;
-  }
-
-  .panel {
-    margin-bottom: -5rem;
-  }
 }
 
 .IntroTexte {
@@ -308,6 +290,22 @@ col {
 }
 
 @media screen and (max-width: 768px) {
+  .descriptionss {
+    font-size: 0.7rem;
+  }
+
+  .eulen {
+    display: table-cell;
+  }
+
+  .piterrs {
+    margin-right: 20rem;
+  }
+
+  .panel {
+    margin-bottom: -5rem;
+  }
+
   .tarjeta {
     width: 26vw;
     margin-left: 0.5rem;
@@ -315,6 +313,25 @@ col {
     padding: 0px;
   }
 
-  .descriptionss {
+  .informative {
+    width: 78%;
+    justify-content: left;
+  }
+
+  .Part1 {
+    display: block;
+  }
+
+  .IntroTexte {
+    width: 100%;
+    text-align: none;
+  }
+
+  .left {
+    text-align: center;
+  }
+
+  .fotovidIntro {
+    width: 100%;
   }
 }
