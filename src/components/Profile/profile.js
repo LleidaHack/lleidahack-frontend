@@ -23,7 +23,7 @@ import UserNotFound from "./UserNotFound";
 const Profile_component = () => {
   let { hacker_id } = useParams();
   const [isUser, setIsUser] = useState(
-    hacker_id === localStorage.getItem("userID"),
+    hacker_id === localStorage.getItem("userID")
   );
 
   const startDate = new Date(2022, 10, 25);
@@ -99,11 +99,11 @@ const Profile_component = () => {
                 hacker.image !== "string" ? (
                   <img
                     style={{ aspectRatio: "1/1", width: "15vh" }}
-                    className="bg-white border rounded-circle m-auto"
+                    className="bg-white border mx-auto rounded-circle m-auto"
                     src={hacker.image}
                   />
                 ) : (
-                  <i class="fa-solid fa-user fa-8x"></i>
+                  <i class="fa-solid fa-user fa-8x mx-auto"></i>
                 )
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
@@ -138,13 +138,13 @@ const Profile_component = () => {
                   onClick={handleShowQR}
                 >
                   <div className="row">
-                    <div className="col-6 my-auto col-sm-12">
+                    <div className="col-6 my-auto col-xl-12">
                       Mostra el teu tiquet
                     </div>
-                    <div className="col-6 col-sm-12 my-auto">
+                    <div className="col-6 col-xl-12 my-auto">
                       <img
                         style={{ aspectRatio: "1/1", width: "70%" }}
-                        className="px-2 mx-auto my-auto"
+                        className="px-2 p-0 pt-xl-4 mx-auto my-auto"
                         src={qrIcon}
                       />
                     </div>
