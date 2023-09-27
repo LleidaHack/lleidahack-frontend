@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
-
 import "src/components/Header/Header.css";
 import hackIcon from "src/icons/hack_icon_black.png";
-import { me } from "src/services/AuthenticationService";
+import { me, checkToken } from "src/services/AuthenticationService";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -28,36 +26,29 @@ const Header = () => {
 
   function logOut() {
     localStorage.clear();
-    Navigate("/");
+    setValidToken(false)
   }
-
-  const pages = [
-    ["Home", "/#home"],
-    ["Dates", "/#dates"],
-    ["Sponsors", "/#sponsors"],
-    ["FAQ", "/faq"],
-    ["Contacte", "/contacte"],
-    ["Dailyhack", "/dailyhacks"],
-  ];
-
-  let imageProfileUrl =
-    "https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png";
-  let nickname = "ewfwef";
 
   const [icon, setUserIcon] = useState(null);
   const [username, writeUserName] = useState(null);
+  const [validToken, setValidToken] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const info = await me();
-        if (info.nickname) {
-          //Si te nickname vol dir que la obtencio de dades es posible i que tambe hi haurá imatge
-          writeUserName(info.nickname);
-          setUserIcon(info.image);
+      if (localStorage.getItem("userToken")) {
+        const verification = await checkToken();
+        if (verification.success) {
+          setValidToken(true);
+
+          try {
+            const info = await me();
+            if (info.nickname) {
+              //Si te nickname vol dir que la obtencio de dades es posible i que tambe hi haurá imatge
+              writeUserName(info.nickname);
+              setUserIcon(info.image);
+            }
+          } catch (error) {}
         }
-      } catch (error) {
-        console.log("El error obtenido es:", error);
       }
     };
 
@@ -103,11 +94,19 @@ const Header = () => {
                   Sponsors
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}>
-                  Dailyhack
-                </Link>
-              </li>
+              {validToken ? (
+                <li className="nav-item">
+                  <Link
+                    to="/dailyhacks"
+                    className="nav-link"
+                    onClick={closeMenu}
+                  >
+                    Dailyhack
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
               <li className="nav-item">
                 <Link to="/faq" className="nav-link" onClick={closeMenu}>
                   FAQ
@@ -119,11 +118,19 @@ const Header = () => {
                 </Link>
               </li>
 
-              {localStorage.getItem("userToken") ? (
+              {validToken ? (
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
-                    <div className="profileImage2">
-                      <img className="Profile2" src={icon}></img>
+                    <div className="profileImage2 d-flex">
+                      {icon !== "string" ? (
+                        <img
+                          className="Profile"
+                          src={icon}
+                          alt="foto de perfil"
+                        />
+                      ) : (
+                        <i class="fa-solid fa-user m-auto" />
+                      )}
                     </div>
                   </Link>
                 </li>
@@ -131,7 +138,7 @@ const Header = () => {
                 //Aixo es quan no existeix sesió
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
-                    <i className="fa-solid fa-user"></i>
+                    <i className="fa-solid fa-user" />
                   </Link>
                 </li>
               )}
@@ -141,11 +148,15 @@ const Header = () => {
       </nav>
       <div id="popupp" className="popup-contenter">
         <div className="popup-options">
-          {localStorage.getItem("userToken") ? (
+          {validToken ? (
             <>
               <div className="InfoProfile">
-                <div className="profileImage">
-                  <img className="Profile" src={icon}></img>
+                <div className="profileImage d-flex">
+                  {icon !== "string" ? (
+                    <img className="Profile" src={icon} alt="foto de perfil" />
+                  ) : (
+                    <i class="fa-solid fa-user m-auto text-black" />
+                  )}
                 </div>
                 <p className="title3">{username}</p>
               </div>
@@ -158,10 +169,10 @@ const Header = () => {
                 </Link>
               </div>
               <br></br>
-              <Link to="/" className="logOut" onClick={logOut}>
+              <Link to="/home" className="logOut" onClick={logOut}>
                 <p>
                   {" "}
-                  <i className="fa-solid fa-door-open"></i> Surt de la sesió
+                  <i className="fa-solid fa-door-open" /> Surt de la sesió
                 </p>
               </Link>
             </>
@@ -172,7 +183,11 @@ const Header = () => {
               </div>
 
               <div className="buttonsFlex">
-                <Link to="/login" className="py-2 px-4 m-auto apuntat-buttonex">
+                <Link
+                  to="/login"
+                  state={{ nextScreen: "/perfil" }}
+                  className="py-2 px-4 m-auto apuntat-buttonex"
+                >
                   Inicia sesió
                 </Link>
 
@@ -183,7 +198,7 @@ const Header = () => {
                   Crear compte {/*Aquesta porta a user-enter */}
                 </Link>
               </div>
-              <br></br>
+              <br />
             </>
           )}
         </div>

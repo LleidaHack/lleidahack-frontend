@@ -9,9 +9,13 @@ import HackerForm from "src/pages/HackerSignup";
 import Testing from "src/components/others/Testing";
 import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
+import Verify from "./pages/Verify";
 import Login from "src/pages/Login";
 import Entrances from "src/pages/UsersEntrance.js";
 import Dailyhack from "src/pages/Dailyhack.js";
+import RequireAuth from "src/modules/RequireAuth";
+import ResetPassword from "./pages/ResetPassword";
+import PasswordForget from "./pages/ForgetPassword";
 
 export default function App() {
   useEffect(() => {
@@ -28,17 +32,48 @@ export default function App() {
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contacte" element={<Contacte />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/perfil" element={<Profile />} />
-          <Route path="/perfil/:hacker_id" element={<Profile />} />
+          <Route
+            path="/perfil"
+            element={
+              <RequireAuth originalRoute="/perfil">
+                <Profile />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/perfil/:hacker_id"
+            element={
+              <RequireAuth originalRoute="/perfil">
+                <Profile />
+              </RequireAuth>
+            }
+          />
           <Route path="/login" element={<Login />} />
+          <Route path="/validate-email/" element={<Verify />} />
+          <Route path="/confirm-password" element={<ResetPassword />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
-          <Route path="/inscripcio" element={<Inscripcio />} />
-          <Route path="/dailyhacks" element={<Dailyhack />} />
+          <Route
+            path="/inscripcio"
+            element={
+              <RequireAuth originalRoute="/inscripcio">
+                <Inscripcio />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/dailyhacks"
+            element={
+              <RequireAuth originalRoute="/dailyhacks">
+                <Dailyhack />
+              </RequireAuth>
+            }
+          />
           <Route path="*" element={<Error404 />} />
+          <Route path="/forgot-password" element={<PasswordForget />} />
         </Routes>
       </Router>
     </div>

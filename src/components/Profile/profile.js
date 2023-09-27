@@ -8,7 +8,6 @@ import HSkeleton from "src/components/others/HSkeleton";
 
 //import "./main.css"; // TODO: No existeix aquest fitxer
 
-import userIcon from "src/icons/user2.png";
 import qrIcon from "src/icons/qr.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
@@ -19,22 +18,18 @@ import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
 import { getHackerById, getHackerGroups } from "src/services/HackerService";
 import { getHackerGroupMembers } from "src/services/HackerGroupService";
+import UserNotFound from "./UserNotFound";
 
 const Profile_component = () => {
   let { hacker_id } = useParams();
   const [isUser, setIsUser] = useState(
     hacker_id === localStorage.getItem("userID"),
   );
-  const name = "Nom cognom";
-  const usrImage = userIcon;
-
-  const yearsMember = "x";
 
   const startDate = new Date(2022, 10, 25);
   const endDate = new Date(2022, 10, 27);
 
   useEffect(() => {
-    // Coloca el scroll en la parte superior cuando el componente se monta
     window.scrollTo(0, 0);
   }, []);
 
@@ -74,20 +69,41 @@ const Profile_component = () => {
       });
   }, []);
 
+  function generateMemberTime(creationDate) {
+    let first = new Date(creationDate);
+    let now = Date.now();
+
+    let seconds = (now - first) / 1000;
+    let days = seconds / 60 / 60 / 24;
+
+    if (days > 365) return `${~~(days / 365)} anys`;
+
+    if (days > 30) return `${~~(days / 30)} mesos`;
+
+    return `${~~days} dies`;
+  }
+  if (hacker)
+    if (hacker.message === "Hacker not found")
+      return <UserNotFound></UserNotFound>;
+
   return (
     <>
       <div className="p-bg-black text-white">
-        <div className="container-xxl">
+        <div className="container-xxl pt-3">
           {/* User info and qr */}
-          <div className="row align-middle mx-auto my-3">
+          <div className="row align-middle mx-auto mb-3">
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
               {hacker ? (
-                <img
-                  style={{ aspectRatio: "1/1", width: "15vh" }}
-                  className="bg-white border rounded-circle m-auto"
-                  src={hacker.is_image_url ? hacker.image : "https://xsgames.co/randomusers/avatar.php?g=pixel"}
-                />
+                hacker.image !== "string" ? (
+                  <img
+                    style={{ aspectRatio: "1/1", width: "15vh" }}
+                    className="bg-white border rounded-circle m-auto"
+                    src={hacker.image}
+                  />
+                ) : (
+                  <i class="fa-solid fa-user fa-8x"></i>
+                )
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
               )}
@@ -98,15 +114,18 @@ const Profile_component = () => {
                 <h3 className="text-center">Benvingut/da, hacker!</h3>
               </div>
               <div className="row my-3">
-                <h1>
-                  - {hacker ? hacker.name : <HSkeleton width={"50%"} inline />}{" "}
-                  -
-                </h1>
+                <div className="col-xxl-1 col-2 d-flex">
+                  <h1 className="text-center m-auto">-</h1>
+                </div>
+                <h1 className="col-xxl-10 col-8">{hacker && hacker.name}</h1>
+                <div className="col-xxl-1 col-2 d-flex">
+                  <h1 className="text-center m-auto">-</h1>
+                </div>
               </div>
               <div className="row">
                 <span className="text-center">
                   Membre desde fa{" "}
-                  {hacker ? "PENDENT" : <HSkeleton width={"5%"} inline />} anys
+                  {hacker ? generateMemberTime(hacker.created_at) : ""}
                 </span>
               </div>
             </div>
@@ -137,7 +156,7 @@ const Profile_component = () => {
           </div>
 
           {/* Accounts link */}
-          <LinkAccounts />
+          {hacker && <LinkAccounts hacker={hacker} />}
 
           {isUser ? <Join /> : <></>}
 
@@ -145,11 +164,11 @@ const Profile_component = () => {
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
-            <div className="col-12 col-xl-6">
+            {/* <div className="col-12 col-xl-6">
               <Medals />
-            </div>
-            <div className="col-12 col-xl-6">
-              <div className="calendar-container">
+            </div> */}
+            <div className="col-12 col-xl-12 d-flex justify-content-center">
+              <div className="calendar-container mx-auto">
                 <Calendar
                   value={[startDate, endDate]}
                   locale={"ca"}

@@ -151,7 +151,7 @@ const Team = (props) => {
         <Container className="p-2">
           <Row className="g-3 justify-content-center">
             {team.members.map((member, index) => (
-              <Col className="col-3" key={index}>
+              <Col className="col-xxl-3 col-6" key={index}>
                 <div className="p-3 text-center bg-white">
                   <img
                     style={{aspectRatio: "1/1"}}
