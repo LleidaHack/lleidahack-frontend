@@ -9,6 +9,7 @@ import { FormikStepper, InputField, SelectField } from "formik-stepper";
 import { signupHacker } from "src/services/HackerService";
 import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required("Nom requerit"),
@@ -56,6 +57,10 @@ export const HackerStepperForm = () => {
   const [avatar, setAvatar] = useState(null);
   const [urlImage, setUrlImage] = useState("");
   const [isUrl, setIsUrl] = useState(false);
+  // Error message for last page of the form
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const navigate = useNavigate();
   const onSubmit = async (values, { setSubmitting }) => {
     const pfp = isUrl ? urlImage : avatar;
     const hacker = {
@@ -73,9 +78,15 @@ export const HackerStepperForm = () => {
       github: "",
       linkedin: "",
     };
-    const signupResponse = signupHacker(hacker);
-    console.log(signupResponse);
+
+    const res = await signupHacker(hacker);
+    if (res.message) {
+      setErrorMsg(res.message);
+      return;
+    }
+
     setSubmitting(false);
+    navigate("/login");
   };
 
   const handleImageChange = (event) => {
@@ -206,6 +217,9 @@ export const HackerStepperForm = () => {
               <h1 className="white-color">Crear compte</h1>
               <InputField name="nickname" type="text" label="Nickname" />
             </Col>
+          </Row>
+          <Row>
+            <span className="text-danger text-center mt-5">{errorMsg}</span>
           </Row>
         </FormikStepper.Step>
       </FormikStepper>
