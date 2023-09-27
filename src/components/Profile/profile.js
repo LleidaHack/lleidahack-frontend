@@ -5,6 +5,12 @@ import "src/palette.css";
 import "./Profile.css";
 import Modal from "react-bootstrap/Modal";
 import HSkeleton from "src/components/others/HSkeleton";
+import { getHackerById, getHackerGroups } from "src/services/HackerService";
+import {
+  getHackeps,
+  getEventIsHackerRegistered,
+  getEventIsHackerAccepted,
+} from "src/services/EventService";
 
 //import "./main.css"; // TODO: No existeix aquest fitxer
 
@@ -16,7 +22,6 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
-import { getHackerById, getHackerGroups } from "src/services/HackerService";
 import { getHackerGroupMembers } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 
@@ -39,6 +44,8 @@ const Profile_component = () => {
 
   const [hacker, setHacker] = useState(null);
   const [team, setTeam] = useState(null);
+  const [event, setEvent] = useState(null);
+  const [qrCode, setQrCode] = useState(null);
 
   useEffect(() => {
     if (process.env.REACT_APP_DEBUG === "true")
@@ -50,8 +57,12 @@ const Profile_component = () => {
     getHackerById(hacker_id)
       .then(async (response) => {
         setHacker(response);
+        setQrCode(response.code);
         const response_1 = await getHackerGroups(hacker_id);
         return response_1;
+      })
+      .catch((err) => {
+        console.log(err);
       })
       .then(async (response) => {
         if (response.length) setTeam(response[0]);
@@ -68,6 +79,39 @@ const Profile_component = () => {
           members: response,
         });
       });
+  }, []);
+
+  useEffect(() => {
+    getHackerGroups(hacker_id).then((response) => {
+      console.log(response);
+    });
+  }, []);
+
+  useEffect(() => {
+    getHackeps().then((response) => {
+      const event_id = response.id;
+      getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
+        if (response) {
+          setEvent({ event_id: event_id, accepted: true, registered: true });
+        } else {
+          getEventIsHackerRegistered(event_id, hacker_id).then((response) => {
+            if (response) {
+              setEvent({
+                event_id: event_id,
+                accepted: false,
+                registered: true,
+              });
+            } else {
+              setEvent({
+                event_id: event_id,
+                accepted: false,
+                registered: false,
+              });
+            }
+          });
+        }
+      });
+    });
   }, []);
 
   function generateMemberTime(creationDate) {
@@ -159,9 +203,13 @@ const Profile_component = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          {isUser ? <Join /> : <></>}
+          {isUser ? <Join event={event} /> : <></>}
 
-          <Team team={team} is_user={isUser} has_team={Boolean(team)} />
+          {event && event.accepted ? (
+            <Team team={team} is_user={isUser} has_team={Boolean(team)} />
+          ) : (
+            <></>
+          )}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
@@ -183,7 +231,7 @@ const Profile_component = () => {
       </div>
 
       <Modal show={showQR} onHide={handleCloseQR} centered>
-        <QrCode url="{hacker.qrCode}" />
+        <QrCode url={qrCode} />
       </Modal>
     </>
   );

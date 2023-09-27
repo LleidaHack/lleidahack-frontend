@@ -129,13 +129,13 @@ const Header = () => {
                           alt="foto de perfil"
                         />
                       ) : (
-                        <i class="fa-solid fa-user m-auto" />
+                        <i className="fa-solid fa-user m-auto" />
                       )}
                     </div>
                   </Link>
                 </li>
               ) : (
-                //Aixo es quan no existeix sesió
+                //Aixo es quan no existeix sessió
                 <li className="nav-item">
                   <Link to="" className="nav-link" onClick={togglePopup}>
                     <i className="fa-solid fa-user" />
@@ -155,7 +155,7 @@ const Header = () => {
                   {icon !== "string" ? (
                     <img className="Profile" src={icon} alt="foto de perfil" />
                   ) : (
-                    <i class="fa-solid fa-user m-auto text-black" />
+                    <i className="fa-solid fa-user m-auto text-black" />
                   )}
                 </div>
                 <p className="title3">{username}</p>
@@ -172,7 +172,7 @@ const Header = () => {
               <Link to="/home" className="logOut" onClick={logOut}>
                 <p>
                   {" "}
-                  <i className="fa-solid fa-door-open" /> Surt de la sesió
+                  <i className="fa-solid fa-door-open" /> Surt de la sessió
                 </p>
               </Link>
             </>
