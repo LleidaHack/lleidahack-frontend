@@ -26,8 +26,8 @@ const Team = (props) => {
       teamCode: Yup.string()
         .required("Codi de l'equip requerit")
         .matches(
-          /^#[0-9]{6}$/,
-          "El format ha de ser #XXXXXX on les Xs són números",
+          /^#[A-Z]{10}$/,
+          "El format ha de ser #XXXXXXXXXX on les Xs són lletres",
         ),
     });
 
