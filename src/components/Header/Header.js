@@ -26,7 +26,7 @@ const Header = () => {
 
   function logOut() {
     localStorage.clear();
-    setValidToken(false)
+    setValidToken(false);
   }
 
   const [icon, setUserIcon] = useState(null);
