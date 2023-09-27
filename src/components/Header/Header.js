@@ -94,7 +94,6 @@ const Header = () => {
                   Sponsors
                 </Link>
               </li>
-              {validToken ? (
                 <li className="nav-item">
                   <Link
                     to="/dailyhacks"
@@ -104,9 +103,6 @@ const Header = () => {
                     Dailyhack
                   </Link>
                 </li>
-              ) : (
-                <></>
-              )}
               <li className="nav-item">
                 <Link to="/faq" className="nav-link" onClick={closeMenu}>
                   FAQ
