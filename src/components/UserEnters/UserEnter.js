@@ -40,7 +40,7 @@ const LinkAccounts = () => {
                 />
               </svg>
             </div>
-            <Link to="/sign-up">
+            <Link to="/hacker-form">
               <button className="buttoner">Hacker</button>
             </Link>
           </div>
