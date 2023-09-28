@@ -12,7 +12,6 @@ import {
   getEventIsHackerAccepted,
 } from "src/services/EventService";
 
-//import "./main.css"; // TODO: No existeix aquest fitxer
 
 import qrIcon from "src/icons/qr.png";
 
