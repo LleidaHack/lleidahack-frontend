@@ -18,14 +18,14 @@ export default function Verify() {
       }
 
       let mail;
-      while (
+      if (
         !(mail = window.prompt(
           "Introdueix el teu mail per tornar a general el token",
         ))
       );
 
       await resendVerification(mail);
-      // navigate("/login");
+      navigate("/login");
     }
     callService();
   }, []);
