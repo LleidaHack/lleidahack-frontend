@@ -188,7 +188,7 @@ const Header = () => {
                 </Link>
 
                 <Link
-                  to="/entrance"
+                  to="/hacker-form"
                   className="py-2 px-4 m-auto apuntat-buttonex"
                 >
                   Crear compte {/*Aquesta porta a user-enter */}

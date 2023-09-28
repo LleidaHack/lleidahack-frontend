@@ -25,7 +25,6 @@ const validationSchema = Yup.object().shape({
       /[A-Z]/,
       "La contrasenya requereix d'almenys una lletra en majúscules",
     )
-    .matches(/[^\w]/, "La contrasenya requereix almenys d'un símbol")
     .required("Contrasenya requerida"),
   confirmPassword: Yup.string().oneOf(
     [Yup.ref("password"), null],
