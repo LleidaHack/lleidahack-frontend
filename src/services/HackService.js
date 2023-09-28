@@ -6,7 +6,7 @@ export async function getPendingGroups() {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
-    }
+    },
   )
     .then((response) => response.json())
     .then((data) => {
@@ -28,7 +28,7 @@ export async function accept(id) {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
-    }
+    },
   )
     .then((response) => {
       console.log(response);
@@ -49,7 +49,7 @@ export async function reject(id) {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
-    }
+    },
   )
     .then((response) => {
       return response.status === 200;

@@ -19,7 +19,6 @@ import PasswordForget from "./pages/ForgetPassword";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import "src/utils/ensure-basename";
 
-
 export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
