@@ -194,12 +194,9 @@ const Dailyhacks = () => {
           <section className="informative">
             <div className="Part1">
               <p>
-                Molt bones, Hackers! Des de LleidaHack venim a presentar-vos el
-                DailyHack d'aquest any! Alguns us preguntareu: que es això del
-                DailyHack? Bé, tots els anys hem preparat abans de la HackEPS
-                una serie de mini-reptes per tal d'anar calentant motors. Aquest
-                any hem decidit modificar una mica aquest format, preparant un
-                únic repte amb diversos premis!
+              Molt bones, Hackers! Des de LleidaHack venim a presentar-vos el DailyHack d'aquest any! Alguns us preguntareu: 
+              que és això del DailyHack?<br></br> Bé, cada any hem preparat abans de la HackEPS una sèrie de minireptes per tal d'anar 
+              escalfant motors. Aquest any hem decidit modificar una mica aquest format, preparant un únic repte amb diversos premis!
               </p>
             </div>
             <br />
@@ -209,10 +206,8 @@ const Dailyhacks = () => {
                 <h1 className="title2 left "> En que consisteix el repte?</h1>
 
                 <p>
-                  Fent un resum molt resumit, el repte consisteix a crear el
-                  nostre propi llenguatge de signes i establir les normes
-                  d'aquest, per després automatitzar-ne la traducció a
-                  llenguatge escrit.
+                Fent un resum molt resumit, el repte consisteix a crear el nostre propi llenguatge de signes i establir les normes d'aquest, per després automatitzar-ne la traducció a llenguatge escrit.
+
                   <br />
                   <br />A partir d'aquest dataset de kaggle (
                   <a
@@ -220,19 +215,18 @@ const Dailyhacks = () => {
                     target="_blank"
                   >
                     Kaggle Project
-                  </a>{" "}
-                  ) que consisteix en diverses imatges de mans en diferents
-                  posicions es demana realitzar un projecte que consta de dues
-                  parts.
+                  </a>
+                  ) que consisteix en diverses imatges de mans en diferents posicions es demana realitzar un projecte que consta de dues parts.
                 </p>
                 <br />
-                <p> Trobaréu més informació al ReadMe del repositori:</p>
+                <p> Trobaréu més informació al ReadMe del repositori:<br></br><a href="https://www.kaggle.com/datasets/gti-upm/leapgestrecog" target="_blank">Repositori Dailyhack</a> <i class="fa-brands fa-github"></i> </p>
+                <br/>
               </div>
               <div className="fotovidIntro">
                 <img src={pergamino} alt="pergamino" className="pergar" />
               </div>
             </div>
-            <br />
+            
             <br />
             <br />
 

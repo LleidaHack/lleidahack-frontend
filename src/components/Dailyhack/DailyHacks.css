@@ -19,7 +19,7 @@
 }
 
 .informative {
-  width: 68%;
+  width: 82%;
   justify-content: center;
   border-radius: 18px;
   color: var(--white);
@@ -106,7 +106,7 @@
   stroke-width: 2;
   stroke: #fff;
   stroke-miterlimit: 10;
-  margin: 10% auto;
+  margin: 6% auto;
   box-shadow: inset 0px 0px 0px #7ac142;
   animation:
     fill 0.4s ease-in-out 0.4s forwards,
@@ -121,7 +121,7 @@
   stroke-width: 2;
   stroke: #fff;
   stroke-miterlimit: 10;
-  margin: 10% auto;
+  margin: 6% auto;
   box-shadow: inset 0px 0px 0px #bd4209;
   animation:
     filler 0.4s ease-in-out 0.4s forwards,
@@ -314,7 +314,7 @@ col {
   }
 
   .informative {
-    width: 78%;
+    width: 82%;
     justify-content: left;
   }
 
