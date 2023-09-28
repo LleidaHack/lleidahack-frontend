@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useRef } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import "src/components/Header/Header.css";
 import hackIcon from "src/icons/hack_icon_black.png";
@@ -6,6 +7,26 @@ import { me, checkToken } from "src/services/AuthenticationService";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const ref = useRef()
+
+  useEffect(() => {
+    const checkIfClickedOutside = e => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (showPopup && ref.current && !ref.current.contains(e.target)) {
+        setShowPopup(false)
+      }
+    }
+
+    document.addEventListener("mousedown", checkIfClickedOutside)
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside)
+    }
+  }, [showPopup])
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -15,14 +36,13 @@ const Header = () => {
     setShowMenu(false);
   };
 
-  function togglePopup() {
-    const popup = document.getElementById("popupp");
-    if (popup.classList.contains("active")) {
-      popup.classList.remove("active");
-    } else {
-      popup.classList.add("active");
-    }
-  }
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
   function logOut() {
     localStorage.clear();
@@ -113,36 +133,29 @@ const Header = () => {
                   Contacte
                 </Link>
               </li>
-
-              {validToken ? (
-                <li className="nav-item">
-                  <Link to="" className="nav-link" onClick={togglePopup}>
-                    <div className="profileImage2 d-flex">
-                      {icon !== "string" ? (
-                        <img
-                          className="Profile"
-                          src={icon}
-                          alt="foto de perfil"
-                        />
-                      ) : (
-                        <i className="fa-solid fa-user m-auto" />
-                      )}
-                    </div>
-                  </Link>
-                </li>
-              ) : (
-                //Aixo es quan no existeix sessió
-                <li className="nav-item">
-                  <Link to="" className="nav-link" onClick={togglePopup}>
+              <li className="nav-item">
+                <Link to="" className="nav-link" onClick={togglePopup}>
+                  {validToken ? (<div className="profileImage2 d-flex">
+                    {icon !== "string" ? (
+                      <img
+                        className="Profile"
+                        src={icon}
+                        alt="foto de perfil"
+                      />
+                    ) : (
+                      <i className="fa-solid fa-user m-auto" />
+                    )}
+                    </div>) :(
                     <i className="fa-solid fa-user" />
-                  </Link>
-                </li>
-              )}
+                  )}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
-      <div id="popupp" className="popup-contenter">
+      { showPopup ? ( 
+      <div id="popupp" className="popup-contenter" ref={ref}>
         <div className="popup-options">
           {validToken ? (
             <>
@@ -198,7 +211,7 @@ const Header = () => {
             </>
           )}
         </div>
-      </div>
+      </div>):("")}
     </>
   );
 };
