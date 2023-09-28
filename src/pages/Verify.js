@@ -12,21 +12,27 @@ export default function Verify() {
   useEffect(() => {
     async function callService() {
       const res = await verify(params.get("token"));
-      console.log(params.get("token"))
-      console.log(res)
-      if (res.sucess) navigate("/");
+      console.log(params.get("token"));
+      console.log(res);
+      if (res.success) {
+        navigate("/");
+        return;
+      }
 
-      setMessage("Token Expired...");
+      if (res.message === "User already verified") {
+        navigate("/");
+        return;
+      }
 
       let mail;
       if (
         !(mail = window.prompt(
-          "Introdueix el teu mail per tornar a general el token",
+          "Introdueix el teu mail per tornar a general el token"
         ))
       );
 
-      resendVerification(mail);
-      window.location = "/hackeps/login";
+      await resendVerification(mail);
+      // navigate("/login");
     }
     callService();
   }, []);
