@@ -60,10 +60,10 @@ const InscripcioForm = () => {
       study_center: values.center,
       location: values.location,
       how_did_you_meet_us: values.meet,
-      update_user: true
+      update_user: true,
     };
 
-    let hack_event = await getHackeps()
+    let hack_event = await getHackeps();
     registerHackerToEvent(localStorage.getItem("userID"), hack_event.id, data);
     //TODO: posar feedback
   };

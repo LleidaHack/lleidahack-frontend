@@ -12,8 +12,6 @@ import {
   getEventIsHackerAccepted,
 } from "src/services/EventService";
 
-//import "./main.css"; // TODO: No existeix aquest fitxer
-
 import qrIcon from "src/icons/qr.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
@@ -48,6 +46,7 @@ const Profile_component = () => {
   const [qrCode, setQrCode] = useState(null);
 
   useEffect(() => {
+    let team1 = null;
     if (process.env.REACT_APP_DEBUG === "true")
       console.log("hacker id:" + hacker_id);
     if (!hacker_id) {
@@ -65,19 +64,17 @@ const Profile_component = () => {
         console.log(err);
       })
       .then(async (response) => {
-        if (response.length) setTeam(response[0]);
-        console.log(team);
+        team1 = { ...response[0] };
         return response.length
-          ? await getHackerGroupMembers(response[0].id).then((response) => {
-              return response;
-            })
+          ? await getHackerGroupMembers(response[0].id)
           : [];
       })
       .then((response) => {
-        setTeam({
-          ...team,
-          members: response,
-        });
+        if (response.members.length > 0)
+          setTeam({
+            ...team1,
+            members: [...response.members],
+          });
       });
   }, []);
 
