@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "src/palette.css";
 import "./Profile.css";
 import Modal from "react-bootstrap/Modal";
@@ -113,6 +113,9 @@ const Profile_component = () => {
       });
     });
   }, []);
+  function logOut() {
+    localStorage.clear();
+  }
 
   function generateMemberTime(creationDate) {
     let first = new Date(creationDate);
@@ -152,7 +155,14 @@ const Profile_component = () => {
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
               )}
+              <Link to="/home" className="logOut" onClick={logOut}>
+                <p>
+                  {" "}
+                  <i className="fa-solid fa-door-open" /> Surt de la sessió
+                </p>
+              </Link>
             </div>
+
             {/* Center Column */}
             <div className="col-12 col-xl-4 px-0 my-3 text-center">
               <div className="row ">
