@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useRef } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import "src/components/Header/Header.css";
 import hackIcon from "src/icons/hack_icon_black.png";
@@ -7,26 +6,6 @@ import { me, checkToken } from "src/services/AuthenticationService";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-
-  const ref = useRef();
-
-  useEffect(() => {
-    const checkIfClickedOutside = (e) => {
-      // If the menu is open and the clicked target is not within the menu,
-      // then close the menu
-      if (showPopup && ref.current && !ref.current.contains(e.target)) {
-        setShowPopup(false);
-      }
-    };
-
-    document.addEventListener("mousedown", checkIfClickedOutside);
-
-    return () => {
-      // Cleanup the event listener
-      document.removeEventListener("mousedown", checkIfClickedOutside);
-    };
-  }, [showPopup]);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -35,19 +14,6 @@ const Header = () => {
   const closeMenu = () => {
     setShowMenu(false);
   };
-
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
-  };
-
-  const closePopup = () => {
-    setShowPopup(false);
-  };
-
-  function logOut() {
-    localStorage.clear();
-    setValidToken(false);
-  }
 
   const [icon, setUserIcon] = useState(null);
   const [username, writeUserName] = useState(null);
@@ -130,7 +96,7 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="" className="nav-link" onClick={togglePopup}>
+                <Link to="/perfil" className="nav-link" onClick={closeMenu}>
                   {validToken ? (
                     <div className="profileImage2 d-flex">
                       {icon !== "string" ? (
@@ -152,71 +118,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      {showPopup ? (
-        <div id="popupp" className="popup-contenter" ref={ref}>
-          <div className="popup-options">
-            {validToken ? (
-              <>
-                <div className="InfoProfile">
-                  <div className="profileImage d-flex">
-                    {icon !== "string" ? (
-                      <img
-                        className="Profile"
-                        src={icon}
-                        alt="foto de perfil"
-                      />
-                    ) : (
-                      <i className="fa-solid fa-user m-auto text-black" />
-                    )}
-                  </div>
-                  <p className="title3">{username}</p>
-                </div>
-                <div className="buttonsFlex">
-                  <Link
-                    to="/perfil"
-                    className="py-2 px-4 m-auto apuntat-buttonex"
-                  >
-                    El meu perfil
-                  </Link>
-                </div>
-                <br></br>
-                <Link to="/home" className="logOut" onClick={logOut}>
-                  <p>
-                    {" "}
-                    <i className="fa-solid fa-door-open" /> Surt de la sessió
-                  </p>
-                </Link>
-              </>
-            ) : (
-              <>
-                <div className="InfoProfile">
-                  <p className="title3">El meu perfil</p>
-                </div>
-
-                <div className="buttonsFlex">
-                  <Link
-                    to="/login"
-                    state={{ nextScreen: "/perfil" }}
-                    className="py-2 px-4 m-auto apuntat-buttonex"
-                  >
-                    Inicia sesió
-                  </Link>
-
-                  <Link
-                    to="/hacker-form"
-                    className="py-2 px-4 m-auto apuntat-buttonex"
-                  >
-                    Crear compte {/*Aquesta porta a user-enter */}
-                  </Link>
-                </div>
-                <br />
-              </>
-            )}
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
     </>
   );
 };
