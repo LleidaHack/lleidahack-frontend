@@ -12,14 +12,12 @@ export default function Verify() {
   useEffect(() => {
     async function callService() {
       const res = await verify(params.get("token"));
-      console.log(params.get("token"))
-      console.log(res)
       if (res.sucess) navigate("/");
 
       setMessage("Token Expired...");
 
       let mail;
-      if (
+      while (
         !(mail = window.prompt(
           "Introdueix el teu mail per tornar a general el token",
         ))
