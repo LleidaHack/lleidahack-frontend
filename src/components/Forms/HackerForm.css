@@ -59,11 +59,10 @@ h1 {
   border-width: 5px;
 }
 
-input[type="file"]::-webkit-file-upload-button{
+input[type="file"]::-webkit-file-upload-button {
   color: black;
   background-color: var(--primary);
   border: none;
   padding: 0.5em;
   border-radius: 0.2em;
 }
-

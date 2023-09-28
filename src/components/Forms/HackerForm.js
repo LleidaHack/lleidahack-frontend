@@ -25,11 +25,11 @@ const validationSchema = Yup.object({
     .matches(/[0-9]/, "La contrasenya requereix d'almenys un número")
     .matches(
       /[a-z]/,
-      "La contrasenya requereix d'almenys una lletra en minúscules"
+      "La contrasenya requereix d'almenys una lletra en minúscules",
     )
     .matches(
       /[A-Z]/,
-      "La contrasenya requereix d'almenys una lletra en majúscules"
+      "La contrasenya requereix d'almenys una lletra en majúscules",
     ),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "La contrasenya ha de coincidir")
@@ -38,7 +38,7 @@ const validationSchema = Yup.object({
     .required("Data de naixment requerida")
     .max(
       date.toISOString().split("T")[0],
-      `Has de ser major de ${minAge} anys`
+      `Has de ser major de ${minAge} anys`,
     ),
   email: Yup.string()
     .required("The Email field is required")
