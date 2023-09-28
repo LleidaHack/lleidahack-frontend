@@ -9,17 +9,25 @@ import HackerForm from "src/pages/HackerSignup";
 import Testing from "src/components/others/Testing";
 import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
+import Verify from "./pages/Verify";
 import Login from "src/pages/Login";
 import Entrances from "src/pages/UsersEntrance.js";
 import Dailyhack from "src/pages/Dailyhack.js";
 import RequireAuth from "src/modules/RequireAuth";
+import ResetPassword from "./pages/ResetPassword";
 import PasswordForget from "./pages/ForgetPassword";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import "src/utils/ensure-basename";
+
 
 export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
   }, []);
+
+  if (!window.location.pathname.includes("/hackeps")) {
+    window.history.replaceState("", "", "/hackeps" + window.location.pathname);
+  }
 
   // Simulación de detección de token caducado
 
@@ -48,6 +56,8 @@ export default function App() {
             }
           />
           <Route path="/login" element={<Login />} />
+          <Route path="/validate-email/" element={<Verify />} />
+          <Route path="/confirm-password" element={<ResetPassword />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
@@ -78,7 +88,7 @@ export default function App() {
             }
           />
           <Route path="*" element={<Error404 />} />
-          <Route path="/forget-password" element={<PasswordForget />} />
+          <Route path="/forgot-password" element={<PasswordForget />} />
         </Routes>
       </Router>
     </div>

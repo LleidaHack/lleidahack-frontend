@@ -12,7 +12,6 @@ import * as Yup from "yup";
 const Team = (props) => {
   let team = props.team;
   let is_user = props.is_user;
-  let is_in_team = props.isInTeam;
 
   const [showCreateTeam, setShowCreateTeam] = useState(false);
   const handleShowCreateTeam = () => setShowCreateTeam(true);
@@ -27,8 +26,8 @@ const Team = (props) => {
       teamCode: Yup.string()
         .required("Codi de l'equip requerit")
         .matches(
-          /^#[0-9]{6}$/,
-          "El format ha de ser #XXXXXX on les Xs són números",
+          /^#[A-Z]{10}$/,
+          "El format ha de ser #XXXXXXXXXX on les Xs són lletres",
         ),
     });
 
@@ -46,7 +45,7 @@ const Team = (props) => {
 
     return (
       <>
-        {is_user && is_in_team ? (
+        {is_user ? (
           <Container className="p-bg-grey text-center mt-5 m-0 p-3">
             <h1>Inscripcions</h1>
             <Row className="justify-content-center">
@@ -146,21 +145,29 @@ const Team = (props) => {
     return (
       <Container className="p-bg-grey text-center mt-5 m-0 p-3">
         <h1>
-          {team.teamName} (Codi: #{team.teamCode})
+          {team.name} (Codi: #{team.code})
         </h1>
         <p>El teu equip:</p>
         <Container className="p-2">
           <Row className="g-3 justify-content-center">
             {team.members.map((member, index) => (
-              <Col className="col-3" key={index}>
+              <Col className="col-xxl-3 col-6" key={index}>
                 <div className="p-3 text-center bg-white">
                   <img
+                    style={{ aspectRatio: "1/1" }}
                     className="team-member-image bg-black"
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                    src={
+                      member.is_image_url
+                        ? member.image
+                        : "https://xsgames.co/randomusers/avatar.php?g=pixel"
+                    }
                     alt=""
                   />
                   <p className="team-member-name">{member.name}</p>
-                  <Button className="team-button" href={member.profileLink}>
+                  <Button
+                    className="team-button"
+                    href={"/hackeps/perfil/" + member.id /* / /TODO hardcoded*/}
+                  >
                     Veure perfil
                   </Button>
                 </div>
@@ -172,6 +179,6 @@ const Team = (props) => {
     );
   }
 
-  return <>{is_in_team ? <TeamInfo /> : <TeamButtons />}</>;
+  return <>{team ? <TeamInfo /> : <TeamButtons />}</>;
 };
 export default Team;

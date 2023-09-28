@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "src/components/Inscripcio/Inscripcio.css";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -34,8 +34,20 @@ const InscripcioForm = () => {
     { value: "Altre mitjà", label: "Altre mitjà" },
   ];
 
-  const handleSubmit = (values) => {
-    //TODO: estudis, centre, lloc, coneixer? on va això?
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const hackepsEvent = await getHackeps();
+        setHackepsEvent(hackepsEvent);
+      } catch (error) {
+        console.log("El error obtenido es:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleSubmit = async (values) => {
     console.log(values);
     const data = {
       shirt_size: values.size,
@@ -44,13 +56,20 @@ const InscripcioForm = () => {
       description: values.cvinfo,
       github: values.github,
       linkedin: values.linkedin,
+      studies: values.studies,
+      study_center: values.center,
+      location: values.location,
+      how_did_you_meet_us: values.meet,
       update_user: true,
     };
-    registerHackerToEvent(localStorage.getItem("userID"), getHackeps(), data);
+
+    let hack_event = await getHackeps();
+    registerHackerToEvent(localStorage.getItem("userID"), hack_event.id, data);
     //TODO: posar feedback
   };
 
   const [cvFile, setCvFile] = useState("");
+  const [hackepsEvent, setHackepsEvent] = useState(null);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
