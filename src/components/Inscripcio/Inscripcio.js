@@ -47,8 +47,7 @@ const InscripcioForm = () => {
     fetchData();
   }, []);
 
-  const handleSubmit = (values) => {
-    //TODO: estudis, centre, lloc, coneixer? on va això?
+  const handleSubmit = async (values) => {
     console.log(values);
     const data = {
       shirt_size: values.size,
@@ -63,7 +62,9 @@ const InscripcioForm = () => {
       how_did_you_meet_us: values.meet,
       update_user: true
     };
-    registerHackerToEvent(localStorage.getItem("userID"), getHackeps(), data);
+
+    let hack_event = await getHackeps()
+    registerHackerToEvent(localStorage.getItem("userID"), hack_event.id, data);
     //TODO: posar feedback
   };
 
