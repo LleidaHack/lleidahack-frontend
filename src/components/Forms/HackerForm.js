@@ -78,8 +78,14 @@ export const HackerStepperForm = () => {
     };
 
     const res = await signupHacker(hacker);
+    console.log(res);
     if (res.message) {
       setErrorMsg(res.message);
+      return;
+    }
+
+    if (!res.success) {
+      setErrorMsg("Error al enviar el formulari, revisa les dades");
       return;
     }
 
