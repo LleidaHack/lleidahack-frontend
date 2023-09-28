@@ -129,33 +129,60 @@ export const HackerStepperForm = () => {
         }}
       >
         <FormikStepper.Step label="Informació personal">
-          <Row>
+          <Row className="align-content-center d-flex">
             <HackerPanel />
-            <Col>
+            <div className="col-12 col-xxl-6 ">
               <h1 className="white-color">Crear compte</h1>
-              <InputField name="firstName" type="text" label="Nom" />
-              <InputField name="lastName" type="text" label="Cognoms" />
-              <InputField name="password" type="password" label="Contrasenya" />
               <InputField
+                className="w-100"
+                name="firstName"
+                type="text"
+                label="Nom"
+              />
+              <InputField
+                className="w-100"
+                name="lastName"
+                type="text"
+                label="Cognoms"
+              />
+              <InputField
+                className="w-100"
+                name="password"
+                type="password"
+                label="Contrasenya"
+              />
+              <InputField
+                className="w-100"
                 name="confirmPassword"
                 type="password"
                 label="Repetir contrasenya"
               />
               <InputField
+                className="w-100"
                 name="birthDate"
                 type="date"
                 label="Data de naixement"
               />
-            </Col>
+            </div>
           </Row>
         </FormikStepper.Step>
         <FormikStepper.Step label="Contacte">
           <Row>
             <HackerPanel />
-            <Col>
+            <div className="col-12 col-xxl-6 ">
               <h1 className="white-color">Crear compte</h1>
-              <InputField name="phone" type="tel" label="Telèfon" />
-              <InputField name="email" type="email" label="E-mail" />
+              <InputField
+                className="w-100"
+                name="phone"
+                type="tel"
+                label="Telèfon"
+              />
+              <InputField
+                className="w-100"
+                name="email"
+                type="email"
+                label="E-mail"
+              />
 
               <div>
                 <SelectField
@@ -172,12 +199,12 @@ export const HackerStepperForm = () => {
                   ]}
                 />
               </div>
-            </Col>
+            </div>
           </Row>
         </FormikStepper.Step>
         <FormikStepper.Step label="Avatar">
-          <Row>
-            <Col>
+          <Row className="">
+            <div className="col-12 col-xxl-6 d-flex flex-column">
               {isUrl && urlImage !== "" ? (
                 <img
                   style={{ height: "150px", width: "150px" }}
@@ -201,25 +228,32 @@ export const HackerStepperForm = () => {
                 />
               )}
 
-              <div>
+              <div className=" mb-3 mb-xxl-0 align-self-center">
                 <label htmlFor="imageUrl">Image URL:</label>
                 <input
+                  className="mb-1"
                   type="text"
                   id="imageUrl"
+                  placeholder="https://..."
                   onChange={handleImageUrlChange}
                 />
+                <FileBase
+                  id="avatarInput"
+                  type="file"
+                  multiple={false}
+                  onDone={handleImageChange}
+                />
               </div>
-              <FileBase
-                id="avatarInput"
-                type="file"
-                multiple={false}
-                onDone={handleImageChange}
-              />
-            </Col>
-            <Col>
+            </div>
+            <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
               <h1 className="white-color">Crear compte</h1>
-              <InputField name="nickname" type="text" label="Nickname" />
-            </Col>
+              <InputField
+                className="w-100"
+                name="nickname"
+                type="text"
+                label="Nickname"
+              />
+            </div>
           </Row>
           <Row>
             <span className="text-danger text-center mt-5">{errorMsg}</span>
