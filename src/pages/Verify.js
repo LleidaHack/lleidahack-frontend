@@ -12,9 +12,10 @@ export default function Verify() {
   useEffect(() => {
     async function callService() {
       const res = await verify(params.get("token"));
-      if (res.sucess) navigate("/");
-
-      setMessage("Token Expired...");
+      if (res.success) {
+        navigate("/");
+        return;
+      }
 
       let mail;
       while (
@@ -23,8 +24,8 @@ export default function Verify() {
         ))
       );
 
-      resendVerification(mail);
-      window.location = "/hackeps/login";
+      await resendVerification(mail);
+      // navigate("/login");
     }
     callService();
   }, []);
