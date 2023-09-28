@@ -57,7 +57,11 @@ const InscripcioForm = () => {
       description: values.cvinfo,
       github: values.github,
       linkedin: values.linkedin,
-      update_user: true,
+      studies: values.studies,
+      study_center: values.center,
+      location: values.location,
+      how_did_you_meet_us: values.meet,
+      update_user: true
     };
     registerHackerToEvent(localStorage.getItem("userID"), getHackeps(), data);
     //TODO: posar feedback
