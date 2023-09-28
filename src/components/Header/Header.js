@@ -15,20 +15,6 @@ const Header = () => {
     setShowMenu(false);
   };
 
-  function togglePopup() {
-    const popup = document.getElementById("popupp");
-    if (popup.classList.contains("active")) {
-      popup.classList.remove("active");
-    } else {
-      popup.classList.add("active");
-    }
-  }
-
-  function logOut() {
-    localStorage.clear();
-    setValidToken(false)
-  }
-
   const [icon, setUserIcon] = useState(null);
   const [username, writeUserName] = useState(null);
   const [validToken, setValidToken] = useState(false);
@@ -94,19 +80,11 @@ const Header = () => {
                   Sponsors
                 </Link>
               </li>
-              {validToken ? (
-                <li className="nav-item">
-                  <Link
-                    to="/dailyhacks"
-                    className="nav-link"
-                    onClick={closeMenu}
-                  >
-                    Dailyhack
-                  </Link>
-                </li>
-              ) : (
-                <></>
-              )}
+              <li className="nav-item">
+                <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}>
+                  Dailyhack
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link to="/faq" className="nav-link" onClick={closeMenu}>
                   FAQ
@@ -117,10 +95,9 @@ const Header = () => {
                   Contacte
                 </Link>
               </li>
-
-              {validToken ? (
-                <li className="nav-item">
-                  <Link to="" className="nav-link" onClick={togglePopup}>
+              <li className="nav-item">
+                <Link to="/perfil" className="nav-link" onClick={closeMenu}>
+                  {validToken ? (
                     <div className="profileImage2 d-flex">
                       {icon !== "string" ? (
                         <img
@@ -129,80 +106,18 @@ const Header = () => {
                           alt="foto de perfil"
                         />
                       ) : (
-                        <i class="fa-solid fa-user m-auto" />
+                        <i className="fa-solid fa-user m-auto" />
                       )}
                     </div>
-                  </Link>
-                </li>
-              ) : (
-                //Aixo es quan no existeix sesió
-                <li className="nav-item">
-                  <Link to="" className="nav-link" onClick={togglePopup}>
+                  ) : (
                     <i className="fa-solid fa-user" />
-                  </Link>
-                </li>
-              )}
+                  )}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
-      <div id="popupp" className="popup-contenter">
-        <div className="popup-options">
-          {validToken ? (
-            <>
-              <div className="InfoProfile">
-                <div className="profileImage d-flex">
-                  {icon !== "string" ? (
-                    <img className="Profile" src={icon} alt="foto de perfil" />
-                  ) : (
-                    <i class="fa-solid fa-user m-auto text-black" />
-                  )}
-                </div>
-                <p className="title3">{username}</p>
-              </div>
-              <div className="buttonsFlex">
-                <Link
-                  to="/perfil"
-                  className="py-2 px-4 m-auto apuntat-buttonex"
-                >
-                  El meu perfil
-                </Link>
-              </div>
-              <br></br>
-              <Link to="/home" className="logOut" onClick={logOut}>
-                <p>
-                  {" "}
-                  <i className="fa-solid fa-door-open" /> Surt de la sesió
-                </p>
-              </Link>
-            </>
-          ) : (
-            <>
-              <div className="InfoProfile">
-                <p className="title3">El meu perfil</p>
-              </div>
-
-              <div className="buttonsFlex">
-                <Link
-                  to="/login"
-                  state={{ nextScreen: "/perfil" }}
-                  className="py-2 px-4 m-auto apuntat-buttonex"
-                >
-                  Inicia sesió
-                </Link>
-
-                <Link
-                  to="/entrance"
-                  className="py-2 px-4 m-auto apuntat-buttonex"
-                >
-                  Crear compte {/*Aquesta porta a user-enter */}
-                </Link>
-              </div>
-              <br />
-            </>
-          )}
-        </div>
-      </div>
     </>
   );
 };

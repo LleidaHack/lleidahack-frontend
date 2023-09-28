@@ -16,11 +16,16 @@ import Dailyhack from "src/pages/Dailyhack.js";
 import RequireAuth from "src/modules/RequireAuth";
 import ResetPassword from "./pages/ResetPassword";
 import PasswordForget from "./pages/ForgetPassword";
+import "src/utils/ensure-basename";
 
 export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
   }, []);
+
+  if (!window.location.pathname.includes("/hackeps")) {
+    window.history.replaceState("", "", "/hackeps" + window.location.pathname);
+  }
 
   // Simulación de detección de token caducado
 
