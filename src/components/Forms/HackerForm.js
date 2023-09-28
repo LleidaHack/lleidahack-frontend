@@ -11,10 +11,11 @@ import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import { useNavigate } from "react-router-dom";
 
-const validationSchema = Yup.object().shape({
+const validationSchema = Yup.object({
   firstName: Yup.string().required("Nom requerit"),
   lastName: Yup.string().required("Cognoms requerits"),
   password: Yup.string()
+    .required("Contrasenya requerida")
     .min(8, "La contrasenya requereix d'almenys 8 caràcters")
     .matches(/[0-9]/, "La contrasenya requereix d'almenys un número")
     .matches(
@@ -24,17 +25,15 @@ const validationSchema = Yup.object().shape({
     .matches(
       /[A-Z]/,
       "La contrasenya requereix d'almenys una lletra en majúscules"
-    )
-    .required("Contrasenya requerida"),
-  confirmPassword: Yup.string().oneOf(
-    [Yup.ref("password"), null],
-    "La contrasenya ha de coincidir"
-  ),
+    ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password"), null], "La contrasenya ha de coincidir")
+    .required("Confirma la contrasenya"),
   birthDate: Yup.date().required("Data de naixment requerida"),
   email: Yup.string()
-    .email("The email must be a valid email address.")
-    .required("The Email field is required"),
-  phone: Yup.string().required("Telèfon requerit"),
+    .required("The Email field is required")
+    .email("The email must be a valid email address."),
+  phone: Yup.string().required("Telèfon requerit").nonNullable(),
   shirtSize: Yup.string().required("Talla de camiseta requerida"),
   nickname: Yup.string().required("Nickname requerit"),
 });
@@ -106,8 +105,12 @@ export const HackerStepperForm = () => {
         initialValues={{
           firstName: "",
           lastName: "",
+          password: "",
+          confirmPassword: "",
+          birthDate: "",
           phone: "",
           email: "",
+          shirtSize: "",
           nickname: "",
         }}
         validationSchema={validationSchema}
@@ -151,8 +154,9 @@ export const HackerStepperForm = () => {
             <HackerPanel />
             <Col>
               <h1 className="white-color">Crear compte</h1>
-              <InputField name="phone" type="text" label="Telèfon" />
+              <InputField name="phone" type="tel" label="Telèfon" />
               <InputField name="email" type="email" label="E-mail" />
+
               <div>
                 <SelectField
                   name="shirtSize"
