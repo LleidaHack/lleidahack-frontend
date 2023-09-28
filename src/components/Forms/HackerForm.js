@@ -10,6 +10,11 @@ import { signupHacker } from "src/services/HackerService";
 import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import { useNavigate } from "react-router-dom";
+import { min } from "moment";
+
+const minAge = "14";
+const date = new Date();
+date.setFullYear(date.getFullYear() - minAge);
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required("Nom requerit"),
@@ -29,7 +34,12 @@ const validationSchema = Yup.object({
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "La contrasenya ha de coincidir")
     .required("Confirma la contrasenya"),
-  birthDate: Yup.date().required("Data de naixment requerida"),
+  birthDate: Yup.date()
+    .required("Data de naixment requerida")
+    .max(
+      date.toISOString().split("T")[0],
+      `Has de ser major de ${minAge} anys`
+    ),
   email: Yup.string()
     .required("The Email field is required")
     .email("The email must be a valid email address."),
