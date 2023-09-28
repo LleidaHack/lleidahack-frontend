@@ -19,16 +19,16 @@ const validationSchema = Yup.object().shape({
     .matches(/[0-9]/, "La contrasenya requereix d'almenys un número")
     .matches(
       /[a-z]/,
-      "La contrasenya requereix d'almenys una lletra en minúscules",
+      "La contrasenya requereix d'almenys una lletra en minúscules"
     )
     .matches(
       /[A-Z]/,
-      "La contrasenya requereix d'almenys una lletra en majúscules",
+      "La contrasenya requereix d'almenys una lletra en majúscules"
     )
     .required("Contrasenya requerida"),
   confirmPassword: Yup.string().oneOf(
     [Yup.ref("password"), null],
-    "La contrasenya ha de coincidir",
+    "La contrasenya ha de coincidir"
   ),
   birthDate: Yup.date().required("Data de naixment requerida"),
   email: Yup.string()
@@ -114,15 +114,15 @@ export const HackerStepperForm = () => {
         withStepperLine /// false as default and If it is false, it hides stepper line
         nextButton={{
           label: "Següent",
-          style: { background: "var(--primary)" },
+          style: { background: "var(--primary)", color: "black" },
         }}
         prevButton={{
           label: "Enrere",
-          style: { background: "var(--primary)" },
+          style: { background: "var(--primary)", color: "black" },
         }}
         submitButton={{
           label: "Envia",
-          style: { background: "var(--primary)" },
+          style: { background: "var(--primary)", color: "black" },
         }}
       >
         <FormikStepper.Step label="Informació personal">
