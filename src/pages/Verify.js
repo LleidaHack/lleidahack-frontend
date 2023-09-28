@@ -19,11 +19,6 @@ export default function Verify() {
         return;
       }
 
-      if (res.message === "User already verified") {
-        navigate("/");
-        return;
-      }
-
       let mail;
       if (
         !(mail = window.prompt(
