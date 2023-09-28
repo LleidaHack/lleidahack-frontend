@@ -19,7 +19,7 @@ export default function Verify() {
       setMessage("Token Expired...");
 
       let mail;
-      while (
+      if (
         !(mail = window.prompt(
           "Introdueix el teu mail per tornar a general el token",
         ))
