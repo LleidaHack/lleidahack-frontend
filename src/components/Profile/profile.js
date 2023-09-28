@@ -12,7 +12,6 @@ import {
   getEventIsHackerAccepted,
 } from "src/services/EventService";
 
-
 import qrIcon from "src/icons/qr.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
@@ -47,7 +46,7 @@ const Profile_component = () => {
   const [qrCode, setQrCode] = useState(null);
 
   useEffect(() => {
-    let team1 = null
+    let team1 = null;
     if (process.env.REACT_APP_DEBUG === "true")
       console.log("hacker id:" + hacker_id);
     if (!hacker_id) {
@@ -65,13 +64,13 @@ const Profile_component = () => {
         console.log(err);
       })
       .then(async (response) => {
-        team1 = {...response[0]}
+        team1 = { ...response[0] };
         return response.length
           ? await getHackerGroupMembers(response[0].id)
           : [];
       })
       .then((response) => {
-        if (response.members.length>0)
+        if (response.members.length > 0)
           setTeam({
             ...team1,
             members: [...response.members],
