@@ -3,9 +3,19 @@
   min-height: 100vh;
   background: var(--secondary);
   display: flex;
-  align-items: center;
+  align-items: top;
   padding-bottom: 20px;
 }
+
+@media (min-width: 576px) {
+
+  .custom-form{
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+}
+
 
 .custom-form-Dailyhack {
   width: 100%;
@@ -66,3 +76,9 @@ input[type="file"]::-webkit-file-upload-button {
   padding: 0.5em;
   border-radius: 0.2em;
 }
+
+
+.stepper-horizontal > .stepper-step{
+  flex-shrink: 0;
+}
+
