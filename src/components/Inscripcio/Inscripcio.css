@@ -1,7 +1,8 @@
 /* ContactPage.css */
-.container-all {
+.container-all-inscripcio {
   background-color: var(--secondary);
   min-height: 100vh;
+  justify-content: center;
 }
 
 .title-contacte {
@@ -11,6 +12,11 @@
   text-align: center;
   font-size: 50px;
   justify-content: center;
+}
+
+.container-inscripcio  {
+  width: 80%;
+  align-items: center;
 }
 
 .logo-container {
@@ -47,13 +53,13 @@
 }
 
 .form-container {
-  align-items: center;
   width: 100%;
   animation: fadeIn 0.5s ease-in-out;
 
-  display: flex;
+  display:flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
 }
 
 form {
@@ -190,9 +196,6 @@ input[type="text"] {
     width: 100%;
     max-width: 100%;
     margin: 10px;
-  }
-
-  .form-container {
     margin-top: 40px;
   }
 }
