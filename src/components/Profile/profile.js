@@ -26,7 +26,7 @@ import UserNotFound from "./UserNotFound";
 const Profile_component = () => {
   let { hacker_id } = useParams();
   const [isUser, setIsUser] = useState(
-    hacker_id === localStorage.getItem("userID")
+    hacker_id === localStorage.getItem("userID"),
   );
 
   const startDate = new Date(2022, 10, 25);

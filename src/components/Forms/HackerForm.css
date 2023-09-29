@@ -8,14 +8,11 @@
 }
 
 @media (min-width: 576px) {
-
-  .custom-form{
+  .custom-form {
     padding-left: 15%;
     padding-right: 15%;
   }
-
 }
-
 
 .custom-form-Dailyhack {
   width: 100%;
@@ -77,8 +74,6 @@ input[type="file"]::-webkit-file-upload-button {
   border-radius: 0.2em;
 }
 
-
-.stepper-horizontal > .stepper-step{
+.stepper-horizontal > .stepper-step {
   flex-shrink: 0;
 }
-
