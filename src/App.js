@@ -18,6 +18,7 @@ import ResetPassword from "./pages/ResetPassword";
 import PasswordForget from "./pages/ForgetPassword";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import "src/utils/ensure-basename";
+import { refreshToken } from "./services/AuthenticationService";
 
 export default function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ export default function App() {
   }
 
   // Simulación de detección de token caducado
+  setInterval(refreshToken, 1000 * 60 * 12);
 
   return (
     <div className="App">
