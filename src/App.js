@@ -16,6 +16,7 @@ import Dailyhack from "src/pages/Dailyhack.js";
 import RequireAuth from "src/modules/RequireAuth";
 import ResetPassword from "./pages/ResetPassword";
 import PasswordForget from "./pages/ForgetPassword";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import "src/utils/ensure-basename";
 
 export default function App() {
@@ -74,6 +75,14 @@ export default function App() {
             element={
               <RequireAuth originalRoute="/dailyhacks">
                 <Dailyhack />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth originalRoute="/dashboard">
+                <Dashboard />
               </RequireAuth>
             }
           />
