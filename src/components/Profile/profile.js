@@ -57,30 +57,46 @@ const Profile_component = () => {
       .then(async (response) => {
         setHacker(response);
         setQrCode(response.code);
+        console.log("b",hacker_id)
         const response_1 = await getHackerGroups(hacker_id);
-        return response_1;
-      })
-      .catch((err) => {
-        console.log(err);
+        console.log("a",response_1)
+        const eventId = await getHackeps();
+        let group = null
+        if(response_1){
+        for (let i = 0; i<response_1.length;i++){
+          if(response_1[i].event_id===eventId.id){
+            console.log("e",response_1[i])
+            group = response_1[i];
+          }
+        }}
+        if (group) return group
+        return [];
       })
       .then(async (response) => {
-        team1 = { ...response[0] };
+        console.log("r",response)
+        team1 = response;
         return response.length
           ? await getHackerGroupMembers(response[0].id)
           : [];
       })
       .then((response) => {
+        
+        console.log(response)
+        if (response)
         if (response.members.length > 0)
           setTeam({
             ...team1,
             members: [...response.members],
           });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
 
   useEffect(() => {
     getHackerGroups(hacker_id).then((response) => {
-      console.log(response);
+      console.log("grups",response);
     });
   }, []);
 
@@ -110,6 +126,7 @@ const Profile_component = () => {
       });
     });
   }, []);
+  
   function logOut() {
     localStorage.clear();
   }
@@ -147,7 +164,7 @@ const Profile_component = () => {
                     src={hacker.image}
                   />
                 ) : (
-                  <i class="fa-solid fa-user fa-8x mx-auto"></i>
+                  <i className="fa-solid fa-user fa-8x mx-auto"></i>
                 )
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />

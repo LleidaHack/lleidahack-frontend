@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "src/components/Team/Team.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,10 +8,17 @@ import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { getHackerGroupById, removeHackerFromGroup } from "src/services/HackerGroupService";
 
 const Team = (props) => {
-  let team = props.team;
+
+  useEffect(() => {
+    setTeam(props.team); 
+  }, [props.team]);
+
+  const [team, setTeam] = useState(props.team);
   let is_user = props.is_user;
+  let isAdmin = true
 
   const [showCreateTeam, setShowCreateTeam] = useState(false);
   const handleShowCreateTeam = () => setShowCreateTeam(true);
@@ -20,6 +27,11 @@ const Team = (props) => {
   const [showJoinTeam, setShowJoinTeam] = useState(false);
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
+
+  async function handleKick(member){
+    await removeHackerFromGroup(team.id,member.id)
+    setTeam(await getHackerGroupById(team.id))
+  }
 
   function TeamButtons() {
     const validationSchemaJoinTeam = Yup.object().shape({
@@ -166,10 +178,18 @@ const Team = (props) => {
                   <p className="team-member-name">{member.name}</p>
                   <Button
                     className="team-button"
-                    href={"/hackeps/perfil/" + member.id /* / /TODO hardcoded*/}
+                    href={"/hackeps/perfil/" + member.id /* //TODO hardcoded*/}
                   >
                     Veure perfil
                   </Button>
+                  <br/><br/>
+                  {isAdmin?
+                  <Button
+                    className="kick-button"
+                    onClick={()=>handleKick(member)}
+                  >
+                    Expulsar
+                  </Button>:""}
                 </div>
               </Col>
             ))}
