@@ -23,23 +23,27 @@ const ContactePage = () => {
   const [mailSended, setMailSended] = useState(false);
   const [mailStatus, setMailStatus] = useState(null);
 
-
   const handleSubmit = async (values) => {
-    const onMail = await contacte(values.name, values.subject, values.email, values.message);
+    const onMail = await contacte(
+      values.name,
+      values.subject,
+      values.email,
+      values.message,
+    );
     //TODO: IMPORTANT CONFIGURAR AIXO CORRECTAMENT QUAN EL SERVEI FUNCIONI.
 
-    if(onMail.succes){
-      setMailStatus(true) //primer fiquem que el estat es correcte
-      setMailSended(true) //Despres indiquem que ja es pot carregar la pagina de status
-    }else {
-      setMailStatus(false) //primer fiquem que el estat es incorrecte
-      setMailSended(true) //Despres indiquem que ja es pot carregar la pagina de status
+    if (onMail.succes) {
+      setMailStatus(true); //primer fiquem que el estat es correcte
+      setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
+    } else {
+      setMailStatus(false); //primer fiquem que el estat es incorrecte
+      setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
     }
   };
 
-   const retry = () => {
-    setMailSended(false)
-  }
+  const retry = () => {
+    setMailSended(false);
+  };
 
   useEffect(() => {
     // Coloca el scroll en la parte superior cuando el componente se monta
@@ -48,109 +52,119 @@ const ContactePage = () => {
 
   return (
     <div className="container-all">
-      {!mailSended ? (<>
-        <h1 className="title-contacte">Contacte</h1>
-        <div className="contact-container">
-          <div className="logo-container">
-            <h2 className="title-logo">Esdeveniment organitzat per LleidaHack</h2>
-            <img src={logo} alt="Logo" className="logo" />
-            <div className="social-logos">
-              <a
-                href="https://www.twitter.com/lleidahack"
-                target="_blank"
-                rel="noopener noreferrer"
+      {!mailSended ? (
+        <>
+          <h1 className="title-contacte">Contacte</h1>
+          <div className="contact-container">
+            <div className="logo-container">
+              <h2 className="title-logo">
+                Esdeveniment organitzat per LleidaHack
+              </h2>
+              <img src={logo} alt="Logo" className="logo" />
+              <div className="social-logos">
+                <a
+                  href="https://www.twitter.com/lleidahack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={twitterLogo}
+                    alt="Twitter"
+                    className="social-logo"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/lleidahack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={linkedinLogo}
+                    alt="LinkedIn"
+                    className="social-logo"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/lleidahack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={instagramLogo}
+                    alt="Instagram"
+                    className="social-logo"
+                  />
+                </a>
+              </div>
+            </div>
+            <div className="form-container-contacte">
+              <Formik
+                initialValues={{
+                  name: "",
+                  email: "",
+                  subject: "",
+                  message: "",
+                }}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
               >
-                <img src={twitterLogo} alt="Twitter" className="social-logo" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/lleidahack"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={linkedinLogo} alt="LinkedIn" className="social-logo" />
-              </a>
-              <a
-                href="https://www.instagram.com/lleidahack"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={instagramLogo}
-                  alt="Instagram"
-                  className="social-logo"
-                />
-              </a>
+                <Form className="form-contacte">
+                  <div className="formik-field">
+                    <label htmlFor="name">Nom:</label>
+                    <Field type="text" id="name" name="name" />
+                    <ErrorMessage
+                      name="name"
+                      component="div"
+                      className="error-message"
+                    />
+                  </div>
+
+                  <div className="formik-field">
+                    <label htmlFor="email">Correu:</label>
+                    <Field type="email" id="email" name="email" />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="error-message"
+                    />
+                  </div>
+
+                  <div className="formik-field">
+                    <label htmlFor="subject">Títol del missatge:</label>
+                    <Field type="text" id="subject" name="subject" />
+                    <ErrorMessage
+                      name="subject"
+                      component="div"
+                      className="error-message"
+                    />
+                  </div>
+
+                  <div className="formik-field">
+                    <label htmlFor="message">Missatge:</label>
+                    <Field as="textarea" id="message" name="message" rows="4" />
+                    <ErrorMessage
+                      name="message"
+                      component="div"
+                      className="error-message"
+                    />
+                  </div>
+                  <div className="button-submit-container">
+                    <button className="button-submit" type="submit">
+                      Enviar
+                    </button>
+                  </div>
+                </Form>
+              </Formik>
             </div>
           </div>
-          <div className="form-container-contacte">
-            <Formik
-              initialValues={{
-                name: "",
-                email: "",
-                subject: "",
-                message: "",
-              }}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            >
-              <Form className="form-contacte">
-                <div className="formik-field">
-                  <label htmlFor="name">Nom:</label>
-                  <Field type="text" id="name" name="name" />
-                  <ErrorMessage
-                    name="name"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-
-                <div className="formik-field">
-                  <label htmlFor="email">Correu:</label>
-                  <Field type="email" id="email" name="email" />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-
-                <div className="formik-field">
-                  <label htmlFor="subject">Títol del missatge:</label>
-                  <Field type="text" id="subject" name="subject" />
-                  <ErrorMessage
-                    name="subject"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-
-                <div className="formik-field">
-                  <label htmlFor="message">Missatge:</label>
-                  <Field as="textarea" id="message" name="message" rows="4" />
-                  <ErrorMessage
-                    name="message"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-                <div className="button-submit-container">
-                  <button className="button-submit" type="submit">
-                    Enviar
-                  </button>
-                </div>
-              </Form>
-            </Formik>
-          </div>
-        </div>
         </>
-
-      ):(
+      ) : (
         <>
-      {!mailStatus ? (
-        <>
-         <div className="valerr">
+          {!mailStatus ? (
+            <>
+              <div className="valerr">
                 <div className="iconBox">
-                  <div >
+                  <div>
                     <svg
                       className="crossmarker"
                       xmlns="http://www.w3.org/2000/svg"
@@ -172,30 +186,32 @@ const ContactePage = () => {
                   </div>
                   <h2>Error enviant el teu missatge.</h2>
                   <p>
-                    Sembla que algo ha fallat mentre registravem el teu missatge.
+                    Sembla que algo ha fallat mentre registravem el teu
+                    missatge.
                   </p>
                   <p>
                     <i>
-                      Torna a intentar-ho novament. En
-                      cas que segueixi fallant, contacta amb nosaltres utilitzant <br></br> les nostres xarxes socials que trobarás a la part inferior de la pantalla.
+                      Torna a intentar-ho novament. En cas que segueixi fallant,
+                      contacta amb nosaltres utilitzant <br></br> les nostres
+                      xarxes socials que trobarás a la part inferior de la
+                      pantalla.
                     </i>
                   </p>
                 </div>
 
                 <div className="infbuttonok">
-                <button onClick={retry} className="contacta">
+                  <button onClick={retry} className="contacta">
                     Intentar novament
                   </button>
                 </div>
               </div>
-        
-        
-        
-        </>) : (<>
-          <div className="valerr">
+            </>
+          ) : (
+            <>
+              <div className="valerr">
                 <div className="iconBox">
-                  <div >
-                  <svg
+                  <div>
+                    <svg
                       className="checkmark"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 52 52"
@@ -217,29 +233,25 @@ const ContactePage = () => {
                   </div>
                   <h2>Missatge enviat correctament.</h2>
                   <p>
-                  Gracies per contactar amb LleidaHack. <br></br>
-                  El teu missatge s'ha enviat correctament.<br></br>En cas que necesitesim ficar-nos en contacte amb tu, ho fariem amb el correu que ens has proporcionat.
-                    
+                    Gracies per contactar amb LleidaHack. <br></br>
+                    El teu missatge s'ha enviat correctament.<br></br>En cas que
+                    necesitesim ficar-nos en contacte amb tu, ho fariem amb el
+                    correu que ens has proporcionat.
                   </p>
-                  <p>
-                    
-                  </p>
+                  <p></p>
                 </div>
 
                 <div className="infbuttonok">
                   <Link to="/#home">
                     <button onClick={retry} className="contacta">
-                        Tornar al inici
+                      Tornar al inici
                     </button>
                   </Link>
                 </div>
               </div>
-        
-        
-        
+            </>
+          )}
         </>
-        )}
-      </>
       )}
     </div>
   );
