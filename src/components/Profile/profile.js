@@ -55,49 +55,32 @@ const Profile_component = () => {
     }
     getHackerById(hacker_id)
       .then(async (response) => {
-        setHacker(response);
-        setQrCode(response.code);
-        console.log("b",hacker_id)
+        setHacker(await response);
+        setQrCode(await response.code);
         const response_1 = await getHackerGroups(hacker_id);
-        console.log("a",response_1)
         const eventId = await getHackeps();
-        let group = null
+        let group = {}
         if(response_1){
         for (let i = 0; i<response_1.length;i++){
           if(response_1[i].event_id===eventId.id){
-            console.log("e",response_1[i])
             group = response_1[i];
           }
         }}
-        if (group) return group
-        return [];
+        return group;
       })
       .then(async (response) => {
-        console.log("r",response)
         team1 = response;
-        return response.length
-          ? await getHackerGroupMembers(response[0].id)
-          : [];
-      })
-      .then((response) => {
-        
-        console.log(response)
         if (response)
+        return await getHackerGroupMembers(response.id)
+      })
+      .then(async (response) => {
+        if(response){
         if (response.members.length > 0)
           setTeam({
             ...team1,
             members: [...response.members],
-          });
-      })
-      .catch((err) => {
-        console.log(err);
+          })};
       });
-  }, []);
-
-  useEffect(() => {
-    getHackerGroups(hacker_id).then((response) => {
-      console.log("grups",response);
-    });
   }, []);
 
   useEffect(() => {
@@ -169,12 +152,12 @@ const Profile_component = () => {
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
               )}
-              <Link to="/home" className="logOut" onClick={logOut}>
+              {isUser?<Link to="/home" className="logOut" onClick={logOut}>
                 <p>
                   {" "}
                   <i className="fa-solid fa-door-open" /> Surt de la sessió
                 </p>
-              </Link>
+              </Link>:""}
             </div>
 
             {/* Center Column */}
@@ -230,7 +213,7 @@ const Profile_component = () => {
           {isUser ? <Join event={event} /> : <></>}
 
           {event && event.accepted ? (
-            <Team team={team} is_user={isUser} has_team={Boolean(team)} />
+            <Team team={team} is_user={isUser} has_team={Boolean(team)}/>
           ) : (
             <></>
           )}

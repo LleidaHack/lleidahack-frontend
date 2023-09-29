@@ -11,15 +11,13 @@ import * as Yup from "yup";
 import { getHackerGroupById, removeHackerFromGroup } from "src/services/HackerGroupService";
 
 const Team = (props) => {
-
-  useEffect(() => {
-    setTeam(props.team); 
-  }, [props.team]);
-
   const [team, setTeam] = useState(props.team);
   let is_user = props.is_user;
-  let isAdmin = true
 
+  useEffect(() => {
+    setTeam(props.team);
+  }, [props.team]);
+  
   const [showCreateTeam, setShowCreateTeam] = useState(false);
   const handleShowCreateTeam = () => setShowCreateTeam(true);
   const handleCloseCreateTeam = () => setShowCreateTeam(false);
@@ -176,20 +174,23 @@ const Team = (props) => {
                     alt=""
                   />
                   <p className="team-member-name">{member.name}</p>
-                  <Button
-                    className="team-button"
-                    href={"/hackeps/perfil/" + member.id /* //TODO hardcoded*/}
-                  >
-                    Veure perfil
-                  </Button>
-                  <br/><br/>
-                  {isAdmin?
-                  <Button
-                    className="kick-button"
-                    onClick={()=>handleKick(member)}
-                  >
-                    Expulsar
-                  </Button>:""}
+                  {String(member.id) === localStorage.getItem("userID") ? "" : <>
+                    <Button
+                      className="team-button"
+                      href={"/hackeps/perfil/" + member.id /* //TODO hardcoded*/}
+                    >
+                      Veure perfil
+                    </Button>
+                    <br/><br/>
+                    {(team?team.leader_id === localStorage.getItem("userID"):false)?
+                      <Button
+                        className="kick-button"
+                        onClick={()=>handleKick(member)}
+                      >
+                        Expulsar
+                      </Button>:""
+                    }</>
+                  }
                 </div>
               </Col>
             ))}
