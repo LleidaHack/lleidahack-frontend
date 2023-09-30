@@ -29,3 +29,7 @@
   border-color: var(--primary) !important;
   border-width: 3px !important;
 }
+
+.main-screen {
+  min-height: 100vh;
+}
