@@ -54,39 +54,37 @@ const InscripcioForm = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
-      console.log(values);
-      const data = {
-        shirt_size: values.size,
-        food_restrictions: values.food,
-        cv: cvFile,
-        description: values.cvinfo_links,
-        github: values.github,
-        linkedin: values.linkedin,
-        studies: values.studies,
-        study_center: values.center,
-        location: values.location,
-        how_did_you_meet_us: values.meet,
-        update_user: true,
-      };
-      let hack_event = await getHackeps();
-      let registration = await registerHackerToEvent(
-        localStorage.getItem("userID"),
-        hack_event.id,
-        data,
+    console.log(values);
+    const data = {
+      shirt_size: values.size,
+      food_restrictions: values.food,
+      cv: cvFile,
+      description: values.cvinfo_links,
+      github: values.github,
+      linkedin: values.linkedin,
+      studies: values.studies,
+      study_center: values.center,
+      location: values.location,
+      how_did_you_meet_us: values.meet,
+      update_user: true,
+    };
+    let hack_event = await getHackeps();
+    let registration = await registerHackerToEvent(
+      localStorage.getItem("userID"),
+      hack_event.id,
+      data,
+    );
+    console.log(registration);
+    if (registration.message) {
+      // Maneja los errores aquí y muestra el mensaje de error
+      setErrorMessage(
+        "Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.",
       );
-      console.log(registration)
-      if (registration.message){
-        // Maneja los errores aquí y muestra el mensaje de error
-        setErrorMessage(
-          "Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.",
-        );
-      }else {
-        setSuccessMessage("El registre s'ha enviat correctament!");
-        setShowSuccessToast(true);
-        navigate("/perfil");
-      }
-
-    
+    } else {
+      setSuccessMessage("El registre s'ha enviat correctament!");
+      setShowSuccessToast(true);
+      navigate("/perfil");
+    }
   };
 
   const [cvFile, setCvFile] = useState("");

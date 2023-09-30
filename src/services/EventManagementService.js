@@ -60,7 +60,7 @@ export async function unregisterHackerToEvent(hacker_id, event_id) {
 export async function confirmAssistance(Token) {
   return fetchPlus({
     Url: `/eventmanagment/confirm-assistance`,
-    Query: {token: Token}
+    Query: { token: Token },
   });
 }
 

@@ -46,7 +46,7 @@ const Profile_component = () => {
   }, []);
 
   useEffect(() => {
-    let event_id
+    let event_id;
     getHackeps().then((response) => {
       event_id = response.id;
       getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
