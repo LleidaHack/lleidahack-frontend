@@ -30,14 +30,14 @@
   border-width: 3px !important;
 }
 
-.logOut-button{
+.logOut-button {
   padding: 10px 12px;
   font-size: 18px;
   background-color: var(--secondary);
   color: var(--white);
   border: 2px solid var(--primary);
   cursor: pointer;
-  font-family: 'space mono';
+  font-family: "space mono";
 }
 
 .logOut-button:hover {

@@ -13,9 +13,7 @@ const Toast = ({ message, success, onClose }) => {
   }, [onClose]);
 
   return (
-    <div className={`toast ${success ? "success" : "error"}`}>
-      {message}
-    </div>
+    <div className={`toast ${success ? "success" : "error"}`}>{message}</div>
   );
 };
 

@@ -160,7 +160,6 @@ const Profile_component = () => {
                   <i class="fas fa-sign-out"></i> Tancar sessió
                 </button>
               </Link>
-
             </div>
 
             {/* Center Column */}

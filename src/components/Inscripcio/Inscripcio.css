@@ -4,7 +4,7 @@
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-  display: flex
+  display: flex;
 }
 
 .title-contacte {
@@ -15,7 +15,7 @@
   font-size: 40px;
 }
 
-.container-inscripcio  {
+.container-inscripcio {
   width: 70%;
   align-items: center;
 }
@@ -57,7 +57,7 @@
   width: 100%;
   animation: fadeIn 0.5s ease-in-out;
 
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center; /* Centra verticalmente */
   align-items: center; /* Centra horizontalmente */
@@ -164,13 +164,10 @@ input[type="text"] {
 }
 
 @media (max-width: 768px) {
- 
-
-  .container-inscripcio  {
+  .container-inscripcio {
     width: 85%;
     align-items: center;
   }
-  
 
   .logo-container {
     margin-bottom: 20px;

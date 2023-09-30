@@ -8,7 +8,6 @@ import { registerHackerToEvent } from "src/services/EventManagementService";
 import { getHackeps } from "src/services/EventService";
 import { useNavigate } from "react-router-dom";
 
-
 const validationSchema = Yup.object().shape({
   studies: Yup.string().required("Aquest camp és obligatori"),
   center: Yup.string().required("Aquest camp és obligatori"),
@@ -52,9 +51,7 @@ const InscripcioForm = () => {
   const [successMessage, setSuccessMessage] = useState(""); // Nuevo estado para el mensaje de éxito
   const [showSuccessToast, setShowSuccessToast] = useState(false); // Nuevo estado para mostrar el toast de éxito
 
-
   const navigate = useNavigate();
-
 
   const handleSubmit = async (values) => {
     try {
@@ -72,17 +69,22 @@ const InscripcioForm = () => {
         how_did_you_meet_us: values.meet,
         update_user: true,
       };
-      await registerHackerToEvent(localStorage.getItem("userID"), getHackeps(), data);
+      await registerHackerToEvent(
+        localStorage.getItem("userID"),
+        getHackeps(),
+        data,
+      );
       setSuccessMessage("El registre s'ha enviat correctament!");
       setShowSuccessToast(true);
       navigate("/perfil");
     } catch (error) {
       // Maneja los errores aquí y muestra el mensaje de error
       console.error("Error:", error);
-      setErrorMessage("Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.");
+      setErrorMessage(
+        "Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.",
+      );
     }
   };
-  
 
   const [cvFile, setCvFile] = useState("");
   const [hackepsEvent, setHackepsEvent] = useState(null);
@@ -106,7 +108,9 @@ const InscripcioForm = () => {
     <div className="container-all-inscripcio">
       <br />
       <div className="container-inscripcio">
-        <h1 className="title-contacte title-underline">Inscripció HackEPS 2023</h1>
+        <h1 className="title-contacte title-underline">
+          Inscripció HackEPS 2023
+        </h1>
         <div className="form-container">
           <Formik
             initialValues={{
@@ -258,7 +262,9 @@ const InscripcioForm = () => {
               </div>
 
               <div className="file-input-container">
-                <label htmlFor="cvinfo_file">Adjunta el teu CV (Opcional)</label>
+                <label htmlFor="cvinfo_file">
+                  Adjunta el teu CV (Opcional)
+                </label>
                 <input
                   type="file"
                   id="cvinfo_file"
@@ -283,11 +289,10 @@ const InscripcioForm = () => {
                   Enviar
                 </button>
               </div>
-
             </Form>
           </Formik>
         </div>
-        </div>
+      </div>
     </div>
   );
 };
