@@ -57,6 +57,13 @@ export async function unregisterHackerToEvent(hacker_id, event_id) {
   });
 }
 
+export async function confirmAssistance(Token) {
+  return fetchPlus({
+    Url: `/eventmanagment/confirm-assistance`,
+    Query: {token: Token}
+  });
+}
+
 export async function participateHackerToEvent(hacker_id, event_id) {
   return fetchPlus({
     Url: `/eventmanagment/${event_id}/participate/${hacker_id}`,

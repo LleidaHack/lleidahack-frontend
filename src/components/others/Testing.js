@@ -5,15 +5,16 @@ import MetaTest from "src/components/others/MetaTest";
 import {
   getAllUsers,
   getUserById,
+  getUserByEmail,
+  getUserByNickname,
+  getUserByPhone,
   getUserByCode,
-  addUser,
 } from "src/services/UserService";
 import {
   signupHacker,
   getAllHackers,
   getHackerById,
   updateHacker,
-  //addHacker,
   banHackerById,
   unbanHackerById,
   deleteHacker,
@@ -37,7 +38,6 @@ import {
   getLleidaHackerById,
   updateLleidaHacker,
   deleteLleidaHacker,
-  //addLleidaHacker,
   acceptLleidaHacker,
   rejectLleidaHacker,
   activateLleidaHacker,
@@ -78,8 +78,6 @@ import {
   getEventGroups,
   addEventGroup,
   removeEventGroup,
-  //addEventParticipant,
-  //removeEventParticipant,
   addEventSponsor,
   removeEventSponsor,
   getHackeps,
@@ -305,11 +303,6 @@ const Testing = () => {
           params: [user.code],
           status: false,
         },
-        {
-          body: addUser,
-          params: [user],
-          status: false,
-        },
       ],
     },
     {
@@ -337,11 +330,6 @@ const Testing = () => {
           params: [hacker],
           status: false,
         },
-        /*{
-          body: addHacker,
-          params: [hacker],
-          status: false,
-        },*/
         {
           body: banHackerById,
           params: [74],

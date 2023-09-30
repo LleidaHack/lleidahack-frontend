@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { accept, getPendingGroups } from "src/services/HackService";
+import { acceptHackerToEvent, getPendingHackersGruped } from "src/services/EventManagementService";
 
 export default function Dashboard() {
   const [data, setData] = useState({});
@@ -7,7 +7,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     const callService = async () => {
-      setData(await getPendingGroups());
+      setData(await getPendingHackersGruped("1"));
       setIsLoading(false);
     };
     callService();
@@ -25,7 +25,7 @@ function TableRow({ user, isGroup }) {
   const [isApproved, setIsApproved] = useState(user.approved);
 
   async function handleAcceptar() {
-    if (await accept(user.id)) {
+    if (await acceptHackerToEvent("1",user.id)) {
       setIsApproved(true);
     }
   }
