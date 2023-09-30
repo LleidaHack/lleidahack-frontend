@@ -164,3 +164,13 @@ textarea {
     margin-top: 40px;
   }
 }
+
+.valerr {
+  color: var(--white);
+}
+
+.iconBox {
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}

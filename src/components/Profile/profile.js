@@ -12,9 +12,7 @@ import {
   getEventIsHackerAccepted,
 } from "src/services/EventService";
 
-//import "./main.css"; // TODO: No existeix aquest fitxer
-
-import qrIcon from "src/icons/qr.png";
+import qrIcon from "src/icons/qr-black.png";
 
 import Calendar from "react-calendar/dist/umd/Calendar";
 import Medals from "src/components/Medals/Medals";
@@ -48,6 +46,7 @@ const Profile_component = () => {
   const [qrCode, setQrCode] = useState(null);
 
   useEffect(() => {
+    let team1 = null;
     if (process.env.REACT_APP_DEBUG === "true")
       console.log("hacker id:" + hacker_id);
     if (!hacker_id) {
@@ -56,35 +55,34 @@ const Profile_component = () => {
     }
     getHackerById(hacker_id)
       .then(async (response) => {
-        setHacker(response);
-        setQrCode(response.code);
+        setHacker(await response);
+        setQrCode(await response.code);
         const response_1 = await getHackerGroups(hacker_id);
-        return response_1;
-      })
-      .catch((err) => {
-        console.log(err);
+        const eventId = await getHackeps();
+        let group = null;
+        if (response_1) {
+          for (let i = 0; i < response_1.length; i++) {
+            if (response_1[i].event_id === eventId.id) {
+              group = response_1[i];
+            }
+          }
+        }
+        return group;
       })
       .then(async (response) => {
-        if (response.length) setTeam(response[0]);
-        console.log(team);
-        return response.length
-          ? await getHackerGroupMembers(response[0].id).then((response) => {
-              return response;
-            })
-          : [];
+        team1 = response;
+        if (response) return await getHackerGroupMembers(response.id);
+        return null;
       })
-      .then((response) => {
-        setTeam({
-          ...team,
-          members: response,
-        });
+      .then(async (response) => {
+        if (response) {
+          if (response.members.length > 0)
+            setTeam({
+              ...team1,
+              members: [...response.members],
+            });
+        }
       });
-  }, []);
-
-  useEffect(() => {
-    getHackerGroups(hacker_id).then((response) => {
-      console.log(response);
-    });
   }, []);
 
   useEffect(() => {
@@ -113,6 +111,7 @@ const Profile_component = () => {
       });
     });
   }, []);
+
   function logOut() {
     localStorage.clear();
   }
@@ -131,8 +130,7 @@ const Profile_component = () => {
     return `${~~days} dies`;
   }
   if (hacker)
-    if (hacker.message === "Hacker not found")
-      return <UserNotFound></UserNotFound>;
+    if (hacker.message === "Hacker not found") return <UserNotFound />;
 
   return (
     <>
@@ -145,12 +143,12 @@ const Profile_component = () => {
               {hacker ? (
                 hacker.image !== "string" ? (
                   <img
-                    style={{ aspectRatio: "1/1", width: "15vh" }}
+                    style={{ aspectRatio: "1/1", width: "45%" }}
                     className="bg-white border mx-auto rounded-circle m-auto"
                     src={hacker.image}
                   />
                 ) : (
-                  <i class="fa-solid fa-user fa-8x mx-auto"></i>
+                  <i className="fa-solid fa-user fa-8x mx-auto"></i>
                 )
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
@@ -187,7 +185,7 @@ const Profile_component = () => {
               </div>
             </div>
             {/* QR Column */}
-            <div className="col-12 col-xl-4 mx-auto">
+            <div className="col-12 col-xl-4 mx-auto text-dark">
               {hacker ? (
                 <div
                   className="container qr-container p-bg-primary p-2 text-center m-auto"
@@ -199,7 +197,12 @@ const Profile_component = () => {
                     </div>
                     <div className="col-6 col-xl-12 my-auto">
                       <img
-                        style={{ aspectRatio: "1/1", width: "70%" }}
+                        style={{
+                          aspectRatio: "1/1",
+                          width: "70%",
+                          fill: "black",
+                          backgroundColor: "transparent",
+                        }}
                         className="px-2 p-0 pt-xl-4 mx-auto my-auto"
                         src={qrIcon}
                       />
@@ -215,12 +218,12 @@ const Profile_component = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          {isUser ? <Join event={event} /> : <></>}
+          {isUser ? <Join event={event} /> : ""}
 
           {event && event.accepted ? (
             <Team team={team} is_user={isUser} has_team={Boolean(team)} />
           ) : (
-            <></>
+            ""
           )}
 
           {/* Calendar and Achievements */}

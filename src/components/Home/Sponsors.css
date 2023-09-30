@@ -158,13 +158,13 @@ img {
   display: flex;
   width: 100%;
   justify-content: center;
-  scale: 1;
+  scale: 1.2;
 }
 
 .sponsor-group-group-2 {
   display: flex;
   width: 90%;
-  scale: 0.7;
+  scale: 0.9;
   justify-content: center;
 }
 
@@ -208,7 +208,7 @@ img {
     height: auto;
     width: 100%;
     overflow: hidden;
-    scale: 1.2;
+    scale: 1.6;
     flex-wrap: wrap;
   }
 
