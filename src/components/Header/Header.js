@@ -15,7 +15,7 @@ const Header = () => {
     setShowMenu(false);
   };
 
-  const [icon, setUserIcon] = useState(null);
+  const [icon, setUserIcon] = useState("string");
   const [username, writeUserName] = useState(null);
   const [validToken, setValidToken] = useState(false);
 
@@ -31,7 +31,10 @@ const Header = () => {
             if (info.nickname) {
               //Si te nickname vol dir que la obtencio de dades es posible i que tambe hi haurá imatge
               writeUserName(info.nickname);
+              if((info.image !== null) && (info.image !==undefined) && (info.image !=="")){
               setUserIcon(info.image);
+              localStorage.imageProfile = info.image
+              }
             }
           } catch (error) {}
         }
@@ -102,7 +105,7 @@ const Header = () => {
                       {icon !== "string" ? (
                         <img
                           className="Profile"
-                          src={icon}
+                          src={localStorage.imageProfile}
                           alt="foto de perfil"
                         />
                       ) : (

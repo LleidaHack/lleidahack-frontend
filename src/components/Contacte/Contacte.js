@@ -30,9 +30,8 @@ const ContactePage = () => {
       values.email,
       values.message,
     );
-    //TODO: IMPORTANT CONFIGURAR AIXO CORRECTAMENT QUAN EL SERVEI FUNCIONI.
 
-    if (onMail.succes) {
+    if (onMail.success) {
       setMailStatus(true); //primer fiquem que el estat es correcte
       setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
     } else {
