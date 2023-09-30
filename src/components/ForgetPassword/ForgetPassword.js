@@ -15,7 +15,6 @@ const ForgetPassword = ({ nextScreen }) => {
   const [status, setStatus] = useState(false);
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
-    console.log("El email es:", values.email);
     const sendingQuest = await resetPassword(values.email);
     if (sendingQuest.message) {
       if (sendingQuest.message == "User not found") {
