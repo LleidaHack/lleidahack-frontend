@@ -15,8 +15,9 @@ const ForgetPassword = ({ nextScreen }) => {
   const [status, setStatus] = useState(false);
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
-    console.log("El email es:", values.email);
+    // console.log("El email es:", values.email);
     const sendingQuest = await resetPassword(values.email);
+    console.log(sendingQuest)
     if (sendingQuest.message) {
       if (sendingQuest.message == "User not found") {
         setFieldError(
@@ -28,9 +29,9 @@ const ForgetPassword = ({ nextScreen }) => {
           "email",
           "Sembla ser que encara no estas verificat. Comproba la teva bustia de spam.",
         );
-      } else if (sendingQuest.success == "true") {
-        setStatus(true);
       }
+    } else if (sendingQuest.success) {
+      setStatus(true);
     } else {
       setFieldError(
         "email",
