@@ -5,6 +5,8 @@
 .valerr {
     color: var(--white);
     margin: 10% auto;
+    max-width: 90%;
+
 }
   
   .iconBox {

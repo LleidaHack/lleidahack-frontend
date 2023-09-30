@@ -10,14 +10,14 @@ import "src/components/Feedbacks/FeedbackStyle.css";
 
 const FailFeedback = ({title, text, hasButton, buttonLink, buttonText, italic, onButtonClick}) => {
 
-    const formattedText = italic.split('\n').map((item, index) => (
+    const formattedText = text.split('\n').map((item, index) => (
         <React.Fragment key={index}>
           {item}
           <br />
         </React.Fragment>
       ));
 
-      const italicFormated = text.split('\n').map((item, index) => (
+      const italicFormated = italic.split('\n').map((item, index) => (
         <React.Fragment key={index}>
           {item}
           <br />

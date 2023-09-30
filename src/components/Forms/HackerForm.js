@@ -318,8 +318,8 @@ export const HackerStepperForm = () => {
 
             <>
             <FailFeedback
-                title={`Error al registrar la teva participació.`}
-                text={`Sembla que algo ha fallat mentre registravem la teva participació al sistema`}
+                title={`Error al registrar el teu compte`}
+                text={`Sembla que algo ha fallat mentre registravem el teu compte al sistema.`}
                 hasButton={true}
                 buttonLink={`/hacker-form`}
                 buttonText={`Intentar novament`}
@@ -331,8 +331,8 @@ export const HackerStepperForm = () => {
           ) : (
             <>
             <SuccessFeedback
-                title="T'has registrat correctament a l'esdeveniment!"
-                text={`El teu registre s'ha realitzat correctament. \n En breus rebràs un correu electrónic confirmant el registre a l'esdeveniment.`}
+                title="T'has registrat correctament."
+                text={`El teu registre s'ha realitzat correctament. \n En breus rebràs un correu electrónic confirmant el registre.`}
                 hasButton={true}
                 buttonLink="/login"
                 buttonText="Inicia sesió"
