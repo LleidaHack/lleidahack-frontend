@@ -85,7 +85,7 @@ const Profile_component = () => {
         setQrCode(await response.code);
         const response_1 = await getHackerGroups(hacker_id);
         let group = null;
-        if (response_1) {
+        if (response_1 && !response_1.message) {
           for (let i = 0; i < response_1.length; i++) {
             if (response_1[i].event_id === event_id) {
               group = response_1[i];
@@ -139,7 +139,7 @@ const Profile_component = () => {
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
               {hacker ? (
-                hacker.image !== "string" ? (
+                hacker.image !== "string" || hacker.image !== "" ? (
                   <img
                     style={{ aspectRatio: "1/1", width: "45%" }}
                     id="profile-image"
