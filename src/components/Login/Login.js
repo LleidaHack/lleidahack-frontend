@@ -23,7 +23,6 @@ const LoginPage = ({ nextScreen }) => {
           console.log("Login successful");
         if (nextScreen) {
           navigate(nextScreen);
-          console.log("redir successful");
         } else navigate("/home");
       } else {
         if (process.env.REACT_APP_DEBUG === "true")

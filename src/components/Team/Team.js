@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "src/components/Team/Team.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,10 +8,22 @@ import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import {
+  addHackerGroup,
+  addHackerToGroupByCode,
+  getHackerGroupById,
+  getHackerGroupMembers,
+  removeHackerFromGroup,
+} from "src/services/HackerGroupService";
+import { getHackeps } from "src/services/EventService";
 
 const Team = (props) => {
-  let team = props.team;
+  const [team, setTeam] = useState(props.team);
   let is_user = props.is_user;
+
+  useEffect(() => {
+    setTeam(props.team);
+  }, [props.team]);
 
   const [showCreateTeam, setShowCreateTeam] = useState(false);
   const handleShowCreateTeam = () => setShowCreateTeam(true);
@@ -20,6 +32,60 @@ const Team = (props) => {
   const [showJoinTeam, setShowJoinTeam] = useState(false);
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
+
+  async function handleKick(member) {
+    await removeHackerFromGroup(member.id, team.id);
+    setTeam(await getTeam(team.id));
+  }
+
+  const handleLeave = () => {
+    removeHackerFromGroup(localStorage.getItem("userID"), team.id);
+    setTeam(null);
+  };
+
+  async function joinTeam(val) {
+    let a = await addHackerToGroupByCode(
+      val.replace(/#/g, ""),
+      localStorage.getItem("userID"),
+    );
+    if (a.success) {
+      getTeam(a.added_id);
+      setShowJoinTeam(false);
+    }
+  }
+
+  async function createTeam(val) {
+    const team = {
+      name: val.teamName,
+      description: val.teamDesc,
+      leader_id: localStorage.getItem("userID"),
+      event_id: (await getHackeps()).id,
+    };
+    let a = await addHackerGroup(team);
+    if (a.success) {
+      getTeam(a.group_id);
+      setShowCreateTeam(false);
+    }
+  }
+
+  async function getTeam(team_id) {
+    let team = {};
+    getHackerGroupById(team_id)
+      .then(async (response) => {
+        team = response;
+        if (response) return await getHackerGroupMembers(response.id);
+        return null;
+      })
+      .then(async (response) => {
+        if (response) {
+          if (response.members.length > 0)
+            setTeam({
+              ...team,
+              members: [...response.members],
+            });
+        }
+      });
+  }
 
   function TeamButtons() {
     const validationSchemaJoinTeam = Yup.object().shape({
@@ -32,7 +98,7 @@ const Team = (props) => {
     });
 
     const handleSubmitJoinTeam = (values) => {
-      console.log(values);
+      joinTeam(values.teamCode);
     };
 
     const validationSchemaCreateTeam = Yup.object().shape({
@@ -40,7 +106,7 @@ const Team = (props) => {
     });
 
     const handleSubmitCreateTeam = (values) => {
-      console.log(values);
+      createTeam(values);
     };
 
     return (
@@ -82,7 +148,7 @@ const Team = (props) => {
                 <Form>
                   <div className="formik-field">
                     <label htmlFor="teamCode" className="black-color">
-                      Codi de l'equip (#XXXXXX):
+                      Codi de l'equip (#XXXXXXXXXX):
                     </label>
                     <Field type="text" id="teamCode" name="teamCode" />
                     <ErrorMessage
@@ -111,6 +177,7 @@ const Team = (props) => {
               <Formik
                 initialValues={{
                   teamName: "",
+                  teamDesc: "",
                 }}
                 validationSchema={validationSchemaCreateTeam}
                 onSubmit={handleSubmitCreateTeam}
@@ -126,6 +193,10 @@ const Team = (props) => {
                       component="div"
                       className="error-message"
                     />
+                    <label htmlFor="teamDesc" className="black-color">
+                      Descripcció:
+                    </label>
+                    <Field type="text" id="teamDesc" name="teamDesc" />
                   </div>
                   <div className="button-submit-container">
                     <Button className="team-button" type="submit">
@@ -164,17 +235,45 @@ const Team = (props) => {
                     alt=""
                   />
                   <p className="team-member-name">{member.name}</p>
-                  <Button
-                    className="team-button"
-                    href={"/hackeps/perfil/" + member.id /* / /TODO hardcoded*/}
-                  >
-                    Veure perfil
-                  </Button>
+                  {String(member.id) === localStorage.getItem("userID") ? (
+                    ""
+                  ) : (
+                    <>
+                      <Button
+                        className="team-button"
+                        href={
+                          "/hackeps/perfil/" + member.id /* //TODO hardcoded*/
+                        }
+                      >
+                        Veure perfil
+                      </Button>
+                      <br />
+                      <br />
+                      {(
+                        team
+                          ? String(team.leader_id) ===
+                            localStorage.getItem("userID")
+                          : false
+                      ) ? (
+                        <Button
+                          className="kick-button"
+                          onClick={() => handleKick(member)}
+                        >
+                          Expulsar
+                        </Button>
+                      ) : (
+                        ""
+                      )}
+                    </>
+                  )}
                 </div>
               </Col>
             ))}
           </Row>
         </Container>
+        <Button className="leave-group" onClick={() => handleLeave()}>
+          Sortir del grup
+        </Button>
       </Container>
     );
   }

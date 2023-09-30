@@ -9,7 +9,6 @@ export async function fetchPlus({
   saveLoginInfo = false,
   nextScreen,
   loginAuth,
-  ignorePoppup = false,
 }) {
   const headers = { "Content-Type": "application/json" };
   if (hasUserauth || loginAuth)
@@ -31,8 +30,6 @@ export async function fetchPlus({
     .then((response) => {
       if (process.env.REACT_APP_DEBUG === "true")
         console.log("response: ", response);
-      if (hasUserauth && response.status === 403 && !ignorePoppup) {
-      } //mostrarPopupHandler();
       return response.json();
     })
     .then((data) => {

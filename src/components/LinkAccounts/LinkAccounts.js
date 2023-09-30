@@ -1,8 +1,6 @@
 import React from "react";
 
 const LinkAccounts = ({ hacker }) => {
-  console.log(hacker);
-
   if (!hacker.linkedin && !hacker.github) return;
   if (hacker.linkedin === "string" && hacker.github === "string") return;
 
