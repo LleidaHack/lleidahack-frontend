@@ -28,7 +28,7 @@ const ForgetPassword = ({ nextScreen }) => {
           "email",
           "Sembla ser que encara no estas verificat. Comproba la teva bustia de spam.",
         );
-      } else if (sendingQuest.message == "success") {
+      } else if (sendingQuest.success == "true") {
         setStatus(true);
       }
     } else {
