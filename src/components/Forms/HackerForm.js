@@ -11,6 +11,8 @@ import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import { useNavigate } from "react-router-dom";
 import { min } from "moment";
+import FailFeedback from "../Feedbacks/FailFeedback";
+import SuccessFeedback from "../Feedbacks/SuccesFeedback";
 
 const minAge = "14";
 const date = new Date();
@@ -67,6 +69,11 @@ export const HackerStepperForm = () => {
   const [isUrl, setIsUrl] = useState(false);
   // Error message for last page of the form
   const [errorMsg, setErrorMsg] = useState("");
+  //Feedback component
+  const [submiting, setSubmiting] = useState(false); //si es false, encara no s'ha donat al submit, pero si es true, es mostra el feedback
+  const [statusSubmit, setStatusSubmit] = useState(false); //si es false, error, si es true tot esta correcte
+  const [errCause, setCauseError] = useState(""); //si es false, error, si es true tot esta correcte
+
 
   const navigate = useNavigate();
   const onSubmit = async (values, { setSubmitting }) => {
@@ -90,17 +97,30 @@ export const HackerStepperForm = () => {
     const res = await signupHacker(hacker);
     console.log(res);
     if (res.message) {
-      setErrorMsg(res.message);
+      setStatusSubmit(false)
+      const causeError = "Error al tramitar dades"
+      if(res.message == "Email already exists"){
+        causeError = "El correu que has introduit es troba registrat."
+      }else if(res.message == "Nickname already exists"){
+        causeError = "El nickname que has introduit es troba registrat."
+      }else if(res.message == "Telephone already exists"){
+        causeError = "El telefon que has introduit es troba registrat."
+      }
+      setCauseError(causeError)
+      setSubmiting(true)
+      //setErrorMsg(res.message);
       return;
+    }else if(res.success){
+      setStatusSubmit(true)
+      setSubmiting(true)
     }
 
-    if (!res.success) {
+    /*if (!res.success) {
       setErrorMsg("Error al enviar el formulari, revisa les dades");
       return;
-    }
+    }*/
 
-    setSubmitting(false);
-    navigate("/login");
+    //navigate("/login");
   };
 
   const handleImageChange = (event) => {
@@ -112,9 +132,17 @@ export const HackerStepperForm = () => {
     setIsUrl(true);
   };
 
+  const handleButtonClick = () => {
+    window.location.reload();
+  }
+
   return (
     <>
       <div id="hackerForm" className="custom-form">
+
+      {!submiting ? (
+
+
         <FormikStepper
           /// Accept all Formik props
           onSubmit={onSubmit}
@@ -281,6 +309,51 @@ export const HackerStepperForm = () => {
             </Row>
           </FormikStepper.Step>
         </FormikStepper>
+
+                
+      ) : (
+        <>
+
+          {!statusSubmit ? (
+
+            <>
+            <FailFeedback
+                title={`Error al registrar la teva participació.`}
+                text={`Sembla que algo ha fallat mentre registravem la teva participació al sistema`}
+                hasButton={true}
+                buttonLink={`/hacker-form`}
+                buttonText={`Intentar novament`}
+                italic={errCause}
+                onButtonClick={handleButtonClick}
+              />
+
+            </>
+          ) : (
+            <>
+            <SuccessFeedback
+                title="T'has registrat correctament a l'esdeveniment!"
+                text={`El teu registre s'ha realitzat correctament. \n En breus rebràs un correu electrónic confirmant el registre a l'esdeveniment.`}
+                hasButton={true}
+                buttonLink="/login"
+                buttonText="Inicia sesió"
+              />
+            
+            </>
+          )
+          
+          }
+        
+        
+        </>
+
+      )
+      }
+
+
+
+
+
+
       </div>
     </>
   );
