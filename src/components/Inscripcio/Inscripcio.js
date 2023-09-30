@@ -70,7 +70,11 @@ const InscripcioForm = () => {
         update_user: true,
       };
       let hack_event = await getHackeps();
-      registerHackerToEvent(localStorage.getItem("userID"), hack_event.id, data);
+      registerHackerToEvent(
+        localStorage.getItem("userID"),
+        hack_event.id,
+        data,
+      );
       setSuccessMessage("El registre s'ha enviat correctament!");
       setShowSuccessToast(true);
       navigate("/perfil");
