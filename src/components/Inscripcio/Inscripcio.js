@@ -54,7 +54,6 @@ const InscripcioForm = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
-    console.log(values);
     const data = {
       shirt_size: values.size,
       food_restrictions: values.food,
@@ -92,7 +91,6 @@ const InscripcioForm = () => {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setCvFile(file);
-    console.log(file);
   };
 
   const clearFile = () => {
@@ -150,7 +148,7 @@ const InscripcioForm = () => {
               </div>
 
               <div className="formik-field">
-                <label htmlFor="location">D'on vens?:</label>
+                <label htmlFor="location">D'on vens?</label>
                 <Field type="text" id="location" name="location" />
                 <ErrorMessage
                   name="location"
@@ -200,7 +198,7 @@ const InscripcioForm = () => {
                   Vols que les empreses de Lleida et coneguin? (Opcional)
                 </label>
                 <p className="subtitle">
-                  Tens expeciència en altres hackatons? Algun projecte personal
+                  Tens experiència en altres hackatons? Algun projecte personal
                   que vulguis compartir? Explica'ns què t'apassiona i deixa aquí
                   els enllaços de les teves xarxes socials.
                 </p>

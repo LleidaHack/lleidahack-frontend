@@ -195,7 +195,7 @@ const Dailyhacks = () => {
             <div className="Part1">
               <p>
                 Molt bones, Hackers! Des de LleidaHack venim a presentar-vos el
-                DailyHack d'aquest any! Alguns us preguntareu: que és això del
+                DailyHack d'aquest any! Alguns us preguntareu: què és això del
                 DailyHack?<br></br> Bé, cada any hem preparat abans de la
                 HackEPS una sèrie de minireptes per tal d'anar escalfant motors.
                 Aquest any hem decidit modificar una mica aquest format,
@@ -206,7 +206,7 @@ const Dailyhacks = () => {
 
             <div className="Part1">
               <div className="IntroTexte">
-                <h1 className="title2 left "> En que consisteix el repte?</h1>
+                <h1 className="title2 left ">En que consisteix el repte?</h1>
 
                 <p>
                   Fent un resum molt resumit, el repte consisteix a crear el
@@ -235,7 +235,7 @@ const Dailyhacks = () => {
                   >
                     Repositori Dailyhack
                   </a>{" "}
-                  <i class="fa-brands fa-github" />{" "}
+                  <i className="fa-brands fa-github" />{" "}
                 </p>
                 <br />
               </div>

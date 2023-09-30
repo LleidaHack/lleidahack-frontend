@@ -154,8 +154,8 @@ const Profile_component = () => {
               <br />
               <br />
               <Link to="/home" className="logOut" onClick={logOut}>
-                <button class="logOut-button">
-                  <i class="fas fa-sign-out"></i> Tancar sessió
+                <button className="logOut-button">
+                  <i className="fas fa-sign-out"></i> Tancar sessió
                 </button>
               </Link>
             </div>

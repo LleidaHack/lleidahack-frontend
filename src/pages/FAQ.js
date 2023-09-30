@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "I si no tinc equip?",
     answer:
-      "No et preocupis! Et donarem els recursos necessaris perquè puguis conèixer altres participants durant el període d'inscripcions o al mateix esdeveniment.",
+      "No et preocupis! Et donarem els recursos necessaris per a que puguis conèixer altres participants durant el període d'inscripcions o al mateix esdeveniment.",
   },
   {
     question: "Quin és el preu de l'esdeveniment?",
@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "24 hores sense dormir?",
     answer:
-      "Si t'has bloquejat enmig de la nit o estàs esgotat i no en pots més, tindràs una sala habilitada per poder dormir durant la nit. Només assegura't de portar-te tot el que necessitis per estar còmode: sac de dormir, matalàs inflable, estoreta, etc.",
+      "Si t'has bloquejat enmig de la nit o estàs esgotat i no pots més, tindràs una sala habilitada per poder dormir durant la nit. Només assegura't de portar-te tot el que necessitis per estar còmode: sac de dormir, matalàs inflable, estoreta, etc.",
   },
   {
     question: "Qui es pot presentar?",
