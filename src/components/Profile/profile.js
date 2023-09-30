@@ -59,7 +59,7 @@ const Profile_component = () => {
         setQrCode(await response.code);
         const response_1 = await getHackerGroups(hacker_id);
         const eventId = await getHackeps();
-        let group = {}
+        let group = null
         if(response_1){
         for (let i = 0; i<response_1.length;i++){
           if(response_1[i].event_id===eventId.id){
@@ -71,15 +71,17 @@ const Profile_component = () => {
       .then(async (response) => {
         team1 = response;
         if (response)
-        return await getHackerGroupMembers(response.id)
+          return await getHackerGroupMembers(response.id)
+        return null
       })
       .then(async (response) => {
         if(response){
-        if (response.members.length > 0)
-          setTeam({
-            ...team1,
-            members: [...response.members],
-          })};
+          if (response.members.length > 0)
+            setTeam({
+              ...team1,
+              members: [...response.members],
+            })
+          };
       });
   }, []);
 
@@ -129,7 +131,7 @@ const Profile_component = () => {
   }
   if (hacker)
     if (hacker.message === "Hacker not found")
-      return <UserNotFound></UserNotFound>;
+      return <UserNotFound/>;
 
   return (
     <>
@@ -210,13 +212,12 @@ const Profile_component = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          {isUser ? <Join event={event} /> : <></>}
+          {isUser ? <Join event={event} /> : ""}
 
-          {event && event.accepted ? (
-            <Team team={team} is_user={isUser} has_team={Boolean(team)}/>
-          ) : (
-            <></>
-          )}
+          {event && event.accepted 
+            ? <Team team={team} is_user={isUser} has_team={Boolean(team)}/>
+            : ""
+          }
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
@@ -233,7 +234,7 @@ const Profile_component = () => {
               </div>
             </div>
           </div>
-          <br />
+          <br/>
         </div>
       </div>
 

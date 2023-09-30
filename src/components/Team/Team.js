@@ -8,7 +8,8 @@ import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { getHackerGroupById, removeHackerFromGroup } from "src/services/HackerGroupService";
+import { addHackerGroup, addHackerToGroupByCode, getHackerGroupById, getHackerGroupMembers, removeHackerFromGroup } from "src/services/HackerGroupService";
+import { getHackeps } from "src/services/EventService";
 
 const Team = (props) => {
   const [team, setTeam] = useState(props.team);
@@ -27,8 +28,55 @@ const Team = (props) => {
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
 
   async function handleKick(member){
-    await removeHackerFromGroup(team.id,member.id)
-    setTeam(await getHackerGroupById(team.id))
+    await removeHackerFromGroup(member.id,team.id)
+    setTeam(await getTeam(team.id))
+  }
+
+  const handleLeave = ()=>{
+    removeHackerFromGroup(localStorage.getItem("userID"),team.id)
+    setTeam(null)
+  }
+
+  async function joinTeam(val){
+    let a = await addHackerToGroupByCode(val.replace(/#/g, ""), localStorage.getItem("userID"))
+    if(a.success){
+      getTeam(a.added_id);
+      setShowJoinTeam(false);
+    }
+  }
+
+  async function createTeam(val){
+    const team = {
+      "name": val.teamName,
+      "description": val.teamDesc,
+      "leader_id": localStorage.getItem("userID"),
+      "event_id": (await getHackeps()).id
+    }
+    let a = await addHackerGroup(team)
+    if (a.success){
+      getTeam(a.group_id);
+      setShowCreateTeam(false)
+    }
+  }
+
+  async function getTeam(team_id){
+    let team = {}
+    getHackerGroupById(team_id)
+      .then(async (response) => {
+        team = response;
+        if (response)
+          return await getHackerGroupMembers(response.id)
+        return null
+      })
+      .then(async (response) => {
+        if(response){
+          if (response.members.length > 0)
+            setTeam({
+              ...team,
+              members: [...response.members],
+            })
+          };
+      });
   }
 
   function TeamButtons() {
@@ -42,7 +90,7 @@ const Team = (props) => {
     });
 
     const handleSubmitJoinTeam = (values) => {
-      console.log(values);
+      joinTeam(values.teamCode)
     };
 
     const validationSchemaCreateTeam = Yup.object().shape({
@@ -50,7 +98,7 @@ const Team = (props) => {
     });
 
     const handleSubmitCreateTeam = (values) => {
-      console.log(values);
+      createTeam(values)
     };
 
     return (
@@ -92,7 +140,7 @@ const Team = (props) => {
                 <Form>
                   <div className="formik-field">
                     <label htmlFor="teamCode" className="black-color">
-                      Codi de l'equip (#XXXXXX):
+                      Codi de l'equip (#XXXXXXXXXX):
                     </label>
                     <Field type="text" id="teamCode" name="teamCode" />
                     <ErrorMessage
@@ -121,6 +169,7 @@ const Team = (props) => {
               <Formik
                 initialValues={{
                   teamName: "",
+                  teamDesc: ""
                 }}
                 validationSchema={validationSchemaCreateTeam}
                 onSubmit={handleSubmitCreateTeam}
@@ -136,6 +185,10 @@ const Team = (props) => {
                       component="div"
                       className="error-message"
                     />
+                    <label htmlFor="teamDesc" className="black-color">
+                      Descripcció:
+                    </label>
+                    <Field type="text" id="teamDesc" name="teamDesc" />
                   </div>
                   <div className="button-submit-container">
                     <Button className="team-button" type="submit">
@@ -182,7 +235,7 @@ const Team = (props) => {
                       Veure perfil
                     </Button>
                     <br/><br/>
-                    {(team?team.leader_id === localStorage.getItem("userID"):false)?
+                    {(team?String(team.leader_id) === localStorage.getItem("userID"):false)?
                       <Button
                         className="kick-button"
                         onClick={()=>handleKick(member)}
@@ -196,6 +249,12 @@ const Team = (props) => {
             ))}
           </Row>
         </Container>
+        <Button
+          className="leave-group"
+          onClick={()=>handleLeave()}
+        >
+          Sortir del grup
+        </Button>
       </Container>
     );
   }
