@@ -29,13 +29,6 @@ const Profile_component = () => {
     hacker_id === localStorage.getItem("userID"),
   );
 
-  const startDate = new Date(2022, 10, 25);
-  const endDate = new Date(2022, 10, 27);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
@@ -45,48 +38,17 @@ const Profile_component = () => {
   const [event, setEvent] = useState(null);
   const [qrCode, setQrCode] = useState(null);
 
+  const startDate = new Date(2022, 10, 25);
+  const endDate = new Date(2022, 10, 27);
+
   useEffect(() => {
-    let team1 = null;
-    if (process.env.REACT_APP_DEBUG === "true")
-      console.log("hacker id:" + hacker_id);
-    if (!hacker_id) {
-      setIsUser(true);
-      hacker_id = localStorage.getItem("userID");
-    }
-    getHackerById(hacker_id)
-      .then(async (response) => {
-        setHacker(response);
-        setQrCode(response.code);
-        const response_1 = await getHackerGroups(hacker_id);
-        return response_1;
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .then(async (response) => {
-        team1 = { ...response[0] };
-        return response.length
-          ? await getHackerGroupMembers(response[0].id)
-          : [];
-      })
-      .then((response) => {
-        if (response.members.length > 0)
-          setTeam({
-            ...team1,
-            members: [...response.members],
-          });
-      });
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    getHackerGroups(hacker_id).then((response) => {
-      console.log(response);
-    });
-  }, []);
-
-  useEffect(() => {
+    let event_id;
     getHackeps().then((response) => {
-      const event_id = response.id;
+      event_id = response.id;
       getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
         if (response) {
           setEvent({ event_id: event_id, accepted: true, registered: true });
@@ -109,7 +71,45 @@ const Profile_component = () => {
         }
       });
     });
-  }, []);
+
+    let team1;
+    if (process.env.REACT_APP_DEBUG === "true")
+      console.log("hacker id:" + hacker_id);
+    if (!hacker_id) {
+      setIsUser(true);
+      hacker_id = localStorage.getItem("userID");
+    }
+    getHackerById(hacker_id)
+      .then(async (response) => {
+        setHacker(await response);
+        setQrCode(await response.code);
+        const response_1 = await getHackerGroups(hacker_id);
+        let group = null;
+        if (response_1) {
+          for (let i = 0; i < response_1.length; i++) {
+            if (response_1[i].event_id === event_id) {
+              group = response_1[i];
+            }
+          }
+        }
+        return group;
+      })
+      .then(async (response) => {
+        team1 = response;
+        if (response) return await getHackerGroupMembers(response.id);
+        return null;
+      })
+      .then((response) => {
+        if (response) {
+          if (response.members.length > 0)
+            setTeam({
+              ...team1,
+              members: [...response.members],
+            });
+        }
+      });
+  }, [useParams()]);
+
   function logOut() {
     localStorage.clear();
   }
@@ -128,11 +128,10 @@ const Profile_component = () => {
     return `${~~days} dies`;
   }
   if (hacker)
-    if (hacker.message === "Hacker not found")
-      return <UserNotFound></UserNotFound>;
+    if (hacker.message === "Hacker not found") return <UserNotFound />;
 
   return (
-    <>
+    <div className="main-screen">
       <div className="p-bg-black text-white">
         <div className="container-xxl pt-3">
           {/* User info and qr */}
@@ -147,16 +146,17 @@ const Profile_component = () => {
                     src={hacker.image}
                   />
                 ) : (
-                  <i class="fa-solid fa-user fa-8x mx-auto"></i>
+                  <i className="fa-solid fa-user fa-8x mx-auto"></i>
                 )
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
               )}
+              <br />
+              <br />
               <Link to="/home" className="logOut" onClick={logOut}>
-                <p>
-                  {" "}
-                  <i className="fa-solid fa-door-open" /> Surt de la sessió
-                </p>
+                <button class="logOut-button">
+                  <i class="fas fa-sign-out"></i> Tancar sessió
+                </button>
               </Link>
             </div>
 
@@ -215,12 +215,12 @@ const Profile_component = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          {isUser ? <Join event={event} /> : <></>}
+          {isUser ? <Join event={event} /> : ""}
 
           {event && event.accepted ? (
             <Team team={team} is_user={isUser} has_team={Boolean(team)} />
           ) : (
-            <></>
+            ""
           )}
 
           {/* Calendar and Achievements */}
@@ -245,7 +245,7 @@ const Profile_component = () => {
       <Modal show={showQR} onHide={handleCloseQR} centered>
         <QrCode url={qrCode} />
       </Modal>
-    </>
+    </div>
   );
 };
 

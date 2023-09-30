@@ -235,7 +235,7 @@ const Dailyhacks = () => {
                   >
                     Repositori Dailyhack
                   </a>{" "}
-                  <i class="fa-brands fa-github"></i>{" "}
+                  <i class="fa-brands fa-github" />{" "}
                 </p>
                 <br />
               </div>

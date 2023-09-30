@@ -14,6 +14,7 @@ import Login from "src/pages/Login";
 import Entrances from "src/pages/UsersEntrance.js";
 import Dailyhack from "src/pages/Dailyhack.js";
 import RequireAuth from "src/modules/RequireAuth";
+import RequireLleidahacker from "./modules/RequireLleidahacker";
 import ResetPassword from "./pages/ResetPassword";
 import PasswordForget from "./pages/ForgetPassword";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -83,9 +84,9 @@ export default function App() {
           <Route
             path="/dashboard"
             element={
-              <RequireAuth originalRoute="/dashboard">
+              <RequireLleidahacker originalRoute="/dashboard">
                 <Dashboard />
-              </RequireAuth>
+              </RequireLleidahacker>
             }
           />
           <Route path="*" element={<Error404 />} />
