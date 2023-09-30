@@ -74,7 +74,6 @@ const InscripcioForm = () => {
       hack_event.id,
       data,
     );
-    console.log(registration);
     if (registration.message) {
       // Maneja los errores aquí y muestra el mensaje de error
       setErrorMessage(
