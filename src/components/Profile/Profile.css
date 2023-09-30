@@ -44,3 +44,7 @@
   background-color: var(--primary);
   color: var(--secondary);
 }
+
+.main-screen {
+  min-height: 100vh;
+}

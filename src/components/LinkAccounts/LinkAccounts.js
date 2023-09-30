@@ -11,16 +11,17 @@ const LinkAccounts = ({ hacker }) => {
           Coneix aquest/a hacker:
         </div>
         <div className="col-4 col-sm-4 m-auto px-0">
-          {(hacker.github || hacker.github === "string") && (
+          {hacker.github && hacker.github.startsWith("https://github.com/") && (
             <a href={hacker.github || "#"} className="text-light">
               <i className="bi bi-github fa-2x me-3" />
             </a>
           )}
-          {(hacker.linkedin || hacker.linkedin === "string") && (
-            <a href={hacker.linkedin || "#"} className="text-light">
-              <i className="bi bi-linkedin fa-2x me-3" />
-            </a>
-          )}
+          {hacker.linkedin &&
+            hacker.linkedin.startsWith("https://www.linkedin.com/in/") && (
+              <a href={hacker.linkedin || "#"} className="text-light">
+                <i className="bi bi-linkedin fa-2x me-3" />
+              </a>
+            )}
         </div>
       </div>
     </div>

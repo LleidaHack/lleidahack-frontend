@@ -29,13 +29,6 @@ const Profile_component = () => {
     hacker_id === localStorage.getItem("userID"),
   );
 
-  const startDate = new Date(2022, 10, 25);
-  const endDate = new Date(2022, 10, 27);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
@@ -45,49 +38,17 @@ const Profile_component = () => {
   const [event, setEvent] = useState(null);
   const [qrCode, setQrCode] = useState(null);
 
+  const startDate = new Date(2022, 10, 25);
+  const endDate = new Date(2022, 10, 27);
+
   useEffect(() => {
-    let team1 = null;
-    if (process.env.REACT_APP_DEBUG === "true")
-      console.log("hacker id:" + hacker_id);
-    if (!hacker_id) {
-      setIsUser(true);
-      hacker_id = localStorage.getItem("userID");
-    }
-    getHackerById(hacker_id)
-      .then(async (response) => {
-        setHacker(await response);
-        setQrCode(await response.code);
-        const response_1 = await getHackerGroups(hacker_id);
-        const eventId = await getHackeps();
-        let group = null;
-        if (response_1) {
-          for (let i = 0; i < response_1.length; i++) {
-            if (response_1[i].event_id === eventId.id) {
-              group = response_1[i];
-            }
-          }
-        }
-        return group;
-      })
-      .then(async (response) => {
-        team1 = response;
-        if (response) return await getHackerGroupMembers(response.id);
-        return null;
-      })
-      .then(async (response) => {
-        if (response) {
-          if (response.members.length > 0)
-            setTeam({
-              ...team1,
-              members: [...response.members],
-            });
-        }
-      });
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
+    let event_id;
     getHackeps().then((response) => {
-      const event_id = response.id;
+      event_id = response.id;
       getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
         if (response) {
           setEvent({ event_id: event_id, accepted: true, registered: true });
@@ -110,7 +71,44 @@ const Profile_component = () => {
         }
       });
     });
-  }, []);
+
+    let team1;
+    if (process.env.REACT_APP_DEBUG === "true")
+      console.log("hacker id:" + hacker_id);
+    if (!hacker_id) {
+      setIsUser(true);
+      hacker_id = localStorage.getItem("userID");
+    }
+    getHackerById(hacker_id)
+      .then(async (response) => {
+        setHacker(await response);
+        setQrCode(await response.code);
+        const response_1 = await getHackerGroups(hacker_id);
+        let group = null;
+        if (response_1) {
+          for (let i = 0; i < response_1.length; i++) {
+            if (response_1[i].event_id === event_id) {
+              group = response_1[i];
+            }
+          }
+        }
+        return group;
+      })
+      .then(async (response) => {
+        team1 = response;
+        if (response) return await getHackerGroupMembers(response.id);
+        return null;
+      })
+      .then((response) => {
+        if (response) {
+          if (response.members.length > 0)
+            setTeam({
+              ...team1,
+              members: [...response.members],
+            });
+        }
+      });
+  }, [useParams()]);
 
   function logOut() {
     localStorage.clear();
@@ -133,7 +131,7 @@ const Profile_component = () => {
     if (hacker.message === "Hacker not found") return <UserNotFound />;
 
   return (
-    <>
+    <div className="main-screen">
       <div className="p-bg-black text-white">
         <div className="container-xxl pt-3">
           {/* User info and qr */}
@@ -247,7 +245,7 @@ const Profile_component = () => {
       <Modal show={showQR} onHide={handleCloseQR} centered>
         <QrCode url={qrCode} />
       </Modal>
-    </>
+    </div>
   );
 };
 

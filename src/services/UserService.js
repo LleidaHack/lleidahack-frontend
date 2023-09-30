@@ -14,18 +14,30 @@ export async function getUserById(user_id) {
   });
 }
 
-export async function getUserByCode(code) {
+export async function getUserByEmail(email) {
   return fetchPlus({
-    Url: `/user/code/${code}`,
+    Url: `/user/email/${email}`,
     hasUserauth: true,
   });
 }
 
-export async function addUser(user) {
+export async function getUserByNickname(nickname) {
   return fetchPlus({
-    Url: "/user/",
-    Method: "POST",
+    Url: `/user/nickname/${nickname}`,
     hasUserauth: true,
-    Body: user,
+  });
+}
+
+export async function getUserByPhone(phone) {
+  return fetchPlus({
+    Url: `/user/phone/${phone}`,
+    hasUserauth: true,
+  });
+}
+
+export async function getUserByCode(code) {
+  return fetchPlus({
+    Url: `/user/code/${code}`,
+    hasUserauth: true,
   });
 }
