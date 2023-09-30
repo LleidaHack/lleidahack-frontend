@@ -8,7 +8,7 @@ export async function fetchPlus({
   hasUserauth = false,
   saveLoginInfo = false,
   nextScreen,
-  loginAuth
+  loginAuth,
 }) {
   const headers = { "Content-Type": "application/json" };
   if (hasUserauth || loginAuth)
