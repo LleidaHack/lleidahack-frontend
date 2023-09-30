@@ -14,6 +14,7 @@ const validationSchema = Yup.object().shape({
   size: Yup.string().required("Aquest camp és obligatori"),
   food: Yup.string().required("Aquest camp és obligatori"),
   meet: Yup.string().required("Aquest camp és obligatori"),
+  checkboxterms: Yup.boolean().required('Has d``acceptar els termes i condicions per a continuar.')
 });
 
 const InscripcioForm = () => {
@@ -61,10 +62,11 @@ const InscripcioForm = () => {
       location: values.location,
       how_did_you_meet_us: values.meet,
       update_user: true,
+      checkboxterms: values.checkboxterms,
     };
 
-    let hack_event = await getHackeps();
-    registerHackerToEvent(localStorage.getItem("userID"), hack_event.id, data);
+    //let hack_event = await getHackeps();
+    //registerHackerToEvent(localStorage.getItem("userID"), hack_event.id, data);
     //TODO: posar feedback
   };
 
@@ -261,6 +263,24 @@ const InscripcioForm = () => {
                 </div>
               )}
             </div>
+            <div className="checkbox-container">
+              <br></br>
+              <br></br>
+              <Field
+                type="checkbox"
+                id="checkboxterms"
+                name="checkboxterms"
+               
+              />
+            <label htmlFor="checkboxterms">Accepto els Termes i Condicions de la HackEps</label>
+            <ErrorMessage
+                name="checkboxterms"
+                component="div"
+                className="error-message"
+              />
+              
+            </div>
+
             <div className="button-submit-container">
               <button className="button-submit" type="submit">
                 Enviar
