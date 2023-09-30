@@ -139,7 +139,7 @@ const Profile_component = () => {
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
               {hacker ? (
-                hacker.image !== "string" || hacker.image !== "" ? (
+                !(hacker.image === "string" || hacker.image === "") ? (
                   <img
                     style={{ aspectRatio: "1/1", width: "45%" }}
                     id="profile-image"
