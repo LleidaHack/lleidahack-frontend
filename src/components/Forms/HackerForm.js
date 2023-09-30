@@ -41,8 +41,8 @@ const validationSchema = Yup.object({
       `Has de ser major de ${minAge} anys`,
     ),
   email: Yup.string()
-    .required("The Email field is required")
-    .email("The email must be a valid email address."),
+    .required("Correu requerit")
+    .email("El correu ha de tenir un format vàlid"),
   phone: Yup.string().required("Telèfon requerit").nonNullable(),
   shirtSize: Yup.string().required("Talla de camiseta requerida"),
   nickname: Yup.string().required("Nickname requerit"),

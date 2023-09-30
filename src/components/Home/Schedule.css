@@ -17,7 +17,7 @@
 .vertical-timeline-element-title {
   color: var(--white);
   text-decoration: underline;
-  text-underline-offset: 1em;
+  text-underline-offset: 0.3em;
   padding-bottom: 1em;
 }
 

@@ -13,10 +13,10 @@ import { Link } from "react-router-dom";
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Nom requerit"),
   email: Yup.string()
-    .email("El correu ha de ser una adreça de correu vàlida.")
-    .required("El camp de correu és obligatori."),
-  subject: Yup.string().required("El títol del missatge és requerit."),
-  message: Yup.string().required("El missatge és requerit."),
+    .email("El correu ha de ser una adreça de correu vàlida")
+    .required("Correu requerit"),
+  subject: Yup.string().required("Títol del missatge requerit"),
+  message: Yup.string().required("Missatge requerit"),
 });
 
 const ContactePage = () => {
@@ -32,13 +32,8 @@ const ContactePage = () => {
     );
     //TODO: IMPORTANT CONFIGURAR AIXO CORRECTAMENT QUAN EL SERVEI FUNCIONI.
 
-    if (onMail.succes) {
-      setMailStatus(true); //primer fiquem que el estat es correcte
-      setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
-    } else {
-      setMailStatus(false); //primer fiquem que el estat es incorrecte
-      setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
-    }
+    setMailStatus(onMail.success); //primer fiquem que el estat es correcte/incorrecte
+    setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
   };
 
   const retry = () => {
@@ -186,14 +181,14 @@ const ContactePage = () => {
                   </div>
                   <h2>Error enviant el teu missatge.</h2>
                   <p>
-                    Sembla que algo ha fallat mentre registravem el teu
+                    Sembla que alguna cosa ha fallat mentre registràvem el teu
                     missatge.
                   </p>
                   <p>
                     <i>
                       Torna a intentar-ho novament. En cas que segueixi fallant,
                       contacta amb nosaltres utilitzant <br></br> les nostres
-                      xarxes socials que trobarás a la part inferior de la
+                      xarxes socials que trobaràs a la part inferior de la
                       pantalla.
                     </i>
                   </p>
@@ -233,9 +228,9 @@ const ContactePage = () => {
                   </div>
                   <h2>Missatge enviat correctament.</h2>
                   <p>
-                    Gracies per contactar amb LleidaHack. <br></br>
+                    Gràcies per contactar amb LleidaHack. <br></br>
                     El teu missatge s'ha enviat correctament.<br></br>En cas que
-                    necesitesim ficar-nos en contacte amb tu, ho fariem amb el
+                    necesitesim ficar-nos en contacte amb tu, ho faríem al
                     correu que ens has proporcionat.
                   </p>
                   <p></p>
@@ -244,7 +239,7 @@ const ContactePage = () => {
                 <div className="infbuttonok">
                   <Link to="/#home">
                     <button onClick={retry} className="contacta">
-                      Tornar al inici
+                      Tornar a l'inici
                     </button>
                   </Link>
                 </div>

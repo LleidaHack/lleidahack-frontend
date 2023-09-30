@@ -142,6 +142,7 @@ const Profile_component = () => {
                 hacker.image !== "string" ? (
                   <img
                     style={{ aspectRatio: "1/1", width: "45%" }}
+                    id="profile-image"
                     className="bg-white border mx-auto rounded-circle m-auto"
                     src={hacker.image}
                   />
@@ -154,8 +155,8 @@ const Profile_component = () => {
               <br />
               <br />
               <Link to="/home" className="logOut" onClick={logOut}>
-                <button class="logOut-button">
-                  <i class="fas fa-sign-out"></i> Tancar sessió
+                <button className="logOut-button">
+                  <i className="fas fa-sign-out"></i> Tancar sessió
                 </button>
               </Link>
             </div>
