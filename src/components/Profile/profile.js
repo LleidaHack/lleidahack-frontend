@@ -151,16 +151,13 @@ const Profile_component = () => {
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
               )}
-              {isUser ? (
-                <Link to="/home" className="logOut" onClick={logOut}>
-                  <p>
-                    {" "}
-                    <i className="fa-solid fa-door-open" /> Surt de la sessió
-                  </p>
-                </Link>
-              ) : (
-                ""
-              )}
+              <br />
+              <br />
+              <Link to="/home" className="logOut" onClick={logOut}>
+                <button class="logOut-button">
+                  <i class="fas fa-sign-out"></i> Tancar sessió
+                </button>
+              </Link>
             </div>
 
             {/* Center Column */}
