@@ -6,13 +6,14 @@ import * as Yup from "yup";
 import { SelectField } from "formik-stepper";
 import { registerHackerToEvent } from "src/services/EventManagementService";
 import { getHackeps } from "src/services/EventService";
+import { useNavigate } from "react-router-dom";
+
 
 const validationSchema = Yup.object().shape({
   studies: Yup.string().required("Aquest camp és obligatori"),
   center: Yup.string().required("Aquest camp és obligatori"),
   location: Yup.string().required("Aquest camp és obligatori"),
   size: Yup.string().required("Aquest camp és obligatori"),
-  food: Yup.string().required("Aquest camp és obligatori"),
   meet: Yup.string().required("Aquest camp és obligatori"),
 });
 
@@ -47,25 +48,41 @@ const InscripcioForm = () => {
     fetchData();
   }, []);
 
-  const handleSubmit = (values) => {
-    //TODO: estudis, centre, lloc, coneixer? on va això?
-    console.log(values);
-    const data = {
-      shirt_size: values.size,
-      food_restrictions: values.food,
-      cv: cvFile,
-      description: values.cvinfo,
-      github: values.github,
-      linkedin: values.linkedin,
-      studies: values.studies,
-      study_center: values.center,
-      location: values.location,
-      how_did_you_meet_us: values.meet,
-      update_user: true
-    };
-    registerHackerToEvent(localStorage.getItem("userID"), getHackeps(), data);
-    //TODO: posar feedback
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // Nuevo estado para el mensaje de éxito
+  const [showSuccessToast, setShowSuccessToast] = useState(false); // Nuevo estado para mostrar el toast de éxito
+
+
+  const navigate = useNavigate();
+
+
+  const handleSubmit = async (values) => {
+    try {
+      console.log(values);
+      const data = {
+        shirt_size: values.size,
+        food_restrictions: values.food,
+        cv: cvFile,
+        description: values.cvinfo_links,
+        github: values.github,
+        linkedin: values.linkedin,
+        studies: values.studies,
+        study_center: values.center,
+        location: values.location,
+        how_did_you_meet_us: values.meet,
+        update_user: true,
+      };
+      await registerHackerToEvent(localStorage.getItem("userID"), getHackeps(), data);
+      setSuccessMessage("El registre s'ha enviat correctament!");
+      setShowSuccessToast(true);
+      navigate("/perfil");
+    } catch (error) {
+      // Maneja los errores aquí y muestra el mensaje de error
+      console.error("Error:", error);
+      setErrorMessage("Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.");
+    }
   };
+  
 
   const [cvFile, setCvFile] = useState("");
   const [hackepsEvent, setHackepsEvent] = useState(null);
@@ -89,7 +106,7 @@ const InscripcioForm = () => {
     <div className="container-all-inscripcio">
       <br />
       <div className="container-inscripcio">
-        <h1 className="title-contacte">Inscripció HackEPS 2023</h1>
+        <h1 className="title-contacte title-underline">Inscripció HackEPS 2023</h1>
         <div className="form-container">
           <Formik
             initialValues={{
@@ -266,6 +283,7 @@ const InscripcioForm = () => {
                   Enviar
                 </button>
               </div>
+
             </Form>
           </Formik>
         </div>
