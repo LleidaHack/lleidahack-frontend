@@ -54,7 +54,6 @@ const InscripcioForm = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
-    try {
       console.log(values);
       const data = {
         shirt_size: values.size,
@@ -70,21 +69,24 @@ const InscripcioForm = () => {
         update_user: true,
       };
       let hack_event = await getHackeps();
-      registerHackerToEvent(
+      let registration = await registerHackerToEvent(
         localStorage.getItem("userID"),
         hack_event.id,
         data,
       );
-      setSuccessMessage("El registre s'ha enviat correctament!");
-      setShowSuccessToast(true);
-      navigate("/perfil");
-    } catch (error) {
-      // Maneja los errores aquí y muestra el mensaje de error
-      console.error("Error:", error);
-      setErrorMessage(
-        "Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.",
-      );
-    }
+      console.log(registration)
+      if (registration.message){
+        // Maneja los errores aquí y muestra el mensaje de error
+        setErrorMessage(
+          "Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.",
+        );
+      }else {
+        setSuccessMessage("El registre s'ha enviat correctament!");
+        setShowSuccessToast(true);
+        navigate("/perfil");
+      }
+
+    
   };
 
   const [cvFile, setCvFile] = useState("");
