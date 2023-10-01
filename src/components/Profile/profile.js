@@ -20,10 +20,7 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
-import {
-  getHackerGroupById,
-  getHackerGroupMembers,
-} from "src/services/HackerGroupService";
+import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 
 const Profile_component = () => {
@@ -116,8 +113,8 @@ const Profile_component = () => {
     if (hacker.message === "Hacker not found") return <UserNotFound />;
 
   return (
-    <div className="main-screen">
-      <div className="p-bg-black text-white">
+    <>
+      <div className="p-bg-black text-white main-screen">
         <div className="container-xxl pt-3 peter">
           {/* User info and qr */}
           <div className="row align-middle mx-auto mb-3">
@@ -231,7 +228,7 @@ const Profile_component = () => {
       <Modal show={showQR} onHide={handleCloseQR} centered>
         <QrCode url={qrCode} />
       </Modal>
-    </div>
+    </>
   );
 };
 
