@@ -20,7 +20,10 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
-import { getHackerGroupMembers } from "src/services/HackerGroupService";
+import {
+  getHackerGroupById,
+  getHackerGroupMembers,
+} from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 
 const Profile_component = () => {
@@ -71,43 +74,25 @@ const Profile_component = () => {
         }
       });
     });
-
-    let team1;
     if (process.env.REACT_APP_DEBUG === "true")
       console.log("hacker id:" + hacker_id);
     if (!hacker_id) {
       setIsUser(true);
       hacker_id = localStorage.getItem("userID");
     }
-    getHackerById(hacker_id)
-      .then(async (response) => {
-        setHacker(await response);
-        setQrCode(await response.code);
-        const response_1 = await getHackerGroups(hacker_id);
-        let group = null;
-        if (response_1 && !response_1.message) {
-          for (let i = 0; i < response_1.length; i++) {
-            if (response_1[i].event_id === event_id) {
-              group = response_1[i];
-            }
+    getHackerById(hacker_id).then(async (response) => {
+      setHacker(await response);
+      setQrCode(await response.code);
+      const response_1 = await getHackerGroups(hacker_id);
+      if (response_1 && !response_1.message) {
+        for (let i = 0; i < response_1.length; i++) {
+          if (response_1[i].event_id === event_id) {
+            setTeam(await getHackerGroupById(response_1[i].id));
+            break;
           }
         }
-        return group;
-      })
-      .then(async (response) => {
-        team1 = response;
-        if (response) return await getHackerGroupMembers(response.id);
-        return null;
-      })
-      .then((response) => {
-        if (response) {
-          if (response.members.length > 0)
-            setTeam({
-              ...team1,
-              members: [...response.members],
-            });
-        }
-      });
+      }
+    });
   }, [useParams()]);
 
   function logOut() {

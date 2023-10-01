@@ -18,37 +18,30 @@ const Home = () => {
     {
       time: "8:30 h - 25 de novembre",
       title: "Inici del check-in",
-      description: "Description",
     },
     {
       time: "10:00 h - 25 de novembre",
       title: "Cerimònia d'obertura",
-      description: "Description",
     },
     {
       time: "11:00 h - 25 de novembre",
       title: "Começa el temps de hacking",
-      description: "Description",
     },
     {
       time: "15:00 h - 25 de novembre",
       title: "Finalitza el check-in",
-      description: "Description",
     },
     {
       time: "11:00 h - 26 de novembre",
       title: "Finalitza el temps de hacking",
-      description: "Description",
     },
     {
       time: "11:30 h - 26 de novembre",
       title: "Presentacions dels projectes",
-      description: "Description",
     },
     {
       time: "14:00 h - 26 de novembre",
       title: "Cerimònia de cloenda i entrega de premis",
-      description: "Description",
     },
   ];
 

@@ -10,9 +10,7 @@ const Schedule = (props) => {
     return (
       <VerticalTimelineElement key={event.time} date={event.time}>
         <h3 className="vertical-timeline-element-title">{event.title}</h3>
-        <p className="vertical-timeline-element-description">
-          {event.description}
-        </p>
+        {/*<p className="vertical-timeline-element-description">{event.description}</p>*/}
       </VerticalTimelineElement>
     );
   });
