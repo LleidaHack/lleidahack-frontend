@@ -195,7 +195,7 @@ const Team = (props) => {
       <div className="Alineador" >
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
           <h1>
-            {team.name} {team.code && (`Codi: #${team.code}`)}
+            {team.name} {team.code && `Codi: #${team.code}`}
           </h1>
           {team && team.code && <p>El teu equip:</p>}
           <Container className="p-2">
@@ -252,9 +252,11 @@ const Team = (props) => {
               ))}
             </Row>
           </Container>
-          {is_user&&<Button className="leave-group" onClick={() => handleLeave()}>
-            Sortir del grup
-          </Button>}
+          {is_user && (
+            <Button className="leave-group" onClick={() => handleLeave()}>
+              Sortir del grup
+            </Button>
+          )}
         </div>
       </div>
     );
