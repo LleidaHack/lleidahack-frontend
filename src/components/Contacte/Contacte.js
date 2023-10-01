@@ -8,7 +8,8 @@ import twitterLogo from "src/icons/X.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { contacte } from "src/services/AuthenticationService";
-import { Link } from "react-router-dom";
+import SuccessFeedback from "src/components/Feedbacks/SuccesFeedback";
+import FailFeedback from "src/components/Feedbacks/FailFeedback";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Nom requerit"),
@@ -21,7 +22,7 @@ const validationSchema = Yup.object().shape({
 
 const ContactePage = () => {
   const [mailSended, setMailSended] = useState(false);
-  const [mailStatus, setMailStatus] = useState(null);
+  const [mailStatus, setMailStatus] = useState(false);
 
   const handleSubmit = async (values) => {
     const onMail = await contacte(
@@ -30,14 +31,18 @@ const ContactePage = () => {
       values.email,
       values.message,
     );
-    //TODO: IMPORTANT CONFIGURAR AIXO CORRECTAMENT QUAN EL SERVEI FUNCIONI.
 
-    setMailStatus(onMail.success); //primer fiquem que el estat es correcte/incorrecte
-    setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
+    if (onMail.success) {
+      setMailStatus(true); //primer fiquem que el estat es correcte
+      setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
+    } else {
+      setMailStatus(false); //primer fiquem que el estat es incorrecte
+      setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
+    }
   };
 
-  const retry = () => {
-    setMailSended(false);
+  const handleButtonClick = () => {
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -157,93 +162,27 @@ const ContactePage = () => {
         <>
           {!mailStatus ? (
             <>
-              <div className="valerr">
-                <div className="iconBox">
-                  <div>
-                    <svg
-                      className="crossmarker"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 52 52"
-                    >
-                      <circle
-                        className="cross__circle"
-                        cx="26"
-                        cy="26"
-                        r="25"
-                        fill="none"
-                      />
-                      <path
-                        className="checkmark_check"
-                        fill="none"
-                        d="M14.1 14.1l23.8 23.8 m0,-23.8 l-23.8,23.8"
-                      />
-                    </svg>
-                  </div>
-                  <h2>Error enviant el teu missatge.</h2>
-                  <p>
-                    Sembla que alguna cosa ha fallat mentre registràvem el teu
-                    missatge.
-                  </p>
-                  <p>
-                    <i>
-                      Torna a intentar-ho novament. En cas que segueixi fallant,
-                      contacta amb nosaltres utilitzant <br></br> les nostres
-                      xarxes socials que trobaràs a la part inferior de la
-                      pantalla.
-                    </i>
-                  </p>
-                </div>
-
-                <div className="infbuttonok">
-                  <button onClick={retry} className="contacta">
-                    Intentar novament
-                  </button>
-                </div>
-              </div>
+              <FailFeedback
+                title={`Error enviant el teu missatge.`}
+                text={`Sembla que algo ha fallat mentre registravem el teu missatge.`}
+                hasButton={true}
+                buttonLink={`/contacte`}
+                buttonText={`Intentar novament`}
+                italic={`Torna a intentar-ho novament. En cas que segueixi fallant, contacta amb nosaltres utilitzant \n les nostres xarxes socials que trobarás a la part inferior de la pantalla.`}
+                onButtonClick={handleButtonClick}
+              />
             </>
           ) : (
             <>
-              <div className="valerr">
-                <div className="iconBox">
-                  <div>
-                    <svg
-                      className="checkmark"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 52 52"
-                    >
-                      {" "}
-                      <circle
-                        className="checkmark__circle"
-                        cx="26"
-                        cy="26"
-                        r="25"
-                        fill="none"
-                      />{" "}
-                      <path
-                        className="checkmark__check"
-                        fill="none"
-                        d="M14.1 27.2l7.1 7.2 16.7-16.8"
-                      />
-                    </svg>
-                  </div>
-                  <h2>Missatge enviat correctament.</h2>
-                  <p>
-                    Gràcies per contactar amb LleidaHack. <br></br>
-                    El teu missatge s'ha enviat correctament.<br></br>En cas que
-                    necesitesim ficar-nos en contacte amb tu, ho faríem al
-                    correu que ens has proporcionat.
-                  </p>
-                  <p></p>
-                </div>
-
-                <div className="infbuttonok">
-                  <Link to="/#home">
-                    <button onClick={retry} className="contacta">
-                      Tornar a l'inici
-                    </button>
-                  </Link>
-                </div>
-              </div>
+              <SuccessFeedback
+                title="Missatge enviat correctament."
+                text={`Gracies per contactar amb LleidaHack. El teu missatge s'ha enviat correctament. \n En cas que necesitesim ficar-nos en contacte amb tu, ho fariem amb el correu 
+                que ens has proporcionat.`}
+                hasButton={true}
+                buttonLink="/#home"
+                buttonText="Tornar al inici"
+                onButtonClick={handleButtonClick}
+              />
             </>
           )}
         </>

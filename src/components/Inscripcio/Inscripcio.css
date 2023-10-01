@@ -214,3 +214,15 @@ input[type="text"] {
   display: inline-block;
   margin-right: "10px";
 }
+
+.checkbox-container {
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos */
+  padding-top: 2em;
+}
+
+.checkbox-container input {
+  margin-right: 10px; /* Ajusta el margen entre el checkbox y el texto */
+  width: 2em;
+  margin-bottom: 1em;
+}

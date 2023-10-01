@@ -11,6 +11,8 @@ import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import { useNavigate } from "react-router-dom";
 import { min } from "moment";
+import FailFeedback from "../Feedbacks/FailFeedback";
+import SuccessFeedback from "../Feedbacks/SuccesFeedback";
 
 const minAge = "14";
 const date = new Date();
@@ -67,6 +69,10 @@ export const HackerStepperForm = () => {
   const [isUrl, setIsUrl] = useState(false);
   // Error message for last page of the form
   const [errorMsg, setErrorMsg] = useState("");
+  //Feedback component
+  const [submiting, setSubmiting] = useState(false); //si es false, encara no s'ha donat al submit, pero si es true, es mostra el feedback
+  const [statusSubmit, setStatusSubmit] = useState(false); //si es false, error, si es true tot esta correcte
+  const [errCause, setCauseError] = useState(""); //si es false, error, si es true tot esta correcte
 
   const navigate = useNavigate();
   const onSubmit = async (values, { setSubmitting }) => {
@@ -90,17 +96,30 @@ export const HackerStepperForm = () => {
     const res = await signupHacker(hacker);
     console.log(res);
     if (res.message) {
-      setErrorMsg(res.message);
+      setStatusSubmit(false);
+      const causeError = "Error al tramitar dades";
+      if (res.message == "Email already exists") {
+        causeError = "El correu que has introduit es troba registrat.";
+      } else if (res.message == "Nickname already exists") {
+        causeError = "El nickname que has introduit es troba registrat.";
+      } else if (res.message == "Telephone already exists") {
+        causeError = "El telefon que has introduit es troba registrat.";
+      }
+      setCauseError(causeError);
+      setSubmiting(true);
+      //setErrorMsg(res.message);
       return;
+    } else if (res.success) {
+      setStatusSubmit(true);
+      setSubmiting(true);
     }
 
-    if (!res.success) {
+    /*if (!res.success) {
       setErrorMsg("Error al enviar el formulari, revisa les dades");
       return;
-    }
+    }*/
 
-    setSubmitting(false);
-    navigate("/login");
+    //navigate("/login");
   };
 
   const handleImageChange = (event) => {
@@ -112,175 +131,207 @@ export const HackerStepperForm = () => {
     setIsUrl(true);
   };
 
+  const handleButtonClick = () => {
+    window.location.reload();
+  };
+
   return (
     <>
       <div id="hackerForm" className="custom-form">
-        <FormikStepper
-          /// Accept all Formik props
-          onSubmit={onSubmit}
-          isSubmiting={true}
-          initialValues={{
-            firstName: "",
-            lastName: "",
-            password: "",
-            confirmPassword: "",
-            birthDate: "",
-            phone: "",
-            email: "",
-            shirtSize: "",
-            nickname: "",
-          }}
-          validationSchema={validationSchema}
-          withStepperLine /// false as default and If it is false, it hides stepper line
-          nextButton={{
-            label: "Següent",
-            style: { background: "var(--primary)", color: "black" },
-          }}
-          prevButton={{
-            label: "Enrere",
-            style: { background: "var(--primary)", color: "black" },
-          }}
-          submitButton={{
-            label: "Envia",
-            style: { background: "var(--primary)", color: "black" },
-          }}
-        >
-          <FormikStepper.Step label="Informació personal">
-            <Row className="align-content-center d-flex">
-              <HackerPanel />
-              <div className="col-12 col-xxl-6 ">
-                <h1 className="white-color">Informació Personal</h1>
-                <InputField
-                  className="w-100"
-                  name="firstName"
-                  type="text"
-                  label="Nom"
-                />
-                <InputField
-                  className="w-100"
-                  name="lastName"
-                  type="text"
-                  label="Cognoms"
-                />
-                <InputField
-                  className="w-100"
-                  name="password"
-                  type="password"
-                  label="Contrasenya"
-                />
-                <InputField
-                  className="w-100"
-                  name="confirmPassword"
-                  type="password"
-                  label="Repetir contrasenya"
-                />
-                <InputField
-                  className="w-100"
-                  name="birthDate"
-                  type="date"
-                  label="Data de naixement"
-                />
-              </div>
-            </Row>
-          </FormikStepper.Step>
-          <FormikStepper.Step label="Contacte">
-            <Row>
-              <HackerPanel />
-              <div className="col-12 col-xxl-6 ">
-                <h1 className="white-color">Contacte</h1>
-                <InputField
-                  className="w-100"
-                  name="phone"
-                  type="tel"
-                  label="Telèfon"
-                />
-                <InputField
-                  className="w-100"
-                  name="email"
-                  type="email"
-                  label="E-mail"
-                />
-
-                <div>
-                  <SelectField
-                    name="shirtSize"
-                    label="Talla de samarreta"
-                    options={[
-                      { value: "XS", label: "XS" },
-                      { value: "S", label: "S" },
-                      { value: "M", label: "M" },
-                      { value: "L", label: "L" },
-                      { value: "XL", label: "XL" },
-                      { value: "XXL", label: "XXL" },
-                      { value: "XXXL", label: "XXXL" },
-                    ]}
-                  />
-                </div>
-              </div>
-            </Row>
-          </FormikStepper.Step>
-          <FormikStepper.Step label="Avatar">
-            <Row className="">
-              <div className="col-12 col-xxl-6 d-flex flex-column">
-                {isUrl && urlImage !== "" ? (
-                  <img
-                    style={{ height: "250px", width: "250px" }}
-                    className="avatar-image bg-white rounded-circle m-auto"
-                    src={urlImage}
-                    alt="avatar"
-                  />
-                ) : avatar ? (
-                  <img
-                    style={{ height: "250px", width: "250px" }}
-                    className="avatar-image bg-white rounded-circle m-auto"
-                    src={avatar}
-                    alt="avatar"
-                  />
-                ) : (
-                  <img
-                    style={{ height: "250px", width: "250px" }}
-                    className="avatar-image bg-white rounded-circle m-auto"
-                    src={userIcon}
-                    alt="avatar"
-                  />
-                )}
-              </div>
-              <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
-                <h1 className="white-color">Avatar</h1>
-                <InputField
-                  className="w-100"
-                  name="nickname"
-                  type="text"
-                  label="Nickname"
-                />
-                <div className=" mb-3 mb-xxl-0 align-self-center">
-                  <label htmlFor="imageUrl">Image URL:</label>
-                  <input
-                    className="mb-1"
+        {!submiting ? (
+          <FormikStepper
+            /// Accept all Formik props
+            onSubmit={onSubmit}
+            isSubmiting={true}
+            initialValues={{
+              firstName: "",
+              lastName: "",
+              password: "",
+              confirmPassword: "",
+              birthDate: "",
+              phone: "",
+              email: "",
+              shirtSize: "",
+              nickname: "",
+            }}
+            validationSchema={validationSchema}
+            withStepperLine /// false as default and If it is false, it hides stepper line
+            nextButton={{
+              label: "Següent",
+              style: { background: "var(--primary)", color: "black" },
+            }}
+            prevButton={{
+              label: "Enrere",
+              style: { background: "var(--primary)", color: "black" },
+            }}
+            submitButton={{
+              label: "Envia",
+              style: { background: "var(--primary)", color: "black" },
+            }}
+          >
+            <FormikStepper.Step label="Informació personal">
+              <Row className="align-content-center d-flex">
+                <HackerPanel />
+                <div className="col-12 col-xxl-6 ">
+                  <h1 className="white-color">Informació Personal</h1>
+                  <InputField
+                    className="w-100"
+                    name="firstName"
                     type="text"
-                    id="imageUrl"
-                    placeholder="https://..."
-                    onChange={handleImageUrlChange}
+                    label="Nom"
                   />
-                  <FileBase
-                    id="avatarInput"
-                    type="file"
-                    multiple={false}
-                    onDone={handleImageChange}
+                  <InputField
+                    className="w-100"
+                    name="lastName"
+                    type="text"
+                    label="Cognoms"
+                  />
+                  <InputField
+                    className="w-100"
+                    name="password"
+                    type="password"
+                    label="Contrasenya"
+                  />
+                  <InputField
+                    className="w-100"
+                    name="confirmPassword"
+                    type="password"
+                    label="Repetir contrasenya"
+                  />
+                  <InputField
+                    className="w-100"
+                    name="birthDate"
+                    type="date"
+                    label="Data de naixement"
                   />
                 </div>
-              </div>
-            </Row>
-            <Row>
-              <span
-                className="text-danger text-center mt-5"
-                style={{ whiteSpace: "pre" }}
-              >
-                {errorMsg}
-              </span>
-            </Row>
-          </FormikStepper.Step>
-        </FormikStepper>
+              </Row>
+            </FormikStepper.Step>
+            <FormikStepper.Step label="Contacte">
+              <Row>
+                <HackerPanel />
+                <div className="col-12 col-xxl-6 ">
+                  <h1 className="white-color">Contacte</h1>
+                  <InputField
+                    className="w-100"
+                    name="phone"
+                    type="tel"
+                    label="Telèfon"
+                  />
+                  <InputField
+                    className="w-100"
+                    name="email"
+                    type="email"
+                    label="E-mail"
+                  />
+
+                  <div>
+                    <SelectField
+                      name="shirtSize"
+                      label="Talla de samarreta"
+                      options={[
+                        { value: "XS", label: "XS" },
+                        { value: "S", label: "S" },
+                        { value: "M", label: "M" },
+                        { value: "L", label: "L" },
+                        { value: "XL", label: "XL" },
+                        { value: "XXL", label: "XXL" },
+                        { value: "XXXL", label: "XXXL" },
+                      ]}
+                    />
+                  </div>
+                </div>
+              </Row>
+            </FormikStepper.Step>
+            <FormikStepper.Step label="Avatar">
+              <Row className="">
+                <div className="col-12 col-xxl-6 d-flex flex-column">
+                  {isUrl && urlImage !== "" ? (
+                    <img
+                      style={{ height: "250px", width: "250px" }}
+                      className="avatar-image bg-white rounded-circle m-auto"
+                      src={urlImage}
+                      alt="avatar"
+                    />
+                  ) : avatar ? (
+                    <img
+                      style={{ height: "250px", width: "250px" }}
+                      className="avatar-image bg-white rounded-circle m-auto"
+                      src={avatar}
+                      alt="avatar"
+                    />
+                  ) : (
+                    <img
+                      style={{ height: "250px", width: "250px" }}
+                      className="avatar-image bg-white rounded-circle m-auto"
+                      src={userIcon}
+                      alt="avatar"
+                    />
+                  )}
+                </div>
+                <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
+                  <h1 className="white-color">Avatar</h1>
+                  <InputField
+                    className="w-100"
+                    name="nickname"
+                    type="text"
+                    label="Nickname"
+                  />
+                  <div className=" mb-3 mb-xxl-0 align-self-center">
+                    <label htmlFor="imageUrl">Image URL:</label>
+                    <input
+                      className="mb-1"
+                      type="text"
+                      id="imageUrl"
+                      placeholder="https://..."
+                      onChange={handleImageUrlChange}
+                    />
+                    <FileBase
+                      id="avatarInput"
+                      type="file"
+                      multiple={false}
+                      onDone={handleImageChange}
+                    />
+                  </div>
+                </div>
+              </Row>
+              <Row>
+                <span
+                  className="text-danger text-center mt-5"
+                  style={{ whiteSpace: "pre" }}
+                >
+                  {errorMsg}
+                </span>
+              </Row>
+            </FormikStepper.Step>
+          </FormikStepper>
+        ) : (
+          <>
+            {!statusSubmit ? (
+              <>
+                <FailFeedback
+                  title={`Error al registrar el teu compte`}
+                  text={`Sembla que alguna cosa ha fallat mentre enregistràvem el teu compte al sistema.`}
+                  hasButton={true}
+                  buttonLink={`/hacker-form`}
+                  buttonText={`Intentar novament`}
+                  italic={errCause}
+                  onButtonClick={handleButtonClick}
+                />
+              </>
+            ) : (
+              <>
+                <SuccessFeedback
+                  title="T'has registrat correctament."
+                  text={`El teu registre s'ha realitzat correctament. \n T'hem enviat un correu electrónic per a que confirmis el registre.`}
+                  hasButton={true}
+                  buttonLink="/login"
+                  buttonText="Inicia sesió"
+                />
+              </>
+            )}
+          </>
+        )}
       </div>
     </>
   );
