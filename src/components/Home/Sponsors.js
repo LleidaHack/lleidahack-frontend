@@ -27,11 +27,11 @@ function redirectToURL(url) {
 /*End Imports 😭*/
 
 let imgs1 = [
-  { image: Eurecat, url: "1" },
-  { image: bonarea, url: "2" },
-  { image: bofill, url: "3" },
-  { image: ingroup, url: "4" },
-  { image: restb, url: "5" },
+  { image: Eurecat, url: "1", url: "https://eurecat.org/" },
+  { image: bonarea, url: "2", url: "https://www.bonarea.com/" },
+  { image: bofill, url: "3", url: "https://fundaciobofill.cat/" },
+  { image: ingroup, url: "4", url: "https://ingroup.biz/" },
+  { image: restb, url: "5", url: "https://restb.ai/" },
 ];
 
 let imgs2 = [
@@ -93,7 +93,7 @@ const Sponsors = () => {
       <div className="gostHunter" id="sponsors"></div>
       <h1 className="title1 title-underline">Sponsors</h1>
       <p>Vols participar?</p>
-      <p>No dubtis, contacta amb nosaltres!</p>
+      <p>No ho dubtis, contacta amb nosaltres!</p>
       <Link to={"/contacte"}>
         <button className="contacta">Contacta</button>
       </Link>
@@ -101,9 +101,7 @@ const Sponsors = () => {
         <div className="cuadrados-container">
           {imgs1.map((pos, index) => (
             <div key={index + 1} className="cuadrado">
-              <Link to={`/sponsors/${pos.url}`}>
-                <img src={pos.image} alt={`Image ${index + 1}`} />
-              </Link>
+                <img src={pos.image} onClick={() => redirectToURL(pos.url)} alt={`Image ${index + 1}`} />
             </div>
           ))}
         </div>
