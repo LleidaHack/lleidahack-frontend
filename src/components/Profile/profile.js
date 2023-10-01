@@ -20,7 +20,7 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
-import { getHackerGroupMembers } from "src/services/HackerGroupService";
+import { getHackerGroupById, getHackerGroupMembers } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 
 const Profile_component = () => {
@@ -88,24 +88,10 @@ const Profile_component = () => {
         if (response_1 && !response_1.message) {
           for (let i = 0; i < response_1.length; i++) {
             if (response_1[i].event_id === event_id) {
-              group = response_1[i];
+              setTeam(await getHackerGroupById(response_1[i].id));
+              break
             }
           }
-        }
-        return group;
-      })
-      .then(async (response) => {
-        team1 = response;
-        if (response) return await getHackerGroupMembers(response.id);
-        return null;
-      })
-      .then((response) => {
-        if (response) {
-          if (response.members.length > 0)
-            setTeam({
-              ...team1,
-              members: [...response.members],
-            });
         }
       });
   }, [useParams()]);
