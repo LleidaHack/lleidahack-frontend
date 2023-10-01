@@ -439,11 +439,6 @@ const Testing = () => {
           params: [lleidahacker.id],
           status: false,
         },
-        /*{
-          body: addLleidaHacker,
-          params: [lleidahacker],
-          status: false,
-        },*/
         {
           body: acceptLleidaHacker,
           params: [lleidahacker.id],
@@ -635,16 +630,6 @@ const Testing = () => {
           params: [event.id, grup.id],
           status: false,
         },
-        /*{
-          body: addEventParticipant,
-          params: [event.id, hacker.id],
-          status: false,
-        },
-        {
-          body: removeEventParticipant,
-          params: [event.id, hacker.id],
-          status: false,
-        },*/
         {
           body: addEventSponsor,
           params: [event.id, company.id],

@@ -91,7 +91,7 @@ const Team = (props) => {
 
     return (
       <>
-        {is_user ? (
+        {is_user && (
           <Container className="p-bg-grey text-center mt-5 m-0 p-3">
             <h1>Inscripcions</h1>
             <Row className="justify-content-center">
@@ -109,8 +109,6 @@ const Team = (props) => {
               </Button>
             </Row>
           </Container>
-        ) : (
-          ""
         )}
         <Modal show={showJoinTeam} onHide={handleCloseJoinTeam} centered>
           <Modal.Header closeButton className="team-modal-no-border">
@@ -197,24 +195,30 @@ const Team = (props) => {
       <div className="Alineador">
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
           <h1>
-            {team.name} (Codi: #{team.code})
+            {team.name} {team.code && `Codi: #${team.code}`}
           </h1>
-          <p>El teu equip:</p>
+          {team && team.code && <p>El teu equip:</p>}
           <Container className="p-2">
             <Row className="g-3 justify-content-center">
               {team.members.map((member, index) => (
                 <Col className="col-xxl-3 col-6 cards" key={index}>
                   <div className="p-3 text-center bg-white smallCard">
-                    <img
-                      style={{}}
-                      className="team-member-image bg-black"
-                      src={
-                        member.is_image_url
-                          ? member.image
-                          : "https://xsgames.co/randomusers/avatar.php?g=pixel"
-                      }
-                      alt=""
-                    />
+                    {!(member.image === "string" || member.image === "") ? (
+                      <img
+                        className="team-member-image bg-black"
+                        src={
+                          member.is_image_url
+                            ? member.image
+                            : "https://xsgames.co/randomusers/avatar.php?g=pixel"
+                        }
+                        alt=""
+                      />
+                    ) : (
+                      <i
+                        className="fa-solid fa-user fa-8x mx-auto"
+                        style={{ color: "#444" }}
+                      />
+                    )}
                     <p className="team-member-name">{member.name}</p>
                     {String(member.id) === localStorage.getItem("userID") ? (
                       ""
@@ -251,9 +255,11 @@ const Team = (props) => {
               ))}
             </Row>
           </Container>
-          <Button className="leave-group" onClick={() => handleLeave()}>
-            Sortir del grup
-          </Button>
+          {is_user && (
+            <Button className="leave-group" onClick={() => handleLeave()}>
+              Sortir del grup
+            </Button>
+          )}
         </div>
       </div>
     );
