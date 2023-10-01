@@ -9,7 +9,7 @@ import { login } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().required("Usuari o correu requerit"),
+  email: Yup.string().required("Correu requerit"),
   password: Yup.string().required("Contrasenya requerida"),
 });
 
@@ -54,7 +54,7 @@ const LoginPage = ({ nextScreen }) => {
                   {({ isSubmitting, submitForm, errors, touched }) => (
                     <Form>
                       <div className="form-group">
-                        <label htmlFor="email">Usuari o correu</label>
+                        <label htmlFor="email">Correu</label>
                         <Field
                           type="email"
                           name="email"

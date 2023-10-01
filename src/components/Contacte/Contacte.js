@@ -14,10 +14,10 @@ import FailFeedback from "src/components/Feedbacks/FailFeedback";
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Nom requerit"),
   email: Yup.string()
-    .email("El correu ha de ser una adreça de correu vàlida.")
-    .required("El camp de correu és obligatori."),
-  subject: Yup.string().required("El títol del missatge és requerit."),
-  message: Yup.string().required("El missatge és requerit."),
+    .email("El correu ha de ser una adreça de correu vàlida")
+    .required("Correu requerit"),
+  subject: Yup.string().required("Títol del missatge requerit"),
+  message: Yup.string().required("Missatge requerit"),
 });
 
 const ContactePage = () => {

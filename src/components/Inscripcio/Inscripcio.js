@@ -62,7 +62,6 @@ const InscripcioForm = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
-    console.log(values);
     const data = {
       shirt_size: values.size,
       food_restrictions: values.food,
@@ -122,7 +121,6 @@ const InscripcioForm = () => {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setCvFile(file);
-    console.log(file);
   };
 
   const clearFile = () => {
