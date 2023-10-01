@@ -91,7 +91,7 @@ const Team = (props) => {
 
     return (
       <>
-        {is_user ? (
+        {is_user && (
           <Container className="p-bg-grey text-center mt-5 m-0 p-3">
             <h1>Inscripcions</h1>
             <Row className="justify-content-center">
@@ -109,8 +109,6 @@ const Team = (props) => {
               </Button>
             </Row>
           </Container>
-        ) : (
-          ""
         )}
         <Modal show={showJoinTeam} onHide={handleCloseJoinTeam} centered>
           <Modal.Header closeButton className="team-modal-no-border">
@@ -197,9 +195,9 @@ const Team = (props) => {
       <div className="Alineador">
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
           <h1>
-            {team.name} (Codi: #{team.code})
+            {team.name} {team.code && (`Codi: #${team.code}`)}
           </h1>
-          <p>El teu equip:</p>
+          {team && team.code && <p>El teu equip:</p>}
           <Container className="p-2">
             <Row className="g-3 justify-content-center">
               {team.members.map((member, index) => (

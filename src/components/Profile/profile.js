@@ -136,17 +136,17 @@ const Profile_component = () => {
               )}
               <br />
               <br />
-              <Link to="/home" className="logOut" onClick={logOut}>
+              {isUser&&<Link to="/home" className="logOut" onClick={logOut}>
                 <button className="logOut-button">
                   <i className="fas fa-sign-out"></i> Tancar sessió
                 </button>
-              </Link>
+              </Link>}
             </div>
 
             {/* Center Column */}
             <div className="col-12 col-xl-4 px-0 my-3 text-center">
               <div className="row ">
-                <h3 className="text-center">Benvingut/da, hacker!</h3>
+                {isUser&&<h3 className="text-center">Benvingut/da, hacker!</h3>}
               </div>
               <div className="row my-3">
                 <div className="col-xxl-1 col-2 d-flex">
@@ -166,7 +166,7 @@ const Profile_component = () => {
             </div>
             {/* QR Column */}
             <div className="col-12 col-xl-4 mx-auto text-dark">
-              {hacker ? (
+              {isUser&&(hacker ? (
                 <div
                   className="container qr-container p-bg-primary p-2 text-center m-auto"
                   onClick={handleShowQR}
@@ -191,19 +191,17 @@ const Profile_component = () => {
                 </div>
               ) : (
                 <HSkeleton height={"100%"} />
-              )}
+              ))}
             </div>
           </div>
 
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          {isUser ? <Join event={event} /> : ""}
+          {isUser && <Join event={event} />}
 
-          {event && event.accepted ? (
-            <Team team={team} is_user={isUser} has_team={Boolean(team)} />
-          ) : (
-            ""
+          {event && event.accepted && (
+            <Team team={team} is_user={isUser} />
           )}
 
           {/* Calendar and Achievements */}
