@@ -185,7 +185,7 @@ const Terms_component = () => {
         permiso expl&iacute;cito del participante. Este tratamiento es opcional y el participante puede informar de
         su disconformidad al respecto durante el proceso de inscripci&oacute;n o, posteriormente, anular dicho
         consentimiento mediante un correo a
-    </span><span class="c13"><a class="c12" href="mailto:lleidahack@gmail.com">lleidahack@gmail.com</a></span><span
+    </span> <span class="c13"><a class="c12" href="mailto:lleidahack@gmail.com">lleidahack@gmail.com</a></span><span
         class="c0">. </span></p>
 <p class="c1"><span class="c0"></span></p>
 
