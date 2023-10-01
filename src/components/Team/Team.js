@@ -203,16 +203,20 @@ const Team = (props) => {
               {team.members.map((member, index) => (
                 <Col className="col-xxl-3 col-6 cards" key={index}>
                   <div className="p-3 text-center bg-white smallCard">
-                    <img
-                      style={{}}
-                      className="team-member-image bg-black"
-                      src={
-                        member.is_image_url
-                          ? member.image
-                          : "https://xsgames.co/randomusers/avatar.php?g=pixel"
-                      }
-                      alt=""
-                    />
+                    {!(member.image === "string" || member.image === "") ? 
+                        <img
+                          style={{width:"100%", aspectRatio:"2/1"}}
+                          className="team-member-image bg-black"
+                          src={
+                            member.is_image_url
+                              ? member.image
+                              : "https://xsgames.co/randomusers/avatar.php?g=pixel"
+                          }
+                          alt=""
+                        />
+                      :
+                        <i className="fa-solid fa-user fa-8x mx-auto" style={{color:"#444"}}/>
+                    }
                     <p className="team-member-name">{member.name}</p>
                     {String(member.id) === localStorage.getItem("userID") ? (
                       ""
@@ -249,9 +253,9 @@ const Team = (props) => {
               ))}
             </Row>
           </Container>
-          <Button className="leave-group" onClick={() => handleLeave()}>
+          {is_user&&<Button className="leave-group" onClick={() => handleLeave()}>
             Sortir del grup
-          </Button>
+          </Button>}
         </div>
       </div>
     );

@@ -202,9 +202,9 @@ const Profile_component = () => {
 
           {isUser && <Join event={event} />}
 
-          {event && event.accepted && (
+          {event && event.accepted ? (
             <Team team={team} is_user={isUser} />
-          )}
+          ): <HSkeleton width="100%" height="100%"/>}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
