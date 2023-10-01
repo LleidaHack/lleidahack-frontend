@@ -101,7 +101,11 @@ const Sponsors = () => {
         <div className="cuadrados-container">
           {imgs1.map((pos, index) => (
             <div key={index + 1} className="cuadrado">
-                <img src={pos.image} onClick={() => redirectToURL(pos.url)} alt={`Image ${index + 1}`} />
+              <img
+                src={pos.image}
+                onClick={() => redirectToURL(pos.url)}
+                alt={`Image ${index + 1}`}
+              />
             </div>
           ))}
         </div>
