@@ -12,7 +12,6 @@ import {
   addHackerGroup,
   addHackerToGroupByCode,
   getHackerGroupById,
-  getHackerGroupMembers,
   removeHackerFromGroup,
 } from "src/services/HackerGroupService";
 import { getHackeps } from "src/services/EventService";
@@ -35,7 +34,7 @@ const Team = (props) => {
 
   async function handleKick(member) {
     await removeHackerFromGroup(member.id, team.id);
-    setTeam(await getTeam(team.id));
+    setTeam(await getHackerGroupById(team.id));
   }
 
   const handleLeave = () => {
@@ -49,7 +48,7 @@ const Team = (props) => {
       localStorage.getItem("userID"),
     );
     if (a.success) {
-      getTeam(a.added_id);
+      getHackerGroupById(a.added_id);
       setShowJoinTeam(false);
     }
   }
@@ -63,28 +62,9 @@ const Team = (props) => {
     };
     let a = await addHackerGroup(team);
     if (a.success) {
-      getTeam(a.group_id);
+      getHackerGroupById(a.group_id);
       setShowCreateTeam(false);
     }
-  }
-
-  async function getTeam(team_id) {
-    let team = {};
-    getHackerGroupById(team_id)
-      .then(async (response) => {
-        team = response;
-        if (response) return await getHackerGroupMembers(response.id);
-        return null;
-      })
-      .then(async (response) => {
-        if (response) {
-          if (response.members.length > 0)
-            setTeam({
-              ...team,
-              members: [...response.members],
-            });
-        }
-      });
   }
 
   function TeamButtons() {
