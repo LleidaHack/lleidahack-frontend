@@ -214,7 +214,8 @@ const Team = (props) => {
 
   function TeamInfo() {
     return (
-      <Container className="p-bg-grey text-center mt-5 m-0 p-3">
+      <div className="Alineador">
+      <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
         <h1>
           {team.name} (Codi: #{team.code})
         </h1>
@@ -222,10 +223,10 @@ const Team = (props) => {
         <Container className="p-2">
           <Row className="g-3 justify-content-center">
             {team.members.map((member, index) => (
-              <Col className="col-xxl-3 col-6" key={index}>
-                <div className="p-3 text-center bg-white">
+              <Col className="col-xxl-3 col-6 cards" key={index}>
+                <div className="p-3 text-center bg-white smallCard">
                   <img
-                    style={{ aspectRatio: "1/1" }}
+                    style={{  }}
                     className="team-member-image bg-black"
                     src={
                       member.is_image_url
@@ -247,8 +248,7 @@ const Team = (props) => {
                       >
                         Veure perfil
                       </Button>
-                      <br />
-                      <br />
+                     
                       {(
                         team
                           ? String(team.leader_id) ===
@@ -274,7 +274,8 @@ const Team = (props) => {
         <Button className="leave-group" onClick={() => handleLeave()}>
           Sortir del grup
         </Button>
-      </Container>
+      </div>
+      </div>
     );
   }
 

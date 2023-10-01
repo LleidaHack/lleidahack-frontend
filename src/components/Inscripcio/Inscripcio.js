@@ -352,7 +352,7 @@ const InscripcioForm = () => {
             <>
             <FailFeedback
                 title={`Error al registrar la teva participació.`}
-                text={`Sembla que algo ha fallat mentre registravem la teva participació al sistema`}
+                text={`Sembla que alguna cosa ha fallat mentre enregistràvem la teva participació al sistema`}
                 hasButton={true}
                 buttonLink={`/inscripcio`}
                 buttonText={`Intentar novament`}
@@ -365,10 +365,10 @@ const InscripcioForm = () => {
             <>
             <SuccessFeedback
                 title="T'has registrat correctament a l'esdeveniment!"
-                text={`El teu registre s'ha realitzat correctament. \n En breus rebràs un correu electrónic confirmant el registre a l'esdeveniment.`}
+                text={`El teu registre s'ha realitzat correctament. \n Quan siguis acceptat a l'esdeveniment rebràs un correu per a confirmar la teva assisténcia.\n Estigues atent! Tindrás 5 dies per confirmar-ho.`}
                 hasButton={true}
                 buttonLink="/perfil"
-                buttonText="Inicia sesió"
+                buttonText="Inicia sessió"
               />
 
             </>

@@ -1,7 +1,4 @@
 
-
-
-
 .valerr {
     color: var(--white);
     margin: 10% auto;
@@ -9,9 +6,9 @@
 
 }
   
-  .iconBox {
-    margin-top: 10rem;
-    margin-bottom: 3rem;
-    text-align: center;
-  }
+.iconBox {
+margin-top: 10rem;
+margin-bottom: 3rem;
+text-align: center;
+}
   

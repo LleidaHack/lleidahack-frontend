@@ -133,7 +133,7 @@ const Profile_component = () => {
   return (
     <div className="main-screen">
       <div className="p-bg-black text-white">
-        <div className="container-xxl pt-3">
+        <div className="container-xxl pt-3 peter">
           {/* User info and qr */}
           <div className="row align-middle mx-auto mb-3">
             {/* User Image */}

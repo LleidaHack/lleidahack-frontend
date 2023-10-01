@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const ContactePage = () => {
-  const [mailSended, setMailSended] = useState(true);
+  const [mailSended, setMailSended] = useState(false);
   const [mailStatus, setMailStatus] = useState(false);
 
   const handleSubmit = async (values) => {

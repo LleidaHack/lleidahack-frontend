@@ -48,3 +48,11 @@
 .main-screen {
   min-height: 100vh;
 }
+
+@media (max-width: 768px) {
+
+  .peter{
+    max-width: 90%;
+  }
+}
+

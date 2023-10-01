@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import HSkeleton from "src/components/others/HSkeleton";
 import logo from "src/icons/hackLogoWellDone.png";
+import "src/components/Join/Join.css"
 
 const Join = (props) => {
   function ManageButton() {
@@ -44,10 +45,10 @@ const Join = (props) => {
 
   return (
     <div className="container-fluid m-0 p-0">
-      <div className="row join-container p-bg-grey p-5 text-center m-auto mt-5">
+      <div className="row join-container p-bg-grey text-center m-auto mt-5 lolospace">
         <div className="col-12 p-bg-grey">
           <div className="row">
-            <img className="p-5" src={logo} alt="" />
+            <img className="imgbox" src={logo} alt="" />
           </div>
           <div className="row text-center">
             <ManageButton />
