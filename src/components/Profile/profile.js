@@ -127,9 +127,10 @@ const Profile_component = () => {
                     id="profile-image"
                     className="bg-white border mx-auto rounded-circle m-auto"
                     src={hacker.image}
+                    alt=""
                   />
                 ) : (
-                  <i className="fa-solid fa-user fa-8x mx-auto"></i>
+                  <i className="fa-solid fa-user fa-8x mx-auto"/>
                 )
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
@@ -185,6 +186,7 @@ const Profile_component = () => {
                         }}
                         className="px-2 p-0 pt-xl-4 mx-auto my-auto"
                         src={qrIcon}
+                        alt="codi qr"
                       />
                     </div>
                   </div>
