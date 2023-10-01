@@ -206,7 +206,7 @@ const Dailyhacks = () => {
 
             <div className="Part1">
               <div className="IntroTexte">
-                <h1 className="title2 left ">En que consisteix el repte?</h1>
+                <h1 className="title2 left ">En què consisteix el repte?</h1>
 
                 <p>
                   Fent un resum molt resumit, el repte consisteix a crear el
