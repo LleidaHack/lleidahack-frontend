@@ -253,7 +253,7 @@ const Dailyhacks = () => {
           <br />
           <section className="upload white">
             <br />
-            <h2 className="title1">¿Vols presentar el teu repositori?</h2>
+            <h2 className="title1">Vols presentar el teu repositori?</h2>
 
             <br />
             <HackerStepperForm onBotonClic={cambiarEstadoPadre} />
