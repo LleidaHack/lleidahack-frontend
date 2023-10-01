@@ -16,12 +16,20 @@ const LinkAccounts = ({ hacker }) => {
         </div>
         <div className="col-4 col-sm-4 m-auto px-0">
           {is_git_valid && (
-            <a href={hacker.github || "#"} className="text-light">
+            <a
+              href={hacker.github || "#"}
+              target="_blank"
+              className="text-light"
+            >
               <i className="bi bi-github fa-2x me-3" />
             </a>
           )}
           {is_lin_valid && (
-            <a href={hacker.linkedin || "#"} className="text-light">
+            <a
+              href={hacker.linkedin || "#"}
+              target="_blank"
+              className="text-light"
+            >
               <i className="bi bi-linkedin fa-2x me-3" />
             </a>
           )}

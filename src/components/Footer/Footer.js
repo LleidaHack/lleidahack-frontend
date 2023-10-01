@@ -51,7 +51,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="made-by footer-links">
-        Made with <span className="heart">&hearts;</span> by{" "}
+        Made with ❤️ by{" "}
         <a
           href="https://lleidahack.dev/"
           target="_blank"
