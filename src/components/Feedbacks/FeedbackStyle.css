@@ -1,14 +1,11 @@
-
 .valerr {
-    color: var(--white);
-    margin: 10% auto;
-    max-width: 90%;
+  color: var(--white);
+  margin: 10% auto;
+  max-width: 90%;
+}
 
-}
-  
 .iconBox {
-margin-top: 10rem;
-margin-bottom: 3rem;
-text-align: center;
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+  text-align: center;
 }
-  

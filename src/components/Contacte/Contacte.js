@@ -45,8 +45,6 @@ const ContactePage = () => {
     window.location.reload();
   };
 
- 
-
   useEffect(() => {
     // Coloca el scroll en la parte superior cuando el componente se monta
     window.scrollTo(0, 0);
@@ -173,10 +171,8 @@ const ContactePage = () => {
                 italic={`Torna a intentar-ho novament. En cas que segueixi fallant, contacta amb nosaltres utilitzant \n les nostres xarxes socials que trobarás a la part inferior de la pantalla.`}
                 onButtonClick={handleButtonClick}
               />
-
             </>
           ) : (
-            
             <>
               <SuccessFeedback
                 title="Missatge enviat correctament."

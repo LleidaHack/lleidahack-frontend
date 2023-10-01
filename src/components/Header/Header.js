@@ -27,22 +27,23 @@ const Header = () => {
           setValidToken(true);
 
           try {
-            if(!localStorage.imageProfile){
-
-            
+            if (!localStorage.imageProfile) {
               const info = await me();
               if (info.nickname) {
                 //Si te nickname vol dir que la obtencio de dades es posible i que tambe hi haurá imatge
                 //writeUserName(info.nickname);
-                if((info.image !== null) && (info.image !==undefined) && (info.image !=="")){
-                setUserIcon(info.image);
-                localStorage.imageProfile = info.image
+                if (
+                  info.image !== null &&
+                  info.image !== undefined &&
+                  info.image !== ""
+                ) {
+                  setUserIcon(info.image);
+                  localStorage.imageProfile = info.image;
                 }
               }
-            }else{
-              setUserIcon(localStorage.imageProfile)
+            } else {
+              setUserIcon(localStorage.imageProfile);
             }
-
           } catch (error) {}
         }
       }

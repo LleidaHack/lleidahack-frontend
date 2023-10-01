@@ -215,66 +215,66 @@ const Team = (props) => {
   function TeamInfo() {
     return (
       <div className="Alineador">
-      <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
-        <h1>
-          {team.name} (Codi: #{team.code})
-        </h1>
-        <p>El teu equip:</p>
-        <Container className="p-2">
-          <Row className="g-3 justify-content-center">
-            {team.members.map((member, index) => (
-              <Col className="col-xxl-3 col-6 cards" key={index}>
-                <div className="p-3 text-center bg-white smallCard">
-                  <img
-                    style={{  }}
-                    className="team-member-image bg-black"
-                    src={
-                      member.is_image_url
-                        ? member.image
-                        : "https://xsgames.co/randomusers/avatar.php?g=pixel"
-                    }
-                    alt=""
-                  />
-                  <p className="team-member-name">{member.name}</p>
-                  {String(member.id) === localStorage.getItem("userID") ? (
-                    ""
-                  ) : (
-                    <>
-                      <Button
-                        className="team-button"
-                        href={
-                          "/hackeps/perfil/" + member.id /* //TODO hardcoded*/
-                        }
-                      >
-                        Veure perfil
-                      </Button>
-                     
-                      {(
-                        team
-                          ? String(team.leader_id) ===
-                            localStorage.getItem("userID")
-                          : false
-                      ) ? (
+        <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
+          <h1>
+            {team.name} (Codi: #{team.code})
+          </h1>
+          <p>El teu equip:</p>
+          <Container className="p-2">
+            <Row className="g-3 justify-content-center">
+              {team.members.map((member, index) => (
+                <Col className="col-xxl-3 col-6 cards" key={index}>
+                  <div className="p-3 text-center bg-white smallCard">
+                    <img
+                      style={{}}
+                      className="team-member-image bg-black"
+                      src={
+                        member.is_image_url
+                          ? member.image
+                          : "https://xsgames.co/randomusers/avatar.php?g=pixel"
+                      }
+                      alt=""
+                    />
+                    <p className="team-member-name">{member.name}</p>
+                    {String(member.id) === localStorage.getItem("userID") ? (
+                      ""
+                    ) : (
+                      <>
                         <Button
-                          className="kick-button"
-                          onClick={() => handleKick(member)}
+                          className="team-button"
+                          href={
+                            "/hackeps/perfil/" + member.id /* //TODO hardcoded*/
+                          }
                         >
-                          Expulsar
+                          Veure perfil
                         </Button>
-                      ) : (
-                        ""
-                      )}
-                    </>
-                  )}
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-        <Button className="leave-group" onClick={() => handleLeave()}>
-          Sortir del grup
-        </Button>
-      </div>
+
+                        {(
+                          team
+                            ? String(team.leader_id) ===
+                              localStorage.getItem("userID")
+                            : false
+                        ) ? (
+                          <Button
+                            className="kick-button"
+                            onClick={() => handleKick(member)}
+                          >
+                            Expulsar
+                          </Button>
+                        ) : (
+                          ""
+                        )}
+                      </>
+                    )}
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </Container>
+          <Button className="leave-group" onClick={() => handleLeave()}>
+            Sortir del grup
+          </Button>
+        </div>
       </div>
     );
   }

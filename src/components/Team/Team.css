@@ -52,58 +52,47 @@
   color: black;
 }
 
-
-.containerinf{
+.containerinf {
   max-width: 69%;
 }
 
-.Alineador{
+.Alineador {
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
-.smallCard{
-  width:100%;
+.smallCard {
+  width: 100%;
   height: 100%;
 }
 
-
-
 @media (max-width: 1400px) {
-
-  .Alineador{
+  .Alineador {
     margin: auto auto;
   }
-  .containerinf{
+  .containerinf {
     max-width: 100%;
   }
 
   .team-button {
-margin-bottom: 0rem;
-margin-right: 1rem;
-
+    margin-bottom: 0rem;
+    margin-right: 1rem;
   }
 }
-
 
 @media (max-width: 768px) {
- 
-  .team-member-image{
+  .team-member-image {
     width: 4rem;
     height: 4rem;
-
   }
 
-  .team-button{
+  .team-button {
     scale: 0.8;
     margin: 0;
-    
   }
 
-  .kick-button{
+  .kick-button {
     scale: 0.8;
   }
-
 }
-

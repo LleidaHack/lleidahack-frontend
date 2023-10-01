@@ -28,16 +28,13 @@ export default function RequireAuth({ children, originalRoute }) {
 
   return loading ? ( // The code that did the magic
     <>
-    <Header/>
-    <LoadSection/>
-    <Footer/>
-    
-    
+      <Header />
+      <LoadSection />
+      <Footer />
     </>
   ) : auth ? (
     children
   ) : (
     navigate("/login", { state: { nextScreen: originalRoute + hacker_id } })
-   
   );
 }
