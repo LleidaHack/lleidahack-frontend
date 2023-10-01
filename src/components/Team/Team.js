@@ -192,7 +192,7 @@ const Team = (props) => {
 
   function TeamInfo() {
     return (
-      <div className="Alineador">
+      <div className="Alineador" >
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
           <h1>
             {team.name} {team.code && (`Codi: #${team.code}`)}
@@ -205,7 +205,6 @@ const Team = (props) => {
                   <div className="p-3 text-center bg-white smallCard">
                     {!(member.image === "string" || member.image === "") ? 
                         <img
-                          style={{width:"100%", aspectRatio:"2/1"}}
                           className="team-member-image bg-black"
                           src={
                             member.is_image_url

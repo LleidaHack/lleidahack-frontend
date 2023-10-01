@@ -53,6 +53,7 @@
 }
 
 .containerinf {
+  min-width: 50%;
   max-width: 69%;
 }
 
@@ -63,8 +64,9 @@
 }
 
 .smallCard {
-  width: 100%;
   height: 100%;
+  width: 100%;
+  justify-content: center;
 }
 
 @media (max-width: 1400px) {
