@@ -20,7 +20,10 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
-import { getHackerGroupById, getHackerGroupMembers } from "src/services/HackerGroupService";
+import {
+  getHackerGroupById,
+  getHackerGroupMembers,
+} from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 
 const Profile_component = () => {
@@ -77,20 +80,19 @@ const Profile_component = () => {
       setIsUser(true);
       hacker_id = localStorage.getItem("userID");
     }
-    getHackerById(hacker_id)
-      .then(async (response) => {
-        setHacker(await response);
-        setQrCode(await response.code);
-        const response_1 = await getHackerGroups(hacker_id);
-        if (response_1 && !response_1.message) {
-          for (let i = 0; i < response_1.length; i++) {
-            if (response_1[i].event_id === event_id) {
-              setTeam(await getHackerGroupById(response_1[i].id));
-              break
-            }
+    getHackerById(hacker_id).then(async (response) => {
+      setHacker(await response);
+      setQrCode(await response.code);
+      const response_1 = await getHackerGroups(hacker_id);
+      if (response_1 && !response_1.message) {
+        for (let i = 0; i < response_1.length; i++) {
+          if (response_1[i].event_id === event_id) {
+            setTeam(await getHackerGroupById(response_1[i].id));
+            break;
           }
         }
-      });
+      }
+    });
   }, [useParams()]);
 
   function logOut() {
