@@ -130,24 +130,28 @@ const Profile_component = () => {
                     alt=""
                   />
                 ) : (
-                  <i className="fa-solid fa-user fa-8x mx-auto"/>
+                  <i className="fa-solid fa-user fa-8x mx-auto" />
                 )
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
               )}
               <br />
               <br />
-              {isUser&&<Link to="/home" className="logOut" onClick={logOut}>
-                <button className="logOut-button">
-                  <i className="fas fa-sign-out"></i> Tancar sessió
-                </button>
-              </Link>}
+              {isUser && (
+                <Link to="/home" className="logOut" onClick={logOut}>
+                  <button className="logOut-button">
+                    <i className="fas fa-sign-out"></i> Tancar sessió
+                  </button>
+                </Link>
+              )}
             </div>
 
             {/* Center Column */}
             <div className="col-12 col-xl-4 px-0 my-3 text-center">
               <div className="row ">
-                {isUser&&<h3 className="text-center">Benvingut/da, hacker!</h3>}
+                {isUser && (
+                  <h3 className="text-center">Benvingut/da, hacker!</h3>
+                )}
               </div>
               <div className="row my-3">
                 <div className="col-xxl-1 col-2 d-flex">
@@ -167,33 +171,34 @@ const Profile_component = () => {
             </div>
             {/* QR Column */}
             <div className="col-12 col-xl-4 mx-auto text-dark">
-              {isUser&&(hacker ? (
-                <div
-                  className="container qr-container p-bg-primary p-2 text-center m-auto"
-                  onClick={handleShowQR}
-                >
-                  <div className="row">
-                    <div className="col-6 my-auto col-xl-12">
-                      Mostra el teu tiquet
-                    </div>
-                    <div className="col-6 col-xl-12 my-auto">
-                      <img
-                        style={{
-                          aspectRatio: "1/1",
-                          width: "70%",
-                          fill: "black",
-                          backgroundColor: "transparent",
-                        }}
-                        className="px-2 p-0 pt-xl-4 mx-auto my-auto"
-                        src={qrIcon}
-                        alt="codi qr"
-                      />
+              {isUser &&
+                (hacker ? (
+                  <div
+                    className="container qr-container p-bg-primary p-2 text-center m-auto"
+                    onClick={handleShowQR}
+                  >
+                    <div className="row">
+                      <div className="col-6 my-auto col-xl-12">
+                        Mostra el teu tiquet
+                      </div>
+                      <div className="col-6 col-xl-12 my-auto">
+                        <img
+                          style={{
+                            aspectRatio: "1/1",
+                            width: "70%",
+                            fill: "black",
+                            backgroundColor: "transparent",
+                          }}
+                          className="px-2 p-0 pt-xl-4 mx-auto my-auto"
+                          src={qrIcon}
+                          alt="codi qr"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ) : (
-                <HSkeleton height={"100%"} />
-              ))}
+                ) : (
+                  <HSkeleton height={"100%"} />
+                ))}
             </div>
           </div>
 
@@ -204,7 +209,9 @@ const Profile_component = () => {
 
           {event && event.accepted ? (
             <Team team={team} is_user={isUser} />
-          ): <HSkeleton width="100%" height="100%"/>}
+          ) : (
+            <HSkeleton width="100%" height="100%" />
+          )}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
