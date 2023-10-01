@@ -1,8 +1,11 @@
 import React from "react";
 
 const LinkAccounts = ({ hacker }) => {
-  let is_git_valid = hacker.github && hacker.github.startsWith("https://github.com/")
-  let is_lin_valid = hacker.linkedin && hacker.linkedin.startsWith("https://www.linkedin.com/in/")
+  let is_git_valid =
+    hacker.github && hacker.github.startsWith("https://github.com/");
+  let is_lin_valid =
+    hacker.linkedin &&
+    hacker.linkedin.startsWith("https://www.linkedin.com/in/");
   if (!is_git_valid && !is_lin_valid) return;
 
   return (
@@ -18,10 +21,10 @@ const LinkAccounts = ({ hacker }) => {
             </a>
           )}
           {is_lin_valid && (
-              <a href={hacker.linkedin || "#"} className="text-light">
-                <i className="bi bi-linkedin fa-2x me-3" />
-              </a>
-            )}
+            <a href={hacker.linkedin || "#"} className="text-light">
+              <i className="bi bi-linkedin fa-2x me-3" />
+            </a>
+          )}
         </div>
       </div>
     </div>
