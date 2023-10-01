@@ -71,8 +71,6 @@ const Profile_component = () => {
         }
       });
     });
-
-    let team1;
     if (process.env.REACT_APP_DEBUG === "true")
       console.log("hacker id:" + hacker_id);
     if (!hacker_id) {
@@ -84,7 +82,6 @@ const Profile_component = () => {
         setHacker(await response);
         setQrCode(await response.code);
         const response_1 = await getHackerGroups(hacker_id);
-        let group = null;
         if (response_1 && !response_1.message) {
           for (let i = 0; i < response_1.length; i++) {
             if (response_1[i].event_id === event_id) {
