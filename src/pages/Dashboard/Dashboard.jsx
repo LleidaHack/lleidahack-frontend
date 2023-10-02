@@ -28,7 +28,7 @@ function TableRow({ user, isGroup }) {
   const [isApproved, setIsApproved] = useState(user.approved);
 
   async function handleAcceptar() {
-    if (await acceptHackerToEvent("1", user.id)) {
+    if (await acceptHackerToEvent(user.id, "1")) {
       setIsApproved(true);
     }
   }
