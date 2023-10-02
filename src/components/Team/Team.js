@@ -31,16 +31,23 @@ const Team = (props) => {
   const [showJoinTeam, setShowJoinTeam] = useState(false);
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
-
+  const [err, setErr] = useState("");
   async function handleKick(member) {
     await removeHackerFromGroup(member.id, team.id);
     setTeam(await getHackerGroupById(team.id));
   }
 
-  const handleLeave = () => {
-    removeHackerFromGroup(localStorage.getItem("userID"), team.id);
-    setTeam(null);
-  };
+  async function handleLeave() {
+    let a = await removeHackerFromGroup(
+      localStorage.getItem("userID"),
+      team.id,
+    );
+    if (a.message) {
+      setErr(a.message);
+    } else {
+      setTeam(null);
+    }
+  }
 
   async function joinTeam(val) {
     let a = await addHackerToGroupByCode(
@@ -48,7 +55,7 @@ const Team = (props) => {
       localStorage.getItem("userID"),
     );
     if (a.success) {
-      getHackerGroupById(a.added_id);
+      setTeam(await getHackerGroupById(a.added_id));
       setShowJoinTeam(false);
     }
   }
@@ -62,7 +69,7 @@ const Team = (props) => {
     };
     let a = await addHackerGroup(team);
     if (a.success) {
-      getHackerGroupById(a.group_id);
+      setTeam(await getHackerGroupById(a.group_id));
       setShowCreateTeam(false);
     }
   }
@@ -256,9 +263,12 @@ const Team = (props) => {
             </Row>
           </Container>
           {is_user && (
-            <Button className="leave-group" onClick={() => handleLeave()}>
-              Sortir del grup
-            </Button>
+            <>
+              <Button className="leave-group" onClick={() => handleLeave()}>
+                Sortir del grup
+              </Button>
+              <p style={{ color: "#c00" }}>{err}</p>
+            </>
           )}
         </div>
       </div>

@@ -14,7 +14,7 @@ const LoginUnverified = ({ email }) => {
     resendVerification(email);
   }, [email, navigate]);
 
-  const [isCooldownActive, setCooldownActive] = useState(false);
+  const [isCooldownActive, setCooldownActive] = useState(true);
   const [countdown, setCountdown] = useState(30); // Initial countdown value in seconds
 
   useEffect(() => {
