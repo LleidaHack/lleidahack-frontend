@@ -18,7 +18,7 @@ const LoginPage = ({ nextScreen }) => {
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
       let a = await login(values);
-      console.log(a.message)
+      console.log(a.message);
       if (a.message === "User not verified") {
         navigate("/user-verification", { state: { email: values.email } });
       } else if (localStorage.getItem("userToken") !== "undefined") {
@@ -27,10 +27,10 @@ const LoginPage = ({ nextScreen }) => {
         if (nextScreen) {
           navigate(nextScreen);
         } else navigate("/home");
-      } else if (a.message === "Incorrect password"){
+      } else if (a.message === "Incorrect password") {
         setFieldError("password", "Contrasenya incorrecta");
-      } else if (a.message === "User not found"){
-        setFieldError("email", "E-mail no trobat")
+      } else if (a.message === "User not found") {
+        setFieldError("email", "E-mail no trobat");
       }
     } catch (error) {
       console.error("Login error:", error);

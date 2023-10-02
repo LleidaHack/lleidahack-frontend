@@ -62,12 +62,24 @@ const CountdownTimer = (props) => {
   if (timestampDayjs.diff(nowDayjs, "seconds") >= 0 && active) {
     return (
       <div className="countdown-timer">
-        {remainingTime.months&&<span>{remainingTime.months}</span>}
-        {remainingTime.months&&<span style={{ fontSize: "2vw" }}>mes{remainingTime.months!==1&&"os"}</span>}
-        {remainingTime.days&&<span>{remainingTime.days}</span>}
-        {remainingTime.days&&<span style={{ fontSize: "2vw" }}>di{remainingTime.days===1?"a":"es"}</span>}
-        {remainingTime.hours&&<span>{remainingTime.hours}</span>}
-        {remainingTime.hours&&<span style={{ fontSize: "2vw" }}>hor{remainingTime.hours===1?"a":"es"}</span>}
+        {remainingTime.months && <span>{remainingTime.months}</span>}
+        {remainingTime.months && (
+          <span style={{ fontSize: "2vw" }}>
+            mes{remainingTime.months !== 1 && "os"}
+          </span>
+        )}
+        {remainingTime.days && <span>{remainingTime.days}</span>}
+        {remainingTime.days && (
+          <span style={{ fontSize: "2vw" }}>
+            di{remainingTime.days === 1 ? "a" : "es"}
+          </span>
+        )}
+        {remainingTime.hours && <span>{remainingTime.hours}</span>}
+        {remainingTime.hours && (
+          <span style={{ fontSize: "2vw" }}>
+            hor{remainingTime.hours === 1 ? "a" : "es"}
+          </span>
+        )}
       </div>
     );
   } else if (eventendDayjs.diff(nowDayjs, "seconds") >= 0 && active) {
