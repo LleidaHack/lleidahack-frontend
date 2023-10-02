@@ -31,28 +31,33 @@ const Team = (props) => {
   const [showJoinTeam, setShowJoinTeam] = useState(false);
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
-  const [err, setErr] = useState("")
+  const [err, setErr] = useState("");
   async function handleKick(member) {
     await removeHackerFromGroup(member.id, team.id);
     setTeam(await getHackerGroupById(team.id));
   }
 
-  async function handleLeave(){
-    let a = await removeHackerFromGroup(localStorage.getItem("userID"), team.id);
-    if(a.message){
-      setErr(a.message)
-      }else{setTeam(null)};
-    };
+  async function handleLeave() {
+    let a = await removeHackerFromGroup(
+      localStorage.getItem("userID"),
+      team.id,
+    );
+    if (a.message) {
+      setErr(a.message);
+    } else {
+      setTeam(null);
+    }
+  }
 
-    async function joinTeam(val) {
-      let a = await addHackerToGroupByCode(
-        val.replace(/#/g, ""),
-        localStorage.getItem("userID"),
-      );
-      if (a.success) {
-        setTeam(await getHackerGroupById(a.added_id));
-        setShowJoinTeam(false);
-      }
+  async function joinTeam(val) {
+    let a = await addHackerToGroupByCode(
+      val.replace(/#/g, ""),
+      localStorage.getItem("userID"),
+    );
+    if (a.success) {
+      setTeam(await getHackerGroupById(a.added_id));
+      setShowJoinTeam(false);
+    }
   }
 
   async function createTeam(val) {
@@ -257,11 +262,12 @@ const Team = (props) => {
               ))}
             </Row>
           </Container>
-          {is_user && (<>
-            <Button className="leave-group" onClick={() => handleLeave()}>
-              Sortir del grup
-            </Button>
-            <p style={{color:"#c00"}}>{err}</p>
+          {is_user && (
+            <>
+              <Button className="leave-group" onClick={() => handleLeave()}>
+                Sortir del grup
+              </Button>
+              <p style={{ color: "#c00" }}>{err}</p>
             </>
           )}
         </div>

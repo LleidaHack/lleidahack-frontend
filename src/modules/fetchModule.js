@@ -25,7 +25,8 @@ export async function fetchPlus({
   if (process.env.REACT_APP_DEBUG === "true") console.log("headers: ", args);
   return fetch(process.env.REACT_APP_DOMAIN + Url + query, args)
     .then((response) => {
-      if (process.env.REACT_APP_DEBUG === "true") console.log("response: ", response);
+      if (process.env.REACT_APP_DEBUG === "true")
+        console.log("response: ", response);
       return response.json();
     })
     .then((data) => {
