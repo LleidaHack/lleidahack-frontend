@@ -107,7 +107,6 @@ export const HackerStepperForm = () => {
       }
       setCauseError(causeError);
       setSubmiting(true);
-      console.log("submit enviiat")
       //setErrorMsg(res.message);
       return;
     } else if (res.success) {
