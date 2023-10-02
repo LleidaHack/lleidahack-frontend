@@ -328,7 +328,7 @@ const InscripcioForm = () => {
                     />
                     <label htmlFor="checkboxterms">
                       Accepto els{" "}
-                      <a href="" target="_blank">
+                      <a href="/terms" target="_blank">
                         Termes i Condicions
                       </a>{" "}
                       de la HackEPS 2023
