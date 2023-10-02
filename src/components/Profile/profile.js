@@ -216,7 +216,7 @@ const Profile_component = () => {
             {/* <div className="col-12 col-xl-6">
               <Medals />
             </div> */}
-            <div className="col-12 col-xl-12 d-flex justify-content-center">
+            {/* <div className="col-12 col-xl-12 d-flex justify-content-center">
               <div className="calendar-container mx-auto">
                 <Calendar
                   value={[startDate, endDate]}
@@ -224,7 +224,7 @@ const Profile_component = () => {
                   minDetail={"month"}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
           <br />
         </div>
