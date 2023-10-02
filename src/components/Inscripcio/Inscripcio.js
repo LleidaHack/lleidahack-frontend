@@ -102,7 +102,7 @@ const InscripcioForm = () => {
       //navigate("/perfil");
     } else if (registration.detail) {
       setErrRegister(
-        "La teva sesió ha caducat. Inicia sessió novament i torna a intentar-ho.",
+        "La teva sessió ha caducat. Inicia sessió novament i torna a intentar-ho.",
       );
       setStateRegister(false);
       setsubmittRegister(true);

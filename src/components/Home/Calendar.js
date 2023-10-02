@@ -19,7 +19,7 @@ const CalendarDates = (props) => {
         <Row>
           <Col className="calendar-content">
             <p>
-              Lleidahack et dóna la benvinguda a la HackEPS 2023, la primera
+              Lleidahack et dona la benvinguda a la HackEPS 2023, la primera
               hackató de les terres de Lleida!
             </p>
             <p>
