@@ -171,7 +171,9 @@ const Profile_component = () => {
             </div>
             {/* QR Column */}
             <div className="col-12 col-xl-4 mx-auto text-dark">
-              {isUser && event && event.accepted && 
+              {isUser &&
+                event &&
+                event.accepted &&
                 (hacker ? (
                   <div
                     className="container qr-container p-bg-primary p-2 text-center m-auto"
@@ -207,9 +209,7 @@ const Profile_component = () => {
 
           {isUser && <Join event={event} />}
 
-          {event && event.accepted && 
-            <Team team={team} is_user={isUser} />
-          }
+          {event && event.accepted && <Team team={team} is_user={isUser} />}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
