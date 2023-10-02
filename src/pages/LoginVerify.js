@@ -7,15 +7,15 @@ import { useLocation } from "react-router-dom";
 const LoginVerify = (props) => {
   let email = "";
   const { state } = useLocation();
-  if (state) 
-    email = state.email;
-  
+  if (state) email = state.email;
+
   return (
     <div className="faq-page">
       <Header />
-      <LoginUnverified email={email}/>
+      <LoginUnverified email={email} />
       <Footer />
     </div>
-)};
-  
+  );
+};
+
 export default LoginVerify;
