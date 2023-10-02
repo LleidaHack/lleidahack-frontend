@@ -17,8 +17,10 @@ const LoginPage = ({ nextScreen }) => {
   const navigate = useNavigate();
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
-      await login(values);
-      if (localStorage.getItem("userToken") !== "undefined") {
+      let a = await login(values);
+      if (a.message==="User not verified"){
+        navigate("/user-verification", {state: {email: values.email}})
+      } else if (localStorage.getItem("userToken") !== "undefined") {
         if (process.env.REACT_APP_DEBUG === "true")
           console.log("Login successful");
         if (nextScreen) {

@@ -1,5 +1,3 @@
-import { Navigate } from "react-router-dom";
-
 export async function fetchPlus({
   Url,
   Method = "GET",
@@ -7,7 +5,6 @@ export async function fetchPlus({
   Query,
   hasUserauth = false,
   saveLoginInfo = false,
-  nextScreen,
   loginAuth,
 }) {
   const headers = { "Content-Type": "application/json" };
@@ -39,7 +36,6 @@ export async function fetchPlus({
         localStorage.setItem("userID", data.user_id);
         localStorage.setItem("refreshToken", data.refresh_token);
       }
-      if (nextScreen) Navigate(nextScreen);
       return data;
     })
     .catch((error) => {
