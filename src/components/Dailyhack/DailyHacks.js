@@ -7,8 +7,8 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 
 import * as Yup from "yup";
-import { FormikStepper, InputField, SelectField } from "formik-stepper";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FormikStepper } from "formik-stepper";
+import { Field, ErrorMessage } from "formik";
 import pergamino from "src/imgs/dataset-cover.png";
 
 import { getHackeps } from "src/services/EventService.js";
