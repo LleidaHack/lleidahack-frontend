@@ -97,7 +97,7 @@ export const HackerStepperForm = () => {
     console.log(res);
     if (res.message) {
       setStatusSubmit(false);
-      const causeError = "Error al tramitar dades";
+      let causeError = "Error al tramitar dades";
       if (res.message == "Email already exists") {
         causeError = "El correu que has introduit es troba registrat.";
       } else if (res.message == "Nickname already exists") {
@@ -107,6 +107,7 @@ export const HackerStepperForm = () => {
       }
       setCauseError(causeError);
       setSubmiting(true);
+      console.log("submit enviiat")
       //setErrorMsg(res.message);
       return;
     } else if (res.success) {
