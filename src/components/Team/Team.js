@@ -39,8 +39,6 @@ const Team = (props) => {
 
   async function handleLeave(){
     let a = await removeHackerFromGroup(localStorage.getItem("userID"), team.id);
-    
-    console.log(a)
     if(a.message){
       setErr(a.message)
       }else{setTeam(null)};
