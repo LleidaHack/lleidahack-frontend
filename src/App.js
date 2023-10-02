@@ -21,6 +21,7 @@ import PasswordForget from "./pages/ForgetPassword";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import "src/utils/ensure-basename";
 import { refreshToken } from "./services/AuthenticationService";
+import LoginVerify from "./pages/LoginVerify";
 
 export default function App() {
   useEffect(() => {
@@ -93,6 +94,7 @@ export default function App() {
           />
           <Route path="*" element={<Error404 />} />
           <Route path="/forgot-password" element={<PasswordForget />} />
+          <Route path="/user-verification" element={<LoginVerify />} />
         </Routes>
       </Router>
     </div>

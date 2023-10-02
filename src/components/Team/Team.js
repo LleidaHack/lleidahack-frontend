@@ -172,7 +172,7 @@ const Team = (props) => {
                       className="error-message"
                     />
                     <label htmlFor="teamDesc" className="black-color">
-                      Descripcció:
+                      Descripció:
                     </label>
                     <Field type="text" id="teamDesc" name="teamDesc" />
                   </div>
