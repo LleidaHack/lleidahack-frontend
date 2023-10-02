@@ -181,7 +181,6 @@ const ContactePage = () => {
                 hasButton={true}
                 buttonLink="/#home"
                 buttonText="Tornar al inici"
-                onButtonClick={handleButtonClick}
               />
             </>
           )}
