@@ -7,8 +7,8 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 
 import * as Yup from "yup";
-import { FormikStepper, InputField, SelectField } from "formik-stepper";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FormikStepper } from "formik-stepper";
+import { Field, ErrorMessage } from "formik";
 import pergamino from "src/imgs/dataset-cover.png";
 
 import { getHackeps } from "src/services/EventService.js";
@@ -206,7 +206,7 @@ const Dailyhacks = () => {
 
             <div className="Part1">
               <div className="IntroTexte">
-                <h1 className="title2 left ">En que consisteix el repte?</h1>
+                <h1 className="title2 left ">En què consisteix el repte?</h1>
 
                 <p>
                   Fent un resum molt resumit, el repte consisteix a crear el
@@ -253,7 +253,7 @@ const Dailyhacks = () => {
           <br />
           <section className="upload white">
             <br />
-            <h2 className="title1">¿Vols presentar el teu repositori?</h2>
+            <h2 className="title1">Vols presentar el teu repositori?</h2>
 
             <br />
             <HackerStepperForm onBotonClic={cambiarEstadoPadre} />

@@ -7,6 +7,7 @@ import Home from "src/pages/Home";
 import Profile from "src/pages/Profile.js";
 import HackerForm from "src/pages/HackerSignup";
 import Testing from "src/components/others/Testing";
+import Terms from "src/pages/Terms";
 import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
 import Verify from "./pages/Verify";
@@ -20,6 +21,7 @@ import PasswordForget from "./pages/ForgetPassword";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import "src/utils/ensure-basename";
 import { refreshToken } from "./services/AuthenticationService";
+import LoginVerify from "./pages/LoginVerify";
 
 export default function App() {
   useEffect(() => {
@@ -63,6 +65,7 @@ export default function App() {
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
           <Route
@@ -91,6 +94,7 @@ export default function App() {
           />
           <Route path="*" element={<Error404 />} />
           <Route path="/forgot-password" element={<PasswordForget />} />
+          <Route path="/user-verification" element={<LoginVerify />} />
         </Routes>
       </Router>
     </div>

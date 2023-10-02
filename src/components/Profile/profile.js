@@ -20,7 +20,7 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
-import { getHackerGroupMembers } from "src/services/HackerGroupService";
+import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 
 const Profile_component = () => {
@@ -38,8 +38,8 @@ const Profile_component = () => {
   const [event, setEvent] = useState(null);
   const [qrCode, setQrCode] = useState(null);
 
-  const startDate = new Date(2022, 10, 25);
-  const endDate = new Date(2022, 10, 27);
+  const startDate = new Date(2023, 10, 25);
+  const endDate = new Date(2023, 10, 27);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -71,43 +71,25 @@ const Profile_component = () => {
         }
       });
     });
-
-    let team1;
     if (process.env.REACT_APP_DEBUG === "true")
       console.log("hacker id:" + hacker_id);
     if (!hacker_id) {
       setIsUser(true);
       hacker_id = localStorage.getItem("userID");
     }
-    getHackerById(hacker_id)
-      .then(async (response) => {
-        setHacker(await response);
-        setQrCode(await response.code);
-        const response_1 = await getHackerGroups(hacker_id);
-        let group = null;
-        if (response_1 && !response_1.message) {
-          for (let i = 0; i < response_1.length; i++) {
-            if (response_1[i].event_id === event_id) {
-              group = response_1[i];
-            }
+    getHackerById(hacker_id).then(async (response) => {
+      setHacker(await response);
+      setQrCode(await response.code);
+      const response_1 = await getHackerGroups(hacker_id);
+      if (response_1 && !response_1.message) {
+        for (let i = 0; i < response_1.length; i++) {
+          if (response_1[i].event_id === event_id) {
+            setTeam(await getHackerGroupById(response_1[i].id));
+            break;
           }
         }
-        return group;
-      })
-      .then(async (response) => {
-        team1 = response;
-        if (response) return await getHackerGroupMembers(response.id);
-        return null;
-      })
-      .then((response) => {
-        if (response) {
-          if (response.members.length > 0)
-            setTeam({
-              ...team1,
-              members: [...response.members],
-            });
-        }
-      });
+      }
+    });
   }, [useParams()]);
 
   function logOut() {
@@ -131,8 +113,8 @@ const Profile_component = () => {
     if (hacker.message === "Hacker not found") return <UserNotFound />;
 
   return (
-    <div className="main-screen">
-      <div className="p-bg-black text-white">
+    <>
+      <div className="p-bg-black text-white main-screen">
         <div className="container-xxl pt-3 peter">
           {/* User info and qr */}
           <div className="row align-middle mx-auto mb-3">
@@ -145,26 +127,31 @@ const Profile_component = () => {
                     id="profile-image"
                     className="bg-white border mx-auto rounded-circle m-auto"
                     src={hacker.image}
+                    alt=""
                   />
                 ) : (
-                  <i className="fa-solid fa-user fa-8x mx-auto"></i>
+                  <i className="fa-solid fa-user fa-8x mx-auto" />
                 )
               ) : (
                 <HSkeleton height={"150px"} width={"150px"} circle={true} />
               )}
               <br />
               <br />
-              <Link to="/home" className="logOut" onClick={logOut}>
-                <button className="logOut-button">
-                  <i className="fas fa-sign-out"></i> Tancar sessió
-                </button>
-              </Link>
+              {isUser && (
+                <Link to="/home" className="logOut" onClick={logOut}>
+                  <button className="logOut-button">
+                    <i className="fas fa-sign-out"></i> Tancar sessió
+                  </button>
+                </Link>
+              )}
             </div>
 
             {/* Center Column */}
             <div className="col-12 col-xl-4 px-0 my-3 text-center">
               <div className="row ">
-                <h3 className="text-center">Benvingut/da, hacker!</h3>
+                {isUser && (
+                  <h3 className="text-center">Benvingut/da, hacker!</h3>
+                )}
               </div>
               <div className="row my-3">
                 <div className="col-xxl-1 col-2 d-flex">
@@ -184,45 +171,45 @@ const Profile_component = () => {
             </div>
             {/* QR Column */}
             <div className="col-12 col-xl-4 mx-auto text-dark">
-              {hacker ? (
-                <div
-                  className="container qr-container p-bg-primary p-2 text-center m-auto"
-                  onClick={handleShowQR}
-                >
-                  <div className="row">
-                    <div className="col-6 my-auto col-xl-12">
-                      Mostra el teu tiquet
-                    </div>
-                    <div className="col-6 col-xl-12 my-auto">
-                      <img
-                        style={{
-                          aspectRatio: "1/1",
-                          width: "70%",
-                          fill: "black",
-                          backgroundColor: "transparent",
-                        }}
-                        className="px-2 p-0 pt-xl-4 mx-auto my-auto"
-                        src={qrIcon}
-                      />
+              {isUser &&
+                event &&
+                event.accepted &&
+                (hacker ? (
+                  <div
+                    className="container qr-container p-bg-primary p-2 text-center m-auto"
+                    onClick={handleShowQR}
+                  >
+                    <div className="row">
+                      <div className="col-6 my-auto col-xl-12">
+                        Mostra el teu tiquet
+                      </div>
+                      <div className="col-6 col-xl-12 my-auto">
+                        <img
+                          style={{
+                            aspectRatio: "1/1",
+                            width: "70%",
+                            fill: "black",
+                            backgroundColor: "transparent",
+                          }}
+                          className="px-2 p-0 pt-xl-4 mx-auto my-auto"
+                          src={qrIcon}
+                          alt="codi qr"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ) : (
-                <HSkeleton height={"100%"} />
-              )}
+                ) : (
+                  <HSkeleton height={"100%"} />
+                ))}
             </div>
           </div>
 
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          {isUser ? <Join event={event} /> : ""}
+          {isUser && <Join event={event} />}
 
-          {event && event.accepted ? (
-            <Team team={team} is_user={isUser} has_team={Boolean(team)} />
-          ) : (
-            ""
-          )}
+          {event && event.accepted && <Team team={team} is_user={isUser} />}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
@@ -246,7 +233,7 @@ const Profile_component = () => {
       <Modal show={showQR} onHide={handleCloseQR} centered>
         <QrCode url={qrCode} />
       </Modal>
-    </div>
+    </>
   );
 };
 

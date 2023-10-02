@@ -87,6 +87,7 @@ img {
 .cuadrado:hover {
   scale: 1.1;
   transform: translate(-3px, -4px);
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -189,6 +190,7 @@ img {
 .pepers:hover {
   scale: 1.1;
   transform: translate(-3px, -4px);
+  cursor: pointer;
 }
 
 @media (max-width: 998px) {

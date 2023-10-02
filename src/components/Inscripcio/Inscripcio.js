@@ -90,7 +90,7 @@ const InscripcioForm = () => {
       //setErrorMessage( "Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.",      );
 
       let err = "";
-      if (registration.message == "Hacker already registered") {
+      if (registration.message === "Hacker already registered") {
         err =
           "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.";
       }
@@ -328,7 +328,7 @@ const InscripcioForm = () => {
                     />
                     <label htmlFor="checkboxterms">
                       Accepto els{" "}
-                      <a href="" target="_blank">
+                      <a href="/terms" target="_blank">
                         Termes i Condicions
                       </a>{" "}
                       de la HackEPS 2023
