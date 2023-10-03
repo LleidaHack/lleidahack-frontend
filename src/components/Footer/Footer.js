@@ -33,20 +33,12 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-links">
-        <a
-          href="/hackeps/terms"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="/hackeps/terms" target="_blank" rel="noopener noreferrer">
           Termes i Condicions
         </a>
         <span className="footer-separator"> | </span>
 
-        <a
-          href="/hackeps/privacy"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="/hackeps/privacy" target="_blank" rel="noopener noreferrer">
           Política de Privadesa
         </a>
       </div>
