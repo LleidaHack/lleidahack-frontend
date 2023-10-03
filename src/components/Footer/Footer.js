@@ -34,7 +34,7 @@ const Footer = () => {
       </div>
       <div className="footer-links">
         <a
-          href="https://lleidahack.dev/"
+          href="/hackeps/terms"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -43,7 +43,7 @@ const Footer = () => {
         <span className="footer-separator"> | </span>
 
         <a
-          href="https://lleidahack.dev/politica-de-privacidad"
+          href="/hackeps/privacy"
           target="_blank"
           rel="noopener noreferrer"
         >
