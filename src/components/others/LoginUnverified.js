@@ -26,7 +26,7 @@ const LoginUnverified = ({ email }) => {
       setTimeout(() => {
         clearInterval(countdownInterval);
         setCooldownActive(false);
-        setCountdown(10);
+        setCountdown(30);
       }, 30000);
     }
     return () => {
