@@ -2,14 +2,13 @@ import "src/components/Forms/HackerForm.css";
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import * as Yup from "yup";
 import { FormikStepper, InputField, SelectField } from "formik-stepper";
 import { signupHacker } from "src/services/HackerService";
 import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
-import { useNavigate } from "react-router-dom";
 import FailFeedback from "../Feedbacks/FailFeedback";
 import SuccessFeedback from "../Feedbacks/SuccesFeedback";
 
@@ -42,7 +41,7 @@ const validationSchema = Yup.object({
       `Has de ser major de ${minAge} anys`,
     ),
   phone: Yup.string().required("Telèfon requerit").matches(
-    /^ *\+? *(\d *){8,}$/,
+    /^ *\+? *(\d *){8,11}$/,
     "Ha de contindre com a mínim 8 dígits ",
   ),
   email: Yup.string()
@@ -99,12 +98,12 @@ export const HackerStepperForm = () => {
     if (res.message) {
       setStatusSubmit(false);
       let causeError = "Error al tramitar dades";
-      if (res.message == "Email already exists") {
+      if (res.message === "Email already exists") {
         causeError = "El correu que has introduit es troba registrat.";
-      } else if (res.message == "Nickname already exists") {
+      } else if (res.message === "Nickname already exists") {
         causeError = "El nickname que has introduit es troba registrat.";
         setFieldError("email", causeError)
-      } else if (res.message == "Telephone already exists") {
+      } else if (res.message === "Telephone already exists") {
         causeError = "El telefon que has introduit es troba registrat.";
       }
       setCauseError(causeError);
