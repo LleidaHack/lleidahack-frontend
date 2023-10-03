@@ -15,8 +15,9 @@ const ForgetPassword = ({ nextScreen }) => {
   const [status, setStatus] = useState(false);
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
-    console.log("El email es:", values.email);
+    // console.log("El email es:", values.email);
     const sendingQuest = await resetPassword(values.email);
+    console.log(sendingQuest);
     if (sendingQuest.message) {
       if (sendingQuest.message == "User not found") {
         setFieldError(
@@ -28,9 +29,9 @@ const ForgetPassword = ({ nextScreen }) => {
           "email",
           "Sembla ser que encara no estas verificat. Comproba la teva bustia de spam.",
         );
-      } else if (sendingQuest.message == "Succes") {
-        setStatus(true);
       }
+    } else if (sendingQuest.success) {
+      setStatus(true);
     } else {
       setFieldError(
         "email",
@@ -52,7 +53,7 @@ const ForgetPassword = ({ nextScreen }) => {
                   <img src={logo} className="App-logo" alt="logo" />
                   <br></br>
                   <h2 className="mb-4 h2-title">
-                    Necesites ajuda per a iniciar sesió?
+                    Necesites ajuda per a iniciar sessió?
                   </h2>
                   <Formik
                     initialValues={{ email: "" }}
@@ -70,7 +71,7 @@ const ForgetPassword = ({ nextScreen }) => {
                             type="email"
                             name="email"
                             id="email"
-                            placeholder="Correu electrónic"
+                            placeholder="Correu electrònic"
                             className={`form-control ${
                               touched.email && errors.email ? "is-invalid" : ""
                             }`}
@@ -84,7 +85,7 @@ const ForgetPassword = ({ nextScreen }) => {
 
                         <div className="redirects">
                           <p>
-                            Rebrás un correu electrónic per amb les instruccions
+                            Rebràs un correu electrònic per amb les instruccions
                             per a poder recuperar el teu compte
                           </p>
                         </div>
@@ -146,7 +147,7 @@ const ForgetPassword = ({ nextScreen }) => {
 
               <div className="infbuttonok">
                 <Link to="/">
-                  <button className="contacta">Tornar al Inici</button>
+                  <button className="contacta">Tornar a l'Inici</button>
                 </Link>
               </div>
             </div>

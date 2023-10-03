@@ -1,5 +1,3 @@
-import { Navigate } from "react-router-dom";
-
 export async function fetchPlus({
   Url,
   Method = "GET",
@@ -7,9 +5,7 @@ export async function fetchPlus({
   Query,
   hasUserauth = false,
   saveLoginInfo = false,
-  nextScreen,
   loginAuth,
-  ignorePoppup = false,
 }) {
   const headers = { "Content-Type": "application/json" };
   if (hasUserauth || loginAuth)
@@ -31,8 +27,6 @@ export async function fetchPlus({
     .then((response) => {
       if (process.env.REACT_APP_DEBUG === "true")
         console.log("response: ", response);
-      if (hasUserauth && response.status === 403 && !ignorePoppup) {
-      } //mostrarPopupHandler();
       return response.json();
     })
     .then((data) => {
@@ -42,7 +36,6 @@ export async function fetchPlus({
         localStorage.setItem("userID", data.user_id);
         localStorage.setItem("refreshToken", data.refresh_token);
       }
-      if (nextScreen) Navigate(nextScreen);
       return data;
     })
     .catch((error) => {

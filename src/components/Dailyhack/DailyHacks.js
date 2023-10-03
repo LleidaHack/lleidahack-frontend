@@ -7,9 +7,9 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 
 import * as Yup from "yup";
-import { FormikStepper, InputField, SelectField } from "formik-stepper";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import pergamino from "src/icons/pergamino.png";
+import { FormikStepper } from "formik-stepper";
+import { Field, ErrorMessage } from "formik";
+import pergamino from "src/imgs/dataset-cover.png";
 
 import { getHackeps } from "src/services/EventService.js";
 import { me } from "src/services/AuthenticationService";
@@ -195,18 +195,18 @@ const Dailyhacks = () => {
             <div className="Part1">
               <p>
                 Molt bones, Hackers! Des de LleidaHack venim a presentar-vos el
-                DailyHack d'aquest any! Alguns us preguntareu: que es això del
-                DailyHack? Bé, tots els anys hem preparat abans de la HackEPS
-                una serie de mini-reptes per tal d'anar calentant motors. Aquest
-                any hem decidit modificar una mica aquest format, preparant un
-                únic repte amb diversos premis!
+                DailyHack d'aquest any! Alguns us preguntareu: què és això del
+                DailyHack?<br></br> Bé, cada any hem preparat abans de la
+                HackEPS una sèrie de minireptes per tal d'anar escalfant motors.
+                Aquest any hem decidit modificar una mica aquest format,
+                preparant un únic repte amb diversos premis!
               </p>
             </div>
             <br />
 
             <div className="Part1">
               <div className="IntroTexte">
-                <h1 className="title2 left "> En que consisteix el repte?</h1>
+                <h1 className="title2 left ">En què consisteix el repte?</h1>
 
                 <p>
                   Fent un resum molt resumit, el repte consisteix a crear el
@@ -214,19 +214,36 @@ const Dailyhacks = () => {
                   d'aquest, per després automatitzar-ne la traducció a
                   llenguatge escrit.
                   <br />
-                  <br />A partir d'aquest dataset de kaggle:
-                  https://www.kaggle.com/datasets/gti-upm/leapgestrecog que
-                  consisteix en diverses imatges de mans en diferents posicions
-                  es demana realitzar un projecte que consta de dues parts.
+                  <br />A partir d'aquest dataset de kaggle (
+                  <a
+                    href="https://www.kaggle.com/datasets/gti-upm/leapgestrecog"
+                    target="_blank"
+                  >
+                    Kaggle Project
+                  </a>
+                  ) que consisteix en diverses imatges de mans en diferents
+                  posicions es demana realitzar un projecte que consta de dues
+                  parts.
                 </p>
                 <br />
-                <p> Trobaréu més informació al ReadMe del repositori:</p>
+                <p>
+                  {" "}
+                  Trobaréu més informació al ReadMe del repositori:<br></br>
+                  <a
+                    href="https://www.kaggle.com/datasets/gti-upm/leapgestrecog"
+                    target="_blank"
+                  >
+                    Repositori Dailyhack
+                  </a>{" "}
+                  <i className="fa-brands fa-github" />{" "}
+                </p>
+                <br />
               </div>
               <div className="fotovidIntro">
                 <img src={pergamino} alt="pergamino" className="pergar" />
               </div>
             </div>
-            <br />
+
             <br />
             <br />
 
@@ -236,7 +253,7 @@ const Dailyhacks = () => {
           <br />
           <section className="upload white">
             <br />
-            <h2 className="title1">¿Vols presentar el teu repositori?</h2>
+            <h2 className="title1">Vols presentar el teu repositori?</h2>
 
             <br />
             <HackerStepperForm onBotonClic={cambiarEstadoPadre} />

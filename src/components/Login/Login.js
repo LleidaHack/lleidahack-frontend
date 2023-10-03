@@ -9,7 +9,7 @@ import { login } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().required("Usuari o correu requerit"),
+  email: Yup.string().required("Correu requerit"),
   password: Yup.string().required("Contrasenya requerida"),
 });
 
@@ -17,18 +17,20 @@ const LoginPage = ({ nextScreen }) => {
   const navigate = useNavigate();
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
-      await login(values);
-      if (localStorage.getItem("userToken") !== "undefined") {
+      let a = await login(values);
+      console.log(a.message);
+      if (a.message === "User not verified") {
+        navigate("/user-verification", { state: { email: values.email } });
+      } else if (localStorage.getItem("userToken") !== "undefined") {
         if (process.env.REACT_APP_DEBUG === "true")
           console.log("Login successful");
         if (nextScreen) {
           navigate(nextScreen);
-          console.log("redir successful");
         } else navigate("/home");
-      } else {
-        if (process.env.REACT_APP_DEBUG === "true")
-          console.error("Login unsuccessful");
-        setFieldError("password", "Correu o contrasenya incorrectes");
+      } else if (a.message === "Incorrect password") {
+        setFieldError("password", "Contrasenya incorrecta");
+      } else if (a.message === "User not found") {
+        setFieldError("email", "E-mail no trobat");
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -55,7 +57,7 @@ const LoginPage = ({ nextScreen }) => {
                   {({ isSubmitting, submitForm, errors, touched }) => (
                     <Form>
                       <div className="form-group">
-                        <label htmlFor="email">Usuari o correu</label>
+                        <label htmlFor="email">Correu</label>
                         <Field
                           type="email"
                           name="email"

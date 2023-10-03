@@ -1,22 +1,57 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import HSkeleton from "src/components/others/HSkeleton";
 import logo from "src/icons/hackLogoWellDone.png";
+import "src/components/Join/Join.css";
 
-const Join = () => {
+const Join = (props) => {
+  function ManageButton() {
+    if (!props.event) {
+      return <HSkeleton width={"20%"} height={"40px"} inline />;
+    }
+
+    if (props.event.accepted) {
+      return (
+        <div
+          style={{ width: `fit-content`, textDecoration: `none` }}
+          className="py-2 px-4 m-auto text-dark p-bg-primary"
+        >
+          Acceptat!
+        </div>
+      );
+    }
+
+    if (props.event.registered) {
+      return (
+        <div
+          style={{ width: `fit-content`, textDecoration: `none` }}
+          className="py-2 px-4 m-auto text-dark p-bg-primary"
+        >
+          Pendent d'acceptació
+        </div>
+      );
+    } else {
+      return (
+        <a
+          href="/hackeps/inscripcio"
+          style={{ width: `fit-content`, textDecoration: `none` }}
+          className="py-2 px-4 m-auto text-dark p-bg-primary"
+        >
+          Inscriure's
+        </a>
+      );
+    }
+  }
+
   return (
     <div className="container-fluid m-0 p-0">
-      <div className="row join-container p-bg-grey p-5 text-center m-auto mt-5">
+      <div className="row join-container p-bg-grey text-center m-auto mt-5 lolospace">
         <div className="col-12 p-bg-grey">
           <div className="row">
-            <img className="p-5" src={logo} alt="" />
+            <img className="imgbox" src={logo} alt="" />
           </div>
           <div className="row text-center">
-            <a
-              href="/hackeps/inscripcio" //TODO hardcoded??
-              style={{ width: `fit-content`, textDecoration: `none` }}
-              className="py-2 px-4 m-auto text-white p-bg-primary"
-            >
-              Uneix-te
-            </a>
+            <ManageButton />
           </div>
         </div>
       </div>

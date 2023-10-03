@@ -1,16 +1,23 @@
 /* ContactPage.css */
-.container-all {
+.container-all-inscripcio {
   background-color: var(--secondary);
   min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .title-contacte {
-  font-weight: bold;
-  padding-bottom: 2%;
   color: var(--white);
+  padding-top: 5%;
+  font-weight: bold;
   text-align: center;
-  font-size: 50px;
-  justify-content: center;
+  font-size: 40px;
+}
+
+.container-inscripcio {
+  width: 70%;
+  align-items: center;
 }
 
 .logo-container {
@@ -47,13 +54,13 @@
 }
 
 .form-container {
-  align-items: center;
   width: 100%;
   animation: fadeIn 0.5s ease-in-out;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
 }
 
 form {
@@ -157,8 +164,8 @@ input[type="text"] {
 }
 
 @media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
+  .container-inscripcio {
+    width: 85%;
     align-items: center;
   }
 
@@ -189,10 +196,6 @@ input[type="text"] {
     flex-direction: row;
     width: 100%;
     max-width: 100%;
-    margin: 10px;
-  }
-
-  .form-container {
     margin-top: 40px;
   }
 }
@@ -210,4 +213,16 @@ input[type="text"] {
 .checkbox-label {
   display: inline-block;
   margin-right: "10px";
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos */
+  padding-top: 2em;
+}
+
+.checkbox-container input {
+  margin-right: 10px; /* Ajusta el margen entre el checkbox y el texto */
+  width: 2em;
+  margin-bottom: 1em;
 }

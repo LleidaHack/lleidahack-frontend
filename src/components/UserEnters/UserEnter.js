@@ -8,7 +8,7 @@ const LinkAccounts = () => {
     <div className="The-Boxy">
       <section className="Superior-Part">
         <div className="ImgContainer">
-          <img className="p-5" src={hackLogo} alt="" />
+          <img className="p-5 image" src={hackLogo} alt="" />
         </div>
 
         <div className="Title">
@@ -132,7 +132,7 @@ const LinkAccounts = () => {
                 />
               </svg>
             </div>
-            <Link to="/hacker-form/lleidahack">
+            <Link to="/sign-up/lleidahack">
               <button className="buttoner">Organitzador</button>
             </Link>
           </div>

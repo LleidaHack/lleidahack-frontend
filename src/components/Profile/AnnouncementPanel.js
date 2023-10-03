@@ -34,7 +34,7 @@ const AnnouncementPanel = () => {
               type="text"
               className="form-control rounded-0"
               id="title"
-              placeholder="Titol de l'anunci"
+              placeholder="Títol de l'anunci"
             />
             {/* Message  */}
             <label for="description" className="form-label mt-3">

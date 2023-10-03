@@ -1,10 +1,12 @@
 import React from "react";
 
 const LinkAccounts = ({ hacker }) => {
-  console.log(hacker);
-
-  if (!hacker.linkedin && !hacker.github) return;
-  if (hacker.linkedin === "string" && hacker.github === "string") return;
+  let is_git_valid =
+    hacker.github && hacker.github.startsWith("https://github.com/");
+  let is_lin_valid =
+    hacker.linkedin &&
+    hacker.linkedin.startsWith("https://www.linkedin.com/in/");
+  if (!is_git_valid && !is_lin_valid) return;
 
   return (
     <div className="container m-auto p-0">
@@ -13,13 +15,21 @@ const LinkAccounts = ({ hacker }) => {
           Coneix aquest/a hacker:
         </div>
         <div className="col-4 col-sm-4 m-auto px-0">
-          {(hacker.github || hacker.github === "string") && (
-            <a href={hacker.github || "#"} className="text-light">
+          {is_git_valid && (
+            <a
+              href={hacker.github || "#"}
+              target="_blank"
+              className="text-light"
+            >
               <i className="bi bi-github fa-2x me-3" />
             </a>
           )}
-          {(hacker.linkedin || hacker.linkedin === "string") && (
-            <a href={hacker.linkedin || "#"} className="text-light">
+          {is_lin_valid && (
+            <a
+              href={hacker.linkedin || "#"}
+              target="_blank"
+              className="text-light"
+            >
               <i className="bi bi-linkedin fa-2x me-3" />
             </a>
           )}
