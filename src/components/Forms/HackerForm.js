@@ -10,7 +10,6 @@ import { signupHacker } from "src/services/HackerService";
 import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import { useNavigate } from "react-router-dom";
-import { min } from "moment";
 import FailFeedback from "../Feedbacks/FailFeedback";
 import SuccessFeedback from "../Feedbacks/SuccesFeedback";
 
@@ -42,10 +41,13 @@ const validationSchema = Yup.object({
       date.toISOString().split("T")[0],
       `Has de ser major de ${minAge} anys`,
     ),
+  phone: Yup.string().required("Telèfon requerit").matches(
+    /^ *\+? *(\d *){8,}$/,
+    "Ha de contindre com a mínim 8 dígits ",
+  ),
   email: Yup.string()
     .required("Correu requerit")
     .email("El correu ha de tenir un format vàlid"),
-  phone: Yup.string().required("Telèfon requerit").nonNullable(),
   shirtSize: Yup.string().required("Talla de camiseta requerida"),
   nickname: Yup.string().required("Nickname requerit"),
 });
@@ -74,8 +76,7 @@ export const HackerStepperForm = () => {
   const [statusSubmit, setStatusSubmit] = useState(false); //si es false, error, si es true tot esta correcte
   const [errCause, setCauseError] = useState(""); //si es false, error, si es true tot esta correcte
 
-  const navigate = useNavigate();
-  const onSubmit = async (values, { setSubmitting }) => {
+  const onSubmit = async (values, { setSubmitting, setFieldError }) => {
     const pfp = isUrl ? urlImage : avatar;
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
@@ -84,7 +85,7 @@ export const HackerStepperForm = () => {
       birthdate: values.birthDate,
       food_restrictions: "",
       email: values.email,
-      telephone: values.phone,
+      telephone: values.phone.replace(/\s+/g, ''),
       address: "",
       shirt_size: values.shirtSize,
       image: pfp,
@@ -102,24 +103,20 @@ export const HackerStepperForm = () => {
         causeError = "El correu que has introduit es troba registrat.";
       } else if (res.message == "Nickname already exists") {
         causeError = "El nickname que has introduit es troba registrat.";
+        setFieldError("email", causeError)
       } else if (res.message == "Telephone already exists") {
         causeError = "El telefon que has introduit es troba registrat.";
       }
       setCauseError(causeError);
-      setSubmiting(true);
-      //setErrorMsg(res.message);
+      setErrorMsg(causeError);
       return;
+    } else if (res.detail) {
+      setCauseError(res.detail[0].msg);
+      setErrorMsg(res.detail[0].msg);
     } else if (res.success) {
       setStatusSubmit(true);
       setSubmiting(true);
     }
-
-    /*if (!res.success) {
-      setErrorMsg("Error al enviar el formulari, revisa les dades");
-      return;
-    }*/
-
-    //navigate("/login");
   };
 
   const handleImageChange = (event) => {
@@ -222,6 +219,7 @@ export const HackerStepperForm = () => {
                     className="w-100"
                     name="email"
                     type="email"
+                    id="email"
                     label="E-mail"
                   />
 
