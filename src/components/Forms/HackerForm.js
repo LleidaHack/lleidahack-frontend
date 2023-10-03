@@ -41,8 +41,8 @@ const validationSchema = Yup.object({
       `Has de ser major de ${minAge} anys`,
     ),
   phone: Yup.string().required("Telèfon requerit").matches(
-    /^ *\+? *(\d *){8,11}$/,
-    "Ha de contindre com a mínim 8 dígits ",
+    /^ *(\+ *(\d *){1,2})?(\d *){9}$/,
+    "Nombre de telèfon no vàlid",
   ),
   email: Yup.string()
     .required("Correu requerit")
@@ -75,7 +75,7 @@ export const HackerStepperForm = () => {
   const [statusSubmit, setStatusSubmit] = useState(false); //si es false, error, si es true tot esta correcte
   const [errCause, setCauseError] = useState(""); //si es false, error, si es true tot esta correcte
 
-  const onSubmit = async (values, { setSubmitting, setFieldError }) => {
+  const onSubmit = async (values) => {
     const pfp = isUrl ? urlImage : avatar;
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
@@ -102,7 +102,6 @@ export const HackerStepperForm = () => {
         causeError = "El correu que has introduit es troba registrat.";
       } else if (res.message === "Nickname already exists") {
         causeError = "El nickname que has introduit es troba registrat.";
-        setFieldError("email", causeError)
       } else if (res.message === "Telephone already exists") {
         causeError = "El telefon que has introduit es troba registrat.";
       }
