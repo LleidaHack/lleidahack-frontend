@@ -40,10 +40,9 @@ const validationSchema = Yup.object({
       date.toISOString().split("T")[0],
       `Has de ser major de ${minAge} anys`,
     ),
-  phone: Yup.string().required("Telèfon requerit").matches(
-    /^ *(\+ *(\d *){1,2})?(\d *){9}$/,
-    "Nombre de telèfon no vàlid",
-  ),
+  phone: Yup.string()
+    .required("Telèfon requerit")
+    .matches(/^ *(\+ *(\d *){1,2})?(\d *){9}$/, "Nombre de telèfon no vàlid"),
   email: Yup.string()
     .required("Correu requerit")
     .email("El correu ha de tenir un format vàlid"),
@@ -84,7 +83,7 @@ export const HackerStepperForm = () => {
       birthdate: values.birthDate,
       food_restrictions: "",
       email: values.email,
-      telephone: values.phone.replace(/\s+/g, ''),
+      telephone: values.phone.replace(/\s+/g, ""),
       address: "",
       shirt_size: values.shirtSize,
       image: pfp,
