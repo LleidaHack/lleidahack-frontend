@@ -5,6 +5,7 @@
   margin-bottom: 1rem;
 }
 
+
 .team-button:hover {
   background-color: var(--primary-strong) !important;
 }
@@ -48,14 +49,26 @@
   justify-content: center;
 }
 
+.cards{
+  margin-bottom: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .black-color {
   color: black;
 }
 
 .containerinf {
-  min-width: 50%;
-  max-width: 69%;
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente línea */
+  align-items: center; /* Centra horizontalmente las tarjetas */
+  justify-content: center; /* Centra verticalmente las tarjetas */
+  gap: 20px; /* Espacio entre las tarjetas */
+  /* Otros estilos para el contenedor */
 }
+
 
 .Alineador {
   display: flex;
@@ -65,7 +78,7 @@
 
 .smallCard {
   height: 100%;
-  width: 100%;
+  width: 200px;
   justify-content: center;
 }
 
@@ -79,7 +92,7 @@
 
   .team-button {
     margin-bottom: 0rem;
-    margin-right: 1rem;
+    margin-right: 0rem;
   }
 }
 
@@ -97,4 +110,12 @@
   .kick-button {
     scale: 0.8;
   }
+}
+
+
+.contss{
+  display: flex;
+  justify-content: space-around;
+  /* justify-content: center; */
+  align-items: center;
 }
