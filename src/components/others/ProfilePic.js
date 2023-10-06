@@ -23,19 +23,21 @@ const Profile_pfp = ({hacker}) => {
 
 const Header_pfp = ({icon, validToken}) => {
     return (
-        <>
-            {validToken ? icon !== "string" ? 
-                  <img
-                    className="Profile profileImage2 d-flex"
-                    src={icon}
-                    alt=""
-                  />
-                 : 
-                  <i className="fa-solid fa-user m-auto profileImage2 d-flex" />
+      <>
+        {validToken ? 
+          icon !== "string" 
+            ? 
+              <img
+                className="Profile profileImage2 d-flex"
+                src={icon}
+                alt=""
+              />
             : 
-              <i className="fa-solid fa-user" />
-            }
-        </>   
+              <i className="fa-solid fa-user m-auto profileImage2 d-flex" />
+          : 
+            <i className="fa-solid fa-user" />
+        }
+      </>   
     ); 
 };
 

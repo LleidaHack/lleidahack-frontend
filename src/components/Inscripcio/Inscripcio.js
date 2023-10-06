@@ -77,6 +77,7 @@ const InscripcioForm = () => {
     const fetchData = async () => {
       const hackepsEvent = await getHackeps();
       const me = await getHackerById(localStorage.getItem("userID"))
+      setCvFile(me.cv)
       getEventIsHackerRegistered(hackepsEvent.id, me.id).then((response) => {
         if (response) {
           setRegistered(true);
@@ -186,7 +187,7 @@ const InscripcioForm = () => {
                   meet: previousRegistration.how_did_you_meet_us,
                   linkedin: previousRegistration.linkedin,
                   github: previousRegistration.github,
-                  devpost: "",
+                  devpost: previousRegistration.cv,
                   checkboxterms: previousRegistration.terms_accepted,
                 }}
                 validationSchema={validationSchema}
