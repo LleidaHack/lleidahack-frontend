@@ -49,6 +49,10 @@
   justify-content: center;
 }
 
+.cards{
+  margin-bottom: 20px;
+}
+
 .black-color {
   color: black;
 }
@@ -85,7 +89,7 @@
 
   .team-button {
     margin-bottom: 0rem;
-    margin-right: 1rem;
+    margin-right: 0rem;
   }
 }
 
