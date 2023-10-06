@@ -11,6 +11,10 @@ import FailFeedback from "src/components/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/Feedbacks/SuccesFeedback";
 
 import FileBase from "react-file-base64";
+import { getHackerById } from "src/services/HackerService";
+
+import { getEventIsHackerRegistered } from "src/services/EventService";
+import { updateHacker } from "src/services/HackerService";
 
 const validationSchema = Yup.object().shape({
   studies: Yup.string().required("Aquest camp és obligatori"),
@@ -42,27 +46,51 @@ const InscripcioForm = () => {
     { value: "Altre mitjà", label: "Altre mitjà" },
   ];
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const hackepsEvent = await getHackeps();
-        setHackepsEvent(hackepsEvent);
-      } catch (error) {
-        console.log("El error obtenido es:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+  
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState(""); // Nuevo estado para el mensaje de éxito
   const [showSuccessToast, setShowSuccessToast] = useState(false); // Nuevo estado para mostrar el toast de éxito
+  
+  const [cvFile, setCvFile] = useState("");
+  const [hackepsEvent, setHackepsEvent] = useState(null);
+  const [previousRegistration, setPreviousRegistration] = useState({
+    studies: "",
+    center: "",
+    location: "",
+    size: "",
+    food: "",
+    cvinfo: "",
+    meet: "",
+    linkedin: "",
+    github: "",
+    devpost: "",
+    checkboxterms: "",
+  })
+  const [registered, setRegistered] = useState(false)
 
   //FeedbackStates
   const [submittRegister, setsubmittRegister] = useState(false); // Si se da al boton de Succes, se vuelve true, es decir, que le toca al feedback
   const [stateRegister, setStateRegister] = useState(false); //Muestra si el registro es correcto (true) o hay error (false)
   const [errRegister, setErrRegister] = useState(""); //Estado que almacena el tipo de error
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const hackepsEvent = await getHackeps();
+      const me = await getHackerById(localStorage.getItem("userID"))
+      getEventIsHackerRegistered(hackepsEvent.id, me.id).then((response) => {
+        if (response) {
+          setRegistered(true);
+        } else {
+          setRegistered(false);
+        }
+      });
+      setHackepsEvent(hackepsEvent);
+      setPreviousRegistration(me);
+      console.log(me)
+    };
+
+    fetchData();
+  }, []);
 
   const handleSubmit = async (values) => {
     const data = {
@@ -77,46 +105,51 @@ const InscripcioForm = () => {
       location: values.location,
       how_did_you_meet_us: values.meet,
       update_user: true,
-      checkboxterms: values.checkboxterms,
+      terms_accepted: values.checkboxterms,
     };
-    let hack_event = await getHackeps();
-    let registration = await registerHackerToEvent(
-      localStorage.getItem("userID"),
-      hack_event.id,
-      data,
-    );
-    if (registration.message) {
-      // Maneja los errores aquí y muestra el mensaje de error
-      //setErrorMessage( "Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.",      );
 
-      setErrRegister("");
-      if (registration.message === "Hacker already registered") {
+    if (registered){
+      data.id=previousRegistration.id
+      const update = updateHacker(
+        data
+      )
+
+    } else {
+      let registration = await registerHackerToEvent(
+        localStorage.getItem("userID"),
+        hackepsEvent.id,
+        data,
+      );
+      if (registration.message) {
+        // Maneja los errores aquí y muestra el mensaje de error
+        //setErrorMessage( "Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.",      );
+
+        setErrRegister("");
+        if (registration.message === "Hacker already registered") {
+          setErrRegister("Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.");
+        }
+
+        setStateRegister(false);
+        setsubmittRegister(true);
+        //setSuccessMessage("El registre s'ha enviat correctament!");
+        //setShowSuccessToast(true);
+        //navigate("/perfil");
+      } else if (registration.detail) {
         setErrRegister(
-          "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.",
+          registration.detail,
         );
+        setStateRegister(false);
+        setsubmittRegister(true);
+      } else if (registration.success) {
+        setStateRegister(true);
+        setsubmittRegister(true);
       }
-
-      setStateRegister(false);
-      setsubmittRegister(true);
-      //setSuccessMessage("El registre s'ha enviat correctament!");
-      //setShowSuccessToast(true);
-      //navigate("/perfil");
-    } else if (registration.detail) {
-      setErrRegister(registration.detail);
-      setStateRegister(false);
-      setsubmittRegister(true);
-    } else if (registration.success) {
-      setStateRegister(true);
-      setsubmittRegister(true);
     }
   };
 
   const handleButtonClick = () => {
     window.location.reload();
   };
-
-  const [cvFile, setCvFile] = useState("");
-  const [hackepsEvent, setHackepsEvent] = useState(null);
 
   const handleFileChange = (event) => {
     let file = event.base64;
@@ -142,19 +175,19 @@ const InscripcioForm = () => {
               Inscripció HackEPS 2023
             </h1>
             <div className="form-container">
-              <Formik
+              <Formik enableReinitialize
                 initialValues={{
-                  studies: "",
-                  center: "",
-                  location: "",
-                  size: "",
-                  food: "",
-                  cvinfo: "",
-                  meet: "",
-                  linkedin: "",
-                  github: "",
+                  studies: previousRegistration.studies,
+                  center: previousRegistration.study_center,
+                  location: previousRegistration.location,
+                  size: previousRegistration.shirt_size,
+                  food: previousRegistration.food_restrictions,
+                  cvinfo: previousRegistration.cv,
+                  meet: previousRegistration.how_did_you_meet_us,
+                  linkedin: previousRegistration.linkedin,
+                  github: previousRegistration.github,
                   devpost: "",
-                  checkboxterms: false,
+                  checkboxterms: previousRegistration.terms_accepted,
                 }}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
@@ -342,7 +375,7 @@ const InscripcioForm = () => {
                   </div>
                   <div className="button-submit-container">
                     <button className="button-submit" type="submit">
-                      Enviar
+                      {registered ? 'Actualitza' : 'Envia'}
                     </button>
                   </div>
                 </Form>
