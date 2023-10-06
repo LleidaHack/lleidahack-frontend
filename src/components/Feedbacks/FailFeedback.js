@@ -14,6 +14,7 @@ const FailFeedback = ({
   buttonText,
   italic,
   onButtonClick,
+  
 }) => {
   const formattedText = text.split("\n").map((item, index) => (
     <React.Fragment key={index}>
@@ -28,6 +29,7 @@ const FailFeedback = ({
       <br />
     </React.Fragment>
   ));
+  
 
   return (
     <div className="valerr">
