@@ -160,10 +160,9 @@ const ContactePage = () => {
         </>
       ) : (
         <>
-          {window.scrollTo(0, 0)} 
+          {window.scrollTo(0, 0)}
           {!mailStatus ? (
             <>
-            
               <FailFeedback
                 title={`Error enviant el teu missatge.`}
                 text={`Sembla que algo ha fallat mentre registravem el teu missatge.`}
@@ -173,7 +172,6 @@ const ContactePage = () => {
                 italic={`Torna a intentar-ho novament. En cas que segueixi fallant, contacta amb nosaltres utilitzant \n les nostres xarxes socials que trobarás a la part inferior de la pantalla.`}
                 onButtonClick={handleButtonClick}
               />
-              
             </>
           ) : (
             <>
@@ -185,7 +183,6 @@ const ContactePage = () => {
                 buttonLink="/#home"
                 buttonText="Tornar al inici"
               />
-              
             </>
           )}
         </>
