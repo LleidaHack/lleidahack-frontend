@@ -145,7 +145,6 @@ export const HackerStepperForm = () => {
               birthDate: "",
               phone: "",
               email: "",
-              shirtSize: "",
               nickname: "",
             }}
             validationSchema={validationSchema}
@@ -219,22 +218,6 @@ export const HackerStepperForm = () => {
                     id="email"
                     label="E-mail"
                   />
-
-                  <div>
-                    <SelectField
-                      name="shirtSize"
-                      label="Talla de samarreta"
-                      options={[
-                        { value: "XS", label: "XS" },
-                        { value: "S", label: "S" },
-                        { value: "M", label: "M" },
-                        { value: "L", label: "L" },
-                        { value: "XL", label: "XL" },
-                        { value: "XXL", label: "XXL" },
-                        { value: "XXXL", label: "XXXL" },
-                      ]}
-                    />
-                  </div>
                 </div>
               </Row>
             </FormikStepper.Step>
