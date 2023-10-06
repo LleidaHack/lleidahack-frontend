@@ -17,7 +17,6 @@ const Header = () => {
   };
 
   const [icon, setUserIcon] = useState("string");
-  const [username, writeUserName] = useState(null);
   const [validToken, setValidToken] = useState(false);
 
   useEffect(() => {
@@ -30,8 +29,6 @@ const Header = () => {
             if (!localStorage.getItem("imageProfile")) {
               const info = await me();
               if (info.nickname) {
-                //Si te nickname vol dir que la obtencio de dades es posible i que tambe hi haurá imatge
-                //writeUserName(info.nickname);
                 if (
                   info.image !== null &&
                   info.image !== undefined &&

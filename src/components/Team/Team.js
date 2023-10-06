@@ -15,6 +15,7 @@ import {
   removeHackerFromGroup,
 } from "src/services/HackerGroupService";
 import { getHackeps } from "src/services/EventService";
+import ProfilePic from "../others/ProfilePic";
 
 const Team = (props) => {
   const [team, setTeam] = useState(props.team);
@@ -210,22 +211,7 @@ const Team = (props) => {
               {team.members.map((member, index) => (
                 <Col className="col-xxl-3 col-6 cards" key={index}>
                   <div className="p-3 text-center bg-white smallCard">
-                    {!(member.image === "string" || member.image === "") ? (
-                      <img
-                        className="team-member-image bg-black"
-                        src={
-                          member.is_image_url
-                            ? member.image
-                            : "https://xsgames.co/randomusers/avatar.php?g=pixel"
-                        }
-                        alt=""
-                      />
-                    ) : (
-                      <i
-                        className="fa-solid fa-user fa-8x mx-auto"
-                        style={{ color: "#444" }}
-                      />
-                    )}
+                    <ProfilePic hacker={member}/>
                     <p className="team-member-name">{member.name}</p>
                     {String(member.id) === localStorage.getItem("userID") ? (
                       ""
