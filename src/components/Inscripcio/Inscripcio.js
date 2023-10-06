@@ -129,15 +129,14 @@ const InscripcioForm = () => {
         }
 
         setStateRegister(false);
-        setsubmittRegister(true);
       } else if (registration.detail) {
         setErrRegister(registration.detail);
         setStateRegister(false);
-        setsubmittRegister(true);
       } else if (true){
         setStateRegister(true);
-        setsubmittRegister(true);
       }
+      
+      setsubmittRegister(true);
     }
   };
 
