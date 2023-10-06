@@ -132,7 +132,7 @@ const InscripcioForm = () => {
       } else if (registration.detail) {
         setErrRegister(registration.detail);
         setStateRegister(false);
-      } else if (true){
+      } else {
         setStateRegister(true);
       }
       
