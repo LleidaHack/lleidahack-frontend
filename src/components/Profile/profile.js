@@ -209,7 +209,7 @@ const Profile_component = () => {
 
           {isUser && <Join event={event} />}
 
-          {event && event.accepted && <Team team={team} is_user={isUser} />}
+          {event && event.registered && <Team team={team} is_user={isUser} />}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
