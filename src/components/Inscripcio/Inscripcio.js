@@ -135,7 +135,7 @@ const InscripcioForm = () => {
       } else {
         setStateRegister(true);
       }
-      
+
       setsubmittRegister(true);
     }
   };
