@@ -15,7 +15,7 @@ import {
   removeHackerFromGroup,
 } from "src/services/HackerGroupService";
 import { getHackeps } from "src/services/EventService";
-import ProfilePic from "../others/ProfilePic";
+import ProfilePic from "src/components/others/ProfilePic";
 
 const Team = (props) => {
   const [team, setTeam] = useState(props.team);
