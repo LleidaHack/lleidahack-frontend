@@ -107,6 +107,7 @@ const InscripcioForm = () => {
       update_user: true,
       terms_accepted: values.checkboxterms,
     };
+
     if (registered){
       data.id=previousRegistration.id
       const update = updateHacker(

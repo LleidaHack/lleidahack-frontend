@@ -52,7 +52,7 @@ const LoginUnverified = ({ email }) => {
       }}
     >
       <h3 className="text" style={{ margin: "10px" }}>
-        Verifica la teva compta obrint el link que t'hem enviat al correu.
+        Verifica el teu compte obrint el link que t'hem enviat al correu.
       </h3>
       <Button
         onClick={handleClick}

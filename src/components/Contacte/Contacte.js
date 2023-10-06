@@ -54,7 +54,7 @@ const ContactePage = () => {
     <div className="container-all">
       {!mailSended ? (
         <>
-          <h1 className="title-contacte">Contacte</h1>
+          <h1 className="title-contacte title-underline">Contacte</h1>
           <div className="contact-container">
             <div className="logo-container">
               <h2 className="title-logo">
