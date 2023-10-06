@@ -16,6 +16,7 @@
   padding-top: 5%;
   font-weight: bold;
   text-align: center;
+  font-size: 40px;
 }
 
 .informative {
@@ -42,6 +43,11 @@
   border-radius: 10px;
   overflow: hidden;
   width: 40%;
+}
+
+.final-text {
+  font-size: 30px;
+  margin-top: 2%;
 }
 
 .upload {
@@ -174,7 +180,7 @@
 }
 
 .peperonis {
-  scale: 0.8;
+  scale: 1;
   margin-right: 15px;
 }
 
@@ -196,7 +202,8 @@ col {
 
 .panel {
   flex-grow: 1;
-  scale: 0.5;
+  scale: 0.6;
+  width: 50%;
 }
 
 .piterrs {
@@ -289,9 +296,20 @@ col {
   text-align: center;
 }
 
+.custom-form-Dailyhack {
+  width: 100%;
+  padding-right:10%;
+}
+
 @media screen and (max-width: 768px) {
   .descriptionss {
     font-size: 0.7rem;
+  }
+
+  .final-text {
+    font-size: 20px;
+    margin-top: 10%;
+    text-align: center;
   }
 
   .eulen {

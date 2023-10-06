@@ -73,17 +73,13 @@ export default function App() {
           <Route
             path="/inscripcio"
             element={
-              <RequireAuth originalRoute="/inscripcio">
                 <Inscripcio />
-              </RequireAuth>
             }
           />
           <Route
             path="/dailyhacks"
             element={
-              <RequireAuth originalRoute="/dailyhacks">
                 <Dailyhack />
-              </RequireAuth>
             }
           />
           <Route
