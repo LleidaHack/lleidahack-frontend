@@ -100,7 +100,7 @@ const Team = (props) => {
     return (
       <>
         {is_user && (
-          <Container className="p-bg-grey text-center mt-5 m-0 p-3">
+          <Container className="p-bg-grey text-center mt-5 m-0 p-3 contss">
             <h1>Inscripcions</h1>
             <Row className="justify-content-center">
               <Button

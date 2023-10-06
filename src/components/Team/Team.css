@@ -51,6 +51,9 @@
 
 .cards{
   margin-bottom: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .black-color {
@@ -107,4 +110,12 @@
   .kick-button {
     scale: 0.8;
   }
+}
+
+
+.contss{
+  display: flex;
+  justify-content: space-around;
+  /* justify-content: center; */
+  align-items: center;
 }
