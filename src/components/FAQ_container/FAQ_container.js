@@ -10,7 +10,7 @@ const FAQContainer = ({ faqs }) => {
 
   return (
     <div className="faq-container">
-      <h1 className="faq-title">FAQs</h1>
+      <h1 className="faq-title title-underline">FAQs</h1>
       <div className="row">
         {faqs.map((faq, index) => (
           <div key={index} className="col-lg-4 col-md-6 col-sm-12">

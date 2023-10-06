@@ -22,6 +22,7 @@ import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
+import ProfilePic from "../others/ProfilePic";
 
 const Profile_component = () => {
   let { hacker_id } = useParams();
@@ -120,21 +121,7 @@ const Profile_component = () => {
           <div className="row align-middle mx-auto mb-3">
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
-              {hacker ? (
-                !(hacker.image === "string" || hacker.image === "") ? (
-                  <img
-                    style={{ aspectRatio: "1/1", width: "45%" }}
-                    id="profile-image"
-                    className="bg-white border mx-auto rounded-circle m-auto"
-                    src={hacker.image}
-                    alt=""
-                  />
-                ) : (
-                  <i className="fa-solid fa-user fa-8x mx-auto" />
-                )
-              ) : (
-                <HSkeleton height={"150px"} width={"150px"} circle={true} />
-              )}
+              <ProfilePic hacker={hacker} is_profile={true} />
               <br />
               <br />
               {isUser && (
@@ -209,7 +196,7 @@ const Profile_component = () => {
 
           {isUser && <Join event={event} />}
 
-          {event && event.accepted && <Team team={team} is_user={isUser} />}
+          {event && event.registered && <Team team={team} is_user={isUser} />}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
