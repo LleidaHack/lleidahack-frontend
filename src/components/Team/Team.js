@@ -205,11 +205,10 @@ const Team = (props) => {
           <h1>
             {team.name} {team.code && `Codi: #${team.code}`}
           </h1>
-          {team && team.code && <p>El teu equip:</p>}
-          <Container className="p-2">
-            <Row className="g-3 justify-content-center">
+          <Container className="">
+            <Row className="justify-content-center">
               {team.members.map((member, index) => (
-                <Col className="col-xxl-3 col-6 cards" key={index}>
+                <Col className="col-xxl-3 cards" key={index}>
                   <div className="p-3 text-center bg-white smallCard">
                     <ProfilePic hacker={member}/>
                     <p className="team-member-name">{member.name}</p>
