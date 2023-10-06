@@ -35,7 +35,7 @@ const Header = () => {
                   info.image !== ""
                 ) {
                   setUserIcon(info.image);
-                  localStorage.setItem("imageProfile", info.image)
+                  localStorage.setItem("imageProfile", info.image);
                 }
               }
             } else {
@@ -105,7 +105,11 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <Link to="/perfil" className="nav-link" onClick={closeMenu}>
-                  <ProfilePic is_header={true} icon={icon} validToken={validToken}/>
+                  <ProfilePic
+                    is_header={true}
+                    icon={icon}
+                    validToken={validToken}
+                  />
                 </Link>
               </li>
             </ul>
