@@ -121,7 +121,7 @@ const Profile_component = () => {
           <div className="row align-middle mx-auto mb-3">
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
-              <ProfilePic hacker={hacker} is_profile={true}/>
+              <ProfilePic hacker={hacker} is_profile={true} />
               <br />
               <br />
               {isUser && (
