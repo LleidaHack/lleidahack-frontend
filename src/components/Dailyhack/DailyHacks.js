@@ -230,7 +230,7 @@ const Dailyhacks = () => {
                   {" "}
                   Trobaréu més informació al ReadMe del repositori:<br></br>
                   <a
-                    href="https://www.kaggle.com/datasets/gti-upm/leapgestrecog"
+                    href="https://github.com/FerranAD/dailyhack2023"
                     target="_blank"
                   >
                     Repositori Dailyhack
