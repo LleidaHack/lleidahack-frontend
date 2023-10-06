@@ -106,7 +106,7 @@ const InscripcioForm = () => {
       );
       setStateRegister(false);
       setsubmittRegister(true);
-    } else if (registration.success) {
+    } else {
       setStateRegister(true);
       setsubmittRegister(true);
     }
