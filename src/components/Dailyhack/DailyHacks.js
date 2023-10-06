@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { FormikStepper } from "formik-stepper";
 import { Field, ErrorMessage } from "formik";
-import pergamino from "src/imgs/dataset-cover.png";
+import pergamino from "src/imgs/categories.png";
 
 import { getHackeps } from "src/services/EventService.js";
 import { me } from "src/services/AuthenticationService";
@@ -31,7 +31,7 @@ const HackerPanel = () => {
           className="peperonis"
           xmlns="http://www.w3.org/2000/svg"
           width={800}
-          height={300}
+          height={500}
           stroke="#000"
           viewBox="0 -7 64 64"
         >
@@ -96,15 +96,6 @@ export const HackerStepperForm = (props) => {
           Comment: "",
         }}
         validationSchema={validationSchema}
-        withStepperLine /// false as default and If it is false, it hides stepper line
-        nextButton={{
-          label: "Següent",
-          style: { background: "var(--primary)" },
-        }}
-        prevButton={{
-          label: "Enrere",
-          style: { background: "var(--primary)" },
-        }}
         submitButton={{
           label: "Envia",
           style: {
@@ -152,20 +143,6 @@ export const HackerStepperForm = (props) => {
               <p>
                 Recorda que has d'afegir informació al ReadMe del repositori
               </p>
-
-              <br />
-              <br />
-              {/*
-                <label htmlFor="textareaField" className="blackt">Explicació + Exemples</label>
-                <Field
-                    as="textarea" // Usa "textarea" para el campo de texto
-                    id="textareaField"
-                    name="Comment"
-                    rows={4} // Personaliza el número de filas según tus necesidades
-                    placeholder="Haurás de deixar-nos una explicació de que has fet en aquest repositori i indicar-nos alguns exemples."
-                    className="BoxForm"
-                />
-            */}
             </div>
           </div>
         </FormikStepper.Step>
@@ -230,7 +207,7 @@ const Dailyhacks = () => {
                   {" "}
                   Trobaréu més informació al ReadMe del repositori:<br></br>
                   <a
-                    href="https://www.kaggle.com/datasets/gti-upm/leapgestrecog"
+                    href="https://github.com/FerranAD/dailyhack2023/tree/main"
                     target="_blank"
                   >
                     Repositori Dailyhack
@@ -244,10 +221,10 @@ const Dailyhacks = () => {
               </div>
             </div>
 
-            <br />
-            <br />
-
-            <p> Molta sort a tots, i que guanyi el millor!</p>
+            <p class="final-text">
+              {" "}
+              Molta sort a tots, i que guanyi el millor!
+            </p>
           </section>
           <br />
           <br />
@@ -255,7 +232,6 @@ const Dailyhacks = () => {
             <br />
             <h2 className="title1">Vols presentar el teu repositori?</h2>
 
-            <br />
             <HackerStepperForm onBotonClic={cambiarEstadoPadre} />
           </section>
           <br />
