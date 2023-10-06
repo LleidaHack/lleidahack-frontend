@@ -46,11 +46,10 @@ const InscripcioForm = () => {
     { value: "Altre mitjà", label: "Altre mitjà" },
   ];
 
-  
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState(""); // Nuevo estado para el mensaje de éxito
   const [showSuccessToast, setShowSuccessToast] = useState(false); // Nuevo estado para mostrar el toast de éxito
-  
+
   const [cvFile, setCvFile] = useState("");
   const [hackepsEvent, setHackepsEvent] = useState(null);
   const [previousRegistration, setPreviousRegistration] = useState({
@@ -65,18 +64,19 @@ const InscripcioForm = () => {
     github: "",
     devpost: "",
     checkboxterms: "",
-  })
-  const [registered, setRegistered] = useState(false)
+  });
+  const [registered, setRegistered] = useState(false);
 
   //FeedbackStates
   const [submittRegister, setsubmittRegister] = useState(false); // Si se da al boton de Succes, se vuelve true, es decir, que le toca al feedback
   const [stateRegister, setStateRegister] = useState(false); //Muestra si el registro es correcto (true) o hay error (false)
   const [errRegister, setErrRegister] = useState(""); //Estado que almacena el tipo de error
-  
+
   useEffect(() => {
     const fetchData = async () => {
       const hackepsEvent = await getHackeps();
-      const me = await getHackerById(localStorage.getItem("userID"))
+      const me = await getHackerById(localStorage.getItem("userID"));
+      setCvFile(me.cv);
       getEventIsHackerRegistered(hackepsEvent.id, me.id).then((response) => {
         if (response) {
           setRegistered(true);
@@ -86,7 +86,7 @@ const InscripcioForm = () => {
       });
       setHackepsEvent(hackepsEvent);
       setPreviousRegistration(me);
-      console.log(me)
+      console.log(me);
     };
 
     fetchData();
@@ -108,12 +108,9 @@ const InscripcioForm = () => {
       terms_accepted: values.checkboxterms,
     };
 
-    if (registered){
-      data.id=previousRegistration.id
-      const update = updateHacker(
-        data
-      )
-
+    if (registered) {
+      data.id = previousRegistration.id;
+      const update = updateHacker(data);
     } else {
       let registration = await registerHackerToEvent(
         localStorage.getItem("userID"),
@@ -126,7 +123,9 @@ const InscripcioForm = () => {
 
         setErrRegister("");
         if (registration.message === "Hacker already registered") {
-          setErrRegister("Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.");
+          setErrRegister(
+            "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.",
+          );
         }
 
         setStateRegister(false);
@@ -135,9 +134,7 @@ const InscripcioForm = () => {
         //setShowSuccessToast(true);
         //navigate("/perfil");
       } else if (registration.detail) {
-        setErrRegister(
-          registration.detail,
-        );
+        setErrRegister(registration.detail);
         setStateRegister(false);
         setsubmittRegister(true);
       } else if (registration.success) {
@@ -175,7 +172,8 @@ const InscripcioForm = () => {
               Inscripció HackEPS 2023
             </h1>
             <div className="form-container">
-              <Formik enableReinitialize
+              <Formik
+                enableReinitialize
                 initialValues={{
                   studies: previousRegistration.studies,
                   center: previousRegistration.study_center,
@@ -186,7 +184,7 @@ const InscripcioForm = () => {
                   meet: previousRegistration.how_did_you_meet_us,
                   linkedin: previousRegistration.linkedin,
                   github: previousRegistration.github,
-                  devpost: "",
+                  devpost: previousRegistration.cv,
                   checkboxterms: previousRegistration.terms_accepted,
                 }}
                 validationSchema={validationSchema}
@@ -375,7 +373,7 @@ const InscripcioForm = () => {
                   </div>
                   <div className="button-submit-container">
                     <button className="button-submit" type="submit">
-                      {registered ? 'Actualitza' : 'Envia'}
+                      {registered ? "Actualitza" : "Envia"}
                     </button>
                   </div>
                 </Form>
