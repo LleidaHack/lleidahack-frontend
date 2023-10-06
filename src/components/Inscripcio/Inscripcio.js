@@ -120,7 +120,6 @@ const InscripcioForm = () => {
 
   const handleFileChange = (event) => {
     let file = event.base64;
-    console.log(file)
     setCvFile(file);
   };
 
