@@ -221,7 +221,10 @@ const Dailyhacks = () => {
               </div>
             </div>
 
-            <p class ="final-text"> Molta sort a tots, i que guanyi el millor!</p>
+            <p class="final-text">
+              {" "}
+              Molta sort a tots, i que guanyi el millor!
+            </p>
           </section>
           <br />
           <br />

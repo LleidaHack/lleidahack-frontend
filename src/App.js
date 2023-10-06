@@ -70,18 +70,8 @@ export default function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
-          <Route
-            path="/inscripcio"
-            element={
-                <Inscripcio />
-            }
-          />
-          <Route
-            path="/dailyhacks"
-            element={
-                <Dailyhack />
-            }
-          />
+          <Route path="/inscripcio" element={<Inscripcio />} />
+          <Route path="/dailyhacks" element={<Dailyhack />} />
           <Route
             path="/dashboard"
             element={
