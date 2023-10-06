@@ -11,7 +11,7 @@
   text-align: center;
 }
 .sponsors p {
-  font-size: 10px;
+  font-size: 0.3em;
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -210,7 +210,7 @@ img {
     height: auto;
     width: 100%;
     overflow: hidden;
-    scale: 1.6;
+    scale: 1.55;
     flex-wrap: wrap;
   }
 

@@ -3,459 +3,244 @@ import { Container } from "react-bootstrap";
 
 const Terms_component = () => {
   return (
-    <Container className="my-5">
-      <h3 class="c9" id="h.e9xfrzzeohhi">
-        <span class="c6">Objetivo</span>
-      </h3>
-      <p class="c4">
-        <span>
-          Por el presente documento se dan a conocer los t&eacute;rminos y
-          condiciones de la HackEPS y que, desde ahora, ser&aacute; referido
-          como la{" "}
-        </span>
-        <span class="c8">HACKAT&Oacute;N</span>
-        <span class="c0">.</span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+    <div className="dark-background">
+      <Container className="py-5 text-white">
+        <h3>TERMES I CONDICIONS</h3>
+        <h4>Objectiu</h4>
+        <p>
+          Pel present document es donen a conèixer els termes i condicions de la
+          HackEPS i que, des d'ara, serà referit com la HACKATÓ.
+        </p>
 
-      <p class="c4">
-        <span class="c0">
-          Esta HACKAT&Oacute;N consiste en un concurso de desarrollo de software
-          y/o hardware en el que los participantes se enfrentar&aacute;n a retos
-          multidisciplinares (inteligencia artificial, desarrollo web,
-          ciberseguridad, electr&oacute;nica, etc.)
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          Aquesta HACKATÓ consisteix en un concurs de desenvolupament de
+          programari o maquinari en el qual els participants s'enfrontaran a
+          reptes multidisciplinaris (intel·ligència artificial, desenvolupament
+          web, ciberseguretat, electrònica, etc.)
+        </p>
 
-      <h3 class="c9" id="h.ghx9sxxrf5f3">
-        <span class="c6">La organizaci&oacute;n</span>
-      </h3>
-      <p class="c4">
-        <span class="c0">
-          La HACKAT&Oacute;N est&aacute; organizada por la asociaci&oacute;n de
-          estudiantes vinculada a la Universidad de Lleida: Asociaci&oacute;n
-          Juvenil LleidaHack (en adelante, LA ORGANIZACI&Oacute;N), con
-          domicilio en Calle Jaume II, n&uacute;mero 69, 25001 Lleida, Lleida,
-          Espa&ntilde;a.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <h4>L'organització</h4>
+        <p>
+          La HACKATÓ és organitzada per l'associació d'estudiants vinculada a la
+          Universitat de Lleida: Associació Juvenil LleidaHack (d'ara endavant,
+          L'ORGANITZACIÓ), amb domicili en Carrer Jaume II, número 69, 25001
+          Lleida, Lleida, Espanya.
+        </p>
 
-      <p class="c4">
-        <span>
-          Para contactar con LA ORGANIZACI&Oacute;N, puede ponerse en contacto a
-          trav&eacute;s del correo electr&oacute;nico{" "}
-        </span>
-        <span class="c5">
-          <a class="c12" href="mailto:lleidahack@gmail.com">
-            lleidahack@gmail.com
-          </a>
-        </span>
-        <span class="c0">.</span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          Per a contactar amb L'ORGANITZACIÓ, pot posar-se en contacte a través
+          del correu electrònic lleidahack@gmail.com.
+        </p>
 
-      <h3 class="c9" id="h.c70gt8k725cc">
-        <span class="c6">&Aacute;mbito</span>
-      </h3>
-      <p class="c4">
-        <span class="c0">
-          La HACKAT&Oacute;N se realizar&aacute; en Lleida, en la Escuela
-          Polit&eacute;cnica Superior de la Universidad de Lleida, en la calle
-          Jaume II n&uacute;mero 69, los d&iacute;as 26 y 27 de noviembre de
-          2022.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <h4>Àmbit</h4>
+        <p>
+          La HACKATÓ es realitzarà a Lleida, a l'Escola Politècnica Superior de
+          la Universitat de Lleida, al carrer Jaume II número 69, els dies 26 i
+          27 de novembre de 2022.
+        </p>
 
-      <p class="c4">
-        <span>
-          El inicio de la HACKAT&Oacute;N se realizar&aacute; el s&aacute;bado
-          26 de noviembre a las{" "}
-        </span>
-        <span class="c3">9 horas </span>
-        <span>y terminar&aacute; el domingo 27 de noviembre a las </span>
-        <span class="c7 c3">16 horas.</span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          L'inici de la HACKATÓ es durà a terme el dissabte 25 de novembre a les
+          9 hores i acabarà el diumenge 26 de novembre a les 16 hores.
+        </p>
 
-      <p class="c4">
-        <span>
-          La informaci&oacute;n actualizada sobre la agenda y los patrocinadores
-          del evento se har&aacute;p&uacute;blica a su debido tiempo en la WEB
-          DEL EVENTO:{" "}
-        </span>
-        <span class="c5">
-          <a class="c12" href="https://lleidahack.dev/hackeps/">
-            https://lleidahack.dev/hackeps/
-          </a>
-        </span>{" "}
-        <span class="c0">&nbsp;</span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          La informació actualitzada sobre l'agenda i els patrocinadors de
+          l'esdeveniment és farà pública al seu degut temps en la WEB DE
+          L'ESDEVENIMENT: https://lleidahack.dev/hackeps/
+        </p>
 
-      <h3 class="c9" id="h.gmpq81ed0xb8">
-        <span class="c6">Requisitos para participar</span>
-      </h3>
+        <h4>Requisits per a participar</h4>
+        <p>
+          És apta per a participar qualsevol persona major d'edat amb DNI/NIF o
+          passaport en vigor que, conforme la legislació espanyola, acrediti la
+          identitat i edat del participant. Així mateix, és apta per a
+          participar qualsevol persona d'entre 16 i 18 anys que presenti aquesta
+          documentació juntament amb un aval signat pel seu/s tutor/és
+          lleial/és.
+        </p>
 
-      <p class="c4">
-        <span class="c0">
-          Es apta para participar cualquier persona mayor de edad con DNI/NIF o
-          pasaporte en vigor que, conforme la legislaci&oacute;n
-          espa&ntilde;ola, acredite la identidad y edad del participante.
-          As&iacute; mismo, es apta para aprticipar cualquier persona de entre
-          16 y 18 años que presente dicha documentaci&oacute;n juntamente con un
-          aval firmado por su/s tutor/es leal/es.
-        </span>
-      </p>
+        <p>
+          L'ORGANITZACIÓ exclourà a qualsevol participant no s'ajustin a la seva
+          identitat real o que incompleixin qualsevol altra condició exigida.
+        </p>
 
-      <p class="c4">
-        <span class="c0">
-          La ORGANIZACI&Oacute;N excluir&aacute; a cualquier participante no se
-          ajusten a su identidad real o que incumplan cualquier otra
-          condici&oacute;n exigida.
-        </span>
-      </p>
+        <h4>Admissió dels participants</h4>
+        <p>
+          La inscripció a l'esdeveniment comporta a l'acceptació d'aquests
+          termes i condicions, i es farà des de la WEB DE L'ESDEVENIMENT
+          anteriorment esmentada.
+        </p>
 
-      <h3 class="c9" id="h.grvmmcm3346z">
-        <span class="c6">Admisi&oacute;n de los participantes</span>
-      </h3>
-      <p class="c4">
-        <span class="c0">
-          La inscripci&oacute;n al evento conlleva a la aceptaci&oacute;n de
-          estos t&eacute;rminos y condiciones, y se har&aacute; desde la WEB DEL
-          EVENTO anteriormente mencionada.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <p class="c4">
-        <span class="c0">
-          El periodo de inscripci&oacute;n se cerrar&aacute; el 10 de noviembre,
-          pudiendo esta fecha ser adelantada en caso que se haya cubierto el
-          cupo de participantes antes del d&iacute;a 10 de noviembre.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <p class="c4">
-        <span class="c0">
-          No existe ning&uacute;n coste asociado a la participaci&oacute;n en la
-          HACKAT&Oacute;N, siendo totalmente gratuita la inscripci&oacute;n,
-          aunque s&iacute; obligatoria. Adem&aacute;s, ser&aacute; obligatorio
-          mostrar la entrada a la llegada del d&iacute;a inicial, y obligatorio
-          mostrar la acreditaci&oacute;n cada vez que se entre al espacio del
-          evento.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          El període d'inscripció es tancarà el 10 de novembre, podent aquesta
+          data ser avançada en cas que s'hagi cobert el contingent de
+          participants abans del dia 10 de novembre.
+        </p>
 
-      <p class="c4">
-        <span>
-          El n&uacute;mero de participantes ser&aacute; como m&aacute;ximo de
-        </span>
-        <span class="c3">160 personas</span>
-        <span class="c0">
-          . SI se supera el n&uacute;mero de inscritos, la ORGANIZACI&Oacute;N
-          gestionar&aacute; la asistencia en caso de ampliar el n&uacute;mero de
-          plazas por riguroso orden deinscripci&oacute;n.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          No existeix cap cost associat a la participació en la HACKATÓ, sent
+          totalment gratuïta la inscripció, encara que sí obligatòria. A més,
+          serà obligatori mostrar l'entrada a l'arribada del dia inicial, i
+          obligatori mostrar l'acreditació cada vegada que s'entri a l'espai de
+          l'esdeveniment.
+        </p>
 
-      <p class="c4">
-        <span class="c0">
-          La ORGANIZACI&Oacute;N se reserva el derecho de admisi&oacute;n.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          El nombre de participants serà com a màxim de 160 persones. Si se
+          supera el nombre d'inscrits, l'ORGANITZACIÓ gestionarà l'assistència
+          en cas d'ampliar el nombre de places per rigorós ordre d'inscripció.
+        </p>
 
-      <h3 class="c9" id="h.rxybg1wni7qi">
-        <span class="c6">Din&aacute;mica del evento</span>
-      </h3>
-      <p class="c4">
-        <span class="c0">
-          Tras el check-in, se proceder&aacute; a una presentaci&oacute;n de los
-          diversos retos. Los participantes dispondr&aacute; de 24 desde la
-          finalizaci&oacute;n de la presentaci&oacute;n para desarrollar
-          desarrollar una soluci&oacute;n para los retos presentados por las
-          empresas patrocinadoras.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>L'ORGANITZACIÓ es reserva el dret d'admissió.</p>
 
-      <p class="c4">
-        <span>
-          Finalizado el plazo de desarrollo, cada equipo presentar&aacute; su/s
-          proyecto/s al jurado correspondiente mediante la exposici&oacute;n de
-          una DEMO. Esta DEMO no deber&aacute; durar m&aacute;s de{" "}
-        </span>
-        <span class="c3">10 minutos</span>
-        <span class="c0">
-          . No obstante, la empresa patrocinadora del reto se reserva el derecho
-          a ampliar este tiempo si la situaci&oacute;n lo requiere.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <h4>Dinàmica de l'esdeveniment</h4>
+        <p>
+          Després del check-in, es procedirà a una presentació dels diversos
+          reptes. Els participants disposaran de 25 des de la finalització de la
+          presentació per a desenvolupar una solució per als reptes presentats
+          per les empreses patrocinadores.
+        </p>
 
-      <p class="c4">
-        <span class="c0">
-          Durante la DEMO ser&aacute; obligatorio mostrar el funcionamiento del
-          sistema desarrollado, as&iacute; como aquellos aspectos de la idea que
-          la empresa patrocinadora del reto considere m&aacute;s relevantes.
-          Recomendamos revisar los criterios de valoraci&oacute;n para tener
-          claro qu&eacute; aspectos destacar a la hora de la presentaci&oacute;n
-          al jurado.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          Finalitzat el termini de desenvolupament, cada equip presentarà el
+          seu/s projecte/s al jurat corresponent mitjançant l'exposició d'una
+          DEMO. Aquesta DEMO no haurà de durar més de 10 minuts. No obstant
+          això, l'empresa patrocinadora del repte es reserva el dret a ampliar
+          aquest temps si la situació el requereix.
+        </p>
 
-      <p class="c4">
-        <span class="c0">
-          Los participantes podr&aacute;n presentar prototipos a tantos retos
-          como deseen, pudiendo s&oacute;lo presentar un prototipo por reto y
-          siendo como requisito indispensable que sean prototipos funcionales y
-          hayan sido previamente registrados en Devpost, de la misma forma que
-          podr&aacute;n aprovechar el transcurso del evento para desarrollar un
-          proyecto independiente.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          Durant la DEMO serà obligatori mostrar el funcionament del sistema
+          desenvolupat, així com aquells aspectes de la idea que l'empresa
+          patrocinadora del repte consideri més rellevants. Recomanem revisar
+          els criteris de valoració per a tenir clar quins aspectes destacar a
+          l'hora de la presentació al jurat.
+        </p>
 
-      <h3 class="c9" id="h.gsfajyardqhw">
-        <span class="c6">Grupos</span>
-      </h3>
-      <p class="c4">
-        <span class="c0">
-          Los grupos de la HACKATON estar&aacute;n formados hasta por cuatro
-          integrantes, estando permitida, tambi&eacute;n, la
-          participaci&oacute;n individual.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <p class="c4">
-        <span class="c0">
-          Los participantes que se inscriban podr&aacute;n asistir con su equipo
-          previamente formado (cada participante debe inscribirse
-          individualmente).
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <p class="c4">
-        <span class="c0">
-          Para aquellas personas que se inscriban a t&iacute;tulo individual, el
-          d&iacute;a de la HACKAT&Oacute;N podr&aacute;n formar grupo con otros
-          participantes.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          Els participants podran presentar prototips a tants reptes com
+          desitgin, podent només presentar un prototip per repte i sent com a
+          requisit indispensable que siguin prototips funcionals i hagin estat
+          prèviament registrats en Devpost, de la mateixa forma que podran
+          aprofitar el transcurs de l'esdeveniment per a desenvolupar un
+          projecte independent.
+        </p>
 
-      <h3 class="c9" id="h.7nh0mxepc777">
-        <span class="c6">Condiciones de participaci&oacute;n</span>
-      </h3>
-      <p class="c4">
-        <span class="c0">
-          La ORGANIZACI&Oacute;N se compromete a dotar de todos los elementos
-          necesarios para el desarrollo de la HACKAT&Oacute;N en t&eacute;rminos
-          de conectividad y asistencia.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <p class="c4">
-        <span class="c0">
-          Los participantes ser&aacute;n los responsables de acudir con los
-          dispositivos electr&oacute;nicos que necesiten para el desarrollo de
-          su actividad.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c3 c7"></span>
-      </p>
-      <p class="c4">
-        <span class="c0">
-          Durante el transcurso del evento los participantes podr&aacute;n
-          realizar salidas y entradas al edificio, portando y mostrando siempre
-          que les sea requerida la acreditaci&oacute;n. Durante horario nocturno
-          (20:00 - 08:00) se podr&aacute; salir y acceder con la
-          autorizaci&oacute;n previa del encargado de seguridad presente en la
-          entrada del edificio.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <p class="c4">
-        <span class="c0">
-          La ORGANIZACI&Oacute;N no se hace responsable en caso de robo,
-          p&eacute;rdida o accidente sobre las pertenencias de cualquier
-          participante en el evento.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <h3 class="c9" id="h.tu428i7pxgzx">
-        <span class="c6">Premios</span>
-      </h3>
-      <p class="c4">
-        <span class="c0">
-          El ganador de cada reto ser&aacute; escogido por un jurado imparcial
-          elegido por la empresa patrocinadora de dicho reto, teniendo en cuenta
-          criterios como: originalidad de la idea, potencial de la idea,
-          dificultad t&eacute;cnica, viabilidad del proyecto, dise&ntilde;o y
-          usabilidad.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <p class="c4">
-        <span class="c0">
-          Los criterios del jurado ser&aacute;n explicados al inicio de la
-          HACKATON durante la presentaci&oacute;n de sus respectivos retos.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <p class="c4">
-        <span class="c0">
-          Se otorgar&aacute; un premio por reto, pudiendo la empresa
-          patrocinadora del susodicho guardarse el derecho a entregar m&aacute;s
-          premios sin previo aviso. Un premio puede declararse desierto siempre
-          que la decisi&oacute;n est&eacute; justificada y sea ratificada por LA
-          ORGANIZACI&Oacute;N y el patrocinador.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <h4>Grups</h4>
+        <p>
+          Els grups de la HACKATÓ estaran formats fins per quatre integrants,
+          estant permesa, també, la participació individual.
+        </p>
 
-      <p class="c4">
-        <span class="c0">
-          Un premio no puede dividirse entre varios equipos. Un premio solo
-          puede modificarse tras su anuncio en la ceremonia de apertura para
-          ampliarse, ya sea en valor, cantidad o n&uacute;mero de beneficiarios
-          sin que esto pueda resultar en una menor retribuci&oacute;n individual
-          que en su planteamiento original.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          Els participants que s'inscriguin podran assistir amb el seu equip
+          prèviament format (cada participant ha d'inscriure's individualment).
+        </p>
 
-      <h1 class="c11" id="h.sxlz8gpyugn5">
-        <span class="c2">Datos personales</span>
-      </h1>
-      <p class="c4">
-        <span class="c0">
-          Los datos personales ser&aacute;n tratados por LA ORGANIZACI&Oacute;N
-          para gestionar y tramitar la participaci&oacute;n del sujeto en LA
-          HACKAT&Oacute;N. Este tratamiento de datos es necesario y el
-          participante consiente expresamente el mismo.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <p>
+          Per a aquelles persones que s'inscriguin a títol individual, el dia de
+          la HACKATÓ podran formar grup amb altres participants.
+        </p>
 
-      <p class="c4">
-        <span>
-          Los datos personales tambi&eacute;n pueden ser compartidos entre las
-          empresas colaboradoras, no pudiendo estas compartirlos con empresas no
-          relacionadas con el evento sin el permiso expl&iacute;cito del
-          participante. Este tratamiento es opcional y el participante puede
-          informar de su disconformidad al respecto durante el proceso de
-          inscripci&oacute;n o, posteriormente, anular dicho consentimiento
-          mediante un correo a
-        </span>
-        <span class="c13">
-          <a class="c12" href="mailto:lleidahack@gmail.com">
-            lleidahack@gmail.com
-          </a>
-        </span>
-        <span class="c0">. </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
+        <h4>Condicions de participació</h4>
+        <p>
+          L'ORGANITZACIÓ es compromet a dotar de tots els elements necessaris
+          per al desenvolupament de la HACKATÓ en termes de connectivitat i
+          assistència.
+        </p>
 
-      <h1 class="c11" id="h.8vxa9pih7ea9">
-        <span class="c2">Derechos de Propiedad Intelectual</span>
-      </h1>
-      <p class="c4">
-        <span class="c0">
-          Los participantes validan que todas las propuestas que se presenten al
-          evento, son originales y no infringen la propiedad intelectual de
-          terceras partes. Si se hiciese uso de ideas ajenas a los participantes
-          o software sujeto a licencias no libres, ser&aacute; necesario poseer
-          una aprobaci&oacute;n expl&iacute;cita del propietario intelectual.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <p class="c4">
-        <span class="c0">
-          El software desarrollado en las instalaciones del evento durante el
-          transcurso de este, ser&aacute; considerado propiedad del equipo
-          participante.
-        </span>
-      </p>
-      <p class="c1">
-        <span class="c0"></span>
-      </p>
-      <h1 class="c11" id="h.u8n24y707os1">
-        <span class="c2">Otros</span>
-      </h1>
-      <p class="c4">
-        <span>
-          La ORGANIZACI&Oacute;N se reserva el derecho a introducir cambios en
-          el funcionamiento de la HACKAT&Oacute;N en cualquier momento y/o
-          finalizarlo de forma anticipada si fuera necesario por causas
-          justificadas, sin que de ello pueda derivarse responsabilidad alguna.
-        </span>
-      </p>
-    </Container>
+        <p>
+          Els participants seran els responsables d'acudir amb els dispositius
+          electrònics que necessitin per al desenvolupament de la seva
+          activitat.
+        </p>
+
+        <p>
+          Durant el transcurs de l'esdeveniment els participants podran
+          realitzar sortides i entrades a l'edifici, portant i mostrant sempre
+          que els sigui requerida l'acreditació. Durant horari nocturn (20:00 -
+          08:00) es podrà sortir i accedir amb l'autorització prèvia de
+          l'encarregat de seguretat present en l'entrada de l'edifici.
+        </p>
+
+        <p>
+          L'ORGANITZACIÓ no es fa responsable en cas de robatori, pèrdua o
+          accident sobre les pertinences de qualsevol participant en
+          l'esdeveniment.
+        </p>
+
+        <h4>Premis</h4>
+        <p>
+          El guanyador de cada repte serà triat per un jurat imparcial triat per
+          l'empresa patrocinadora d'aquest repte, tenint en compte criteris com:
+          originalitat de la idea, potencial de la idea, dificultat tècnica,
+          viabilitat del projecte, disseny i usabilitat.
+        </p>
+
+        <p>
+          Els criteris del jurat seran explicats a l'inici de la HACKATÓ durant
+          la presentació dels seus respectius reptes.
+        </p>
+
+        <p>
+          S'atorgarà un premi per repte, podent l'empresa patrocinadora del
+          susdit guardar-se el dret a lliurar més premis sense previ avís. Un
+          premi pot declarar-se desert sempre que la decisió estigui justificada
+          i sigui ratificada per l'ORGANITZACIÓ i el patrocinador.
+        </p>
+
+        <p>
+          Un premi no pot dividir-se entre diversos equips. Un premi només pot
+          modificar-se després del seu anunci en la cerimònia d'obertura per a
+          ampliar-se, sigui en valor, quantitat o nombre de beneficiaris sense
+          que això pugui resultar en una menor retribució individual que en el
+          seu plantejament original.
+        </p>
+
+        <h4>Dades personals</h4>
+        <p>
+          Les dades personals seran tractats per l'ORGANITZACIÓ per a gestionar
+          i tramitar la participació del subjecte en LA HACKATÓ. Aquest
+          tractament de dades és necessari i el participant consent expressament
+          el mateix.
+        </p>
+
+        <p>
+          Les dades personals també poden ser compartits entre les empreses
+          col·laboradores, no podent aquestes compartir-los amb empreses no
+          relacionades amb l'esdeveniment sense el permís explícit del
+          participant. Aquest tractament és opcional i el participant pot
+          informar de la seva disconformitat sobre aquest tema durant el procés
+          d'inscripció o, posteriorment, anul·lar aquest consentiment mitjançant
+          un correu a lleidahack@gmail.com.
+        </p>
+
+        <h4>Drets de Propietat Intel·lectual</h4>
+        <p>
+          Els participants validen que totes les propostes que es presentin a
+          l'esdeveniment, són originals i no infringeixen la propietat
+          intel·lectual de terceres parts. Si es fes ús d'idees alienes als
+          participants o programari subjecte a llicències no lliures, serà
+          necessari posseir una aprovació explícita del propietari
+          intel·lectual.
+        </p>
+
+        <p>
+          El programari desenvolupat en les instal·lacions de l'esdeveniment
+          durant el transcurs d'aquest, serà considerat propietat de l'equip
+          participant.
+        </p>
+
+        <h4>Altres</h4>
+        <p>
+          L'ORGANITZACIÓ es reserva el dret a introduir canvis en el
+          funcionament de la HACKATÓ en qualsevol moment o finalitzar-lo de
+          forma anticipada si fos necessari per causes justificades, sense que
+          d'això pugui derivar-se cap responsabilitat.
+        </p>
+      </Container>
+    </div>
   );
 };
 

@@ -8,6 +8,7 @@ import Profile from "src/pages/Profile.js";
 import HackerForm from "src/pages/HackerSignup";
 import Testing from "src/components/others/Testing";
 import Terms from "src/pages/Terms";
+import Privacy from "src/pages/Privacy";
 import Inscripcio from "src/pages/Inscripcio";
 import Sponsors from "src/pages/Sponsors";
 import Verify from "./pages/Verify";
@@ -66,6 +67,7 @@ export default function App() {
           <Route path="/entrance" element={<Entrances />} />
           <Route path="/testing" element={<Testing />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
           <Route
