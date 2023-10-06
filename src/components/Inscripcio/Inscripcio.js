@@ -181,7 +181,7 @@ const InscripcioForm = () => {
                   linkedin: previousRegistration.linkedin,
                   github: previousRegistration.github,
                   devpost: previousRegistration.cv,
-                  checkboxterms: previousRegistration.terms_accepted,
+                  checkboxterms: registered,
                 }}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
