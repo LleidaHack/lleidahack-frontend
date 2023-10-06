@@ -129,18 +129,14 @@ const InscripcioForm = () => {
         }
 
         setStateRegister(false);
-        setsubmittRegister(true);
-        //setSuccessMessage("El registre s'ha enviat correctament!");
-        //setShowSuccessToast(true);
-        //navigate("/perfil");
       } else if (registration.detail) {
         setErrRegister(registration.detail);
         setStateRegister(false);
-        setsubmittRegister(true);
-      } else if (registration.success) {
+      } else {
         setStateRegister(true);
-        setsubmittRegister(true);
       }
+
+      setsubmittRegister(true);
     }
   };
 
