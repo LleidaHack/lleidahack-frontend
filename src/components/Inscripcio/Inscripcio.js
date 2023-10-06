@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 import FailFeedback from "src/components/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/Feedbacks/SuccesFeedback";
 
+import FileBase from "react-file-base64";
+
 const validationSchema = Yup.object().shape({
   studies: Yup.string().required("Aquest camp és obligatori"),
   center: Yup.string().required("Aquest camp és obligatori"),
@@ -62,8 +64,6 @@ const InscripcioForm = () => {
   const [stateRegister, setStateRegister] = useState(false); //Muestra si el registro es correcto (true) o hay error (false)
   const [errRegister, setErrRegister] = useState(""); //Estado que almacena el tipo de error
 
-  const navigate = useNavigate();
-
   const handleSubmit = async (values) => {
     const data = {
       shirt_size: values.size,
@@ -89,12 +89,11 @@ const InscripcioForm = () => {
       // Maneja los errores aquí y muestra el mensaje de error
       //setErrorMessage( "Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.",      );
 
-      let err = "";
+      setErrRegister("");
       if (registration.message === "Hacker already registered") {
-        err =
-          "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.";
+        setErrRegister("Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.");
       }
-      setErrRegister(err);
+
       setStateRegister(false);
       setsubmittRegister(true);
       //setSuccessMessage("El registre s'ha enviat correctament!");
@@ -102,7 +101,7 @@ const InscripcioForm = () => {
       //navigate("/perfil");
     } else if (registration.detail) {
       setErrRegister(
-        "La teva sessió ha caducat. Inicia sessió novament i torna a intentar-ho.",
+        registration.detail,
       );
       setStateRegister(false);
       setsubmittRegister(true);
@@ -120,7 +119,8 @@ const InscripcioForm = () => {
   const [hackepsEvent, setHackepsEvent] = useState(null);
 
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
+    let file = event.base64;
+    console.log(file)
     setCvFile(file);
   };
 
@@ -299,11 +299,11 @@ const InscripcioForm = () => {
                     <label htmlFor="cvinfo_file">
                       Adjunta el teu CV (Opcional)
                     </label>
-                    <input
+                    <FileBase
                       type="file"
                       id="cvinfo_file"
                       name="cvinfo_file"
-                      onChange={handleFileChange}
+                      onDone={handleFileChange}
                     />
                     {cvFile && (
                       <div className="file-info">
