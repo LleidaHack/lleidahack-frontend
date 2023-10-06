@@ -91,7 +91,9 @@ const InscripcioForm = () => {
 
       setErrRegister("");
       if (registration.message === "Hacker already registered") {
-        setErrRegister("Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.");
+        setErrRegister(
+          "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.",
+        );
       }
 
       setStateRegister(false);
@@ -100,9 +102,7 @@ const InscripcioForm = () => {
       //setShowSuccessToast(true);
       //navigate("/perfil");
     } else if (registration.detail) {
-      setErrRegister(
-        registration.detail,
-      );
+      setErrRegister(registration.detail);
       setStateRegister(false);
       setsubmittRegister(true);
     } else if (registration.success) {
@@ -120,7 +120,7 @@ const InscripcioForm = () => {
 
   const handleFileChange = (event) => {
     let file = event.base64;
-    console.log(file)
+    console.log(file);
     setCvFile(file);
   };
 
