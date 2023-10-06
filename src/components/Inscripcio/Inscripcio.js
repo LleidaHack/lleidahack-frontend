@@ -53,16 +53,10 @@ const InscripcioForm = () => {
     fetchData();
   }, []);
 
-  const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState(""); // Nuevo estado para el mensaje de éxito
-  const [showSuccessToast, setShowSuccessToast] = useState(false); // Nuevo estado para mostrar el toast de éxito
-
   //FeedbackStates
   const [submittRegister, setsubmittRegister] = useState(false); // Si se da al boton de Succes, se vuelve true, es decir, que le toca al feedback
   const [stateRegister, setStateRegister] = useState(false); //Muestra si el registro es correcto (true) o hay error (false)
   const [errRegister, setErrRegister] = useState(""); //Estado que almacena el tipo de error
-
-  const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
     const data = {

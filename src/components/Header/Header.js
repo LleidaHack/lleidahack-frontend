@@ -3,6 +3,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import "src/components/Header/Header.css";
 import hackIcon from "src/icons/hack_icon_black.png";
 import { me, checkToken } from "src/services/AuthenticationService";
+import ProfilePic from "../others/ProfilePic";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -25,9 +26,8 @@ const Header = () => {
         const verification = await checkToken();
         if (verification.success) {
           setValidToken(true);
-
           try {
-            if (!localStorage.imageProfile) {
+            if (!localStorage.getItem("imageProfile")) {
               const info = await me();
               if (info.nickname) {
                 //Si te nickname vol dir que la obtencio de dades es posible i que tambe hi haurá imatge
@@ -38,11 +38,11 @@ const Header = () => {
                   info.image !== ""
                 ) {
                   setUserIcon(info.image);
-                  localStorage.imageProfile = info.image;
+                  localStorage.setItem("imageProfile", info.image)
                 }
               }
             } else {
-              setUserIcon(localStorage.imageProfile);
+              setUserIcon(localStorage.getItem("imageProfile"));
             }
           } catch (error) {}
         }
@@ -108,21 +108,7 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <Link to="/perfil" className="nav-link" onClick={closeMenu}>
-                  {validToken ? (
-                    <div className="profileImage2 d-flex">
-                      {icon !== "string" ? (
-                        <img
-                          className="Profile"
-                          src={localStorage.imageProfile}
-                          alt="foto de perfil"
-                        />
-                      ) : (
-                        <i className="fa-solid fa-user m-auto" />
-                      )}
-                    </div>
-                  ) : (
-                    <i className="fa-solid fa-user" />
-                  )}
+                  <ProfilePic is_header={true} icon={icon} validToken={validToken}/>
                 </Link>
               </li>
             </ul>
