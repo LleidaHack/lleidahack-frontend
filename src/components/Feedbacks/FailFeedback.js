@@ -14,7 +14,6 @@ const FailFeedback = ({
   buttonText,
   italic,
   onButtonClick,
-  
 }) => {
   const formattedText = text.split("\n").map((item, index) => (
     <React.Fragment key={index}>
