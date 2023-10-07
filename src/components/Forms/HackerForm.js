@@ -46,7 +46,6 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .required("Correu requerit")
     .email("El correu ha de tenir un format vàlid"),
-  shirtSize: Yup.string().required("Talla de camiseta requerida"),
   nickname: Yup.string().required("Nickname requerit"),
 });
 
