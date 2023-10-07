@@ -5,7 +5,6 @@
   margin-bottom: 1rem;
 }
 
-
 .team-button:hover {
   background-color: var(--primary-strong) !important;
 }
@@ -49,7 +48,7 @@
   justify-content: center;
 }
 
-.cards{
+.cards {
   margin-bottom: 20px;
   align-items: center;
   display: flex;
@@ -68,7 +67,6 @@
   gap: 20px; /* Espacio entre las tarjetas */
   /* Otros estilos para el contenedor */
 }
-
 
 .Alineador {
   display: flex;
@@ -112,8 +110,7 @@
   }
 }
 
-
-.contss{
+.contss {
   display: flex;
   justify-content: space-around;
   /* justify-content: center; */
