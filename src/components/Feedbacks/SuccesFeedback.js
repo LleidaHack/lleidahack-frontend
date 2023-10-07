@@ -16,10 +16,17 @@ const SuccessFeedback = ({
       <br />
     </React.Fragment>
   ));
+
+  useEffect(() => {
+    // Coloca el scroll en la parte superior cuando el componente se monta
+    window.scrollTo(0, 0);
+  }, []);
   
 
   return (
     <div className="valerr">
+      <br></br>
+      <br></br>
       <div className="iconBox">
         <div>
           <svg

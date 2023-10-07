@@ -29,6 +29,11 @@ const FailFeedback = ({
       <br />
     </React.Fragment>
   ));
+
+  useEffect(() => {
+    // Coloca el scroll en la parte superior cuando el componente se monta
+    window.scrollTo(0, 0);
+  }, []);
   
 
   return (

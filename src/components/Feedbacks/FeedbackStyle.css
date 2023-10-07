@@ -1,6 +1,9 @@
 .valerr {
   color: var(--white);
   max-width: 100%;
+  min-height:100vh;
+  padding: 0.1vh;
+  background-color: var(--secondary);
 }
 
 .iconBox {
@@ -8,3 +11,5 @@
   margin-bottom: 3rem;
   text-align: center;
 }
+
+
