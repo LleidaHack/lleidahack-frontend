@@ -46,7 +46,6 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .required("Correu requerit")
     .email("El correu ha de tenir un format vàlid"),
-  shirtSize: Yup.string().required("Talla de camiseta requerida"),
   nickname: Yup.string().required("Nickname requerit"),
 });
 
@@ -300,11 +299,11 @@ export const HackerStepperForm = () => {
             ) : (
               <>
                 <SuccessFeedback
-                  title="T'has registrat correctament."
-                  text={`El teu registre s'ha realitzat correctament. \n T'hem enviat un correu electrónic per a que confirmis el registre.`}
+                  title="T'has registrat correctament"
+                  text={`El teu registre s'ha realitzat correctament. \n T'hem enviat un correu electrònic per a que confirmis el registre.`}
                   hasButton={true}
                   buttonLink="/login"
-                  buttonText="Inicia sesió"
+                  buttonText="Inicia sessió"
                 />
               </>
             )}
