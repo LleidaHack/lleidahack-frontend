@@ -8,8 +8,9 @@ import CountdownTimer from "src/components/Home/Timer.js";
 import MainTitle from "src/components/Home/MainTitle.js";
 
 const Home = () => {
-  const startDate = new Date(2023, 10, 25);
-  const endDate = new Date(2023, 10, 27);
+  
+  const startDate = new Date(2023, 11, 25);
+  const endDate = new Date(2023, 11, 26);
   const startTime = new Date(2023, 10, 25, 11);
   const endTime = new Date(2023, 10, 26, 11);
   const timerActive = true;
