@@ -53,10 +53,6 @@
 .react-calendar__navigation button:disabled {
   background-color: var(--white);
 }
-.react-calendar__navigation button:enabled:hover,
-.react-calendar__navigation button:enabled:focus {
-  background-color: var(--white);
-}
 .react-calendar__month-view__weekdays {
   text-align: center;
   text-transform: uppercase;
