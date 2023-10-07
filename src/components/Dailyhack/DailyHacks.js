@@ -280,8 +280,7 @@ const Dailyhacks = () => {
         <>
           {!correct ? (
             <>
-            
-            <FailFeedback
+              <FailFeedback
                 title={`Error registrant la teva Participació.`}
                 text={`Sembla que algo ha fallat mentre registravem la teva participació.`}
                 hasButton={true}
@@ -292,9 +291,8 @@ const Dailyhacks = () => {
               />
             </>
           ) : (
-
             <>
-            <SuccessFeedback
+              <SuccessFeedback
                 title="Participació registrada correctament"
                 text={`En breus rebràs un correu electrònic de confirmació a la teva bustia d'entrada. \n Si no ho reps, comproba la bustia de spam.`}
                 hasButton={true}
@@ -302,10 +300,6 @@ const Dailyhacks = () => {
                 buttonText="Tornar al Inici"
               />
             </>
-
-
-
-            
           )}
         </>
       )}

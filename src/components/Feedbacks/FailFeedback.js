@@ -33,7 +33,6 @@ const FailFeedback = ({
     // Coloca el scroll en la parte superior cuando el componente se monta
     window.scrollTo(0, 0);
   }, []);
-  
 
   return (
     <div className="valerr">
