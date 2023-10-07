@@ -115,16 +115,25 @@ const Header = () => {
             </ul>
           </div>
         </div>
-        
       </nav>
-      {1==1 ? 
-      <nav className="navbar" style={{backgroundColor: "red", fontSize: "2em"}}>
-        <div className="container">
-          <div>Aquesta pàgina és de proves. La pàgina de la HackEPS 2023 és <a style={{color:"var(--primary)"}} href="https://www.lleidahack.dev/hackeps">https://www.lleidahack.dev/hackeps</a></div>
-        </div>
-      </nav>
-      : <></>
-      }
+
+      {1 == 1 ? (
+        <nav className="navbar" style={{ backgroundColor: "red" }}>
+          <div className="container">
+            <div>
+              Aquesta pàgina és de proves. La pàgina de la HackEPS 2023 és{" "}
+              <a
+                style={{ color: "var(--primary)" }}
+                href="https://www.lleidahack.dev/hackeps"
+              >
+                https://www.lleidahack.dev/hackeps
+              </a>
+            </div>
+          </div>
+        </nav>
+      ) : (
+        <></>
+      )}
 
     </>
   );
