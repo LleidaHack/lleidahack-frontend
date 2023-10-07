@@ -118,7 +118,10 @@ const Header = () => {
       </nav>
 
       {1 == 1 ? (
-        <nav className="navbar" style={{ backgroundColor: "red" }}>
+        <nav
+          className="navbar"
+          style={{ backgroundColor: "red", fontSize: "1.5em" }}
+        >
           <div className="container">
             <div>
               Aquesta pàgina és de proves. La pàgina de la HackEPS 2023 és{" "}
