@@ -52,7 +52,7 @@ const Team = (props) => {
 
   async function joinTeam(val) {
     let a = await addHackerToGroupByCode(
-      val.replace(/#/g, ""),
+      val.replace(/[# ]/g, ""),
       localStorage.getItem("userID"),
     );
     if (a.success) {
