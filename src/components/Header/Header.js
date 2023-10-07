@@ -123,7 +123,7 @@ const Header = () => {
           style={{ backgroundColor: "red", fontSize: "1.5em" }}
         >
           <div className="container">
-          <div style={{maxWidth: "100%", wordWrap: "break-word"}}>
+            <div style={{ maxWidth: "100%", wordWrap: "break-word" }}>
               Aquesta pàgina és de proves. La pàgina de la HackEPS 2023 és{" "}
               <a
                 style={{ color: "var(--primary)" }}
