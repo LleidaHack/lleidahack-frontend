@@ -16,6 +16,9 @@ import { me } from "src/services/AuthenticationService";
 import { getDailyhackById } from "src/services/EventManagementService";
 import { addDailyhack } from "src/services/EventManagementService";
 
+import FailFeedback from "../Feedbacks/FailFeedback";
+import SuccessFeedback from "../Feedbacks/SuccesFeedback";
+
 const validationSchema = Yup.object().shape({
   //nick: Yup.string().required("Nom / Nickname requerit"),
   repositori: Yup.string().required(
@@ -276,91 +279,27 @@ const Dailyhacks = () => {
       ) : (
         <>
           {!correct ? (
-            <section className="informative">
-              <div className="Part2">
-                <div className="iconBox">
-                  <div className="wrapper">
-                    <svg
-                      className="crossmarker"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 52 52"
-                    >
-                      <circle
-                        className="cross__circle"
-                        cx="26"
-                        cy="26"
-                        r="25"
-                        fill="none"
-                      />
-                      <path
-                        className="checkmark_check"
-                        fill="none"
-                        d="M14.1 14.1l23.8 23.8 m0,-23.8 l-23.8,23.8"
-                      />
-                    </svg>
-                  </div>
-                  <h2>Error registrant la teva Participació.</h2>
-                  <p>
-                    Sembla que algo ha fallat mentre registravem la teva
-                    participació.
-                  </p>
-                  <p>
-                    <i>
-                      Torna a intentar registrar novament el teu repositori. En
-                      cas que segueixi fallant, contacta amb nosaltres.
-                    </i>
-                  </p>
-                </div>
-
-                <div className="infbuttonok">
-                  <button onClick={handleRefreshClick} className="contacta">
-                    Intentar novament
-                  </button>
-                </div>
-              </div>
-            </section>
+            <>
+              <FailFeedback
+                title={`Error registrant la teva Participació.`}
+                text={`Sembla que algo ha fallat mentre registravem la teva participació.`}
+                hasButton={true}
+                buttonLink={`/inscripcio`}
+                buttonText={`Intentar novament`}
+                italic={`Torna a intentar registrar novament el teu repositori. \n Encas que segueixi fallant, contacta amb nosaltres.`}
+                onButtonClick={handleRefreshClick}
+              />
+            </>
           ) : (
-            <section className="informative">
-              <div className="Part2">
-                <div className="iconBox">
-                  <div className="wrapper">
-                    <svg
-                      className="checkmark"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 52 52"
-                    >
-                      {" "}
-                      <circle
-                        className="checkmark__circle"
-                        cx="26"
-                        cy="26"
-                        r="25"
-                        fill="none"
-                      />{" "}
-                      <path
-                        className="checkmark__check"
-                        fill="none"
-                        d="M14.1 27.2l7.1 7.2 16.7-16.8"
-                      />
-                    </svg>
-                  </div>
-                  <h2>Participació registrada correctament</h2>
-                  <p>
-                    En breus rebràs un correu electrònic de confirmació a la
-                    teva bustia d'entrada.
-                  </p>
-                  <p>
-                    <i>Si no ho reps, comproba la bustia de spam.</i>
-                  </p>
-                </div>
-
-                <div className="infbuttonok">
-                  <Link to="/">
-                    <button className="contacta">Tornar al Inici</button>
-                  </Link>
-                </div>
-              </div>
-            </section>
+            <>
+              <SuccessFeedback
+                title="Participació registrada correctament"
+                text={`En breus rebràs un correu electrònic de confirmació a la teva bustia d'entrada. \n Si no ho reps, comproba la bustia de spam.`}
+                hasButton={true}
+                buttonLink="/"
+                buttonText="Tornar al Inici"
+              />
+            </>
           )}
         </>
       )}

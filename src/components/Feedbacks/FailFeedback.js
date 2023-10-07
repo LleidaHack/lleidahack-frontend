@@ -14,7 +14,6 @@ const FailFeedback = ({
   buttonText,
   italic,
   onButtonClick,
-  
 }) => {
   const formattedText = text.split("\n").map((item, index) => (
     <React.Fragment key={index}>
@@ -29,7 +28,11 @@ const FailFeedback = ({
       <br />
     </React.Fragment>
   ));
-  
+
+  useEffect(() => {
+    // Coloca el scroll en la parte superior cuando el componente se monta
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="valerr">
