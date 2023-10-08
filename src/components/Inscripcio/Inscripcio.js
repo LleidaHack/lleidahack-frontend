@@ -6,7 +6,6 @@ import * as Yup from "yup";
 import { SelectField } from "formik-stepper";
 import { registerHackerToEvent } from "src/services/EventManagementService";
 import { getHackeps } from "src/services/EventService";
-import { useNavigate } from "react-router-dom";
 import FailFeedback from "src/components/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/Feedbacks/SuccesFeedback";
 

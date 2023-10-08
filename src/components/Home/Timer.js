@@ -7,7 +7,7 @@ const CountdownTimer = (props) => {
   const eventendDay = props.endTime;
   const nowDay = new Date();
   const active = Boolean(props.timerActive);
-
+  console.log(nowDay)
   let countdown;
 
   if (timestampDay >= eventendDay) {
@@ -42,7 +42,7 @@ const CountdownTimer = (props) => {
       }
     }, 1000);
     return () => clearInterval(intervalId);
-  }, [timestampDay, eventendDay, nowDay]);
+  }, [timestampDay, eventendDay, nowDay, updateRemainingTime]);
 
   function updateRemainingTime(countdown) {
     const nowDay = new Date();
