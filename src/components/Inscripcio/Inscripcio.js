@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
   meet: Yup.string().required("Aquest camp és obligatori"),
   checkboxterms: Yup.boolean().oneOf(
     [true],
-    "Has d'acceptar els termes i condicions per a continuar.",
+    "Has d'acceptar els termes i condicions per a continuar",
   ),
 });
 
