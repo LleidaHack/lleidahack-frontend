@@ -8,10 +8,10 @@ import { useEffect } from "react";
 
 const QrCode = (props) => {
   const [url, setUrl] = useState(props.url);
-  
-  useEffect(()=>{
-    setUrl(props.url)
-  },[props.url])
+
+  useEffect(() => {
+    setUrl(props.url);
+  }, [props.url]);
 
   const qrcode = (
     <QRCodeCanvas id="qrCode" value={url} size={200} level={"H"} />

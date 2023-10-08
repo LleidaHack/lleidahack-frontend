@@ -117,7 +117,7 @@ const Header = () => {
         </div>
       </nav>
 
-      { process.env.REACT_APP_MAIN ? (
+      {process.env.REACT_APP_MAIN ? (
         <nav
           className="navbar"
           style={{ backgroundColor: "red", fontSize: "1.5em" }}

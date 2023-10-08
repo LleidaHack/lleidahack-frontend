@@ -12,9 +12,9 @@ const CalendarDates = (props) => {
   const [endDate, setEndDate] = useState(props.endDate);
 
   useEffect(() => {
-    setStartDate(props.startDate)
-    setEndDate(props.endDate)
-  },[props.startDate, props.endDate])
+    setStartDate(props.startDate);
+    setEndDate(props.endDate);
+  }, [props.startDate, props.endDate]);
 
   return (
     <div className="dark-background p-5">

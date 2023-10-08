@@ -48,7 +48,7 @@ let imgs2 = [
 
 const Sponsors = () => {
   const [infoCompany, getInfoAll] = useState(null);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {

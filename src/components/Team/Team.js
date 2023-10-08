@@ -245,9 +245,9 @@ const Team = (props) => {
                             >
                               Expulsar
                             </Button>
-                            
+
                             <Button
-                              style={{marginTop:"10px"}}
+                              style={{ marginTop: "10px" }}
                               className="kick-button"
                               onClick={() => handleMakeLeader(member)}
                             >
