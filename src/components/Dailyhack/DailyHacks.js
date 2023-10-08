@@ -4,7 +4,6 @@ import "src/components/Dailyhack/DailyHacks.css";
 import "formik-stepper/dist/style.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
 
 import * as Yup from "yup";
 import { FormikStepper } from "formik-stepper";

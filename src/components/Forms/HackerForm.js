@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import { useState } from "react";
 
 import * as Yup from "yup";
-import { FormikStepper, InputField, SelectField } from "formik-stepper";
+import { FormikStepper, InputField } from "formik-stepper";
 import { signupHacker } from "src/services/HackerService";
 import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
@@ -299,11 +299,11 @@ export const HackerStepperForm = () => {
             ) : (
               <>
                 <SuccessFeedback
-                  title="T'has registrat correctament."
-                  text={`El teu registre s'ha realitzat correctament. \n T'hem enviat un correu electrónic per a que confirmis el registre.`}
+                  title="T'has registrat correctament"
+                  text={`El teu registre s'ha realitzat correctament. \n T'hem enviat un correu electrònic per a que confirmis el registre.`}
                   hasButton={true}
                   buttonLink="/login"
-                  buttonText="Inicia sesió"
+                  buttonText="Inicia sessió"
                 />
               </>
             )}

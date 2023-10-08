@@ -19,12 +19,12 @@ const ForgetPassword = ({ nextScreen }) => {
     const sendingQuest = await resetPassword(values.email);
     console.log(sendingQuest);
     if (sendingQuest.message) {
-      if (sendingQuest.message == "User not found") {
+      if (sendingQuest.message === "User not found") {
         setFieldError(
           "email",
           "No s'ha trobat un compte asociat a aquest correu. Comprova que estigui tot correcte.",
         );
-      } else if (sendingQuest.message == "User not verified") {
+      } else if (sendingQuest.message === "User not verified") {
         setFieldError(
           "email",
           "Sembla ser que encara no estas verificat. Comproba la teva bustia de spam.",

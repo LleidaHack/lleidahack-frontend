@@ -116,6 +116,25 @@ const Header = () => {
           </div>
         </div>
       </nav>
+
+      {process.env.REACT_APP_MAIN.toString() === "0" && (
+        <nav
+          className="navbar"
+          style={{ backgroundColor: "red", fontSize: "1.5em" }}
+        >
+          <div className="container">
+            <div style={{ maxWidth: "100%", wordWrap: "break-word" }}>
+              Aquesta pàgina és de proves. La pàgina de la HackEPS 2023 és{" "}
+              <a
+                style={{ color: "var(--primary)" }}
+                href="https://www.lleidahack.dev/hackeps"
+              >
+                https://www.lleidahack.dev/hackeps
+              </a>
+            </div>
+          </div>
+        </nav>
+      )}
     </>
   );
 };

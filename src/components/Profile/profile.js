@@ -14,8 +14,8 @@ import {
 
 import qrIcon from "src/icons/qr-black.png";
 
-import Calendar from "react-calendar/dist/umd/Calendar";
-import Medals from "src/components/Medals/Medals";
+//import Medals from "src/components/Medals/Medals";
+//import Calendar from "react-calendar/dist/umd/Calendar";
 import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
@@ -24,7 +24,7 @@ import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../others/ProfilePic";
 
-const Profile_component = () => {
+const ProfileComponent = () => {
   let { hacker_id } = useParams();
   const [isUser, setIsUser] = useState(
     hacker_id === localStorage.getItem("userID"),
@@ -224,4 +224,4 @@ const Profile_component = () => {
   );
 };
 
-export default Profile_component;
+export default ProfileComponent;
