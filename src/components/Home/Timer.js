@@ -21,7 +21,7 @@ const CountdownTimer = (props) => {
       seconds: padWithZeros(countdown.getSeconds() - nowDay.getSeconds() + 60),
       minutes: padWithZeros(countdown.getMinutes() - nowDay.getMinutes() + 59),
       hours: padWithZeros(countdown.getHours() - nowDay.getHours() + 23),
-      days: padWithZeros(countdown.getDate() - nowDay.getDate() - 4),
+      days: padWithZeros(countdown.getDate() - nowDay.getDate() - 3),
       months: countdown.getMonth() - nowDay.getMonth(),
     };
   }

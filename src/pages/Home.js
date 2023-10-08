@@ -15,9 +15,7 @@ const Home = () => {
   useEffect(() => {
     async function xd() {
       const response = await getHackeps();
-      console.log(response);
       const start = new Date(response.start_date);
-      console.log(start);
       start.setMonth(start.getMonth());
       const end = new Date(response.end_date);
       end.setMonth(end.getMonth());
