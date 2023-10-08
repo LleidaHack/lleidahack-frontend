@@ -102,7 +102,7 @@ const Sponsors = () => {
               <img
                 src={pos.image}
                 onClick={() => redirectToURL(pos.url)}
-                alt={`Image ${index + 1}`}
+                alt=""
               />
             </div>
           ))}

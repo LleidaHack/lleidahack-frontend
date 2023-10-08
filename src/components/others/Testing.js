@@ -303,6 +303,21 @@ const Testing = () => {
           params: [user.code],
           status: false,
         },
+        {
+          body: getUserByEmail,
+          params: [user.email],
+          status: false,
+        },
+        {
+          body: getUserByNickname,
+          params: [user.nickname],
+          status: false,
+        },
+        {
+          body: getUserByPhone,
+          params: [user.telephone],
+          status: false,
+        },
       ],
     },
     {
