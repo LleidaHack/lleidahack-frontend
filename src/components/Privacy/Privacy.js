@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-const Privacy_component = () => {
+const PrivacyComponent = () => {
   return (
     <div className="dark-background">
       <Container className="py-5 text-white">
@@ -106,4 +106,4 @@ const Privacy_component = () => {
   );
 };
 
-export default Privacy_component;
+export default PrivacyComponent;

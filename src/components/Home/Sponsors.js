@@ -27,11 +27,11 @@ function redirectToURL(url) {
 /*End Imports 😭*/
 
 let imgs1 = [
-  { image: Eurecat, url: "1", url: "https://eurecat.org/" },
-  { image: bonarea, url: "2", url: "https://www.bonarea.com/" },
-  { image: bofill, url: "3", url: "https://fundaciobofill.cat/" },
-  { image: ingroup, url: "4", url: "https://ingroup.biz/" },
-  { image: restb, url: "5", url: "https://restb.ai/" },
+  { image: Eurecat, /*url: "1",*/ url: "https://eurecat.org/" },
+  { image: bonarea, /*url: "2",*/ url: "https://www.bonarea.com/" },
+  { image: bofill, /*url: "3",*/ url: "https://fundaciobofill.cat/" },
+  { image: ingroup, /*url: "4",*/ url: "https://ingroup.biz/" },
+  { image: restb, /*url: "5",*/ url: "https://restb.ai/" },
 ];
 
 let imgs2 = [
@@ -54,15 +54,13 @@ const Sponsors = () => {
       try {
         const companyData = await getAllCompanies();
         getInfoAll(companyData);
-        {
-          companyData.map((pos, index) => {
-            if (index < 4) {
-              //imgs1[index] = {image: pos.image, url:pos.id}
-            } else {
-              //imgs2[index - 4] = {image: pos.image}
-            }
-          });
-        }
+        companyData.map((pos, index) => {
+          if (index < 4) {
+            //imgs1[index] = {image: pos.image, url:pos.id}
+          } else {
+            //imgs2[index - 4] = {image: pos.image}
+          }
+        });
       } catch (error) {
         console.log("El error obtenido es:", error);
       }
@@ -104,7 +102,7 @@ const Sponsors = () => {
               <img
                 src={pos.image}
                 onClick={() => redirectToURL(pos.url)}
-                alt={`Image ${index + 1}`}
+                alt=""
               />
             </div>
           ))}

@@ -117,7 +117,7 @@ const Header = () => {
         </div>
       </nav>
 
-      {1 == 1 ? (
+      {process.env.REACT_APP_MAIN.toString() === "0" && (
         <nav
           className="navbar"
           style={{ backgroundColor: "red", fontSize: "1.5em" }}
@@ -134,8 +134,6 @@ const Header = () => {
             </div>
           </div>
         </nav>
-      ) : (
-        <></>
       )}
     </>
   );

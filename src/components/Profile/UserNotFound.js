@@ -1,5 +1,5 @@
 import React from "react";
-import "src/components/Error404/Error404_container.css";
+import "src/components/Error404/Error404Container.css";
 import { Link } from "react-router-dom";
 
 export default function UserNotFound() {

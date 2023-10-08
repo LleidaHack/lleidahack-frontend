@@ -1,7 +1,7 @@
 import React from "react";
 import HSkeleton from "./HSkeleton";
 
-const Profile_pfp = ({ hacker }) => {
+const ProfilePfp = ({ hacker }) => {
   return (
     <>
       {hacker ? (
@@ -23,7 +23,7 @@ const Profile_pfp = ({ hacker }) => {
   );
 };
 
-const Header_pfp = ({ icon, validToken }) => {
+const HeaderPfp = ({ icon, validToken }) => {
   return (
     <>
       {validToken ? (
@@ -39,7 +39,7 @@ const Header_pfp = ({ icon, validToken }) => {
   );
 };
 
-const Team_pfp = ({ member }) => {
+const TeamPfp = ({ member }) => {
   return (
     <>
       {!(member.image === "string" || member.image === "") ? (
@@ -64,11 +64,11 @@ const ProfilePic = ({
   return (
     <>
       {is_profile ? (
-        <Profile_pfp hacker={hacker} />
+        <ProfilePfp hacker={hacker} />
       ) : is_header ? (
-        <Header_pfp icon={icon} validToken={validToken} />
+        <HeaderPfp icon={icon} validToken={validToken} />
       ) : (
-        <Team_pfp member={hacker} />
+        <TeamPfp member={hacker} />
       )}
     </>
   );
