@@ -42,7 +42,7 @@ const CountdownTimer = (props) => {
       }
     }, 1000);
     return () => clearInterval(intervalId);
-  }, [timestampDay, eventendDay]);
+  }, [timestampDay, eventendDay, nowDay]);
 
   function updateRemainingTime(countdown) {
     const nowDay = new Date();

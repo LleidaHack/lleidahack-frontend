@@ -70,3 +70,11 @@ export async function addHackerToGroupByCode(group_code, hacker_id) {
     hasUserauth: true,
   });
 }
+
+export async function setHackerGroupLeader(hacker_group_id, hacker_id) {
+  return fetchPlus({
+    Url: `/hacker/group/${hacker_group_id}/leader/${hacker_id}`,
+    Method: "PUT",
+    hasUserauth: true,
+  });
+}

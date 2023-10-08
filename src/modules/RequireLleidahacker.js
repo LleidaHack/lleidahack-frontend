@@ -17,7 +17,7 @@ export default function RequireLleidahacker({ children, originalRoute }) {
   useEffect(() => {
     (async () => {
       await me().then((key) => {
-        setAuth(key["type"] == "lleida_hacker");
+        setAuth(key["type"] === "lleida_hacker");
       });
       setLoading(false);
     })();

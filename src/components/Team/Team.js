@@ -13,6 +13,7 @@ import {
   addHackerToGroupByCode,
   getHackerGroupById,
   removeHackerFromGroup,
+  setHackerGroupLeader,
 } from "src/services/HackerGroupService";
 import { getHackeps } from "src/services/EventService";
 import ProfilePic from "src/components/others/ProfilePic";
@@ -33,8 +34,14 @@ const Team = (props) => {
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
   const [err, setErr] = useState("");
+
   async function handleKick(member) {
     await removeHackerFromGroup(member.id, team.id);
+    setTeam(await getHackerGroupById(team.id));
+  }
+
+  async function handleMakeLeader(member) {
+    await setHackerGroupLeader(team.id, member.id);
     setTeam(await getHackerGroupById(team.id));
   }
 
@@ -231,12 +238,22 @@ const Team = (props) => {
                               localStorage.getItem("userID")
                             : false
                         ) ? (
-                          <Button
-                            className="kick-button"
-                            onClick={() => handleKick(member)}
-                          >
-                            Expulsar
-                          </Button>
+                          <>
+                            <Button
+                              className="kick-button"
+                              onClick={() => handleKick(member)}
+                            >
+                              Expulsar
+                            </Button>
+                            
+                            <Button
+                              style={{marginTop:"10px"}}
+                              className="kick-button"
+                              onClick={() => handleMakeLeader(member)}
+                            >
+                              Fer líder
+                            </Button>
+                          </>
                         ) : (
                           ""
                         )}

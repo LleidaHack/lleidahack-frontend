@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "src/components/Home/Calendar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,6 +10,11 @@ import "src/styles/styles.css";
 const CalendarDates = (props) => {
   const [startDate, setStartDate] = useState(props.startDate);
   const [endDate, setEndDate] = useState(props.endDate);
+
+  useEffect(() => {
+    setStartDate(props.startDate)
+    setEndDate(props.endDate)
+  },[props.startDate, props.endDate])
 
   return (
     <div className="dark-background p-5">
