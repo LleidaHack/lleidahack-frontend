@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "src/components/Header/Header.js";
 import Footer from "src/components/Footer/Footer.js";
 import CalendarDates from "src/components/Home/Calendar.js";
@@ -6,13 +6,27 @@ import Sponsors from "src/components/Home/Sponsors.js";
 import Schedule from "src/components/Home/Schedule.js";
 import CountdownTimer from "src/components/Home/Timer.js";
 import MainTitle from "src/components/Home/MainTitle.js";
+import { getHackeps } from "src/services/EventService";
 
 const Home = () => {
-  
-  const startDate = new Date(2023, 11, 25);
-  const endDate = new Date(2023, 11, 26);
-  const startTime = new Date(2023, 10, 25, 11);
-  const endTime = new Date(2023, 10, 26, 11);
+  const [startDate, setStartDate] = useState(new Date(2023, 10, 25, 11));
+  const [endDate, setEndDate] = useState(new Date(2023, 10, 26, 11));
+
+  useEffect(()=>{
+    async function xd(){
+      const response = await getHackeps()
+      console.log(response)
+      const start = new Date(response.start_date)
+      console.log(start) 
+      start.setMonth(start.getMonth())
+      const end = new Date(response.end_date)
+      end.setMonth(end.getMonth())
+      setStartDate(start)
+      setEndDate(end)
+    }
+    xd()
+  },[])
+
   const timerActive = true;
 
   const events = [
@@ -51,8 +65,8 @@ const Home = () => {
       <Header />
       <MainTitle />
       <CountdownTimer
-        startTime={startTime}
-        endTime={endTime}
+        startTime={startDate}
+        endTime={endDate}
         timerActive={timerActive}
       />
       <CalendarDates startDate={startDate} endDate={endDate} />

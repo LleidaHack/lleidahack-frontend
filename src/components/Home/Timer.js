@@ -1,96 +1,102 @@
 import { useState, useEffect } from "react";
 import "src/components/Home/Timer.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import dayjs from "dayjs";
 
 const CountdownTimer = (props) => {
-  const timestampDayjs = dayjs(props.startTime);
-  const eventendDayjs = dayjs(props.endTime);
-  const nowDayjs = dayjs();
+  const timestampDay = props.startTime;
+  const eventendDay = props.endTime;
+  const nowDay = new Date();
   const active = Boolean(props.timerActive);
 
   let countdown;
 
-  if (timestampDayjs.diff(nowDayjs, "seconds") >= 0) {
-    countdown = timestampDayjs;
+  if (timestampDay >= eventendDay) {
+    countdown = timestampDay;
   } else {
-    countdown = eventendDayjs;
+    countdown = eventendDay;
   }
 
-  const defaultRemainingTime = {
-    seconds: padWithZeros(countdown.diff(nowDayjs, "seconds") % 60, 2),
-    minutes: padWithZeros(countdown.diff(nowDayjs, "minutes") % 60, 2),
-    hours: padWithZeros(countdown.diff(nowDayjs, "hours") % 24, 2),
-    days: padWithZeros(countdown.diff(nowDayjs, "days") % 30, 2),
-    months: countdown.diff(nowDayjs, "months"),
-  };
-
+  function getRemainingTimeUntilMsTimestamp(countdown, nowDay) {
+    return {
+      seconds: padWithZeros(countdown.getSeconds()-nowDay.getSeconds()+60),
+      minutes: padWithZeros(countdown.getMinutes()-nowDay.getMinutes()+59),
+      hours: padWithZeros(countdown.getHours()-nowDay.getHours()+23),
+      days: padWithZeros(countdown.getDate()-nowDay.getDate()-4),
+      months: countdown.getMonth()-nowDay.getMonth(),
+    };
+  }
+  
+  const defaultRemainingTime = getRemainingTimeUntilMsTimestamp(countdown,nowDay)
+  
   const [remainingTime, setRemainingTime] = useState(defaultRemainingTime);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (timestampDayjs.diff(nowDayjs, "seconds") >= 0) {
-        updateRemainingTime(timestampDayjs);
+      if (timestampDay >= nowDay) {
+        updateRemainingTime(timestampDay);
       } else {
-        updateRemainingTime(eventendDayjs);
+        updateRemainingTime(eventendDay);
       }
     }, 1000);
     return () => clearInterval(intervalId);
-  }, [timestampDayjs, eventendDayjs]);
+  }, [timestampDay, eventendDay]);
 
   function updateRemainingTime(countdown) {
-    const nowDayjs = dayjs();
-    //console.log(active)
-    setRemainingTime(getRemainingTimeUntilMsTimestamp(countdown, nowDayjs));
+    const nowDay = new Date();
+    setRemainingTime(getRemainingTimeUntilMsTimestamp(countdown, nowDay));
   }
 
-  function getRemainingTimeUntilMsTimestamp(countdown, nowDayjs) {
-    return {
-      seconds: padWithZeros(countdown.diff(nowDayjs, "seconds") % 60, 2),
-      minutes: padWithZeros(countdown.diff(nowDayjs, "minutes") % 60, 2),
-      hours: padWithZeros(countdown.diff(nowDayjs, "hours") % 24, 2),
-      days: padWithZeros(countdown.diff(nowDayjs, "days") % 30, 2),
-      months: countdown.diff(nowDayjs, "months"),
-    };
-  }
 
-  function padWithZeros(number, minLength) {
+  function padWithZeros(number, minLength=2) {
     const numberString = number.toString();
     if (numberString.length >= minLength) return numberString;
     return "0".repeat(minLength - numberString.length) + numberString;
   }
-  if (timestampDayjs.diff(nowDayjs, "seconds") >= 0 && active) {
+
+  if (timestampDay >= nowDay && active) {
     return (
       <div className="countdown-timer">
         {remainingTime.months && <span>{remainingTime.months}</span>}
-        {remainingTime.months && (
+        {remainingTime.months && 
           <span style={{ fontSize: "2vw" }}>
             mes{remainingTime.months !== 1 && "os"}
           </span>
-        )}
+        }
         {remainingTime.days && <span>{remainingTime.days}</span>}
-        {remainingTime.days && (
+        {remainingTime.days && 
           <span style={{ fontSize: "2vw" }}>
             di{remainingTime.days === 1 ? "a" : "es"}
           </span>
-        )}
+        }
         {remainingTime.hours && <span>{remainingTime.hours}</span>}
-        {remainingTime.hours && (
+        {remainingTime.hours && 
           <span style={{ fontSize: "2vw" }}>
             hor{remainingTime.hours === 1 ? "a" : "es"}
           </span>
-        )}
+        }
       </div>
     );
-  } else if (eventendDayjs.diff(nowDayjs, "seconds") >= 0 && active) {
+  } else if (eventendDay >= nowDay && active) {
     return (
       <div className="countdown-timer">
-        <span>{remainingTime.hours}</span>
-        <span style={{ fontSize: "2vw" }}>hores</span>
-        <span>{remainingTime.minutes}</span>
-        <span style={{ fontSize: "2vw" }}>minuts</span>
-        <span>{remainingTime.seconds}</span>
-        <span style={{ fontSize: "2vw" }}>segons</span>
+        {remainingTime.hours && <span>{remainingTime.hours}</span>}
+        {remainingTime.hours && 
+          <span style={{ fontSize: "2vw" }}>
+            hor{remainingTime.hours === 1 ? "a" : "es"}
+          </span>
+        }
+        {remainingTime.minutes && <span>{remainingTime.minutes}</span>}
+        {remainingTime.minutes &&
+          <span style={{ fontSize: "2vw" }}>
+            minut{remainingTime.minutes === 1 ? "" : "s"}
+          </span>
+        }
+        {remainingTime.seconds && <span>{remainingTime.seconds}</span>}
+        {remainingTime.seconds && 
+          <span style={{ fontSize: "2vw" }}>
+            segon{remainingTime.seconds === 1 ? "" : "s"}
+          </span>
+        }
       </div>
     );
   }
