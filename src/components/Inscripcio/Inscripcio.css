@@ -226,3 +226,8 @@ input[type="text"] {
   width: 2em;
   margin-bottom: 1em;
 }
+
+.fa-user:before {
+  content: "\f007";
+  margin: auto;
+}
