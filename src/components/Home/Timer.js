@@ -7,7 +7,6 @@ const CountdownTimer = (props) => {
   const eventendDay = props.endTime;
   const nowDay = new Date();
   const active = Boolean(props.timerActive);
-  console.log(nowDay)
   let countdown;
 
   if (timestampDay >= eventendDay) {
