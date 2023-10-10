@@ -337,8 +337,8 @@ const InscripcioForm = () => {
                     )}
                   </div>
                   <div className="checkbox-container">
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <Field
                       type="checkbox"
                       id="checkboxterms"
@@ -351,8 +351,8 @@ const InscripcioForm = () => {
                       </a>{" "}
                       de la HackEPS 2023
                     </label>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <ErrorMessage
                       name="checkboxterms"
                       component="div"

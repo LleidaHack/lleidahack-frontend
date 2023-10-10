@@ -22,7 +22,7 @@ export default function Verify() {
           "Introdueix el teu mail per tornar a general el token",
         ))
       );
-      
+
       await resendVerification(mail);
       navigate("/login");
     }
