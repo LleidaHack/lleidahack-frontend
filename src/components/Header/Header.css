@@ -45,7 +45,7 @@ body {
 }
 
 .nav-item:last-child {
-  margin-right: 0;
+  margin-right: 0px;
 }
 
 .navbar-nav {
@@ -93,7 +93,7 @@ body {
 }
 
 /* Estilos para el menú desplegable */
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .collapse.navbar-collapse.show {
     position: absolute;
     top: 100%;
@@ -249,5 +249,9 @@ body {
 
   .apuntat-buttonex {
     scale: 0.9;
+  }
+
+  .nav-item:last-child {
+    margin-right: unset;
   }
 }
