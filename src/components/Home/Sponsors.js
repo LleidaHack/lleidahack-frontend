@@ -19,7 +19,7 @@ import actium from "src/icons/sponsors logos/2nd/logo-actium.jpg";
 import VallCompanys from "src/icons/sponsors logos/2nd/Vall Companys.png";
 import Cosantex from "src/icons/sponsors logos/2nd/logo-cosantex-com.jpg";
 import intech3d from "src/icons/sponsors logos/2nd/intech3D_logo.png";
-import alumni from "src/icons/sponsors logos/2nd/alumni.jpg"
+import alumni from "src/icons/sponsors logos/2nd/alumni.jpg";
 function redirectToURL(url) {
   window.open(url, "_blank");
 }
@@ -44,7 +44,7 @@ let imgs2 = [
   { image: eCityclic, importance: 2, url: "https://www.ecityclic.com/ca" },
   { image: Cosantex, importance: 2, url: "https://www.cosantex.com/" },
   { image: intech3d, importance: 2, url: "https://intech3d.es/" },
-  { image: alumni, importance: 2, url: "https://alumni.udl.cat/"},
+  { image: alumni, importance: 2, url: "https://alumni.udl.cat/" },
 ];
 
 const Sponsors = () => {
@@ -114,7 +114,12 @@ const Sponsors = () => {
 
       <section className="spnsection">
         <div className="sponsors-container">
-          <div className="sponsor-group-group-1" style={{marginBottom:"50px"}}>{groups[1]}</div>
+          <div
+            className="sponsor-group-group-1"
+            style={{ marginBottom: "50px" }}
+          >
+            {groups[1]}
+          </div>
           <div className="sponsor-group-group-2">{groups[2]}</div>
         </div>
       </section>
