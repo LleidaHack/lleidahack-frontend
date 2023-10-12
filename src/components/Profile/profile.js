@@ -198,7 +198,7 @@ const ProfileComponent = () => {
           
           {isUser && <div className="ordenar-horitzontal">             
                 <Button className="ptoboto-editar"/>
-            <Join event={event}/><div></div>
+            <Join event={event}/>
             </div>}
           
 

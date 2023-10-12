@@ -42,7 +42,7 @@
 
 .ptoboto-editar {
   width: 30%;
-  height: 500px;
+  height: 510px;
   font-size: 18px;
   background-color: var(--secondary);
   color: var(--white);
@@ -73,4 +73,5 @@
   .ordenar-horitzontal{
     display: inline;
   }
+  
 }
