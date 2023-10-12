@@ -44,7 +44,7 @@ const Join = (props) => {
   }
 
   return (
-    <div className="container-fluid m-0 p-0">
+    <div className="container-xxl m-0 p-0">
       <div className="row join-container p-bg-grey text-center m-auto mt-5 lolospace">
         <div className="col-12 p-bg-grey">
           <div className="row">
