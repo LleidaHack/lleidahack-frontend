@@ -42,14 +42,13 @@
 
 .ptoboto-editar {
   width: 30%;
-  height: 300px;
+  height: 500px;
   font-size: 18px;
   background-color: var(--secondary);
   color: var(--white);
   border: 2px solid var(--primary);
   cursor: pointer;
   justify-self: start;
-
 }
 
 .ordenar-horitzontal {
@@ -69,5 +68,9 @@
 @media (max-width: 768px) {
   .peter {
     max-width: 90%;
+    
+  }
+  .ordenar-horitzontal{
+    display: inline;
   }
 }
