@@ -41,7 +41,7 @@
 }
 
 .ptoboto-editar {
-  width: 30%;
+  width: 25%;
   height: 510px;
   font-size: 18px;
   background-color: var(--secondary);
@@ -53,7 +53,7 @@
 
 .ordenar-horitzontal {
   display: flex;
-  justify-content: center;
+  justify-content: start;
 }
 
 .logOut-button:hover {
