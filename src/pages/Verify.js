@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { resendVerification, verify } from "src/services/AuthenticationService";
 
@@ -7,7 +6,7 @@ export default function Verify() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
 
-  const [message, setMessage] = useState("Verificant...");
+  const message = "Verificant...";
 
   useEffect(() => {
     async function callService() {
@@ -28,7 +27,7 @@ export default function Verify() {
       navigate("/login");
     }
     callService();
-  }, []);
+  }, [navigate, params]);
 
   return <>{message}</>;
 }
