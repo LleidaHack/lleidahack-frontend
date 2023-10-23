@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-const Terms_component = () => {
+const TermsComponent = () => {
   return (
     <div className="dark-background">
       <Container className="py-5 text-white">
@@ -244,4 +244,4 @@ const Terms_component = () => {
   );
 };
 
-export default Terms_component;
+export default TermsComponent;

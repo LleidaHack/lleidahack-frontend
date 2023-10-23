@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import HSkeleton from "src/components/others/HSkeleton";
 import logo from "src/icons/hackLogoWellDone.png";
 import "src/components/Join/Join.css";

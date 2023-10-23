@@ -6,7 +6,6 @@ import * as Yup from "yup";
 import { SelectField } from "formik-stepper";
 import { registerHackerToEvent } from "src/services/EventManagementService";
 import { getHackeps } from "src/services/EventService";
-import { useNavigate } from "react-router-dom";
 import FailFeedback from "src/components/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/Feedbacks/SuccesFeedback";
 
@@ -45,10 +44,6 @@ const InscripcioForm = () => {
     { value: "Cartells publicitaris", label: "Cartells publicitaris" },
     { value: "Altre mitjà", label: "Altre mitjà" },
   ];
-
-  const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState(""); // Nuevo estado para el mensaje de éxito
-  const [showSuccessToast, setShowSuccessToast] = useState(false); // Nuevo estado para mostrar el toast de éxito
 
   const [cvFile, setCvFile] = useState("");
   const [hackepsEvent, setHackepsEvent] = useState(null);
@@ -110,7 +105,7 @@ const InscripcioForm = () => {
 
     if (registered) {
       data.id = previousRegistration.id;
-      const update = updateHacker(data);
+      updateHacker(data);
     } else {
       let registration = await registerHackerToEvent(
         localStorage.getItem("userID"),
@@ -118,9 +113,6 @@ const InscripcioForm = () => {
         data,
       );
       if (registration.message) {
-        // Maneja los errores aquí y muestra el mensaje de error
-        //setErrorMessage( "Hi ha hagut un error als nostres servidors. Torna-ho a provar més tard.",      );
-
         setErrRegister("");
         if (registration.message === "Hacker already registered") {
           setErrRegister(
@@ -345,8 +337,8 @@ const InscripcioForm = () => {
                     )}
                   </div>
                   <div className="checkbox-container">
-                    <br></br>
-                    <br></br>
+                    <br />
+                    <br />
                     <Field
                       type="checkbox"
                       id="checkboxterms"
@@ -359,8 +351,8 @@ const InscripcioForm = () => {
                       </a>{" "}
                       de la HackEPS 2023
                     </label>
-                    <br></br>
-                    <br></br>
+                    <br />
+                    <br />
                     <ErrorMessage
                       name="checkboxterms"
                       component="div"
