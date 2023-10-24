@@ -3,6 +3,7 @@ import {
   acceptHackerToEvent,
   getPendingHackersGruped,
 } from "src/services/EventManagementService";
+import { getUserById } from "src/services/UserService";
 
 export default function Dashboard() {
   const [data, setData] = useState({});
@@ -24,8 +25,16 @@ export default function Dashboard() {
   );
 }
 
-function TableRow({ user, isGroup }) {
-  const [isApproved, setIsApproved] = useState(user.approved);
+function TableRow({ user: userParam, isGroup }) {
+  const [isApproved, setIsApproved] = useState(userParam.approved);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    async function _() {
+      setUser(await getUserById(userParam.id));
+    }
+    _();
+  }, [userParam]);
 
   async function handleAcceptar() {
     if (await acceptHackerToEvent(user.id, "1")) {
@@ -50,10 +59,12 @@ function TableRow({ user, isGroup }) {
     }
   }
 
+  if (!user) return <tr colSpan="10">Loading...</tr>;
+
   return (
     <tr>
       {isGroup && <th></th>}
-      <th>
+      <th className="align-middle">
         {isApproved ? (
           <span className="badge bg-success">Approved</span>
         ) : (
@@ -63,8 +74,14 @@ function TableRow({ user, isGroup }) {
 
       <th>{user.name}</th>
       {!isGroup && <th></th>}
-      <td>{new Date(user.birthdate).getFullYear()}</td>
-      <td>{user.shirt_size}</td>
+      <td className="align-middle">
+        {user.email} <br />
+        {user.telephone}
+      </td>
+      <td className="align-middle">
+        {new Date().getFullYear() - new Date(user.birthdate).getFullYear()}
+      </td>
+      <td className="align-middle">{user.shirt_size}</td>
       <td className="text-start">{user.food_restrictions}</td>
       <td>
         <button className="btn btn-success me-1 p-1" onClick={handleAcceptar}>
@@ -85,7 +102,8 @@ function DashboardGrid({ data }) {
         <tr>
           <th>Status</th>
           <th colSpan={2}>Nom</th>
-          <th>Any</th>
+          <th>Mail/Telf</th>
+          <th>Edat</th>
           <th>Talla</th>
           <th className="w-50 text-start">Alergies</th>
           <th></th>
