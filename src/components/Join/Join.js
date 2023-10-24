@@ -44,8 +44,8 @@ const Join = (props) => {
   }
 
   return (
-    <div className="">
-      <div className="row container-fluid join-container p-bg-grey text-center m-auto mt-5 lolospace">
+    <div>
+      <div className="row container-fluid  p-bg-grey text-center m-auto mt-5 lolospace" style={{ width: '80%', marginTop: '5%', marginBottom: '10%'}}>
         <div className="col-12 p-bg-grey">
           <div className="row">
             <img className="imgbox" src={logo} alt="" />
