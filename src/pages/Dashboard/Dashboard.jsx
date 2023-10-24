@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   acceptHackerToEvent,
   getPendingHackersGruped,
+  rejectHackerToEvent,
 } from "src/services/EventManagementService";
 import { getUserById } from "src/services/UserService";
 
@@ -42,7 +43,7 @@ function TableRow({ user: userParam, isGroup }) {
     }
   }
 
-  function handleDenegar() {
+  async function handleDenegar() {
     const res = window.confirm([
       "Segur que vols denegar entrar a la hack a aquest pobre terrorista?",
     ]);
@@ -55,6 +56,8 @@ function TableRow({ user: userParam, isGroup }) {
 
       if (res !== user.name) return;
 
+      await rejectHackerToEvent(user.id, "1");
+      window.location.reload();
       return;
     }
   }
