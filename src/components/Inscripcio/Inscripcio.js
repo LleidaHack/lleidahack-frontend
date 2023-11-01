@@ -260,7 +260,7 @@ const InscripcioForm = () => {
                       Vols que les empreses de Lleida et coneguin? (Opcional)
                     </label>
                     <p className="subtitle">
-                      Tens expeciència en altres hackatons? Algun projecte
+                      Tens experiència en altres hackatons? Algun projecte
                       personal que vulguis compartir? Explica'ns què t'apassiona
                       i deixa aquí els enllaços de les teves xarxes socials.
                     </p>

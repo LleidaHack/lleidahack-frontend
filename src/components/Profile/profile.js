@@ -11,7 +11,6 @@ import {
   getEventIsHackerRegistered,
   getEventIsHackerAccepted,
 } from "src/services/EventService";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import qrIcon from "src/icons/qr-black.png";
 
@@ -24,6 +23,7 @@ import QrCode from "src/components/Home/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../others/ProfilePic";
+import EditProfile from "./EditProfile";
 
 const ProfileComponent = () => {
   let { hacker_id } = useParams();
@@ -35,7 +35,6 @@ const ProfileComponent = () => {
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
 
-  const [showEditProfile, setShowEditProfile] = useState(false);
 
   const [hacker, setHacker] = useState(null);
   const [team, setTeam] = useState(null);
@@ -99,20 +98,6 @@ const ProfileComponent = () => {
   function logOut() {
     localStorage.clear();
   }
-
-  const onEditButtonClick = () => {
-    setShowEditProfile(!showEditProfile);
-  };
-
-  const handleEditProfileSubmit = async (values) => {
-    const data = {
-      id: hacker.id,
-      food_restrictions: values.food,
-      update_user: true,
-    };
-    
-    let result = await updateHacker(data);
-  };
 
   function generateMemberTime(creationDate) {
     let first = new Date(creationDate);
@@ -208,61 +193,7 @@ const ProfileComponent = () => {
             </div>
           </div>
 
-          {hacker &&
-            <div className="row align-middle mx-auto mb-3 col-12">
-            {showEditProfile ? 
-                  <div>
-                    <button className="logOut-button" onClick={onEditButtonClick}>
-                      <i className="fas fa-sign-out"></i> Close
-                    </button>
-
-                    <div className="form-container">
-                      <Formik
-                        enableReinitialize
-                        initialValues={{
-                          food: hacker.food_restrictions,
-                          //shirt_size: profile.shirt_size,
-                          //image: profile.image,
-                          //is_image_url: profile.is_image_url,
-                          //receive_emails: profile.receive_emails,
-                          //github: profile.github,
-                          //linkedin: profile.linkedin,
-                          //studies: profile.studies,
-                          //study_center: profile.study_center,
-                          //location: profile.location,
-                          //cv: profile.cv
-                        }}
-                        onSubmit={handleEditProfileSubmit}
-                      >
-                        <Form>
-                          <div className="formik-field">
-                            <label htmlFor="food">
-                              Tens alguna restricció alimentària o alèrgia?
-                            </label>
-                            <Field type="text" id="food" name="food" />
-                            <ErrorMessage
-                              name="food"
-                              component="div"
-                              className="error-message"
-                            />
-                          </div>
-                          <div className="button-submit-container">
-                            <button className="button-submit" type="submit">
-                              Actualitzar
-                            </button>
-                          </div>
-                        </Form>
-                      </Formik>
-                    </div>
-                  </div>
-                  :
-                  <button className="logOut-button" onClick={onEditButtonClick}>
-                    <i className="fas fa-pen-to-square"></i> Editar perfil
-                  </button>
-                }
-
-            </div>
-          }
+          {hacker && <EditProfile hacker={hacker} />}
 
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
