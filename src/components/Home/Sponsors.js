@@ -20,7 +20,7 @@ import VallCompanys from "src/icons/sponsors logos/2nd/Vall Companys.png";
 import Cosantex from "src/icons/sponsors logos/2nd/logo-cosantex-com.jpg";
 import intech3d from "src/icons/sponsors logos/2nd/intech3D_logo.png";
 import alumni from "src/icons/sponsors logos/2nd/alumni.jpg";
-import frutilar from "src/icons/sponsors logos/2nd/fruilar-gran-3.png"
+import frutilar from "src/icons/sponsors logos/2nd/fruilar-gran-3.png";
 
 function redirectToURL(url) {
   window.open(url, "_blank");
@@ -47,7 +47,7 @@ let imgs2 = [
   { image: Cosantex, importance: 2, url: "https://www.cosantex.com/" },
   { image: intech3d, importance: 2, url: "https://intech3d.es/" },
   { image: alumni, importance: 2, url: "https://alumni.udl.cat/" },
-  { image: frutilar, importance: 2, url: "https://www.fruilar.com/es"}
+  { image: frutilar, importance: 2, url: "https://www.fruilar.com/es" },
 ];
 
 const Sponsors = () => {
