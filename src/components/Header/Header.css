@@ -104,6 +104,10 @@ body {
     flex-direction: column;
   }
 
+  .nav-item {
+    margin-right: 0px;
+  }
+
   .navbar-toggler {
     background-color: transparent;
     border: none;
@@ -240,6 +244,10 @@ body {
   .popup-contenter {
     align-items: center;
     width: 16rem;
+  }
+
+  .fa-user {
+    margin-right: 0rem;
   }
 
   .peperse {
