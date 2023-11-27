@@ -102,7 +102,7 @@ const CountdownTimer = (props) => {
             minut{remainingTime.months !== 1 && "s"}
           </span>
         )}
-                {remainingTime.days ?  (
+        {remainingTime.days ?  (
           <></>
         ):(
           <span>{padWithZeros(remainingTime.seconds)}</span>
