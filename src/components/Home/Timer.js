@@ -94,22 +94,22 @@ const CountdownTimer = (props) => {
         ) : (
           <></>
         )}
-        {remainingTime.months ?  <></> : <span>{remainingTime.minutes}</span>}
-        {remainingTime.months ?  (
+        {remainingTime.months ? <></> : <span>{remainingTime.minutes}</span>}
+        {remainingTime.months ? (
           <></>
         ) : (
           <span style={{ fontSize: "2vw" }}>
             minut{remainingTime.months !== 1 && "s"}
           </span>
         )}
-                {remainingTime.days ?  (
+        {remainingTime.days ? (
           <></>
-        ):(
+        ) : (
           <span>{padWithZeros(remainingTime.seconds)}</span>
         )}
         {remainingTime.days ? (
           <></>
-        ):(
+        ) : (
           <span style={{ fontSize: "2vw" }}>
             segon{remainingTime.days !== 1 && "s"}
           </span>
