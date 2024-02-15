@@ -7,10 +7,21 @@
 .lolospace {
   padding: 3vw;
 }
-
+.responsive-amongButton{
+  width: 50%;
+  margin-left: 0;
+}
 @media (max-width: 768px) {
   .lolospace {
     padding: 15vw;
   }
-  
+  .row{
+    text-align: center;
+  } 
+  .responsive-amongButton{
+    width: 100%;
+    margin-left: auto;
+    margin-top: 10%; 
+    margin-bottom: 10%;
+  }
 }

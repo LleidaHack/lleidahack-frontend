@@ -68,10 +68,12 @@
 @media (max-width: 768px) {
   .peter {
     max-width: 90%;
-    
+    text-align: center;
   }
   .ordenar-horitzontal{
     display: inline;
   }
-  
+  .ptoboto-editar {
+    width: 55%; 
+  }
 }
