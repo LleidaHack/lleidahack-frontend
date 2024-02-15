@@ -43,7 +43,7 @@ const Join = (props) => {
   }
 
   return (
-    <div className = "container-fluid responsive-amongButton">
+    <div className = "responsive-amongButton">
       <div className="row container-fluid  p-bg-grey text-center m-auto lolospace" style={{ width: '90%', marginTop: '10%', marginBottom: '10%', marginLeft: '0'}}>
         <div className="col-12 p-bg-grey">
           <div className="row">
