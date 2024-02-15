@@ -192,12 +192,12 @@ const ProfileComponent = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          
-          {isUser && <div className="ordenar-horitzontal">             
-                <Button className="ptoboto-editar"/>
-            <Join event={event}/>
-            </div>}
-          
+          {isUser && (
+            <div className="ordenar-horitzontal">
+              <Button className="ptoboto-editar" />
+              <Join event={event} />
+            </div>
+          )}
 
           {event && event.registered && <Team team={team} is_user={isUser} />}
 
