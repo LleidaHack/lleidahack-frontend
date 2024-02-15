@@ -40,9 +40,6 @@ const ProfileComponent = () => {
   const [event, setEvent] = useState(null);
   const [qrCode, setQrCode] = useState(null);
 
-  const startDate = new Date(2023, 10, 25);
-  const endDate = new Date(2023, 10, 27);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

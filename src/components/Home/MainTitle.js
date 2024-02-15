@@ -42,14 +42,13 @@ const MainTitle = () => {
               <img className="imagelogo" src={hackLogo} alt="" />
             </div>
             <div className="row text-center">
-              <a
-                href="#"
+              <button
                 style={{ width: "fit-content", textDecoration: "none" }}
                 className="py-2 px-4 m-auto apuntat-button"
                 onClick={handleShow}
               >
                 Apunta't!
-              </a>
+              </button>
             </div>
           </div>
         </div>

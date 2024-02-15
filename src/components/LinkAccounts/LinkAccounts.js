@@ -19,6 +19,7 @@ const LinkAccounts = ({ hacker }) => {
             <a
               href={hacker.github || "#"}
               target="_blank"
+              rel="noreferrer"
               className="text-light"
             >
               <i className="bi bi-github fa-2x me-3" />
@@ -28,6 +29,7 @@ const LinkAccounts = ({ hacker }) => {
             <a
               href={hacker.linkedin || "#"}
               target="_blank"
+              rel="noreferrer"
               className="text-light"
             >
               <i className="bi bi-linkedin fa-2x me-3" />

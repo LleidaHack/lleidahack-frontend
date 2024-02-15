@@ -197,6 +197,7 @@ const Dailyhacks = () => {
                   <a
                     href="https://www.kaggle.com/datasets/gti-upm/leapgestrecog"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Kaggle Project
                   </a>
@@ -211,6 +212,7 @@ const Dailyhacks = () => {
                   <a
                     href="https://github.com/FerranAD/dailyhack2023/tree/main"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Repositori Dailyhack
                   </a>{" "}

@@ -33,8 +33,8 @@ const Grups = ({ data, autotest }) => {
               ? "✅"
               : "🟥"
             : data.status
-            ? "✅"
-            : "🟥"}
+              ? "✅"
+              : "🟥"}
         </button>
       ))}
     </div>

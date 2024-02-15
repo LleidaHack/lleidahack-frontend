@@ -7,9 +7,7 @@ const CountdownTimer = (props) => {
   const eventendDay = props.endTime;
   const nowDay = new Date();
   const active = Boolean(props.timerActive);
-
   let countdown;
-
   if (timestampDay >= eventendDay) {
     countdown = timestampDay;
   } else {
@@ -17,12 +15,18 @@ const CountdownTimer = (props) => {
   }
 
   function getRemainingTimeUntilMsTimestamp(countdown, nowDay) {
+    const timeDifference = countdown - nowDay;
+    const seconds = Math.floor(timeDifference / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    const mesos = Math.floor(days / 30);
     return {
-      seconds: padWithZeros(countdown.getSeconds() - nowDay.getSeconds() + 60),
-      minutes: padWithZeros(countdown.getMinutes() - nowDay.getMinutes() + 59),
-      hours: padWithZeros(countdown.getHours() - nowDay.getHours() + 23),
-      days: padWithZeros(countdown.getDate() - nowDay.getDate() - 3),
-      months: countdown.getMonth() - nowDay.getMonth(),
+      seconds: seconds % 60,
+      minutes: minutes % 60,
+      hours: hours % 24,
+      days: days % 30,
+      months: mesos,
     };
   }
 
@@ -42,7 +46,7 @@ const CountdownTimer = (props) => {
       }
     }, 1000);
     return () => clearInterval(intervalId);
-  }, [timestampDay, eventendDay, nowDay]);
+  }, [timestampDay, eventendDay, nowDay, updateRemainingTime]);
 
   function updateRemainingTime(countdown) {
     const nowDay = new Date();
@@ -58,22 +62,56 @@ const CountdownTimer = (props) => {
   if (timestampDay >= nowDay && active) {
     return (
       <div className="countdown-timer">
-        {remainingTime.months && <span>{remainingTime.months}</span>}
-        {remainingTime.months && (
+        {remainingTime.months ? <span>{remainingTime.months}</span> : <></>}
+        {remainingTime.months ? (
           <span style={{ fontSize: "2vw" }}>
             mes{remainingTime.months !== 1 && "os"}
           </span>
+        ) : (
+          <></>
         )}
-        {remainingTime.days && <span>{remainingTime.days}</span>}
-        {remainingTime.days && (
+        {remainingTime.days ? (
+          <span>{padWithZeros(remainingTime.days)}</span>
+        ) : (
+          <></>
+        )}
+        {remainingTime.days ? (
           <span style={{ fontSize: "2vw" }}>
             di{remainingTime.days === 1 ? "a" : "es"}
           </span>
+        ) : (
+          <></>
         )}
-        {remainingTime.hours && <span>{remainingTime.hours}</span>}
-        {remainingTime.hours && (
+        {remainingTime.hours ? (
+          <span>{padWithZeros(remainingTime.hours)}</span>
+        ) : (
+          <></>
+        )}
+        {remainingTime.hours ? (
           <span style={{ fontSize: "2vw" }}>
             hor{remainingTime.hours === 1 ? "a" : "es"}
+          </span>
+        ) : (
+          <></>
+        )}
+        {remainingTime.months ? <></> : <span>{remainingTime.minutes}</span>}
+        {remainingTime.months ? (
+          <></>
+        ) : (
+          <span style={{ fontSize: "2vw" }}>
+            minut{remainingTime.months !== 1 && "s"}
+          </span>
+        )}
+        {remainingTime.days ? (
+          <></>
+        ) : (
+          <span>{padWithZeros(remainingTime.seconds)}</span>
+        )}
+        {remainingTime.days ? (
+          <></>
+        ) : (
+          <span style={{ fontSize: "2vw" }}>
+            segon{remainingTime.days !== 1 && "s"}
           </span>
         )}
       </div>
@@ -81,23 +119,41 @@ const CountdownTimer = (props) => {
   } else if (eventendDay >= nowDay && active) {
     return (
       <div className="countdown-timer">
-        {remainingTime.hours && <span>{remainingTime.hours}</span>}
-        {remainingTime.hours && (
+        {remainingTime.hours ? (
+          <span>{padWithZeros(remainingTime.hours)}</span>
+        ) : (
+          <></>
+        )}
+        {remainingTime.hours ? (
           <span style={{ fontSize: "2vw" }}>
             hor{remainingTime.hours === 1 ? "a" : "es"}
           </span>
+        ) : (
+          <></>
         )}
-        {remainingTime.minutes && <span>{remainingTime.minutes}</span>}
-        {remainingTime.minutes && (
+        {remainingTime.minutes ? (
+          <span>{padWithZeros(remainingTime.minutes)}</span>
+        ) : (
+          <></>
+        )}
+        {remainingTime.minutes ? (
           <span style={{ fontSize: "2vw" }}>
             minut{remainingTime.minutes === 1 ? "" : "s"}
           </span>
+        ) : (
+          <></>
         )}
-        {remainingTime.seconds && <span>{remainingTime.seconds}</span>}
-        {remainingTime.seconds && (
+        {remainingTime.seconds ? (
+          <span>{padWithZeros(remainingTime.seconds)}</span>
+        ) : (
+          <></>
+        )}
+        {remainingTime.seconds ? (
           <span style={{ fontSize: "2vw" }}>
             segon{remainingTime.seconds === 1 ? "" : "s"}
           </span>
+        ) : (
+          <></>
         )}
       </div>
     );
