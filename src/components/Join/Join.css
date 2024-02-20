@@ -4,12 +4,18 @@
   padding-bottom: 2rem;
 }
 
+.pendentAcceptPC {
+  width: "90%";
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
 .lolospace {
   padding: 3vw;
 }
 .responsive-amongButton {
   width: 50%;
-  margin-left: 0;
+  margin-left: 1%;
 }
 @media (max-width: 768px) {
   .lolospace {

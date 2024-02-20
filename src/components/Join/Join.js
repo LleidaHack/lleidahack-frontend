@@ -44,15 +44,7 @@ const Join = (props) => {
 
   return (
     <div className="responsive-amongButton">
-      <div
-        className="row container-fluid  p-bg-grey text-center m-auto lolospace"
-        style={{
-          width: "90%",
-          marginTop: "10%",
-          marginBottom: "10%",
-          marginLeft: "0",
-        }}
-      >
+      <div className="pendentAcceptPC row container-fluid  p-bg-grey text-center m-auto lolospace">
         <div className="col-12 p-bg-grey">
           <div className="row">
             <img className="imgbox" src={logo} alt="" />
