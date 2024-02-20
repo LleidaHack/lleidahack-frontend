@@ -9,15 +9,13 @@ import SuccessFeedback from "src/components/Feedbacks/SuccesFeedback";
 export default function ResetPassword() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
-  
+
   //si no hi ha querry (token) envia fora
   useEffect(() => {
-    if (params.get("token")==null) {
-      navigate("/")
+    if (params.get("token") == null) {
+      navigate("/");
     }
-  }, [params])
-  
-  
+  }, [params]);
 
   const [firstPassword, setFirstPassword] = useState();
   const [secondPassword, setSecondPassword] = useState();
