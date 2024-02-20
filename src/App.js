@@ -94,9 +94,9 @@ export default function App() {
               </RequireLleidahacker>
             }
           />
-          <Route path="*" element={<Error404 />} />
           <Route path="/forgot-password" element={<PasswordForget />} />
           <Route path="/user-verification" element={<LoginVerify />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
@@ -9,6 +9,15 @@ import SuccessFeedback from "src/components/Feedbacks/SuccesFeedback";
 export default function ResetPassword() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
+  
+  //si no hi ha querry (token) envia fora
+  useEffect(() => {
+    if (params.get("token")==null) {
+      navigate("/")
+    }
+  }, [params])
+  
+  
 
   const [firstPassword, setFirstPassword] = useState();
   const [secondPassword, setSecondPassword] = useState();
