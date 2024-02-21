@@ -104,6 +104,10 @@ body {
     flex-direction: column;
   }
 
+  .nav-item {
+    margin-right: 0px;
+  }
+
   .navbar-toggler {
     background-color: transparent;
     border: none;
@@ -208,10 +212,6 @@ body {
   background-color: var(--primary);
 }
 
-.fa-user {
-  margin-right: 2rem;
-}
-
 .profileImage2 {
   width: 2.5rem;
   height: 2.5rem;
@@ -236,7 +236,15 @@ body {
   color: red;
 }
 
+.fa-user {
+  margin-right: 2rem;
+}
+
 @media (max-width: 768px) {
+  .fa-user {
+    margin-right: 0rem;
+  }
+
   .popup-contenter {
     align-items: center;
     width: 16rem;
