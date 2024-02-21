@@ -40,6 +40,22 @@
   font-family: "space mono";
 }
 
+.ptoboto-editar {
+  width: 24.5%;
+  height: 520px;
+  font-size: 18px;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: 2px solid var(--primary);
+  cursor: pointer;
+  justify-self: start;
+}
+
+.ordenar-horitzontal {
+  display: flex;
+  justify-content: start;
+}
+
 .logOut-button:hover {
   background-color: var(--primary);
   color: var(--secondary);
@@ -52,5 +68,12 @@
 @media (max-width: 768px) {
   .peter {
     max-width: 90%;
+    text-align: center;
+  }
+  .ordenar-horitzontal {
+    display: inline;
+  }
+  .ptoboto-editar {
+    width: 55%;
   }
 }

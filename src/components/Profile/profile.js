@@ -23,6 +23,7 @@ import QrCode from "src/components/Home/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../others/ProfilePic";
+import { Button } from "react-bootstrap";
 
 const ProfileComponent = () => {
   let { hacker_id } = useParams();
@@ -191,7 +192,12 @@ const ProfileComponent = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          {isUser && <Join event={event} />}
+          {isUser && (
+            <div className="ordenar-horitzontal">
+              <Button className="ptoboto-editar" />
+              <Join event={event} />
+            </div>
+          )}
 
           {event && event.registered && <Team team={team} is_user={isUser} />}
 
