@@ -203,12 +203,7 @@ const ProfileComponent = () => {
               <Join event={event} />
             </div>
           )}
-
           
-              
-           
-          
-
           {event && event.registered && <Team team={team} is_user={isUser} />}
 
           {/* Calendar and Achievements */}
