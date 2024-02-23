@@ -82,7 +82,7 @@ const EditProfile = (props) => {
       <div className="row align-middle mx-auto mb-3 col-12">
       {showEditProfile ? 
             <div>
-              <button className="logOut-button" onClick={onEditButtonClick}>
+              <button className="logOut-button" style={{marginLeft: "2.5%"}} onClick={onEditButtonClick}>
                 <i className="fas fa-sign-out"></i> Close
               </button>
 
@@ -105,7 +105,7 @@ const EditProfile = (props) => {
                   onSubmit={handleEditProfileSubmit}
                 >
                   <Form>
-                    <div className="formik-field">
+                    <div className="formik-field" style={{marginTop: "5%"}}>
                       <label htmlFor="food">
                         Tens alguna restricció alimentària o alèrgia?
                       </label>
@@ -148,7 +148,7 @@ const EditProfile = (props) => {
                         />
                       </div>
 
-                      <div className="subfield">
+                      <div className="subfield" style={{marginTop: "8%"}}>
                       <label htmlFor="linkedin">
                         Enllaç de GitHub
                       </label>
@@ -163,7 +163,7 @@ const EditProfile = (props) => {
                           className="error-message"
                         />
                       </div>
-                      <div className="formik-field">
+                      <div className="formik-field" style={{marginTop: "8%"}}>
                         <label htmlFor="studies">
                           Què estudies o has estudiat?
                         </label>
@@ -218,7 +218,7 @@ const EditProfile = (props) => {
                     )}
                   </div>
                   <Row className="">
-                  <div className="col-12 col-xxl-6 d-flex flex-column">
+                  <div className="col-12 col-xxl-6 d-flex flex-column" style={{marginTop: "7%", marginBottom: "1%"}}>
                     {isUrl && urlImage !== "" ? (
                       <img
                         style={{ height: "250px", width: "250px" }}
@@ -261,7 +261,7 @@ const EditProfile = (props) => {
                     </div>
                 </Row>
 
-                    <div className="button-submit-container">
+                    <div className="button-submit-container" style={{marginTop: "2%"}}>
                       <button className="button-submit" type="submit">
                         Actualitzar
                       </button>
