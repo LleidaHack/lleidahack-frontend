@@ -11,6 +11,19 @@ import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import FailFeedback from "../Feedbacks/FailFeedback";
 import SuccessFeedback from "../Feedbacks/SuccesFeedback";
+import { Field } from "formik";
+
+
+const CheckboxField = ({ name, label, defaultValue, ...rest }) => {
+  return (
+    <div style={{ display: "flex", alignItems: "center", color: "white" }}>
+      <label style={{ marginRight: "8px" }}>
+        <Field type="checkbox" name={name} checked={defaultValue} {...rest} />
+      </label>
+      {label}
+    </div>
+  );
+};
 
 const minAge = "14";
 const date = new Date();
@@ -83,6 +96,7 @@ export const HackerStepperForm = () => {
       food_restrictions: "",
       email: values.email,
       telephone: values.phone.replace(/\s+/g, ""),
+      acceptNotifications: values.acceptNotifications || true, //accept notification checkbox a contacte field
       address: "",
       shirt_size: values.shirtSize,
       image: pfp,
@@ -218,6 +232,14 @@ export const HackerStepperForm = () => {
                     id="email"
                     label="E-mail"
                   />
+                  <CheckboxField
+                    className="w-100 text-center"
+                    name="acceptNotifications"
+                    id="acceptNotifications"
+                    label="Accepto rebre notificacions electròniques de caràcter informatiu, comercial i promocional"
+                    defaultValue={true}                    
+                  />
+                  
                 </div>
               </Row>
             </FormikStepper.Step>

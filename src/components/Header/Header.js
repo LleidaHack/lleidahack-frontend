@@ -117,7 +117,7 @@ const Header = () => {
         </div>
       </nav>
 
-      {process.env.REACT_APP_MAIN.toString() === "0" && (
+      {String(process.env.REACT_APP_MAIN) === "0" && (
         <nav
           className="navbar"
           style={{ backgroundColor: "red", fontSize: "1.5em" }}
