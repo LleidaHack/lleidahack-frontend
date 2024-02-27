@@ -11,9 +11,7 @@ import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import FailFeedback from "../Feedbacks/FailFeedback";
 import SuccessFeedback from "../Feedbacks/SuccesFeedback";
-import CheckboxField from "../Forms/CheckboxField"
-
-
+import CheckboxField from "../Forms/CheckboxField";
 
 const minAge = "14";
 const date = new Date();
