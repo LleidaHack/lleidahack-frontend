@@ -109,7 +109,6 @@ const EditProfile = (props) => {
                   onSubmit={handleEditProfileSubmit}
                 >
                   <Form>
-                    
                     <div className="formik-field" style={{ marginTop: "5%" }}>
                       <SelectField
                         id="size"
@@ -145,7 +144,10 @@ const EditProfile = (props) => {
                       />
                     </div>
 
-                    <div className="file-input-container" style={{ marginTop: "8%" }}>
+                    <div
+                      className="file-input-container"
+                      style={{ marginTop: "8%" }}
+                    >
                       <label htmlFor="cvinfo_file">
                         Adjunta el teu CV (Opcional)
                       </label>
