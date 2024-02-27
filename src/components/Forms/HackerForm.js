@@ -11,6 +11,7 @@ import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import FailFeedback from "../Feedbacks/FailFeedback";
 import SuccessFeedback from "../Feedbacks/SuccesFeedback";
+import CheckboxField from "../Forms/CheckboxField";
 
 const minAge = "14";
 const date = new Date();
@@ -83,6 +84,7 @@ export const HackerStepperForm = () => {
       food_restrictions: "",
       email: values.email,
       telephone: values.phone.replace(/\s+/g, ""),
+      acceptNotifications: values.acceptNotifications || false, //accept notification checkbox a contacte field
       address: "",
       shirt_size: values.shirtSize,
       image: pfp,
@@ -217,6 +219,13 @@ export const HackerStepperForm = () => {
                     type="email"
                     id="email"
                     label="E-mail"
+                  />
+                  <CheckboxField
+                    className="w-100 text-center"
+                    name="acceptNotifications"
+                    id="acceptNotifications"
+                    label="Accepto rebre notificacions electròniques de caràcter informatiu, comercial i promocional"
+                    defaultValue={false}
                   />
                 </div>
               </Row>
