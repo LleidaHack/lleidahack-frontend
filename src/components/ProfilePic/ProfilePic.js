@@ -12,13 +12,9 @@ const ProfilePfp = ({ hacker, defaultColor, bgcolor, is_team, border }) => {
       {is_not_empty(hacker.image) ? (
         <img
           id={is_team ? null : "profile-image"}
-          className={`${
-              bgcolor ? `bg-${bgcolor}` : ""
-            } ${
-              border ? "border " : ""
-            }${
-              is_team ? "team-member-image" : "profilePfpStyle"
-            }`}
+          className={`${bgcolor ? `bg-${bgcolor}` : ""} ${
+            border ? "border " : ""
+          }${is_team ? "team-member-image" : "profilePfpStyle"}`}
           src={hacker.image}
           alt=""
         />
