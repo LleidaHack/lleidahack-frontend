@@ -12,16 +12,20 @@ const ProfilePfp = ({ hacker, defaultColor, bgcolor, is_team, border }) => {
       {is_not_empty(hacker.image) ? (
         <img
           id={is_team ? null : "profile-image"}
-          className={`
-            bg-${bgcolor} 
-            ${border ? "border" : ""} 
-            ${is_team ? "team-member-image" : "profilePfpStyle"}
-          `}
+          className={`${
+              bgcolor ? `bg-${bgcolor}` : ""
+            } ${
+              border ? "border " : ""
+            }${
+              is_team ? "team-member-image" : "profilePfpStyle"
+            }`}
           src={hacker.image}
           alt=""
         />
       ) : (
-        <i className={`fa-user fa-solid fa-8x mx-auto ${defaultColor}DefaultPfpFill`}/>
+        <i
+          className={`fa-user fa-solid fa-8x mx-auto ${defaultColor}DefaultPfpFill`}
+        />
       )}
     </>
   );
@@ -31,9 +35,13 @@ const HeaderPfp = ({ icon, validToken }) => {
   return (
     <>
       {validToken && is_not_empty(icon) ? (
-          <img className="Profile profileImage d-flex" src={icon} alt="" />
-        ) : (
-          <i className={`fa-user fa-solid d-flex ${validToken ? "profileImage" : ""}`} />
+        <img className="Profile profileImage d-flex" src={icon} alt="" />
+      ) : (
+        <i
+          className={`fa-user fa-solid d-flex ${
+            validToken ? "profileImage" : ""
+          }`}
+        />
       )}
     </>
   );
@@ -44,7 +52,7 @@ const ProfilePic = ({
   icon,
   validToken,
   size = "big",
-  bgcolor = "white",
+  bgcolor,
   teamMembers,
   defaultColor = "white",
   border = false,
@@ -65,10 +73,8 @@ const ProfilePic = ({
         ) : (
           <></>
         )
-      ) : size === "big" ? (
-        <HSkeleton height={"150px"} width={"150px"} circle={true} />
       ) : (
-        <></>
+        <HSkeleton height={"150px"} width={"150px"} circle={true} />
       )}
     </>
   );
