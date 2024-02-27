@@ -54,7 +54,7 @@ const CountdownTimer = (props) => {
   }
 
   function padWithZeros(number, minLength = 2) {
-    const numberString = number.toString();
+    const numberString = String(number);
     if (numberString.length >= minLength) return numberString;
     return "0".repeat(minLength - numberString.length) + numberString;
   }
