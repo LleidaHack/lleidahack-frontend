@@ -86,7 +86,7 @@ export const HackerStepperForm = () => {
       food_restrictions: "",
       email: values.email,
       telephone: values.phone.replace(/\s+/g, ""),
-      acceptNotifications: values.acceptNotifications || true, //accept notification checkbox a contacte field
+      acceptNotifications: values.acceptNotifications || false, //accept notification checkbox a contacte field
       address: "",
       shirt_size: values.shirtSize,
       image: pfp,
