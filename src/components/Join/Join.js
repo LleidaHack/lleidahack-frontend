@@ -3,7 +3,6 @@ import HSkeleton from "src/components/others/HSkeleton";
 import logo from "src/icons/hackLogoWellDone.png";
 import "src/components/Join/Join.css";
 
-
 const Join = (props) => {
   function ManageButton() {
     if (!props.event) {
