@@ -22,7 +22,7 @@ import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
-import ProfilePic from "../others/ProfilePic";
+import ProfilePic from "../ProfilePic/ProfilePic";
 import { Button } from "react-bootstrap";
 
 const ProfileComponent = () => {
@@ -119,7 +119,15 @@ const ProfileComponent = () => {
           <div className="row align-middle mx-auto mb-3">
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
-              <ProfilePic hacker={hacker} is_profile={true} />
+              <ProfilePic
+                id="profile-pic-big"
+                hacker={hacker}
+                size="big"
+                defaultColor="white"
+                bgcolor="white"
+                border={true}
+                is_profile={true}
+              />
               <br />
               <br />
               {isUser && (

@@ -3,7 +3,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import "src/components/Header/Header.css";
 import hackIcon from "src/icons/hack_icon_black.png";
 import { me, checkToken } from "src/services/AuthenticationService";
-import ProfilePic from "../others/ProfilePic";
+import ProfilePic from "../ProfilePic/ProfilePic";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -106,7 +106,7 @@ const Header = () => {
               <li className="nav-item">
                 <Link to="/perfil" className="nav-link" onClick={closeMenu}>
                   <ProfilePic
-                    is_header={true}
+                    size="small"
                     icon={icon}
                     validToken={validToken}
                   />
