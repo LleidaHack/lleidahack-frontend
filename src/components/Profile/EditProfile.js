@@ -105,19 +105,7 @@ const EditProfile = (props) => {
                   onSubmit={handleEditProfileSubmit}
                 >
                   <Form>
-                    <div className="formik-field" style={{marginTop: "5%"}}>
-                      <label htmlFor="food">
-                        Tens alguna restricció alimentària o alèrgia?
-                      </label>
-                      <Field type="text" id="food" name="food" />
-                      <ErrorMessage
-                        name="food"
-                        component="div"
-                        className="error-message"
-                      />
-                    </div>
-
-                    <div className="formik-field">
+                    <div className="formik-field" style={{marginTop: "8%"}}>
                     <SelectField
                       id="size"
                       name="size"
@@ -163,38 +151,8 @@ const EditProfile = (props) => {
                           className="error-message"
                         />
                       </div>
-                      <div className="formik-field" style={{marginTop: "8%"}}>
-                        <label htmlFor="studies">
-                          Què estudies o has estudiat?
-                        </label>
-                        <Field type="text" id="studies" name="studies" />
-                        <ErrorMessage
-                          name="studies"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-
-                      <div className="formik-field">
-                        <label htmlFor="center">Centre d'estudis:</label>
-                        <Field type="text" id="center" name="center" />
-                        <ErrorMessage
-                          name="center"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-
-                      <div className="formik-field">
-                        <label htmlFor="location">D'on vens?:</label>
-                        <Field type="text" id="location" name="location" />
-                        <ErrorMessage
-                          name="location"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-                      <div className="file-input-container">
+                     
+                      <div className="file-input-container" style={{marginTop: "8%"}}>
                     <label htmlFor="cvinfo_file">
                       Adjunta el teu CV (Opcional)
                     </label>
