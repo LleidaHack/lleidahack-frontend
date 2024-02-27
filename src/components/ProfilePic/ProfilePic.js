@@ -2,10 +2,14 @@ import React from "react";
 import HSkeleton from "../others/HSkeleton";
 import "./ProfilePic.css";
 
+function is_not_empty(icon) {
+  return !(icon === "string" || icon === "");
+}
+
 const ProfilePfp = ({ hacker, defaultColor, bgcolor, is_team, border }) => {
   return (
     <>
-      {!(hacker.image === "string" || hacker.image === "") ? (
+      {is_not_empty(hacker.image) ? (
         <img
           id={is_team ? null : "profile-image"}
           className={`
@@ -17,9 +21,7 @@ const ProfilePfp = ({ hacker, defaultColor, bgcolor, is_team, border }) => {
           alt=""
         />
       ) : (
-        <i
-          className={`fa-solid fa-user fa-8x mx-auto ${defaultColor}DefaultPfpFill`}
-        />
+        <i className={`fa-user fa-solid fa-8x mx-auto ${defaultColor}DefaultPfpFill`}/>
       )}
     </>
   );
@@ -28,14 +30,10 @@ const ProfilePfp = ({ hacker, defaultColor, bgcolor, is_team, border }) => {
 const HeaderPfp = ({ icon, validToken }) => {
   return (
     <>
-      {validToken ? (
-        icon !== "string" ? (
-          <img className="Profile profileImage2 d-flex" src={icon} alt="" />
+      {validToken && is_not_empty(icon) ? (
+          <img className="Profile profileImage d-flex" src={icon} alt="" />
         ) : (
-          <i className="fa-solid fa-user m-auto profileImage2 d-flex" />
-        )
-      ) : (
-        <i className="fa-solid fa-user" />
+          <i className={`fa-user fa-solid d-flex ${validToken ? "profileImage" : ""}`} />
       )}
     </>
   );
