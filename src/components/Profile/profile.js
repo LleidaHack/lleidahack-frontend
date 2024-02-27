@@ -11,7 +11,7 @@ import {
   getEventIsHackerRegistered,
   getEventIsHackerAccepted,
 } from "src/services/EventService";
-import EditProfile from "./EditProfile"
+import EditProfile from "./EditProfile";
 import qrIcon from "src/icons/qr-black.png";
 
 //import Medals from "src/components/Medals/Medals";
@@ -197,13 +197,13 @@ const ProfileComponent = () => {
               {hacker && <EditProfile hacker={hacker} />}
             </div>
           </div>
-          
+
           {isUser && (
             <div className="ordenar-horitzontal">
               <Join event={event} />
             </div>
           )}
-          
+
           {event && event.registered && <Team team={team} is_user={isUser} />}
 
           {/* Calendar and Achievements */}

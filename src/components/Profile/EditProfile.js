@@ -69,20 +69,24 @@ const EditProfile = (props) => {
       is_image_url: isUrl,
       update_user: true,
     };
-    
+
     let result = await updateHacker(data);
-    if(result.success) {
+    if (result.success) {
       window.location.reload();
     }
   };
 
   return (
     <>
-    {props.hacker &&
-      <div className="row align-middle mx-auto mb-3 col-12">
-      {showEditProfile ? 
+      {props.hacker && (
+        <div className="row align-middle mx-auto mb-3 col-12">
+          {showEditProfile ? (
             <div>
-              <button className="logOut-button" style={{marginLeft: "2.5%"}} onClick={onEditButtonClick}>
+              <button
+                className="logOut-button"
+                style={{ marginLeft: "2.5%" }}
+                onClick={onEditButtonClick}
+              >
                 <i className="fas fa-sign-out"></i> Close
               </button>
 
@@ -105,7 +109,7 @@ const EditProfile = (props) => {
                   onSubmit={handleEditProfileSubmit}
                 >
                   <Form>
-                    <div className="formik-field" style={{marginTop: "5%"}}>
+                    <div className="formik-field" style={{ marginTop: "5%" }}>
                       <label htmlFor="food">
                         Tens alguna restricció alimentària o alèrgia?
                       </label>
@@ -118,150 +122,144 @@ const EditProfile = (props) => {
                     </div>
 
                     <div className="formik-field">
-                    <SelectField
-                      id="size"
-                      name="size"
-                      label="Talla de samarreta:"
-                      options={sizeOptions}
-                      placeholder="La meva talla de samarreta és..."
-                    />
-                    <ErrorMessage
-                      name="size"
-                      component="div"
-                      className="error-message"
-                    />
-                  </div>
-
-                  <div className="subfield">
-                      <label htmlFor="linkedin">
-                        Enllaç de LinkedIn
-                      </label>
-                        <Field
-                          type="text"
-                          id="linkedin"
-                          name="linkedin"
-                        />
-                        <ErrorMessage
-                          name="linkedin"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-
-                      <div className="subfield" style={{marginTop: "8%"}}>
-                      <label htmlFor="linkedin">
-                        Enllaç de GitHub
-                      </label>
-                        <Field
-                          type="text"
-                          id="github"
-                          name="github"
-                        />
-                        <ErrorMessage
-                          name="github"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-                      <div className="formik-field" style={{marginTop: "8%"}}>
-                        <label htmlFor="studies">
-                          Què estudies o has estudiat?
-                        </label>
-                        <Field type="text" id="studies" name="studies" />
-                        <ErrorMessage
-                          name="studies"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-
-                      <div className="formik-field">
-                        <label htmlFor="center">Centre d'estudis:</label>
-                        <Field type="text" id="center" name="center" />
-                        <ErrorMessage
-                          name="center"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-
-                      <div className="formik-field">
-                        <label htmlFor="location">D'on vens?:</label>
-                        <Field type="text" id="location" name="location" />
-                        <ErrorMessage
-                          name="location"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-                      <div className="file-input-container">
-                    <label htmlFor="cvinfo_file">
-                      Adjunta el teu CV (Opcional)
-                    </label>
-                    <FileBase
-                      type="file"
-                      id="cvinfo_file"
-                      name="cvinfo_file"
-                      onDone={handleFileChange}
-                    />
-                    {cvFile && (
-                      <div className="file-info">
-                        <span className="file-name">{cvFile.name}</span>
-                        <button
-                          type="button"
-                          className="delete-button"
-                          onClick={clearFile}
-                        >
-                          &#10005;
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                  <Row className="">
-                  <div className="col-12 col-xxl-6 d-flex flex-column" style={{marginTop: "7%", marginBottom: "1%"}}>
-                    {isUrl && urlImage !== "" ? (
-                      <img
-                        style={{ height: "250px", width: "250px" }}
-                        className="avatar-image bg-white rounded-circle m-auto"
-                        src={urlImage}
-                        alt="avatar"
+                      <SelectField
+                        id="size"
+                        name="size"
+                        label="Talla de samarreta:"
+                        options={sizeOptions}
+                        placeholder="La meva talla de samarreta és..."
                       />
-                    ) : avatar ? (
-                      <img
-                        style={{ height: "250px", width: "250px" }}
-                        className="avatar-image bg-white rounded-circle m-auto"
-                        src={avatar}
-                        alt="avatar"
-                      />
-                    ) : (
-                      <img
-                        style={{ height: "250px", width: "250px" }}
-                        className="avatar-image bg-white rounded-circle m-auto"
-                        src={userIcon}
-                        alt="avatar"
-                      />
-                    )}
-                  </div>
-            
-                    <div className=" mb-3 mb-xxl-0 align-self-center">
-                      <label htmlFor="imageUrl">Image URL:</label>
-                      <input
-                        className="mb-1"
-                        type="text"
-                        id="imageUrl"
-                        placeholder="https://..."
-                        onChange={handleImageUrlChange}
-                      />
-                      <FileBase
-                        id="avatarInput"
-                        type="file"
-                        multiple={false}
-                        onDone={handleImageChange}
+                      <ErrorMessage
+                        name="size"
+                        component="div"
+                        className="error-message"
                       />
                     </div>
-                </Row>
 
-                    <div className="button-submit-container" style={{marginTop: "2%"}}>
+                    <div className="subfield">
+                      <label htmlFor="linkedin">Enllaç de LinkedIn</label>
+                      <Field type="text" id="linkedin" name="linkedin" />
+                      <ErrorMessage
+                        name="linkedin"
+                        component="div"
+                        className="error-message"
+                      />
+                    </div>
+
+                    <div className="subfield" style={{ marginTop: "8%" }}>
+                      <label htmlFor="linkedin">Enllaç de GitHub</label>
+                      <Field type="text" id="github" name="github" />
+                      <ErrorMessage
+                        name="github"
+                        component="div"
+                        className="error-message"
+                      />
+                    </div>
+                    <div className="formik-field" style={{ marginTop: "8%" }}>
+                      <label htmlFor="studies">
+                        Què estudies o has estudiat?
+                      </label>
+                      <Field type="text" id="studies" name="studies" />
+                      <ErrorMessage
+                        name="studies"
+                        component="div"
+                        className="error-message"
+                      />
+                    </div>
+
+                    <div className="formik-field">
+                      <label htmlFor="center">Centre d'estudis:</label>
+                      <Field type="text" id="center" name="center" />
+                      <ErrorMessage
+                        name="center"
+                        component="div"
+                        className="error-message"
+                      />
+                    </div>
+
+                    <div className="formik-field">
+                      <label htmlFor="location">D'on vens?:</label>
+                      <Field type="text" id="location" name="location" />
+                      <ErrorMessage
+                        name="location"
+                        component="div"
+                        className="error-message"
+                      />
+                    </div>
+                    <div className="file-input-container">
+                      <label htmlFor="cvinfo_file">
+                        Adjunta el teu CV (Opcional)
+                      </label>
+                      <FileBase
+                        type="file"
+                        id="cvinfo_file"
+                        name="cvinfo_file"
+                        onDone={handleFileChange}
+                      />
+                      {cvFile && (
+                        <div className="file-info">
+                          <span className="file-name">{cvFile.name}</span>
+                          <button
+                            type="button"
+                            className="delete-button"
+                            onClick={clearFile}
+                          >
+                            &#10005;
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                    <Row className="">
+                      <div
+                        className="col-12 col-xxl-6 d-flex flex-column"
+                        style={{ marginTop: "7%", marginBottom: "1%" }}
+                      >
+                        {isUrl && urlImage !== "" ? (
+                          <img
+                            style={{ height: "250px", width: "250px" }}
+                            className="avatar-image bg-white rounded-circle m-auto"
+                            src={urlImage}
+                            alt="avatar"
+                          />
+                        ) : avatar ? (
+                          <img
+                            style={{ height: "250px", width: "250px" }}
+                            className="avatar-image bg-white rounded-circle m-auto"
+                            src={avatar}
+                            alt="avatar"
+                          />
+                        ) : (
+                          <img
+                            style={{ height: "250px", width: "250px" }}
+                            className="avatar-image bg-white rounded-circle m-auto"
+                            src={userIcon}
+                            alt="avatar"
+                          />
+                        )}
+                      </div>
+
+                      <div className=" mb-3 mb-xxl-0 align-self-center">
+                        <label htmlFor="imageUrl">Image URL:</label>
+                        <input
+                          className="mb-1"
+                          type="text"
+                          id="imageUrl"
+                          placeholder="https://..."
+                          onChange={handleImageUrlChange}
+                        />
+                        <FileBase
+                          id="avatarInput"
+                          type="file"
+                          multiple={false}
+                          onDone={handleImageChange}
+                        />
+                      </div>
+                    </Row>
+
+                    <div
+                      className="button-submit-container"
+                      style={{ marginTop: "2%" }}
+                    >
                       <button className="button-submit" type="submit">
                         Actualitzar
                       </button>
@@ -270,14 +268,13 @@ const EditProfile = (props) => {
                 </Formik>
               </div>
             </div>
-            :
+          ) : (
             <button className="logOut-button" onClick={onEditButtonClick}>
               <i className="fas fa-pen-to-square"></i> Editar perfil
             </button>
-          }
-
-      </div>
-    }
+          )}
+        </div>
+      )}
     </>
   );
 };
