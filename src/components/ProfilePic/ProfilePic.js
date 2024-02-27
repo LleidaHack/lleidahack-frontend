@@ -6,15 +6,15 @@ function is_not_empty(icon) {
   return !(icon === "string" || icon === "");
 }
 
-const ProfilePfp = ({ hacker, defaultColor, bgcolor, is_team, border }) => {
+const StandardPfp = ({ hacker, defaultColor, bgcolor, extra_id, border, is_profile}) => {
   return (
     <>
       {is_not_empty(hacker.image) ? (
         <img
-          id={is_team ? null : "profile-image"}
+          id={extra_id}
           className={`${bgcolor ? `bg-${bgcolor}` : ""} ${
             border ? "border " : ""
-          }${is_team ? "team-member-image" : "profilePfpStyle"}`}
+          }${is_profile ? "profilePfpStyle" : "team-member-image"}`}
           src={hacker.image}
           alt=""
         />
@@ -49,20 +49,22 @@ const ProfilePic = ({
   validToken,
   size = "big",
   bgcolor,
-  teamMembers,
+  id,
   defaultColor = "white",
   border = false,
+  is_profile = false
 }) => {
   return (
     <>
       {hacker ? (
         size === "big" ? (
-          <ProfilePfp
-            is_team={teamMembers}
+          <StandardPfp
+            extra_id={id}
             hacker={hacker}
             defaultColor={defaultColor}
             bgcolor={bgcolor}
             border={border}
+            is_profile={is_profile}
           />
         ) : size === "small" ? (
           <HeaderPfp icon={icon} validToken={validToken} />

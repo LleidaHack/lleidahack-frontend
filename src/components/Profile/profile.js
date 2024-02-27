@@ -120,11 +120,13 @@ const ProfileComponent = () => {
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
               <ProfilePic
+                id="profile-pic-big"
                 hacker={hacker}
                 size="big"
                 defaultColor="white"
                 bgcolor="white"
                 border={true}
+                is_profile={true}
               />
               <br />
               <br />

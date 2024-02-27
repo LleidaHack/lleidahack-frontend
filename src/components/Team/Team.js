@@ -218,7 +218,6 @@ const Team = (props) => {
                 <Col className="col-xxl-3 cards" key={index}>
                   <div className="p-3 text-center bg-white smallCard">
                     <ProfilePic
-                      teamMembers={true}
                       hacker={member}
                       size="big"
                       defaultColor="grey"
