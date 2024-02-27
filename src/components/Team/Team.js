@@ -16,7 +16,7 @@ import {
   setHackerGroupLeader,
 } from "src/services/HackerGroupService";
 import { getHackeps } from "src/services/EventService";
-import ProfilePic from "src/components/others/ProfilePic";
+import ProfilePic from "src/components/ProfilePic/ProfilePic";
 
 const Team = (props) => {
   const [team, setTeam] = useState(props.team);
@@ -217,7 +217,13 @@ const Team = (props) => {
               {team.members.map((member, index) => (
                 <Col className="col-xxl-3 cards" key={index}>
                   <div className="p-3 text-center bg-white smallCard">
-                    <ProfilePic hacker={member} />
+                    <ProfilePic
+                      teamMembers={true}
+                      hacker={member}
+                      size="big"
+                      defaultColor="grey"
+                      bgcolor="black"
+                    />
                     <p className="team-member-name">{member.name}</p>
                     {String(member.id) === localStorage.getItem("userID") ? (
                       ""

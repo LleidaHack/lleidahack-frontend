@@ -30,10 +30,9 @@
 
 .team-member-image {
   border-radius: 100%;
-  margin-bottom: 1rem;
   height: 9rem;
   width: 9rem;
-  margin: auto auto;
+  margin: auto;
 }
 
 .team-modal-no-border {
