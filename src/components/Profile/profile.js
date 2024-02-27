@@ -11,7 +11,7 @@ import {
   getEventIsHackerRegistered,
   getEventIsHackerAccepted,
 } from "src/services/EventService";
-
+import EditProfile from "./EditProfile";
 import qrIcon from "src/icons/qr-black.png";
 
 //import Medals from "src/components/Medals/Medals";
@@ -192,9 +192,14 @@ const ProfileComponent = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
+          <div className="espaiEdit">
+            <div className="ajustarEdit">
+              {hacker && <EditProfile hacker={hacker} />}
+            </div>
+          </div>
+
           {isUser && (
             <div className="ordenar-horitzontal">
-              <Button className="ptoboto-editar" />
               <Join event={event} />
             </div>
           )}

@@ -30,6 +30,16 @@
   border-width: 3px !important;
 }
 
+.espaiEdit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ajustarEdit {
+  width: 50%;
+}
+
 .logOut-button {
   padding: 10px 12px;
   font-size: 18px;
@@ -40,20 +50,9 @@
   font-family: "space mono";
 }
 
-.ptoboto-editar {
-  width: 24.5%;
-  height: 520px;
-  font-size: 18px;
-  background-color: var(--secondary);
-  color: var(--white);
-  border: 2px solid var(--primary);
-  cursor: pointer;
-  justify-self: start;
-}
-
 .ordenar-horitzontal {
   display: flex;
-  justify-content: start;
+  justify-content: center;
 }
 
 .logOut-button:hover {
@@ -73,7 +72,7 @@
   .ordenar-horitzontal {
     display: inline;
   }
-  .ptoboto-editar {
-    width: 55%;
+  .ajustarEdit {
+    width: 100%;
   }
 }
