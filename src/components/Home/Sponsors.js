@@ -22,6 +22,7 @@ import intech3d from "src/icons/sponsors logos/2nd/intech3D_logo.png";
 import alumni from "src/icons/sponsors logos/2nd/alumni.jpg";
 import fruilar from "src/icons/sponsors logos/2nd/fruilar-gran-3.png";
 import plusfresc from "src/icons/sponsors logos/2nd/plusfresc-logo.jpg";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 function redirectToURL(url) {
   window.open(url, "_blank");
@@ -95,7 +96,7 @@ const Sponsors = () => {
   return (
     <div className="sponsors">
       <div className="gostHunter" id="sponsors"></div>
-      <h1 className="title1 title-underline">Sponsors</h1>
+      <TitleGeneralized padTop="2%" subrallat={true} colorLLetra={"secundari"} >Sponsors</TitleGeneralized>
       <p>Vols participar?</p>
       <p>No ho dubtis, contacta amb nosaltres!</p>
       <Link to={"/contacte"}>
@@ -115,7 +116,7 @@ const Sponsors = () => {
         </div>
       </section>
       <br />
-      <h1 className="title1 title-underline">Partners</h1>
+      <TitleGeneralized padTop="2%" subrallat={true} colorLLetra={"secundari"}>Partners</TitleGeneralized>
 
       <section className="spnsection">
         <div className="sponsors-container">

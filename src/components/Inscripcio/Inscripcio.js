@@ -14,6 +14,7 @@ import { getHackerById } from "src/services/HackerService";
 
 import { getEventIsHackerRegistered } from "src/services/EventService";
 import { updateHacker } from "src/services/HackerService";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const validationSchema = Yup.object().shape({
   studies: Yup.string().required("Aquest camp és obligatori"),
@@ -156,9 +157,9 @@ const InscripcioForm = () => {
         <>
           <br />
           <div className="container-inscripcio">
-            <h1 className="title-contacte title-underline">
+            <TitleGeneralized subrallat={true}>
               Inscripció HackEPS 2023
-            </h1>
+            </TitleGeneralized>
             <div className="form-container">
               <Formik
                 enableReinitialize

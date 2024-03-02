@@ -24,6 +24,7 @@ import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import { Button } from "react-bootstrap";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const ProfileComponent = () => {
   let { hacker_id } = useParams();
@@ -148,11 +149,11 @@ const ProfileComponent = () => {
               </div>
               <div className="row my-3">
                 <div className="col-xxl-1 col-2 d-flex">
-                  <h1 className="text-center m-auto">-</h1>
+                  <TitleGeneralized classe="m-auto" bold = {false}>-</TitleGeneralized>
                 </div>
-                <h1 className="col-xxl-10 col-8">{hacker && hacker.name}</h1>
+                <TitleGeneralized classe="col-xxl-10 col-8" bold = {false}>{hacker && hacker.name}</TitleGeneralized>
                 <div className="col-xxl-1 col-2 d-flex">
-                  <h1 className="text-center m-auto">-</h1>
+                  <TitleGeneralized classe="m-auto" bold = {false}>-</TitleGeneralized>
                 </div>
               </div>
               <div className="row">

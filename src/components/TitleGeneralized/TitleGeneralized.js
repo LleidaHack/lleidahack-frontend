@@ -1,23 +1,23 @@
 import React from 'react';
 import "./TitleGeneralized.css"
 
-const TitleGeneralized = ({ children, subrallat = false, textAlign, size, paddingTop = true}) => { 
-    let estils = "titol"
-    if (textAlign === "left") {
-        estils += " left"
-    }
+const TitleGeneralized = ({ children, subrallat = false, textAlinear = "center", size, padTop = "5%", margeBot = "0%", colorLLetra, bold = true, classe}) => { 
+    let estils = size === "big" ? "big" : "midaTitol"
     if (subrallat) {
         estils += " title-underline"
     }
-    if (size === "big") {
-        estils = estils.replace("titol", "big")
-    } else if (size === "small") {
-        estils = estils.replace("titol", "whiteFont")
+    if (colorLLetra === "secundari") {
+        estils += " negre"
+    } else {
+        estils += " whiteFont"
     }
-    if (paddingTop === false) (
-        estils = estils.replace("titol", "noPadd")
-    )
-    return <h1 className={estils}>{children}</h1> 
+    if (bold) {
+        estils += " negreta"
+    }
+    if (classe) {
+        estils += " " + classe
+    }
+    return <h1 className={estils} style={{paddingTop: padTop, marginBottom: margeBot, textAlign: textAlinear}}>{children}</h1> 
 };
 
 

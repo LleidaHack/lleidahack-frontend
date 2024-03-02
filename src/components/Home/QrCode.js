@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useEffect } from "react";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const QrCode = (props) => {
   const [url, setUrl] = useState(props.url);
@@ -20,7 +21,7 @@ const QrCode = (props) => {
     <Container>
       <Row>
         <Col id="ticket_col" className={"mx-auto m-3 text-center"}>
-          <h1>Ticket</h1>
+          <TitleGeneralized bold={false} margeBot="0.5rem" colorLLetra={"secundari"}>Ticket</TitleGeneralized>
           <p>
             Quan estiguis en un esdeveniment actiu, aquí apareixeran els tickets
             que necessitis (acreditació, menjador...)
