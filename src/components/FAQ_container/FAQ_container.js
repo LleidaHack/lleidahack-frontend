@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import FAQCard from "src/components/FAQ_card/FAQ_card";
 import "src/components/FAQ_container/FAQ_container.css"; // Importa el archivo de estilos CSS para FAQContainer
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const FAQContainer = ({ faqs }) => {
   useEffect(() => {
@@ -10,7 +11,7 @@ const FAQContainer = ({ faqs }) => {
 
   return (
     <div className="faq-container">
-      <h1 className="faq-title title-underline">FAQs</h1>
+      <TitleGeneralized subrallat={true}>FAQs</TitleGeneralized>
       <div className="row">
         {faqs.map((faq, index) => (
           <div key={index} className="col-lg-4 col-md-6 col-sm-12">

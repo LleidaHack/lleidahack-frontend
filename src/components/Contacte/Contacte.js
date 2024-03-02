@@ -10,6 +10,7 @@ import * as Yup from "yup";
 import { contacte } from "src/services/AuthenticationService";
 import SuccessFeedback from "src/components/Feedbacks/SuccesFeedback";
 import FailFeedback from "src/components/Feedbacks/FailFeedback";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Nom requerit"),
@@ -54,7 +55,7 @@ const ContactePage = () => {
     <div className="container-all">
       {!mailSended ? (
         <>
-          <h1 className="title-contacte title-underline">Contacte</h1>
+          <TitleGeneralized subrallat={true}>Contacte</TitleGeneralized>
           <div className="contact-container">
             <div className="logo-container">
               <h2 className="title-logo">

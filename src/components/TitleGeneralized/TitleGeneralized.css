@@ -1,0 +1,35 @@
+.titol {
+    color: var(--white);
+    padding-top: 5%;
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+}
+
+.left {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.right {
+    text-align: right;
+    margin-bottom: 2rem;
+  }
+
+.big {
+    font-size: 120px;
+    color: var(--white);
+    justify-content: center;
+    text-align: center;
+}
+
+.whiteFont {
+    color: var(--white);
+}
+
+.noPadd {
+    color: var(--white);
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+}
