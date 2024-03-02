@@ -1,31 +1,31 @@
 .midaTitol {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 .big {
-    font-size: 120px;
+  font-size: 120px;
 }
 
 .left {
-    text-align: left;
+  text-align: left;
 }
 
 .centrat {
-    text-align: center;
+  text-align: center;
 }
 
 .right {
-    text-align: right;
-  }
+  text-align: right;
+}
 
 .negre {
-    color: var(--secondary)!important; 
+  color: var(--secondary) !important;
 }
 
 .whiteFont {
-    color: var(--white);
+  color: var(--white);
 }
 
 .negreta {
-    font-weight: bold;
+  font-weight: bold;
 }

@@ -6,7 +6,9 @@ import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 export default function UserNotFound() {
   return (
     <div className="error-container">
-      <TitleGeneralized size = "big" bold={false} padTop="0%">Aquest usuari no existeix</TitleGeneralized>
+      <TitleGeneralized size="big" bold={false} padTop="0%">
+        Aquest usuari no existeix
+      </TitleGeneralized>
       <p className="text">
         La pàgina que estàs buscant no existeix als nostres servidors :({" "}
       </p>

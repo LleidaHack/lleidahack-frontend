@@ -6,7 +6,9 @@ import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 const Error404 = () => {
   return (
     <div className="error-container">
-      <TitleGeneralized size={"big"} bold={false}>404</TitleGeneralized>
+      <TitleGeneralized size={"big"} bold={false}>
+        404
+      </TitleGeneralized>
       <p className="text">
         La pàgina que estàs buscant no existeix als nostres servidors :({" "}
       </p>

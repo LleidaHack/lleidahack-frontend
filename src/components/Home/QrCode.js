@@ -21,7 +21,13 @@ const QrCode = (props) => {
     <Container>
       <Row>
         <Col id="ticket_col" className={"mx-auto m-3 text-center"}>
-          <TitleGeneralized bold={false} margeBot="0.5rem" colorLLetra={"secundari"}>Ticket</TitleGeneralized>
+          <TitleGeneralized
+            bold={false}
+            margeBot="0.5rem"
+            colorLLetra={"secundari"}
+          >
+            Ticket
+          </TitleGeneralized>
           <p>
             Quan estiguis en un esdeveniment actiu, aquí apareixeran els tickets
             que necessitis (acreditació, menjador...)

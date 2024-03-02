@@ -109,7 +109,9 @@ const Team = (props) => {
       <>
         {is_user && (
           <Container className="p-bg-grey text-center mt-5 m-0 p-3 contss">
-            <TitleGeneralized margeBot="0.5rem" bold={false} padTop="0%">Inscripcions</TitleGeneralized>
+            <TitleGeneralized margeBot="0.5rem" bold={false} padTop="0%">
+              Inscripcions
+            </TitleGeneralized>
             <Row className="justify-content-center">
               <Button
                 className="m-3 team-button team-button-fit"
@@ -210,7 +212,7 @@ const Team = (props) => {
     return (
       <div className="Alineador">
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
-          <TitleGeneralized bold = {false} padTop="0%"> 
+          <TitleGeneralized bold={false} padTop="0%">
             {team.name} {team.code && `Codi: #${team.code}`}
           </TitleGeneralized>
           <Container className="">

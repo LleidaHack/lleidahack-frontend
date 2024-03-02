@@ -96,7 +96,9 @@ const Sponsors = () => {
   return (
     <div className="sponsors">
       <div className="gostHunter" id="sponsors"></div>
-      <TitleGeneralized padTop="2%" subrallat={true} colorLLetra={"secundari"} >Sponsors</TitleGeneralized>
+      <TitleGeneralized padTop="2%" subrallat={true} colorLLetra={"secundari"}>
+        Sponsors
+      </TitleGeneralized>
       <p>Vols participar?</p>
       <p>No ho dubtis, contacta amb nosaltres!</p>
       <Link to={"/contacte"}>
@@ -116,7 +118,9 @@ const Sponsors = () => {
         </div>
       </section>
       <br />
-      <TitleGeneralized padTop="2%" subrallat={true} colorLLetra={"secundari"}>Partners</TitleGeneralized>
+      <TitleGeneralized padTop="2%" subrallat={true} colorLLetra={"secundari"}>
+        Partners
+      </TitleGeneralized>
 
       <section className="spnsection">
         <div className="sponsors-container">

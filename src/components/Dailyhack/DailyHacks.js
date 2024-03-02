@@ -170,7 +170,7 @@ const Dailyhacks = () => {
     <div className="BGPhather">
       {!estadoPadre ? (
         <>
-          <TitleGeneralized subrallat = {true}>Dailyhack</TitleGeneralized>
+          <TitleGeneralized subrallat={true}>Dailyhack</TitleGeneralized>
           <section className="informative">
             <div className="Part1">
               <p>
@@ -186,7 +186,9 @@ const Dailyhacks = () => {
 
             <div className="Part1">
               <div className="IntroTexte">
-                <TitleGeneralized textAlinear={"left"} margeBot="2rem">En què consisteix el repte?</TitleGeneralized>
+                <TitleGeneralized textAlinear={"left"} margeBot="2rem">
+                  En què consisteix el repte?
+                </TitleGeneralized>
 
                 <p>
                   Fent un resum molt resumit, el repte consisteix a crear el
