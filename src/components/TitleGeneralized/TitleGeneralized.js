@@ -19,9 +19,4 @@ const TitleGeneralized = ({ children, subrallat = false, textAlinear = "center",
     }
     return <h1 className={estils} style={{paddingTop: padTop, marginBottom: margeBot, textAlign: textAlinear}}>{children}</h1> 
 };
-
-
-
-
-
 export default TitleGeneralized;
