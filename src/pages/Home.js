@@ -64,13 +64,13 @@ const Home = () => {
     <div>
       <Header />
       <MainTitle />
-      {/* <CountdownTimer
+      <CountdownTimer
         startTime={startDate}
         endTime={endDate}
         timerActive={timerActive}
       />
       <CalendarDates startDate={startDate} endDate={endDate} />
-      <Schedule events={events} /> */}
+      <Schedule events={events} />
       <Sponsors />
       <LleidaHackTeamDisplay />
       <Footer />

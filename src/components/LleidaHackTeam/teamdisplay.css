@@ -1,12 +1,24 @@
 .TeamDisplay{
     background-color: var(--white);
+    padding: 50px;
+    align-items: center;
+    justify-content: center;
+}
+.TeamDisplay_juntaCard{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 350px);
+    gap: 100px;
+    justify-content: center;
 }
 .TeamDisplay_card{
     display: grid;
-    grid-template-columns: repeat(auto-fill, 400px);
-    gap: 50px;
+    grid-template-columns: repeat(auto-fill, 350px);
+    gap: 100px;
     justify-content: center;
 }
 .TeamDisplay_tittle{
+    text-align: center;
+}
+.TeamDisplay_description{
     text-align: center;
 }

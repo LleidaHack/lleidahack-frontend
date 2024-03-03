@@ -14,6 +14,36 @@
             "img" : "",
             "name": "Aleix Rosinach",
             "rol": "Developer"
+        },
+        {
+            "img" : "",
+            "name": "Aleix Rosinach",
+            "rol": "Developer"
+        },{
+            "img" : "",
+            "name": "Aleix Rosinach",
+            "rol": "Developer"
+        },{
+            "img" : "",
+            "name": "Aleix Rosinach",
+            "rol": "Developer"
+        }
+    ],
+    "junta" : [
+        {
+            "img" : "",
+            "name": "Laura",
+            "rol": "Developer"
+        },
+        {
+            "img" : "",
+            "name": "Jonas",
+            "rol": "Developer"
+        },
+        {
+            "img" : "",
+            "name": "Test",
+            "rol": "Developer"
         }
     ]
 }
