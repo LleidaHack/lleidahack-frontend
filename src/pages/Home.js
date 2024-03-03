@@ -6,7 +6,9 @@ import Sponsors from "src/components/Home/Sponsors.js";
 import Schedule from "src/components/Home/Schedule.js";
 import CountdownTimer from "src/components/Home/Timer.js";
 import MainTitle from "src/components/Home/MainTitle.js";
+import LleidaHackTeamDisplay from "src/components/LleidaHackTeam/LleidaHackTeamDisplay";
 import { getHackeps } from "src/services/EventService";
+
 
 const Home = () => {
   const [startDate, setStartDate] = useState(new Date(2023, 10, 25, 11));
@@ -62,14 +64,15 @@ const Home = () => {
     <div>
       <Header />
       <MainTitle />
-      <CountdownTimer
+      {/* <CountdownTimer
         startTime={startDate}
         endTime={endDate}
         timerActive={timerActive}
       />
       <CalendarDates startDate={startDate} endDate={endDate} />
-      <Schedule events={events} />
+      <Schedule events={events} /> */}
       <Sponsors />
+      <LleidaHackTeamDisplay />
       <Footer />
     </div>
   );

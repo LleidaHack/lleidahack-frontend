@@ -1,0 +1,12 @@
+.TeamDisplay{
+    background-color: var(--white);
+}
+.TeamDisplay_card{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    gap: 50px;
+    justify-content: center;
+}
+.TeamDisplay_tittle{
+    text-align: center;
+}

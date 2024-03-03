@@ -1,0 +1,26 @@
+.MemberCard{
+    width: 350px;
+    height: 450px;
+    background-color: var(--gray-light2);
+    border-radius: 12px;
+    margin: 20px;
+    padding: 50px;
+}
+.MemberCard_img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    display: flex;
+    margin: auto;
+    border: 4px solid var(--primary);
+}
+.MemberCard_name{
+justify-content: center;
+text-align: center;
+margin: 20px;
+}
+.MemberCard_rol{
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+}
