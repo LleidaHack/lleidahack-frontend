@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "src/components/Sponsors/others/UserCircle.css";
+import "src/components/Sponsors/Others/UserCircle.css";
 
 const UserCircle = ({ imageSrc, name, description }) => {
   const [isHovered, setIsHovered] = useState(false);

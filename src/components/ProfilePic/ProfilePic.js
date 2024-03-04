@@ -1,5 +1,5 @@
 import React from "react";
-import HSkeleton from "../others/HSkeleton";
+import HSkeleton from "../Others/HSkeleton";
 import "./ProfilePic.css";
 
 function is_not_empty(icon) {

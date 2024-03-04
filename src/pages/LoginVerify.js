@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "src/components/Header/Header.js";
-import LoginUnverified from "src/components/others/LoginUnverified";
+import LoginUnverified from "src/components/Others/LoginUnverified";
 import Footer from "src/components/Footer/Footer.js";
 import { useLocation } from "react-router-dom";
 

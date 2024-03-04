@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "src/components/Sponsors/IfSponsors.css";
 import { getCompanyById, getCompanyEvents } from "src/services/CompanyService";
-//import UserCircle from "./others/circles";
+//import UserCircle from "./Others/circles";
 
 let images = [
   /*'https://upload.wikimedia.org/wikipedia/commons/7/7b/Lleida.net_logo_no_claim.png',

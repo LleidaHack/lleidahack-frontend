@@ -1,5 +1,5 @@
 import React from "react";
-import Grups from "src/components/others/Grups";
+import Grups from "src/components/Others/Grups";
 
 const MetaTest = ({ functionsList, autotest }) => {
   return (
