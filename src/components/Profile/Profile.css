@@ -30,6 +30,16 @@
   border-width: 3px !important;
 }
 
+.espaiEdit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ajustarEdit {
+  width: 50%;
+}
+
 .logOut-button {
   padding: 10px 12px;
   font-size: 18px;
@@ -38,6 +48,11 @@
   border: 2px solid var(--primary);
   cursor: pointer;
   font-family: "space mono";
+}
+
+.ordenar-horitzontal {
+  display: flex;
+  justify-content: center;
 }
 
 .logOut-button:hover {
@@ -52,5 +67,12 @@
 @media (max-width: 768px) {
   .peter {
     max-width: 90%;
+    text-align: center;
+  }
+  .ordenar-horitzontal {
+    display: inline;
+  }
+  .ajustarEdit {
+    width: 100%;
   }
 }

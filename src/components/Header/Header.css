@@ -185,14 +185,6 @@ body {
   flex-direction: column; /* Cambia la dirección principal a columna */
 }
 
-.profileImage {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%; /* Hace que el div sea un círculo */
-  overflow: hidden; /* Oculta cualquier contenido que se desborde del círculo */
-  border: 2px solid var(--primary);
-}
-
 .Profile {
   width: 100%; /* La imagen ocupará todo el círculo */
   height: 100%; /* La imagen ocupará todo el círculo */
@@ -212,18 +204,12 @@ body {
   background-color: var(--primary);
 }
 
-.profileImage2 {
+.profileImage {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%; /* Hace que el div sea un círculo */
   overflow: hidden; /* Oculta cualquier contenido que se desborde del círculo */
-  border: 0.5px solid var(--secondary);
-}
-
-.Profile2 {
-  width: 100%; /* La imagen ocupará todo el círculo */
-  height: 100%; /* La imagen ocupará todo el círculo */
-  object-fit: cover; /* Ajusta el tamaño de la imagen para que cubra el círculo */
+  border: 1px solid var(--secondary);
 }
 
 .logOut {

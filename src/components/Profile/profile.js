@@ -11,7 +11,7 @@ import {
   getEventIsHackerRegistered,
   getEventIsHackerAccepted,
 } from "src/services/EventService";
-
+import EditProfile from "./EditProfile";
 import qrIcon from "src/icons/qr-black.png";
 
 //import Medals from "src/components/Medals/Medals";
@@ -22,7 +22,8 @@ import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
-import ProfilePic from "../others/ProfilePic";
+import ProfilePic from "../ProfilePic/ProfilePic";
+import { Button } from "react-bootstrap";
 
 const ProfileComponent = () => {
   let { hacker_id } = useParams();
@@ -118,7 +119,15 @@ const ProfileComponent = () => {
           <div className="row align-middle mx-auto mb-3">
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
-              <ProfilePic hacker={hacker} is_profile={true} />
+              <ProfilePic
+                id="profile-pic-big"
+                hacker={hacker}
+                size="big"
+                defaultColor="white"
+                bgcolor="white"
+                border={true}
+                is_profile={true}
+              />
               <br />
               <br />
               {isUser && (
@@ -191,7 +200,17 @@ const ProfileComponent = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          {isUser && <Join event={event} />}
+          <div className="espaiEdit">
+            <div className="ajustarEdit">
+              {hacker && <EditProfile hacker={hacker} />}
+            </div>
+          </div>
+
+          {isUser && (
+            <div className="ordenar-horitzontal">
+              <Join event={event} />
+            </div>
+          )}
 
           {event && event.registered && <Team team={team} is_user={isUser} />}
 
