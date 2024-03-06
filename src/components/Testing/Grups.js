@@ -7,7 +7,7 @@ const Grups = ({ data, autotest }) => {
     if (Array.isArray(a) && a.length === 0) {
       return a;
     }
-    if (a === { detail: "Insufficient permissions" }) {
+    if (a == { detail: "Insufficient permissions" }) {
       return a;
     }
     const updatedItems = [...buttonStates];

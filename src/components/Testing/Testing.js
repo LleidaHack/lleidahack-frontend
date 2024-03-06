@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-import MetaTest from "src/components/others/MetaTest";
+import MetaTest from "src/components/Testing/MetaTest";
 import {
   getAllUsers,
   getUserById,
