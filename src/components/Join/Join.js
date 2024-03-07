@@ -1,5 +1,5 @@
 import React from "react";
-import HSkeleton from "src/components/others/HSkeleton";
+import HSkeleton from "src/components/LoadingSkeleton/HSkeleton";
 import logo from "src/icons/hackLogoWellDone.png";
 import "src/components/Join/Join.css";
 
