@@ -57,7 +57,7 @@ const EditProfile = (props) => {
     const data = {
       id: props.hacker.id,
       food_restrictions: values.food,
-      size: values.size,
+      shirt_size: values.size,
       linkedin: values.linkedin,
       github: values.github,
       studies: values.studies,
