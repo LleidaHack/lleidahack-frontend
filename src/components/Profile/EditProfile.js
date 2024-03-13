@@ -9,7 +9,6 @@ import Col from "react-bootstrap/Col";
 import userIcon from "src/icons/user2.png";
 
 const EditProfile = (props) => {
-  console.log(props);
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [cvFile, setCvFile] = useState("");
 
