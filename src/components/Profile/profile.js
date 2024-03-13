@@ -207,11 +207,13 @@ const ProfileComponent = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          <div className="espaiEdit">
-            <div className="ajustarEdit">
-              {hacker && <EditProfile hacker={hacker} />}
+          {isUser && ( 
+            <div className="espaiEdit">
+              <div className="ajustarEdit">
+                {hacker && <EditProfile hacker={hacker} />}
+              </div>
             </div>
-          </div>
+          )}
 
           {isUser && (
             <div className="ordenar-horitzontal">
