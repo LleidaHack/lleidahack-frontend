@@ -3,37 +3,37 @@ import "./TitleGeneralized.css";
 
 const TitleGeneralized = ({
   children,
-  subrallat = false,
-  textAlinear = "center",
+  underline = false,
+  alignText = "center",
   size,
   padTop = "5%",
   margeBot = "0%",
-  colorLLetra,
+  lettersColor,
   bold = true,
-  classe,
+  classTitle,
 }) => {
-  let estils = size === "big" ? "big" : "midaTitol";
-  if (subrallat) {
-    estils += " title-underline";
+  let stylesTitle = size === "big" ? "big" : "titleSize";
+  if (underline) {
+    stylesTitle += " title-underline";
   }
-  if (colorLLetra === "secondary") {
-    estils += " titleblack";
+  if (lettersColor === "secondary") {
+    stylesTitle += " titleblack";
   } else {
-    estils += " whiteFont";
+    stylesTitle += " whiteFont";
   }
   if (bold) {
-    estils += " titlebold";
+    stylesTitle += " titlebold";
   }
-  if (classe) {
-    estils += " " + classe;
+  if (classTitle) {
+    stylesTitle += " " + classTitle;
   }
   return (
     <h1
-      className={estils}
+      className={stylesTitle}
       style={{
         paddingTop: padTop,
         marginBottom: margeBot,
-        textAlign: textAlinear,
+        textAlign: alignText,
       }}
     >
       {children}

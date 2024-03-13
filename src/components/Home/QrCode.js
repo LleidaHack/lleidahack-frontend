@@ -24,7 +24,7 @@ const QrCode = (props) => {
           <TitleGeneralized
             bold={false}
             margeBot="0.5rem"
-            colorLLetra={"secondary"}
+            lettersColor={"secondary"}
           >
             Ticket
           </TitleGeneralized>

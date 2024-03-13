@@ -11,7 +11,7 @@ const FAQContainer = ({ faqs }) => {
 
   return (
     <div className="faq-container">
-      <TitleGeneralized subrallat={true}>FAQs</TitleGeneralized>
+      <TitleGeneralized underline={true}>FAQs</TitleGeneralized>
       <div className="row">
         {faqs.map((faq, index) => (
           <div key={index} className="col-lg-4 col-md-6 col-sm-12">

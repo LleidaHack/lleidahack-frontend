@@ -149,15 +149,15 @@ const ProfileComponent = () => {
               </div>
               <div className="row my-3">
                 <div className="col-xxl-1 col-2 d-flex">
-                  <TitleGeneralized classe="m-auto" bold={false}>
+                  <TitleGeneralized classTitle="m-auto" bold={false}>
                     -
                   </TitleGeneralized>
                 </div>
-                <TitleGeneralized classe="col-xxl-10 col-8" bold={false}>
+                <TitleGeneralized classTitle="col-xxl-10 col-8" bold={false}>
                   {hacker && hacker.name}
                 </TitleGeneralized>
                 <div className="col-xxl-1 col-2 d-flex">
-                  <TitleGeneralized classe="m-auto" bold={false}>
+                  <TitleGeneralized classTitle="m-auto" bold={false}>
                     -
                   </TitleGeneralized>
                 </div>

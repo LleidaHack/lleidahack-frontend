@@ -20,7 +20,7 @@ const CalendarDates = (props) => {
   return (
     <div className="dark-background p-5">
       <div className="claseGhosting" id="dates"></div>
-      <TitleGeneralized padTop={"0%"} subrallat={true}>
+      <TitleGeneralized padTop={"0%"} underline={true}>
         Dates
       </TitleGeneralized>
       <Container>

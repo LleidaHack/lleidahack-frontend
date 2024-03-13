@@ -17,7 +17,7 @@ const Schedule = (props) => {
 
   return (
     <div className="dark-background">
-      <TitleGeneralized subrallat={true} href="#horari">
+      <TitleGeneralized underline={true} href="#horari">
         Horari
       </TitleGeneralized>
       <VerticalTimeline>{rendered_events}</VerticalTimeline>

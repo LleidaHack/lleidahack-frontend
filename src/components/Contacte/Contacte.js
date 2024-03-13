@@ -55,7 +55,7 @@ const ContactePage = () => {
     <div className="container-all">
       {!mailSended ? (
         <>
-          <TitleGeneralized subrallat={true}>Contacte</TitleGeneralized>
+          <TitleGeneralized underline={true}>Contacte</TitleGeneralized>
           <div className="contact-container">
             <div className="logo-container">
               <h2 className="title-logo">

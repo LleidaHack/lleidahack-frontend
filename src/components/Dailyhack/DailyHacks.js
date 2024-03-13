@@ -170,7 +170,7 @@ const Dailyhacks = () => {
     <div className="BGPhather">
       {!estadoPadre ? (
         <>
-          <TitleGeneralized subrallat={true}>Dailyhack</TitleGeneralized>
+          <TitleGeneralized underline={true}>Dailyhack</TitleGeneralized>
           <section className="informative">
             <div className="Part1">
               <p>
@@ -186,7 +186,7 @@ const Dailyhacks = () => {
 
             <div className="Part1">
               <div className="IntroTexte">
-                <TitleGeneralized textAlinear={"left"} margeBot="2rem">
+                <TitleGeneralized alignText={"left"} margeBot="2rem">
                   En què consisteix el repte?
                 </TitleGeneralized>
 
@@ -245,7 +245,7 @@ const Dailyhacks = () => {
           <br />
 
           <section className="upload">
-            <TitleGeneralized subrallat={true}>Premis </TitleGeneralized>
+            <TitleGeneralized underline={true}>Premis </TitleGeneralized>
 
             <div className="contenedorx">
               <div className="tarjeta ">
