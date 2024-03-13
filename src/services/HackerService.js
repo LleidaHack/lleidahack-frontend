@@ -68,3 +68,11 @@ export async function getHackerGroups(hacker_id) {
     hasUserauth: true,
   });
 }
+
+export async function updateHackerCodes() {
+  return fetchPlus({
+    Url: `/hacker/update_all_codes`,
+    Method: "POST",
+    hasUserauth: true,
+  });
+}

@@ -88,6 +88,14 @@ export async function acceptHackerToEvent(hacker_id, event_id) {
   });
 }
 
+export async function unacceptHackerToEventByMail(hacker_mail, event_id) {
+  return fetchPlus({
+    Url: `/eventmanagment/${event_id}/unaccept/${hacker_mail}`,
+    Method: "PUT",
+    hasUserauth: true,
+  });
+}
+
 export async function acceptGroupToEvent(group_id, event_id) {
   return fetchPlus({
     Url: `/eventmanagment/${event_id}/acceptgroup/${group_id}`,
@@ -136,7 +144,12 @@ export async function getRejectedHackers(event_id) {
 export async function getEventStatus(event_id) {
   return fetchPlus({
     Url: `/eventmanagment/${event_id}/status`,
-    hasUserauth: true,
+  });
+}
+
+export async function getFoodRestrictions(event_id) {
+  return fetchPlus({
+    Url: `/eventmanagment/${event_id}/food_restrictions`,
   });
 }
 
@@ -144,6 +157,42 @@ export async function hackerEatsFoodFrom(hacker_id, meal_id, event_id) {
   return fetchPlus({
     Url: `/eventmanagment/${event_id}/eat/${meal_id}/${hacker_id}`,
     Method: "PUT",
+    hasUserauth: true,
+  });
+}
+
+export async function sendRemember(event_id) {
+  return fetchPlus({
+    Url: `/eventmanagment/${event_id}/send_remember`,
+    Method: "POST",
+    hasUserauth: true,
+  });
+}
+
+export async function sendDailyHack(event_id) {
+  return fetchPlus({
+    Url: `/eventmanagment/${event_id}/send_dailyhack`,
+    Method: "POST",
+    hasUserauth: true,
+  });
+}
+
+export async function getSizes(event_id) {
+  return fetchPlus({
+    Url: `/eventmanagment/${event_id}/get_sizes`,
+  });
+}
+
+export async function getUnregisteredHackers(event_id) {
+  return fetchPlus({
+    Url: `/eventmanagment/${event_id}/get_unregistered_hackers`,
+    hasUserauth: true,
+  });
+}
+
+export async function countUnregisteredHackers(event_id) {
+  return fetchPlus({
+    Url: `/eventmanagment/${event_id}/count_unregistered_hackers`,
     hasUserauth: true,
   });
 }

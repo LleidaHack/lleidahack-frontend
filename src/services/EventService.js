@@ -126,3 +126,17 @@ export async function getEventHackerGroup(event_id, hacker_id) {
     hasUserauth: true,
   });
 }
+
+export async function getAcceptedHackers(event_id) {
+  return fetchPlus({
+    Url: `/event/${event_id}/get_approved_hackers`,
+    hasUserauth: true,
+  });
+}
+
+export async function getEventHackerGroup(event_id) {
+  return fetchPlus({
+    Url: `/event/${event_id}/get_approved_hackers_mails`,
+    hasUserauth: true,
+  });
+}
