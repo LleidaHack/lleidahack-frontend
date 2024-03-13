@@ -208,15 +208,15 @@ const ProfileComponent = () => {
           {hacker && <LinkAccounts hacker={hacker} />}
 
           {isUser && (
-            <div className="espaiEdit">
-              <div className="ajustarEdit">
+            <div className="editSpace">
+              <div className="editAjust">
                 {hacker && <EditProfile hacker={hacker} />}
               </div>
             </div>
           )}
 
           {isUser && (
-            <div className="ordenar-horitzontal">
+            <div className="sort-horizontally">
               <Join event={event} />
             </div>
           )}
