@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import "src/palette.css";
 import "./Profile.css";
 import Modal from "react-bootstrap/Modal";
-import HSkeleton from "src/components/others/HSkeleton";
+import HSkeleton from "src/components/LoadingSkeleton/HSkeleton";
 import { getHackerById, getHackerGroups } from "src/services/HackerService";
 import {
   getHackeps,
