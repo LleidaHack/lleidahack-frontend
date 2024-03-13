@@ -96,7 +96,7 @@ const Sponsors = () => {
   return (
     <div className="sponsors">
       <div className="gostHunter" id="sponsors"></div>
-      <TitleGeneralized padTop="2%" subrallat={true} colorLLetra={"secundari"}>
+      <TitleGeneralized padTop="2%" subrallat={true} colorLLetra={"secondary"}>
         Sponsors
       </TitleGeneralized>
       <p>Vols participar?</p>
@@ -118,7 +118,7 @@ const Sponsors = () => {
         </div>
       </section>
       <br />
-      <TitleGeneralized padTop="2%" subrallat={true} colorLLetra={"secundari"}>
+      <TitleGeneralized padTop="2%" subrallat={true} colorLLetra={"secondary"}>
         Partners
       </TitleGeneralized>
 

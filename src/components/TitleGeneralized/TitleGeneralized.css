@@ -18,7 +18,7 @@
   text-align: right;
 }
 
-.negre {
+.titleblack {
   color: var(--secondary) !important;
 }
 
@@ -26,6 +26,6 @@
   color: var(--white);
 }
 
-.negreta {
+.titlebold {
   font-weight: bold;
 }

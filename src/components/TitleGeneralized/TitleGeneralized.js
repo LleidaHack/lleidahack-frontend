@@ -16,13 +16,13 @@ const TitleGeneralized = ({
   if (subrallat) {
     estils += " title-underline";
   }
-  if (colorLLetra === "secundari") {
-    estils += " negre";
+  if (colorLLetra === "secondary") {
+    estils += " titleblack";
   } else {
     estils += " whiteFont";
   }
   if (bold) {
-    estils += " negreta";
+    estils += " titlebold";
   }
   if (classe) {
     estils += " " + classe;
