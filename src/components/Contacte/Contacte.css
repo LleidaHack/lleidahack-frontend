@@ -10,14 +10,6 @@
   animation: fadeIn 0.5s ease-in-out;
 }
 
-.title-contacte {
-  color: var(--white);
-  padding-top: 5%;
-  font-weight: bold;
-  text-align: center;
-  font-size: 40px;
-}
-
 .logo-container {
   flex: 1;
   display: flex;

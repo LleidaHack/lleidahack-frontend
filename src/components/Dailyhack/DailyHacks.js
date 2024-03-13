@@ -17,6 +17,7 @@ import { addDailyhack } from "src/services/EventManagementService";
 
 import FailFeedback from "../Feedbacks/FailFeedback";
 import SuccessFeedback from "../Feedbacks/SuccesFeedback";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const validationSchema = Yup.object().shape({
   //nick: Yup.string().required("Nom / Nickname requerit"),
@@ -169,7 +170,7 @@ const Dailyhacks = () => {
     <div className="BGPhather">
       {!estadoPadre ? (
         <>
-          <h1 className="title2 title-underline">Dailyhack</h1>
+          <TitleGeneralized underline={true}>Dailyhack</TitleGeneralized>
           <section className="informative">
             <div className="Part1">
               <p>
@@ -185,7 +186,9 @@ const Dailyhacks = () => {
 
             <div className="Part1">
               <div className="IntroTexte">
-                <h1 className="title2 left ">En què consisteix el repte?</h1>
+                <TitleGeneralized alignText={"left"} marginBot="2rem">
+                  En què consisteix el repte?
+                </TitleGeneralized>
 
                 <p>
                   Fent un resum molt resumit, el repte consisteix a crear el
@@ -242,7 +245,7 @@ const Dailyhacks = () => {
           <br />
 
           <section className="upload">
-            <h1 className="title2 title-underline">Premis </h1>
+            <TitleGeneralized underline={true}>Premis </TitleGeneralized>
 
             <div className="contenedorx">
               <div className="tarjeta ">

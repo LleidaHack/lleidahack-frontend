@@ -7,14 +7,6 @@
   display: flex;
 }
 
-.title-contacte {
-  color: var(--white);
-  padding-top: 5%;
-  font-weight: bold;
-  text-align: center;
-  font-size: 40px;
-}
-
 .container-inscripcio {
   width: 70%;
   align-items: center;
@@ -26,13 +18,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.title-logo {
-  color: var(--white);
-  font-size: 22px;
-  margin-bottom: 30px;
-  text-align: center;
 }
 
 .logo {
@@ -175,11 +160,6 @@ input[type="text"] {
 
   .logo {
     width: 70%;
-  }
-
-  .title-logo {
-    font-size: 14px;
-    margin: 20px;
   }
 
   .social-logos {

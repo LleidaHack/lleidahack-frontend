@@ -9,7 +9,6 @@ import Col from "react-bootstrap/Col";
 import userIcon from "src/icons/user2.png";
 
 const EditProfile = (props) => {
-  console.log(props);
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [cvFile, setCvFile] = useState("");
 
@@ -58,7 +57,7 @@ const EditProfile = (props) => {
     const data = {
       id: props.hacker.id,
       food_restrictions: values.food,
-      size: values.size,
+      shirt_size: values.size,
       linkedin: values.linkedin,
       github: values.github,
       studies: values.studies,
@@ -109,7 +108,10 @@ const EditProfile = (props) => {
                   onSubmit={handleEditProfileSubmit}
                 >
                   <Form>
-                    <div className="formik-field" style={{ marginTop: "5%" }}>
+                    <div
+                      className="formik-field"
+                      style={{ marginTop: "5%", color: "black" }}
+                    >
                       <SelectField
                         id="size"
                         name="size"

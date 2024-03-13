@@ -4,6 +4,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import "src/components/Home/Schedule.css";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const Schedule = (props) => {
   const rendered_events = props.events.map((event) => {
@@ -16,9 +17,9 @@ const Schedule = (props) => {
 
   return (
     <div className="dark-background">
-      <h1 className="text-center title-underline" href="#horari">
+      <TitleGeneralized underline={true} href="#horari">
         Horari
-      </h1>
+      </TitleGeneralized>
       <VerticalTimeline>{rendered_events}</VerticalTimeline>
     </div>
   );

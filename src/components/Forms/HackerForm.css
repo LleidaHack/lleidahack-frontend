@@ -37,10 +37,6 @@ label {
   color: var(--primary) !important;
 }
 
-h1 {
-  color: var(--white);
-}
-
 .hacker-panel {
   display: flex;
   flex-direction: column;

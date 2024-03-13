@@ -30,13 +30,13 @@
   border-width: 3px !important;
 }
 
-.espaiEdit {
+.editSpace {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.ajustarEdit {
+.editAjust {
   width: 50%;
 }
 
@@ -50,7 +50,7 @@
   font-family: "space mono";
 }
 
-.ordenar-horitzontal {
+.sort-horizontally {
   display: flex;
   justify-content: center;
 }
@@ -69,10 +69,10 @@
     max-width: 90%;
     text-align: center;
   }
-  .ordenar-horitzontal {
+  .sort-horizontally {
     display: inline;
   }
-  .ajustarEdit {
+  .editAjust {
     width: 100%;
   }
 }

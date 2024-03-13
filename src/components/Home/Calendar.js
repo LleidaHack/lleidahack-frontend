@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "src/styles/styles.css";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const CalendarDates = (props) => {
   const [startDate, setStartDate] = useState(props.startDate);
@@ -19,7 +20,9 @@ const CalendarDates = (props) => {
   return (
     <div className="dark-background p-5">
       <div className="claseGhosting" id="dates"></div>
-      <h1 className="text-center title-underline">Dates</h1>
+      <TitleGeneralized padTop={"0%"} underline={true}>
+        Dates
+      </TitleGeneralized>
       <Container>
         <Row>
           <Col className="calendar-content">
