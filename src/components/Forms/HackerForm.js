@@ -171,7 +171,7 @@ export const HackerStepperForm = () => {
                 <div className="col-12 col-xxl-6 ">
                   <TitleGeneralized
                     bold={false}
-                    margeBot="0.5rem"
+                    marginBot="0.5rem"
                     alignText="left"
                   >
                     Informació Personal
@@ -215,7 +215,7 @@ export const HackerStepperForm = () => {
                 <div className="col-12 col-xxl-6 ">
                   <TitleGeneralized
                     bold={false}
-                    margeBot="0.5rem"
+                    marginBot="0.5rem"
                     alignText="left"
                   >
                     Contacte
@@ -272,7 +272,7 @@ export const HackerStepperForm = () => {
                 <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
                   <TitleGeneralized
                     bold={false}
-                    margeBot="0.5rem"
+                    marginBot="0.5rem"
                     alignText="left"
                   >
                     Avatar

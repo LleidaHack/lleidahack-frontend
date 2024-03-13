@@ -23,7 +23,7 @@ const QrCode = (props) => {
         <Col id="ticket_col" className={"mx-auto m-3 text-center"}>
           <TitleGeneralized
             bold={false}
-            margeBot="0.5rem"
+            marginBot="0.5rem"
             lettersColor={"secondary"}
           >
             Ticket

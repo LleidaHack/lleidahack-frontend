@@ -186,7 +186,7 @@ const Dailyhacks = () => {
 
             <div className="Part1">
               <div className="IntroTexte">
-                <TitleGeneralized alignText={"left"} margeBot="2rem">
+                <TitleGeneralized alignText={"left"} marginBot="2rem">
                   En què consisteix el repte?
                 </TitleGeneralized>
 

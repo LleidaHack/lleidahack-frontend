@@ -109,7 +109,7 @@ const Team = (props) => {
       <>
         {is_user && (
           <Container className="p-bg-grey text-center mt-5 m-0 p-3 contss">
-            <TitleGeneralized margeBot="0.5rem" bold={false} padTop="0%">
+            <TitleGeneralized marginBot="0.5rem" bold={false} padTop="0%">
               Inscripcions
             </TitleGeneralized>
             <Row className="justify-content-center">

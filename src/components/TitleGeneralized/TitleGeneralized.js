@@ -7,7 +7,7 @@ const TitleGeneralized = ({
   alignText = "center",
   size,
   padTop = "5%",
-  margeBot = "0%",
+  marginBot = "0%",
   lettersColor,
   bold = true,
   classTitle,
@@ -32,7 +32,7 @@ const TitleGeneralized = ({
       className={stylesTitle}
       style={{
         paddingTop: padTop,
-        marginBottom: margeBot,
+        marginBottom: marginBot,
         textAlign: alignText,
       }}
     >
