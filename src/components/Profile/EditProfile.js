@@ -109,7 +109,10 @@ const EditProfile = (props) => {
                   onSubmit={handleEditProfileSubmit}
                 >
                   <Form>
-                    <div className="formik-field" style={{ marginTop: "5%", color: "black"}}>
+                    <div
+                      className="formik-field"
+                      style={{ marginTop: "5%", color: "black" }}
+                    >
                       <SelectField
                         id="size"
                         name="size"
