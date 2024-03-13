@@ -157,7 +157,7 @@ const InscripcioForm = () => {
         <>
           <br />
           <div className="container-inscripcio">
-            <TitleGeneralized subrallat={true}>
+            <TitleGeneralized underline={true}>
               Inscripció HackEPS 2023
             </TitleGeneralized>
             <div className="form-container">
