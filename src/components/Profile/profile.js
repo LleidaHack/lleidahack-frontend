@@ -207,7 +207,7 @@ const ProfileComponent = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          {isUser && ( 
+          {isUser && (
             <div className="espaiEdit">
               <div className="ajustarEdit">
                 {hacker && <EditProfile hacker={hacker} />}
