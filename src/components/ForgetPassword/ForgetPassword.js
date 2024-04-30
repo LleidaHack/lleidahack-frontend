@@ -76,10 +76,12 @@ const ForgetPassword = ({ nextScreen }) => {
                               touched.email && errors.email ? "is-invalid" : ""
                             }`}
                           />
-                          {touched.email && errors.email && (
+                          {touched.email && errors.email ? (
                             <div className="invalid-feedback">
                               {errors.email}
                             </div>
+                          ) : (
+                            <></>
                           )}
                         </div>
 

@@ -30,6 +30,16 @@
   border-width: 3px !important;
 }
 
+.editSpace {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.editAjust {
+  width: 50%;
+}
+
 .logOut-button {
   padding: 10px 12px;
   font-size: 18px;
@@ -38,6 +48,11 @@
   border: 2px solid var(--primary);
   cursor: pointer;
   font-family: "space mono";
+}
+
+.sort-horizontally {
+  display: flex;
+  justify-content: center;
 }
 
 .logOut-button:hover {
@@ -52,5 +67,12 @@
 @media (max-width: 768px) {
   .peter {
     max-width: 90%;
+    text-align: center;
+  }
+  .sort-horizontally {
+    display: inline;
+  }
+  .editAjust {
+    width: 100%;
   }
 }

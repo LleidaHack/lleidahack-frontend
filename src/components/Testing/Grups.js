@@ -4,10 +4,7 @@ import { useState } from "react";
 const Grups = ({ data, autotest }) => {
   const handleFunctionCall = async (func, params, i) => {
     const a = await func(params?.[0], params?.[1]);
-    if (Array.isArray(a) && a.length === 0) {
-      return a;
-    }
-    if (a === { detail: "Insufficient permissions" }) {
+    if (Array.isArray(a) && a.length < 2) {
       return a;
     }
     const updatedItems = [...buttonStates];

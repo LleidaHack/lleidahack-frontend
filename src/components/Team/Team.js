@@ -16,7 +16,8 @@ import {
   setHackerGroupLeader,
 } from "src/services/HackerGroupService";
 import { getHackeps } from "src/services/EventService";
-import ProfilePic from "src/components/others/ProfilePic";
+import ProfilePic from "src/components/ProfilePic/ProfilePic";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const Team = (props) => {
   const [team, setTeam] = useState(props.team);
@@ -108,7 +109,9 @@ const Team = (props) => {
       <>
         {is_user && (
           <Container className="p-bg-grey text-center mt-5 m-0 p-3 contss">
-            <h1>Inscripcions</h1>
+            <TitleGeneralized marginBot="0.5rem" bold={false} padTop="0%">
+              Inscripcions
+            </TitleGeneralized>
             <Row className="justify-content-center">
               <Button
                 className="m-3 team-button team-button-fit"
@@ -209,15 +212,20 @@ const Team = (props) => {
     return (
       <div className="Alineador">
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
-          <h1>
+          <TitleGeneralized bold={false} padTop="0%">
             {team.name} {team.code && `Codi: #${team.code}`}
-          </h1>
+          </TitleGeneralized>
           <Container className="">
             <Row className="justify-content-center">
               {team.members.map((member, index) => (
                 <Col className="col-xxl-3 cards" key={index}>
                   <div className="p-3 text-center bg-white smallCard">
-                    <ProfilePic hacker={member} />
+                    <ProfilePic
+                      hacker={member}
+                      size="big"
+                      defaultColor="grey"
+                      bgcolor="black"
+                    />
                     <p className="team-member-name">{member.name}</p>
                     {String(member.id) === localStorage.getItem("userID") ? (
                       ""

@@ -1,5 +1,5 @@
 import React from "react";
-import HSkeleton from "src/components/others/HSkeleton";
+import HSkeleton from "src/components/LoadingSkeleton/HSkeleton";
 import logo from "src/icons/hackLogoWellDone.png";
 import "src/components/Join/Join.css";
 
@@ -43,8 +43,8 @@ const Join = (props) => {
   }
 
   return (
-    <div className="container-fluid m-0 p-0">
-      <div className="row join-container p-bg-grey text-center m-auto mt-5 lolospace">
+    <div className="responsive-amongButton">
+      <div className="pendentAcceptPC row container-fluid  p-bg-grey text-center m-auto lolospace">
         <div className="col-12 p-bg-grey">
           <div className="row">
             <img className="imgbox" src={logo} alt="" />

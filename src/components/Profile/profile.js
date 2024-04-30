@@ -4,14 +4,14 @@ import { useParams, Link } from "react-router-dom";
 import "src/palette.css";
 import "./Profile.css";
 import Modal from "react-bootstrap/Modal";
-import HSkeleton from "src/components/others/HSkeleton";
+import HSkeleton from "src/components/LoadingSkeleton/HSkeleton";
 import { getHackerById, getHackerGroups } from "src/services/HackerService";
 import {
   getHackeps,
   getEventIsHackerRegistered,
   getEventIsHackerAccepted,
 } from "src/services/EventService";
-
+import EditProfile from "./EditProfile";
 import qrIcon from "src/icons/qr-black.png";
 
 //import Medals from "src/components/Medals/Medals";
@@ -22,7 +22,9 @@ import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
-import ProfilePic from "../others/ProfilePic";
+import ProfilePic from "../ProfilePic/ProfilePic";
+import { Button } from "react-bootstrap";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const ProfileComponent = () => {
   let { hacker_id } = useParams();
@@ -118,7 +120,15 @@ const ProfileComponent = () => {
           <div className="row align-middle mx-auto mb-3">
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
-              <ProfilePic hacker={hacker} is_profile={true} />
+              <ProfilePic
+                id="profile-pic-big"
+                hacker={hacker}
+                size="big"
+                defaultColor="white"
+                bgcolor="white"
+                border={true}
+                is_profile={true}
+              />
               <br />
               <br />
               {isUser && (
@@ -139,11 +149,17 @@ const ProfileComponent = () => {
               </div>
               <div className="row my-3">
                 <div className="col-xxl-1 col-2 d-flex">
-                  <h1 className="text-center m-auto">-</h1>
+                  <TitleGeneralized classTitle="m-auto" bold={false}>
+                    -
+                  </TitleGeneralized>
                 </div>
-                <h1 className="col-xxl-10 col-8">{hacker && hacker.name}</h1>
+                <TitleGeneralized classTitle="col-xxl-10 col-8" bold={false}>
+                  {hacker && hacker.name}
+                </TitleGeneralized>
                 <div className="col-xxl-1 col-2 d-flex">
-                  <h1 className="text-center m-auto">-</h1>
+                  <TitleGeneralized classTitle="m-auto" bold={false}>
+                    -
+                  </TitleGeneralized>
                 </div>
               </div>
               <div className="row">
@@ -191,7 +207,19 @@ const ProfileComponent = () => {
           {/* Accounts link */}
           {hacker && <LinkAccounts hacker={hacker} />}
 
-          {isUser && <Join event={event} />}
+          {isUser && (
+            <div className="editSpace">
+              <div className="editAjust">
+                {hacker && <EditProfile hacker={hacker} />}
+              </div>
+            </div>
+          )}
+
+          {isUser && (
+            <div className="sort-horizontally">
+              <Join event={event} />
+            </div>
+          )}
 
           {event && event.registered && <Team team={team} is_user={isUser} />}
 

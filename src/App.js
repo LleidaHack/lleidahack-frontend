@@ -6,7 +6,7 @@ import FAQPage from "src/pages/FAQ";
 import Home from "src/pages/Home";
 import Profile from "src/pages/Profile.js";
 import HackerForm from "src/pages/HackerSignup";
-import Testing from "src/components/others/Testing";
+import Testing from "src/components/Testing/Testing";
 import Terms from "src/pages/Terms";
 import Privacy from "src/pages/Privacy";
 import Inscripcio from "src/pages/Inscripcio";
