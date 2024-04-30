@@ -65,5 +65,8 @@
       "last 1 safari version"
     ]
   },
-  "homePage": "/hackeps"
+  "homePage": "/hackeps",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
 }
