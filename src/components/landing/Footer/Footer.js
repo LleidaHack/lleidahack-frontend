@@ -1,4 +1,6 @@
 import lleidaHackLogo from '../../../icons/imagotip_lleidahack_blanc.png';
+// Falta redirigir a las redes sociales de LleidaHack
+// Falta rediidigir politiques de privacitat, avís legal i política de cookies
 const Footer = () => {
     return (
         <div className='bg-primaryLanding w-full h-36 px-4 py-4 items-center'>
