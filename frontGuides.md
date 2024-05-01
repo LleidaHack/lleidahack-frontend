@@ -19,3 +19,4 @@
 ## Text-Size:
     - Title (48px) --> text-5xl	
     - Components defaul text (20px) --> text-xl	
+    - Per al hover he utilitzar una tranisio de 300ms -> hover:text-secondaryLanding duration-300
