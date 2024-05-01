@@ -1,15 +1,16 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        'primary': '#FF7430',
-        'secondary': '#232323',
-        'CTA': '#F7F7F7',
-        'success': '#14D455',
-        'error': '#E55010',
-        'link': '#3366CC'
+        'primaryLanding': '#FF7430',
+        'secondaryLanding': '#232323',
+        'CTALanding': '#F7F7F7',
+        'successLanding': '#14D455',
+        'errorLanding': '#E55010',
+        'linkLanding': '#3366CC'
       },
     },
   },
