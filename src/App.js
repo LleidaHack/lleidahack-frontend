@@ -45,7 +45,6 @@ export default function App() {
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contacte" element={<Contacte />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/aleixtesting" element={<HomeLanding />} />
           <Route
             path="/perfil"
             element={
