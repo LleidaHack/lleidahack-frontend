@@ -1,0 +1,17 @@
+.static_icon {
+    color: #F7F7F7;
+}
+
+.base_icon {
+    color:#F7F7F7;
+    transition: color 0.1s ease-in-out;
+}
+
+.base_icon:hover {
+    color: #232323;
+}
+
+.in_to_out {
+    transform: rotate(180deg);
+    position: relative;
+}
