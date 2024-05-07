@@ -12,5 +12,3 @@ const IC_EditProfile = () => {
 };
 
 export default IC_EditProfile;
-
-

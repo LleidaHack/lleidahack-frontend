@@ -19,4 +19,3 @@ const IC_LleidaHack = () => {
 };
 
 export default IC_LleidaHack;
-
