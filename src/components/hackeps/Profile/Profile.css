@@ -1,0 +1,78 @@
+@media (min-width: 576px) {
+  .qr-container {
+    height: 100%;
+    width: 40% !important;
+  }
+
+  .qr-container img {
+    padding-top: 30px;
+    width: 70%;
+  }
+
+  .bottom-container {
+    width: 50%;
+  }
+
+  .join-container {
+    width: 35% !important;
+  }
+}
+
+.qr-container:hover {
+  cursor: pointer;
+}
+
+#profile-image {
+  position: relative;
+  color: white;
+  object-fit: cover;
+  border-color: var(--primary) !important;
+  border-width: 3px !important;
+}
+
+.editSpace {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.editAjust {
+  width: 50%;
+}
+
+.logOut-button {
+  padding: 10px 12px;
+  font-size: 18px;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: 2px solid var(--primary);
+  cursor: pointer;
+  font-family: "space mono";
+}
+
+.sort-horizontally {
+  display: flex;
+  justify-content: center;
+}
+
+.logOut-button:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.main-screen {
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .peter {
+    max-width: 90%;
+    text-align: center;
+  }
+  .sort-horizontally {
+    display: inline;
+  }
+  .editAjust {
+    width: 100%;
+  }
+}
