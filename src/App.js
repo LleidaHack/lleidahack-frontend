@@ -4,6 +4,7 @@ import Contacte from "src/pages/hackeps/Contacte";
 import Error404 from "src/pages/hackeps/Error404";
 import FAQPage from "src/pages/hackeps/FAQ";
 import Home from "src/pages/hackeps/Home";
+import HomeLanding from "./pages/Landing/HomeLanding";
 import Profile from "src/pages/hackeps/Profile.js";
 import HackerForm from "src/pages/hackeps/HackerSignup";
 import Testing from "src/components/hackeps/Testing/Testing";
