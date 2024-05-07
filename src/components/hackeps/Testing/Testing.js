@@ -127,6 +127,12 @@ import {
   deleteMeal,
   createMeal,
 } from "src/services/MealService";
+import IC_EditProfile from "src/components/icons/IC_EditProfile";
+import IC_LleidaHack from "src/components/icons/IC_LleidaHack";
+import IC_Profile from "src/components/icons/IC_Profile";
+import IC_Settings from "src/components/icons/IC_Settings";
+import IC_Sign_In from "src/components/icons/IC_Sign_In";
+import IC_Sign_Out from "src/components/icons/IC_Sign_Out";
 
 const Testing = () => {
   const [autoTest, setAutoTest] = useState(false);
@@ -894,6 +900,12 @@ const Testing = () => {
   };
   return (
     <div>
+      <IC_EditProfile/>
+      <IC_LleidaHack/>
+      <IC_Profile/>
+      <IC_Settings/>
+      <IC_Sign_In/>
+      <IC_Sign_Out/>
       <button onClick={() => setAutoTest(!autoTest)}>
         testingmode: {autoTest ? "auto" : "manual"}
       </button>
