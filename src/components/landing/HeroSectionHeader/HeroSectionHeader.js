@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const HeroSectionHeader = () => {
     return (
-        <div className="hero-container flex flex-col bg-background-hero  w-full relative min-h-0">
+        <div className="hero-container flex flex-col bg-background-hero  w-full relative min-h-0 bg-cover bg-no-repeat bg-center">
             <div className="hero-frame-grey bg-secondaryLanding h-full w-full opacity-70 z-10 absolute"></div>
                 <div className="hero-section-container z-20 pl-12 pr-12">
                     <div className="logo flex-1 h-20 my-16">
@@ -29,8 +29,11 @@ const HeroSectionHeader = () => {
                         <br></br>
                         <p>Impulsa i organitza, any rere any, l’esdeveniment informàtic més gran de les terres de ponent, la HackEPS. La HackEPS és un event que acull a més de 150 participants d’arreu del món, amb l’objectiu de desenvolupar solucions a problemes tecnològics reals.</p>
                     </div>
-                    <div className="hero-buttons flex-1 h-16">
-                        
+                    <div className="hero-buttons flex flex-1 h-16 mb-16 gap-4">
+                        <button className="bg-primaryLanding text-CTALanding text-xl font-bold py-2 px-4 rounded-full">Inscriu-te</button>
+                        <button className="bg-primaryLanding text-CTALanding text-xl font-bold py-2 px-4 rounded-full">Inscriu-te</button>
+
+
                     </div>
                 </div>
         </div>
