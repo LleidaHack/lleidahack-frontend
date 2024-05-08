@@ -13,6 +13,9 @@ module.exports = {
         linkLanding: "#3366CC",
       },
     },
+    backgroundImage: {
+      'background-hero': "url('/src/imgs/hackers_group.jpg')",
+    }
   },
   plugins: [],
 };
