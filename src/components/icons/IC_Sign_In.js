@@ -7,7 +7,7 @@ const IC_Sign_In = ({ rotateClass = "" }) => {
       height="48"
       viewBox="0 0 48 48"
       fill="none"
-      className={`${rotateClass} CTALanding transition-colors duration-100 ease-in-out hover:secondaryLanding`}
+      className={`${rotateClass} text-CTALanding transition-colors duration-100 ease-in-out hover:text-secondaryLanding`}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

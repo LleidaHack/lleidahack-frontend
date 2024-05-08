@@ -7,7 +7,7 @@ const IC_Settings = () => {
       height="56"
       viewBox="0 0 56 56"
       fill="none"
-      className="CTALanding transition-colors duration-100 ease-in-out hover:secondaryLanding"
+      className="text-CTALanding transition-colors duration-100 ease-in-out hover:text-secondaryLanding"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
