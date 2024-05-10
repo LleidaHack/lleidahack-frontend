@@ -23,7 +23,7 @@ const HeroSectionHeader = () => {
                             <path d="M47.1587 47.8671V79.3371H0V0.662903H15.719V63.6012H31.4397V47.8671H47.1587Z" fill="#F7F7F7"/>
                             <path d="M78.5967 0.662903V79.3371H62.8777V16.3988H47.1587V32.1329H31.4397V0.662903H78.5967Z" fill="#F7F7F7"/>
                         </svg>
-                    </div> 
+                    </div>
                     <div className="hero-content flex-1 my-16 h-32 text-CTALanding text-xl">
                         <p>Lleidahack és una associació d’estudiants de la Universitat de Lleida, que promou l’aprenentatge i l’ús de les noves tecnologies.</p>
                         <br></br>
