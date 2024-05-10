@@ -11,10 +11,12 @@ module.exports = {
         successLanding: "#14D455",
         errorLanding: "#E55010",
         linkLanding: "#3366CC",
+        graycolor: "#959595",
       },
     },
     backgroundImage: {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",
+      "background-patron": "url('/src/imgs/patron_imagen.png')",
     },
   },
   plugins: [],
