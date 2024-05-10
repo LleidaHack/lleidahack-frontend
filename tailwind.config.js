@@ -14,8 +14,8 @@ module.exports = {
       },
     },
     backgroundImage: {
-      'background-hero': "url('/src/imgs/hackers_group.jpg')",
-    }
+      "background-hero": "url('/src/imgs/hackers_group.jpg')",
+    },
   },
   plugins: [],
 };
