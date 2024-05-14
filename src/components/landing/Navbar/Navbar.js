@@ -21,7 +21,7 @@ const Navbar = () => {
             <li className="mx-8 text-xl list-none	">
               <a
                 href="/"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === '/' ? 'font-bold' : ''}`}
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/" ? "font-bold" : ""}`}
               >
                 HackEPS
               </a>
@@ -37,7 +37,7 @@ const Navbar = () => {
             <li className="mx-8 text-xl list-none	">
               <a
                 href="/news"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === '/news' ? 'font-bold' : ''}`}
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/news" ? "font-bold" : ""}`}
               >
                 Noticies
               </a>
@@ -45,7 +45,7 @@ const Navbar = () => {
             <li className="mx-8 text-xl list-none	">
               <a
                 href="/contact"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === '/contact' ? 'font-bold' : ''}`}
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/contact" ? "font-bold" : ""}`}
               >
                 Contacte
               </a>
@@ -53,7 +53,7 @@ const Navbar = () => {
             <li className="mx-8 text-xl list-none	">
               <a
                 href="/team"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === '/team' ? 'font-bold' : ''}`}
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/team" ? "font-bold" : ""}`}
               >
                 Qui som?
               </a>
