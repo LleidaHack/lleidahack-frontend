@@ -1,9 +1,11 @@
 import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
+import { useLocation } from "react-router-dom";
 
 // Remarcar a la pagina on ets, quan tinguem les urls definitives caldra canviar-ho
 // Falta implementar els coponentes dels botons que falten
 // Falta implementar el responsive
 const Navbar = () => {
+  const location = useLocation();
   return (
     <div>
       <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
@@ -19,7 +21,7 @@ const Navbar = () => {
             <li className="mx-8 text-xl list-none	">
               <a
                 href="/"
-                className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === '/' ? 'font-bold' : ''}`}
               >
                 HackEPS
               </a>
@@ -34,24 +36,24 @@ const Navbar = () => {
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/noticies"
-                className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
+                href="/news"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === '/news' ? 'font-bold' : ''}`}
               >
                 Noticies
               </a>
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/contacte"
-                className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
+                href="/contact"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === '/contact' ? 'font-bold' : ''}`}
               >
                 Contacte
               </a>
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/qui-som"
-                className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
+                href="/team"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === '/team' ? 'font-bold' : ''}`}
               >
                 Qui som?
               </a>
