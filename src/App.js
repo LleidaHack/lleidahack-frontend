@@ -30,15 +30,22 @@ export default function App() {
     window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
   }, []);
 
-  if (!window.location.pathname.includes("/hackeps")) {
-    window.history.replaceState("", "", "/hackeps" + window.location.pathname);
-  }
+  // if (!window.location.pathname.includes("/hackeps")) {
+  //   window.history.replaceState("", "", "/hackeps" + window.location.pathname);
+  // } //comentada autoredirección a /hackeps
 
   // Simulación de detección de token caducado
   setInterval(refreshToken, 1000 * 60 * 12);
 
   return (
     <div className="App">
+      <Router basename="/">
+        <Routes>
+          <Route path="/" element={<HomeLanding />} />
+          <Route path="/home" element={<HomeLanding />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </Router>
       <Router basename="/hackeps">
         <Routes>
           <Route path="/" element={<Home />} />
