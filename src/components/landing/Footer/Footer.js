@@ -76,7 +76,11 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a className="mx-2" href="https://twitter.com/lleidahack" target="_blank">
+              <a
+                className="mx-2"
+                href="https://twitter.com/lleidahack"
+                target="_blank"
+              >
                 <svg
                   width="40"
                   height="37"
