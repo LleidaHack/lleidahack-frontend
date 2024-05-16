@@ -1,5 +1,4 @@
 import React from "react";
-import "src/components/icons/Icons.css";
 
 const IC_EditProfile = () => {
   return (
@@ -8,7 +7,7 @@ const IC_EditProfile = () => {
       height="56"
       viewBox="0 0 56 56"
       fill="none"
-      className="base_icon"
+      className="text-CTALanding transition-colors duration-100 ease-in-out hover:text-secondaryLanding"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

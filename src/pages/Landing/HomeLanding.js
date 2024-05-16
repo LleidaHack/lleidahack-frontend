@@ -1,11 +1,11 @@
 import Navbar from "src/components/landing/Navbar/Navbar";
 import Footer from "src/components/landing/Footer/Footer";
-
+import HeroSectionHeader from "src/components/landing/HeroSectionHeader/HeroSectionHeader";
 const HomeLanding = () => {
   return (
     <div>
       <Navbar />
-      <h1 className="text-secondary">Home</h1>
+      <HeroSectionHeader />
       <Footer />
     </div>
   );
