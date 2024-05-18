@@ -6,9 +6,12 @@ const NewsEventDisplay = ({title, imgPath, name}) => {
   const imagePathTest = `../../../imgs/${imgPath}`;
 
   return (
-    <div>
-        <img src={imagePathTest} alt={name}/>
-        <p>{title}</p>
+    <div className='w-full py-1 '>
+      <div className='flex p-2 bg-white shadow h-32'>
+          <img src={imagePathTest} alt={name} className='w-1/2 mx-1 bg-linkLanding'/>
+           <p className='w-1/2 mx-1'>{title}</p>
+      </div>
+
     </div>
   )
 }
