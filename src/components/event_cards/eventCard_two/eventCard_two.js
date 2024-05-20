@@ -1,18 +1,19 @@
 import React from "react";
 import "src/components/event_cards/eventCard_two/eventCard_two.css";
+import background from "src/components/event_cards/defaultImage.jpg"
 
-const eventCard_two = () => {
+const EventCard_two = () => {
   return (
-    <div class="eventCardTwo shadow">
+    <div className="eventCardTwo shadow">
       <img
-        src="/src/components/event_cards/defaultImage.jpg"
-        class="defaultImageCardTwo"
+        src= {background}
+        className="defaultImageCardTwo"
       ></img>
-      <p class="eventTitleCardTwo eventTitle">Event Title</p>
-      <p class="eventDateCardTwo font textBase">Event Date</p>
-      <p class="eventPlaceCardTwo font textBase">Event Place</p>
+      <p className="eventTitleCardTwo eventTitle">Event Title</p>
+      <p className="eventDateCardTwo font textBase">Event Date</p>
+      <p className="eventPlaceCardTwo font textBase">Event Place</p>
     </div>
   );
 };
 
-export default eventCard_two;
+export default EventCard_two;

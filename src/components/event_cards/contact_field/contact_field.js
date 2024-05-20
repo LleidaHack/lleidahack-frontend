@@ -6,7 +6,7 @@ const contact_field = () => {
     <div class="contactField">
       <p class="contactTitleText fieldTitle font textBase">Field Title</p>
       <p class="contactTitleText contactTitleSpan font">*</p>
-      <input type={text} placeholder="Placeholder Text" />
+      <input placeholder="Placeholder Text" />
     </div>
   );
 };
