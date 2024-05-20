@@ -13,6 +13,10 @@
   letter-spacing: -2%;
 }
 
+.imageFitScreen{
+  object-fit: cover;
+}
+
 .newsCard {
   width: 328px;
   height: 128px;

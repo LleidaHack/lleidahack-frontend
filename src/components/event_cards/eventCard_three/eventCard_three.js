@@ -1,15 +1,16 @@
 import React from "react";
 import "src/components/event_cards/eventCard_three/eventCard_three.css";
+import background from "src/components/event_cards/defaultImage.jpg"
 
-const eventCard_three = () => {
+const eventCard_three = (title, description) => {
   return (
-    <div class="eventCardThree shadow">
+    <div className="eventCardThree shadow">
       <img
-        src="/src/components/event_cards/defaultImage.jpg"
-        class="defaultImageCardThree"
+        src={background}
+        className="absolute imageFitScreen"
       ></img>
-      <p class="eventTitleCardThree eventTitle">Event Title</p>
-      <p class="eventDescriptionCardThree font textBase">Event Description</p>
+      <p className="eventTitleCardThree eventTitle">{title}</p>
+      <p className="eventDescriptionCardThree font textBase">{description}</p>
     </div>
   );
 };

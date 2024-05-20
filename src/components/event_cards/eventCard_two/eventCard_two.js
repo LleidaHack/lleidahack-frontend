@@ -7,7 +7,7 @@ const EventCard_two = () => {
     <div className="eventCardTwo shadow">
       <img
         src= {background}
-        className="defaultImageCardTwo"
+        className="absolute imageFitScreen"
       ></img>
       <p className="eventTitleCardTwo eventTitle">Event Title</p>
       <p className="eventDateCardTwo font textBase">Event Date</p>

@@ -6,6 +6,10 @@
   position: absolute;
 }
 
+.imageFitScreen{
+  object-fit: cover;
+}
+
 .eventGradientCardFive {
   width: 840px;
   height: 448px;

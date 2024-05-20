@@ -1,18 +1,19 @@
 import React from "react";
 import "src/components/event_cards/eventCard_one/eventCard_one.css";
+import background from "src/components/event_cards/defaultImage.jpg"
 
-const eventCard_one = () => {
+const EventCard_one = ({title, description, date}) => {
   return (
-    <div class="eventCardOne shadow">
+    <div className="eventCardOne shadow">
       <img
-        src="/src/components/event_cards/defaultImage.jpg"
-        class="defaultImageCardOne"
+        src={background}
+        className="absolute imageScreenFit"
       ></img>
-      <p class="eventTitleCardOne eventTitle">Event Title</p>
-      <p class="eventDescriptionCardOne font textBase">Event Description</p>
-      <p class="eventDateCardOne font textBase">Event Date</p>
+      <p className="eventTitleCardOne eventTitle">{title}</p>
+      <p className="eventDescriptionCardOne font textBase">{description}</p>
+      <p className="eventDateCardOne font textBase">{date}</p>
     </div>
   );
 };
 
-export default eventCard_one;
+export default EventCard_one;

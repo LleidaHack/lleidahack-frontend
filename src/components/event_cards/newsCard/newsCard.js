@@ -1,14 +1,15 @@
 import React from "react";
 import "src/components/event_cards/newsCard/newsCard.css";
+import background from "src/components/event_cards/defaultImage.jpg"
 
-const newsCard = () => {
+const newsCard = (title) => {
   return (
-    <div class="newsCard shadow">
+    <div className="newsCard shadow">
       <img
-        src="/src/components/event_cards/defaultImage.jpg"
-        class="defaultImageNewsCard"
+        src={background}
+        className="absolute imageFitScreen"
       ></img>
-      <p class="titleNewsCard font">Title</p>
+      <p className="titleNewsCard font">{title}</p>
     </div>
   );
 };

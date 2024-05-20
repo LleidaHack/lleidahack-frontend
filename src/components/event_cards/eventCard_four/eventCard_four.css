@@ -33,7 +33,6 @@
   color: #ffffff;
   margin-top: 96px;
   margin-left: 8px;
-  width: 105px;
   height: 24px;
   min-width: 105px;
   min-height: 24px;
@@ -49,4 +48,8 @@
   min-height: 96px;
   margin-top: 32px;
   position: absolute;
+}
+
+.imageFitScreen{
+  object-fit: cover;
 }

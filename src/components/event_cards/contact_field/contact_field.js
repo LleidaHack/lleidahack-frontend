@@ -1,14 +1,14 @@
 import React from "react";
 import "src/components/event_cards/contact_field/contact_field.css";
 
-const contact_field = () => {
+const Contact_field = () => {
   return (
-    <div class="contactField">
-      <p class="contactTitleText fieldTitle font textBase">Field Title</p>
-      <p class="contactTitleText contactTitleSpan font">*</p>
+    <div className="contactField">
+      <p className="contactTitleText fieldTitle font textBase">Field Title</p>
+      <p className="contactTitleText contactTitleSpan font">*</p>
       <input placeholder="Placeholder Text" />
     </div>
   );
 };
 
-export default contact_field;
+export default Contact_field;

@@ -1,17 +1,18 @@
 import React from "react";
 import "src/components/event_cards/eventCard_four/eventCard_four.css";
+import background from "src/components/event_cards/defaultImage.jpg";
 
-const eventCard_four = () => {
+const EventCard_four = ({title}) => {
   return (
-    <div class="eventCardFour shadow">
+    <div className="eventCardFour shadow">
       <img
-        src="/src/components/event_cards/defaultImage.jpg"
-        class="eventCardFour"
+        src= {background}
+        className="absolute imageFitScreen"
       ></img>
-      <div class="eventGradientCardFour gradient"></div>
-      <p class="eventTitleCardFour font">Event Title</p>
+      <div className="eventGradientCardFour gradient"></div>
+      <p className="eventTitleCardFour font">{title}</p>
     </div>
   );
 };
 
-export default eventCard_four;
+export default EventCard_four;
