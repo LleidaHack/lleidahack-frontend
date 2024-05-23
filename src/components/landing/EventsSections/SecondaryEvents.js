@@ -1,12 +1,7 @@
-
 import React from "react";
 
 const SecondaryEvents = () => {
-
-    return (
-        <>
-        </>
-    );
+  return <></>;
 };
 
 export default SecondaryEvents;

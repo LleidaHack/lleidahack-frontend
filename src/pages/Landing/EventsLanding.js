@@ -6,16 +6,16 @@ import PrincipalEvents from "src/components/landing/EventsSections/PrincipalEven
 import SecondaryEvents from "src/components/landing/EventsSections/SecondaryEvents";
 
 const EventsLanding = () => {
-    return (
-        <div>
-        <Navbar />
-        <HeaderEvents />
-        <HeaderEventsLinks />
-        <PrincipalEvents />
-        <SecondaryEvents />
-        <Footer />
-        </div>
-    );
-    }
+  return (
+    <div>
+      <Navbar />
+      <HeaderEvents />
+      <HeaderEventsLinks />
+      <PrincipalEvents />
+      <SecondaryEvents />
+      <Footer />
+    </div>
+  );
+};
 
 export default EventsLanding;

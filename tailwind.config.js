@@ -19,9 +19,9 @@ module.exports = {
       "background-patron": "url('/src/imgs/patron_imagen.png')",
     },
     height: {
-      '128': '37rem', 
-      '94': '25rem',
-    }
+      128: "37rem",
+      94: "25rem",
+    },
   },
   plugins: [],
 };
