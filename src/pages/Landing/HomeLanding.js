@@ -8,6 +8,7 @@ const HomeLanding = () => {
     <div>
       <Navbar />
       <HeroSectionHeader />
+      <EventSection/>
       <Footer />
     </div>
   );
