@@ -5,8 +5,10 @@ import background from "src/components/event_cards/defaultImage.jpg";
 const EventCard_one = ({ title, description, date, image }) => {
   return (
     <div className="max-w-[312px] max-h-[376px] shadow">
-      <img src={image} className="object-cover w-[312px] max-h-[33.875rem] h-[188px]"></img>
-
+      <img
+        src={image}
+        className="object-cover w-[312px] max-h-[33.875rem] h-[188px]"
+      ></img>
 
       <p className=" ml-4 mt-[8px] text-[24px] leading-[35.54px] font-space-mono font-bold tracking-[-0.02em]">
         {title}

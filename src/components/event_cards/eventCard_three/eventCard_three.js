@@ -4,9 +4,12 @@ import "src/components/event_cards/eventCard_three/eventCard_three.css";
 const EventCard_three = ({ title, description, image }) => {
   return (
     <div className="max-w-[85.75rem] max-h-[42.375rem] shadow">
-      <img src={image} className="w-[85.75rem] h-[33.875rem] object-cover max-h-[33.875rem]"></img>
+      <img
+        src={image}
+        className="w-[85.75rem] h-[33.875rem] object-cover max-h-[33.875rem]"
+      ></img>
 
-      <div className="max-h-[8.5rem] max-w-[85.75rem]" >
+      <div className="max-h-[8.5rem] max-w-[85.75rem]">
         <p className="mt-[16px] mb-[0px] ml-4 text-[24px] leading-[2.221rem] font-space-mono font-bold tracking-[-0.02em]">
           {title}
         </p>
