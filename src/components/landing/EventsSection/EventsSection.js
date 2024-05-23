@@ -14,7 +14,6 @@ const EventSection = () => {
         </p>
       </div>
 
-
       <div className="flex ml-4">
         <EventCard_five
           title="HackEPS 2023"
@@ -42,7 +41,7 @@ const EventSection = () => {
             ></EventCard_four>
           </div>
           <p className="text-[#ff742f] font-space-mono font-normal tracking-[-0.02em] text-[16px] mt-[5px] leading-[23.7px] ml-[16px]">
-          Veure més...
+            Veure més...
           </p>
         </div>
       </div>
