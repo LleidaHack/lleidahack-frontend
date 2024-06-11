@@ -1,0 +1,150 @@
+.The-Grand-Phather {
+  min-height: 100vh;
+  height: auto;
+  background-color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-Info-sponsors {
+  padding-top: 10%;
+  font-weight: bold;
+  padding-bottom: 2%;
+  color: var(--white);
+  text-align: center;
+  font-size: 2em; /* 50px */
+  justify-content: center;
+}
+
+.text-aftTitle {
+  color: var(--white);
+  text-align: center;
+}
+
+.text-aftTitle2 {
+  color: var(--white);
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 12px;
+}
+
+.Imagecontener {
+  width: 40%;
+  height: 40%;
+}
+
+.Imagecontener2 {
+  width: 20%;
+  height: 20%;
+}
+
+.peperoni {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.redesYOthers {
+  height: 10%;
+  width: 40%;
+}
+
+.rel {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.fa-linkedin {
+  color: #0072b1;
+  padding-left: 0.8vh;
+}
+
+.fa-globe {
+  color: var(--primary);
+  padding-left: 0.8vh;
+}
+
+.descriptions {
+  color: var(--white);
+  width: 40%;
+  height: auto;
+}
+
+.businesActivity {
+  width: 40%;
+  background-color: var(--primary);
+  height: auto;
+  text-align: center;
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.logos img {
+  max-width: 13%;
+  margin: 0.7vw;
+}
+
+.circle-list {
+  display: flex;
+  white-space: nowrap;
+  transition: transform 0.3s;
+  transform: translate(-20px, 0);
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px;
+  cursor: default;
+}
+
+.circle-list::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento vertical */
+}
+
+.circle-list::-webkit-scrollbar-thumb {
+  background-color: #ff9900c2; /* Color del pulgar (barra que se puede arrastrar) */
+  border-radius: 5px; /* Borde redondeado del pulgar */
+}
+
+.circle-list::-webkit-scrollbar-thumb:hover {
+  background-color: #ff9900; /* Color del pulgar en estado de hover */
+}
+
+.circle-list::-webkit-scrollbar-track:hover {
+  background-color: #f0f0f073; /* Color del riel (fondo) de la barra de desplazamiento */
+  border-radius: 5px; /* Borde redondeado del pulgar */
+}
+
+.circle-list::-webkit-scrollbar-track {
+  background-color: #f0f0f057; /* Color del riel (fondo) de la barra de desplazamiento */
+}
+
+@media screen and (max-width: 768px) {
+  .descriptions {
+    width: 87%;
+  }
+
+  .Imagecontener {
+    width: 87%;
+  }
+
+  .redesYOthers {
+    width: 87%;
+  }
+
+  .businesActivity {
+    width: 87%;
+  }
+
+  .circle-list {
+    width: 100%;
+    margin-left: 20px;
+  }
+}
