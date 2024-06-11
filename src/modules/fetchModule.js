@@ -6,6 +6,7 @@ export async function fetchPlus({
   hasUserauth = false,
   saveLoginInfo = false,
   loginAuth,
+  apiVersion = 1
 }) {
   const headers = { "Content-Type": "application/json" };
   if (hasUserauth || loginAuth)
@@ -23,7 +24,7 @@ export async function fetchPlus({
       .map(([key, value]) => `${key}=${value}`)
       .join("&")}`;
   if (process.env.REACT_APP_DEBUG === "true") console.log("headers: ", args);
-  return fetch(process.env.REACT_APP_DOMAIN + Url + query, args)
+  return fetch(process.env.REACT_APP_DOMAIN + `/v${apiVersion}` + Url + query, args)
     .then((response) => {
       if (process.env.REACT_APP_DEBUG === "true")
         console.log("response: ", response);
