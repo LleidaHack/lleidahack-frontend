@@ -47,7 +47,7 @@ export default function App() {
           <Route path="/home" element={<HomeLanding />} />
           <Route path="*" element={<Error404 />} />
           <Route path="/events" element={<EventsLanding />} />
-          <Route path="/legalinfo" element = {<LegalInfoLanding/>} />
+          <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
       </Router>
       <Router basename="/hackeps">
