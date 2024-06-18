@@ -9,8 +9,8 @@ const EventCard_four = ({ title, image }) => {
         style={{ backgroundImage: `url(${image})`, backgroundSize: "cover" }}
       >
         <div className="max-w-[12rem] max-h-[8rem] h-[8rem] gradient">
-          <div className="h-1"></div>
-          <p className="text-white mt-[5.75rem] ml-2 h-6 text-base leading-[1.481rem] font-space-mono font-normal tracking-[-0.02em]">
+          <p className="text-[0.0000001px]">.</p>
+          <p className="text-white mt-[6rem] ml-2 h-6 text-base leading-[1.481rem] font-space-mono font-normal tracking-[-0.02em]">
             {title}
           </p>
         </div>
