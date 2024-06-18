@@ -1,17 +1,17 @@
-@media (max-width: 740px) { 
-    .mobile{
-        margin-right: 1rem;
-    }
+@media (max-width: 740px) {
+  .mobile {
+    margin-right: 1rem;
+  }
 
-    .col {
-        flex-direction: column;
-    }
-    .adjust {
-        margin-left: -16px;
-    }
+  .col {
+    flex-direction: column;
+  }
+  .adjust {
+    margin-left: -16px;
+  }
 
-    .ampli {
-        margin-bottom: 500px; 
-        margin-left: 1rem;
-    }
+  .ampli {
+    margin-bottom: 500px;
+    margin-left: 1rem;
+  }
 }
