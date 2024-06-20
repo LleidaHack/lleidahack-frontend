@@ -24,7 +24,7 @@ const EventSection = () => {
           />
         </div>
 
-        <div className="adjust h-[8rem] w-[14rem]">
+        <div className="adjust h-32 w-56">
           <div className="a">
             <div className="ml-4 mr-4 min-w-[43%]">
               <EventCard_four
@@ -32,20 +32,20 @@ const EventSection = () => {
                 title="Event Title"
               ></EventCard_four>
             </div>
-            <div className="ml-4 mt-[1rem] min-w-[43%] wakawaka mr-4">
+            <div className="ml-4 mr-4  min-w-[43%] wakawaka">
               <EventCard_four
                 image={background}
                 title="Event Title"
               ></EventCard_four>
             </div>
           </div>
-          <div className="ml-[1rem] mt-[1rem] mr-[1rem]">
+          <div className="ml-4 mr-4 mt-4">
             <EventCard_four
               image={background}
               title="Event Title"
             ></EventCard_four>
           </div>
-          <p className="text-[#ff742f] font-space-mono font-normal tracking-[-0.02em] text-[1rem] mt-[0.313rem] leading-[1.481rem] ml-[1rem]">
+          <p className="text-[#ff742f] font-space-mono font-normal tracking-[-0.02em] text-[1rem] mt-[0.313rem] leading-[1.481rem] ml-4">
             Veure més...
           </p>
         </div>
