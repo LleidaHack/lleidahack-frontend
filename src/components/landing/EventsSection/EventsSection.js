@@ -16,24 +16,28 @@ const EventSection = () => {
       </div>
 
       <div className="flex ml-4 col">
+        <div className="scale-100">
         <EventCard_five
           title="HackEPS 2023"
           description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent."
           image={hack}
         />
+        </div>
 
-        <div className="adjust max-h-[8rem] h-[8rem] w-[14rem]">
-          <div className="ml-4 mr-4">
-            <EventCard_four
-              image={background}
-              title="Event Title"
-            ></EventCard_four>
-          </div>
-          <div className="ml-4 mt-[1rem] mr-4">
-            <EventCard_four
-              image={background}
-              title="Event Title"
-            ></EventCard_four>
+        <div className="adjust h-[8rem] w-[14rem]">
+          <div className="a">
+            <div className="ml-4 mr-4 min-w-[43%]">
+              <EventCard_four
+                image={background}
+                title="Event Title"
+              ></EventCard_four>
+            </div>
+            <div className="ml-4 mt-[1rem] min-w-[43%] wakawaka mr-4">
+              <EventCard_four
+                image={background}
+                title="Event Title"
+              ></EventCard_four>
+            </div>
           </div>
           <div className="ml-[1rem] mt-[1rem] mr-[1rem]">
             <EventCard_four
