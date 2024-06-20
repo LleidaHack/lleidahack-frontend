@@ -39,7 +39,7 @@ const EventSection = () => {
               ></EventCard_four>
             </div>
           </div>
-          <div className="ml-4 mr-4 mt-4">
+          <div className="ml-4 mr-4">
             <EventCard_four
               image={background}
               title="Event Title"
