@@ -4,10 +4,7 @@ import "src/components/event_cards/eventCard_two/eventCard_two.css";
 const EventCard_two = ({ title, date, place, image }) => {
   return (
     <div className="flex max-w-[26.5rem] max-h-40 shadow">
-      <img
-        src={image}
-        className="object-cover h-40 max-h-40 w-40"
-      ></img>
+      <img src={image} className="object-cover h-40 max-h-40 w-40"></img>
 
       <div>
         <p className="ml-[0.938rem] mt-4 h-9 text-[1.5rem] leading-[2.221rem] font-space-mono font-bold tracking-[-0.02em]">
