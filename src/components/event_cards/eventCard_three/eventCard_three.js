@@ -10,10 +10,10 @@ const EventCard_three = ({ title, description, image }) => {
       ></img>
 
       <div className="max-h-[8.5rem] max-w-[85.75rem]">
-        <p className="mt-[1rem] mb-[0rem] ml-4 text-[1.5rem] leading-[2.221rem] font-space-mono font-bold tracking-[-0.02em]">
+        <p className="mt-4 mb-0 ml-4 text-[1.5rem] leading-[2.221rem] font-space-mono font-bold tracking-[-0.02em]">
           {title}
         </p>
-        <p className="mt-[0.5rem] ml-4 h-[3.688rem] text-[1.25rem] leading-[1.851rem] font-space-mono font-normal tracking-[-0.02em]">
+        <p className="mt-2 ml-4 h-[3.688rem] text-[1.25rem] leading-[1.851rem] font-space-mono font-normal tracking-[-0.02em]">
           {description}
         </p>
       </div>
