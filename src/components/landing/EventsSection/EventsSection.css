@@ -3,28 +3,26 @@
     margin-right: 1rem;
   }
 
-    .col {
-        flex-direction: column;
-    }
-    .adjust {
-        margin-left: -16px;
-        margin-top:  8px;
-        width: auto;
-        height: auto;
-    }
+  .col {
+    flex-direction: column;
+  }
+  .adjust {
+    margin-left: -16px;
+    margin-top: 8px;
+    width: auto;
+    height: auto;
+  }
 
-    .ampli {
-        margin-bottom: 285px; 
-        margin-left: 1rem;
-    }
+  .ampli {
+    margin-bottom: 285px;
+    margin-left: 1rem;
+  }
 
-    .a{
-        display: flex;
-    }
-    
-    .wakawaka{
-        margin-top: 0;
-    }
+  .a {
+    display: flex;
+  }
 
+  .wakawaka {
+    margin-top: 0;
+  }
 }
-

@@ -17,11 +17,11 @@ const EventSection = () => {
 
       <div className="flex ml-4 col">
         <div className="scale-100">
-        <EventCard_five
-          title="HackEPS 2023"
-          description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent."
-          image={hack}
-        />
+          <EventCard_five
+            title="HackEPS 2023"
+            description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent."
+            image={hack}
+          />
         </div>
 
         <div className="adjust h-[8rem] w-[14rem]">
