@@ -8,7 +8,7 @@ import hack from "src/components/event_cards/Hack2023.jpg";
 
 const EventSection = () => {
   return (
-    <div className="mobile ampli max-w-[67.5rem] max-h-[34rem]">
+    <div className="max-[740px]:mr-4 ampli max-w-[67.5rem] max-h-[34rem]">
       <div className="max-w-[65.5rem] max-h-[3rem] bg-black mt-4 ml-4 ">
         <p className="text-white font-space-mono font-bold tracking-[-0.02em] text-[2rem] leading-[2.962rem] ml-4">
           ESDEVENIMENTS
