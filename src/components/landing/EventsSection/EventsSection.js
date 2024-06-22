@@ -1,21 +1,20 @@
 import React from "react";
 import EventCard_five from "src/components/event_cards/eventCard_five/eventCard_five";
 import EventCard_four from "src/components/event_cards/eventCard_four/eventCard_four";
-import "src/components/landing/EventsSection/EventsSection.css";
 
 import background from "src/components/event_cards/defaultImage.jpg";
 import hack from "src/components/event_cards/Hack2023.jpg";
 
 const EventSection = () => {
   return (
-    <div className="max-[740px]:mr-4 ampli max-w-[67.5rem] max-h-[34rem]">
+    <div className="max-[740px]:mr-4 max-[740px]:ml-4 max-[740px]:mb-[17.813rem] max-w-[67.5rem] max-h-[34rem]">
       <div className="max-w-[65.5rem] max-h-[3rem] bg-black mt-4 ml-4 ">
         <p className="text-white font-space-mono font-bold tracking-[-0.02em] text-[2rem] leading-[2.962rem] ml-4">
           ESDEVENIMENTS
         </p>
       </div>
 
-      <div className="flex ml-4 col">
+      <div className="flex ml-4 max-[740px]:flex-col">
         <div className="scale-100">
           <EventCard_five
             title="HackEPS 2023"
@@ -24,15 +23,15 @@ const EventSection = () => {
           />
         </div>
 
-        <div className="adjust h-32 w-56">
-          <div className="a">
+        <div className="max-[740px]:ml-[-1rem] max-[740px]:mt-2 max-[740px]:w-auto max-[740px]:h-auto h-32 w-56">
+          <div className="max-[740px]:flex">
             <div className="ml-4 mr-4 min-w-[43%]">
               <EventCard_four
                 image={background}
                 title="Event Title"
               ></EventCard_four>
             </div>
-            <div className="ml-4 mr-4  min-w-[43%] wakawaka">
+            <div className="ml-4 mr-4  min-w-[43%] max-[740px]:mt-0">
               <EventCard_four
                 image={background}
                 title="Event Title"
