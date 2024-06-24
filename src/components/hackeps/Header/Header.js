@@ -68,7 +68,7 @@ const Header = () => {
           </div>
 
           <div
-            className={`collapse navbar-collapse peperse ${
+            className={`navbar-collapse peperse ${
               showMenu ? "show" : ""
             } justify-content-lg-end`}
           >
