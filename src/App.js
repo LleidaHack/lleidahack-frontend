@@ -25,6 +25,7 @@ import "src/utils/ensure-basename";
 import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
+import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 
 export default function App() {
   useEffect(() => {
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/home" element={<HomeLanding />} />
           <Route path="*" element={<Error404 />} />
           <Route path="/events" element={<EventsLanding />} />
+          <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
       </Router>
       <Router basename="/hackeps">
