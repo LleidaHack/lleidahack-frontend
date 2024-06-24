@@ -41,7 +41,6 @@ export default function App() {
 
   return (
     <div className="App">
-      
       <Router basename="/hackeps">
         <Routes>
           <Route path="/" element={<Home />} />
