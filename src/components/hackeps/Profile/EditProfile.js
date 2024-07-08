@@ -16,6 +16,9 @@ const EditProfile = (props) => {
   const [urlImage, setUrlImage] = useState(props.hacker.image);
   const [isUrl, setIsUrl] = useState(props.hacker.is_image_url);
 
+  const [profileSended, setProfileSended] = useState(false);
+  const [profileStatus, setProfileStatus] = useState(false);
+
   const sizeOptions = [
     { value: "S", label: "S" },
     { value: "M", label: "M" },
@@ -71,7 +74,11 @@ const EditProfile = (props) => {
 
     let result = await updateHacker(data);
     if (result.success) {
-      window.location.reload();
+      setProfileSended(true);
+      setProfileStatus(true);
+    } else {
+      setProfileSended(true);
+      setProfileStatus(false);
     }
   };
 
