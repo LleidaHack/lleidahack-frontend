@@ -3,14 +3,20 @@ import "src/components/event_cards/eventCard_three/eventCard_three.css";
 
 const EventCard_three = ({ title, description, image }) => {
   return (
-    <div className="w-[1312px] h-[678px] min-w-[1312px] min-h-[678px] absolute shadow">
-      <img src={image} className="absolute object-fill max-h-[542px]"></img>
-      <p className="mt-[555px] ml-4 w-[1280px] h-[36px] min-w-[1280px] min-h-[36px] text-2xl leading-[35.54px] absolute font-space-mono font-bold tracking-[-0.02em]">
-        {title}
-      </p>
-      <p className="mt-[602px] ml-4 w-[1280px] h-[59px] min-w-[1280px] min-h-[59px] text-base leading-[29.62px] font-space-mono font-normal tracking-[-0.02em]">
-        {description}
-      </p>
+    <div className="max-w-[85.75rem] max-h-[42.375rem] shadow">
+      <img
+        src={image}
+        className="w-[85.75rem] h-[33.875rem] object-cover max-h-[33.875rem]"
+      ></img>
+
+      <div className="max-h-[8.5rem] max-w-[85.75rem]">
+        <p className="mt-4 mb-0 ml-4 text-[1.5rem] leading-[2.221rem] font-space-mono font-bold tracking-[-0.02em]">
+          {title}
+        </p>
+        <p className="mt-2 ml-4 h-[3.688rem] text-[1.25rem] leading-[1.851rem] font-space-mono font-normal tracking-[-0.02em]">
+          {description}
+        </p>
+      </div>
     </div>
   );
 };

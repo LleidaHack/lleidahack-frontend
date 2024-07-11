@@ -84,6 +84,12 @@ export const HackerStepperForm = () => {
       birthdate: values.birthDate,
       food_restrictions: "",
       email: values.email,
+      config: {
+        recive_notifications: false,
+        default_lang: "cat",
+        comercial_notifications: false,
+        terms_and_conditions: true,
+      },
       telephone: values.phone.replace(/\s+/g, ""),
       acceptNotifications: values.acceptNotifications || false, //accept notification checkbox a contacte field
       address: "",
