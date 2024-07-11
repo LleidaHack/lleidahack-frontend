@@ -5,7 +5,7 @@ import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
 // Falta implementar el responsive
 const Navbar = () => {
   return (
-    <div>
+    <div className = "flex flex-col">
       <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
         <div className="flex justify-between items-center">
           <a href="/">
@@ -107,7 +107,27 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <div>
+      <nav
+          className="navbar"
+          style={{ backgroundColor: "pink", fontSize: "1.5em" }}
+        >
+          <div className="container">
+            <div style={{ maxWidth: "100%", wordWrap: "break-word" }}>
+              Aquesta pàgina és de proves. La pàgina de la HackEPS 2023 és{" "}
+              <a
+                style={{ color: "blue" }}
+                href="https://www.lleidahack.dev/hackeps"
+              >
+                https://www.lleidahack.dev/hackeps
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+
     </div>
+    
   );
 };
 export default Navbar;
