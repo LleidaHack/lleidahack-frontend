@@ -5,7 +5,7 @@ import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
 // Falta implementar el responsive
 const Navbar = () => {
   return (
-    <div className = "flex flex-col">
+    <div className="flex flex-col">
       <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
         <div className="flex justify-between items-center">
           <a href="/">
@@ -108,7 +108,7 @@ const Navbar = () => {
         </div>
       </div>
       <div>
-      <nav
+        <nav
           className="navbar"
           style={{ backgroundColor: "pink", fontSize: "1.5em" }}
         >
@@ -125,9 +125,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-
     </div>
-    
   );
 };
 export default Navbar;
