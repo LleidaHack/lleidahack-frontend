@@ -275,8 +275,8 @@ const ProfileComponent = () => {
           {!profileStatus ? (
             <>
               <FailFeedback
-                title={`Error enviant el teu missatge.`}
-                text={`Sembla que algo ha fallat mentre registravem el teu missatge.`}
+                title={`Error actualitzant el teu perfil.`}
+                text={`Sembla que algo ha fallat mentre actualitzavem el teu perfil.`}
                 hasButton={true}
                 buttonLink={`/contacte`}
                 buttonText={`Intentar novament`}
@@ -287,9 +287,8 @@ const ProfileComponent = () => {
           ) : (
             <>
               <SuccessFeedback
-                title="Missatge enviat correctament."
-                text={`Gracies per contactar amb LleidaHack. El teu missatge s'ha enviat correctament. \n En cas que necesitesim ficar-nos en contacte amb tu, ho fariem amb el correu 
-                que ens has proporcionat.`}
+                title="El teu perfil s'ha actualitzat correctament"
+                text={`Perfil actualitzat correctament, ja pots tornar a l'inici.`}
                 hasButton={true}
                 buttonLink="/home"
                 buttonText="Tornar al inici"
