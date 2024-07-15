@@ -7,6 +7,8 @@ import FileBase from "react-file-base64";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import userIcon from "src/icons/user2.png";
+import emisor from "src/components/hackeps/Profile/eventEmitter"
+
 
 const EditProfile = (props) => {
   const [showEditProfile, setShowEditProfile] = useState(false);
@@ -15,10 +17,6 @@ const EditProfile = (props) => {
   const [avatar, setAvatar] = useState(null);
   const [urlImage, setUrlImage] = useState(props.hacker.image);
   const [isUrl, setIsUrl] = useState(props.hacker.is_image_url);
-
-  const [profileSended, setProfileSended] = useState(false);
-  const [profileStatus, setProfileStatus] = useState(false);
-
   const sizeOptions = [
     { value: "S", label: "S" },
     { value: "M", label: "M" },
@@ -55,6 +53,10 @@ const EditProfile = (props) => {
     setIsUrl(true);
   };
 
+  function notifyProfile(data) {
+    emisor.emit('feedback', data);
+  }
+
   const handleEditProfileSubmit = async (values) => {
     const pfp = isUrl ? urlImage : avatar;
     const data = {
@@ -71,15 +73,7 @@ const EditProfile = (props) => {
       is_image_url: isUrl,
       update_user: true,
     };
-
-    let result = await updateHacker(data);
-    if (result.success) {
-      setProfileSended(true);
-      setProfileStatus(true);
-    } else {
-      setProfileSended(true);
-      setProfileStatus(false);
-    }
+    notifyProfile(data);
   };
 
   return (

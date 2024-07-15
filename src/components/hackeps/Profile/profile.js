@@ -24,10 +24,11 @@ import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import { Button } from "react-bootstrap";
+import { updateHacker } from "src/services/HackerService";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
-import {profileSended, setProfileSended, profileStatus, setProfileStatus} from "src/components/hackeps/Profile/EditProfile";
 import FailFeedback from "../Feedbacks/FailFeedback";
 import SuccessFeedback from "../Feedbacks/SuccesFeedback";
+import emisor from "src/components/hackeps/Profile/eventEmitter"
 
 const ProfileComponent = () => {
   let { hacker_id } = useParams();
@@ -35,6 +36,8 @@ const ProfileComponent = () => {
     hacker_id === localStorage.getItem("userID"),
   );
 
+  const [profileSended, setProfileSended] = useState(false);
+  const [profileStatus, setProfileStatus] = useState(false);
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
@@ -43,6 +46,21 @@ const ProfileComponent = () => {
   const [team, setTeam] = useState(null);
   const [event, setEvent] = useState(null);
   const [qrCode, setQrCode] = useState(null);
+
+  emisor.on('feedback', (data) => {
+    canviEstat(data);
+  });
+  
+  async function canviEstat(data) {
+    let result = await updateHacker(data);
+    if (result.success) {
+      setProfileSended(true);
+      setProfileStatus(true);
+    } else {
+      setProfileSended(true);
+      setProfileStatus(false);
+    }
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -273,7 +291,7 @@ const ProfileComponent = () => {
                 text={`Gracies per contactar amb LleidaHack. El teu missatge s'ha enviat correctament. \n En cas que necesitesim ficar-nos en contacte amb tu, ho fariem amb el correu 
                 que ens has proporcionat.`}
                 hasButton={true}
-                buttonLink="/perfil"
+                buttonLink="/home"
                 buttonText="Tornar al inici"
               />
             </>
