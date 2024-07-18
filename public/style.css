@@ -11,14 +11,18 @@ body {
 /* variables.css */
 
 :root {
-  --primary: #edab11;
-  --primary-strong: #ac7c0e;
-  --secondary: #232323;
+  --primary: #0e3a29;    /*nou color*/
+  --primary-strong: #ac7c0e; /*nou color (fort)*/
+  --primary-old: #edab11;  /*color original*/
+  --primary-strong-old: #ac7c0e; /*color original (fort)*/
+  --text-primary-bg: #f5f5f5;
+  --secondary: #232323; 
+  --text-secondary-bg: #f5f5f5;
   --white: #f5f5f5;
   --gray: #757575;
   --gray-light: #bbb8b8;
   --gray-light2: #e6e6e6;
   --gray-strong: #444343;
   --black: #000000;
-  --transaprent: rgba(255, 255, 255, 0);
+  --transparent: rgba(255, 255, 255, 0);
 }
