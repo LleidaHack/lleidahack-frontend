@@ -16,7 +16,9 @@ const LinkAccounts = () => {
           <h1>Benvingut/da!</h1>
         </div>
         <Link to="/login">
-          <Button primary className="m-2">Inicia sessió</Button>
+          <Button primary className="m-2">
+            Inicia sessió
+          </Button>
         </Link>
       </section>
 
@@ -42,7 +44,9 @@ const LinkAccounts = () => {
               </svg>
             </div>
             <Link to="/hacker-form">
-              <Button primary className="m-2">Hacker</Button>
+              <Button primary className="m-2">
+                Hacker
+              </Button>
             </Link>
           </div>
         </div>

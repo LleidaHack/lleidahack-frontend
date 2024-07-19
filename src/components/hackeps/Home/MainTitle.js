@@ -42,10 +42,7 @@ const MainTitle = () => {
               <img className="imagelogo" src={hackLogo} alt="" />
             </div>
             <div className="text-center">
-              <Button
-                onClick={handleShow}
-                light
-              >
+              <Button onClick={handleShow} light>
                 Apunta't!
               </Button>
             </div>

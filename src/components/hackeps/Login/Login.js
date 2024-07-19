@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Container, Row, Col} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Button from "src/components/buttons/Button";
 import { Link } from "react-router-dom";
 import "src/components/hackeps/Login/Login.css";
@@ -103,12 +103,7 @@ const LoginPage = ({ nextScreen }) => {
                         </p>
                       </div>
                       <div className="button-container">
-                        <Button
-                          type="submit"
-                          primary
-                          lg
-                          onClick={submitForm}
-                        >
+                        <Button type="submit" primary lg onClick={submitForm}>
                           {isSubmitting
                             ? "Iniciant sessió..."
                             : "Inicia sessió"}

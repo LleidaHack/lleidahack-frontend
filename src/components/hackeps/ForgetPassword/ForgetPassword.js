@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "src/components/hackeps/ForgetPassword/forgetPassword.css";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Container, Row, Col} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "src/icons/hackLogoWellDone.png";
 import { resetPassword } from "src/services/AuthenticationService";
@@ -93,12 +93,7 @@ const ForgetPassword = ({ nextScreen }) => {
                           </p>
                         </div>
                         <div className="button-container">
-                          <Button
-                            type="submit"
-                            primary
-                            md
-                            onClick={submitForm}
-                          >
+                          <Button type="submit" primary md onClick={submitForm}>
                             {isSubmitting
                               ? "Enviant enllaç..."
                               : "Envia enllaç d'accés"}

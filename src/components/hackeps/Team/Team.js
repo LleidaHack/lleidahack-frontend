@@ -113,15 +113,10 @@ const Team = (props) => {
               Inscripcions
             </TitleGeneralized>
             <Row className="gap-2 flex-row">
-              <Button primary
-                onClick={handleShowJoinTeam}
-              >
+              <Button primary onClick={handleShowJoinTeam}>
                 Ja tinc un equip
               </Button>
-              <Button  primary
-                secondary       
-                onClick={handleShowCreateTeam}
-              >
+              <Button primary secondary onClick={handleShowCreateTeam}>
                 Crear l'equip
               </Button>
             </Row>
@@ -194,7 +189,7 @@ const Team = (props) => {
                     <Field type="text" id="teamDesc" name="teamDesc" />
                   </div>
                   <div className="button-submit-container">
-                    <Button primary  type="submit">
+                    <Button primary type="submit">
                       Envia
                     </Button>
                   </div>

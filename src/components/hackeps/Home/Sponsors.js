@@ -103,7 +103,9 @@ const Sponsors = () => {
       <p>Vols participar?</p>
       <p>No ho dubtis, contacta amb nosaltres!</p>
       <Link to={"/contacte"}>
-        <Button primary lg>Contacta</Button>
+        <Button primary lg>
+          Contacta
+        </Button>
       </Link>
       <section className="spnsection">
         <div className="cuadrados-container">

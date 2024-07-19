@@ -9,7 +9,6 @@ import Col from "react-bootstrap/Col";
 import userIcon from "src/icons/user2.png";
 import Button from "src/components/buttons/Button";
 
-
 const EditProfile = (props) => {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [cvFile, setCvFile] = useState("");
@@ -83,11 +82,7 @@ const EditProfile = (props) => {
         <div className="row align-middle mx-auto mb-3 col-12">
           {showEditProfile ? (
             <div>
-              <Button
-                secondary
-                outline
-                onClick={onEditButtonClick}
-              >
+              <Button secondary outline onClick={onEditButtonClick}>
                 <i className="fas fa-sign-out"></i> Close
               </Button>
 
@@ -164,10 +159,7 @@ const EditProfile = (props) => {
                       {cvFile && (
                         <div className="file-info">
                           <span className="file-name">{cvFile.name}</span>
-                          <Button
-                            primary
-                            onClick={clearFile}
-                          >
+                          <Button primary onClick={clearFile}>
                             &#10005;
                           </Button>
                         </div>

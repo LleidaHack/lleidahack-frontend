@@ -14,7 +14,9 @@ const Error404 = () => {
         La pàgina que estàs buscant no existeix als nostres servidors :({" "}
       </p>
       <Link to="/home">
-        <Button primary className="py-3">Tornar a la pàgina principal</Button>
+        <Button primary className="py-3">
+          Tornar a la pàgina principal
+        </Button>
       </Link>
     </div>
   );

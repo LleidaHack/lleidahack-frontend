@@ -329,10 +329,7 @@ const InscripcioForm = () => {
                     {cvFile && (
                       <div className="file-info">
                         <span className="file-name">{cvFile.name}</span>
-                        <Button
-                          delete
-                          onClick={clearFile}
-                        >
+                        <Button delete onClick={clearFile}>
                           &#10005;
                         </Button>
                       </div>
