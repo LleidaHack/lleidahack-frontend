@@ -1,0 +1,233 @@
+/* ContactPage.css */
+.container-all-inscripcio {
+  background-color: var(--secondary);
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.title-contacte {
+  color: var(--white);
+  padding-top: 5%;
+  font-weight: bold;
+  text-align: center;
+  font-size: 40px;
+}
+
+.container-inscripcio {
+  width: 70%;
+  align-items: center;
+}
+
+.logo-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-logo {
+  color: var(--white);
+  font-size: 22px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.logo {
+  width: 500px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.social-logos {
+  display: flex;
+  margin-top: 20px;
+}
+
+.social-logo {
+  width: 50px;
+  height: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.form-container {
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+}
+
+form {
+  width: 100%;
+  max-width: 95%;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: var(--white);
+}
+
+input,
+textarea {
+  padding: 10px;
+  font-size: 12px;
+  border: 1px solid var(--white);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.button-submit {
+  padding: 12px 32px;
+  font-size: 18px;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  cursor: pointer;
+  width: fit-content;
+  margin: 20px;
+  justify-content: center;
+}
+
+.button-submit:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.button-submit-container {
+  display: flex;
+  justify-content: center;
+}
+
+.formik-field {
+  margin-bottom: 50px;
+}
+
+.error-message {
+  color: var(--primary);
+}
+
+.subtitle {
+  color: var(--white);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.file-name {
+  color: var(--white);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.subfields-container {
+  margin-top: 10px; /* Espacio entre los subcampos */
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-field .react-select__control,
+input[type="text"] {
+  height: 50px; /* Ajusta esta altura según tus preferencias */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .container-inscripcio {
+    width: 85%;
+    align-items: center;
+  }
+
+  .logo-container {
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    width: 70%;
+  }
+
+  .title-logo {
+    font-size: 14px;
+    margin: 20px;
+  }
+
+  .social-logos {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .social-logo {
+    width: 40px;
+  }
+
+  .form-container {
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
+
+.box {
+  width: 80%;
+  margin: 20px;
+}
+
+.pepps {
+  top: 0;
+  left: 0;
+}
+
+.checkbox-label {
+  display: inline-block;
+  margin-right: "10px";
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos */
+  padding-top: 2em;
+}
+
+.checkbox-container input {
+  margin-right: 10px; /* Ajusta el margen entre el checkbox y el texto */
+  width: 2em;
+  margin-bottom: 1em;
+}
+
+.fa-user:before {
+  content: "\f007";
+  margin: auto;
+}
