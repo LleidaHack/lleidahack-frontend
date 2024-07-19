@@ -19,7 +19,7 @@ const TitleGeneralized = ({
   if (lettersColor === "secondary") {
     stylesTitle += " titleblack";
   } else {
-    stylesTitle += " secondaryFont";
+    stylesTitle += " whiteFont";
   }
   if (bold) {
     stylesTitle += " titlebold";

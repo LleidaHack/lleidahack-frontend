@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "src/components/hackeps/Contacte/Contacte.css";
-import logo from "src/icons/imagotip_lleidahack_blanc.png";
-import instagramLogo from "src/icons/instagram.png";
-import linkedinLogo from "src/icons/linkedin.png";
-import twitterLogo from "src/icons/X.png";
+import logo from "src/assets/logo_text_llh.svg";
+import instagramLogo from "src/icons/instagram_negre.png";
+import linkedinLogo from "src/icons/linkedin_negre.png";
+import twitterLogo from "src/icons/X_negre.png";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";

@@ -2,7 +2,7 @@ import "src/components/hackeps/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import hackLogo from "src/icons/hackLogo_black_cover.png";
+import hackLogo from "src/icons/hackLogo.png";
 
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
