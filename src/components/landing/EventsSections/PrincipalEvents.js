@@ -52,7 +52,7 @@ const PrincipalEvents = () => {
         </div>
       </div>
       <div className="MoreEvents_button center py-14 text-center">
-        <ButtonLleidahack bt_primary_white>
+        <ButtonLleidahack primary white>
           Mostrar més events
         </ButtonLleidahack>
       </div>
