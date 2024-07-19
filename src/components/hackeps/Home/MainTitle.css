@@ -1,0 +1,90 @@
+.main-title {
+  width: 100vw;
+  max-width: 100%;
+  height: 20vh;
+  max-height: 50%;
+}
+
+.main-title-image {
+  width: 50px;
+  height: auto;
+}
+
+.apuntat-button {
+  color: var(--black);
+  background-color: var(--white);
+  border-radius: 4px;
+}
+
+.main-title-modal-button {
+  font-size: 20px;
+  background-color: var(--primary);
+  box-shadow: 0 0 0 0px var(--primary);
+  color: var(--white);
+  border: none;
+}
+
+.main-title-modal-button:hover {
+  background-color: var(--primary-strong);
+}
+
+.main-title-modal-button:focus {
+  background-color: var(--primary-strong);
+}
+
+.main-title-modal-button:active {
+  background-color: var(--primary-strong);
+}
+
+.button:hover {
+  background-color: var(--primary-strong);
+  transition: 0.7s;
+}
+
+.no-border {
+  border: none;
+}
+
+.center-elements {
+  display: flex;
+  justify-content: center;
+}
+
+.fantasma {
+  position: relative;
+  top: -1000px;
+}
+
+.backgrounder {
+  background-color: var(--primary);
+  background-image: url(src/icons/icons_home.png);
+  background-size: cover;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.imagelogo {
+  justify-content: center;
+  text-align: center;
+}
+
+.rowe {
+  display: flex; /* O cualquier otro estilo que necesites */
+  justify-content: center;
+  margin-bottom: 1vw;
+  height: 25vh;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .rowe {
+    height: 24vh;
+  }
+}
+
+.magic_div {
+  padding-top: 5vh;
+  width: 100%;
+  overflow: hidden;
+  max-height: 50vh;
+}

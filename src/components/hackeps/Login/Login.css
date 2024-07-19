@@ -1,0 +1,76 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #211f1f;
+}
+
+.login-container {
+  border-radius: 1rem;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App-logo {
+  width: 20vh;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.h2-title {
+  font-size: 5vh;
+  align-items: center;
+  text-align: center;
+}
+
+.form-group {
+  font-weight: bold;
+  font-size: 3vh;
+}
+
+.custom-link {
+  color: gray;
+  font-size: 1.5em;
+}
+
+.redirects {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 1.5vh;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.btn {
+  background: var(--primary) !important;
+  color: black !important;
+  border: none !important;
+}
+
+.btn:hover {
+  background: #9f730a !important;
+  border: none;
+}
+
+.btn:hover:active {
+  background-color: #211f1f !important;
+}
+
+.invalid-feedback {
+  font-size: 1.5vh !important;
+}

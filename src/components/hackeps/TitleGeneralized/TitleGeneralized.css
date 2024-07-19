@@ -1,0 +1,31 @@
+.titleSize {
+  font-size: 40px;
+}
+
+.big {
+  font-size: 120px;
+}
+
+.left {
+  text-align: left;
+}
+
+.centered {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.titleblack {
+  color: var(--secondary) !important;
+}
+
+.whiteFont {
+  color: var(--white);
+}
+
+.titlebold {
+  font-weight: bold;
+}

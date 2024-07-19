@@ -1,0 +1,252 @@
+/* Header.css */
+
+/* Estilos generales del header */
+body {
+  background-color: var(--primary);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: var(--primary);
+  padding: 10px 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+  position: sticky !important;
+  top: 0;
+  z-index: 100;
+  /*height: 9.6vh;*/
+}
+
+.navbar-brand {
+  color: var(--black);
+  font-weight: bold;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link {
+  color: var(--black);
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--black);
+  font-weight: 10;
+}
+
+.nav-item {
+  /*margin-right: 50px;*/
+  margin-right: 4vw;
+}
+
+.nav-item:last-child {
+  margin-right: 0px;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: left;
+}
+
+.icono {
+  max-width: 100px;
+  height: auto;
+  margin-right: 50px;
+  margin-left: 0;
+}
+
+.container {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.navbar-toggler-icon {
+  color: var(--black);
+}
+
+.menu-items.show {
+  display: flex;
+}
+
+.navbar-toggler {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  color: var(--black);
+}
+
+.navbar-nav {
+  margin-left: 0;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+
+/* Estilos para el menú desplegable */
+@media (max-width: 768px) {
+  .collapse.navbar-collapse.show {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--primary);
+    z-index: 1;
+    flex-direction: column;
+  }
+
+  .nav-item {
+    margin-right: 0px;
+    display: none;
+  }
+
+  .navbar-toggler {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .navbar-toggler .navbar-toggler-icon {
+    color: var(--black);
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+
+  .peperse {
+    max-width: 100%;
+    scale: 0.85;
+  }
+}
+
+.collapse.navbar-collapse.justify-content-lg-end {
+  max-width: 100%;
+  /*overflow: hidden; */
+}
+
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-sm,
+.navbar > .container-md,
+.navbar > .container-lg,
+.navbar > .container-xl,
+.navbar > .container-xxl {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.popup-contenter {
+  display: block;
+  position: fixed;
+  right: 20px;
+  top: 3%;
+  background-color: var(--white);
+  padding: 1vw;
+  width: 40%;
+  margin: 6rem 2rem;
+  opacity: 1;
+  z-index: 100;
+  border-radius: 5px;
+  max-width: 22rem;
+}
+
+.popup-options button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.buttonsFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.InfoProfile {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Cambia la dirección principal a columna */
+}
+
+.Profile {
+  width: 100%; /* La imagen ocupará todo el círculo */
+  height: 100%; /* La imagen ocupará todo el círculo */
+  object-fit: cover; /* Ajusta el tamaño de la imagen para que cubra el círculo */
+}
+
+.apuntat-buttonex {
+  color: var(--white);
+  background-color: var(--secondary);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.1s ease-in-out;
+  scale: 0.9;
+}
+
+.apuntat-buttonex:hover {
+  background-color: var(--primary);
+}
+
+.profileImage {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%; /* Hace que el div sea un círculo */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde del círculo */
+  border: 1px solid var(--secondary);
+}
+
+.logOut {
+  text-decoration: none;
+  color: var(--black);
+  transition: color 0.2s ease-in-out;
+}
+
+.logOut:hover {
+  color: red;
+}
+
+.fa-user {
+  margin-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .fa-user {
+    margin-right: 0rem;
+  }
+
+  .popup-contenter {
+    align-items: center;
+    width: 16rem;
+  }
+
+  .peperse {
+    max-width: 100%;
+    scale: 1;
+  }
+
+  .apuntat-buttonex {
+    scale: 0.9;
+  }
+
+  .nav-item:last-child {
+    margin-right: unset;
+  }
+}
