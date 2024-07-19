@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 
 const InputSearch = ({ placeholder, searchtype }) => {
   if (searchtype == "events") {
@@ -13,9 +14,9 @@ const InputSearch = ({ placeholder, searchtype }) => {
         placeholder={placeholder}
         className="w-full h-full border-none rounded-md p-4"
       />
-      <button className="search-button bg-primaryLanding text-white w-32 rounded-r-md">
+      <ButtonLleidahack primary white className="px-12">
         Cerca
-      </button>
+      </ButtonLleidahack>
       {/* @jonas boto reemplazar.Falta cambiar el boto per el component que hauria de ser i ficarli la funcio onclick per configurar busqueda i tal */}
     </div>
   );

@@ -1,26 +1,4 @@
-.team-button {
-  color: var(--secondary) !important;
-  background-color: var(--primary) !important;
-  border-width: 0px !important;
-  margin-bottom: 1rem;
-}
 
-.team-button:hover {
-  background-color: var(--primary-strong) !important;
-}
-
-.team-button:focus {
-  background-color: var(--primary-strong) !important;
-}
-
-.team-button:active {
-  background-color: var(--primary-strong) !important;
-}
-
-.team-button-fit {
-  width: fit-content !important;
-  text-decoration: none !important;
-}
 
 .team-member-name {
   font-size: 1.3rem;

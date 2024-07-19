@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "src/components/hackeps/Home/Sponsors.css";
 import { getAllCompanies } from "src/services/CompanyService";
+import Button from "src/components/buttons/Button";
 
 /*IMAGES IMPORTS*/
 import Eurecat from "src/icons/sponsors logos/1st/logo_EURECAT.png";
@@ -102,7 +103,7 @@ const Sponsors = () => {
       <p>Vols participar?</p>
       <p>No ho dubtis, contacta amb nosaltres!</p>
       <Link to={"/contacte"}>
-        <button className="contacta">Contacta</button>
+        <Button primary lg>Contacta</Button>
       </Link>
       <section className="spnsection">
         <div className="cuadrados-container">

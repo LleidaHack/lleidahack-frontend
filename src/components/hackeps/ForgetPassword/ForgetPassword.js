@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "src/components/hackeps/ForgetPassword/forgetPassword.css";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "src/icons/hackLogoWellDone.png";
 import { resetPassword } from "src/services/AuthenticationService";
+import Button from "src/components/buttons/Button";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required("Correu requerit"),
@@ -94,8 +95,8 @@ const ForgetPassword = ({ nextScreen }) => {
                         <div className="button-container">
                           <Button
                             type="submit"
-                            disabled={isSubmitting}
-                            className="btn btn-default"
+                            primary
+                            md
                             onClick={submitForm}
                           >
                             {isSubmitting
@@ -149,7 +150,7 @@ const ForgetPassword = ({ nextScreen }) => {
 
               <div className="infbuttonok">
                 <Link to="/">
-                  <button className="contacta">Tornar a l'Inici</button>
+                  <Button primary>Tornar a l'Inici</Button>
                 </Link>
               </div>
             </div>

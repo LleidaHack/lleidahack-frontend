@@ -4,6 +4,7 @@ import logo from "src/icons/imagotip_lleidahack_blanc.png";
 import instagramLogo from "src/icons/instagram.png";
 import linkedinLogo from "src/icons/linkedin.png";
 import twitterLogo from "src/icons/X.png";
+import Button from "src/components/buttons/Button";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -149,10 +150,10 @@ const ContactePage = () => {
                       className="error-message"
                     />
                   </div>
-                  <div className="button-submit-container">
-                    <button className="button-submit" type="submit">
+                  <div className="button-submit-container mb-8">
+                    <Button secondary type="submit" outline>
                       Enviar
-                    </button>
+                    </Button>
                   </div>
                 </Form>
               </Formik>

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "src/components/hackeps/Feedbacks/FeedbackStyle.css";
+import Button from "src/components/buttons/Button";
 
 //El onButtonClick es per a que des de on es truca al component, indicar-li si al clicar el boto, es necesita que s'executi alguna funcio en concret.
 //La funció ha d'estar al lloc on es crida a la component. (Exemple al component de Contacte.js)
@@ -66,9 +67,9 @@ const FailFeedback = ({
       {hasButton ? (
         <div className="infbuttonok">
           <Link to={buttonLink}>
-            <button onClick={onButtonClick} className="contacta">
+            <Button onClick={onButtonClick} primary>
               {buttonText}
-            </button>
+            </Button>
           </Link>
         </div>
       ) : (

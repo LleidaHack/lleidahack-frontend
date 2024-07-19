@@ -9,6 +9,8 @@ import { getHackeps } from "src/services/EventService";
 import FailFeedback from "src/components/hackeps/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/hackeps/Feedbacks/SuccesFeedback";
 
+import Button from "src/components/buttons/Button";
+
 import FileBase from "react-file-base64";
 import { getHackerById } from "src/services/HackerService";
 
@@ -327,13 +329,12 @@ const InscripcioForm = () => {
                     {cvFile && (
                       <div className="file-info">
                         <span className="file-name">{cvFile.name}</span>
-                        <button
-                          type="button"
-                          className="delete-button"
+                        <Button
+                          delete
                           onClick={clearFile}
                         >
                           &#10005;
-                        </button>
+                        </Button>
                       </div>
                     )}
                   </div>
@@ -360,10 +361,10 @@ const InscripcioForm = () => {
                       className="error-message"
                     />
                   </div>
-                  <div className="button-submit-container">
-                    <button className="button-submit" type="submit">
+                  <div className="button-submit-container m-8 mt-2">
+                    <Button secondary outline type="submit">
                       {registered ? "Actualitza" : "Envia"}
-                    </button>
+                    </Button>
                   </div>
                 </Form>
               </Formik>
