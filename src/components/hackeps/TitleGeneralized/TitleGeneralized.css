@@ -22,8 +22,8 @@
   color: var(--secondary) !important;
 }
 
-.whiteFont {
-  color: var(--white);
+.secondaryFont {
+  color: var(--text-secondary);
 }
 
 .titlebold {
