@@ -6,15 +6,17 @@ import { confirmResetPassword } from "src/services/AuthenticationService";
 import FailFeedback from "src/components/hackeps/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/hackeps/Feedbacks/SuccesFeedback";
 
+import Button from "src/components/buttons/Button";
+
 export default function ResetPassword() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
 
   //si no hi ha querry (token) envia fora
   useEffect(() => {
-    if (params.get("token") == null) {
-      navigate("/");
-    }
+    // if (params.get("token") == null) {
+    //   navigate("/");
+    // }
   }, [params]);
 
   const [firstPassword, setFirstPassword] = useState();
@@ -89,9 +91,9 @@ export default function ResetPassword() {
                 <small className="text-center text-danger mx-auto d-block">
                   {errorMsg}
                 </small>
-                <button className="btn w-100 mt-2">
+                <Button primary className=" w-100 mt-2">
                   Restablir Contrassenya
-                </button>
+                </Button>
               </div>
             </form>
           </div>

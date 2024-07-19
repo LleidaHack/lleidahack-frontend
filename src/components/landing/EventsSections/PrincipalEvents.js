@@ -3,6 +3,7 @@ import EventCard_three from "../../event_cards/eventCard_three/eventCard_three";
 import principalImage from "src/imgs/foto_grupal_colonies.jpg";
 import EventCard1 from "../ImageCards/EventCard1"; //Aixo son components creades per lolo. Si al final no serveixen, borrar components
 import EventCard_one from "../../event_cards/eventCard_one/eventCard_one";
+import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 
 const PrincipalEvents = () => {
   return (
@@ -51,9 +52,9 @@ const PrincipalEvents = () => {
         </div>
       </div>
       <div className="MoreEvents_button center py-14 text-center">
-        <button className="bg-primaryLanding text-white font-bold py-2 px-4 rounded-full">
+        <ButtonLleidahack primary white>
           Mostrar més events
-        </button>
+        </ButtonLleidahack>
       </div>
     </div>
   );

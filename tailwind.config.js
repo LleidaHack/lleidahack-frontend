@@ -12,6 +12,13 @@ module.exports = {
         errorLanding: "#E55010",
         linkLanding: "#3366CC",
         graycolor: "#959595",
+        primaryHackeps: "#edab11",
+        primaryHackepsDark: "#ac7c0e",
+        secondaryHackeps: "#232323",
+        lightHackeps: "#F5F5F5",
+        grayLightHackeps: "#bbb8b8",
+        grayLightHackepsDark: "#8c8787",
+        grayStrongHackeps: "#444343",
       },
     },
     backgroundImage: {

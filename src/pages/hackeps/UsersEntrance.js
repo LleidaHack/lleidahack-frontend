@@ -3,7 +3,7 @@ import Entrances from "src/components/hackeps/UserEnters/UserEnter.js";
 import Header from "src/components/hackeps/Header/Header.js";
 import Footer from "src/components/hackeps/Footer/Footer.js";
 
-const FAQPage = () => {
+const EntrancePage = () => {
   return (
     <div>
       <Header />
@@ -13,4 +13,4 @@ const FAQPage = () => {
   );
 };
 
-export default FAQPage;
+export default EntrancePage;
