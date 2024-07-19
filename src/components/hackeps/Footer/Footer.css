@@ -1,6 +1,6 @@
 .footer {
   background-color: var(--primary);
-  color: var(--black);
+  color: var(--text-primary);
   padding: 50px;
   text-align: center;
   left: 0;
@@ -25,7 +25,7 @@
 }
 
 .heart {
-  color: var(--black);
+  color: var(--text-primary);
 }
 
 .hack-logo {
@@ -37,11 +37,11 @@
 }
 
 .footer-links a {
-  color: var(--black);
+  color: var(--text-primary);
   text-decoration: none;
 }
 
 .footer-links a:hover {
-  color: var(--black);
+  color: var(--text-primary);
   font-weight: 10;
 }
