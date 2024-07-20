@@ -5,14 +5,14 @@ const Footer = () => {
   return (
     <div className="bg-primaryLanding w-full h-36 px-4 py-4 items-center">
       <div className="flex justify-between items-center">
-        <a href="/">
+        <a href="/lleidahack">
           <img src={lleidaHackLogo} className="h-14 w-52" />
         </a>
         <div className="flex">
           <li className="list-none mx-8 text-xl">
             <a
               className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
-              href="/"
+              href="/lleidahack"
             >
               Política de privacitat
             </a>
@@ -20,7 +20,7 @@ const Footer = () => {
           <li className="list-none mx-8 text-xl">
             <a
               className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
-              href="/"
+              href="/lleidahack"
             >
               Avís legal
             </a>
@@ -28,7 +28,7 @@ const Footer = () => {
           <li className="list-none mx-8 text-xl">
             <a
               className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
-              href="/"
+              href="/lleidahack"
             >
               Política de cookies
             </a>

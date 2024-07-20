@@ -1,9 +1,8 @@
 import "src/components/hackeps/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
+import Button from "src/components/buttons/Button";
 import hackLogo from "src/icons/hackLogo.png";
-
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
 
@@ -41,14 +40,10 @@ const MainTitle = () => {
             <div className="rowe">
               <img className="imagelogo" src={hackLogo} alt="" />
             </div>
-            <div className="row text-center">
-              <button
-                style={{ width: "fit-content", textDecoration: "none" }}
-                className="py-2 px-4 m-auto apuntat-button"
-                onClick={handleShow}
-              >
+            <div className="text-center">
+              <Button onClick={handleShow} light>
                 Apunta't!
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -62,10 +57,10 @@ const MainTitle = () => {
           Has d'iniciar sessió per apuntar-te!
         </Modal.Body>
         <Modal.Footer className="no-border justify-content-center">
-          <Button className="main-title-modal-button" onClick={handleSignIn}>
+          <Button primary onClick={handleSignIn}>
             Tinc compte
           </Button>
-          <Button className="main-title-modal-button" onClick={handleSignUp}>
+          <Button primary onClick={handleSignUp}>
             Crear compte
           </Button>
         </Modal.Footer>

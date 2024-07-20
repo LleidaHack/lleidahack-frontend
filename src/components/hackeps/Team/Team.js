@@ -3,7 +3,7 @@ import "src/components/hackeps/Team/Team.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import Button from "src/components/buttons/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -112,17 +112,11 @@ const Team = (props) => {
             <TitleGeneralized marginBot="0.5rem" bold={false} padTop="0%">
               Inscripcions
             </TitleGeneralized>
-            <Row className="justify-content-center">
-              <Button
-                className="m-3 team-button team-button-fit"
-                onClick={handleShowJoinTeam}
-              >
+            <Row className="gap-2 flex-row">
+              <Button primary onClick={handleShowJoinTeam}>
                 Ja tinc un equip
               </Button>
-              <Button
-                className="m-3 team-button team-button-fit"
-                onClick={handleShowCreateTeam}
-              >
+              <Button primary secondary onClick={handleShowCreateTeam}>
                 Crear l'equip
               </Button>
             </Row>
@@ -154,7 +148,7 @@ const Team = (props) => {
                     />
                   </div>
                   <div className="button-submit-container">
-                    <Button className="team-button" type="submit">
+                    <Button primary type="submit">
                       Envia
                     </Button>
                   </div>
@@ -195,7 +189,7 @@ const Team = (props) => {
                     <Field type="text" id="teamDesc" name="teamDesc" />
                   </div>
                   <div className="button-submit-container">
-                    <Button className="team-button" type="submit">
+                    <Button primary type="submit">
                       Envia
                     </Button>
                   </div>
@@ -232,7 +226,9 @@ const Team = (props) => {
                     ) : (
                       <>
                         <Button
-                          className="team-button"
+                          className="my-2"
+                          primary
+                          sm
                           href={
                             "/hackeps/perfil/" + member.id /* //TODO hardcoded*/
                           }
@@ -248,15 +244,17 @@ const Team = (props) => {
                         ) ? (
                           <>
                             <Button
-                              className="kick-button"
+                              primary
+                              sm
                               onClick={() => handleKick(member)}
                             >
                               Expulsar
                             </Button>
 
                             <Button
-                              style={{ marginTop: "10px" }}
-                              className="kick-button"
+                              className="my-2"
+                              sm
+                              primary
                               onClick={() => handleMakeLeader(member)}
                             >
                               Fer líder
@@ -274,7 +272,7 @@ const Team = (props) => {
           </Container>
           {is_user && (
             <>
-              <Button className="leave-group" onClick={() => handleLeave()}>
+              <Button primary onClick={() => handleLeave()}>
                 Sortir del grup
               </Button>
               <p style={{ color: "#c00" }}>{err}</p>

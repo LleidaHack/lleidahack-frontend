@@ -23,7 +23,7 @@ import QrCode from "src/components/hackeps/Home/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../ProfilePic/ProfilePic";
-import { Button } from "react-bootstrap";
+import Button from "src/components/buttons/Button";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const ProfileComponent = () => {
@@ -133,9 +133,9 @@ const ProfileComponent = () => {
               <br />
               {isUser && (
                 <Link to="/home" className="logOut" onClick={logOut}>
-                  <button className="logOut-button">
+                  <Button secondary outline>
                     <i className="fas fa-sign-out"></i> Tancar sessió
-                  </button>
+                  </Button>
                 </Link>
               )}
             </div>
