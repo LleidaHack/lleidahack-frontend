@@ -102,7 +102,7 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
-      <Router basename="/lleidahack">
+      <Router basename="/">
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />
