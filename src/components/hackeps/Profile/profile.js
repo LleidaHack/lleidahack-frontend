@@ -144,7 +144,7 @@ const ProfileComponent = () => {
             <div className="col-12 col-xl-4 px-0 my-3 text-center">
               <div className="row ">
                 {isUser && (
-                  <h3 className="text-center">Benvingut/da, hacker!</h3>
+                  <h3 className="text-center title-underline">Benvingut/da, hacker!</h3>
                 )}
               </div>
               <div className="row my-3">
@@ -163,7 +163,7 @@ const ProfileComponent = () => {
                 </div>
               </div>
               <div className="row">
-                <span className="text-center">
+                <span className="text-center secondary-background">
                   Membre desde fa{" "}
                   {hacker ? generateMemberTime(hacker.created_at) : ""}
                 </span>

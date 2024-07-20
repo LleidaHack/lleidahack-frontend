@@ -12,6 +12,13 @@
   padding-bottom: 1em;
 }
 
+.primary-background {
+  color: var(--text-primary);
+}
+.secondary-background {
+  color: var(--text-secondary);
+}
+
 .dark-background {
   background-color: var(--secondary);
 }

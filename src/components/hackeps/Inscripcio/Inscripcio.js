@@ -253,7 +253,7 @@ const InscripcioForm = () => {
                       Vols que les empreses de Lleida et coneguin? (Opcional)
                     </label>
                     <p className="subtitle">
-                      Tens expeciència en altres hackatons? Algun projecte
+                      Tens experiència en altres hackatons? Algun projecte
                       personal que vulguis compartir? Explica'ns què t'apassiona
                       i deixa aquí els enllaços de les teves xarxes socials.
                     </p>
@@ -388,7 +388,7 @@ const InscripcioForm = () => {
             <>
               <SuccessFeedback
                 title="T'has registrat correctament a l'esdeveniment!"
-                text={`El teu registre s'ha realitzat correctament. \n Quan siguis acceptat a l'esdeveniment rebràs un correu per a confirmar la teva assisténcia.\n Estigues atent! Tindrás 5 dies per confirmar-ho.`}
+                text={`El teu registre s'ha realitzat correctament. \n Quan siguis acceptat a l'esdeveniment rebràs un correu per a confirmar la teva assistència.\n Estigues atent! Tindrás 5 dies per confirmar-ho.`}
                 hasButton={true}
                 buttonLink="/perfil"
                 buttonText="Inicia sessió"

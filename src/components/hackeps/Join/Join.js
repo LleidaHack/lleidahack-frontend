@@ -13,7 +13,7 @@ const Join = (props) => {
       return (
         <div
           style={{ width: `fit-content`, textDecoration: `none` }}
-          className="py-2 px-4 m-auto text-dark p-bg-primary"
+          className="py-2 px-4 m-auto p-bg-primary primary-background"
         >
           Acceptat!
         </div>

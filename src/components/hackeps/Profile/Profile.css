@@ -2,6 +2,7 @@
   .qr-container {
     height: 100%;
     width: 40% !important;
+    color:var(--text-primary);
   }
 
   .qr-container img {
@@ -44,7 +45,7 @@
   padding: 10px 12px;
   font-size: 18px;
   background-color: var(--secondary);
-  color: var(--white);
+  color: var(--text-secondary);
   border: 2px solid var(--primary);
   cursor: pointer;
   font-family: "space mono";
