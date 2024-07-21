@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 const TermsComponent = () => {
   return (
     <div className="dark-background">
-      <Container className="py-5 text-white">
+      <Container className="py-5 secondary-background">
         <h3>TERMES I CONDICIONS</h3>
         <h4>Objectiu</h4>
         <p>

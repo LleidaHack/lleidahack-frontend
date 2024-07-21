@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 const PrivacyComponent = () => {
   return (
     <div className="dark-background">
-      <Container className="py-5 text-white">
+      <Container className="py-5 secondary-background">
         <h3>POLÍTICA DE PRIVADESA</h3>
         <p>
           La present Política de Privadesa estableix els termes en què

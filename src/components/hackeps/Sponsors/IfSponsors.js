@@ -47,7 +47,7 @@ const InfoSponsors = ({ id }) => {
   }
 
   console.log("la longitud de la tabla es:", infoCompany.name);
-  if (Object.keys(infoCompany).length > 0) {
+  if (Object.keys(infoCompany) && Object.keys(infoCompany).length > 0) {
     //Pagina que es mostrará si amb la id s'ha obtingut alguna cosa
 
     let SpnName = infoCompany.name; //Nom del Sponsor
@@ -59,7 +59,7 @@ const InfoSponsors = ({ id }) => {
     let description = infoCompany.description;
     let edicions = []; //Aqui afegir les edicions en les que han participat (2020, 2021, 2022, 2023,....)
     let xarxes = false; //Variable que servira per a informar si la empresa te enllaç web o no. Per defecte false. Si te web, s'ha de posar true
-    if (webtag.length > 0) {
+    if (webtag && webtag.length > 0) {
       xarxes = true;
     }
 
