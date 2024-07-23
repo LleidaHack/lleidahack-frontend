@@ -8,12 +8,14 @@ import SecondaryEvents from "src/components/landing/EventsSections/SecondaryEven
 const EventsLanding = () => {
   return (
     <div>
-      <Navbar />
-      <HeaderEvents />
-      <HeaderEventsLinks />
-      <PrincipalEvents />
-      <SecondaryEvents />
-      <Footer />
+     
+        <Navbar />
+        <HeaderEvents />
+        <HeaderEventsLinks />
+        <PrincipalEvents />
+        <SecondaryEvents />
+        <Footer />
+      
     </div>
   );
 };
