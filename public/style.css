@@ -12,7 +12,7 @@ body {
 
 :root {
   --old-primary: #edab11;
-  --primary-strong: #ac7c0e;
+  --old-primary-strong: #ac7c0e;
   --old-secondary: #232323;
   --white: #f5f5f5;
   --gray: #757575;
@@ -23,7 +23,9 @@ body {
   --transaprent: rgba(255, 255, 255, 0);
 
   --primary: #0e3a29;
-  --new-primary-strong: #2F7D5F;
+  --primary-strong: #2F7D5F;
+  --primary-strong2: #BCF2DE;
+  --primary-strong3: #e8fcda;
   --secondary:#F7F7F2;
   --text-primary: #f5f5f5;
   --text-secondary: #000000;

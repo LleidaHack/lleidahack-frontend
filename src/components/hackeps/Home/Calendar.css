@@ -97,7 +97,7 @@
   background: var(--primary-strong);
   text-align: center;
   line-height: 16px;
-  color: var(--white);
+  color: var(--black);
   border-radius: 5px;
 }
 .react-calendar__tile:disabled {

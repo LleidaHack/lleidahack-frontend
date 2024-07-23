@@ -84,9 +84,9 @@ export default function App() {
           <Route
             path="/dailyhacks"
             element={
-              <RequireAuth originalRoute="/dailyhacks">
+              //<RequireAuth originalRoute="/dailyhacks">
                 <Dailyhack />
-              </RequireAuth>
+              //</RequireAuth>
             }
           />
           <Route
@@ -114,3 +114,4 @@ export default function App() {
     </div>
   );
 }
+  

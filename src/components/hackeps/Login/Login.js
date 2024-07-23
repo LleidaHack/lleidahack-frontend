@@ -103,7 +103,7 @@ const LoginPage = ({ nextScreen }) => {
                         </p>
                       </div>
                       <div className="button-container">
-                        <Button type="submit" primary lg onClick={submitForm}>
+                        <Button type="submit" secondary outline lg onClick={submitForm}> 
                           {isSubmitting
                             ? "Iniciant sessió..."
                             : "Inicia sessió"}
