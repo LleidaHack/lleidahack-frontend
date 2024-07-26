@@ -65,7 +65,10 @@ const ForgetPassword = ({ nextScreen }) => {
                     {({ isSubmitting, submitForm, errors, touched }) => (
                       <Form>
                         <div className="form-group primary-background">
-                          <label className="text-textPrimaryHackeps" htmlFor="email">
+                          <label
+                            className="text-textPrimaryHackeps"
+                            htmlFor="email"
+                          >
                             Introdueix el teu correu electrònic
                           </label>
                           <Field

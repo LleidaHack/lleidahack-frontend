@@ -92,7 +92,9 @@ const TermsComponent = () => {
           en cas d'ampliar el nombre de places per rigorós ordre d'inscripció.
         </p>
 
-        <p className="text-justify">L'ORGANITZACIÓ es reserva el dret d'admissió.</p>
+        <p className="text-justify">
+          L'ORGANITZACIÓ es reserva el dret d'admissió.
+        </p>
 
         <h4>Dinàmica de l'esdeveniment</h4>
         <p className="text-justify">

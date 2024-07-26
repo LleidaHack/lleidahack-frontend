@@ -113,25 +113,27 @@ function DashboardGrid({ data }) {
         </tr>
       </thead>
       <tbody>
-    
-      {data.nogroup && data.nogroup.map((user) => (
-        <TableRow key={user.id} user={user} isGroup={false} />
-      ))}
+        {data.nogroup &&
+          data.nogroup.map((user) => (
+            <TableRow key={user.id} user={user} isGroup={false} />
+          ))}
 
-        { data.groups && data.groups.map((group, index) => (
-          <>
-            <tr>
-              <th>Grup {index + 1}</th>
-              <th colSpan={2}>
-                {group.name} ({group.members.length}/4)
-              </th>
-              <th colSpan={4}></th>
-            </tr>
-            {group.members && group.members.map((user) => (
-              <TableRow isGroup={true} user={user} key={user.id}></TableRow>
-            ))}
-          </>
-        ))}
+        {data.groups &&
+          data.groups.map((group, index) => (
+            <>
+              <tr>
+                <th>Grup {index + 1}</th>
+                <th colSpan={2}>
+                  {group.name} ({group.members.length}/4)
+                </th>
+                <th colSpan={4}></th>
+              </tr>
+              {group.members &&
+                group.members.map((user) => (
+                  <TableRow isGroup={true} user={user} key={user.id}></TableRow>
+                ))}
+            </>
+          ))}
       </tbody>
     </table>
   );

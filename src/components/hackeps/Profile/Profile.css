@@ -2,7 +2,7 @@
   .qr-container {
     height: 100%;
     width: 40% !important;
-    color:var(--text-primary);
+    color: var(--text-primary);
   }
 
   .qr-container img {

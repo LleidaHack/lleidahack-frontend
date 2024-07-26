@@ -112,7 +112,9 @@ const ContactePage = () => {
               >
                 <Form className="form-contacte">
                   <div className="formik-field">
-                    <label className="secondary-background" htmlFor="name">Nom:</label>
+                    <label className="secondary-background" htmlFor="name">
+                      Nom:
+                    </label>
                     <Field type="text" id="name" name="name" />
                     <ErrorMessage
                       name="name"
@@ -122,7 +124,9 @@ const ContactePage = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label className="secondary-background" htmlFor="email">Correu:</label>
+                    <label className="secondary-background" htmlFor="email">
+                      Correu:
+                    </label>
                     <Field type="email" id="email" name="email" />
                     <ErrorMessage
                       name="email"
@@ -132,7 +136,9 @@ const ContactePage = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label className="secondary-background" htmlFor="subject">Títol del missatge:</label>
+                    <label className="secondary-background" htmlFor="subject">
+                      Títol del missatge:
+                    </label>
                     <Field type="text" id="subject" name="subject" />
                     <ErrorMessage
                       name="subject"
@@ -142,7 +148,9 @@ const ContactePage = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label className="secondary-background" htmlFor="message">Missatge:</label>
+                    <label className="secondary-background" htmlFor="message">
+                      Missatge:
+                    </label>
                     <Field as="textarea" id="message" name="message" rows="4" />
                     <ErrorMessage
                       name="message"

@@ -183,7 +183,10 @@ const InscripcioForm = () => {
               >
                 <Form>
                   <div className="formik-field">
-                    <label className="text-textSecondaryHackeps" htmlFor="studies">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="studies"
+                    >
                       Què estudies o has estudiat?
                     </label>
                     <Field type="text" id="studies" name="studies" />
@@ -195,7 +198,12 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label className="text-textSecondaryHackeps" htmlFor="center">Centre d'estudis:</label>
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="center"
+                    >
+                      Centre d'estudis:
+                    </label>
                     <Field type="text" id="center" name="center" />
                     <ErrorMessage
                       name="center"
@@ -205,7 +213,12 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label className="text-textSecondaryHackeps" htmlFor="location">D'on vens?:</label>
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="location"
+                    >
+                      D'on vens?:
+                    </label>
                     <Field type="text" id="location" name="location" />
                     <ErrorMessage
                       name="location"
@@ -253,7 +266,10 @@ const InscripcioForm = () => {
                     />
                   </div>
                   <div className="formik-field">
-                    <label className="text-textSecondaryHackeps" htmlFor="cvinfo_links">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="cvinfo_links"
+                    >
                       Vols que les empreses de Lleida et coneguin? (Opcional)
                     </label>
                     <p className="subtitle">
@@ -319,7 +335,10 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="file-input-container">
-                    <label className="text-textSecondaryHackeps" htmlFor="cvinfo_file">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="cvinfo_file"
+                    >
                       Adjunta el teu CV (Opcional)
                     </label>
                     <FileBase
@@ -345,7 +364,10 @@ const InscripcioForm = () => {
                       id="checkboxterms"
                       name="checkboxterms"
                     />
-                    <label className="text-textSecondaryHackeps" htmlFor="checkboxterms">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="checkboxterms"
+                    >
                       Accepto els{" "}
                       <a href="/terms" target="_blank">
                         Termes i Condicions

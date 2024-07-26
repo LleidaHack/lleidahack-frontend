@@ -65,7 +65,9 @@ export default function ResetPassword() {
               </h2>
               <div className="w-75 mx-auto">
                 <div className="form-group p-2">
-                  <label className=" text-textSecondaryHackeps form-label">Nova contrasenya</label>
+                  <label className=" text-textSecondaryHackeps form-label">
+                    Nova contrasenya
+                  </label>
                   <input
                     type="password"
                     onChange={(e) => setFirstPassword(e.target.value)}
@@ -75,7 +77,9 @@ export default function ResetPassword() {
                   />
                 </div>
                 <div className="form-group p-2">
-                  <label className="text-textSecondaryHackeps form-label">Confirmar contrasenya</label>
+                  <label className="text-textSecondaryHackeps form-label">
+                    Confirmar contrasenya
+                  </label>
                   <input
                     type="password"
                     onChange={(e) => setSecondPassword(e.target.value)}

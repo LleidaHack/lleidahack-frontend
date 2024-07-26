@@ -144,7 +144,9 @@ const ProfileComponent = () => {
             <div className="col-12 col-xl-4 px-0 my-3 text-center">
               <div className="row ">
                 {isUser && (
-                  <h3 className="text-center title-underline">Benvingut/da, hacker!</h3>
+                  <h3 className="text-center title-underline">
+                    Benvingut/da, hacker!
+                  </h3>
                 )}
               </div>
               <div className="row my-3">
