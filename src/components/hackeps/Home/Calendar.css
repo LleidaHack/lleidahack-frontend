@@ -109,12 +109,13 @@
 }
 .react-calendar__tile--now {
   background: var(--gray-light);
-  color: var(--primary-strong);
+  color: var(--black);
   font-weight: bold;
 }
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
   background: var(--white);
+  color:var(--primary-strong);
   border-radius: 5px;
 }
 .react-calendar__tile--hasActive {
