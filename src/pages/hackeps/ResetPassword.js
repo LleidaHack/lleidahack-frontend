@@ -60,12 +60,14 @@ export default function ResetPassword() {
               onSubmit={(e) => handleResetPassword(e)}
               className="p-bg-black p-3 mx-auto my-auto col-12 col-xxl-4 "
             >
-              <h2 className="text-light mb-3 ms-3 text-center">
-                Restablir Contrassenya
+              <h2 className="text-textSecondaryHackeps mb-3 ms-3 text-center">
+                Restablir contrasenya
               </h2>
               <div className="w-75 mx-auto">
                 <div className="form-group p-2">
-                  <label className="form-label">Nova Contrassenya</label>
+                  <label className=" text-textSecondaryHackeps form-label">
+                    Nova contrasenya
+                  </label>
                   <input
                     type="password"
                     onChange={(e) => setFirstPassword(e.target.value)}
@@ -75,7 +77,9 @@ export default function ResetPassword() {
                   />
                 </div>
                 <div className="form-group p-2">
-                  <label className="form-label">Confirmar Contrassenya</label>
+                  <label className="text-textSecondaryHackeps form-label">
+                    Confirmar contrasenya
+                  </label>
                   <input
                     type="password"
                     onChange={(e) => setSecondPassword(e.target.value)}
@@ -84,15 +88,15 @@ export default function ResetPassword() {
                     pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$"
                   />
                 </div>
-                <ul className="text-light">
-                  <li>Majuscules, Minuscules, Numeros</li>
-                  <li>8 caracters minim</li>
+                <ul className="text-textSecondaryHackeps">
+                  <li>Majúscules, Minúscules, Números</li>
+                  <li>8 caràcters mínim</li>
                 </ul>
                 <small className="text-center text-danger mx-auto d-block">
                   {errorMsg}
                 </small>
                 <Button primary className=" w-100 mt-2">
-                  Restablir Contrassenya
+                  Restablir contrasenya
                 </Button>
               </div>
             </form>

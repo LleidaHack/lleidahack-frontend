@@ -1,5 +1,5 @@
 .valerr {
-  color: var(--white);
+  color: var(--text-secondary);
   max-width: 100%;
   min-height: 100vh;
   padding: 0.1vh;
