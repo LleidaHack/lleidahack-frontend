@@ -84,9 +84,9 @@ export default function App() {
           <Route
             path="/dailyhacks"
             element={
-              //<RequireAuth originalRoute="/dailyhacks">
+              <RequireAuth originalRoute="/dailyhacks">
               <Dailyhack />
-              //</RequireAuth>
+              </RequireAuth>
             }
           />
           <Route
@@ -102,7 +102,7 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
-      <Router basename="/">
+      <Router basename="/lleidahack">
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />

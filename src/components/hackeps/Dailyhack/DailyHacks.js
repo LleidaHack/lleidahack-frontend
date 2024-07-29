@@ -173,7 +173,7 @@ const Dailyhacks = () => {
           <TitleGeneralized underline={true}>Dailyhack</TitleGeneralized>
           <section className="informative">
             <div className="Part1">
-              <p className="secondary-background">
+              <p className="text-textSecondaryHackeps">
                 Molt bones, Hackers! Des de LleidaHack venim a presentar-vos el
                 DailyHack d'aquest any! Alguns us preguntareu: què és això del
                 DailyHack?<br></br> Bé, cada any hem preparat abans de la
@@ -190,7 +190,7 @@ const Dailyhacks = () => {
                   En què consisteix el repte?
                 </TitleGeneralized>
 
-                <p className="secondary-background">
+                <p className="text-textSecondaryHackeps">
                   Fent un resum molt resumit, el repte consisteix a crear el
                   nostre propi llenguatge de signes i establir les normes
                   d'aquest, per després automatitzar-ne la traducció a
@@ -228,7 +228,7 @@ const Dailyhacks = () => {
               </div>
             </div>
 
-            <p class="final-text secondary-background">
+            <p class="final-text text-textSecondaryHackeps">
               {" "}
               Molta sort a tots, i que guanyi el millor!
             </p>
@@ -237,7 +237,7 @@ const Dailyhacks = () => {
           <br />
           <section className="upload white">
             <br />
-            <h2 className=" secondary-background">
+            <h2 className="text-textSecondaryHackeps">
               Vols presentar el teu repositori?
             </h2>
 
