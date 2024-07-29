@@ -23,8 +23,12 @@ import QrCode from "src/components/hackeps/Home/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../ProfilePic/ProfilePic";
+<<<<<<< HEAD
 import { Button } from "react-bootstrap";
 import { updateHacker } from "src/services/HackerService";
+=======
+import Button from "src/components/buttons/Button";
+>>>>>>> integration
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 import FailFeedback from "../Feedbacks/FailFeedback";
 import SuccessFeedback from "../Feedbacks/SuccesFeedback";
@@ -134,6 +138,7 @@ const ProfileComponent = () => {
     if (hacker.message === "Hacker not found") return <UserNotFound />;
 
   return (
+<<<<<<< HEAD
     <div>
       {!profileSended ? (
         <>
@@ -162,6 +167,34 @@ const ProfileComponent = () => {
                     </Link>
                   )}
                 </div>
+=======
+    <>
+      <div className="p-bg-black text-white main-screen">
+        <div className="container-xxl pt-3 peter">
+          {/* User info and qr */}
+          <div className="row align-middle mx-auto mb-3">
+            {/* User Image */}
+            <div className="col-12 col-xl-4 m-auto text-center">
+              <ProfilePic
+                id="profile-pic-big"
+                hacker={hacker}
+                size="big"
+                defaultColor="white"
+                bgcolor="white"
+                border={true}
+                is_profile={true}
+              />
+              <br />
+              <br />
+              {isUser && (
+                <Link to="/home" className="logOut" onClick={logOut}>
+                  <Button secondary outline>
+                    <i className="fas fa-sign-out"></i> Tancar sessió
+                  </Button>
+                </Link>
+              )}
+            </div>
+>>>>>>> integration
 
                 {/* Center Column */}
                 <div className="col-12 col-xl-4 px-0 my-3 text-center">

@@ -21,7 +21,6 @@ import RequireLleidahacker from "./modules/RequireLleidahacker";
 import ResetPassword from "./pages/hackeps/ResetPassword";
 import PasswordForget from "./pages/hackeps/ForgetPassword";
 import Dashboard from "./pages/hackeps/Dashboard/Dashboard";
-import "src/utils/ensure-basename";
 import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
@@ -102,7 +101,7 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
-      <Router basename="/">
+      <Router basename="/lleidahack">
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />
