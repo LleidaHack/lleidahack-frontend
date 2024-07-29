@@ -209,7 +209,7 @@ const Dailyhacks = () => {
                   parts.
                 </p>
                 <br />
-                <p className="secondary-background">
+                <p className="text-textSecondaryHackeps">
                   {" "}
                   Trobaréu més informació al ReadMe del repositori:<br></br>
                   <a
