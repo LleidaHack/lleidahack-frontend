@@ -85,7 +85,7 @@ export default function App() {
             path="/dailyhacks"
             element={
               <RequireAuth originalRoute="/dailyhacks">
-              <Dailyhack />
+                <Dailyhack />
               </RequireAuth>
             }
           />

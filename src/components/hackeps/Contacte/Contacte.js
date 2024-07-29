@@ -124,7 +124,10 @@ const ContactePage = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label className="text-textSecondaryHackeps" htmlFor="email">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="email"
+                    >
                       Correu:
                     </label>
                     <Field type="email" id="email" name="email" />
@@ -136,7 +139,10 @@ const ContactePage = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label className="text-textSecondaryHackeps" htmlFor="subject">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="subject"
+                    >
                       Títol del missatge:
                     </label>
                     <Field type="text" id="subject" name="subject" />
@@ -148,7 +154,10 @@ const ContactePage = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label className="text-textSecondaryHackeps" htmlFor="message">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="message"
+                    >
                       Missatge:
                     </label>
                     <Field as="textarea" id="message" name="message" rows="4" />
