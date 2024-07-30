@@ -82,9 +82,13 @@ const EditProfile = (props) => {
         <div className="row align-middle mx-auto mb-3 col-12">
           {showEditProfile ? (
             <div>
-              <Button secondary outline onClick={onEditButtonClick}>
+              <button
+                className="logOut-button"
+                style={{ marginLeft: "2.5%" }}
+                onClick={onEditButtonClick}
+              >
                 <i className="fas fa-sign-out"></i> Close
-              </Button>
+              </button>
 
               <div className="form-container">
                 <Formik
@@ -159,9 +163,13 @@ const EditProfile = (props) => {
                       {cvFile && (
                         <div className="file-info">
                           <span className="file-name">{cvFile.name}</span>
-                          <Button primary onClick={clearFile}>
+                          <button
+                            type="button"
+                            className="delete-button"
+                            onClick={clearFile}
+                          >
                             &#10005;
-                          </Button>
+                          </button>
                         </div>
                       )}
                     </div>
@@ -216,18 +224,18 @@ const EditProfile = (props) => {
                       className="button-submit-container"
                       style={{ marginTop: "2%" }}
                     >
-                      <Button outline secondary type="submit">
+                      <button className="button-submit" type="submit">
                         Actualitzar
-                      </Button>
+                      </button>
                     </div>
                   </Form>
                 </Formik>
               </div>
             </div>
           ) : (
-            <Button outline secondary onClick={onEditButtonClick}>
+            <button className="logOut-button" onClick={onEditButtonClick}>
               <i className="fas fa-pen-to-square"></i> Editar perfil
-            </Button>
+            </button>
           )}
         </div>
       )}
