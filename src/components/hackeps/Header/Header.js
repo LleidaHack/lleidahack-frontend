@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import "src/components/hackeps/Header/Header.css";
-import hackIcon from "src/icons/hack_icon_black.png";
+import hackIcon from "src/icons/hackIcon.png";
 import { me, checkToken } from "src/services/AuthenticationService";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Button from "src/components/buttons/Button";

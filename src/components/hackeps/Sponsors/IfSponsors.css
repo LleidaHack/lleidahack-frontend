@@ -11,19 +11,19 @@
   padding-top: 10%;
   font-weight: bold;
   padding-bottom: 2%;
-  color: var(--white);
+  color: var(--text-secondary);
   text-align: center;
   font-size: 2em; /* 50px */
   justify-content: center;
 }
 
 .text-aftTitle {
-  color: var(--white);
+  color: var(--text-secondary);
   text-align: center;
 }
 
 .text-aftTitle2 {
-  color: var(--white);
+  color: var(--text-secondary);
   text-align: center;
   font-size: 1.1rem;
   margin-top: 12px;
@@ -52,7 +52,7 @@
 
 .rel {
   text-decoration: none;
-  color: var(--white);
+  color: var(--text-primary);
 }
 
 .fa-linkedin {
@@ -66,7 +66,7 @@
 }
 
 .descriptions {
-  color: var(--white);
+  color: var(--text-secondary);
   width: 40%;
   height: auto;
 }
@@ -74,6 +74,7 @@
 .businesActivity {
   width: 40%;
   background-color: var(--primary);
+  color: var(--text-primary);
   height: auto;
   text-align: center;
 }

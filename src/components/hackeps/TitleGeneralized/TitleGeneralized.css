@@ -19,11 +19,11 @@
 }
 
 .titleblack {
-  color: var(--secondary) !important;
+  color: var(--text-secondary) !important;
 }
 
 .whiteFont {
-  color: var(--white);
+  color: var(--text-secondary);
 }
 
 .titlebold {

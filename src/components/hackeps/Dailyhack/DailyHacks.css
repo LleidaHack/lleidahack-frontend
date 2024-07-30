@@ -12,7 +12,7 @@
 }
 
 .title2 {
-  color: var(--white);
+  color: var(--text-secondary);
   padding-top: 5%;
   font-weight: bold;
   text-align: center;
@@ -23,7 +23,7 @@
   width: 82%;
   justify-content: center;
   border-radius: 18px;
-  color: var(--white);
+  color: var(--text-secondary);
   padding: 20px;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .white {
-  background-color: var(--white);
+  background-color: var(--secondary);
 }
 
 .form {

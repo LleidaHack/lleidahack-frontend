@@ -58,7 +58,9 @@ const LoginPage = ({ nextScreen }) => {
                   {({ isSubmitting, submitForm, errors, touched }) => (
                     <Form>
                       <div className="form-group">
-                        <label htmlFor="email">Correu</label>
+                        <label className="text-white" htmlFor="email">
+                          Correu
+                        </label>
                         <Field
                           type="email"
                           name="email"
@@ -72,7 +74,9 @@ const LoginPage = ({ nextScreen }) => {
                         )}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="password">Contrasenya</label>
+                        <label className="text-white" htmlFor="password">
+                          Contrasenya
+                        </label>
                         <Field
                           type="password"
                           name="password"
@@ -103,7 +107,13 @@ const LoginPage = ({ nextScreen }) => {
                         </p>
                       </div>
                       <div className="button-container">
-                        <Button type="submit" primary lg onClick={submitForm}>
+                        <Button
+                          type="submit"
+                          secondary
+                          outline
+                          lg
+                          onClick={submitForm}
+                        >
                           {isSubmitting
                             ? "Iniciant sessió..."
                             : "Inicia sessió"}

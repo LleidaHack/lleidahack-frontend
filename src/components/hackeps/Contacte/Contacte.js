@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "src/components/hackeps/Contacte/Contacte.css";
-import logo from "src/icons/imagotip_lleidahack_blanc.png";
-import instagramLogo from "src/icons/instagram.png";
-import linkedinLogo from "src/icons/linkedin.png";
-import twitterLogo from "src/icons/X.png";
+import logo from "src/assets/logo_text_llh.svg";
+import instagramLogo from "src/icons/instagram_negre.png";
+import linkedinLogo from "src/icons/linkedin_negre.png";
+import twitterLogo from "src/icons/X_negre.png";
 import Button from "src/components/buttons/Button";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -112,7 +112,9 @@ const ContactePage = () => {
               >
                 <Form className="form-contacte">
                   <div className="formik-field">
-                    <label htmlFor="name">Nom:</label>
+                    <label className="text-textSecondaryHackeps" htmlFor="name">
+                      Nom:
+                    </label>
                     <Field type="text" id="name" name="name" />
                     <ErrorMessage
                       name="name"
@@ -122,7 +124,12 @@ const ContactePage = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label htmlFor="email">Correu:</label>
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="email"
+                    >
+                      Correu:
+                    </label>
                     <Field type="email" id="email" name="email" />
                     <ErrorMessage
                       name="email"
@@ -132,7 +139,12 @@ const ContactePage = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label htmlFor="subject">Títol del missatge:</label>
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="subject"
+                    >
+                      Títol del missatge:
+                    </label>
                     <Field type="text" id="subject" name="subject" />
                     <ErrorMessage
                       name="subject"
@@ -142,7 +154,12 @@ const ContactePage = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label htmlFor="message">Missatge:</label>
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="message"
+                    >
+                      Missatge:
+                    </label>
                     <Field as="textarea" id="message" name="message" rows="4" />
                     <ErrorMessage
                       name="message"
@@ -151,7 +168,7 @@ const ContactePage = () => {
                     />
                   </div>
                   <div className="button-submit-container mb-8">
-                    <Button secondary type="submit" outline>
+                    <Button primary type="submit">
                       Enviar
                     </Button>
                   </div>
