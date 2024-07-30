@@ -81,7 +81,7 @@ const ProfileComponent = () => {
       setHacker(await response);
       setQrCode(await response.code);
       const response_1 = await getHackerGroups(hacker_id);
-      if (response_1 && !response_1.message) {
+      if (response_1 && !response_1.errCode) {
         for (let i = 0; i < response_1.length; i++) {
           if (response_1[i].event_id === event_id) {
             setTeam(await getHackerGroupById(response_1[i].id));
@@ -110,7 +110,7 @@ const ProfileComponent = () => {
     return `${~~days} dies`;
   }
   if (hacker)
-    if (hacker.message === "Hacker not found") return <UserNotFound />;
+    if (hacker.errCode === 404) return <UserNotFound />;
 
   return (
     <>

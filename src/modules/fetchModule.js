@@ -24,13 +24,16 @@ export async function fetchPlus({
       .map(([key, value]) => `${key}=${value}`)
       .join("&")}`;
   if (process.env.REACT_APP_DEBUG === "true") console.log("headers: ", args);
-  return fetch(
-    process.env.REACT_APP_DOMAIN + `/v${apiVersion}` + Url + query,
-    args,
-  )
+  
+  return fetch(process.env.REACT_APP_DOMAIN + `/v${apiVersion}` + Url + query, args)
     .then((response) => {
-      if (process.env.REACT_APP_DEBUG === "true")
-        console.log("response: ", response);
+      if (process.env.REACT_APP_DEBUG === "true") console.log("response: ", response);
+      if (!response.ok) {
+        return response.json().then((error) => ({
+          errCode: response.status,
+          errMssg: error,
+        }));
+      }
       return response.json();
     })
     .then((data) => {
@@ -44,6 +47,6 @@ export async function fetchPlus({
     })
     .catch((error) => {
       console.warn(error);
-      return [];
+      return error;
     });
 }
