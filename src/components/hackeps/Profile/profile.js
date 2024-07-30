@@ -109,8 +109,7 @@ const ProfileComponent = () => {
 
     return `${~~days} dies`;
   }
-  if (hacker)
-    if (hacker.errCode === 404) return <UserNotFound />;
+  if (hacker) if (hacker.errCode === 404) return <UserNotFound />;
 
   return (
     <>
