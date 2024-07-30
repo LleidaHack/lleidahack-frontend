@@ -7,12 +7,8 @@ import FileBase from "react-file-base64";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import userIcon from "src/icons/user2.png";
-<<<<<<< HEAD
 import emisor from "src/components/hackeps/Profile/eventEmitter"
 
-=======
-import Button from "src/components/buttons/Button";
->>>>>>> integration
 
 const EditProfile = (props) => {
   const [showEditProfile, setShowEditProfile] = useState(false);

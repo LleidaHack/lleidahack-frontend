@@ -11,7 +11,7 @@ const Error404 = () => {
         404
       </TitleGeneralized>
       <p className="text">
-        La pàgina que estàs buscant no existeix als nostres servidors :({" "}
+        La pàgina que estàs buscant no existeix als nostres servidors :{" "}
       </p>
       <Link to="/home">
         <Button primary className="py-3">
