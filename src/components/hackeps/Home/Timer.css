@@ -2,8 +2,6 @@
   width: 100vw;
   max-width: 100%;
   height: 20vw;
-  background: var(--black);
-
   font-size: 9vw;
   font-family: monospace;
   display: flex;

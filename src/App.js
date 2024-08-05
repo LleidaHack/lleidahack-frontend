@@ -50,9 +50,9 @@ export default function App() {
           <Route
             path="/perfil"
             element={
-              <RequireAuth originalRoute="/perfil">
+              //<RequireAuth originalRoute="/perfil">
                 <Profile />
-              </RequireAuth>
+             // </RequireAuth>
             }
           />
           <Route
@@ -76,17 +76,17 @@ export default function App() {
           <Route
             path="/inscripcio"
             element={
-              <RequireAuth originalRoute="/inscripcio">
+              //<RequireAuth originalRoute="/inscripcio">
                 <Inscripcio />
-              </RequireAuth>
+              //</RequireAuth>
             }
           />
           <Route
             path="/dailyhacks"
             element={
-              <RequireAuth originalRoute="/dailyhacks">
+             // <RequireAuth originalRoute="/dailyhacks">
                 <Dailyhack />
-              </RequireAuth>
+             // </RequireAuth>
             }
           />
           <Route

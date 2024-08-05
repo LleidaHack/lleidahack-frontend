@@ -18,13 +18,6 @@
   text-align: right;
 }
 
-.titleblack {
-  color: var(--text-secondary) !important;
-}
-
-.whiteFont {
-  color: var(--text-secondary);
-}
 
 .titlebold {
   font-weight: bold;

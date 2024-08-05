@@ -112,7 +112,7 @@ const ForgetPassword = ({ nextScreen }) => {
         </div>
       ) : (
         <div className="content">
-          <section className="informative">
+          <section className="informative text-white">
             <div className="Part2">
               <div className="iconBox">
                 <div className="wrapper">

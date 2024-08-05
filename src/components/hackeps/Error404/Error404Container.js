@@ -6,11 +6,11 @@ import Button from "src/components/buttons/Button";
 
 const Error404 = () => {
   return (
-    <div className="error-container">
+    <div className="error-container bg-secondaryHackeps">
       <TitleGeneralized size={"big"} bold={false}>
         404
       </TitleGeneralized>
-      <p className="text">
+      <p className="text text-textSecondaryHackeps">
         La pàgina que estàs buscant no existeix als nostres servidors :({" "}
       </p>
       <Link to="/home">

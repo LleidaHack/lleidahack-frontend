@@ -1,7 +1,6 @@
 .The-Grand-Phather {
   min-height: 100vh;
   height: auto;
-  background-color: var(--secondary);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,19 +10,16 @@
   padding-top: 10%;
   font-weight: bold;
   padding-bottom: 2%;
-  color: var(--text-secondary);
   text-align: center;
   font-size: 2em; /* 50px */
   justify-content: center;
 }
 
 .text-aftTitle {
-  color: var(--text-secondary);
   text-align: center;
 }
 
 .text-aftTitle2 {
-  color: var(--text-secondary);
   text-align: center;
   font-size: 1.1rem;
   margin-top: 12px;
@@ -66,15 +62,12 @@
 }
 
 .descriptions {
-  color: var(--text-secondary);
   width: 40%;
   height: auto;
 }
 
-.businesActivity {
+.bussinesActivity {
   width: 40%;
-  background-color: var(--primary);
-  color: var(--text-primary);
   height: auto;
   text-align: center;
 }

@@ -1,6 +1,6 @@
 .team-member-name {
   font-size: 1.3rem;
-  color: var(--secondary);
+  color: var(--text-secondary);
   word-wrap: break-word;
 }
 
@@ -28,10 +28,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-}
-
-.black-color {
-  color: black;
 }
 
 .containerinf {

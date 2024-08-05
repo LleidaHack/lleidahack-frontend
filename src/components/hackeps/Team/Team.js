@@ -137,7 +137,7 @@ const Team = (props) => {
               >
                 <Form>
                   <div className="formik-field">
-                    <label htmlFor="teamCode" className="black-color">
+                    <label htmlFor="teamCode" className="text-textSecondaryHackeps">
                       Codi de l'equip (#XXXXXXXXXX):
                     </label>
                     <Field type="text" id="teamCode" name="teamCode" />
@@ -217,7 +217,6 @@ const Team = (props) => {
                     <ProfilePic
                       hacker={member}
                       size="big"
-                      defaultColor="grey"
                       bgcolor="black"
                     />
                     <p className="team-member-name">{member.name}</p>

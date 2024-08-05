@@ -95,7 +95,7 @@ const Sponsors = () => {
   });
 
   return (
-    <div className="sponsors">
+    <div className="sponsors bg-secondaryHackeps">
       <div className="gostHunter" id="sponsors"></div>
       <TitleGeneralized padTop="2%" underline={true} lettersColor={"secondary"}>
         Sponsors
