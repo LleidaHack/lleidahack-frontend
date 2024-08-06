@@ -1,8 +1,8 @@
 import React from "react";
 import "src/components/hackeps/Footer/Footer.css"; // Importa el archivo de estilos CSS para el footer
-import instagramIcon from "src/icons/instagram_black.png";
-import linkedinIcon from "src/icons/linkedin_black.png";
-import twitterIcon from "src/icons/X_negre.png";
+import instagramIcon from "src/icons/instagram.png";
+import linkedinIcon from "src/icons/linkedin.png";
+import twitterIcon from "src/icons/X.png";
 
 const Footer = () => {
   return (

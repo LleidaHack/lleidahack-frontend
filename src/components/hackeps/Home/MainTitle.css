@@ -20,7 +20,7 @@
   font-size: 20px;
   background-color: var(--primary);
   box-shadow: 0 0 0 0px var(--primary);
-  color: var(--white);
+  color: var(--text-primary);
   border: none;
 }
 
@@ -74,10 +74,6 @@
   margin-bottom: 1vw;
   height: 25vh;
   margin-bottom: 2rem;
-}
-
-.apuntat-button {
-  display: inline-block; /* Asegura que el botón no desaparezca al hacer zoom */
 }
 
 @media (max-width: 768px) {

@@ -3,13 +3,20 @@
 @tailwind utilities;
 
 .title-underline {
-  color: var(--white);
+  color: var(--text-secondary);
   text-decoration: underline;
   text-decoration-color: var(--primary);
   text-underline-offset: 0.2em;
   text-decoration-thickness: 0.2em;
   border-radius: 5px;
   padding-bottom: 1em;
+}
+
+.primary-background {
+  color: var(--text-primary);
+}
+.secondary-background {
+  color: var(--text-secondary);
 }
 
 .dark-background {

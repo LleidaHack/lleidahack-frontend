@@ -8,7 +8,7 @@ const Navbar = () => {
     <div className="flex flex-col">
       <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
         <div className="flex justify-between items-center">
-          <a href="/">
+          <a href="/lleidahack">
             <img
               src={logoLleidaHack}
               alt="logo"
@@ -18,7 +18,7 @@ const Navbar = () => {
           <div className="flex items-center justify-center ">
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/"
+                href="/hackeps"
                 className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
               >
                 HackEPS
@@ -26,7 +26,7 @@ const Navbar = () => {
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/events"
+                href="/lleidahack/events"
                 className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
               >
                 Events
@@ -34,7 +34,7 @@ const Navbar = () => {
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/noticies"
+                href="/lleidahack/noticies"
                 className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
               >
                 Noticies
@@ -42,7 +42,7 @@ const Navbar = () => {
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/contacte"
+                href="/lleidahack/contacte"
                 className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
               >
                 Contacte
@@ -50,7 +50,7 @@ const Navbar = () => {
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/qui-som"
+                href="/lleidahack/qui-som"
                 className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
               >
                 Qui som?
