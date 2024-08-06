@@ -56,14 +56,14 @@ form {
 label {
   font-size: 18px;
   margin-bottom: 16px;
-  color: var(--white);
+  color: var(--text-secondary);
 }
 
 input,
 textarea {
   padding: 10px;
   font-size: 12px;
-  border: 1px solid var(--white);
+  border: 1px solid var(--text-secondary);
   border-radius: 4px;
   margin-bottom: 16px;
   width: 100%;
@@ -101,13 +101,13 @@ textarea {
 }
 
 .subtitle {
-  color: var(--white);
+  color: var(--text-secondary);
   font-size: 14px;
   margin-bottom: 20px;
 }
 
 .file-name {
-  color: var(--white);
+  color: var(--text-secondary);
   font-size: 14px;
   margin-bottom: 20px;
 }

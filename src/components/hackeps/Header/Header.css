@@ -3,7 +3,7 @@
 /* Estilos generales del header */
 body {
   background-color: var(--primary);
-  color: var(--white);
+  color: var(--text-primary);
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -20,14 +20,14 @@ body {
 }
 
 .navbar-brand {
-  color: var(--black);
+  color: var(--text-primary);
   font-weight: bold;
   font-size: 30px;
   text-decoration: none;
 }
 
 .navbar-nav .nav-link {
-  color: var(--black);
+  color: var(--text-primary);
   font-size: 18px;
   text-decoration: none;
   transition: color 0.3s;
@@ -35,7 +35,7 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-  color: var(--black);
+  color: var(--text-primary);
   font-weight: 10;
 }
 
@@ -67,7 +67,7 @@ body {
 }
 
 .navbar-toggler-icon {
-  color: var(--black);
+  color: var(--text-primary);
 }
 
 .menu-items.show {
@@ -82,7 +82,7 @@ body {
 }
 
 .navbar-toggler .navbar-toggler-icon {
-  color: var(--black);
+  color: var(--text-primary);
 }
 
 .navbar-nav {
@@ -106,6 +106,7 @@ body {
 
   .nav-item {
     margin-right: 0px;
+    display: none;
   }
 
   .navbar-toggler {

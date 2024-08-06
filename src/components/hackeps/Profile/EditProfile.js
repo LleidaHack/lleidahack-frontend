@@ -7,6 +7,7 @@ import FileBase from "react-file-base64";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import userIcon from "src/icons/user2.png";
+import Button from "src/components/buttons/Button";
 
 const EditProfile = (props) => {
   const [showEditProfile, setShowEditProfile] = useState(false);
@@ -81,13 +82,9 @@ const EditProfile = (props) => {
         <div className="row align-middle mx-auto mb-3 col-12">
           {showEditProfile ? (
             <div>
-              <button
-                className="logOut-button"
-                style={{ marginLeft: "2.5%" }}
-                onClick={onEditButtonClick}
-              >
+              <Button secondary outline onClick={onEditButtonClick}>
                 <i className="fas fa-sign-out"></i> Close
-              </button>
+              </Button>
 
               <div className="form-container">
                 <Formik
@@ -162,13 +159,9 @@ const EditProfile = (props) => {
                       {cvFile && (
                         <div className="file-info">
                           <span className="file-name">{cvFile.name}</span>
-                          <button
-                            type="button"
-                            className="delete-button"
-                            onClick={clearFile}
-                          >
+                          <Button primary onClick={clearFile}>
                             &#10005;
-                          </button>
+                          </Button>
                         </div>
                       )}
                     </div>
@@ -223,18 +216,18 @@ const EditProfile = (props) => {
                       className="button-submit-container"
                       style={{ marginTop: "2%" }}
                     >
-                      <button className="button-submit" type="submit">
+                      <Button outline secondary type="submit">
                         Actualitzar
-                      </button>
+                      </Button>
                     </div>
                   </Form>
                 </Formik>
               </div>
             </div>
           ) : (
-            <button className="logOut-button" onClick={onEditButtonClick}>
+            <Button outline secondary onClick={onEditButtonClick}>
               <i className="fas fa-pen-to-square"></i> Editar perfil
-            </button>
+            </Button>
           )}
         </div>
       )}

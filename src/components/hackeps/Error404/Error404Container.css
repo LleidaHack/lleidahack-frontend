@@ -10,14 +10,14 @@
 
 .title {
   font-size: 120px;
-  color: var(--white);
+  color: var(--text-secondary);
   justify-content: center;
   text-align: center;
 }
 
 .text {
   font-size: 24px;
-  color: var(--white);
+  color: var(--text-secondary);
   justify-content: center;
   text-align: center;
 }

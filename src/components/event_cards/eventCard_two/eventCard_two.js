@@ -3,17 +3,20 @@ import "src/components/event_cards/eventCard_two/eventCard_two.css";
 
 const EventCard_two = ({ title, date, place, image }) => {
   return (
-    <div className="w-[424px] h-[160px] min-w-[424px] min-h-[160px] shadow">
-      <img src={image} className="absolute object-fill max-w-[160px]"></img>
-      <p className="mt-[16px] ml-[176px] h-[36px] min-w-[157px] min-h-[36px] text-2xl leading-[35.54px] absolute font-space-mono font-bold tracking-[-0.02em]">
-        {title}
-      </p>
-      <p className="mt-[60px] text-[#959595] ml-[176px] h-[30px] min-w-[119px] min-h-[30px] text-base leading-[29.62px] absolute font-space-mono font-normal tracking-[-0.02em]">
-        {date}
-      </p>
-      <p className="mt-[98px] ml-[176px] h-[30px] min-w-[131px] min-h-[30px] text-base leading-[29.62px] absolute font-space-mono font-normal tracking-[-0.02em]">
-        {place}
-      </p>
+    <div className="flex max-w-[26.5rem] max-h-40 shadow">
+      <img src={image} className="object-cover h-40 max-h-40 w-40"></img>
+
+      <div>
+        <p className="ml-[0.938rem] mt-4 h-9 text-[1.5rem] leading-[2.221rem] font-space-mono font-bold tracking-[-0.02em]">
+          {title}
+        </p>
+        <p className="ml-[0.938rem] mt-2 text-[#959595] h-[1.875rem] text-[1.25rem] leading-[1.851rem] font-space-mono font-normal tracking-[-0.02em]">
+          {date}
+        </p>
+        <p className="ml-[0.938rem] mt-2 h-[1.875rem] text-[1.25rem] leading-[1.851rem] font-space-mono font-normal tracking-[-0.02em]">
+          {place}
+        </p>
+      </div>
     </div>
   );
 };

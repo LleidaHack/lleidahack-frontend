@@ -9,6 +9,8 @@ import { getHackeps } from "src/services/EventService";
 import FailFeedback from "src/components/hackeps/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/hackeps/Feedbacks/SuccesFeedback";
 
+import Button from "src/components/buttons/Button";
+
 import FileBase from "react-file-base64";
 import { getHackerById } from "src/services/HackerService";
 
@@ -181,7 +183,10 @@ const InscripcioForm = () => {
               >
                 <Form>
                   <div className="formik-field">
-                    <label htmlFor="studies">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="studies"
+                    >
                       Què estudies o has estudiat?
                     </label>
                     <Field type="text" id="studies" name="studies" />
@@ -193,7 +198,12 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label htmlFor="center">Centre d'estudis:</label>
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="center"
+                    >
+                      Centre d'estudis:
+                    </label>
                     <Field type="text" id="center" name="center" />
                     <ErrorMessage
                       name="center"
@@ -203,7 +213,12 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label htmlFor="location">D'on vens?:</label>
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="location"
+                    >
+                      D'on vens?:
+                    </label>
                     <Field type="text" id="location" name="location" />
                     <ErrorMessage
                       name="location"
@@ -219,6 +234,7 @@ const InscripcioForm = () => {
                       label="Talla de samarreta:"
                       options={sizeOptions}
                       placeholder="La meva talla de samarreta és..."
+                      labelColor="#000000"
                     />
                     <ErrorMessage
                       name="size"
@@ -228,7 +244,7 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label htmlFor="food">
+                    <label className="text-textSecondaryHackeps" htmlFor="food">
                       Tens alguna restricció alimentària o alèrgia?
                     </label>
                     <Field type="text" id="food" name="food" />
@@ -246,14 +262,18 @@ const InscripcioForm = () => {
                       options={meetOptions}
                       label="Com ens has conegut?"
                       placeholder="Us he conegut per..."
+                      labelColor="#000000"
                     />
                   </div>
                   <div className="formik-field">
-                    <label htmlFor="cvinfo_links">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="cvinfo_links"
+                    >
                       Vols que les empreses de Lleida et coneguin? (Opcional)
                     </label>
                     <p className="subtitle">
-                      Tens expeciència en altres hackatons? Algun projecte
+                      Tens experiència en altres hackatons? Algun projecte
                       personal que vulguis compartir? Explica'ns què t'apassiona
                       i deixa aquí els enllaços de les teves xarxes socials.
                     </p>
@@ -315,7 +335,10 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="file-input-container">
-                    <label htmlFor="cvinfo_file">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="cvinfo_file"
+                    >
                       Adjunta el teu CV (Opcional)
                     </label>
                     <FileBase
@@ -327,13 +350,9 @@ const InscripcioForm = () => {
                     {cvFile && (
                       <div className="file-info">
                         <span className="file-name">{cvFile.name}</span>
-                        <button
-                          type="button"
-                          className="delete-button"
-                          onClick={clearFile}
-                        >
+                        <Button delete onClick={clearFile}>
                           &#10005;
-                        </button>
+                        </Button>
                       </div>
                     )}
                   </div>
@@ -345,7 +364,10 @@ const InscripcioForm = () => {
                       id="checkboxterms"
                       name="checkboxterms"
                     />
-                    <label htmlFor="checkboxterms">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="checkboxterms"
+                    >
                       Accepto els{" "}
                       <a href="/terms" target="_blank">
                         Termes i Condicions
@@ -360,10 +382,10 @@ const InscripcioForm = () => {
                       className="error-message"
                     />
                   </div>
-                  <div className="button-submit-container">
-                    <button className="button-submit" type="submit">
+                  <div className="button-submit-container m-8 mt-2">
+                    <Button secondary outline type="submit">
                       {registered ? "Actualitza" : "Envia"}
-                    </button>
+                    </Button>
                   </div>
                 </Form>
               </Formik>
@@ -388,7 +410,7 @@ const InscripcioForm = () => {
             <>
               <SuccessFeedback
                 title="T'has registrat correctament a l'esdeveniment!"
-                text={`El teu registre s'ha realitzat correctament. \n Quan siguis acceptat a l'esdeveniment rebràs un correu per a confirmar la teva assisténcia.\n Estigues atent! Tindrás 5 dies per confirmar-ho.`}
+                text={`El teu registre s'ha realitzat correctament. \n Quan siguis acceptat a l'esdeveniment rebràs un correu per a confirmar la teva assistència.\n Estigues atent! Tindrás 5 dies per confirmar-ho.`}
                 hasButton={true}
                 buttonLink="/perfil"
                 buttonText="Inicia sessió"

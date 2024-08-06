@@ -1,7 +1,8 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import Button from "src/components/buttons/Button";
 import { Link } from "react-router-dom";
 import "src/components/hackeps/Login/Login.css";
 import logo from "src/icons/hackLogoWellDone.png";
@@ -57,7 +58,9 @@ const LoginPage = ({ nextScreen }) => {
                   {({ isSubmitting, submitForm, errors, touched }) => (
                     <Form>
                       <div className="form-group">
-                        <label htmlFor="email">Correu</label>
+                        <label className="text-white" htmlFor="email">
+                          Correu
+                        </label>
                         <Field
                           type="email"
                           name="email"
@@ -71,7 +74,9 @@ const LoginPage = ({ nextScreen }) => {
                         )}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="password">Contrasenya</label>
+                        <label className="text-white" htmlFor="password">
+                          Contrasenya
+                        </label>
                         <Field
                           type="password"
                           name="password"
@@ -104,8 +109,9 @@ const LoginPage = ({ nextScreen }) => {
                       <div className="button-container">
                         <Button
                           type="submit"
-                          disabled={isSubmitting}
-                          className="btn btn-default"
+                          secondary
+                          outline
+                          lg
                           onClick={submitForm}
                         >
                           {isSubmitting

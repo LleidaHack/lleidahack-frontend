@@ -23,11 +23,11 @@
 }
 
 label {
-  color: var(--white);
+  color: var(--text-secondary);
 }
 
 .stepper-horizontal {
-  color: var(--white);
+  color: var(--text-secondary);
 }
 .stepper-step.active-step {
   color: var(--primary);
@@ -47,7 +47,7 @@ label {
 .hacker-panel-title {
   text-align: center;
   padding: 20px 0 10px 0;
-  color: var(--white);
+  color: var(--text-secondary);
   font-size: 30px;
   font-weight: regular;
 }

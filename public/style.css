@@ -11,14 +11,19 @@ body {
 /* variables.css */
 
 :root {
-  --primary: #edab11;
-  --primary-strong: #ac7c0e;
-  --secondary: #232323;
   --white: #f5f5f5;
   --gray: #757575;
   --gray-light: #bbb8b8;
-  --gray-light2: #e6e6e6;
+  --gray-light2: #b2c4bd;
   --gray-strong: #444343;
-  --black: #000000;
+  --black: #0f0f0f;
   --transaprent: rgba(255, 255, 255, 0);
+
+  --primary: #0e3a29;
+  --primary-strong: #3fa275;
+  --primary-strong2: #bcf2de;
+  --primary-strong3: #e8fcda;
+  --secondary: #f7f7f2;
+  --text-primary: #f5f5f5;
+  --text-secondary: #000000;
 }

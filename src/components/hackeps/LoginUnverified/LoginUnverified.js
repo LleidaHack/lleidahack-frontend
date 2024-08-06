@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import Button from "src/components/buttons/Button";
 import { useNavigate } from "react-router-dom";
 import { resendVerification } from "src/services/AuthenticationService";
 
@@ -51,13 +51,14 @@ const LoginUnverified = ({ email }) => {
         justifyContent: "flex-start",
       }}
     >
-      <h3 className="text" style={{ margin: "10px" }}>
+      <h3 className="text mt-12">
         Verifica el teu compte obrint el link que t'hem enviat al correu.
       </h3>
       <Button
         onClick={handleClick}
         disabled={isCooldownActive}
-        style={{ margin: "10px" }}
+        primary
+        className="mt-4"
       >
         No m'ha arribat el correu{isCooldownActive && `: ${countdown}`}
       </Button>
