@@ -12,7 +12,7 @@ import {
   getEventIsHackerAccepted,
 } from "src/services/EventService";
 import EditProfile from "./EditProfile";
-import qrIcon from "src/icons/qr-black.png";
+import qrIcon from "src/icons/qr.png";
 
 //import Medals from "src/components/Medals/Medals";
 //import Calendar from "react-calendar/dist/umd/Calendar";
@@ -23,7 +23,7 @@ import QrCode from "src/components/hackeps/Home/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../ProfilePic/ProfilePic";
-import { Button } from "react-bootstrap";
+import Button from "src/components/buttons/Button";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const ProfileComponent = () => {
@@ -133,9 +133,9 @@ const ProfileComponent = () => {
               <br />
               {isUser && (
                 <Link to="/home" className="logOut" onClick={logOut}>
-                  <button className="logOut-button">
+                  <Button secondary outline>
                     <i className="fas fa-sign-out"></i> Tancar sessió
-                  </button>
+                  </Button>
                 </Link>
               )}
             </div>
@@ -144,7 +144,9 @@ const ProfileComponent = () => {
             <div className="col-12 col-xl-4 px-0 my-3 text-center">
               <div className="row ">
                 {isUser && (
-                  <h3 className="text-center">Benvingut/da, hacker!</h3>
+                  <h3 className="text-center title-underline">
+                    Benvingut/da, hacker!
+                  </h3>
                 )}
               </div>
               <div className="row my-3">
@@ -163,14 +165,14 @@ const ProfileComponent = () => {
                 </div>
               </div>
               <div className="row">
-                <span className="text-center">
+                <span className="text-center text-textSecondaryHackeps">
                   Membre desde fa{" "}
                   {hacker ? generateMemberTime(hacker.created_at) : ""}
                 </span>
               </div>
             </div>
             {/* QR Column */}
-            <div className="col-12 col-xl-4 mx-auto text-dark">
+            <div className="col-12 col-xl-4 mx-auto text-textSecondaryHackeps">
               {isUser &&
                 event &&
                 event.accepted &&

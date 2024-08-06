@@ -85,6 +85,7 @@ export const HackerStepperForm = () => {
                 name="birthDate"
                 type="date"
                 label="Data de naixement"
+                labelColor="black"
               />
             </Col>
           </Row>

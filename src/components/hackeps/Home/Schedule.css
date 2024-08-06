@@ -4,7 +4,7 @@
 
 .vertical-timeline-element-content {
   box-shadow: 0 0px 0;
-  color: var(--white);
+  color: var(--text-secondary);
   background-color: var(--transparent);
   background: var(--transparent);
 }
@@ -15,7 +15,7 @@
 }
 
 .vertical-timeline-element-title {
-  color: var(--white);
+  color: var(--text-secondary);
   text-decoration: underline;
   text-underline-offset: 0.3em;
   padding-bottom: 1em;

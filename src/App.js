@@ -24,6 +24,8 @@ import Dashboard from "./pages/hackeps/Dashboard/Dashboard";
 import "src/utils/ensure-basename";
 import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
+import EventsLanding from "./pages/Landing/EventsLanding";
+import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 
 export default function App() {
   useEffect(() => {
@@ -39,13 +41,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <Router basename="/">
-        <Routes>
-          <Route path="/" element={<HomeLanding />} />
-          <Route path="/home" element={<HomeLanding />} />
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-      </Router>
       <Router basename="/hackeps">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -105,6 +100,15 @@ export default function App() {
           <Route path="/forgot-password" element={<PasswordForget />} />
           <Route path="/user-verification" element={<LoginVerify />} />
           <Route path="*" element={<Error404 />} />
+        </Routes>
+      </Router>
+      <Router basename="/lleidahack">
+        <Routes>
+          <Route path="/" element={<HomeLanding />} />
+          <Route path="/home" element={<HomeLanding />} />
+          <Route path="*" element={<Error404 />} />
+          <Route path="/events" element={<EventsLanding />} />
+          <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
       </Router>
     </div>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import "src/components/hackeps/Header/Header.css";
-import hackIcon from "src/icons/hack_icon_black.png";
+import hackIcon from "src/icons/hackIcon.png";
 import { me, checkToken } from "src/services/AuthenticationService";
 import ProfilePic from "../ProfilePic/ProfilePic";
+import Button from "src/components/buttons/Button";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -58,17 +59,17 @@ const Header = () => {
           </Link>
 
           <div className="order-md-1">
-            <button
+            <Button
               className={`navbar-toggler ${showMenu ? "open" : ""}`}
-              type="button"
+              primary
               onClick={toggleMenu}
             >
               <span className="navbar-toggler-icon" />
-            </button>
+            </Button>
           </div>
 
           <div
-            className={`collapse navbar-collapse peperse ${
+            className={`navbar-collapse peperse ${
               showMenu ? "show" : ""
             } justify-content-lg-end`}
           >

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "src/components/hackeps/Feedbacks/FeedbackStyle.css";
+import Button from "src/components/buttons/Button";
 
 const SuccessFeedback = ({
   title,
@@ -55,9 +56,9 @@ const SuccessFeedback = ({
       {hasButton ? (
         <div className="infbuttonok">
           <Link to={buttonLink}>
-            <button onClick={onButtonClick} className="contacta">
+            <Button onClick={onButtonClick} primary>
               {buttonText}
-            </button>
+            </Button>
           </Link>
         </div>
       ) : (

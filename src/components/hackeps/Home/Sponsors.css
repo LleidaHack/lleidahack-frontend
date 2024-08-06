@@ -3,8 +3,7 @@
   max-width: 100%;
   height: auto;
   max-height: 100%;
-  background: var(--white);
-
+  background: var(--secondary);
   font-size: 50px;
   font-family: "space mono";
   justify-content: center;

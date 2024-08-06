@@ -7,10 +7,10 @@ import { useLocation } from "react-router-dom";
 const Navbar = () => {
   const location = useLocation();
   return (
-    <div>
+    <div className="flex flex-col">
       <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
         <div className="flex justify-between items-center">
-          <a href="/">
+          <a href="/lleidahack">
             <img
               src={logoLleidaHack}
               alt="logo"
@@ -20,15 +20,15 @@ const Navbar = () => {
           <div className="flex items-center justify-center ">
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/" ? "font-bold" : ""}`}
+                href="/hackeps"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/hackeps" ? "font-bold" : ""}`}
               >
                 HackEPS
               </a>
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/events"
+                href="/lleidahack/events"
                 className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
               >
                 Events
@@ -36,8 +36,8 @@ const Navbar = () => {
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/news"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/news" ? "font-bold" : ""}`}
+                href="/lleidahack/noticies"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/lleidahack/noticies" ? "font-bold" : ""}`}
               >
                 Noticies
               </a>
@@ -52,8 +52,8 @@ const Navbar = () => {
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/team"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/team" ? "font-bold" : ""}`}
+                href="/lleidahack/qui-som"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/lleidahack/qui-som" ? "font-bold" : ""}`}
               >
                 Qui som?
               </a>
@@ -108,6 +108,24 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+      </div>
+      <div>
+        <nav
+          className="navbar"
+          style={{ backgroundColor: "pink", fontSize: "1.5em" }}
+        >
+          <div className="container">
+            <div style={{ maxWidth: "100%", wordWrap: "break-word" }}>
+              Aquesta pàgina és de proves. La pàgina de la HackEPS 2023 és{" "}
+              <a
+                style={{ color: "blue" }}
+                href="https://www.lleidahack.dev/hackeps"
+              >
+                https://www.lleidahack.dev/hackeps
+              </a>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
   );
