@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex md:justify-between items-center appear-animation mt-3" id="container-points">
+        <div className="absolute h-[100%] w-screen bg-background-patron bg-white z-50 inset-x-0	   md:relative  md:w-full flex md:justify-between items-center appear-animation mt-3" id="container-points">
           <div className="hidden md:block ">
               <a href="/lleidahack">
                 <img
@@ -83,11 +83,11 @@ const Navbar = () => {
                 />
               </a>
           </div>
-          <div className="flex flex-col md:flex-row items-center justify-center w-full gap-5 mt-3 md:mt-0 ">
+          <div className="absolute md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-3 md:gap-5 mt-3 md:mt-0 ">
             <li className=" text-xl list-none	">
               <a
                 href="/hackeps"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/hackeps" ? "font-bold" : ""}`}
+                className={`no-underline text-CTALanding hover:text-secondaryLanding text-black md:text-white duration-300 ${location.pathname === "/hackeps" ? "font-bold" : ""}`}
               >
                 HackEPS
               </a>
@@ -95,7 +95,7 @@ const Navbar = () => {
             <li className=" text-xl list-none	">
               <a
                 href="/lleidahack/events"
-                className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
+                className="no-underline text-CTALanding hover:text-secondaryLanding duration-300 text-black md:text-white"
               >
                 Events
               </a>
@@ -103,7 +103,7 @@ const Navbar = () => {
             <li className="text-xl list-none	">
               <a
                 href="/lleidahack/noticies"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/lleidahack/noticies" ? "font-bold" : ""}`}
+                className={`no-underline text-CTALanding hover:text-secondaryLanding text-black md:text-white duration-300 ${location.pathname === "/lleidahack/noticies" ? "font-bold" : ""}`}
               >
                 Noticies
               </a>
@@ -111,7 +111,7 @@ const Navbar = () => {
             <li className="text-xl list-none	">
               <a
                 href="/contact"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/contact" ? "font-bold" : ""}`}
+                className={`no-underline text-CTALanding hover:text-secondaryLanding text-black md:text-white duration-300 ${location.pathname === "/contact" ? "font-bold" : ""}`}
               >
                 Contacte
               </a>
@@ -119,7 +119,7 @@ const Navbar = () => {
             <li className="text-xl list-none	">
               <a
                 href="/lleidahack/qui-som"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/lleidahack/qui-som" ? "font-bold" : ""}`}
+                className={`no-underline text-CTALanding hover:text-secondaryLanding text-black md:text-white duration-300 ${location.pathname === "/lleidahack/qui-som" ? "font-bold" : ""}`}
               >
                 Qui som?
               </a>
@@ -159,7 +159,7 @@ const Navbar = () => {
                   />
                 </svg>
               </button>
-              <button className="bg-primaryLanding text-xl p-0 mx-2 text-CTALanding">
+              <button className="bg-primaryLanding text-black text-xl p-0 mx-2 text-CTALanding">
                 <svg
                   width="36"
                   height="34"
