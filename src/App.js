@@ -15,7 +15,6 @@ import Sponsors from "src/pages/hackeps/Sponsors";
 import Verify from "./pages/hackeps/Verify";
 import Login from "src/pages/hackeps/Login";
 import Entrances from "src/pages/hackeps/UsersEntrance.js";
-import Dailyhack from "src/pages/hackeps/Dailyhack.js";
 import RequireAuth from "src/modules/RequireAuth";
 import RequireLleidahacker from "./modules/RequireLleidahacker";
 import ResetPassword from "./pages/hackeps/ResetPassword";
@@ -79,14 +78,6 @@ export default function App() {
             element={
               <RequireAuth originalRoute="/inscripcio">
                 <Inscripcio />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/dailyhacks"
-            element={
-              <RequireAuth originalRoute="/dailyhacks">
-                <Dailyhack />
               </RequireAuth>
             }
           />
