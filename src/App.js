@@ -26,6 +26,7 @@ import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
+import Error404Landing from "./pages/Landing/Error404Landing";
 
 export default function App() {
   useEffect(() => {
@@ -106,7 +107,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />
-          <Route path="*" element={<Error404 />} />
+          <Route path="*" element={<Error404Landing />} />
           <Route path="/events" element={<EventsLanding />} />
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
