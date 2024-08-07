@@ -13,14 +13,6 @@
   }
 }
 
-.custom-form-Dailyhack {
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  padding-bottom: 20px;
-}
-
 label {
   color: var(--text-secondary);
 }

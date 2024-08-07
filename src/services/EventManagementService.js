@@ -1,45 +1,5 @@
 import { fetchPlus } from "src/modules/fetchModule";
 
-export async function addDailyhack(event_id, hacker_id, link) {
-  return fetchPlus({
-    Url: `/eventmanagment/${event_id}/add_dailyhack/${hacker_id}`,
-    Query: { url: link },
-    Method: "POST",
-    hasUserauth: true,
-  });
-}
-
-export async function updateDailyhack(event_id, hacker_id, link) {
-  return fetchPlus({
-    Url: `/eventmanagment/${event_id}/update_dailyhack/${hacker_id}`,
-    Query: { url: link },
-    Method: "PUT",
-    hasUserauth: true,
-  });
-}
-
-export async function getDailyhackById(event_id, hacker_id) {
-  return fetchPlus({
-    Url: `/eventmanagment/${event_id}/dailyhack/${hacker_id}`,
-    hasUserauth: true,
-  });
-}
-
-export async function deleteDailyhack(event_id, hacker_id) {
-  return fetchPlus({
-    Url: `/eventmanagment/${event_id}/dailyhack/${hacker_id}`,
-    Method: "DELETE",
-    hasUserauth: true,
-  });
-}
-
-export async function getDailyhacks(event_id) {
-  return fetchPlus({
-    Url: `/eventmanagment/${event_id}/dailyhacks/`,
-    hasUserauth: true,
-  });
-}
-
 export async function registerHackerToEvent(hacker_id, event_id, data) {
   return fetchPlus({
     Url: `/eventmanagment/${event_id}/register/${hacker_id}`,

@@ -102,11 +102,11 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  to="/dailyhacks"
+                  to="/error404"
                   className="nav-link !text-textPrimaryHackeps "
                   onClick={closeMenu}
                 >
-                  Dailyhack
+                  (eliminat)
                 </Link>
               </li>
               <li className="nav-item">
