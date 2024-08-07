@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import TitleGeneralized from "src/components/hackeps/TitleGeneralized/TitleGeneralized";
-import Button from "src/components/buttons/Button";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 
 const Error404 = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-center	items-center  py-24 px-[10%]">
+    <div className="min-h-screen flex flex-col justify-center	items-center gap-4 py-24 px-[10%]">
       <TitleGeneralized size={"big"} bold={false}>
         404
       </TitleGeneralized>
