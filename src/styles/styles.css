@@ -26,3 +26,20 @@
 .white-color {
   color: var(--white);
 }
+
+.appear-animation {
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
