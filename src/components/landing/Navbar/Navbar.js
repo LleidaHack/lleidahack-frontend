@@ -16,24 +16,49 @@ const Navbar = () => {
       setNavStatus(true);
     }
   }
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      setNavStatus(false);
+    } else {
+      setNavStatus(true);
+    }
+  }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setNavStatus(false);
+        
+        // Do something when window width is less than or equal to 768
+      } else {
+        setNavStatus(true);
+        // Do something when window width is greater than 768
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const containerPoints = document.getElementById("container-points");
     const headerPoints = document.getElementById("header-points");
-    if (headerPoints.style.display !== "none") {
+    
       if (navStatus) {
-        containerPoints.style.display = "block";
+        containerPoints.style.display = "flex";
       } else {
         containerPoints.style.display = "none";
       }
-    }
 
   }, [navStatus]);
+
 
   return (
     <div className="flex flex-col">
       <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
-        <div className="md:hidden flex flex-row justify-between" id="header-points">
+        <div className="md:hidden flex flex-row justify-between mt-3" id="header-points">
           <div className="">
             <a href="/lleidahack">
               <img
@@ -48,8 +73,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex md-justify-between items-center appear-animation" id="container-points">
-          <div className="hidden md:block">
+        <div className="flex md:justify-between items-center appear-animation mt-3" id="container-points">
+          <div className="hidden md:block ">
               <a href="/lleidahack">
                 <img
                   src={logoLleidaHack}
@@ -58,8 +83,8 @@ const Navbar = () => {
                 />
               </a>
           </div>
-          <div className="flex flex-col md-flex-row items-center justify-center w-full gap-3 mt-5">
-            <li className="md-mx-8 text-xl list-none	">
+          <div className="flex flex-col md:flex-row items-center justify-center w-full gap-5 mt-3 md:mt-0 ">
+            <li className=" text-xl list-none	">
               <a
                 href="/hackeps"
                 className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/hackeps" ? "font-bold" : ""}`}
@@ -67,7 +92,7 @@ const Navbar = () => {
                 HackEPS
               </a>
             </li>
-            <li className="md-mx-8 text-xl list-none	">
+            <li className=" text-xl list-none	">
               <a
                 href="/lleidahack/events"
                 className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
@@ -75,7 +100,7 @@ const Navbar = () => {
                 Events
               </a>
             </li>
-            <li className="md-mx-8 text-xl list-none	">
+            <li className="text-xl list-none	">
               <a
                 href="/lleidahack/noticies"
                 className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/lleidahack/noticies" ? "font-bold" : ""}`}
@@ -83,7 +108,7 @@ const Navbar = () => {
                 Noticies
               </a>
             </li>
-            <li className="md-mx-8 text-xl list-none	">
+            <li className="text-xl list-none	">
               <a
                 href="/contact"
                 className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/contact" ? "font-bold" : ""}`}
@@ -91,7 +116,7 @@ const Navbar = () => {
                 Contacte
               </a>
             </li>
-            <li className="md-mx-8 text-xl list-none	">
+            <li className="text-xl list-none	">
               <a
                 href="/lleidahack/qui-som"
                 className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/lleidahack/qui-som" ? "font-bold" : ""}`}
@@ -101,7 +126,7 @@ const Navbar = () => {
             </li>
           
 
-            <div className="flex mt-10">
+            <div className="flex mt-10 md:mt-0">
               <button className="bg-primaryLanding text-xl p-0 mx-2 ">
                 <svg
                   width="48"
