@@ -32,6 +32,15 @@ module.exports = {
         "max-lg": { max: "998px" },
         "max-xl": { max: "1400px" },
       },
+      keyframes: {
+        fadeIn:{
+          '0%': {opacity: '0', transform: 'translateY(20px)'},
+          '100%': {opacity: '1', transform: 'translateY(0)'},
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.5s ease-in-out',
+      },
     },
     backgroundImage: {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",

@@ -57,7 +57,7 @@ const ContactePage = () => {
       {!mailSended ? (
         <>
           <TitleGeneralized underline={true}>Contacte</TitleGeneralized>
-          <div className="contact-container">
+          <div className="contact-container animate-fadeIn">
             <div className="logo-container">
               <h2 className="title-logo text-textSecondaryHackeps">
                 Esdeveniment organitzat per LleidaHack
