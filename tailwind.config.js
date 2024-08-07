@@ -41,6 +41,9 @@ module.exports = {
       animation: {
         fadeIn: 'fadeIn 0.5s ease-in-out',
       },
+      boxShadow:{
+        'faq': '0 2px 4px rgba(0, 0, 0, 0.1)',
+      },
     },
     backgroundImage: {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",

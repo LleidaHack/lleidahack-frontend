@@ -3,7 +3,7 @@ import "src/components/hackeps/FAQ_card/FAQ_card.css"; // Agregar el archivo de 
 
 const FAQCard = ({ question, answer }) => {
   return (
-    <div className="faq-card bg-white">
+    <div className="faq-card shadow-faq bg-white">
       <h3 className="question text-primaryHackeps">{question}</h3>
       <p className="answer text-black">{answer}</p>
     </div>
