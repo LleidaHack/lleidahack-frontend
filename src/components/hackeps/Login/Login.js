@@ -96,23 +96,24 @@ const LoginPage = ({ nextScreen }) => {
 
                       <div className="redirects">
                         <p className="mb-1">
-                          <Link to="/forgot-password" className="custom-link text-grayColor">
+                          <Link
+                            to="/forgot-password"
+                            className="custom-link text-grayColor"
+                          >
                             Has oblidat les teves credencials?
                           </Link>
                         </p>
                         <p className="mb-0">
-                          <Link to="/hacker-form" className="custom-link text-grayColor">
+                          <Link
+                            to="/hacker-form"
+                            className="custom-link text-grayColor"
+                          >
                             Encara no tens compte?
                           </Link>
                         </p>
                       </div>
                       <div className="button-container">
-                        <Button
-                          type="submit"
-                          primary
-                          lg
-                          onClick={submitForm}
-                        >
+                        <Button type="submit" primary lg onClick={submitForm}>
                           {isSubmitting
                             ? "Iniciant sessió..."
                             : "Inicia sessió"}

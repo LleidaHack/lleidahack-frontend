@@ -62,9 +62,13 @@ const CountdownTimer = (props) => {
   if (timestampDay >= nowDay && active) {
     return (
       <div className="countdown-timer bg-black text-white">
-        {remainingTime.months ? <span className="text-white">{remainingTime.months}</span> : <></>}
         {remainingTime.months ? (
-          <span  className="text-white"style={{ fontSize: "2vw" }}>
+          <span className="text-white">{remainingTime.months}</span>
+        ) : (
+          <></>
+        )}
+        {remainingTime.months ? (
+          <span className="text-white" style={{ fontSize: "2vw" }}>
             mes{remainingTime.months !== 1 && "os"}
           </span>
         ) : (
@@ -83,7 +87,9 @@ const CountdownTimer = (props) => {
           <></>
         )}
         {remainingTime.hours ? (
-          <span className="text-white">{padWithZeros(remainingTime.hours)}</span>
+          <span className="text-white">
+            {padWithZeros(remainingTime.hours)}
+          </span>
         ) : (
           <></>
         )}
@@ -94,7 +100,11 @@ const CountdownTimer = (props) => {
         ) : (
           <></>
         )}
-        {remainingTime.months ? <></> : <span className="text-white">{remainingTime.minutes}</span>}
+        {remainingTime.months ? (
+          <></>
+        ) : (
+          <span className="text-white">{remainingTime.minutes}</span>
+        )}
         {remainingTime.months ? (
           <></>
         ) : (
@@ -105,7 +115,9 @@ const CountdownTimer = (props) => {
         {remainingTime.days ? (
           <></>
         ) : (
-          <span className="text-white">{padWithZeros(remainingTime.seconds)}</span>
+          <span className="text-white">
+            {padWithZeros(remainingTime.seconds)}
+          </span>
         )}
         {remainingTime.days ? (
           <></>
@@ -120,7 +132,9 @@ const CountdownTimer = (props) => {
     return (
       <div className="countdown-timer text-black">
         {remainingTime.hours ? (
-          <span className="text-white">{padWithZeros(remainingTime.hours)}</span>
+          <span className="text-white">
+            {padWithZeros(remainingTime.hours)}
+          </span>
         ) : (
           <></>
         )}
@@ -132,7 +146,9 @@ const CountdownTimer = (props) => {
           <></>
         )}
         {remainingTime.minutes ? (
-          <span className="text-white">{padWithZeros(remainingTime.minutes)}</span>
+          <span className="text-white">
+            {padWithZeros(remainingTime.minutes)}
+          </span>
         ) : (
           <></>
         )}
@@ -144,7 +160,9 @@ const CountdownTimer = (props) => {
           <></>
         )}
         {remainingTime.seconds ? (
-          <span className="text-white">{padWithZeros(remainingTime.seconds)}</span>
+          <span className="text-white">
+            {padWithZeros(remainingTime.seconds)}
+          </span>
         ) : (
           <></>
         )}

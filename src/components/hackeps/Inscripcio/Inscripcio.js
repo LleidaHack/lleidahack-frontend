@@ -282,7 +282,6 @@ const InscripcioForm = () => {
                       id="cvinfo_links"
                       name="cvinfo_links"
                       rows="4"
-                    
                     />
 
                     {/* Agrupamos los campos de LinkedIn, GitHub y Devpost uno debajo del otro */}
@@ -350,7 +349,9 @@ const InscripcioForm = () => {
                     />
                     {cvFile && (
                       <div className="file-info">
-                        <span className="file-name text-textSecondaryHackeps">{cvFile.name}</span>
+                        <span className="file-name text-textSecondaryHackeps">
+                          {cvFile.name}
+                        </span>
                         <Button delete onClick={clearFile}>
                           &#10005;
                         </Button>

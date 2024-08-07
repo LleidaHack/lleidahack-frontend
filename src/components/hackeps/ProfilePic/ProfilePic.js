@@ -6,13 +6,7 @@ function is_not_empty(icon) {
   return !(icon === "string" || icon === "");
 }
 
-const StandardPfp = ({
-  hacker,
-  bgcolor,
-  extra_id,
-  border,
-  is_profile,
-}) => {
+const StandardPfp = ({ hacker, bgcolor, extra_id, border, is_profile }) => {
   return (
     <>
       {is_not_empty(hacker.image) ? (
@@ -25,9 +19,7 @@ const StandardPfp = ({
           alt=""
         />
       ) : (
-        <i
-          className={`fa-user fa-solid fa-8x mx-auto text-grayColor`}
-        />
+        <i className={`fa-user fa-solid fa-8x mx-auto text-grayColor`} />
       )}
     </>
   );

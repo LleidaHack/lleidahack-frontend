@@ -43,7 +43,9 @@ const InfoSponsors = ({ id }) => {
   }, [id]);
 
   if (!infoCompany) {
-    return <div className="The-Grand-Phather bg-secondaryHackeps">Cargando...</div>;
+    return (
+      <div className="The-Grand-Phather bg-secondaryHackeps">Cargando...</div>
+    );
   }
 
   console.log("la longitud de la tabla es:", infoCompany.name);
@@ -95,17 +97,32 @@ const InfoSponsors = ({ id }) => {
 
     if (xarxes) {
       text = [
-        <a href={linkedintag} target="_blank" rel="noreferrer" className="rel text-textPrimaryHackeps">
+        <a
+          href={linkedintag}
+          target="_blank"
+          rel="noreferrer"
+          className="rel text-textPrimaryHackeps"
+        >
           <i className="fa-brands fa-linkedin" /> LinkedIn
         </a>,
         "|",
-        <a href={webtag} target="_blank" rel="noreferrer" className="rel text-textPrimaryHackeps">
+        <a
+          href={webtag}
+          target="_blank"
+          rel="noreferrer"
+          className="rel text-textPrimaryHackeps"
+        >
           <i className="fa-solid fa-globe " /> Web
         </a>,
       ];
     } else {
       text = [
-        <a href={linkedintag} target="_blank" rel="noreferrer" className="rel text-textPrimaryHackeps">
+        <a
+          href={linkedintag}
+          target="_blank"
+          rel="noreferrer"
+          className="rel text-textPrimaryHackeps"
+        >
           <i className="fa-brands fa-linkedin" /> LinkedIn
         </a>,
       ];
@@ -196,7 +213,9 @@ const InfoSponsors = ({ id }) => {
     return (
       <div className="The-Grand-Phather">
         <section className="Imagecontener2">
-          <h1 className="title-Info-sponsors text-textSecondaryHackeps">Oh No, Something happened..</h1>
+          <h1 className="title-Info-sponsors text-textSecondaryHackeps">
+            Oh No, Something happened..
+          </h1>
           <br />
           <img className="peperoni" src={errorImage} alt="Gif" />
         </section>

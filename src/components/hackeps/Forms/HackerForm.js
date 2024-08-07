@@ -160,15 +160,24 @@ export const HackerStepperForm = () => {
             withStepperLine /// false as default and If it is false, it hides stepper line
             nextButton={{
               label: "Següent",
-              style: { background: "var(--primary)", color: "var(--secondary)" },
+              style: {
+                background: "var(--primary)",
+                color: "var(--secondary)",
+              },
             }}
             prevButton={{
               label: "Enrere",
-              style: { background: "var(--primary)", color: "var(--secondary)" },
+              style: {
+                background: "var(--primary)",
+                color: "var(--secondary)",
+              },
             }}
             submitButton={{
               label: "Envia",
-              style: { background: "var(--primary)", color: "var(--secondary)" },
+              style: {
+                background: "var(--primary)",
+                color: "var(--secondary)",
+              },
             }}
           >
             <FormikStepper.Step label="Informació personal">

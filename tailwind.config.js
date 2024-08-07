@@ -22,16 +22,16 @@ module.exports = {
         grayLightHackepsDark: "#8c8787",
         grayStrongHackeps: "#444343",
         loginPage: "#211f1f",
-        successGreen:"#4caf50",
+        successGreen: "#4caf50",
         errorRed: "#f44336",
       },
       screens: {
-        'sm': '576px',
-        'md': '768px',
-        'max-md': {'max': '768px'},
-        'max-lg':{'max': '998px'},
-        'max-xl':{'max': '1400px'},
-      }
+        sm: "576px",
+        md: "768px",
+        "max-md": { max: "768px" },
+        "max-lg": { max: "998px" },
+        "max-xl": { max: "1400px" },
+      },
     },
     backgroundImage: {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",

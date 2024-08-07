@@ -137,7 +137,10 @@ const Team = (props) => {
               >
                 <Form>
                   <div className="formik-field">
-                    <label htmlFor="teamCode" className="text-textSecondaryHackeps">
+                    <label
+                      htmlFor="teamCode"
+                      className="text-textSecondaryHackeps"
+                    >
                       Codi de l'equip (#XXXXXXXXXX):
                     </label>
                     <Field type="text" id="teamCode" name="teamCode" />
@@ -214,11 +217,7 @@ const Team = (props) => {
               {team.members.map((member, index) => (
                 <Col className="col-xxl-3 cards" key={index}>
                   <div className="p-3 text-center bg-white smallCard">
-                    <ProfilePic
-                      hacker={member}
-                      size="big"
-                      bgcolor="black"
-                    />
+                    <ProfilePic hacker={member} size="big" bgcolor="black" />
                     <p className="team-member-name">{member.name}</p>
                     {String(member.id) === localStorage.getItem("userID") ? (
                       ""

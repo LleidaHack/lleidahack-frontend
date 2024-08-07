@@ -133,7 +133,10 @@ const EditProfile = (props) => {
                       />
                     </div>
 
-                    <div className="subfield text-textSecondaryHackeps" style={{ marginTop: "8%" }}>
+                    <div
+                      className="subfield text-textSecondaryHackeps"
+                      style={{ marginTop: "8%" }}
+                    >
                       <label htmlFor="linkedin">Enllaç de GitHub</label>
                       <Field type="text" id="github" name="github" />
                       <ErrorMessage

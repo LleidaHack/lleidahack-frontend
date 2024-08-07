@@ -46,7 +46,6 @@
   text-align: center;
 }
 
-
 .form {
   width: 100%;
   max-width: 100%;
@@ -252,7 +251,6 @@ col {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 
 .tarjeta:hover {
   transform: translate(-10px, -10px);
