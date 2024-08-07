@@ -43,7 +43,9 @@ const InfoSponsors = ({ id }) => {
   }, [id]);
 
   if (!infoCompany) {
-    return <div className="The-Grand-Phather">Cargando...</div>;
+    return (
+      <div className="The-Grand-Phather bg-secondaryHackeps">Cargando...</div>
+    );
   }
 
   console.log("la longitud de la tabla es:", infoCompany.name);
@@ -95,17 +97,32 @@ const InfoSponsors = ({ id }) => {
 
     if (xarxes) {
       text = [
-        <a href={linkedintag} target="_blank" rel="noreferrer" className="rel">
+        <a
+          href={linkedintag}
+          target="_blank"
+          rel="noreferrer"
+          className="rel text-textPrimaryHackeps"
+        >
           <i className="fa-brands fa-linkedin" /> LinkedIn
         </a>,
         "|",
-        <a href={webtag} target="_blank" rel="noreferrer" className="rel">
-          <i className="fa-solid fa-globe" /> Web
+        <a
+          href={webtag}
+          target="_blank"
+          rel="noreferrer"
+          className="rel text-textPrimaryHackeps"
+        >
+          <i className="fa-solid fa-globe " /> Web
         </a>,
       ];
     } else {
       text = [
-        <a href={linkedintag} target="_blank" rel="noreferrer" className="rel">
+        <a
+          href={linkedintag}
+          target="_blank"
+          rel="noreferrer"
+          className="rel text-textPrimaryHackeps"
+        >
           <i className="fa-brands fa-linkedin" /> LinkedIn
         </a>,
       ];
@@ -117,7 +134,7 @@ const InfoSponsors = ({ id }) => {
           <h1 className="title-Info-sponsors">- {SpnName} -</h1>
           <br />
 
-          <p className="text-aftTitle">
+          <p className="text-aftTitle text-textSecondaryHackeps">
             Benvingut/da <br /> al panell de patrocinador
           </p>
           <br />
@@ -127,11 +144,11 @@ const InfoSponsors = ({ id }) => {
         </section>
         <br />
         <section className="redesYOthers p-bg-grey">
-          <p className="text-aftTitle2 ">
+          <p className="text-aftTitle2 text-textSecondaryHackeps">
             📩 {correu} |{text}
           </p>
         </section>
-        <section className="descriptions">
+        <section className="descriptions text-textSecondaryHackeps">
           <br />
           <h2>Descripció</h2>
           <br />
@@ -163,7 +180,7 @@ const InfoSponsors = ({ id }) => {
         <br />
         <br />
 
-        <section className="businesActivity">
+        <section className="bussinesActivity bg-primaryHackeps text-textPrimaryHackeps">
           <br />
           <h2>Historial d'activitats</h2>
 
@@ -196,7 +213,9 @@ const InfoSponsors = ({ id }) => {
     return (
       <div className="The-Grand-Phather">
         <section className="Imagecontener2">
-          <h1 className="title-Info-sponsors">Oh No, Something happened..</h1>
+          <h1 className="title-Info-sponsors text-textSecondaryHackeps">
+            Oh No, Something happened..
+          </h1>
           <br />
           <img className="peperoni" src={errorImage} alt="Gif" />
         </section>

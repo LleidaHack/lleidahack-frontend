@@ -106,7 +106,7 @@ const EditProfile = (props) => {
                 >
                   <Form>
                     <div
-                      className="formik-field"
+                      className="formik-field "
                       style={{ marginTop: "5%", color: "black" }}
                     >
                       <SelectField
@@ -123,7 +123,7 @@ const EditProfile = (props) => {
                       />
                     </div>
 
-                    <div className="subfield">
+                    <div className="subfield text-textSecondaryHackeps">
                       <label htmlFor="linkedin">Enllaç de LinkedIn</label>
                       <Field type="text" id="linkedin" name="linkedin" />
                       <ErrorMessage
@@ -133,7 +133,10 @@ const EditProfile = (props) => {
                       />
                     </div>
 
-                    <div className="subfield" style={{ marginTop: "8%" }}>
+                    <div
+                      className="subfield text-textSecondaryHackeps"
+                      style={{ marginTop: "8%" }}
+                    >
                       <label htmlFor="linkedin">Enllaç de GitHub</label>
                       <Field type="text" id="github" name="github" />
                       <ErrorMessage
@@ -144,7 +147,7 @@ const EditProfile = (props) => {
                     </div>
 
                     <div
-                      className="file-input-container"
+                      className="file-input-container text-textSecondaryHackeps"
                       style={{ marginTop: "8%" }}
                     >
                       <label htmlFor="cvinfo_file">
@@ -167,7 +170,7 @@ const EditProfile = (props) => {
                     </div>
                     <Row className="">
                       <div
-                        className="col-12 col-xxl-6 d-flex flex-column"
+                        className="col-12 col-xxl-6 d-flex flex-column "
                         style={{ marginTop: "7%", marginBottom: "1%" }}
                       >
                         {isUrl && urlImage !== "" ? (
@@ -194,7 +197,7 @@ const EditProfile = (props) => {
                         )}
                       </div>
 
-                      <div className=" mb-3 mb-xxl-0 align-self-center">
+                      <div className=" mb-3 mb-xxl-0 align-self-center text-textSecondaryHackeps">
                         <label htmlFor="imageUrl">Image URL:</label>
                         <input
                           className="mb-1"

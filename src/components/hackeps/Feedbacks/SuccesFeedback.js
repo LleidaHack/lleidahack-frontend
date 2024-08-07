@@ -24,7 +24,7 @@ const SuccessFeedback = ({
   }, []);
 
   return (
-    <div className="valerr">
+    <div className="valerr bg-secondaryHackeps text-textSecondaryHackeps">
       <br></br>
       <br></br>
       <div className="iconBox">

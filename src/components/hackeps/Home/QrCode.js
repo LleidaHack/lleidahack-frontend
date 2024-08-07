@@ -20,7 +20,7 @@ const QrCode = (props) => {
   return (
     <Container>
       <Row>
-        <Col id="ticket_col" className={"mx-auto m-3 text-center"}>
+        <Col id="bg-white" className={"mx-auto m-3 text-center"}>
           <TitleGeneralized
             bold={false}
             marginBot="0.5rem"

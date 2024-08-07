@@ -42,13 +42,13 @@ const LoginPage = ({ nextScreen }) => {
 
   return (
     <div className="login-page">
-      <div className="content">
+      <div className="content bg-loginPage">
         <Container>
           <Row className="justify-content-center">
             <Col md={6}>
-              <div className="login-container">
+              <div className="login-container ">
                 <img src={logo} className="App-logo" alt="logo" />
-                <h2 className="mb-4 h2-title">Hola de nou!</h2>
+                <h2 className="text-white mb-4 h2-title ">Hola de nou!</h2>
                 <Formik
                   initialValues={{ email: "", password: "" }}
                   validationSchema={validationSchema}
@@ -96,24 +96,24 @@ const LoginPage = ({ nextScreen }) => {
 
                       <div className="redirects">
                         <p className="mb-1">
-                          <Link to="/forgot-password" className="custom-link">
+                          <Link
+                            to="/forgot-password"
+                            className="custom-link text-grayColor"
+                          >
                             Has oblidat les teves credencials?
                           </Link>
                         </p>
                         <p className="mb-0">
-                          <Link to="/hacker-form" className="custom-link">
+                          <Link
+                            to="/hacker-form"
+                            className="custom-link text-grayColor"
+                          >
                             Encara no tens compte?
                           </Link>
                         </p>
                       </div>
                       <div className="button-container">
-                        <Button
-                          type="submit"
-                          secondary
-                          outline
-                          lg
-                          onClick={submitForm}
-                        >
+                        <Button type="submit" primary lg onClick={submitForm}>
                           {isSubmitting
                             ? "Iniciant sessió..."
                             : "Inicia sessió"}

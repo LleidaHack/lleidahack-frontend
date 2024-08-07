@@ -2,7 +2,6 @@
   .qr-container {
     height: 100%;
     width: 40% !important;
-    color: var(--text-primary);
   }
 
   .qr-container img {
@@ -23,14 +22,6 @@
   cursor: pointer;
 }
 
-#profile-image {
-  position: relative;
-  color: white;
-  object-fit: cover;
-  border-color: var(--primary) !important;
-  border-width: 3px !important;
-}
-
 .editSpace {
   width: 100%;
   display: flex;
@@ -41,24 +32,9 @@
   width: 50%;
 }
 
-.logOut-button {
-  padding: 10px 12px;
-  font-size: 18px;
-  background-color: var(--secondary);
-  color: var(--text-secondary);
-  border: 2px solid var(--primary);
-  cursor: pointer;
-  font-family: "space mono";
-}
-
 .sort-horizontally {
   display: flex;
   justify-content: center;
-}
-
-.logOut-button:hover {
-  background-color: var(--primary);
-  color: var(--secondary);
 }
 
 .main-screen {

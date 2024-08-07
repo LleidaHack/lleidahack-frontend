@@ -17,9 +17,9 @@ const TitleGeneralized = ({
     stylesTitle += " title-underline";
   }
   if (lettersColor === "secondary") {
-    stylesTitle += " titleblack";
+    stylesTitle += " text-textSecondaryHackeps";
   } else {
-    stylesTitle += " whiteFont";
+    stylesTitle += " text-textPrimaryHackeps";
   }
   if (bold) {
     stylesTitle += " titlebold";

@@ -1,7 +1,6 @@
 .custom-form {
   justify-content: center;
   min-height: 100vh;
-  background: var(--secondary);
   display: flex;
   align-items: top;
   padding-bottom: 20px;

@@ -11,7 +11,7 @@ const FiltersComponent = ({ categoryType }) => {
     <div className="filters-component flex flex-row shadow h-20">
       <div className="filter-button basis-1/3 bg-white w-32 py-2 px-4 border-x">
         <div className="filter-button__content flex flex-column">
-          <p className="text-graycolor mb-0"> CATEGORIA</p>
+          <p className="text-grayColor mb-0"> CATEGORIA</p>
           <div className="2nd_content flex flex-row justify-between">
             <p className="extra mb-0">Totes les categories</p>
             <div className="align-middle self-center h-auto">
@@ -30,7 +30,7 @@ const FiltersComponent = ({ categoryType }) => {
       </div>
       <div className="filter-button basis-1/3 bg-white w-32 py-2 px-4 border-x">
         <div className="filter-button__content flex flex-column">
-          <p className="text-graycolor mb-0"> TIPUS</p>
+          <p className="text-grayColor mb-0"> TIPUS</p>
           <div className="2nd_content flex flex-row justify-between">
             <p className="extra mb-0">Tots els tipus</p>
             <div className="align-middle self-center h-auto">
@@ -49,7 +49,7 @@ const FiltersComponent = ({ categoryType }) => {
       </div>
       <div className="filter-button basis-1/3 bg-white w-32 py-2 px-4 border-x">
         <div className="filter-button__content flex flex-column">
-          <p className="text-graycolor mb-0"> Dates</p>
+          <p className="text-grayColor mb-0"> Dates</p>
           <div className="2nd_content flex flex-row justify-between">
             <p className="extra mb-0">Totes les dates</p>
             <div className="align-middle self-center h-auto">

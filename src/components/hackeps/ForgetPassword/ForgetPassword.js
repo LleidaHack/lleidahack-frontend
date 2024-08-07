@@ -44,7 +44,7 @@ const ForgetPassword = ({ nextScreen }) => {
   };
 
   return (
-    <div className="login-page">
+    <div className="login-page bg-loginPage">
       {!status ? (
         <div className="content">
           <Container>
@@ -53,7 +53,7 @@ const ForgetPassword = ({ nextScreen }) => {
                 <div className="login-container">
                   <img src={logo} className="App-logo" alt="logo" />
                   <br></br>
-                  <h2 className="mb-4 h2-title">
+                  <h2 className="mb-4 h2-title text-white">
                     Necesites ajuda per a iniciar sessió?
                   </h2>
                   <Formik
@@ -64,7 +64,7 @@ const ForgetPassword = ({ nextScreen }) => {
                   >
                     {({ isSubmitting, submitForm, errors, touched }) => (
                       <Form>
-                        <div className="form-group primary-background">
+                        <div className="form-group">
                           <label
                             className="text-textPrimaryHackeps"
                             htmlFor="email"
@@ -89,7 +89,7 @@ const ForgetPassword = ({ nextScreen }) => {
                           )}
                         </div>
 
-                        <div className="redirects">
+                        <div className="redirects text-white">
                           <p>
                             Rebràs un correu electrònic per amb les instruccions
                             per a poder recuperar el teu compte
@@ -112,10 +112,10 @@ const ForgetPassword = ({ nextScreen }) => {
         </div>
       ) : (
         <div className="content">
-          <section className="informative">
+          <section className="informative text-white">
             <div className="Part2">
               <div className="iconBox">
-                <div className="wrapper">
+                <div className="wrapper bg-loginPage">
                   <svg
                     className="checkmark"
                     xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@ const ForgetPassword = ({ nextScreen }) => {
                   >
                     {" "}
                     <circle
-                      className="checkmark__circle"
+                      className="checkmark__circle stroke-errorRed"
                       cx="26"
                       cy="26"
                       r="25"

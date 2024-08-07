@@ -154,7 +154,7 @@ const InscripcioForm = () => {
   };
 
   return (
-    <div className="container-all-inscripcio">
+    <div className="container-all-inscripcio bg-secondaryHackeps">
       {!submittRegister ? (
         <>
           <br />
@@ -272,7 +272,7 @@ const InscripcioForm = () => {
                     >
                       Vols que les empreses de Lleida et coneguin? (Opcional)
                     </label>
-                    <p className="subtitle">
+                    <p className="subtitle text-textSecondaryHackeps">
                       Tens experiència en altres hackatons? Algun projecte
                       personal que vulguis compartir? Explica'ns què t'apassiona
                       i deixa aquí els enllaços de les teves xarxes socials.
@@ -349,7 +349,9 @@ const InscripcioForm = () => {
                     />
                     {cvFile && (
                       <div className="file-info">
-                        <span className="file-name">{cvFile.name}</span>
+                        <span className="file-name text-textSecondaryHackeps">
+                          {cvFile.name}
+                        </span>
                         <Button delete onClick={clearFile}>
                           &#10005;
                         </Button>
@@ -379,11 +381,11 @@ const InscripcioForm = () => {
                     <ErrorMessage
                       name="checkboxterms"
                       component="div"
-                      className="error-message"
+                      className="text-errorRed"
                     />
                   </div>
                   <div className="button-submit-container m-8 mt-2">
-                    <Button secondary outline type="submit">
+                    <Button primary type="submit">
                       {registered ? "Actualitza" : "Envia"}
                     </Button>
                   </div>

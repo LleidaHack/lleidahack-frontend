@@ -1,6 +1,5 @@
 .BGPhather {
   height: auto;
-  background-color: var(--secondary);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,19 +10,10 @@
   flex-wrap: wrap;
 }
 
-.title2 {
-  color: var(--text-secondary);
-  padding-top: 5%;
-  font-weight: bold;
-  text-align: center;
-  font-size: 40px;
-}
-
 .informative {
   width: 82%;
   justify-content: center;
   border-radius: 18px;
-  color: var(--text-secondary);
   padding: 20px;
 }
 
@@ -54,10 +44,6 @@
   width: 100%;
   height: auto;
   text-align: center;
-}
-
-.white {
-  background-color: var(--secondary);
 }
 
 .form {
@@ -165,11 +151,6 @@
   }
 }
 
-.blackt {
-  color: var(--black);
-  text-align: left;
-}
-
 .BoxForm {
   border-color: rgb(204, 202, 202);
   border-radius: 5px;
@@ -269,10 +250,6 @@ col {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.tarjeta button:hover {
-  background-color: var(--primary);
 }
 
 .tarjeta:hover {

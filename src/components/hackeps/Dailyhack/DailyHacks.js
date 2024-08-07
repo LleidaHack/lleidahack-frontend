@@ -128,7 +128,7 @@ export const HackerStepperForm = (props) => {
               <br />
               <br />
 
-              <label htmlFor="Reposit" className="blackt">
+              <label htmlFor="Reposit" className="text-textSecondaryHackeps">
                 Repositori GitHub
               </label>
               <Field
@@ -167,11 +167,11 @@ const Dailyhacks = () => {
   };
 
   return (
-    <div className="BGPhather">
+    <div className="BGPhather bg-secondaryHackeps">
       {!estadoPadre ? (
         <>
           <TitleGeneralized underline={true}>Dailyhack</TitleGeneralized>
-          <section className="informative">
+          <section className="informative text-textSecondaryHackeps">
             <div className="Part1">
               <p className="text-textSecondaryHackeps">
                 Molt bones, Hackers! Des de LleidaHack venim a presentar-vos el

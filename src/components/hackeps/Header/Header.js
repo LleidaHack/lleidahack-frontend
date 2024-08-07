@@ -52,9 +52,12 @@ const Header = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-md inherited-top">
+      <nav className="navbar bg-primaryHackeps navbar-expand-md inherited-top">
         <div className="container">
-          <Link to="/#home" className="navbar-brand icono">
+          <Link
+            to="/#home"
+            className="navbar-brand text-textPrimaryHackeps icono"
+          >
             <img src={hackIcon} alt="Icono" className="icono" />
           </Link>
 
@@ -80,32 +83,56 @@ const Header = () => {
               </Link>
             </li>*/}
               <li className="nav-item">
-                <Link to="/#dates" className="nav-link" onClick={closeMenu}>
+                <Link
+                  to="/#dates"
+                  className="nav-link !text-textPrimaryHackeps  "
+                  onClick={closeMenu}
+                >
                   Dates
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/#sponsors" className="nav-link" onClick={closeMenu}>
+                <Link
+                  to="/#sponsors"
+                  className="nav-link !text-textPrimaryHackeps "
+                  onClick={closeMenu}
+                >
                   Sponsors
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/dailyhacks" className="nav-link" onClick={closeMenu}>
+                <Link
+                  to="/dailyhacks"
+                  className="nav-link !text-textPrimaryHackeps "
+                  onClick={closeMenu}
+                >
                   Dailyhack
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/faq" className="nav-link" onClick={closeMenu}>
+                <Link
+                  to="/faq"
+                  className="nav-link !text-textPrimaryHackeps "
+                  onClick={closeMenu}
+                >
                   FAQ
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/contacte" className="nav-link" onClick={closeMenu}>
+                <Link
+                  to="/contacte"
+                  className="nav-link !text-textPrimaryHackeps "
+                  onClick={closeMenu}
+                >
                   Contacte
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/perfil" className="nav-link" onClick={closeMenu}>
+                <Link
+                  to="/perfil"
+                  className="nav-link !text-textPrimaryHackeps "
+                  onClick={closeMenu}
+                >
                   <ProfilePic
                     size="small"
                     icon={icon}
