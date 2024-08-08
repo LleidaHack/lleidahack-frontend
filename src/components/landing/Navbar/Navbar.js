@@ -1,9 +1,11 @@
 import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
+import { useLocation } from "react-router-dom";
 
 // Remarcar a la pagina on ets, quan tinguem les urls definitives caldra canviar-ho
 // Falta implementar els coponentes dels botons que falten
 // Falta implementar el responsive
 const Navbar = () => {
+  const location = useLocation();
   return (
     <div className="flex flex-col">
       <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
@@ -19,7 +21,7 @@ const Navbar = () => {
             <li className="mx-8 text-xl list-none	">
               <a
                 href="/hackeps"
-                className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/hackeps" ? "font-bold" : ""}`}
               >
                 HackEPS
               </a>
@@ -35,15 +37,15 @@ const Navbar = () => {
             <li className="mx-8 text-xl list-none	">
               <a
                 href="/lleidahack/noticies"
-                className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/lleidahack/noticies" ? "font-bold" : ""}`}
               >
                 Noticies
               </a>
             </li>
             <li className="mx-8 text-xl list-none	">
               <a
-                href="/lleidahack/contacte"
-                className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
+                href="/contact"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/contact" ? "font-bold" : ""}`}
               >
                 Contacte
               </a>
@@ -51,7 +53,7 @@ const Navbar = () => {
             <li className="mx-8 text-xl list-none	">
               <a
                 href="/lleidahack/qui-som"
-                className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/lleidahack/qui-som" ? "font-bold" : ""}`}
               >
                 Qui som?
               </a>

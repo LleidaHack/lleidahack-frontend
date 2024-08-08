@@ -1,7 +1,6 @@
 .custom-form {
   justify-content: center;
   min-height: 100vh;
-  background: var(--secondary);
   display: flex;
   align-items: top;
   padding-bottom: 20px;
@@ -12,14 +11,6 @@
     padding-left: 15%;
     padding-right: 15%;
   }
-}
-
-.custom-form-Dailyhack {
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  padding-bottom: 20px;
 }
 
 label {

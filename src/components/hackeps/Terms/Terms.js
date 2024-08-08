@@ -5,7 +5,7 @@ const TermsComponent = () => {
   return (
     <div className="dark-background">
       <Container className="py-5 text-textSecondaryHackeps">
-        <h3 className="text-bold">TERMES I CONDICIONS</h3>
+        <h3 className="font-bold">TERMES I CONDICIONS</h3>
         <h4>Objectiu</h4>
         <p className="text-justify">
           Pel present document es donen a conèixer els termes i condicions de la

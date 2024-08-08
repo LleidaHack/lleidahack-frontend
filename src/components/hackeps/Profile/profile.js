@@ -140,7 +140,6 @@ const ProfileComponent = () => {
                 id="profile-pic-big"
                 hacker={user}
                 size="big"
-                defaultColor="white"
                 bgcolor="white"
                 border={true}
                 is_profile={true}
@@ -194,7 +193,7 @@ const ProfileComponent = () => {
                 event.accepted &&
                 (user ? (
                   <div
-                    className="container qr-container p-bg-primary p-2 text-center m-auto"
+                    className="container qr-container text-textPrimaryHackeps p-bg-primary p-2 text-center m-auto"
                     onClick={handleShowQR}
                   >
                     <div className="row">

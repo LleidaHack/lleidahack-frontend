@@ -53,13 +53,13 @@ const ContactePage = () => {
   }, []);
 
   return (
-    <div className="container-all">
+    <div className="container-all bg-secondaryHackeps">
       {!mailSended ? (
         <>
           <TitleGeneralized underline={true}>Contacte</TitleGeneralized>
           <div className="contact-container">
             <div className="logo-container">
-              <h2 className="title-logo">
+              <h2 className="title-logo text-textSecondaryHackeps">
                 Esdeveniment organitzat per LleidaHack
               </h2>
               <img src={logo} alt="Logo" className="logo" />
@@ -164,7 +164,7 @@ const ContactePage = () => {
                     <ErrorMessage
                       name="message"
                       component="div"
-                      className="error-message"
+                      className="text-primaryHackeps"
                     />
                   </div>
                   <div className="button-submit-container mb-8">

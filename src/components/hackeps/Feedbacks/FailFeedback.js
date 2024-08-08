@@ -36,7 +36,7 @@ const FailFeedback = ({
   }, []);
 
   return (
-    <div className="valerr">
+    <div className="valerr bg-secondaryHackeps text-textSecondaryHackeps">
       <div className="iconBox">
         <div>
           <svg

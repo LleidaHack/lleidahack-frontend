@@ -33,7 +33,7 @@ const MainTitle = () => {
 
   return (
     <>
-      <div className="backgrounder">
+      <div className="backgrounder bg-primaryHackeps">
         <div className="fantasma" id="home"></div>
         <div className="magic_div">
           <div className="col-12">

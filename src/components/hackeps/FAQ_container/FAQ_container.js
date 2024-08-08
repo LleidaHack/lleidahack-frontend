@@ -10,7 +10,7 @@ const FAQContainer = ({ faqs }) => {
   }, []);
 
   return (
-    <div className="faq-container">
+    <div className="faq-container bg-secondaryHackeps">
       <TitleGeneralized underline={true}>FAQs</TitleGeneralized>
       <div className="row">
         {faqs.map((faq, index) => (

@@ -1,22 +1,21 @@
 import React from "react";
-import "src/components/hackeps/Error404/Error404Container.css";
 import { Link } from "react-router-dom";
-import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
-import Button from "src/components/buttons/Button";
+import TitleGeneralized from "src/components/hackeps/TitleGeneralized/TitleGeneralized";
+import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 
 const Error404 = () => {
   return (
-    <div className="error-container bg-secondaryHackeps">
+    <div className="min-h-screen flex flex-col justify-center	items-center gap-4 py-24 px-[10%]">
       <TitleGeneralized size={"big"} bold={false}>
         404
       </TitleGeneralized>
-      <p className="text text-textSecondaryHackeps">
+      <p className="text-2xl text-black justify-center text-center">
         La pàgina que estàs buscant no existeix als nostres servidors :({" "}
       </p>
       <Link to="/home">
-        <Button primary className="py-3">
+        <ButtonLleidahack primary className="py-3">
           Tornar a la pàgina principal
-        </Button>
+        </ButtonLleidahack>
       </Link>
     </div>
   );

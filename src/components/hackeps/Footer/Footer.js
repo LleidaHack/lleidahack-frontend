@@ -6,7 +6,7 @@ import twitterIcon from "src/icons/X.png";
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer bg-primaryHackeps text-textPrimaryHackeps">
       <div className="container">
         <div className="social-icons">
           <a
@@ -32,19 +32,30 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="footer-links">
-        <a href="/hackeps/terms" target="_blank" rel="noopener noreferrer">
+      <div className="footer-links ">
+        <a
+          className="text-textPrimaryHackeps"
+          href="/hackeps/terms"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Termes i Condicions
         </a>
         <span className="footer-separator"> | </span>
 
-        <a href="/hackeps/privacy" target="_blank" rel="noopener noreferrer">
+        <a
+          className="text-textPrimaryHackeps"
+          href="/hackeps/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Política de Privadesa
         </a>
       </div>
-      <div className="made-by footer-links">
+      <div className="made-by footer-links ">
         Made with ❤️ by{" "}
         <a
+          className="text-textPrimaryHackeps"
           href="https://lleidahack.dev/"
           target="_blank"
           rel="noopener noreferrer"

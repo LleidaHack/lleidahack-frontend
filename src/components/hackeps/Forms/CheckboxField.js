@@ -1,7 +1,10 @@
 import { Field } from "formik";
 const CheckboxField = ({ name, label, defaultValue, ...rest }) => {
   return (
-    <div style={{ display: "flex", alignItems: "center", color: "white" }}>
+    <div
+      className="text-textSecondaryHackeps"
+      style={{ display: "flex", alignItems: "center" }}
+    >
       <label style={{ marginRight: "8px" }}>
         <Field type="checkbox" name={name} checked={defaultValue} {...rest} />
       </label>

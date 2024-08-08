@@ -12,14 +12,6 @@
   transform: translateY(100%);
 }
 
-.toast.success {
-  background-color: #4caf50;
-}
-
-.toast.error {
-  background-color: #f44336;
-}
-
 .toast.show {
   opacity: 1;
   transform: translateY(0);

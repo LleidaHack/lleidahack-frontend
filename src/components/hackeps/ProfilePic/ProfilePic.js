@@ -6,14 +6,7 @@ function is_not_empty(icon) {
   return !(icon === "string" || icon === "");
 }
 
-const StandardPfp = ({
-  hacker,
-  defaultColor,
-  bgcolor,
-  extra_id,
-  border,
-  is_profile,
-}) => {
+const StandardPfp = ({ hacker, bgcolor, extra_id, border, is_profile }) => {
   return (
     <>
       {is_not_empty(hacker.image) ? (
@@ -26,9 +19,7 @@ const StandardPfp = ({
           alt=""
         />
       ) : (
-        <i
-          className={`fa-user fa-solid fa-8x mx-auto ${defaultColor}DefaultPfpFill`}
-        />
+        <i className={`fa-user fa-solid fa-8x mx-auto text-grayColor`} />
       )}
     </>
   );
@@ -57,7 +48,6 @@ const ProfilePic = ({
   size = "big",
   bgcolor,
   id,
-  defaultColor = "white",
   border = false,
   is_profile = false,
 }) => {
@@ -68,7 +58,6 @@ const ProfilePic = ({
           <StandardPfp
             extra_id={id}
             hacker={hacker}
-            defaultColor={defaultColor}
             bgcolor={bgcolor}
             border={border}
             is_profile={is_profile}

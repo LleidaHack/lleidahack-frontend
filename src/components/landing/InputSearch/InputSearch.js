@@ -8,7 +8,7 @@ const InputSearch = ({ placeholder, searchtype }) => {
     //buscador de news
   }
   return (
-    <div className="input-search border border-graycolor h-13 relative bg-white rounded flex flex-row">
+    <div className="input-search border border-grayColor h-13 relative bg-white rounded flex flex-row">
       <input
         type="text"
         placeholder={placeholder}
