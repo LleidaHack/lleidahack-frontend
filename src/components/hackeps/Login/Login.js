@@ -112,11 +112,7 @@ const LoginPage = ({ nextScreen }) => {
                         </p>
                       </div>
                       <div className="button-container">
-                        <Button
-                          type="submit"
-                          primary
-                          lg
-                        >
+                        <Button type="submit" primary lg>
                           {isSubmitting
                             ? "Iniciant sessió..."
                             : "Inicia sessió"}
