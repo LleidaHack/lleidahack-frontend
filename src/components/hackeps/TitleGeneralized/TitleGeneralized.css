@@ -23,7 +23,7 @@
 }
 
 .whiteFont {
-  color: var(--text-secondary);
+  color: var(--white) !important;
 }
 
 .titlebold {

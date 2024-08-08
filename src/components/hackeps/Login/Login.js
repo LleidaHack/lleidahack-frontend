@@ -19,7 +19,6 @@ const LoginPage = ({ nextScreen }) => {
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
       let a = await login(values);
-      console.log(a.message);
       if (a.message === "User not verified") {
         navigate("/user-verification", { state: { email: values.email } });
       } else if (localStorage.getItem("userToken") !== "undefined") {
@@ -112,7 +111,6 @@ const LoginPage = ({ nextScreen }) => {
                           secondary
                           outline
                           lg
-                          onClick={submitForm}
                         >
                           {isSubmitting
                             ? "Iniciant sessió..."
