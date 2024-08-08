@@ -19,8 +19,8 @@ const LoginPage = ({ nextScreen }) => {
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
       let a = await login(values);
-      console.log(a.message);
-      if (a.message === "User not verified") {
+      if (process.env.REACT_APP_DEBUG === "true") console.log(a);
+      if (a.errCode === 400) {
         navigate("/user-verification", { state: { email: values.email } });
       } else if (localStorage.getItem("userToken") !== "undefined") {
         if (process.env.REACT_APP_DEBUG === "true")
@@ -28,9 +28,9 @@ const LoginPage = ({ nextScreen }) => {
         if (nextScreen) {
           navigate(nextScreen);
         } else navigate("/home");
-      } else if (a.message === "Incorrect password") {
+      } else if (a.errCode === 401) {
         setFieldError("password", "Contrasenya incorrecta");
-      } else if (a.message === "User not found") {
+      } else if (a.errCode === 404) {
         setFieldError("email", "E-mail no trobat");
       }
     } catch (error) {
