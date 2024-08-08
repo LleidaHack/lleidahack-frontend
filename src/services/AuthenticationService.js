@@ -34,6 +34,7 @@ export async function refreshToken() {
     Query: { refresh_token: localStorage.getItem("refreshToken") },
     hasUserauth: true,
     saveLoginInfo: true,
+    refresh_token: true
   });
 }
 
