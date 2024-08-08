@@ -32,7 +32,7 @@ const ProfileComponent = () => {
   const [isUser, setIsUser] = useState(
     hacker_id === localStorage.getItem("userID"),
   );
-  const [isHacker, setIsHacker] = useState(false)
+  const [isHacker, setIsHacker] = useState(false);
 
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
@@ -48,12 +48,12 @@ const ProfileComponent = () => {
   }, []);
 
   const checkIsHacker = (userCheck) => {
-    return userCheck?.type === "hacker"; 
-  }
+    return userCheck?.type === "hacker";
+  };
 
   const isLleidaHacker = () => {
-    return user?.type === "lleida_hacker"
-  }
+    return user?.type === "lleida_hacker";
+  };
 
   useEffect(() => {
     let event_id;
@@ -89,10 +89,10 @@ const ProfileComponent = () => {
     }
     getUserById(hacker_id).then(async (response) => {
       setUser(await response);
-      setIsHacker(checkIsHacker(response))
+      setIsHacker(checkIsHacker(response));
       setQrCode(await response.code);
     });
-    if (isHacker){
+    if (isHacker) {
       getHackerById(hacker_id).then(async (response) => {
         setUser(await response);
         const response_1 = await getHackerGroups(hacker_id);
@@ -105,7 +105,7 @@ const ProfileComponent = () => {
           }
         }
       });
-    };
+    }
   }, [useParams()]);
 
   function logOut() {
@@ -125,8 +125,7 @@ const ProfileComponent = () => {
 
     return `${~~days} dies`;
   }
-  if (user)
-    if (user.message === "Hacker not found") return <UserNotFound />;
+  if (user) if (user.message === "Hacker not found") return <UserNotFound />;
 
   return (
     <>
@@ -238,7 +237,9 @@ const ProfileComponent = () => {
             </div>
           )}
 
-          {event && event.registered && isHacker && <Team team={team} is_user={isUser} />}
+          {event && event.registered && isHacker && (
+            <Team team={team} is_user={isUser} />
+          )}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
