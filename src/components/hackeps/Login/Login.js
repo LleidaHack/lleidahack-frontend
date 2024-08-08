@@ -114,8 +114,7 @@ const LoginPage = ({ nextScreen }) => {
                       <div className="button-container">
                         <Button
                           type="submit"
-                          secondary
-                          outline
+                          primary
                           lg
                         >
                           {isSubmitting
