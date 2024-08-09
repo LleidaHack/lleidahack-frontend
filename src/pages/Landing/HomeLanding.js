@@ -7,8 +7,6 @@ import AboutUsHome from "src/components/landing/AboutUsHome/AboutUsHome";
 import Colaborations from "src/components/landing/Colaborations/Colaborations";
 
 const HomeLanding = () => {
-
-
   return (
     <div id="HomeLanding">
         <Navbar />
