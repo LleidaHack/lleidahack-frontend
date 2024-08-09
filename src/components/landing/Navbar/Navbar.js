@@ -193,7 +193,11 @@ const Navbar = () => {
 
             </div>
             <div className="  mt-10 md:mt-0 md:bottom-0 absolute md:relative bottom-0 right-0 mr-4 mb-28 visible md:mr-0 md:mb-0">
-            <div className="w-11/12 border-1 border-black opacity-20 ml-7 md:hidden"/>
+
+            <div className="block md:center align-center">
+              <div className="w-11/12 border-1 border-white"/>
+            </div>
+
               <div className = "flex justify-end">
                 <button className="text-xl bg-transparent p-0 mx-2 ">
                   <svg

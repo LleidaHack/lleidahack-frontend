@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUsHome = () => {
   return (
-    <div className="w-screen text-ellipsis	">
+    <div className="w-full text-ellipsis	">
       <div>
         <h2 className="text-primaryLanding mt-12 ml-12 text-5xl tracking-tight">
           Sobre Nosaltres
