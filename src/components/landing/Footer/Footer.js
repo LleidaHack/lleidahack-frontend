@@ -37,7 +37,7 @@ const Footer = () => {
           </li>
         </div>
         <div className="block md:center align-center my-4 md:hidden">
-          <div className="w-11/12 border-1 border-white"/>
+          <div className="w-11/12 border-1 border-white" />
         </div>
         <div className="items-center flex md:flex-row justify-between mr-5 md:mr-0 mb-2 md:mb-0">
           <div className="block md:hidden">
@@ -46,7 +46,9 @@ const Footer = () => {
             </a>
           </div>
           <div className="block  ">
-            <p className="text-CTALanding text-xl hidden md:block">Segueix-nos a </p>
+            <p className="text-CTALanding text-xl hidden md:block">
+              Segueix-nos a{" "}
+            </p>
             <div className="flex items-center justify-around">
               <div className="">
                 <a

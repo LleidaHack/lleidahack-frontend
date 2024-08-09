@@ -9,8 +9,6 @@ import NavLandingProvider from "src/context/NavLanding/NavLanding";
 import { useNavLanding } from "src/context/NavLanding/NavLanding";
 
 const HomeLanding = () => {
-
-
   return (
     <div id="HomeLanding">
       <NavLandingProvider>
