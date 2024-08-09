@@ -5,15 +5,12 @@ import NewsVerticalDisplay from "src/components/landing/NewsVerticalDisplay/News
 import EventSection from "src/components/landing/EventsSection/EventsSection";
 import AboutUsHome from "src/components/landing/AboutUsHome/AboutUsHome";
 import Colaborations from "src/components/landing/Colaborations/Colaborations";
-import NavLandingProvider from "src/context/NavLanding/NavLanding";
-import { useNavLanding } from "src/context/NavLanding/NavLanding";
 
 const HomeLanding = () => {
 
 
   return (
     <div id="HomeLanding">
-      <NavLandingProvider>
         <Navbar />
         <HeroSectionHeader />
         <AboutUsHome />
@@ -21,7 +18,6 @@ const HomeLanding = () => {
         <EventSection />
         <Colaborations />
         <Footer />
-      </NavLandingProvider>
     </div>
   );
 };
