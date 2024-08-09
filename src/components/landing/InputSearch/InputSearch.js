@@ -9,33 +9,30 @@ const InputSearch = ({ placeholder, searchtype }) => {
     //buscador de news
   }
 
-
   useEffect(() => {
     if (window.innerWidth <= 768) {
-      setItemTextButtonSearch(<i class="fa-solid fa-magnifying-glass"></i>)
-
+      setItemTextButtonSearch(<i class="fa-solid fa-magnifying-glass"></i>);
     } else {
       setItemTextButtonSearch("Cercar");
     }
   }, []);
 
   useEffect(() => {
-      const handleResize = () => {
-          if (window.innerWidth <= 768){
-              setItemTextButtonSearch("🔍")
-          }else{
-              setItemTextButtonSearch("Cercar");
-          }
-      };
-  
-      window.addEventListener("resize", handleResize);
-  
-      return () => {
-          window.removeEventListener("resize", handleResize);
-      };
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setItemTextButtonSearch("🔍");
+      } else {
+        setItemTextButtonSearch("Cercar");
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-  
   return (
     <div className="input-search border border-grayColor h-9 relative bg-white rounded flex flex-row">
       <input

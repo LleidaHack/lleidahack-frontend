@@ -1,4 +1,4 @@
-import {React, useEffect, useState} from "react";
+import { React, useEffect, useState } from "react";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 
 const FiltersComponent = ({ categoryType }) => {
@@ -8,32 +8,30 @@ const FiltersComponent = ({ categoryType }) => {
   } else if (categoryType == "news") {
     //Configurar los filtros de las noticias
   }
-  
 
   useEffect(() => {
     if (window.innerWidth <= 768) {
-      setOnMobile(true)
+      setOnMobile(true);
     } else {
-      setOnMobile(false)
+      setOnMobile(false);
     }
   }, []);
 
   useEffect(() => {
-      const handleResize = () => {
-          if (window.innerWidth <= 768){
-            setOnMobile(true)
-          }else{
-            setOnMobile(false)
-          }
-      };
-  
-      window.addEventListener("resize", handleResize);
-  
-      return () => {
-          window.removeEventListener("resize", handleResize);
-      };
-  }, []);
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setOnMobile(true);
+      } else {
+        setOnMobile(false);
+      }
+    };
 
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   if (!onMobile) {
     return (
@@ -97,20 +95,20 @@ const FiltersComponent = ({ categoryType }) => {
         </div>
       </div>
     );
-  }else{
-    return(
-    <div className="flex flex-row justify-between">
-      <div className="filter-button ">
-        <ButtonLleidahack primary white className="px-12">
-          <i class="fa-solid fa-filter"></i> Filtrar
-        </ButtonLleidahack>
+  } else {
+    return (
+      <div className="flex flex-row justify-between">
+        <div className="filter-button ">
+          <ButtonLleidahack primary white className="px-12">
+            <i class="fa-solid fa-filter"></i> Filtrar
+          </ButtonLleidahack>
+        </div>
+        <div className="filter-button ">
+          <ButtonLleidahack primary white className="px-12">
+            <i class="fa-solid fa-bars-staggered"></i> Ordenar
+          </ButtonLleidahack>
+        </div>
       </div>
-      <div className="filter-button ">
-        <ButtonLleidahack primary white className="px-12">
-        <i class="fa-solid fa-bars-staggered"></i> Ordenar
-        </ButtonLleidahack>
-      </div>
-    </div>
     );
   }
 };
