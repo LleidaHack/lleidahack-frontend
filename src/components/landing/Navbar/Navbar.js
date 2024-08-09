@@ -100,7 +100,7 @@ const Navbar = () => {
                   />
                 </a>
             </div>
-            <div className="absolute md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 ml-5 md:ml-0">
+            <div className="absolute md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0">
               <li className=" text-xl list-none	md:text-white">
                 <a
                   href="/hackeps"

@@ -6,7 +6,7 @@ import image from "src/imgs/hackers_group.jpg";
 const HeroSectionHeader = () => {
   return (
     <div className="hero-container flex flex-col w-full bg-background-hero static min-h-0 bg-cover bg-no-repeat bg-center">
-      <div className="brightness-100 bg-black bg-opacity-50 hero-section-container z-20 pl-12 pr-12">
+      <div className="brightness-100 bg-black bg-opacity-50 hero-section-container z-20 px-3 md:px-12 ">
         <div className="logo flex-1 h-20 my-16">
           <img src={logo} alt="logo + text" />
         </div>
