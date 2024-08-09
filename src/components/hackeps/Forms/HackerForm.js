@@ -102,14 +102,14 @@ export const HackerStepperForm = () => {
 
     const res = await signupHacker(hacker);
     console.log(res);
-    if (res.message) {
+    if (res.errCode) {
       setStatusSubmit(false);
       let causeError = "Error al tramitar dades";
-      if (res.message === "Email already exists") {
+      if (res.errMssg === "Email already exists") {
         causeError = "El correu que has introduit es troba registrat.";
-      } else if (res.message === "Nickname already exists") {
+      } else if (res.errMssg === "Nickname already exists") {
         causeError = "El nickname que has introduit es troba registrat.";
-      } else if (res.message === "Telephone already exists") {
+      } else if (res.errMssg === "Telephone already exists") {
         causeError = "El telefon que has introduit es troba registrat.";
       }
       setCauseError(causeError);

@@ -115,9 +115,9 @@ const InscripcioForm = () => {
         hackepsEvent.id,
         data,
       );
-      if (registration.message) {
+      if (registration.errCode) {
         setErrRegister("");
-        if (registration.message === "Hacker already registered") {
+        if (registration.errCode === 400) {
           setErrRegister(
             "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.",
           );

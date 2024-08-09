@@ -19,7 +19,7 @@ import qrIcon from "src/icons/qr.png";
 import Team from "src/components/hackeps/Team/Team";
 import LinkAccounts from "src/components/hackeps/LinkAccounts/LinkAccounts";
 import Join from "src/components/hackeps/Join/Join";
-import QrCode from "src/components/hackeps/Home/QrCode.js";
+import QrCode from "src/components/hackeps/QrCode/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../ProfilePic/ProfilePic";
@@ -81,7 +81,7 @@ const ProfileComponent = () => {
       setHacker(await response);
       setQrCode(await response.code);
       const response_1 = await getHackerGroups(hacker_id);
-      if (response_1 && !response_1.message) {
+      if (response_1 && !response_1.errCode) {
         for (let i = 0; i < response_1.length; i++) {
           if (response_1[i].event_id === event_id) {
             setTeam(await getHackerGroupById(response_1[i].id));
@@ -109,8 +109,7 @@ const ProfileComponent = () => {
 
     return `${~~days} dies`;
   }
-  if (hacker)
-    if (hacker.message === "Hacker not found") return <UserNotFound />;
+  if (hacker) if (hacker.errCode === 404) return <UserNotFound />;
 
   return (
     <>

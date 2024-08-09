@@ -39,8 +39,8 @@ export default function ResetPassword() {
       secondPassword,
     );
 
-    if (servicePassword.detail || servicePassword.message) {
-      setFeedErr(servicePassword.detail || servicePassword.message);
+    if (servicePassword.errCode) {
+      setFeedErr(servicePassword.errMessage);
       setSended(true);
     } else {
       navigate("/");
