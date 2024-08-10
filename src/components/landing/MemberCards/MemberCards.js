@@ -1,8 +1,10 @@
-import React from "react";
+import {React, useState} from "react";
 
-const CardMembers = ({name, image, github, linkedIn, role}) => {
+const CardMembers = ({name, image, github, linkedIn, role, bgcolor, opacity}) => {
+
+    
     return(
-        <div className="flex flex-col items-center justify-center bg-primaryLanding rounded-md w-96 h-">
+        <div className={`flex flex-col items-center justify-center bg-${bgcolor}  rounded-md w-96`} style={{ opacity: opacity }}>
             <div className="flex flex-col items-center justify-center mt-4 rounded-full bg-red-500 w-[13rem] h-[13rem] overflow-hidden">
                 <img src={image} alt={name} className="rounded-full w-full h-full object-cover"/>
             </div>

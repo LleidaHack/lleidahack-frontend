@@ -13,14 +13,16 @@ const AboutUs = () => {
         {name : "Arnau Vernet Grifoll", image : image3, github: "https://hoogle.es", linkedIn: "https://hoogle.es", role: "Tresorer"},
     ]
     const CapsEquips = [
-        {name : "Jordi", image : "src/components/event_cards/Hack2023.jpg", github: "https://hoogle.es", linkedIn: "https://hoogle.es"},
-        {name : "Jordi", image : "src/components/event_cards/Hack2023.jpg", github: "https://hoogle.es", linkedIn: "https://hoogle.es"},
-        {name : "Jordi", image : "src/components/event_cards/Hack2023.jpg", github: "https://hoogle.es", linkedIn: "https://hoogle.es"}
+        {name : "Enric Eroles", image : image3, github: "https://hoogle.es", linkedIn: "https://hoogle.es", role: "Cap de Contactes"},
+        {name : "Miriam Rodriguez", image : image3, github: "https://hoogle.es", linkedIn: "https://hoogle.es", role: "Cap de Marketing"},
+        {name : "Joel Ros Peropadre", image : image3, github: "https://hoogle.es", linkedIn: "https://hoogle.es", role: "Cap de Developers"},
+        {name : "Oriol Agost Batalla", image : image3, github: "https://hoogle.es", linkedIn: "https://hoogle.es", role: "Cap de Techmeeting"},
+        {name : "Ferran López Sierra", image : image3, github: "https://hoogle.es", linkedIn: "https://hoogle.es", role: "Cap de Techmeeting"},
     ]
     const MemberCards = [
-        {name : "Jordi", image : "src/components/event_cards/Hack2023.jpg", github: "https://hoogle.es", linkedIn: "https://hoogle.es"},
-        {name : "Jordi", image : "src/components/event_cards/Hack2023.jpg", github: "https://hoogle.es", linkedIn: "https://hoogle.es"},
-        {name : "Jordi", image : "src/components/event_cards/Hack2023.jpg", github: "https://hoogle.es", linkedIn: "https://hoogle.es"}
+        {name : "Jordi", image : "src/components/event_cards/Hack2023.jpg", github: "https://hoogle.es", linkedIn: "https://hoogle.es", role: "Contactes Member"},
+        {name : "Jordi", image : "src/components/event_cards/Hack2023.jpg", github: "https://hoogle.es", linkedIn: "https://hoogle.es", role: "Marketing Member"},
+        {name : "Jordi", image : "src/components/event_cards/Hack2023.jpg", github: "https://hoogle.es", linkedIn: "https://hoogle.es", role: "Devs Member"}
     ]
 
 
@@ -88,7 +90,16 @@ const AboutUs = () => {
                     <h1 className="font-bold text-5xl">JUNTA </h1>
                     <div className="flex flex-row flex-wrap gap-4 justify-center mt-10 mb-10">
                         {juntaMembers.map((member) => (
-                            <CardMembers key={member.name} image={member.image} name={member.name} github={member.github} linkedIn={member.linkedIn} role={member.role}/>
+                            <CardMembers key={member.name} bgcolor={"primaryLanding"} opacity={1.0} image={member.image} name={member.name} github={member.github} linkedIn={member.linkedIn} role={member.role}/>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="caps mt-10">
+                    <h1 className="font-bold text-5xl">CAPS D'EQUIP </h1>
+                    <div className="flex flex-row flex-wrap gap-4 justify-center mt-10 mb-10">
+                        {CapsEquips.map((member) => (
+                            <CardMembers key={member.name} bgcolor={"primaryLanding"} opacity={0.9} image={member.image} name={member.name} github={member.github} linkedIn={member.linkedIn} role={member.role}/>
                         ))}
                     </div>
                 </div>
