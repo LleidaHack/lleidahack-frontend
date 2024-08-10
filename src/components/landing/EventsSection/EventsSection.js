@@ -86,7 +86,7 @@ const EventSection = () => {
             ESDEVENIMENTS
           </p>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 ">
           <EventCard_five title="HackEPS 2023" description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent." image={hack} />
         </div>
         
