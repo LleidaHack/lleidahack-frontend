@@ -8,7 +8,7 @@ const Colaborations = () => {
           Col·laboracions
         </h2>
       </div>
-
+      <div className="md:m-9">
       <div className="flex flex-col md:flex-row gap-x-12 m-3 md:m-12">
         <div className="md:mb-0 mb-3">
           <h3 className="text-black font-bold tracking-tight mb-2 md:mb-7 text-3xl">
@@ -39,6 +39,7 @@ const Colaborations = () => {
             l'organització de la competició First Lego League.
           </p>
         </div>
+      </div>
       </div>
     </div>
   );
