@@ -3,12 +3,12 @@ import "src/components/event_cards/eventCard_five/eventCard_five.css";
 
 const EventCard_five = ({ title, description, image }) => {
   return (
-    <div class="max-w-[52.5rem] max-h-[28rem] shadow">
+    <div class="  shadow">
       <div
-        className="max-w-[52.5rem] max-h-[28rem] z-20"
+        className=" w-full z-20"
         style={{ backgroundImage: `url(${image})`, backgroundSize: "cover" }}
       >
-        <div className="max-w-[52.5rem] h-[28rem] gradient">
+        <div className="  gradient">
           <p className="text-[0.0000001px]">.</p>
           <p className="max-[420px]:truncate text-white ml-4 max-w-[50.5rem] mt-[18.063rem] mb-0 text-[3rem] leading-[4.443rem] font-space-mono font-normal tracking-[-0.02em]">
             {title}
