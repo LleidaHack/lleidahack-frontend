@@ -27,6 +27,7 @@ import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
 import NavLandingProvider from "src/context/NavLanding/NavLanding";
+import AboutUsLanding from "./pages/Landing/AboutUsLanding";
 
 export default function App() {
   useEffect(() => {
@@ -103,6 +104,7 @@ export default function App() {
             <Route path="*" element={<Error404Landing />} />
             <Route path="/events" element={<EventsLanding />} />
             <Route path="/legalinfo" element={<LegalInfoLanding />} />
+            <Route path="/qui-som" element = {<AboutUsLanding />} />
           </Routes>
         </Router>
       </NavLandingProvider>
