@@ -3,7 +3,7 @@ import "src/components/event_cards/eventCard_four/eventCard_four.css";
 
 const EventCard_four = ({ title, image }) => {
   return (
-    <div className="shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full max-h-32 w-48">
+    <div className="bg-transparent shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full max-h-32 w-48">
       <div
         className="max-h-32 "
         style={{ backgroundImage: `url(${image})`, backgroundSize: "cover" }}

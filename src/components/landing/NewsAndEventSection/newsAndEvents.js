@@ -5,11 +5,11 @@ import EventSection from "src/components/landing/EventsSection/EventsSection";
 const NewsAndEventsSection = () => {
 
     return (
-        <div className="flex flex-row mx-12 gap-4">
-            <div className="w-5/6">
+        <div className="flex flex-col mdflex-row mx-3 md:mx-12 md:gap-4 gap-5">
+            <div className="md:w-5/6">
                 <EventSection />
             </div>
-            <div className="w-1/6">
+            <div className="md:w-1/6">
                 <NewsVerticalDisplay />
             </div>
         </div>
