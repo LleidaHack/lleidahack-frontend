@@ -11,7 +11,7 @@ const HomeLanding = () => {
       <Navbar />
       <HeroSectionHeader />
       <AboutUsHome />
-      <NewsAndEventsSection/>
+      <NewsAndEventsSection />
       <Colaborations />
       <Footer />
     </div>

@@ -19,9 +19,10 @@ const HeroSectionHeader = () => {
             <br></br>
             <p>
               Impulsa i organitza, any rere any, l’esdeveniment informàtic més
-              gran de les terres de ponent, la HackEPS. La HackEPS és un event que
-              acull a més de 150 participants d’arreu del món, amb l’objectiu de
-              desenvolupar solucions a problemes tecnològics reals.
+              gran de les terres de ponent, la HackEPS. La HackEPS és un event
+              que acull a més de 150 participants d’arreu del món, amb
+              l’objectiu de desenvolupar solucions a problemes tecnològics
+              reals.
             </p>
           </div>
           <div className="hero-buttons flex flex-1 h-16 mb-16 gap-4">

@@ -1,4 +1,4 @@
-import {React, useEffect, useState} from "react";
+import { React, useEffect, useState } from "react";
 import EventCard_five from "src/components/event_cards/eventCard_five/eventCard_five";
 import EventCard_four from "src/components/event_cards/eventCard_four/eventCard_four";
 
@@ -30,7 +30,6 @@ const EventSection = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
 
   if (!isMobile) {
     return (
@@ -78,7 +77,7 @@ const EventSection = () => {
         </div>
       </div>
     );
-  }else{
+  } else {
     return (
       <div className="flex flex-col">
         <div className="bg-black mb-3">
@@ -87,24 +86,26 @@ const EventSection = () => {
           </p>
         </div>
         <div className="mb-3 ">
-          <EventCard_five title="HackEPS 2023" description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent." image={hack} />
+          <EventCard_five
+            title="HackEPS 2023"
+            description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent."
+            image={hack}
+          />
         </div>
-        
+
         <div className="flex flex-col gap-3">
           <div className="flex flex-row gap-2 bg-transparent">
             <EventCard_four image={background} title="Event Title" />
             <EventCard_four image={background} title="Event Title" />
-
           </div>
           <div className="flex flex-row gap-2">
             <EventCard_four image={background} title="Event Title" />
             <EventCard_four image={background} title="Event Title" />
           </div>
           <p className="text-[#ff742f] font-space-mono font-normal tracking-[-0.02em] text-[1rem] mt-[0.313rem] leading-[1.481rem] ml-4">
-              Veure més...
+            Veure més...
           </p>
         </div>
-
       </div>
     );
   }
