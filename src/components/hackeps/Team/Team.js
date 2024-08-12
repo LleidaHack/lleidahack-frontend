@@ -51,8 +51,8 @@ const Team = (props) => {
       localStorage.getItem("userID"),
       team.id,
     );
-    if (a.message) {
-      setErr(a.message);
+    if (a.errCode) {
+      setErr(a.errMessage);
     } else {
       setTeam(null);
     }

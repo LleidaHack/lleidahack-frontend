@@ -20,7 +20,7 @@ import qrIcon from "src/icons/qr.png";
 import Team from "src/components/hackeps/Team/Team";
 import LinkAccounts from "src/components/hackeps/LinkAccounts/LinkAccounts";
 import Join from "src/components/hackeps/Join/Join";
-import QrCode from "src/components/hackeps/Home/QrCode.js";
+import QrCode from "src/components/hackeps/QrCode/QrCode.js";
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../ProfilePic/ProfilePic";
@@ -125,7 +125,7 @@ const ProfileComponent = () => {
 
     return `${~~days} dies`;
   }
-  if (user) if (user.message === "Hacker not found") return <UserNotFound />;
+  if (hacker) if (hacker.errCode === 404) return <UserNotFound />;
 
   return (
     <>
