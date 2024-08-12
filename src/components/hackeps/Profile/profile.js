@@ -11,6 +11,7 @@ import {
   getEventIsHackerRegistered,
   getEventIsHackerAccepted,
 } from "src/services/EventService";
+import { getUserById } from "src/services/UserService";
 import EditProfile from "./EditProfile";
 import qrIcon from "src/icons/qr.png";
 
@@ -31,12 +32,13 @@ const ProfileComponent = () => {
   const [isUser, setIsUser] = useState(
     hacker_id === localStorage.getItem("userID"),
   );
+  const [isHacker, setIsHacker] = useState(false);
 
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
 
-  const [hacker, setHacker] = useState(null);
+  const [user, setUser] = useState(null);
   const [team, setTeam] = useState(null);
   const [event, setEvent] = useState(null);
   const [qrCode, setQrCode] = useState(null);
@@ -44,6 +46,14 @@ const ProfileComponent = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const checkIsHacker = (userCheck) => {
+    return userCheck?.type === "hacker";
+  };
+
+  const checkIsLleidaHacker = () => {
+    return user?.type === "lleida_hacker";
+  };
 
   useEffect(() => {
     let event_id;
@@ -77,19 +87,25 @@ const ProfileComponent = () => {
       setIsUser(true);
       hacker_id = localStorage.getItem("userID");
     }
-    getHackerById(hacker_id).then(async (response) => {
-      setHacker(await response);
+    getUserById(hacker_id).then(async (response) => {
+      setUser(await response);
+      setIsHacker(checkIsHacker(response));
       setQrCode(await response.code);
-      const response_1 = await getHackerGroups(hacker_id);
-      if (response_1 && !response_1.errCode) {
-        for (let i = 0; i < response_1.length; i++) {
-          if (response_1[i].event_id === event_id) {
-            setTeam(await getHackerGroupById(response_1[i].id));
-            break;
+    });
+    if (isHacker) {
+      getHackerById(hacker_id).then(async (response) => {
+        setUser(await response);
+        const response_1 = await getHackerGroups(hacker_id);
+        if (response_1 && !response_1.message) {
+          for (let i = 0; i < response_1.length; i++) {
+            if (response_1[i].event_id === event_id) {
+              setTeam(await getHackerGroupById(response_1[i].id));
+              break;
+            }
           }
         }
-      }
-    });
+      });
+    }
   }, [useParams()]);
 
   function logOut() {
@@ -121,7 +137,7 @@ const ProfileComponent = () => {
             <div className="col-12 col-xl-4 m-auto text-center">
               <ProfilePic
                 id="profile-pic-big"
-                hacker={hacker}
+                hacker={user}
                 size="big"
                 bgcolor="white"
                 border={true}
@@ -154,7 +170,7 @@ const ProfileComponent = () => {
                   </TitleGeneralized>
                 </div>
                 <TitleGeneralized classTitle="col-xxl-10 col-8" bold={false}>
-                  {hacker && hacker.name}
+                  {user && user.name}
                 </TitleGeneralized>
                 <div className="col-xxl-1 col-2 d-flex">
                   <TitleGeneralized classTitle="m-auto" bold={false}>
@@ -165,7 +181,7 @@ const ProfileComponent = () => {
               <div className="row">
                 <span className="text-center text-textSecondaryHackeps">
                   Membre desde fa{" "}
-                  {hacker ? generateMemberTime(hacker.created_at) : ""}
+                  {user ? generateMemberTime(user.created_at) : ""}
                 </span>
               </div>
             </div>
@@ -174,7 +190,7 @@ const ProfileComponent = () => {
               {isUser &&
                 event &&
                 event.accepted &&
-                (hacker ? (
+                (user ? (
                   <div
                     className="container qr-container text-textPrimaryHackeps p-bg-primary p-2 text-center m-auto"
                     onClick={handleShowQR}
@@ -205,23 +221,25 @@ const ProfileComponent = () => {
           </div>
 
           {/* Accounts link */}
-          {hacker && <LinkAccounts hacker={hacker} />}
+          {user && <LinkAccounts hacker={user} />}
 
           {isUser && (
             <div className="editSpace">
               <div className="editAjust">
-                {hacker && <EditProfile hacker={hacker} />}
+                {user && <EditProfile hacker={user} />}
               </div>
             </div>
           )}
 
-          {isUser && (
+          {isHacker && (
             <div className="sort-horizontally">
               <Join event={event} />
             </div>
           )}
 
-          {event && event.registered && <Team team={team} is_user={isUser} />}
+          {event && event.registered && isHacker && (
+            <Team team={team} is_user={isUser} />
+          )}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">
