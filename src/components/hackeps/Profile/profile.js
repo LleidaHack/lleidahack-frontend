@@ -51,7 +51,7 @@ const ProfileComponent = () => {
     return userCheck?.type === "hacker";
   };
 
-  const isLleidaHacker = () => {
+  const checkIsLleidaHacker = () => {
     return user?.type === "lleida_hacker";
   };
 
