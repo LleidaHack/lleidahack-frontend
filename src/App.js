@@ -26,6 +26,16 @@ import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
+import NewDashboard from "./pages/LleidaHacker/NewDashboard";
+import EventsDash from "./pages/LleidaHacker/EventsDash";
+import JuntaPage from "./pages/LleidaHacker/JuntaPage";
+import DevsPage from "./pages/LleidaHacker/DevsPage";
+import MarketingPage from "./pages/LleidaHacker/MarketingPage";
+import ContactesPage from "./pages/LleidaHacker/ContactesPage";
+import TechmeetingPage from "./pages/LleidaHacker/TechmeetingPage";
+import AdminPanelPage from "./pages/LleidaHacker/AdminPanelPage";
+
+
 
 export default function App() {
   useEffect(() => {
@@ -101,6 +111,18 @@ export default function App() {
           <Route path="*" element={<Error404Landing />} />
           <Route path="/events" element={<EventsLanding />} />
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
+        </Routes>
+      </Router>
+      <Router basename="/admin">
+        <Routes>
+          <Route path="/" element={<NewDashboard />} />
+          <Route path="/events" element={<EventsDash />} />
+          <Route path="/grups/junta" element={<JuntaPage />} />
+          <Route path="/grups/devs" element={<DevsPage />} />
+          <Route path="/grups/marketing" element={<MarketingPage />} />
+          <Route path="/grups/contactes" element={<ContactesPage />} />
+          <Route path="/grups/techmeetings" element={<TechmeetingPage />} />
+          <Route path="/grups/admin-panel" element={<AdminPanelPage />} />
         </Routes>
       </Router>
     </div>
