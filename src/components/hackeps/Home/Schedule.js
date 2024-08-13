@@ -5,7 +5,6 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import "src/components/hackeps/Home/Schedule.css";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
-import {colors} from "src/colors";
 
 const Schedule = (props) => {
   const rendered_events = props.events.map((event) => {
@@ -21,7 +20,7 @@ const Schedule = (props) => {
       <TitleGeneralized underline={true} href="#horari">
         Horari
       </TitleGeneralized>
-      <VerticalTimeline lineColor={colors.primaryHackeps}>{rendered_events}</VerticalTimeline>
+      <VerticalTimeline lineColor="#0e3a29">{rendered_events}</VerticalTimeline>
     </div>
   );
 };
