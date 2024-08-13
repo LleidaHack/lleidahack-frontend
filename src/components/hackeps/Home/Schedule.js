@@ -3,7 +3,6 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import "src/components/hackeps/Home/Schedule.css";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const Schedule = (props) => {
