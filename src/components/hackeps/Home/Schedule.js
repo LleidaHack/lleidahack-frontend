@@ -9,8 +9,15 @@ import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 const Schedule = (props) => {
   const rendered_events = props.events.map((event) => {
     return (
-      <VerticalTimelineElement key={event.time} date={event.time} iconClassName="bg-primaryHackeps shadow-none" textClassName="bg-transparent shadow-none">
-        <h3 className="text-textSecondaryHackeps underline underline-offset-4 pb-4">{event.title}</h3>
+      <VerticalTimelineElement
+        key={event.time}
+        date={event.time}
+        iconClassName="bg-primaryHackeps shadow-none"
+        textClassName="bg-transparent shadow-none"
+      >
+        <h3 className="text-textSecondaryHackeps underline underline-offset-4 pb-4">
+          {event.title}
+        </h3>
       </VerticalTimelineElement>
     );
   });
