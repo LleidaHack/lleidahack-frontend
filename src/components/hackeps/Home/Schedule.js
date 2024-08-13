@@ -22,7 +22,7 @@ const Schedule = (props) => {
   });
 
   return (
-    <div className="dark-background">
+    <div className="bg-secondaryHackeps">
       <TitleGeneralized underline={true} href="#horari">
         Horari
       </TitleGeneralized>
