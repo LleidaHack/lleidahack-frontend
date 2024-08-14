@@ -14,7 +14,8 @@ const TitleGeneralized = ({
 }) => {
   let stylesTitle = size === "big" ? "big" : "titleSize";
   if (underline) {
-    stylesTitle += " underline decoration-primaryHackeps underline-offset-[5px] decoration-[5px] rounded pb-4";
+    stylesTitle +=
+      " underline decoration-primaryHackeps underline-offset-[5px] decoration-[5px] rounded pb-4";
   }
   if (lettersColor === "primary") {
     stylesTitle += " text-textPrimaryHackeps";
