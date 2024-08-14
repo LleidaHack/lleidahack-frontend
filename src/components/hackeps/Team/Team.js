@@ -113,7 +113,7 @@ const Team = (props) => {
               marginBot="0.5rem"
               bold={false}
               padTop="0%"
-              lettersColor={"white"}
+              lettersColor="primary"
             >
               Inscripcions
             </TitleGeneralized>
@@ -214,7 +214,7 @@ const Team = (props) => {
     return (
       <div className="Alineador">
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
-          <TitleGeneralized bold={false} padTop="0%">
+          <TitleGeneralized bold={false} padTop="0%" lettersColor="primary">
             {team.name} {team.code && `Codi: #${team.code}`}
           </TitleGeneralized>
           <Container className="">
