@@ -26,6 +26,8 @@ import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
+import NavLandingProvider from "src/context/NavLanding/NavLanding";
+import AboutUsLanding from "./pages/Landing/AboutUsLanding";
 import "src/styles/styles.css";
 
 export default function App() {
@@ -42,68 +44,71 @@ export default function App() {
 
   return (
     <div className="App">
-      <Router basename="/hackeps">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/contacte" element={<Contacte />} />
-          <Route path="/home" element={<Home />} />
-          <Route
-            path="/perfil"
-            element={
-              <RequireAuth originalRoute="/perfil">
-                <Profile />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/perfil/:hacker_id"
-            element={
-              <RequireAuth originalRoute="/perfil">
-                <Profile />
-              </RequireAuth>
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/validate-email/" element={<Verify />} />
-          <Route path="/confirm-password" element={<ResetPassword />} />
-          <Route path="/hacker-form" element={<HackerForm />} />
-          <Route path="/entrance" element={<Entrances />} />
-          <Route path="/testing" element={<Testing />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
-          <Route path="/sponsors/:ids" element={<Sponsors />} />
-          <Route
-            path="/inscripcio"
-            element={
-              <RequireAuth originalRoute="/inscripcio">
-                <Inscripcio />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <RequireLleidahacker originalRoute="/dashboard">
-                <Dashboard />
-              </RequireLleidahacker>
-            }
-          />
-          <Route path="/forgot-password" element={<PasswordForget />} />
-          <Route path="/user-verification" element={<LoginVerify />} />
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-      </Router>
-      <Router basename="/lleidahack">
-        <Routes>
-          <Route path="/" element={<HomeLanding />} />
-          <Route path="/home" element={<HomeLanding />} />
-          <Route path="*" element={<Error404Landing />} />
-          <Route path="/events" element={<EventsLanding />} />
-          <Route path="/legalinfo" element={<LegalInfoLanding />} />
-        </Routes>
-      </Router>
+      <NavLandingProvider>
+        <Router basename="/hackeps">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/contacte" element={<Contacte />} />
+            <Route path="/home" element={<Home />} />
+            <Route
+              path="/perfil"
+              element={
+                <RequireAuth originalRoute="/perfil">
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/perfil/:hacker_id"
+              element={
+                <RequireAuth originalRoute="/perfil">
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/validate-email/" element={<Verify />} />
+            <Route path="/confirm-password" element={<ResetPassword />} />
+            <Route path="/hacker-form" element={<HackerForm />} />
+            <Route path="/entrance" element={<Entrances />} />
+            <Route path="/testing" element={<Testing />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
+            <Route path="/sponsors/:ids" element={<Sponsors />} />
+            <Route
+              path="/inscripcio"
+              element={
+                <RequireAuth originalRoute="/inscripcio">
+                  <Inscripcio />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <RequireLleidahacker originalRoute="/dashboard">
+                  <Dashboard />
+                </RequireLleidahacker>
+              }
+            />
+            <Route path="/forgot-password" element={<PasswordForget />} />
+            <Route path="/user-verification" element={<LoginVerify />} />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+        </Router>
+        <Router basename="/lleidahack">
+          <Routes>
+            <Route path="/" element={<HomeLanding />} />
+            <Route path="/home" element={<HomeLanding />} />
+            <Route path="*" element={<Error404Landing />} />
+            <Route path="/events" element={<EventsLanding />} />
+            <Route path="/legalinfo" element={<LegalInfoLanding />} />
+            <Route path="/qui-som" element = {<AboutUsLanding />} />
+          </Routes>
+        </Router>
+      </NavLandingProvider>
     </div>
   );
 }

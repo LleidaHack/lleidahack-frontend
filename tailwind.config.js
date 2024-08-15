@@ -36,6 +36,7 @@ module.exports = {
     backgroundImage: {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",
       "background-patron": "url('/src/imgs/patron_imagen.png')",
+      "background-none": "url()",
     },
     height: {
       128: "37rem",
