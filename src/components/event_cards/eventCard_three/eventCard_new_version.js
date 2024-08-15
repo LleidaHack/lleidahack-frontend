@@ -1,7 +1,7 @@
 import React from "react";
 import "src/components/event_cards/eventCard_three/eventCard_three.css";
 
-const EvemtCardNewVersion = ({image }) => {
+const EventCardNewVersion = ({image }) => {
   return (
     <div className=" ">
       <img
@@ -14,4 +14,4 @@ const EvemtCardNewVersion = ({image }) => {
   );
 };
 
-export default EvemtCardNewVersion;
+export default EventCardNewVersion;
