@@ -7,6 +7,7 @@ import Home from "src/pages/hackeps/Home";
 import HomeLanding from "./pages/Landing/HomeLanding";
 import Profile from "src/pages/hackeps/Profile.js";
 import HackerForm from "src/pages/hackeps/HackerSignup";
+import { LleidaHackerForm } from "src/components/hackeps/Forms/LleidaHackerForm.js"
 import Testing from "src/components/hackeps/Testing/Testing";
 import Terms from "src/pages/hackeps/Terms";
 import Privacy from "src/pages/hackeps/Privacy";
@@ -74,6 +75,7 @@ export default function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
+          <Route path="/lleidahacker-form" element={<LleidaHackerForm />} />
           <Route
             path="/inscripcio"
             element={
