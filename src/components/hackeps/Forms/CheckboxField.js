@@ -1,14 +1,25 @@
 import { Field } from "formik";
+
 const CheckboxField = ({ name, label, defaultValue, ...rest }) => {
   return (
     <div
       className="text-textSecondaryHackeps"
       style={{ display: "flex", alignItems: "center" }}
     >
-      <label style={{ marginRight: "8px" }}>
-        <Field type="checkbox" name={name} checked={defaultValue} {...rest} />
-      </label>
-      {label}
+      <Field name={name}>
+        {({ field }) => (
+          <label style={{ marginRight: "8px" }}>
+            <input
+              type="checkbox"
+              {...field}
+              checked={field.value}
+              defaultChecked={defaultValue}
+              {...rest}
+            />
+            {label}
+          </label>
+        )}
+      </Field>
     </div>
   );
 };

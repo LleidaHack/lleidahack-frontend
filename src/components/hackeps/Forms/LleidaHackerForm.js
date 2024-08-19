@@ -52,6 +52,7 @@ const validationSchema = Yup.object({
   role: Yup.string().required("Rol requerit"),
   recive_notifications: Yup.boolean().oneOf([true], "Has d'acceptar rebre notificacions").required("Confirmació requerida"),
   nif: Yup.string().required("NIF requerit").matches(/^\d{8}[A-Z]$/, "El format del NIF no és vàlid"),
+  shirt_size: Yup.string().required("Mida requerida")
 });
 
 const HackerPanel = () => {
@@ -72,6 +73,30 @@ export const LleidaHackerForm = () => {
   const LanguageOptions = [
     { value: "cat", label: "cat" },
   ];
+
+  const RoleOptions = [
+    { value: "President", label: "President" },
+    { value: "Secretari", label: "Secretari" },
+    { value: "Tresorer", label: "Tresorer" },
+    { value: "Cap de Developers", label: "Cap de Developers" },
+    { value: "Cap de Contactes", label: "Cap de Contactes" },
+    { value: "Cap de Marketing", label: "Cap de Marketing" },
+    { value: "Cap de TechMeetings", label: "Cap de TechMeetings" },
+    { value: "Developer", label: "Developer" },
+    { value: "Contactes", label: "Contactes" },
+    { value: "Marketing", label: "Marketing" },
+    { value: "TechMeetings", label: "TechMeetings" },
+  ];
+
+  const sizeOptions = [
+    { value: "S", label: "S" },
+    { value: "M", label: "M" },
+    { value: "L", label: "L" },
+    { value: "XL", label: "XL" },
+    { value: "XXL", label: "XXL" },
+    { value: "XXXL", label: "XXXL" },
+  ];
+
   const [avatar, setAvatar] = useState(null);
   const [urlImage, setUrlImage] = useState("");
   const [isUrl, setIsUrl] = useState(false);
@@ -92,21 +117,19 @@ export const LleidaHackerForm = () => {
       food_restrictions: "",
       email: values.email,
       config: {
-        recive_notifications: values.recive_notifications, //aixo també
-        default_lang: values.default_lang, //aixo també
-        comercial_notifications: false,
+        recive_notifications: values.recive_notifications, 
+        default_lang: values.default_lang, 
+        comercial_notifications: true,
         terms_and_conditions: true,
       },
       telephone: values.phone.replace(/\s+/g, ""),
-      acceptNotifications: values.acceptNotifications || false, //accept notification checkbox a contacte field
       address: "",
-      shirt_size: values.shirtSize,
+      shirt_size: values.shirt_size,
       image: pfp,
-      is_image_url: isUrl,
       github: "",
       linkedin: "",
-      role: values.role, //aixo també
-      nif: values.nif, //aixo es canvia amb values.nif
+      role: values.role,
+      nif: values.nif, 
       student: values.student,
       active: true
     };
@@ -115,6 +138,7 @@ export const LleidaHackerForm = () => {
     console.log(res);
     if (res.errCode) {
       setStatusSubmit(false);
+      console.log(res.errMssg)
       let causeError = "Error al tramitar dades";
       if (res.errMssg === "Email already exists") {
         causeError = "El correu que has introduit es troba registrat.";
@@ -168,6 +192,7 @@ export const LleidaHackerForm = () => {
               email: "",
               nickname: "",
               role: "",
+              shirt_size: "",
               default_lang: "cat",
               recive_notifications: false,
               student: false,
@@ -225,6 +250,18 @@ export const LleidaHackerForm = () => {
                     type="text"
                     label="NIF"
                   />
+                  <SelectField
+                    name="role"
+                    label="Rol que exerceixes:"
+                    options={RoleOptions}
+                    placeholder="El meu rol és..."
+                  />
+                  <SelectField
+                        name="shirt_size"
+                        label="Talla de samarreta:"
+                        options={sizeOptions}
+                        placeholder="La meva talla de samarreta és..."
+                      />
                   <InputField
                     className="w-100"
                     name="password"
@@ -243,12 +280,11 @@ export const LleidaHackerForm = () => {
                     type="date"
                     label="Data de naixement"
                   />
-
-                  <SelectField
-                    name="default_lang"
-                    label="Idioma preferent:"
-                    options={LanguageOptions}
-                    placeholder="El meu idioma preferent és..."
+                  <CheckboxField
+                    className="w-100 text-center"
+                    name="student"
+                    label="Soc estudiant"
+                    defaultValue={false}
                   />
                 </div>
               </Row>
@@ -280,7 +316,6 @@ export const LleidaHackerForm = () => {
                   <CheckboxField
                     className="w-100 text-center"
                     name="recive_notifications"
-                    id="acceptNotifications"
                     label="Accepto rebre notificacions electròniques de caràcter informatiu, comercial i promocional"
                     defaultValue={false}
                   />
@@ -343,6 +378,12 @@ export const LleidaHackerForm = () => {
                       onDone={handleImageChange}
                     />
                   </div>
+                  <SelectField
+                    name="default_lang"
+                    label="Idioma preferent:"
+                    options={LanguageOptions}
+                    placeholder="El meu idioma preferent és..."
+                  />
                 </div>
               </Row>
               <Row>
