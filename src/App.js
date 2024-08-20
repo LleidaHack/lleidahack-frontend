@@ -26,14 +26,14 @@ import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
-import NewDashboard from "./pages/LleidaHacker/NewDashboard";
-import EventsDash from "./pages/LleidaHacker/EventsDash";
-import JuntaPage from "./pages/LleidaHacker/JuntaPage";
-import DevsPage from "./pages/LleidaHacker/DevsPage";
-import MarketingPage from "./pages/LleidaHacker/MarketingPage";
-import ContactesPage from "./pages/LleidaHacker/ContactesPage";
-import TechmeetingPage from "./pages/LleidaHacker/TechmeetingPage";
-import AdminPanelPage from "./pages/LleidaHacker/AdminPanelPage";
+import NewDashboard from "./pages/Administrator/NewDashboard";
+import EventsDash from "./pages/Administrator/EventsDash";
+import JuntaPage from "./pages/Administrator/JuntaPage";
+import DevsPage from "./pages/Administrator/DevsPage";
+import MarketingPage from "./pages/Administrator/MarketingPage";
+import ContactesPage from "./pages/Administrator/ContactesPage";
+import TechmeetingPage from "./pages/Administrator/TechmeetingPage";
+import AdminPanelPage from "./pages/Administrator/AdminPanelPage";
 
 
 

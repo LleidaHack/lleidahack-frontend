@@ -1,7 +1,7 @@
 import {React, useState} from "react";
 import LoginForm from "src/components/lleidahacker/LoginForm/LoginForm";
 import logoLleidaHack from "src/icons/isotip_lleidahack_blanc.png";
-import LleidaHackerPage from "src/pages/LleidaHacker/LleidaHackerPage";
+import LleidaHackerPage from "src/pages/Administrator/LleidaHackerPage";
 
 const NewDashboard = () => {
     const [isVerified, setIsVerified] = useState(false);
