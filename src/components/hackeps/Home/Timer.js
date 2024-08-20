@@ -48,35 +48,34 @@ const CountdownTimer = (props) => {
     return () => clearInterval(intervalId);
   }, [timestampDay, eventEndDay, nowDay, updateRemainingTime]);
 
-  
   function updateRemainingTime(countdown) {
     const nowDay = new Date();
     setRemainingTime(getRemainingTimeUntilMsTimestamp(countdown, nowDay));
   }
-  
+
   function padWithZeros(number, minLength = 2) {
     const numberString = String(number);
     if (numberString.length >= minLength) return numberString;
     return "0".repeat(minLength - numberString.length) + numberString;
   }
-  
-  if (isNaN(remainingTime.seconds)){
+
+  if (isNaN(remainingTime.seconds)) {
     return (
       <div className="countdown-timer bg-black text-white">
         <span className="text-white">X</span>
         <span className="text-white" style={{ fontSize: "2vw" }}>
-            mesos
-          </span>
+          mesos
+        </span>
         <span className="text-white">X</span>
         <span className="text-white" style={{ fontSize: "2vw" }}>
-            dies
-          </span>
+          dies
+        </span>
         <span className="text-white">X</span>
         <span className="text-white" style={{ fontSize: "2vw" }}>
-            hores
+          hores
         </span>
       </div>
-    )
+    );
   }
 
   if (timestampDay >= nowDay && active) {
