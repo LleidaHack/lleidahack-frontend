@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 const PrivacyComponent = () => {
   return (
-    <div className="dark-background">
+    <div className="bg-secondaryHackeps">
       <Container className="py-5 text-textSecondaryHackeps">
         <h3 className="font-bold">POLÍTICA DE PRIVADESA</h3>
         <p className="text-justify">

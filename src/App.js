@@ -27,6 +27,7 @@ import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
 import NavLandingProvider from "src/context/NavLanding/NavLanding";
+import "src/styles/styles.css";
 
 export default function App() {
   useEffect(() => {
