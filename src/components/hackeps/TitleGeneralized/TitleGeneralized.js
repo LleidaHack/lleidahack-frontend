@@ -14,12 +14,13 @@ const TitleGeneralized = ({
 }) => {
   let stylesTitle = size === "big" ? "big" : "titleSize";
   if (underline) {
-    stylesTitle += " title-underline";
+    stylesTitle +=
+      " underline decoration-primaryHackeps underline-offset-[5px] decoration-[5px] rounded pb-4";
   }
-  if (lettersColor === "secondary") {
-    stylesTitle += " text-textSecondaryHackeps";
-  } else {
+  if (lettersColor === "primary") {
     stylesTitle += " text-textPrimaryHackeps";
+  } else {
+    stylesTitle += " text-textSecondaryHackeps";
   }
   if (bold) {
     stylesTitle += " titlebold";
