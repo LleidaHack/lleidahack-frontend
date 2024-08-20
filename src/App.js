@@ -42,7 +42,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <NavLandingProvider>
         <Router basename="/hackeps">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -105,7 +104,6 @@ export default function App() {
             <Route path="/legalinfo" element={<LegalInfoLanding />} />
           </Routes>
         </Router>
-      </NavLandingProvider>
     </div>
   );
 }
