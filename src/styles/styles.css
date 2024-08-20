@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .appear-animation {
   animation-name: appear;
   animation-duration: 0.3s;
