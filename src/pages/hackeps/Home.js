@@ -13,7 +13,7 @@ const Home = () => {
   const [endDate, setEndDate] = useState(undefined);
 
   useEffect(() => {
-    async function xd() {
+    async function getDates() {
       const response = await getHackeps();
       const start = new Date(response.start_date);
       start.setMonth(start.getMonth());
@@ -22,7 +22,7 @@ const Home = () => {
       setStartDate(start);
       setEndDate(end);
     }
-    xd();
+    getDates();
   }, []);
 
   const timerActive = true;
