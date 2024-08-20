@@ -31,7 +31,7 @@ const LleidaHackerPage = () => {
             <div>
                 <div className="flex flex-col w-full h-full  items-end px-16">
                     <h1 className="text-xl font-bold text-center mt-10">Admin Acces</h1>
-                    <a href="/admin-controls">
+                    <a href="/admin/grups/admin-panel">
                         <Button className="bg-primaryLanding text-white font-bold p-2 rounded-md mt-2">Admin Panel</Button>
                     </a>
                 </div>
