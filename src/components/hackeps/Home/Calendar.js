@@ -35,7 +35,7 @@ const CalendarDates = (props) => {
               de novembre de 2023. Aquest és un esdeveniment que no voldràs
               perdre't!
             </p>
-            <p  className="text-justify mr-5">
+            <p className="text-justify mr-5">
               Així que, si ets un apassionat de la tecnologia, amant dels reptes
               i defensor del treball en equip, la HackEPS 2023 és el teu lloc.
               Uneix-te a nosaltres per a una experiència inoblidable per a
