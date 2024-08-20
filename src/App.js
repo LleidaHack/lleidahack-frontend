@@ -26,7 +26,6 @@ import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
-import NavLandingProvider from "src/context/NavLanding/NavLanding";
 import "src/styles/styles.css";
 
 export default function App() {
@@ -43,7 +42,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <NavLandingProvider>
         <Router basename="/hackeps">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -106,7 +104,6 @@ export default function App() {
             <Route path="/legalinfo" element={<LegalInfoLanding />} />
           </Routes>
         </Router>
-      </NavLandingProvider>
     </div>
   );
 }
