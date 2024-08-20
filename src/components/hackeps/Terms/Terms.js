@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 const TermsComponent = () => {
   return (
-    <div className="dark-background">
+    <div className="bg-secondaryHackeps">
       <Container className="py-5 text-textSecondaryHackeps">
         <h3 className="font-bold">TERMES I CONDICIONS</h3>
         <h4>Objectiu</h4>
