@@ -15,7 +15,6 @@ import Sponsors from "src/pages/hackeps/Sponsors";
 import Verify from "./pages/hackeps/Verify";
 import Login from "src/pages/hackeps/Login";
 import Entrances from "src/pages/hackeps/UsersEntrance.js";
-import Dailyhack from "src/pages/hackeps/Dailyhack.js";
 import RequireAuth from "src/modules/RequireAuth";
 import RequireLleidahacker from "./modules/RequireLleidahacker";
 import ResetPassword from "./pages/hackeps/ResetPassword";
@@ -26,6 +25,8 @@ import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
+import Error404Landing from "./pages/Landing/Error404Landing";
+import "src/styles/styles.css";
 
 export default function App() {
   useEffect(() => {
@@ -82,14 +83,6 @@ export default function App() {
             }
           />
           <Route
-            path="/dailyhacks"
-            element={
-              <RequireAuth originalRoute="/dailyhacks">
-                <Dailyhack />
-              </RequireAuth>
-            }
-          />
-          <Route
             path="/dashboard"
             element={
               <RequireLleidahacker originalRoute="/dashboard">
@@ -106,7 +99,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />
-          <Route path="*" element={<Error404 />} />
+          <Route path="*" element={<Error404Landing />} />
           <Route path="/events" element={<EventsLanding />} />
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>

@@ -84,11 +84,6 @@ import {
   getEventHackerGroup,
 } from "src/services/EventService";
 import {
-  addDailyhack,
-  updateDailyhack,
-  getDailyhackById,
-  deleteDailyhack,
-  getDailyhacks,
   registerHackerToEvent,
   unregisterHackerToEvent,
   participateHackerToEvent,
@@ -672,31 +667,6 @@ const Testing = () => {
       left: 0,
       comentaris: "",
       body: [
-        {
-          body: addDailyhack,
-          params: [event.id, hacker.id, url],
-          status: false,
-        },
-        {
-          body: updateDailyhack,
-          params: [event.id, hacker.id, url],
-          status: false,
-        },
-        {
-          body: getDailyhackById,
-          params: [event.id, hacker.id],
-          status: false,
-        },
-        {
-          body: deleteDailyhack,
-          params: [event.id, hacker.id],
-          status: false,
-        },
-        {
-          body: getDailyhacks,
-          params: [event.id],
-          status: false,
-        },
         {
           body: registerHackerToEvent,
           params: [hacker.id, event.id],
