@@ -6,15 +6,15 @@ const TermsComponent = () => {
     <div className="bg-secondaryHackeps">
       <Container className="py-5 text-textSecondaryHackeps">
         <h3 className="font-bold pb-2">TERMES I CONDICIONS</h3>
-        <h4>Objectiu</h4>  
-          <p className="text-justify ml-4">
-            Pel present document es donen a conèixer els termes i condicions de la
-            HackEPS i que, des d'ara, serà referit com la HACKATÓ.
-            Aquesta HACKATÓ consisteix en un concurs de desenvolupament de
-            programari o maquinari en el qual els participants s'enfrontaran a
-            reptes multidisciplinaris (intel·ligència artificial, desenvolupament
-            web, ciberseguretat, electrònica, etc.)
-          </p>
+        <h4>Objectiu</h4>
+        <p className="text-justify ml-4">
+          Pel present document es donen a conèixer els termes i condicions de la
+          HackEPS i que, des d'ara, serà referit com la HACKATÓ. Aquesta HACKATÓ
+          consisteix en un concurs de desenvolupament de programari o maquinari
+          en el qual els participants s'enfrontaran a reptes multidisciplinaris
+          (intel·ligència artificial, desenvolupament web, ciberseguretat,
+          electrònica, etc.)
+        </p>
 
         <h4>L'organització</h4>
         <p className="text-justify ml-4">
