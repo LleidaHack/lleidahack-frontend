@@ -42,16 +42,11 @@ const LoginUnverified = ({ email }) => {
   };
 
   return (
+    
     <div
-      className="faq-container"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-      }}
+      className="faq-container bg-secondaryHackeps flex flex-col items-center justify-start"
     >
-      <h3 className="text mt-12">
+      <h3 className="text mt-96">
         Verifica el teu compte obrint el link que t'hem enviat al correu.
       </h3>
       <Button
