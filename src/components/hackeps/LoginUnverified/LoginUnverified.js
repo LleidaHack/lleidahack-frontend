@@ -43,11 +43,13 @@ const LoginUnverified = ({ email }) => {
   };
 
   return (
-    
-    <div
-      className="faq-container bg-secondaryHackeps flex flex-col items-center justify-start"
-    >
-      <TitleGeneralized lettersColor={"secondary"} size={"big"} bold={false} classTitle="mt-48">
+    <div className="faq-container bg-secondaryHackeps flex flex-col items-center justify-start">
+      <TitleGeneralized
+        lettersColor={"secondary"}
+        size={"big"}
+        bold={false}
+        classTitle="mt-48"
+      >
         >:(
       </TitleGeneralized>
       <h3 className="text">
