@@ -80,7 +80,7 @@ const CountdownTimer = (props) => {
 
   if (timestampDay >= nowDay && active) {
     return (
-      <div className="countdown-timer bg-black text-white">
+      <div className="countdown-timer bg-blackHackeps text-white">
         {remainingTime.months ? (
           <span className="text-white">{remainingTime.months}</span>
         ) : (
