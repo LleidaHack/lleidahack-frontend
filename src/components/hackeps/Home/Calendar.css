@@ -120,7 +120,7 @@
   border-radius: 5px;
 }
 .react-calendar__tile--hasActive {
-  background: var(--primary-strong2)!important;
+  background: var(--primary-strong2) !important;
   color: var(--primary);
   font-weight: bold;
   border-radius: 5px;
