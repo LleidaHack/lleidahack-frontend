@@ -9,6 +9,15 @@ const MemberGestor = () => {
     {role:"Marketing", nickName:"wHere-Is.Julia", nom:"Julia", cognom:"De los Montes de Asturias"},
     {role:"Contactes", nickName:"Elena-N0T-Found", nom:"Elena", cognom:"Campos de Guinea"},
     {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
+
+
+
 ]
   return (
     <div>
@@ -17,17 +26,17 @@ const MemberGestor = () => {
           <div className="w-6/12 border-2 border-primaryLanding rounded-lg" />
       </div>
                 
-        <div className='mt-16 border-3 rounded-lg mx-8 flex flex-row py-16 px-16 gap-5 text-base '>
+        <div className='mt-16 border-3 rounded-lg mx-8 flex flex-row py-16 px-16 gap-5 text-base h-119 overflow-y-scroll'>
           <table className="w-full border-separate border-spacing-y-2  truncate text-wrap	">
             <thead>
               <tr>
-                <th><p className='mr-5'>NickName</p></th>
+                <th ><p className='mr-5 static'>NickName</p></th>
                 <th><p className='mr-5'>Nom i Cognom</p></th>
                 <th><p className='mr-5'>Rol</p></th>
                 <th><p className='mr-5'>Perfil</p></th>
               </tr>
             </thead>
-            <tbody >
+            <tbody className=''>
               <tr> {/*Camp buid per crear separacuió dins la tabla. Metode molt guarro xd */}
                 <td className='opacity-0'>.</td>
                 <td></td>
