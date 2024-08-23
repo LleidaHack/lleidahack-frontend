@@ -1,7 +1,9 @@
 import {React, useState, useEffect} from "react";
+import { useNavigate } from 'react-router-dom';
 
 const GrupsCardBox = ({name, role, bgcolor, opacity, image, whatsapp, drive}) => {
     const [hover, enableHover] = useState(false);
+    const navigate = useNavigate();
 
     
     useEffect(() => {
@@ -12,8 +14,8 @@ const GrupsCardBox = ({name, role, bgcolor, opacity, image, whatsapp, drive}) =>
 
     function clicked() {
         if(opacity == "100"){
-            const url = "/admin/grups/" + (name).toLowerCase();
-            window.location.href = url;
+            const url = "/grups/" + (name.toLowerCase());
+            navigate(url);
         }
 
     }

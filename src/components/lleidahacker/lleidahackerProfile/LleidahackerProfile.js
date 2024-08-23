@@ -15,7 +15,7 @@ const LleidahackerProfile = () => {
     let { id } = useParams();
     const [lleidaHacker, setLleidaHacker] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [ownUser, setOwnUser] = useState(true);
+    const [ownUser, setOwnUser] = useState(false); //default false
 
     useEffect(() => {
         const fetchVariables = async () => {

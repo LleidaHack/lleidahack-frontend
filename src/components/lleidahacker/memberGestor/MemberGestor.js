@@ -1,8 +1,10 @@
 import React from 'react'
 import GrupsCardBox from "src/components/lleidahacker/grupsCardBox/grupsCardBox";
 import image1 from "src/assets/img/programmersen.png";
+import { useNavigate } from 'react-router-dom';
 
 const MemberGestor = () => {
+  const navigate = useNavigate();
   const grups = [
     {role:"Junta", nickName:"Jor-d1-07239", nom:"Jordi", cognom:"Perez Asturion", id:0},
     {role:"Devs", nickName:"iTS-jUST.jua", nom:"Juan", cognom:"Carlos de Asturias", id:1},
@@ -43,7 +45,7 @@ const MemberGestor = () => {
                 <td></td>
               </tr>
               {grups.map((grupo, index) => (
-                <tr key={index} className=' cursor-pointer hover:underline'  onClick={() => window.location.href = ("/admin/lleidahacker/" + grupo.id)}>
+                <tr key={index} className=' cursor-pointer hover:underline'  onClick={() => navigate("/lleidahacker/" + grupo.id)}>
                   <td className=' text-ellipsis ml-2'><p className='mr-5'>{grupo.nickName}</p></td>
                   <td className=' text-ellipsis ml-2'><p className='mr-5'>{grupo.nom} {grupo.cognom}</p></td>
                   <td><p className='mr-5'>{grupo.role}</p></td>

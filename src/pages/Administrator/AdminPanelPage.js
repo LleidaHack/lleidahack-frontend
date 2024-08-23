@@ -19,7 +19,7 @@ const AdminPanelPage = () => {
                 <h1 className="header-events__title text-5xl">Admin Panel</h1>
             </div>
         </div>
-        <div className='flex flex-col px-16 mt-5'>
+        <div className='flex flex-col px-16 mt-5 gap-5'>
             <MemberGestor/>
             <HackepsGestor/>
             <div className='flex flex-row gap-4 justify-center'>

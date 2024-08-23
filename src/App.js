@@ -35,6 +35,7 @@ import ContactesPage from "./pages/Administrator/ContactesPage";
 import TechmeetingPage from "./pages/Administrator/TechmeetingPage";
 import AdminPanelPage from "./pages/Administrator/AdminPanelPage";
 import LleidaHacker from "./pages/Administrator/LleidaHacker";
+import HackepsDashboardPage from "./pages/Administrator/HackepsDashboardPage";
 
 
 
@@ -125,6 +126,7 @@ export default function App() {
           <Route path="/grups/techmeetings" element={<TechmeetingPage />} />
           <Route path="/grups/admin-panel" element={<AdminPanelPage />} />
           <Route path="/lleidahacker/:id" element={<LleidaHacker />} />
+          <Route path="/hackeps-dashboard" element={<HackepsDashboardPage />} />
         </Routes>
       </Router>
     </div>

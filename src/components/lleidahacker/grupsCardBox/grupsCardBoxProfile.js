@@ -1,6 +1,8 @@
 import {React, useState, useEffect} from "react";
+import { useNavigate } from 'react-router-dom';
 
 const GrupsCardBoxProfile = ({name, role, bgcolor, opacity, image, size, textColor, changeColor, click}) => {
+    const navigate = useNavigate();
     const [hover, enableHover] = useState(false);
     const [sizebox, setSizeBox] = useState("normal");
     const [colorChange, setColorChange] = useState(changeColor);
@@ -25,10 +27,10 @@ const GrupsCardBoxProfile = ({name, role, bgcolor, opacity, image, size, textCol
 
     function clicked() {
         console.log(click)
-        if (click !== undefined) {
+        if (click !== undefined && name !== undefined) {
             if(opacity == "100"){
-                const url = "/admin/grups/" + (name ?? "").toLowerCase();
-                // window.location.href = url;
+                const url = "/grups/" + (name ?? "").toLowerCase();
+                navigate(url);
             }
         }
         if (changeColor === true) {
