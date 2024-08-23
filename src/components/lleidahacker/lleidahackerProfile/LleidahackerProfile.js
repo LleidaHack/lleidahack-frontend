@@ -15,7 +15,7 @@ const LleidahackerProfile = () => {
     let { id } = useParams();
     const [lleidaHacker, setLleidaHacker] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [ownUser, setOwnUser] = useState(false);
+    const [ownUser, setOwnUser] = useState(true);
 
     useEffect(() => {
         const fetchVariables = async () => {
@@ -57,17 +57,17 @@ const LleidahackerProfile = () => {
             <div className='flex flex-col px-10'>
               {ownUser === true ? (
                 <>
-                  <div className='securityDatas'>
+                  <div className='securityDatas mb-16'>
                     <GestorContraseña />
                   </div>
                 </>
               ) : 
               (<></>)}
 
-              <div className='Dades-personals'>
+              <div className='Dades-personals mb-16'>
                 <DadesPersonals datas={lleidaHacker}/>
               </div>
-              <div className='Grups'>
+              <div className='Grups mb-16'>
                 <GrupList user={id}/>
               </div>
             </div>
