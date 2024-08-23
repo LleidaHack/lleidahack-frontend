@@ -28,21 +28,17 @@ const GrupsCardBox = ({name, role, bgcolor, opacity, image, whatsapp, drive}) =>
                 <h1 className="text-2xl font-bold mt-2 mb-0">{name}</h1>
                 <p className="mt-0">{role}</p>
             </div>
-            <div className="flex flex-row items-center justify-between w-5/12 mb-10 text-center">
-                {drive !== null ? (
-                <>
-                    <div>
-                        <a href={drive} target="_blank" className="text-black text-4xl">
-                            <i class="fa-brands fa-google-drive"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <a href={whatsapp} target="_blank" className="text-black text-4xl ">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </>
-                ):(<></>)}
+            <div className="flex flex-row items-center justify-between w-5/12 mb-10 text-center">          
+                <div>
+                    <a href={drive} target="_blank" className="text-black text-4xl">
+                        <i class="fa-brands fa-google-drive"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href={whatsapp} target="_blank" className="text-black text-4xl ">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>               
             </div>
         </div>
     );
