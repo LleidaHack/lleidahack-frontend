@@ -1,6 +1,6 @@
 import {React, useEffect, useState} from 'react'
 
-const PopupBody = ({isOpen, onClose, children, childrenFun}) => {
+const PopupBody = ({isOpen, onClose, children}) => {
     const [open, setOpen] = useState(isOpen);
 
     console.log(isOpen);
