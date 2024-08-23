@@ -9,6 +9,7 @@ import GestorContraseña from 'src/components/lleidahacker/gestorContraseña/Ges
 import DadesPersonals from 'src/components/lleidahacker/dadesPersonals/DadesPersonals';
 import GrupList from 'src/components/lleidahacker/grupList/GrupList';
 
+//TODO: Fer el cercle del profile ja que la component actualment no esta ben feta la del profile.
 
 const LleidahackerProfile = () => {
     let { id } = useParams();
