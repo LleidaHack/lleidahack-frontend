@@ -4,17 +4,17 @@ import image1 from "src/assets/img/programmersen.png";
 
 const MemberGestor = () => {
   const grups = [
-    {role:"Junta", nickName:"Jor-d1-07239", nom:"Jordi", cognom:"Perez Asturion"},
-    {role:"Devs", nickName:"iTS-jUST.jua", nom:"Juan", cognom:"Carlos de Asturias"},
-    {role:"Marketing", nickName:"wHere-Is.Julia", nom:"Julia", cognom:"De los Montes de Asturias"},
-    {role:"Contactes", nickName:"Elena-N0T-Found", nom:"Elena", cognom:"Campos de Guinea"},
-    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
-    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
-    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
-    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
-    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
-    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
-    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega"},
+    {role:"Junta", nickName:"Jor-d1-07239", nom:"Jordi", cognom:"Perez Asturion", id:0},
+    {role:"Devs", nickName:"iTS-jUST.jua", nom:"Juan", cognom:"Carlos de Asturias", id:1},
+    {role:"Marketing", nickName:"wHere-Is.Julia", nom:"Julia", cognom:"De los Montes de Asturias", id:2},
+    {role:"Contactes", nickName:"Elena-N0T-Found", nom:"Elena", cognom:"Campos de Guinea", id:3},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega",  id:4},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega", id:5},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega", id:6},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega", id:7},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega", id:8},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega", id:9},
+    {role:"Techmeetings", nickName:"iS-IT*fREDERIKO", nom:"Frederico", cognom:"Garcia de la Vega", id:10},
 
 
 
@@ -33,7 +33,6 @@ const MemberGestor = () => {
                 <th ><p className='mr-5 static'>NickName</p></th>
                 <th><p className='mr-5'>Nom i Cognom</p></th>
                 <th><p className='mr-5'>Rol</p></th>
-                <th><p className='mr-5'>Perfil</p></th>
               </tr>
             </thead>
             <tbody className=''>
@@ -44,13 +43,10 @@ const MemberGestor = () => {
                 <td></td>
               </tr>
               {grups.map((grupo, index) => (
-                <tr key={index} className=''>
+                <tr key={index} className=' cursor-pointer hover:underline'  onClick={() => window.location.href = ("/admin/lleidahacker/" + grupo.id)}>
                   <td className=' text-ellipsis ml-2'><p className='mr-5'>{grupo.nickName}</p></td>
                   <td className=' text-ellipsis ml-2'><p className='mr-5'>{grupo.nom} {grupo.cognom}</p></td>
                   <td><p className='mr-5'>{grupo.role}</p></td>
-                  <td>
-                    <button className='rounded-md text-sm px-2 py-2 mr-5'>Obrir perfil</button>
-                  </td>
                 </tr>
               ))}
             </tbody>

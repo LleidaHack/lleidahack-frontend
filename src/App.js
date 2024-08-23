@@ -34,6 +34,7 @@ import MarketingPage from "./pages/Administrator/MarketingPage";
 import ContactesPage from "./pages/Administrator/ContactesPage";
 import TechmeetingPage from "./pages/Administrator/TechmeetingPage";
 import AdminPanelPage from "./pages/Administrator/AdminPanelPage";
+import LleidaHacker from "./pages/Administrator/LleidaHacker";
 
 
 
@@ -82,7 +83,7 @@ export default function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
-          <Route path="/sponsors/:ids" element={<Sponsors />} />
+          <Route path="/sponsors/:ids" element={<Sponsors />} />/
           <Route
             path="/inscripcio"
             element={
@@ -123,6 +124,7 @@ export default function App() {
           <Route path="/grups/contactes" element={<ContactesPage />} />
           <Route path="/grups/techmeetings" element={<TechmeetingPage />} />
           <Route path="/grups/admin-panel" element={<AdminPanelPage />} />
+          <Route path="/lleidahacker/:id" element={<LleidaHacker />} />
         </Routes>
       </Router>
     </div>
