@@ -47,7 +47,7 @@ const LoginPage = ({ nextScreen }) => {
           <Row className="justify-content-center">
             <Col md={6}>
               <div className="login-container ">
-                <img src={logo} className="App-logo" alt="logo" />
+                <img src={logo} className="App-logo mb-3" alt="logo" />
                 <h2 className="text-white mb-4 h2-title ">Hola de nou!</h2>
                 <Formik
                   initialValues={{ email: "", password: "" }}
@@ -113,7 +113,7 @@ const LoginPage = ({ nextScreen }) => {
                         </p>
                       </div>
                       <div className="button-container">
-                        <Button type="submit" primary lg onClick={submitForm}>
+                        <Button type="submit" primary lg>
                           {isSubmitting
                             ? "Iniciant sessió..."
                             : "Inicia sessió"}
