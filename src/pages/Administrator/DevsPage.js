@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const DevsPage = () => {
-  return (
-    <div>
-        
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default DevsPage
+export default DevsPage;

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const TechmeetingPage = () => {
-  return (
-    <div>
-        
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default TechmeetingPage
+export default TechmeetingPage;

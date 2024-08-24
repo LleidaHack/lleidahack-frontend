@@ -3,11 +3,11 @@ import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
-    const location = useLocation();
+  const location = useLocation();
 
-    return (
-        <div>
-            <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
+  return (
+    <div>
+      <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
         <div className="flex justify-between items-center">
           <a href="/lleidahack">
             <img
@@ -36,16 +36,16 @@ const Header = () => {
           </div>
           <div className="flex">
             <button className="bg-primaryLanding text-xl p-0 mx-2 ">
-                <i class="fa-solid fa-arrow-right-from-bracket text-white"></i>
+              <i class="fa-solid fa-arrow-right-from-bracket text-white"></i>
             </button>
             <button className="bg-primaryLanding text-xl p-0 mx-2 text-CTALanding">
-                <i class="fa-solid fa-user"></i>
+              <i class="fa-solid fa-user"></i>
             </button>
           </div>
         </div>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Header;
