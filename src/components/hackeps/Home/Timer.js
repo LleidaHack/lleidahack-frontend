@@ -61,7 +61,7 @@ const CountdownTimer = (props) => {
 
   if (isNaN(remainingTime.seconds)) {
     return (
-      <div className="countdown-timer bg-black text-white">
+      <div className="countdown-timer bg-blackHackeps text-white">
         <span className="text-white">X</span>
         <span className="text-white" style={{ fontSize: "2vw" }}>
           mesos
