@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const JuntaPage = () => {
-  return (
-    <div>
-        
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default JuntaPage
+export default JuntaPage;

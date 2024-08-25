@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const LogsLleidaHacker = () => {
-  return (
-    <div>LogsLleidaHacker</div>
-  )
-}
+  return <div>LogsLleidaHacker</div>;
+};
 
-export default LogsLleidaHacker
+export default LogsLleidaHacker;

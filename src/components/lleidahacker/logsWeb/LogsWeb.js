@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const LogsWeb = () => {
-  return (
-    <div>LogsWeb</div>
-  )
-}
+  return <div>LogsWeb</div>;
+};
 
-export default LogsWeb
+export default LogsWeb;

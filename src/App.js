@@ -37,7 +37,6 @@ import AdminPanelPage from "./pages/Administrator/AdminPanelPage";
 import LleidaHacker from "./pages/Administrator/LleidaHacker";
 import HackepsDashboardPage from "./pages/Administrator/HackepsDashboardPage";
 
-
 import "src/styles/styles.css";
 
 export default function App() {
