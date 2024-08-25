@@ -68,89 +68,88 @@ const HackerListHackeps = () => {
     }
 
     
-
-return (
-    <div>
-        <h1 className='text-4xl font-bold'>Participants i Grups</h1>
-        <div className=" center flex ">
-            <div className="w-6/12 border-2 border-primaryLanding rounded-lg" />
-        </div>
-        <div className='mt-12 border-3 rounded-lg mx-8 flex flex-col py-12 px-24 justify-between text-base flex-wrap'>
-            <h1 className='text-3xl '>Participants sense grup</h1>
-            <div className=" center flex mb-5">
-                <div className="w-4/12 border-1 border-primaryLanding rounded-lg" />
+    return (
+        <div>
+            <h1 className='text-4xl font-bold'>Participants i Grups</h1>
+            <div className=" center flex ">
+                <div className="w-6/12 border-2 border-primaryLanding rounded-lg" />
             </div>
-            <div>
-                <div className='flex flex-row gap-3 '>
-                    <div className='cursor-pointer'>
-                        {visibilityOptions2[1] === "block" ?
-                        (<>
-                            <i className="fa-solid fa-sort-up " onClick={() => setVisibilityOptions2((prevVisibilityOptions2) => {
-                                const newVisibilityOptions2 = [...prevVisibilityOptions2];
-                                newVisibilityOptions2[1] = "hidden";
-                                return newVisibilityOptions2;
-                            })}></i>
-                        </>) : 
-                        (<>
-                            <i className="fa-solid fa-sort-down" onClick={() => setVisibilityOptions2((prevVisibilityOptions2) => {
-                                const newVisibilityOptions2 = [...prevVisibilityOptions2];
-                                newVisibilityOptions2[1] = "block";
-                                return newVisibilityOptions2;
-                            })}></i>
-                        </>)}
+            <div className='mt-12 border-3 rounded-lg mx-8 flex flex-col py-12 px-24 justify-between text-base flex-wrap'>
+                <h1 className='text-3xl '>Participants sense grup</h1>
+                <div className=" center flex mb-5">
+                    <div className="w-4/12 border-1 border-primaryLanding rounded-lg" />
+                </div>
+                <div>
+                    <div className='flex flex-row gap-3 '>
+                        <div className='cursor-pointer'>
+                            {visibilityOptions2[1] === "block" ?
+                            (<>
+                                <i className="fa-solid fa-sort-up " onClick={() => setVisibilityOptions2((prevVisibilityOptions2) => {
+                                    const newVisibilityOptions2 = [...prevVisibilityOptions2];
+                                    newVisibilityOptions2[1] = "hidden";
+                                    return newVisibilityOptions2;
+                                })}></i>
+                            </>) : 
+                            (<>
+                                <i className="fa-solid fa-sort-down" onClick={() => setVisibilityOptions2((prevVisibilityOptions2) => {
+                                    const newVisibilityOptions2 = [...prevVisibilityOptions2];
+                                    newVisibilityOptions2[1] = "block";
+                                    return newVisibilityOptions2;
+                                })}></i>
+                            </>)}
+                        </div>
+                        <p className='text-xl font-bold text-gray-600 select-none'>
+                            Llistat de participants 
+                            <span className='text-yellow-500'> {getPendings(participants) > 0 ? `-  Pending (${getPendings(participants)})` : ("")}</span>
+                        </p>
                     </div>
-                    <p className='text-xl font-bold text-gray-600 select-none'>
-                        Llistat de participants 
-                        <span className='text-yellow-500'> {getPendings(participants) > 0 ? `-  Pending (${getPendings(participants)})` : ("")}</span>
-                    </p>
+                    <div className={`Membres-sense-grup ${visibilityOptions2[1] ? visibilityOptions2[1] : "hidden"}`} style={{ maxHeight: '300px', overflowY: 'scroll', }}>
+                        <TableHackers mapList={participants}/>
+                        
+                    </div>
                 </div>
-                <div className={`Membres-sense-grup ${visibilityOptions2[1] ? visibilityOptions2[1] : "hidden"}`} style={{ maxHeight: '300px', overflowY: 'scroll', }}>
-                    <TableHackers mapList={participants}/>
-                    
-                </div>
-            </div>
 
 
-            <h1 className='text-3xl mt-5'>Grups</h1>
-            <div className=" center flex mb-5">
-                <div className="w-4/12 border-1 border-primaryLanding rounded-lg" />
-            </div>
-            <div className='Membres-amb-grup'>
-                {grups.map((grup, index) => (
-                    <div key={index} className='mb-5'>
-                        <div className='InfoGrup flex flex-row gap-2 '>
-                            <div className='cursor-pointer'>
-                                {visibilityOptions[index] === "block" ?
-                                (<>
-                                    <i className="fa-solid fa-sort-up " onClick={() => setVisibilityOptions((prevVisibilityOptions) => {
-                                        const newVisibilityOptions = [...prevVisibilityOptions];
-                                        newVisibilityOptions[index] = "hidden";
-                                        return newVisibilityOptions;
-                                    })}></i>
-                                </>) : 
-                                (<>
-                                    <i className="fa-solid fa-sort-down" onClick={() => setVisibilityOptions((prevVisibilityOptions) => {
-                                        const newVisibilityOptions = [...prevVisibilityOptions];
-                                        newVisibilityOptions[index] = "block";
-                                        return newVisibilityOptions;
-                                    })}></i>
-                                </>)}
+                <h1 className='text-3xl mt-5'>Grups</h1>
+                <div className=" center flex mb-5">
+                    <div className="w-4/12 border-1 border-primaryLanding rounded-lg" />
+                </div>
+                <div className='Membres-amb-grup'>
+                    {grups.map((grup, index) => (
+                        <div key={index} className='mb-5'>
+                            <div className='InfoGrup flex flex-row gap-2 '>
+                                <div className='cursor-pointer'>
+                                    {visibilityOptions[index] === "block" ?
+                                    (<>
+                                        <i className="fa-solid fa-sort-up " onClick={() => setVisibilityOptions((prevVisibilityOptions) => {
+                                            const newVisibilityOptions = [...prevVisibilityOptions];
+                                            newVisibilityOptions[index] = "hidden";
+                                            return newVisibilityOptions;
+                                        })}></i>
+                                    </>) : 
+                                    (<>
+                                        <i className="fa-solid fa-sort-down" onClick={() => setVisibilityOptions((prevVisibilityOptions) => {
+                                            const newVisibilityOptions = [...prevVisibilityOptions];
+                                            newVisibilityOptions[index] = "block";
+                                            return newVisibilityOptions;
+                                        })}></i>
+                                    </>)}
+                                </div>
+                                <h1 className='text-xl font-bold text-gray-600 mb-3 select-none	flex '>
+                                    {grup.grup} - {grup.nom} -
+                                    `({getLength(grup.membres)}/{grup.maxMembers})` 
+                                    <span className='text-yellow-500'> {getPendings(grup.membres) > 0 ? `-  Pending (${getPendings(grup.membres)})` : ("")} </span></h1>
                             </div>
-                            <h1 className='text-xl font-bold text-gray-600 mb-3 select-none	flex '>
-                                {grup.grup} - {grup.nom} -
-                                `({getLength(grup.membres)}/{grup.maxMembers})` 
-                                <span className='text-yellow-500'> {getPendings(grup.membres) > 0 ? `-  Pending (${getPendings(grup.membres)})` : ("")} </span></h1>
+                            <div className={`Desplegable-Members bg-gray-100 rounded-md ${visibilityOptions[index] ? visibilityOptions[index] : "hidden"}`}>
+                                <TableHackers mapList={grup.membres}/>
+                            </div>
                         </div>
-                        <div className={`Desplegable-Members bg-gray-100 rounded-md ${visibilityOptions[index] ? visibilityOptions[index] : "hidden"}`}>
-                            <TableHackers mapList={grup.membres}/>
-                        </div>
-                    </div>
-                ))}
-                                
+                    ))}
+                                    
+                </div>
             </div>
         </div>
-    </div>
-)
+    )
 }
 
 export default HackerListHackeps
