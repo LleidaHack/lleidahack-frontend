@@ -17,6 +17,7 @@ module.exports = {
         primaryHackepsDark: "#2F7D5F",
         secondaryHackeps: "#F7F7F2",
         textSecondaryHackeps: "#000000",
+        blackHackeps: "#0F0F0F",
         lightHackeps: "#F5F5F5",
         grayLightHackeps: "#bbb8b8",
         grayLightHackepsDark: "#8c8787",

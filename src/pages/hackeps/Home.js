@@ -9,11 +9,11 @@ import MainTitle from "src/components/hackeps/Home/MainTitle.js";
 import { getHackeps } from "src/services/EventService";
 
 const Home = () => {
-  const [startDate, setStartDate] = useState(new Date(2023, 10, 25, 11));
-  const [endDate, setEndDate] = useState(new Date(2023, 10, 26, 11));
+  const [startDate, setStartDate] = useState(undefined);
+  const [endDate, setEndDate] = useState(undefined);
 
   useEffect(() => {
-    async function xd() {
+    async function getDates() {
       const response = await getHackeps();
       const start = new Date(response.start_date);
       start.setMonth(start.getMonth());
@@ -22,7 +22,7 @@ const Home = () => {
       setStartDate(start);
       setEndDate(end);
     }
-    xd();
+    getDates();
   }, []);
 
   const timerActive = true;
