@@ -1,6 +1,7 @@
 import React from "react";
 import HSkeleton from "../LoadingSkeleton/HSkeleton";
 import "./ProfilePic.css";
+import def from "src/imgs/default.png"
 
 function is_not_empty(icon) {
   return !(icon === "string" || icon === "");
@@ -19,7 +20,14 @@ const StandardPfp = ({ hacker, bgcolor, extra_id, border, is_profile }) => {
           alt=""
         />
       ) : (
-        <i className={`fa-user fa-solid fa-8x mx-auto text-grayColor`} />
+        <img
+          id={extra_id}
+          className={`${bgcolor ? `bg-white` : ""} ${
+            border ? "border " : ""
+          }${is_profile ? "profilePfpStyle" : "team-member-image"}`}
+          src={def}
+          alt=""
+        />
       )}
     </>
   );

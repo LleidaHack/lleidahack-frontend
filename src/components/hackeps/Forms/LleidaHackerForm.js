@@ -404,7 +404,7 @@ export const LleidaHackerForm = () => {
                   title={`Error al registrar el teu compte`}
                   text={`Sembla que alguna cosa ha fallat mentre enregistràvem el teu compte al sistema.`}
                   hasButton={true}
-                  buttonLink={`/hacker-form`}
+                  buttonLink={`/lleidahacker-form`}
                   buttonText={`Intentar novament`}
                   italic={errCause}
                   onButtonClick={handleButtonClick}
