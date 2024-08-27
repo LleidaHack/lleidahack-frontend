@@ -4,9 +4,9 @@ import logoLleidaHack from "src/icons/isotip_lleidahack_blanc.png";
 import LleidaHackerPage from "src/pages/Administrator/LleidaHackerPage";
 
 const NewDashboard = () => {
-  const [isVerified, setIsVerified] = useState(false);
+  const [isVerified, setIsVerified] = useState(true);
 
-  if (isVerified) {
+  if (!isVerified) {
     return (
       <div className="absolute flex flex-col bg-primaryLanding w-screen h-[100vh] justify-center content-center items-center">
         <div className="">
