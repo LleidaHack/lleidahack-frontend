@@ -64,7 +64,7 @@ const Sponsors = () => {
         getInfoAll(companyData);
         companyData.map((pos, index) => {
           if (index < 4) {
-            //imgs1[index] = {image: pos.image, url:pos.id}
+            //imgs1[index] = {image: pos.image, url:pos.website}
           } else {
             //imgs2[index - 4] = {image: pos.image}
           }
