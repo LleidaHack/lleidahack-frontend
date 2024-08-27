@@ -1,7 +1,7 @@
 import React from "react";
 import HSkeleton from "../LoadingSkeleton/HSkeleton";
 import "./ProfilePic.css";
-import def from "src/imgs/default.png"
+import def from "src/imgs/default.png";
 
 function is_not_empty(icon) {
   return !(icon === "string" || icon === "");

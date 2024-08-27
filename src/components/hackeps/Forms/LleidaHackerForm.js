@@ -50,9 +50,13 @@ const validationSchema = Yup.object({
     .email("El correu ha de tenir un format vàlid"),
   nickname: Yup.string().required("Nickname requerit"),
   role: Yup.string().required("Rol requerit"),
-  recive_notifications: Yup.boolean().oneOf([true], "Has d'acceptar rebre notificacions").required("Confirmació requerida"),
-  nif: Yup.string().required("NIF requerit").matches(/^\d{8}[A-Z]$/, "El format del NIF no és vàlid"),
-  shirt_size: Yup.string().required("Mida requerida")
+  recive_notifications: Yup.boolean()
+    .oneOf([true], "Has d'acceptar rebre notificacions")
+    .required("Confirmació requerida"),
+  nif: Yup.string()
+    .required("NIF requerit")
+    .matches(/^\d{8}[A-Z]$/, "El format del NIF no és vàlid"),
+  shirt_size: Yup.string().required("Mida requerida"),
 });
 
 const HackerPanel = () => {
@@ -69,10 +73,7 @@ const HackerPanel = () => {
 };
 
 export const LleidaHackerForm = () => {
-
-  const LanguageOptions = [
-    { value: "cat", label: "cat" },
-  ];
+  const LanguageOptions = [{ value: "cat", label: "cat" }];
 
   const RoleOptions = [
     { value: "President", label: "President" },
@@ -117,8 +118,8 @@ export const LleidaHackerForm = () => {
       food_restrictions: "",
       email: values.email,
       config: {
-        recive_notifications: values.recive_notifications, 
-        default_lang: values.default_lang, 
+        recive_notifications: values.recive_notifications,
+        default_lang: values.default_lang,
         comercial_notifications: true,
         terms_and_conditions: true,
       },
@@ -129,16 +130,16 @@ export const LleidaHackerForm = () => {
       github: "",
       linkedin: "",
       role: values.role,
-      nif: values.nif, 
+      nif: values.nif,
       student: values.student,
-      active: true
+      active: true,
     };
 
     const res = await signupLleidaHacker(LleidaHacker);
     console.log(res);
     if (res.errCode) {
       setStatusSubmit(false);
-      console.log(res.errMssg)
+      console.log(res.errMssg);
       let causeError = "Error al tramitar dades";
       if (res.errMssg === "Email already exists") {
         causeError = "El correu que has introduit es troba registrat.";
@@ -257,11 +258,11 @@ export const LleidaHackerForm = () => {
                     placeholder="El meu rol és..."
                   />
                   <SelectField
-                        name="shirt_size"
-                        label="Talla de samarreta:"
-                        options={sizeOptions}
-                        placeholder="La meva talla de samarreta és..."
-                      />
+                    name="shirt_size"
+                    label="Talla de samarreta:"
+                    options={sizeOptions}
+                    placeholder="La meva talla de samarreta és..."
+                  />
                   <InputField
                     className="w-100"
                     name="password"
