@@ -84,9 +84,6 @@ const TableHackers = ({ mapList }) => {
               <p>Mail</p>
             </th>
             <th>
-              <p>Telefon</p>
-            </th>
-            <th>
               <p>Edat</p>
             </th>
             <th>
@@ -102,20 +99,7 @@ const TableHackers = ({ mapList }) => {
             <>
               <tr key={index}>
                 <td>
-                  <p
-                    className={`${createStatusClass(participant.status)} flex flex-row gap-1 items-center mb-0`}
-                  >
-                    {createGif(participant.status)}
-                    {participant.status}
-                  </p>
-                </td>
-                <td>{participant.nom}</td>
-                <td>{participant.mail}</td>
-                <td>{participant.telefon}</td>
-                <td>{participant.edat}</td>
-                <td>{participant.talla}</td>
-                <td>
-                  <div className="flex justify-center">
+                <div className="flex">
                     <div
                       className="bg-primaryLanding text-white rounded-md px-2 py-1 font-semibold cursor-pointer"
                       onClick={() => buttonAction(true, index)}
@@ -129,6 +113,19 @@ const TableHackers = ({ mapList }) => {
                       Rebutjar
                     </div>
                   </div>
+                </td>
+                <td>{participant.nom}</td>
+                <td>{participant.mail}</td>
+                <td>{participant.edat}</td>
+                <td>{participant.talla}</td>
+                <td>
+                <p
+                    className={`${createStatusClass(participant.status)} flex flex-row gap-1 items-center mb-0`}
+                  >
+                    {createGif(participant.status)}
+                    {participant.status}
+                  </p>
+                  
                 </td>
               </tr>
 
