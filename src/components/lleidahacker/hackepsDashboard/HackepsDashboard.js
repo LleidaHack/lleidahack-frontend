@@ -14,13 +14,11 @@ const HackepsDashboard = () => {
             <div className="align-left"></div>
             <div className="self-center	flex flex-col justify-center w-full text-center">
               <h1 className="text-4xl">{nameEvent}</h1>
-         
             </div>
           </div>
         </div>
       </div>
       <div className="flex flex-col px-20">
-       
         <div className="hackerlist mb-16">
           <HackerListHackeps />
         </div>

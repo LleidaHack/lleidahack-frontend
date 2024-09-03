@@ -99,7 +99,7 @@ const TableHackers = ({ mapList }) => {
             <>
               <tr key={index}>
                 <td>
-                <div className="flex">
+                  <div className="flex">
                     <div
                       className="bg-primaryLanding text-white rounded-md px-2 py-1 font-semibold cursor-pointer"
                       onClick={() => buttonAction(true, index)}
@@ -119,13 +119,12 @@ const TableHackers = ({ mapList }) => {
                 <td>{participant.edat}</td>
                 <td>{participant.talla}</td>
                 <td>
-                <p
+                  <p
                     className={`${createStatusClass(participant.status)} flex flex-row gap-1 items-center mb-0`}
                   >
                     {createGif(participant.status)}
                     {participant.status}
                   </p>
-                  
                 </td>
               </tr>
 
