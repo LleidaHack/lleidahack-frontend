@@ -1,12 +1,12 @@
 .countdown-timer {
-  width: 100vw;
+  /* width: 100vw;
   max-width: 100%;
   height: 20vw;
   font-size: 9vw;
-  font-family: monospace;
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: baseline; */
+  font-family: monospace;
 }
 
 .countdown-timer span {

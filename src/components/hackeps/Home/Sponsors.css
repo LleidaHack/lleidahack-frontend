@@ -1,12 +1,12 @@
 .sponsors {
-  width: 100vw;
+  /* width: 100vw;
   max-width: 100%;
   height: auto;
   max-height: 100%;
   font-size: 50px;
-  font-family: "space mono";
   justify-content: center;
-  text-align: center;
+  text-align: center; */
+  font-family: "space mono";
 }
 .sponsors p {
   font-size: 0.3em;
@@ -15,42 +15,43 @@
   margin-bottom: 0px;
 }
 
-.gostHunter {
+/* .gostHunter {
   position: relative;
   top: -9.4vh;
-}
+} */
 
-.spnsection {
+/* .spnsection {
   display: flex;
   justify-content: center;
-}
+} */
 
-.cuadrados-container {
+/* .cuadrados-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Espaciado uniforme entre las imágenes */
-  max-width: 64%; /* Establece un ancho máximo para mantener la responsividad */
-  margin: 0 auto; /* Centra el contenedor */
+  justify-content: center;  Espaciado uniforme entre las imágenes 
+  max-width: 64%;  Establece un ancho máximo para mantener la responsividad 
+  margin: 0 auto;  Centra el contenedor 
   margin: 2vw;
   align-items: center;
   gap: 3vw;
-}
+} */
 
 .cuadrado {
-  width: 30%; /* Ancho de las imágenes con espacio entre ellas */
+  /*width: 30%; Ancho de las imágenes con espacio entre ellas
   height: 50%;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* Añade posición relativa para centrar las imágenes */
+  position: relative; Añade posición relativa para centrar las imágenes
+  border-radius: 20px;
+  overflow: hidden;
+  scale: 0.9; */
   transition:
     transform 0.3s ease-in-out,
     scale 0.3s ease-in-out,
     box-shadow 0.3s ease-in-out;
-  border-radius: 20px;
-  overflow: hidden;
-  scale: 0.9;
+
 }
 
 img {
@@ -120,31 +121,31 @@ img {
     scale 0.3s ease-in-out;
 }
 
-.sponsors-container {
+/* .sponsors-container {
   display: grid;
-  grid-template-rows: repeat(2, 1fr); /* Tres filas */
-  grid-template-columns: 1fr; /* Una columna */
-  justify-items: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  justify-content: center; /* Espaciado uniforme entre las imágenes */
+  grid-template-rows: repeat(2, 1fr); Tres filas
+  grid-template-columns: 1fr; Una columna
+  justify-items: center; Centrar horizontalmente
+  align-items: center; Centrar verticalmente
+  justify-content: center; Espaciado uniforme entre las imágenes
   max-width: 64%;
   border-radius: 20px;
   margin-bottom: 4vh;
-}
+} */
 
-.sponsor-group-group-1 {
+/* .sponsor-group-group-1 {
   display: flex;
   width: 100%;
   justify-content: center;
   scale: 1.2;
-}
+} */
 
-.sponsor-group-group-2 {
+/* .sponsor-group-group-2 {
   display: flex;
   width: 90%;
   scale: 0.9;
   justify-content: center;
-}
+} */
 
 .sponsor-group-group-3 {
   display: flex;

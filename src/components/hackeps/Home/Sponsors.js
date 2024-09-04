@@ -95,8 +95,8 @@ const Sponsors = () => {
   });
 
   return (
-    <div className="sponsors bg-secondaryHackeps">
-      <div className="gostHunter" id="sponsors"></div>
+    <div className="sponsors bg-secondaryHackeps w-screen max-w-full h-auto max-h-full text-5xl justify-center text-center"  >
+      <div className="gostHunter relative top-[-9.4vh]" id="sponsors"></div>
       <TitleGeneralized padTop="2%" underline={true} lettersColor={"secondary"}>
         Sponsors
       </TitleGeneralized>
@@ -107,10 +107,10 @@ const Sponsors = () => {
           Contacta
         </Button>
       </Link>
-      <section className="spnsection">
-        <div className="cuadrados-container">
+      <section className="spnsection flex justify-center">
+        <div className="cuadrados-container flex flex-wrap justify-center max-w-[64%] mx-auto my-0 m-[2vw] gap-[3vw]">
           {imgs1.map((pos, index) => (
-            <div key={index + 1} className="cuadrado">
+            <div key={index + 1} className="cuadrado w-[30%] h-[50%] p-4 flex items-center justify-center relative overflow-hidden rounded-[20px] scale-90">
               <img
                 src={pos.image}
                 onClick={() => redirectToURL(pos.url)}
@@ -125,15 +125,15 @@ const Sponsors = () => {
         Partners
       </TitleGeneralized>
 
-      <section className="spnsection">
-        <div className="sponsors-container">
+      <section className="spnsection flex justify-center">
+        <div className="sponsors-container grid grid-rows-3 grid-cols-1 justify-items-center items-center justify-center max-w-[64%] rounded-2xl mb-[4vh] ">
           <div
-            className="sponsor-group-group-1"
+            className="sponsor-group-group-1 flex w-full justify-center scale-125"
             style={{ marginBottom: "50px" }}
           >
             {groups[1]}
           </div>
-          <div className="sponsor-group-group-2">{groups[2]}</div>
+          <div className="sponsor-group-group-2 flex w-[90%] scale-90 justify-center">{groups[2]}</div>
         </div>
       </section>
     </div>

@@ -61,7 +61,7 @@ const CountdownTimer = (props) => {
 
   if (isNaN(remainingTime.seconds)) {
     return (
-      <div className="countdown-timer bg-blackHackeps text-white">
+      <div className="countdown-timer bg-blackHackeps text-white w-screen max-w-full h-[20vw] text-[9vw] flex justify-center items-baseline">
         <span className="text-white">X</span>
         <span className="text-white" style={{ fontSize: "2vw" }}>
           mesos
@@ -80,7 +80,7 @@ const CountdownTimer = (props) => {
 
   if (timestampDay >= nowDay && active) {
     return (
-      <div className="countdown-timer bg-blackHackeps text-white">
+      <div className="countdown-timer bg-blackHackeps text-white w-screen max-w-full h-[20vw] text-[9vw] flex justify-center items-baseline">
         {remainingTime.months ? (
           <span className="text-white">{remainingTime.months}</span>
         ) : (
@@ -149,7 +149,7 @@ const CountdownTimer = (props) => {
     );
   } else if (eventEndDay >= nowDay && active) {
     return (
-      <div className="countdown-timer text-black">
+      <div className="countdown-timer text-black w-screen max-w-full h-[20vw] text-[9vw] flex justify-center items-baseline">
         {remainingTime.hours ? (
           <span className="text-white">
             {padWithZeros(remainingTime.hours)}
