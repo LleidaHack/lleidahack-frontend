@@ -52,7 +52,7 @@ const Footer = () => {
           Política de Privadesa
         </a>
       </div>
-      <div className="made-by footer-links ">
+      <div className="made-by footer-links">
         Made with ❤️ by{" "}
         <a
           className="text-textPrimaryHackeps"

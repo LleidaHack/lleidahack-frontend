@@ -112,10 +112,10 @@ const ForgetPassword = ({ nextScreen }) => {
         </div>
       ) : (
         <div className="content">
-          <section className="informative text-white">
+          <section className="informative text-white w-2/3 justify-center rounded-2xl p-5 flex flex-wrap">
             <div className="Part2">
-              <div className="iconBox">
-                <div className="wrapper bg-loginPage">
+              <div className="iconBox mt-0 mb-12 text-center">
+                <div className="wrapper bg-loginPage h-auto flex justify-center items-center">
                   <svg
                     className="checkmark"
                     xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@ const ForgetPassword = ({ nextScreen }) => {
                   >
                     {" "}
                     <circle
-                      className="checkmark__circle stroke-errorRed"
+                      className="checkmark__circle stroke-errorRed stroke-2 fill-none"
                       cx="26"
                       cy="26"
                       r="25"
@@ -146,7 +146,7 @@ const ForgetPassword = ({ nextScreen }) => {
                 </p>
               </div>
 
-              <div className="infbuttonok">
+              <div className="infbuttonok text-center my-14">
                 <Link to="/">
                   <Button primary>Tornar a l'Inici</Button>
                 </Link>

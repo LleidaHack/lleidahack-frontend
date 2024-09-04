@@ -1,57 +1,59 @@
 /* ContactPage.css */
-.container-all {
-  min-height: 100vh;
-}
 
-.contact-container {
+/* .container-all {
+  min-height: 100vh;
+} */
+
+/* .contact-container {
   display: flex;
   width: 100%;
-}
+} */
 
-.logo-container {
+/* .logo-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.title-logo {
+/* .title-logo {
   font-size: 22px;
   margin-bottom: 30px;
   text-align: center;
-}
+} */
 
-.logo {
+/* .logo {
   width: 500px;
   height: auto;
   margin-bottom: 20px;
-}
+} */
 
-.social-logos {
+/* .social-logos {
   display: flex;
   margin-top: 20px;
-}
+} */
 
-.social-logo {
+/* .social-logo {
   width: 50px;
   height: auto;
   margin-left: 10px;
   margin-right: 10px;
-}
+} */
 
 .form-container-contacte {
-  flex: 1;
+  /* flex: 1;
   display: flex;
-  flex-direction: column;
-  align-items: left;
   justify-content: center;
+  flex-direction: column; */
+  align-items: left;
+  
 }
 
-.form-contacte {
+/* .form-contacte {
   width: 100%;
   max-width: 70%;
-}
+} */
 
 label {
   font-size: 16px;
@@ -68,14 +70,14 @@ textarea {
   width: 100%;
 }
 
-.button-submit-container {
+/* .button-submit-container {
   display: flex;
   justify-content: center;
-}
+} */
 
-.formik-field {
+/* .formik-field {
   margin-bottom: 20px;
-}
+} */
 
 @keyframes fadeIn {
   from {

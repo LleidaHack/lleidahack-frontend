@@ -33,12 +33,12 @@ const MainTitle = () => {
 
   return (
     <>
-      <div className="backgrounder bg-primaryHackeps">
-        <div className="fantasma" id="home"></div>
-        <div className="magic_div">
+      <div className="backgrounder bg-primaryHackeps bg-cover h-[50vh] overflow-hidden">
+        <div className="fantasma relative" id="home"></div>
+        <div className="magic_div pt-5[vh] w-full overflow-hidden max-h-[50vh]">
           <div className="col-12">
-            <div className="rowe">
-              <img className="imagelogo" src={hackLogo} alt="" />
+            <div className="rowe flex justify-center mb-[1vw] h-[25vh] my-8">
+              <img className="imagelogo justify-center text-center" src={hackLogo} alt="" />
             </div>
             <div className="text-center">
               <Button onClick={handleShow} light>
@@ -50,13 +50,13 @@ const MainTitle = () => {
       </div>
 
       <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header closeButton className="no-border">
+        <Modal.Header closeButton className="border-0">
           <Modal.Title>Inici de sessió</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="no-border">
+        <Modal.Body className="border-0">
           Has d'iniciar sessió per apuntar-te!
         </Modal.Body>
-        <Modal.Footer className="no-border justify-content-center">
+        <Modal.Footer className="border-0 justify-content-center">
           <Button primary onClick={handleSignIn}>
             Tinc compte
           </Button>

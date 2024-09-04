@@ -10,39 +10,39 @@
   height: auto;
 }
 
-.no-border {
+/* .no-border {
   border: none;
-}
+} */
 
-.center-elements {
+/* .center-elements {
   display: flex;
   justify-content: center;
-}
+} */
 
 .fantasma {
-  position: relative;
+  /* position: relative; */
   top: -1000px;
 }
 
 .backgrounder {
   background-image: url(src/icons/icons_home.png);
-  background-size: cover;
+  /* background-size: cover;
   height: 50vh;
-  overflow: hidden;
+  overflow: hidden; */
 }
 
-.imagelogo {
+/* .imagelogo {
   justify-content: center;
   text-align: center;
-}
+} */
 
-.rowe {
-  display: flex; /* O cualquier otro estilo que necesites */
+/* .rowe {
+   display: flex;  O cualquier otro estilo que necesites
   justify-content: center;
   margin-bottom: 1vw;
   height: 25vh;
-  margin-bottom: 2rem;
-}
+  margin-bottom: 2rem; 
+} */
 
 @media (max-width: 768px) {
   .rowe {
@@ -50,9 +50,9 @@
   }
 }
 
-.magic_div {
+/* .magic_div {
   padding-top: 5vh;
   width: 100%;
   overflow: hidden;
   max-height: 50vh;
-}
+} */

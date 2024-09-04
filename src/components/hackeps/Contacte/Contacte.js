@@ -53,17 +53,17 @@ const ContactePage = () => {
   }, []);
 
   return (
-    <div className="container-all bg-secondaryHackeps">
+    <div className="container-all bg-secondaryHackeps min-h-screen">
       {!mailSended ? (
         <>
           <TitleGeneralized underline={true}>Contacte</TitleGeneralized>
-          <div className="contact-container animate-fadeIn">
-            <div className="logo-container">
-              <h2 className="title-logo text-textSecondaryHackeps">
+          <div className="contact-container animate-fadeIn flex w-full">
+            <div className="logo-container flex-1 flex flex-col items-center justify-center ">
+              <h2 className="title-logo text-textSecondaryHackeps text-base mb-7 title-logo  "> 
                 Esdeveniment organitzat per LleidaHack
               </h2>
-              <img src={logo} alt="Logo" className="logo" />
-              <div className="social-logos">
+              <img src={logo} alt="Logo" className="logo w-[500px] h-auto mb-5" />
+              <div className="social-logos flex mt-5">
                 <a
                   href="https://www.twitter.com/lleidahack"
                   target="_blank"
@@ -72,7 +72,7 @@ const ContactePage = () => {
                   <img
                     src={twitterLogo}
                     alt="Twitter"
-                    className="social-logo"
+                    className="social-logo w-12 h-auto mx-2.5"
                   />
                 </a>
                 <a
@@ -99,7 +99,7 @@ const ContactePage = () => {
                 </a>
               </div>
             </div>
-            <div className="form-container-contacte">
+            <div className="form-container-contacte flex-1 flex flex-col justify-center">
               <Formik
                 initialValues={{
                   name: "",
@@ -110,8 +110,8 @@ const ContactePage = () => {
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
               >
-                <Form className="form-contacte">
-                  <div className="formik-field">
+                <Form className="form-contacte w-full m-w-[70%]">
+                  <div className="formik-field my-5">
                     <label className="text-textSecondaryHackeps" htmlFor="name">
                       Nom:
                     </label>
@@ -167,7 +167,7 @@ const ContactePage = () => {
                       className="text-primaryHackeps"
                     />
                   </div>
-                  <div className="button-submit-container mb-8">
+                  <div className="button-submit-container mb-8 flex justify-center">
                     <Button primary type="submit">
                       Enviar
                     </Button>

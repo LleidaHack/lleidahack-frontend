@@ -24,10 +24,10 @@ const SuccessFeedback = ({
   }, []);
 
   return (
-    <div className="valerr bg-secondaryHackeps text-textSecondaryHackeps">
+    <div className="valerr bg-secondaryHackeps text-textSecondaryHackeps max-w-full min-h-screen p-[0.1vh]">
       <br></br>
       <br></br>
-      <div className="iconBox">
+      <div className="iconBox my-40 my-12 text-center">
         <div>
           <svg
             className="checkmark"
