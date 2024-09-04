@@ -21,6 +21,14 @@ const TableHackers = ({ mapList }) => {
     }
   }
 
+  function checkAge(edat){
+    if(edat < 18){
+      return "text-fuchsia-500 font-bold"
+    } else{
+      return "text-black"
+    }
+  }
+
   function createGif(text) {
     if (text === "Changing..") {
       return <FaSpinner className="animate-spin" />;
@@ -116,7 +124,7 @@ const TableHackers = ({ mapList }) => {
                 </td>
                 <td>{participant.nom}</td>
                 <td>{participant.mail}</td>
-                <td>{participant.edat}</td>
+                <td className={checkAge(participant.edat)}>{participant.edat}</td>
                 <td>{participant.talla}</td>
                 <td>
                   <p
