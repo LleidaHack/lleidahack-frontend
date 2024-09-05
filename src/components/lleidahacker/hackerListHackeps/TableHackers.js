@@ -23,7 +23,7 @@ const TableHackers = ({ mapList }) => {
 
   function checkAge(edat){
     if(edat < 18){
-      return "text-fuchsia-500 font-bold"
+      return "text-red-600 font-bold"
     } else{
       return "text-black"
     }
