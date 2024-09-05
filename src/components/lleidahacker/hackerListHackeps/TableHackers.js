@@ -21,11 +21,11 @@ const TableHackers = ({ mapList }) => {
     }
   }
 
-  function checkAge(edat){
-    if(edat < 18){
-      return "text-red-600 font-bold"
-    } else{
-      return "text-black"
+  function checkAge(edat) {
+    if (edat < 18) {
+      return "text-red-600 font-bold";
+    } else {
+      return "text-black";
     }
   }
 
@@ -124,7 +124,9 @@ const TableHackers = ({ mapList }) => {
                 </td>
                 <td>{participant.nom}</td>
                 <td>{participant.mail}</td>
-                <td className={checkAge(participant.edat)}>{participant.edat}</td>
+                <td className={checkAge(participant.edat)}>
+                  {participant.edat}
+                </td>
                 <td>{participant.talla}</td>
                 <td>
                   <p
