@@ -12,7 +12,8 @@ module.exports = {
         errorLanding: "#E55010",
         linkLanding: "#3366CC",
         grayColor: "#757575",
-        primaryHackeps: "#0e3a29", // src/components/hackeps/Home/Schedule.js, line 23
+        grayNeutral: "#e4e6eb",
+        primaryHackeps: "#0e3a29",
         textPrimaryHackeps: "#F5F5F5",
         primaryHackepsDark: "#2F7D5F",
         secondaryHackeps: "#F7F7F2",
@@ -33,14 +34,15 @@ module.exports = {
         "max-lg": { max: "998px" },
         "max-xl": { max: "1400px" },
       },
+      height: {
+        128: "37rem",
+        94: "25rem",
+        119: "32rem",
+      },
     },
     backgroundImage: {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",
       "background-patron": "url('/src/imgs/patron_imagen.png')",
-    },
-    height: {
-      128: "37rem",
-      94: "25rem",
     },
   },
   plugins: [],

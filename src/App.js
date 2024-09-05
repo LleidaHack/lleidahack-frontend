@@ -26,6 +26,17 @@ import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
+import NewDashboard from "./pages/Administrator/NewDashboard";
+import EventsDash from "./pages/Administrator/EventsDash";
+import JuntaPage from "./pages/Administrator/JuntaPage";
+import DevsPage from "./pages/Administrator/DevsPage";
+import MarketingPage from "./pages/Administrator/MarketingPage";
+import ContactesPage from "./pages/Administrator/ContactesPage";
+import TechmeetingPage from "./pages/Administrator/TechmeetingPage";
+import AdminPanelPage from "./pages/Administrator/AdminPanelPage";
+import LleidaHacker from "./pages/Administrator/LleidaHacker";
+import HackepsDashboardPage from "./pages/Administrator/HackepsDashboardPage";
+
 import "src/styles/styles.css";
 
 export default function App() {
@@ -102,6 +113,20 @@ export default function App() {
           <Route path="*" element={<Error404Landing />} />
           <Route path="/events" element={<EventsLanding />} />
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
+        </Routes>
+      </Router>
+      <Router basename="/admin">
+        <Routes>
+          <Route path="/" element={<NewDashboard />} />
+          <Route path="/events" element={<EventsDash />} />
+          <Route path="/grups/junta" element={<JuntaPage />} />
+          <Route path="/grups/devs" element={<DevsPage />} />
+          <Route path="/grups/marketing" element={<MarketingPage />} />
+          <Route path="/grups/contactes" element={<ContactesPage />} />
+          <Route path="/grups/techmeetings" element={<TechmeetingPage />} />
+          <Route path="/grups/admin-panel" element={<AdminPanelPage />} />
+          <Route path="/lleidahacker/:id" element={<LleidaHacker />} />
+          <Route path="/hackeps-dashboard" element={<HackepsDashboardPage />} />
         </Routes>
       </Router>
     </div>
