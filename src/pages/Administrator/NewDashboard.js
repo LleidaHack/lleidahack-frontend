@@ -8,12 +8,12 @@ import LoadSection from "src/components/hackeps/LoadSection/Loadsection";
 const NewDashboard = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   async function checkLleidaHacker() {
     let a = localStorage.getItem("userID");
     let myuser = await me(a);
-    if(myuser){
-      setIsLoading(false)
+    if (myuser) {
+      setIsLoading(false);
     }
     return myuser.type === "lleida_hacker";
   }
@@ -23,7 +23,7 @@ const NewDashboard = () => {
       checkLleidaHacker().then((result) => {
         setIsVerified(result);
       });
-    }else{
+    } else {
       setIsLoading(false);
     }
   }, []);
@@ -43,7 +43,7 @@ const NewDashboard = () => {
                 className="h-12 w-12 flex-none"
               />
             </a>
-          </div>   
+          </div>
           <div>
             <div className="flex flex-col p-10">
               <h1 className="text-3xl font-bold text-center text-white mb-2">
@@ -61,10 +61,10 @@ const NewDashboard = () => {
         </div>
       );
     }
-  }else{
-    return(
+  } else {
+    return (
       <div>
-        <LoadSection/>
+        <LoadSection />
       </div>
     );
   }

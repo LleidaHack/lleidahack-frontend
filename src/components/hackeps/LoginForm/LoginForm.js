@@ -15,7 +15,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required("Contrasenya requerida"),
 });
 
-const LoginForm = ({nextScreen, lleidahacker}) => {
+const LoginForm = ({ nextScreen, lleidahacker }) => {
   const navigate = useNavigate();
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
@@ -29,11 +29,14 @@ const LoginForm = ({nextScreen, lleidahacker}) => {
           console.log("Login successful");
         if (nextScreen) {
           navigate(nextScreen);
-        } else if (lleidahacker){
-          if(myuser.type === "lleida_hacker"){
+        } else if (lleidahacker) {
+          if (myuser.type === "lleida_hacker") {
             lleidahacker(true);
-          }else{
-            setFieldError("email", "Aquest compte no correspon a un LleidaHacker");
+          } else {
+            setFieldError(
+              "email",
+              "Aquest compte no correspon a un LleidaHacker",
+            );
             localStorage.removeItem("userToken");
           }
         } else navigate("/home");
@@ -47,8 +50,8 @@ const LoginForm = ({nextScreen, lleidahacker}) => {
     } finally {
       setSubmitting(false);
     }
-  }
-  return(
+  };
+  return (
     <div className="login-container">
       <Formik
         initialValues={{ email: "", password: "" }}
@@ -83,23 +86,19 @@ const LoginForm = ({nextScreen, lleidahacker}) => {
                 name="password"
                 id="password"
                 className={`form-control ${
-                  touched.password && errors.password
-                    ? "is-invalid"
-                    : ""
+                  touched.password && errors.password ? "is-invalid" : ""
                 }`}
               />
               {touched.password && errors.password && (
-                <div className="invalid-feedback">
-                  {errors.password}
-                </div>
+                <div className="invalid-feedback">{errors.password}</div>
               )}
             </div>
-            {!lleidahacker ?  
+            {!lleidahacker ? (
               <div className="redirects">
                 <p className="mb-1">
                   <Link
                     to="/forgot-password"
-                    className= "custom-link text-grayColor"
+                    className="custom-link text-grayColor"
                   >
                     Has oblidat les teves credencials?
                   </Link>
@@ -107,24 +106,31 @@ const LoginForm = ({nextScreen, lleidahacker}) => {
                 <p className="mb-0">
                   <Link
                     to="/hacker-form"
-                    className= "custom-link text-grayColor"
+                    className="custom-link text-grayColor"
                   >
                     Encara no tens compte?
                   </Link>
                 </p>
-              </div> : null
-            }
+              </div>
+            ) : null}
             <div className="button-container">
-            {lleidahacker ? 
-              <ButtonLleidahack type="submit" tertiary black lg> {isSubmitting ? "Iniciant sessió..." : "Inicia sessió"} </ButtonLleidahack> :
-              <Button type="submit" primary lg> {isSubmitting ? "Iniciant sessió..." : "Inicia sessió"} </Button>
-            }
+              {lleidahacker ? (
+                <ButtonLleidahack type="submit" tertiary black lg>
+                  {" "}
+                  {isSubmitting ? "Iniciant sessió..." : "Inicia sessió"}{" "}
+                </ButtonLleidahack>
+              ) : (
+                <Button type="submit" primary lg>
+                  {" "}
+                  {isSubmitting ? "Iniciant sessió..." : "Inicia sessió"}{" "}
+                </Button>
+              )}
             </div>
           </Form>
         )}
       </Formik>
     </div>
-  )
-}
+  );
+};
 
 export default LoginForm;

@@ -10,10 +10,7 @@ import { login } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "src/components/hackeps/LoginForm/LoginForm";
 
-
-
-const LoginPage = ({nextScreen}) => {
-  
+const LoginPage = ({ nextScreen }) => {
   return (
     <div className="login-page">
       <div className="content bg-loginPage">
@@ -23,7 +20,7 @@ const LoginPage = ({nextScreen}) => {
               <div>
                 <img src={logo} className="App-logo mb-3" alt="logo" />
                 <h2 className="text-white mb-4 h2-title ">Hola de nou!</h2>
-                <LoginForm nextScreen={nextScreen}/>
+                <LoginForm nextScreen={nextScreen} />
               </div>
             </Col>
           </Row>
