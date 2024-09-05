@@ -154,15 +154,15 @@ const InscripcioForm = () => {
   };
 
   return (
-    <div className="container-all-inscripcio bg-secondaryHackeps">
+    <div className="container-all-inscripcio bg-secondaryHackeps min-h-screen justify-center items-center flex">
       {!submittRegister ? (
         <>
           <br />
-          <div className="container-inscripcio">
+          <div className="container-inscripcio w-[70%] items-center">
             <TitleGeneralized underline={true}>
               Inscripció HackEPS 2023
             </TitleGeneralized>
-            <div className="form-container">
+            <div className="form-container w-full flex flex-col justify-center items-center">
               <Formik
                 enableReinitialize
                 initialValues={{
@@ -182,7 +182,7 @@ const InscripcioForm = () => {
                 onSubmit={handleSubmit}
               >
                 <Form>
-                  <div className="formik-field">
+                  <div className="formik-field mb-12">
                     <label
                       className="text-textSecondaryHackeps"
                       htmlFor="studies"
@@ -197,7 +197,7 @@ const InscripcioForm = () => {
                     />
                   </div>
 
-                  <div className="formik-field">
+                  <div className="formik-field mb-12">
                     <label
                       className="text-textSecondaryHackeps"
                       htmlFor="center"
@@ -212,7 +212,7 @@ const InscripcioForm = () => {
                     />
                   </div>
 
-                  <div className="formik-field">
+                  <div className="formik-field mb-12">
                     <label
                       className="text-textSecondaryHackeps"
                       htmlFor="location"
@@ -227,7 +227,7 @@ const InscripcioForm = () => {
                     />
                   </div>
 
-                  <div className="formik-field">
+                  <div className="formik-field mb-12">
                     <SelectField
                       id="size"
                       name="size"
@@ -243,7 +243,7 @@ const InscripcioForm = () => {
                     />
                   </div>
 
-                  <div className="formik-field">
+                  <div className="formik-field mb-12">
                     <label className="text-textSecondaryHackeps" htmlFor="food">
                       Tens alguna restricció alimentària o alèrgia?
                     </label>
@@ -255,7 +255,7 @@ const InscripcioForm = () => {
                     />
                   </div>
 
-                  <div className="formik-field">
+                  <div className="formik-field mb-12">
                     <SelectField
                       id="meet"
                       name="meet"
@@ -265,14 +265,14 @@ const InscripcioForm = () => {
                       labelColor="#000000"
                     />
                   </div>
-                  <div className="formik-field">
+                  <div className="formik-field mb-12">
                     <label
                       className="text-textSecondaryHackeps"
                       htmlFor="cvinfo_links"
                     >
                       Vols que les empreses de Lleida et coneguin? (Opcional)
                     </label>
-                    <p className="subtitle text-textSecondaryHackeps">
+                    <p className="subtitle text-textSecondaryHackeps text-sm mb-5">
                       Tens experiència en altres hackatons? Algun projecte
                       personal que vulguis compartir? Explica'ns què t'apassiona
                       i deixa aquí els enllaços de les teves xarxes socials.
@@ -285,7 +285,7 @@ const InscripcioForm = () => {
                     />
 
                     {/* Agrupamos los campos de LinkedIn, GitHub y Devpost uno debajo del otro */}
-                    <div className="subfields-container">
+                    <div className="subfields-container mt-2.5">
                       <div className="subfield">
                         <Field
                           type="text"
@@ -301,7 +301,7 @@ const InscripcioForm = () => {
                       </div>
                     </div>
 
-                    <div className="subfields-container">
+                    <div className="subfields-container mt-2.5">
                       <div className="subfield">
                         <Field
                           type="text"
@@ -317,7 +317,7 @@ const InscripcioForm = () => {
                       </div>
                     </div>
 
-                    <div className="subfields-container">
+                    <div className="subfields-container mt-2.5">
                       <div className="subfield">
                         <Field
                           type="text"
@@ -348,8 +348,8 @@ const InscripcioForm = () => {
                       onDone={handleFileChange}
                     />
                     {cvFile && (
-                      <div className="file-info">
-                        <span className="file-name text-textSecondaryHackeps">
+                      <div className="file-info flex items-center gap-2.5 mt-1">
+                        <span className="file-name text-textSecondaryHackeps text-sm mb-5">
                           {cvFile.name}
                         </span>
                         <Button delete onClick={clearFile}>
@@ -358,7 +358,7 @@ const InscripcioForm = () => {
                       </div>
                     )}
                   </div>
-                  <div className="checkbox-container">
+                  <div className="checkbox-container flex items-center pt-8">
                     <br />
                     <br />
                     <Field
@@ -384,7 +384,7 @@ const InscripcioForm = () => {
                       className="text-errorRed"
                     />
                   </div>
-                  <div className="button-submit-container m-8 mt-2">
+                  <div className="button-submit-container m-8 mt-2 flex justify-center ">
                     <Button primary type="submit">
                       {registered ? "Actualitza" : "Envia"}
                     </Button>

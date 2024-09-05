@@ -1,15 +1,15 @@
 /* ContactPage.css */
-.container-all-inscripcio {
+/* .container-all-inscripcio {
   min-height: 100vh;
   justify-content: center;
   align-items: center;
   display: flex;
-}
+} */
 
-.container-inscripcio {
+/* .container-inscripcio {
   width: 70%;
   align-items: center;
-}
+} */
 
 .logo-container {
   flex: 1;
@@ -38,13 +38,13 @@
 }
 
 .form-container {
-  width: 100%;
+  /* width: 100%; */
   animation: fadeIn 0.5s ease-in-out;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centra verticalmente */
-  align-items: center; /* Centra horizontalmente */
+  /* display: flex;
+  flex-direction: column; */
+  /* justify-content: center;  Centra verticalmente 
+  align-items: center; Centra horizontalmente */
 }
 
 form {
@@ -67,35 +67,35 @@ textarea {
   width: 100%;
 }
 
-.button-submit-container {
+/* .button-submit-container {
   display: flex;
   justify-content: center;
-}
+} */
 
-.formik-field {
+/* .formik-field {
   margin-bottom: 50px;
-}
+} */
 
-.subtitle {
+/* .subtitle {
   font-size: 14px;
   margin-bottom: 20px;
-}
+} */
 
-.file-name {
+/* .file-name {
   font-size: 14px;
   margin-bottom: 20px;
-}
+} */
 
-.subfields-container {
-  margin-top: 10px; /* Espacio entre los subcampos */
-}
+/* .subfields-container {
+  margin-top: 10px; Espacio entre los subcampos 
+} */
 
-.file-info {
+/* .file-info {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 5px;
-}
+} */
 
 .select-field .react-select__control,
 input[type="text"] {
@@ -114,6 +114,7 @@ input[type="text"] {
 }
 
 @media (max-width: 768px) {
+
   .container-inscripcio {
     width: 85%;
     align-items: center;
@@ -160,11 +161,11 @@ input[type="text"] {
   margin-right: "10px";
 }
 
-.checkbox-container {
+/* .checkbox-container {
   display: flex;
-  align-items: center; /* Centra verticalmente los elementos */
+  align-items: center; /* Centra verticalmente los elementos 
   padding-top: 2em;
-}
+} */
 
 .checkbox-container input {
   margin-right: 10px; /* Ajusta el margen entre el checkbox y el texto */
