@@ -5,7 +5,7 @@ import { login, me } from "src/services/AuthenticationService";
 import LleidaHackerPage from "src/pages/Administrator/LleidaHackerPage";
 import LoadSection from "src/components/hackeps/LoadSection/Loadsection";
 
-const NewDashboard = () => {
+const Dashboard = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -70,4 +70,4 @@ const NewDashboard = () => {
   }
 };
 
-export default NewDashboard;
+export default Dashboard;

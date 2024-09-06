@@ -19,14 +19,13 @@ import RequireAuth from "src/modules/RequireAuth";
 import RequireLleidahacker from "./modules/RequireLleidahacker";
 import ResetPassword from "./pages/hackeps/ResetPassword";
 import PasswordForget from "./pages/hackeps/ForgetPassword";
-import Dashboard from "./pages/hackeps/Dashboard/Dashboard";
 import "src/utils/ensure-basename";
 import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
-import NewDashboard from "./pages/Administrator/NewDashboard";
+import Dashboard from "./pages/Administrator/Dashboard";
 import EventsDash from "./pages/Administrator/EventsDash";
 import JuntaPage from "./pages/Administrator/JuntaPage";
 import DevsPage from "./pages/Administrator/DevsPage";
@@ -93,14 +92,6 @@ export default function App() {
               </RequireAuth>
             }
           />
-          <Route
-            path="/dashboard"
-            element={
-              <RequireLleidahacker originalRoute="/dashboard">
-                <Dashboard />
-              </RequireLleidahacker>
-            }
-          />
           <Route path="/forgot-password" element={<PasswordForget />} />
           <Route path="/user-verification" element={<LoginVerify />} />
           <Route path="*" element={<Error404 />} />
@@ -117,7 +108,7 @@ export default function App() {
       </Router>
       <Router basename="/admin">
         <Routes>
-          <Route path="/" element={<NewDashboard />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/events" element={<EventsDash />} />
           <Route path="/grups/junta" element={<JuntaPage />} />
           <Route path="/grups/devs" element={<DevsPage />} />
