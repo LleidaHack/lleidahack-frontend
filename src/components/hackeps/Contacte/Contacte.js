@@ -188,7 +188,7 @@ const ContactePage = () => {
                 hasButton={true}
                 buttonLink={`/contacte`}
                 buttonText={`Intentar novament`}
-                italic={`Torna a intentar-ho novament. En cas que segueixi fallant, contacta amb nosaltres utilitzant \n les nostres xarxes socials que trobarás a la part inferior de la pantalla.`}
+                italic={`Torna a intentar-ho novament. En cas que continuï fallant, contacta amb nosaltres utilitzant \n les nostres xarxes socials que trobaràs a la part inferior de la pantalla.`}
                 onButtonClick={handleButtonClick}
               />
             </>
@@ -196,8 +196,7 @@ const ContactePage = () => {
             <>
               <SuccessFeedback
                 title="Missatge enviat correctament."
-                text={`Gracies per contactar amb LleidaHack. El teu missatge s'ha enviat correctament. \n En cas que necesitesim ficar-nos en contacte amb tu, ho fariem amb el correu 
-                que ens has proporcionat.`}
+                text={`Gràcies per contactar amb LleidaHack. El teu missatge s'ha enviat correctament. \n En cas que necessitéssim posar-nos en contacte amb tu, ho faríem amb el correu que ens has proporcionat.`}
                 hasButton={true}
                 buttonLink="/#home"
                 buttonText="Tornar al inici"
