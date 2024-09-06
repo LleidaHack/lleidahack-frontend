@@ -159,7 +159,7 @@ const InscripcioForm = () => {
         <>
           <br />
           <div className="container-inscripcio">
-            <TitleGeneralized underline  >
+            <TitleGeneralized underline>
               Inscripció HackEPS 2023
             </TitleGeneralized>
             <div className="form-container">

@@ -44,7 +44,7 @@ const LoginUnverified = ({ email }) => {
 
   return (
     <div className="faq-container bg-secondaryHackeps flex flex-col items-center justify-start">
-      <TitleGeneralized big normal className="mt-48" >
+      <TitleGeneralized big normal className="mt-48">
         `&gt;`:(
       </TitleGeneralized>
       <h3 className="text">

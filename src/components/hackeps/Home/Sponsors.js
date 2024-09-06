@@ -97,7 +97,7 @@ const Sponsors = () => {
   return (
     <div className="sponsors bg-secondaryHackeps">
       <div className="gostHunter" id="sponsors"></div>
-      <TitleGeneralized padTop="4" underline >
+      <TitleGeneralized padTop="4" underline>
         Sponsors
       </TitleGeneralized>
       <p>Vols participar?</p>

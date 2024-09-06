@@ -184,11 +184,7 @@ export const HackerStepperForm = () => {
               <Row className="align-content-center d-flex">
                 <HackerPanel />
                 <div className="col-12 col-xxl-6 ">
-                  <TitleGeneralized
-                    normal
-                    marginBot="2"
-                    alignText="left"
-                  >
+                  <TitleGeneralized normal marginBot="2" alignText="left">
                     Informació Personal
                   </TitleGeneralized>
                   <InputField
@@ -228,11 +224,7 @@ export const HackerStepperForm = () => {
               <Row>
                 <HackerPanel />
                 <div className="col-12 col-xxl-6 ">
-                  <TitleGeneralized
-                    normal
-                    marginBot="2"
-                    alignText="left"
-                  >
+                  <TitleGeneralized normal marginBot="2" alignText="left">
                     Contacte
                   </TitleGeneralized>
                   <InputField
@@ -285,11 +277,7 @@ export const HackerStepperForm = () => {
                   )}
                 </div>
                 <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
-                  <TitleGeneralized
-                    normal
-                    marginBot="2"
-                    alignText="left"
-                  >
+                  <TitleGeneralized normal marginBot="2" alignText="left">
                     Avatar
                   </TitleGeneralized>
                   <InputField
