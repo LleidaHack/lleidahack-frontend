@@ -56,7 +56,7 @@ const ContactePage = () => {
     <div className="container-all bg-secondaryHackeps">
       {!mailSended ? (
         <>
-          <TitleGeneralized underline={true}>Contacte</TitleGeneralized>
+          <TitleGeneralized underline >Contacte</TitleGeneralized>
           <div className="contact-container">
             <div className="logo-container">
               <h2 className="title-logo text-textSecondaryHackeps">

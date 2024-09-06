@@ -185,8 +185,8 @@ export const HackerStepperForm = () => {
                 <HackerPanel />
                 <div className="col-12 col-xxl-6 ">
                   <TitleGeneralized
-                    bold={false}
-                    marginBot="0.5rem"
+                    normal
+                    marginBot="2"
                     alignText="left"
                   >
                     Informació Personal
@@ -229,8 +229,8 @@ export const HackerStepperForm = () => {
                 <HackerPanel />
                 <div className="col-12 col-xxl-6 ">
                   <TitleGeneralized
-                    bold={false}
-                    marginBot="0.5rem"
+                    normal
+                    marginBot="2"
                     alignText="left"
                   >
                     Contacte
@@ -286,8 +286,8 @@ export const HackerStepperForm = () => {
                 </div>
                 <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
                   <TitleGeneralized
-                    bold={false}
-                    marginBot="0.5rem"
+                    normal
+                    marginBot="2"
                     alignText="left"
                   >
                     Avatar

@@ -7,7 +7,7 @@ import Button from "src/components/buttons/Button";
 export default function UserNotFound() {
   return (
     <div className="error-container">
-      <TitleGeneralized size="big" bold={false} padTop="0%">
+      <TitleGeneralized big normal padTop="0" className="mt-48">
         Aquest usuari no existeix
       </TitleGeneralized>
       <p className="text">

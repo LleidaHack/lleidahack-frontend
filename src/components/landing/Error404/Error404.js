@@ -6,7 +6,7 @@ import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 const Error404 = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center	items-center gap-4 py-24 px-[10%]">
-      <TitleGeneralized size={"big"} bold={false}>
+      <TitleGeneralized big normal>
         404
       </TitleGeneralized>
       <p className="text-2xl text-black justify-center text-center">
