@@ -88,7 +88,7 @@ const Navbar = () => {
           id="container-points"
         >
           <div className="flex md:justify-between items-center bg-background-patron h-full w-full md:bg-primaryLanding md:bg-background-none">
-            <div className="hidden md:block ">
+            <div className="hidden md:block md:pb-5">
               <a href="/lleidahack">
                 <img
                   src={logoLleidaHack}
@@ -97,7 +97,7 @@ const Navbar = () => {
                 />
               </a>
             </div>
-            <div className="absolute md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0">
+            <div className="absolute md:pb-5 md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0">
               <li className=" text-xl list-none	md:text-white">
                 <a
                   href="/hackeps"
