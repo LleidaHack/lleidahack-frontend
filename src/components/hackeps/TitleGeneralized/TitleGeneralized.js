@@ -7,7 +7,7 @@ const TitleGeneralized = (props) => {
       pt-${props.padTop ? props.padTop : "4"} 
       mb-${props.marginBot ? props.marginBot : "[0%]"}  
       text-${props.alignText ? props.alignText : "center"} 
-      font-${props.bold? "bold" : "normal"}
+      font-${props.bold ? "bold" : "normal"}
     `,
     {
       "underline decoration-primaryHackeps underline-offset-[5px] decoration-[5px] rounded pb-4":

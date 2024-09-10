@@ -209,7 +209,7 @@ const Team = (props) => {
     return (
       <div className="Alineador">
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
-          <TitleGeneralized  padTop="0" primary>
+          <TitleGeneralized padTop="0" primary>
             {team.name} {team.code && `Codi: #${team.code}`}
           </TitleGeneralized>
           <Container className="">
