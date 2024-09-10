@@ -21,7 +21,7 @@ const QrCode = (props) => {
     <Container>
       <Row>
         <Col id="bg-white" className={"mx-auto m-3 text-center"}>
-          <TitleGeneralized normal marginBot="2">
+          <TitleGeneralized marginBot="2">
             Ticket
           </TitleGeneralized>
           <p>

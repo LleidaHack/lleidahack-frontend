@@ -7,6 +7,7 @@ const TitleGeneralized = (props) => {
       pt-${props.padTop ? props.padTop : "4"} 
       mb-${props.marginBot ? props.marginBot : "[0%]"}  
       text-${props.alignText ? props.alignText : "center"} 
+      font-${props.bold? "bold" : "normal"}
     `,
     {
       "underline decoration-primaryHackeps underline-offset-[5px] decoration-[5px] rounded pb-4":
@@ -14,9 +15,6 @@ const TitleGeneralized = (props) => {
 
       "text-textPrimaryHackeps": props.primary,
       "text-textSecondaryHackeps": props.secondary || !props.primary,
-
-      "font-normal": props.normal,
-      "font-bold": props.bold || !props.normal,
 
       "text-[120px]": props.big,
       "text-4xl": props.titleSize || !props.big,
