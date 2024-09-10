@@ -8,7 +8,7 @@ import Colaborations from "src/components/landing/Colaborations/Colaborations";
 
 const HomeLanding = () => {
   return (
-    <div>
+    <div id="HomeLanding">
       <Navbar />
       <HeroSectionHeader />
       <AboutUsHome />
