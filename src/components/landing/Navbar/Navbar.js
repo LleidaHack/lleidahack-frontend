@@ -66,7 +66,7 @@ const Navbar = () => {
     <div className="flex flex-col">
       <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
         <div
-          className="md:hidden flex flex-row justify-between mt-3"
+          className="md:hidden flex flex-row justify-between mt-0"
           id="header-points"
         >
           <div className="">
