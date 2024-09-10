@@ -25,7 +25,7 @@
 }
 
 .backgrounder {
-  background-image: url(src/icons/icons_home.png);
+  background-image: url(src/icons/icons_home_white.png);
   background-size: cover;
   height: 50vh;
   overflow: hidden;
@@ -40,7 +40,7 @@
   display: flex; /* O cualquier otro estilo que necesites */
   justify-content: center;
   margin-bottom: 1vw;
-  height: 25vh;
+  height: 32vh;
   margin-bottom: 2rem;
 }
 
