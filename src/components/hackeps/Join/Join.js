@@ -43,11 +43,11 @@ const Join = (props) => {
   }
 
   return (
-    <div className="responsive-amongButton">
-      <div className="pendentAcceptPC row container-fluid  p-bg-grey text-center m-auto lolospace">
+    <div className="responsive-amongButton w-[20%]">
+      <div className="pendentAcceptPC row container-fluid  p-bg-grey text-center m-auto lolospace w-[90%] mt-[10%] mb[10%] p-[3vw]">
         <div className="col-12 p-bg-grey">
           <div className="row">
-            <img className="imgbox" src={logo} alt="" />
+            <img className="imgbox w-1/2 mx-auto my-auto pb-8" src={logo} alt="" />
           </div>
           <div className="row text-center">
             <ManageButton />

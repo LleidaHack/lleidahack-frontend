@@ -1,21 +1,23 @@
-.imgbox {
+/* .imgbox {
   width: 50%;
   margin: auto auto;
   padding-bottom: 2rem;
-}
+} */
 
-.pendentAcceptPC {
+/* .pendentAcceptPC {
   width: 90%;
   margin-top: 10%;
   margin-bottom: 10%;
-}
-
+} */
+/* 
 .lolospace {
   padding: 3vw;
-}
-.responsive-amongButton {
+} */
+ 
+/* .responsive-amongButton {
   width: 20%;
-}
+} */
+
 @media (max-width: 768px) {
   .lolospace {
     padding: 15vw;
