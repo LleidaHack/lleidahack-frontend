@@ -3,8 +3,8 @@ import NewsEventDisplay from "../NewsEventDisplay/NewsEventDisplay";
 
 const NewsVerticalDisplay = () => {
   return (
-    <div className="w-1/4 p-5">
-      <div className="">
+    <div className="w-full ">
+      <div className="flex flex-col gap-2">
         <h2 className="bg-secondaryLanding text-CTALanding text-center p-1">
           NOTICIES
         </h2>
