@@ -1,7 +1,6 @@
 import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useNavLanding } from "../../../context/NavLanding/NavLanding";
 
 // Remarcar a la pagina on ets, quan tinguem les urls definitives caldra canviar-ho
 // Falta implementar els coponentes dels botons que falten
@@ -9,18 +8,15 @@ import { useNavLanding } from "../../../context/NavLanding/NavLanding";
 const Navbar = () => {
   const location = useLocation();
   const [navStatus, setNavStatus] = useState(false);
-  const { setIsLandingVisible } = useNavLanding();
   const [colorVectors, setColorVector] = useState("#F7F7F7");
 
   const changeNavStatus = () => {
     if (navStatus) {
       setNavStatus(false);
-      setIsLandingVisible(false);
       document.body.style.overflow = "auto";
       document.body.style.overflowX = "hidden";
     } else {
       setNavStatus(true);
-      setIsLandingVisible(true);
       document.body.style.overflow = "hidden";
       console.log("pickard");
     }
@@ -28,7 +24,6 @@ const Navbar = () => {
   useEffect(() => {
     if (window.innerWidth <= 768) {
       setNavStatus(false);
-      setIsLandingVisible(false);
       setColorVector("#000000");
     } else {
       setNavStatus(true);
@@ -42,7 +37,6 @@ const Navbar = () => {
         // Do something when window width is less than or equal to 768
       } else {
         setNavStatus(true);
-        setIsLandingVisible(false);
         document.body.style.overflow = "auto";
         document.body.style.overflowX = "hidden";
         setColorVector("#F7F7F7");
