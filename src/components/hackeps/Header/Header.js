@@ -161,7 +161,7 @@ const Header = () => {
       dropEndContent={dropEndContent} 
       showCenterContentOnlyOnDrop={true}/>
 
-      {/* {String(process.env.REACT_APP_MAIN) === "0" && (
+      {String(process.env.REACT_APP_MAIN) === "0" && (
         <nav
           className="navbar"
           style={{ backgroundColor: "red", fontSize: "1.5em" }}
@@ -178,7 +178,7 @@ const Header = () => {
             </div>
           </div>
         </nav>
-      )} */}
+      )}
     </>
   );
 };
