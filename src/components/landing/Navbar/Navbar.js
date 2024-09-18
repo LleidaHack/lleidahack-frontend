@@ -58,8 +58,8 @@ const Navbar = () => {
             <p className="md:text-white">Qui som?</p>
           </a>
         </li>
-      </>
-    )
+      </>,
+    );
 
     setEndContent(
       <>
@@ -109,12 +109,11 @@ const Navbar = () => {
             />
           </svg>
         </button>
-      </>
-    )
+      </>,
+    );
 
     setDropEndContent(
       <>
-      
         <button className="text-xl bg-transparent p-0 mx-2 ">
           <svg
             width="48"
@@ -161,21 +160,21 @@ const Navbar = () => {
             />
           </svg>
         </button>
-      </>
-    )
+      </>,
+    );
   }, []);
-  
 
   return (
     <>
-    <NavbarComponent 
-      bgColor={"#FF7430"} 
-      textColor={"white"}
-      logoimg={logoLleidaHack}
-      centerContent={centerContent}
-      endContent={endContent}
-      dropEndContent={dropEndContent} 
-      showCenterContentOnlyOnDrop={false}/>
+      <NavbarComponent
+        bgColor={"#FF7430"}
+        textColor={"white"}
+        logoimg={logoLleidaHack}
+        centerContent={centerContent}
+        endContent={endContent}
+        dropEndContent={dropEndContent}
+        showCenterContentOnlyOnDrop={false}
+      />
       {String(process.env.REACT_APP_MAIN) === "0" && (
         <nav
           className="navbar"

@@ -46,51 +46,32 @@ const Header = () => {
     setEndContent(
       <>
         <li className="nav-item list-none">
-          <Link
-            to="/#dates"
-            className="nav-link !text-textPrimaryHackeps  "
-          >
+          <Link to="/#dates" className="nav-link !text-textPrimaryHackeps  ">
             Dates
           </Link>
         </li>
         <li className="nav-item list-none">
-          <Link
-            to="/#sponsors"
-            className="nav-link !text-textPrimaryHackeps "
-          >
+          <Link to="/#sponsors" className="nav-link !text-textPrimaryHackeps ">
             Sponsors
           </Link>
         </li>
         <li className="nav-item list-none">
-          <Link
-            to="/faq"
-            className="nav-link !text-textPrimaryHackeps "
-          >
+          <Link to="/faq" className="nav-link !text-textPrimaryHackeps ">
             FAQ
           </Link>
         </li>
         <li className="nav-item list-none">
-          <Link
-            to="/contacte"
-            className="nav-link !text-textPrimaryHackeps "
-          >
+          <Link to="/contacte" className="nav-link !text-textPrimaryHackeps ">
             Contacte
           </Link>
         </li>
         <li className="nav-item list-none">
-          <Link
-            to="/perfil"
-            className="nav-link !text-textPrimaryHackeps "
-          >
-            <ProfilePic
-              size="small"
-              icon={icon}
-              validToken={validToken}
-            />
+          <Link to="/perfil" className="nav-link !text-textPrimaryHackeps ">
+            <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
         </li>
-      </>
-    )
+      </>,
+    );
     setCenterContent(
       <>
         <li className=" list-none">
@@ -107,14 +88,10 @@ const Header = () => {
             className="text-xl list-none no-underline text-black"
           >
             <p>Sponsors</p>
-            
           </Link>
         </li>
         <li className="list-none">
-          <Link
-            to="/faq"
-            className="text-xl list-none no-underline text-black"
-          >
+          <Link to="/faq" className="text-xl list-none no-underline text-black">
             <p>FAQ</p>
           </Link>
         </li>
@@ -126,40 +103,33 @@ const Header = () => {
             <p>Contacte</p>
           </Link>
         </li>
-      </>
-    )
+      </>,
+    );
     setDropEndContent(
       <>
-      
         <li className="list-none">
           <Link
             to="/perfil"
             className="text-xl list-none no-underline text-black"
           >
-            <ProfilePic
-              size="small"
-              icon={icon}
-              validToken={validToken}
-            />
+            <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
         </li>
-      </>
-    )
+      </>,
+    );
   }, []);
-
-
-  
 
   return (
     <>
-    <NavbarComponent 
-      bgColor={"#0e3a29"} 
-      textColor={"white"}
-      logoimg={hackIcon}
-      centerContent={centerContent}
-      endContent={endContent}
-      dropEndContent={dropEndContent} 
-      showCenterContentOnlyOnDrop={true}/>
+      <NavbarComponent
+        bgColor={"#0e3a29"}
+        textColor={"white"}
+        logoimg={hackIcon}
+        centerContent={centerContent}
+        endContent={endContent}
+        dropEndContent={dropEndContent}
+        showCenterContentOnlyOnDrop={true}
+      />
 
       {String(process.env.REACT_APP_MAIN) === "0" && (
         <nav
