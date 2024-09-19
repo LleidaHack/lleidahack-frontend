@@ -165,15 +165,15 @@ const ProfileComponent = () => {
               </div>
               <div className="row my-3">
                 <div className="col-xxl-1 col-2 d-flex">
-                  <TitleGeneralized classTitle="m-auto" bold={false}>
+                  <TitleGeneralized className="m-auto" normal>
                     -
                   </TitleGeneralized>
                 </div>
-                <TitleGeneralized classTitle="col-xxl-10 col-8" bold={false}>
+                <TitleGeneralized className="col-xxl-10 col-8" normal>
                   {user && user.name}
                 </TitleGeneralized>
                 <div className="col-xxl-1 col-2 d-flex">
-                  <TitleGeneralized classTitle="m-auto" bold={false}>
+                  <TitleGeneralized className="m-auto" normal>
                     -
                   </TitleGeneralized>
                 </div>
