@@ -23,7 +23,7 @@ const Schedule = (props) => {
 
   return (
     <div className="bg-secondaryHackeps">
-      <TitleGeneralized underline={true} href="#horari">
+      <TitleGeneralized underline href="#horari">
         Horari
       </TitleGeneralized>
       <VerticalTimeline lineColor="#0e3a29">{rendered_events}</VerticalTimeline>
