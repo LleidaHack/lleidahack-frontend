@@ -1,7 +1,7 @@
 import React from "react";
-import "src/components/event_cards/eventCard_three/eventCard_three.css";
+import "src/components/event_cards/EventCardThree/EventCardThree.css";
 
-const EventCard_three = ({ title, description, image }) => {
+const EventCardThree = ({ title, description, image }) => {
   return (
     <div className="max-w-[85.75rem] max-h-[42.375rem] shadow">
       <img
@@ -21,4 +21,4 @@ const EventCard_three = ({ title, description, image }) => {
   );
 };
 
-export default EventCard_three;
+export default EventCardThree;

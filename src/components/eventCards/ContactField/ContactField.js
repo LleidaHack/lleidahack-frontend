@@ -1,6 +1,6 @@
 import React from "react";
 
-const Contact_field = () => {
+const ContactField = () => {
   return (
     <div className="max-w-[40rem] max-h-[5.75rem]">
       <div className="flex">
@@ -19,4 +19,4 @@ const Contact_field = () => {
   );
 };
 
-export default Contact_field;
+export default ContactField;

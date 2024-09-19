@@ -1,8 +1,8 @@
 import React from "react";
-import "src/components/event_cards/eventCard_one/eventCard_one.css";
+import "src/components/event_cards/EventCardOne/EventCardOne.css";
 import background from "src/components/event_cards/defaultImage.jpg";
 
-const EventCard_one = ({ title, description, date, image }) => {
+const EventCardOne = ({ title, description, date, image }) => {
   return (
     <div className="max-w-[19.5rem] max-h-[23.5rem] shadow">
       <img
@@ -23,4 +23,4 @@ const EventCard_one = ({ title, description, date, image }) => {
   );
 };
 
-export default EventCard_one;
+export default EventCardOne;
