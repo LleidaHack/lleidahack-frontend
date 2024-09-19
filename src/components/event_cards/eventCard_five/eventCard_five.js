@@ -3,19 +3,26 @@ import "src/components/event_cards/eventCard_five/eventCard_five.css";
 
 const EventCard_five = ({ title, description, image }) => {
   return (
-    <div class="max-w-[52.5rem] max-h-[28rem] shadow">
+    <div class="shadow">
       <div
-        className="max-w-[52.5rem] max-h-[28rem] z-20"
-        style={{ backgroundImage: `url(${image})`, backgroundSize: "cover" }}
+        className="w-full z-20"
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: "cover",
+          width: "100%",
+          height: "100%",
+        }}
       >
-        <div className="max-w-[52.5rem] h-[28rem] gradient">
-          <p className="text-[0.0000001px]">.</p>
-          <p className="max-[420px]:truncate text-white ml-4 max-w-[50.5rem] mt-[18.063rem] mb-0 text-[3rem] leading-[4.443rem] font-space-mono font-normal tracking-[-0.02em]">
+        <div className="gradient">
+          <p className="text-sm md:text-[0.0000001px]">.</p>
+          <p className="mb-2 md:mb-0 max-[420px]:truncate text-white ml-4 max-w-[50.5rem] md:mt-[18.063rem]  text-[3rem] md:leading-[4.443rem] font-medium	 tracking-[-0.02em] text-xl md:text-4xl">
             {title}
           </p>
-          <p className=" max-[740px]:truncate text-white ml-4 max-w-[50.5rem] h-[4.563rem] mb-0 text-[1.5rem] leading-[2.221rem] font-space-mono font-normal tracking-[-0.02em]">
-            {description}
-          </p>
+          <div className="overflow-hidden text-ellipsis ">
+            <p className="text-white ml-4 max-w-[50.5rem] h-[4.563rem] mb-0 text-[1.5rem] md:leading-[2.221rem] md:tracking-[-0.02em] text-base md:text-2xl line-clamp-3 mb-3 md:mb-0">
+              {description}
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -8,9 +8,11 @@ const NewsEventDisplay = ({ title, imgPath, name }) => {
   return (
     <div className="w-full py-1 ">
       <Link to="news/`${name}`" className="no-underline text-secondaryLanding">
-        <div className="flex p-3 bg-white shadow h-32">
+        <div className="flex p-3 bg-white shadow max-h-32">
           <img src={logoLleidaHack} alt={name} className="w-1/2 mx-1" />
-          <p className="w-1/2 mx-1">{title}</p>
+          <div className="overflow-hidden text-ellipsis">
+            <p className="line-clamp-3">{title}</p>
+          </div>
         </div>
       </Link>
     </div>
