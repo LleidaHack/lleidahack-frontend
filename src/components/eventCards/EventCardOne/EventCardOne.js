@@ -1,6 +1,5 @@
 import React from "react";
 import "src/components/eventCards/EventCardOne/EventCardOne.css";
-import background from "src/components/eventCards/defaultImage.jpg";
 
 const EventCardOne = ({ title, description, date, image }) => {
   return (
@@ -8,6 +7,7 @@ const EventCardOne = ({ title, description, date, image }) => {
       <img
         src={image}
         className="object-cover w-[19.5rem] max-h-[33.875rem] h-[11.75rem]"
+        alt="event"
       ></img>
 
       <p className=" ml-4 mt-2 text-[1.5rem] leading-[2.221rem] font-space-mono font-bold tracking-[-0.02em]">

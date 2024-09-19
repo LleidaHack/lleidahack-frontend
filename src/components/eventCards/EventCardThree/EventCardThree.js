@@ -7,6 +7,7 @@ const EventCardThree = ({ title, description, image }) => {
       <img
         src={image}
         className="w-[85.75rem] h-[33.875rem] object-cover max-h-[33.875rem]"
+        alt="event"
       ></img>
 
       <div className="max-h-[8.5rem] max-w-[85.75rem]">

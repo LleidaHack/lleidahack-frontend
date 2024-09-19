@@ -1,7 +1,6 @@
 import React from "react";
 import EventCardThree from "../../eventCards/EventCardThree/EventCardThree";
 import principalImage from "src/imgs/foto_grupal_colonies.jpg";
-import EventCard1 from "../ImageCards/EventCard1"; //Aixo son components creades per lolo. Si al final no serveixen, borrar components
 import EventCardOne from "../../eventCards/EventCardOne/EventCardOne";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 
