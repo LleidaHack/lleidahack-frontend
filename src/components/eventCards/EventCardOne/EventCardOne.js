@@ -1,6 +1,6 @@
 import React from "react";
-import "src/components/event_cards/EventCardOne/EventCardOne.css";
-import background from "src/components/event_cards/defaultImage.jpg";
+import "src/components/eventCards/EventCardOne/EventCardOne.css";
+import background from "src/components/eventCards/defaultImage.jpg";
 
 const EventCardOne = ({ title, description, date, image }) => {
   return (

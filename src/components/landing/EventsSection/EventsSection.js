@@ -2,8 +2,8 @@ import { React, useEffect, useState } from "react";
 import EventCardFive from "src/components/eventCards/EventCardFive/EventCardFive";
 import EventCardFour from "src/components/eventCards/EventCardFour/EventCardFour";
 
-import background from "src/components/event_cards/defaultImage.jpg";
-import hack from "src/components/event_cards/Hack2023.jpg";
+import background from "src/components/eventCards/defaultImage.jpg";
+import hack from "src/components/eventCards/Hack2023.jpg";
 
 const EventSection = () => {
   const [isMobile, setIsMobile] = useState(false);

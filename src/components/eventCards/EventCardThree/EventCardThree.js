@@ -1,5 +1,5 @@
 import React from "react";
-import "src/components/event_cards/EventCardThree/EventCardThree.css";
+import "src/components/eventCards/EventCardThree/EventCardThree.css";
 
 const EventCardThree = ({ title, description, image }) => {
   return (
