@@ -19,7 +19,7 @@ const CalendarDates = (props) => {
   return (
     <div className="bg-secondaryHackeps p-5">
       <div className="claseGhosting" id="dates"></div>
-      <TitleGeneralized padTop={"0%"} underline={true}>
+      <TitleGeneralized padTop="0" underline>
         Dates
       </TitleGeneralized>
       <Container>
