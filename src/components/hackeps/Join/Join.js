@@ -10,8 +10,7 @@ const Join = (props) => {
     }
 
     if (props.event.accepted) {
-
-      if (props.event.confirmed){
+      if (props.event.confirmed) {
         return (
           <div
             style={{ width: `fit-content`, textDecoration: `none` }}

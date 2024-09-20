@@ -47,14 +47,12 @@ export async function createEvent(event) {
   });
 }
 
-
 export async function getEventHasHackerConfirmed(event_id, hacker_id) {
   return fetchPlus({
     Url: `/event/${event_id}/has_confirmed/${hacker_id}`,
     hasUserauth: true,
   });
 }
-
 
 export async function getEventIsHackerRegistered(event_id, hacker_id) {
   return fetchPlus({

@@ -10,7 +10,7 @@ import {
   getHackeps,
   getEventIsHackerRegistered,
   getEventIsHackerAccepted,
-  getEventHasHackerConfirmed
+  getEventHasHackerConfirmed,
 } from "src/services/EventService";
 import { getUserById } from "src/services/UserService";
 import EditProfile from "./EditProfile";
@@ -63,12 +63,22 @@ const ProfileComponent = () => {
       getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
         if (response) {
           getEventHasHackerConfirmed(event_id, hacker_id).then((response) => {
-            if (response){
-              setEvent({ event_id: event_id, accepted: true, registered: true, confirmed: true, });
+            if (response) {
+              setEvent({
+                event_id: event_id,
+                accepted: true,
+                registered: true,
+                confirmed: true,
+              });
             } else {
-              setEvent({ event_id: event_id, accepted: true, registered: true, confirmed: false,});
+              setEvent({
+                event_id: event_id,
+                accepted: true,
+                registered: true,
+                confirmed: false,
+              });
             }
-          })
+          });
         } else {
           getEventIsHackerRegistered(event_id, hacker_id).then((response) => {
             if (response) {
