@@ -1,7 +1,7 @@
 import React from "react";
-import "src/components/event_cards/eventCard_two/eventCard_two.css";
+import "src/components/eventCards/EventCardTwo/EventCardTwo.css";
 
-const EventCard_two = ({ title, date, place, image }) => {
+const EventCardTwo = ({ title, date, place, image }) => {
   return (
     <div className="flex max-w-[26.5rem] max-h-40 shadow">
       <img src={image} className="object-cover h-40 max-h-40 w-40"></img>
@@ -21,4 +21,4 @@ const EventCard_two = ({ title, date, place, image }) => {
   );
 };
 
-export default EventCard_two;
+export default EventCardTwo;

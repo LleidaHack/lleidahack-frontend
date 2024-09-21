@@ -1,5 +1,5 @@
 import React from "react";
-import "src/components/event_cards/newsCard/newsCard.css";
+import "src/components/eventCards/newsCard/newsCard.css";
 
 const NewsCard = ({ title, image }) => {
   return (
