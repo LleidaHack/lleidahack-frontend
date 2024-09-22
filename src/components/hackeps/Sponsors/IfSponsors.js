@@ -58,6 +58,7 @@ const InfoSponsors = ({ id }) => {
     let correu = infoCompany.address; //Correu de la empresa
     let webtag = infoCompany.website; //Web de la empresa
     let imgLogo = infoCompany.logo;
+    //un cop existeixi l'importancia a get/company/{id} let importancia = infoCompany.importancia;
     let description = infoCompany.description;
     let edicions = []; //Aqui afegir les edicions en les que han participat (2020, 2021, 2022, 2023,....)
     let xarxes = false; //Variable que servira per a informar si la empresa te enllaç web o no. Per defecte false. Si te web, s'ha de posar true
