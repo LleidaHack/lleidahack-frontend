@@ -9,20 +9,3 @@
   margin-bottom: 3rem;
   text-align: center;
 }
-
-.crossmarker {
-  height: 5rem;
-}
-
-.checkmark_check {
-  stroke-width: 2;
-  stroke: red;
-}
-
-.wrapper {
-  margin-top: 20rem;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

@@ -38,7 +38,7 @@ const FailFeedback = ({
   return (
     <div className="valerr bg-secondaryHackeps text-textSecondaryHackeps">
       <div className="iconBox">
-        <div className="wrapper">
+        <div>
           <svg
             className="crossmarker"
             xmlns="http://www.w3.org/2000/svg"
