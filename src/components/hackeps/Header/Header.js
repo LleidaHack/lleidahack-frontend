@@ -12,23 +12,28 @@ const Header = () => {
   const [endContent, setEndContent] = useState(<></>);
   const [dropEndContent, setDropEndContent] = useState(<></>);
 
-  const [icon, setUserIcon] = useState("string");
+  const [icon, setUserIcon] = useState("");
   const [validToken, setValidToken] = useState(false);
+  localStorage.setItem("validToken", false);
 
   useEffect(() => {
     const fetchData = async () => {
       if (localStorage.getItem("userToken")) {
         const verification = await checkToken();
+        
         if (verification.success) {
           setValidToken(true);
+          localStorage.setItem("validToken", true);
+          
           try {
             if (!localStorage.getItem("imageProfile")) {
               const info = await me();
               if (info.nickname) {
                 if (
-                  info.image !== null &&
-                  info.image !== undefined &&
-                  info.image !== ""
+                  info.image !== null ||
+                  info.image !== undefined ||
+                  info.image !== "" ||
+                  info.image !== "string"
                 ) {
                   setUserIcon(info.image);
                   localStorage.setItem("imageProfile", info.image);
@@ -65,7 +70,7 @@ const Header = () => {
             Contacte
           </Link>
         </li>
-        <li className="nav-item list-none text-xl">
+        <li className="nav-item list-none text-xl w-10">
           <Link to="/perfil" className="nav-link !text-textPrimaryHackeps ">
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
