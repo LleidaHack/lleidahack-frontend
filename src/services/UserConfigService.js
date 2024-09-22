@@ -14,7 +14,7 @@ export async function getUserConfigById(id) {
   });
 }
 
-export async function updateUserConfig(id,config) {
+export async function updateUserConfig(id, config) {
   return fetchPlus({
     Url: `/userConfig/${id}`,
     Method: "PUT",

@@ -32,7 +32,7 @@ export async function refreshToken() {
     Url: "/auth/refresh-token",
     Method: "POST",
     saveLoginInfo: true,
-    refresh_token: true
+    refresh_token: true,
   });
 }
 

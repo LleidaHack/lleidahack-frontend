@@ -34,6 +34,6 @@ export async function deleteArticleType(id) {
   return fetchPlus({
     Url: `/article_type/${id}`,
     Method: "DELETE",
-    hasUserauth: true
+    hasUserauth: true,
   });
 }

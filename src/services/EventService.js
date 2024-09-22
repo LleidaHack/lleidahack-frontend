@@ -2,13 +2,13 @@ import { fetchPlus } from "src/modules/fetchModule";
 
 export async function getHackeps() {
   return fetchPlus({
-    Url: "/event/get_hackeps"
+    Url: "/event/get_hackeps",
   });
 }
 
 export async function getHackepsByYear(year) {
   return fetchPlus({
-    Url: `/event/get_hackeps/${year}`
+    Url: `/event/get_hackeps/${year}`,
   });
 }
 
@@ -189,7 +189,7 @@ export async function confirmAssistance() {
   });
 }
 
-export async function forceConfirmAssistance(event_id,user_id) {
+export async function forceConfirmAssistance(event_id, user_id) {
   return fetchPlus({
     Url: `/event/force-confirm-assistance/${event_id}/${user_id}`,
     hasUserauth: true,
@@ -260,13 +260,13 @@ export async function getRejectedHackers(event_id) {
 
 export async function getEventStatus(event_id) {
   return fetchPlus({
-    Url: `/event/${event_id}/status`
+    Url: `/event/${event_id}/status`,
   });
 }
 
 export async function getFoodRestrictions(event_id) {
   return fetchPlus({
-    Url: `/event/${event_id}/food_restrictions`
+    Url: `/event/${event_id}/food_restrictions`,
   });
 }
 
