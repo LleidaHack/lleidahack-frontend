@@ -34,9 +34,16 @@ const NavbarComponent = ({
     setTextColor(textColor);
     setLogoimg(logoimg);
     setLogoRedirect(logoRedirect);
-  }, [centerContent, endContent, dropEndContent, showCenterContentOnlyOnDrop, bgColor, textColor, logoimg, logoRedirect]);
-
-
+  }, [
+    centerContent,
+    endContent,
+    dropEndContent,
+    showCenterContentOnlyOnDrop,
+    bgColor,
+    textColor,
+    logoimg,
+    logoRedirect,
+  ]);
 
   const changeNavStatus = () => {
     if (navStatus) {
