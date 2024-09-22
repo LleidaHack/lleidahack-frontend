@@ -40,7 +40,7 @@ export async function fetchPlus({
         const error = await response.json();
         return {
           errCode: response.status,
-          errMssg: error,
+          errMssg: error.message,
         };
       }
       return response.json();
@@ -57,6 +57,6 @@ export async function fetchPlus({
     })
     .catch((error) => {
       console.warn(error);
-      return [];
+      return error;
     });
 }

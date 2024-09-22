@@ -52,7 +52,7 @@ const Team = (props) => {
       team.id,
     );
     if (a.errCode) {
-      setErr(a.errMessage);
+      setErr(a.errMssg);
     } else {
       setTeam(null);
     }

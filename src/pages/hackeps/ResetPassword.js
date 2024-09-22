@@ -28,7 +28,6 @@ export default function ResetPassword() {
 
   async function handleResetPassword(e) {
     e.preventDefault();
-
     if (firstPassword !== secondPassword) {
       setErrorMsg("Les contrassenyes no coincideixen");
       return;
@@ -40,7 +39,7 @@ export default function ResetPassword() {
     );
 
     if (servicePassword.errCode) {
-      setFeedErr(servicePassword.errMessage);
+      setFeedErr(servicePassword.errMssg);
       setSended(true);
     } else {
       navigate("/");
