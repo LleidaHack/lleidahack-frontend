@@ -52,13 +52,6 @@ export async function createEvent(event) {
   });
 }
 
-export async function getEventHasHackerConfirmed(event_id, hacker_id) {
-  return fetchPlus({
-    Url: `/event/${event_id}/has_confirmed/${hacker_id}`,
-    hasUserauth: true,
-  });
-}
-
 export async function getEventIsHackerRegistered(event_id, hacker_id) {
   return fetchPlus({
     Url: `/event/${event_id}/is_registered/${hacker_id}`,
@@ -73,7 +66,7 @@ export async function getEventIsHackerAccepted(event_id, hacker_id) {
   });
 }
 
-export async function getHackerHasConfirmed(event_id, hacker_id) {
+export async function getEventHasHackerConfirmed(event_id, hacker_id) {
   return fetchPlus({
     Url: `/event/${event_id}/has_confirmed/${hacker_id}`,
     hasUserauth: true,
@@ -82,7 +75,7 @@ export async function getHackerHasConfirmed(event_id, hacker_id) {
 
 export async function getHackerIsParticipant(event_id, hacker_id) {
   return fetchPlus({
-    Url: `/event/${event_id}/has_confirmed/${hacker_id}`,
+    Url: `/event/${event_id}/is_participant/${hacker_id}`,
     hasUserauth: true,
   });
 }
