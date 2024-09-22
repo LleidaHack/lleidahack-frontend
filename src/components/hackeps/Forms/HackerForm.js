@@ -255,21 +255,36 @@ export const HackerStepperForm = () => {
                 <div className="col-12 col-xxl-6 d-flex flex-column">
                   {isUrl && urlImage !== "" ? (
                     <img
-                      style={{ height: "250px", width: "250px", objectFit: "cover", display: "block" }}
+                      style={{
+                        height: "250px",
+                        width: "250px",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                       className="avatar-image bg-white rounded-circle m-auto"
                       src={urlImage}
                       alt="avatar"
                     />
                   ) : avatar ? (
                     <img
-                      style={{ height: "250px", width: "250px", objectFit: "cover", display: "block" }}
+                      style={{
+                        height: "250px",
+                        width: "250px",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                       className="avatar-image bg-white rounded-circle m-auto"
                       src={avatar}
                       alt="avatar"
                     />
                   ) : (
                     <img
-                      style={{ height: "250px", width: "250px", objectFit: "cover", display: "block" }}
+                      style={{
+                        height: "250px",
+                        width: "250px",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                       className="avatar-image bg-white rounded-circle m-auto"
                       src={userIcon}
                       alt="avatar"
