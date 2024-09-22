@@ -8,6 +8,7 @@ const NavbarComponent = ({
   logoimg,
   dropEndContent,
   showCenterContentOnlyOnDrop,
+  logoRedirect,
 }) => {
   const [navStatus, setNavStatus] = useState(false);
   const [bgColor1, setBgColor1] = useState(bgColor);
@@ -21,6 +22,7 @@ const NavbarComponent = ({
   const [bgColor4, setBgColor] = useState(bgColor);
   const [textColor1, setTextColor] = useState(textColor);
   const [logoimg1, setLogoimg] = useState(logoimg);
+  const [logoRedirect1, setLogoRedirect] = useState(logoRedirect);
 
   useEffect(() => {
     setCenterContent(centerContent);
@@ -30,7 +32,8 @@ const NavbarComponent = ({
     setBgColor(bgColor);
     setTextColor(textColor);
     setLogoimg(logoimg);
-  }, [centerContent, endContent, dropEndContent, showCenterContentOnlyOnDrop, bgColor, textColor, logoimg]);
+    setLogoRedirect(logoRedirect);
+  }, [centerContent, endContent, dropEndContent, showCenterContentOnlyOnDrop, bgColor, textColor, logoimg, logoRedirect]);
 
 
 
@@ -99,7 +102,7 @@ const NavbarComponent = ({
           id="header-points"
         >
           <div className="">
-            <a href="/lleidahack">
+            <a href={logoRedirect1}>
               <img src={logoimg1} alt="logo" className="h-12 w-12 flex-none " />
             </a>
           </div>
@@ -118,7 +121,7 @@ const NavbarComponent = ({
           >
             <div className="hidden md:block items-center  ">
               <div className="flex items-center h-full relative">
-                <a href="/lleidahack">
+                <a href={logoRedirect1}>
                   <img src={logoimg1} alt="logo" className="h-16" />
                 </a>
               </div>

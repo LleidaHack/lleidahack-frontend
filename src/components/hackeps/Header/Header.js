@@ -11,7 +11,7 @@ const Header = () => {
   const [centerContent, setCenterContent] = useState(<></>);
   const [endContent, setEndContent] = useState(<></>);
   const [dropEndContent, setDropEndContent] = useState(<></>);
-
+  const [logoRed, setLogoRed] = useState("/hackeps");
   const [icon, setUserIcon] = useState("");
   const [validToken, setValidToken] = useState(false);
   localStorage.setItem("validToken", false);
@@ -150,6 +150,7 @@ const Header = () => {
         endContent={endContent}
         dropEndContent={dropEndContent}
         showCenterContentOnlyOnDrop={true}
+        logoRedirect={logoRed}
       />
 
       {String(process.env.REACT_APP_MAIN) === "0" && (
