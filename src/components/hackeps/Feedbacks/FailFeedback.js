@@ -42,7 +42,7 @@ const FailFeedback = ({
           <svg
             className="crossmarker"
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 52 52"
+            viewBox="0 0 0 0"
           >
             <circle
               className="cross__circle"
