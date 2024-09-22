@@ -13,19 +13,21 @@ const Header = () => {
 
   async function getId(){
     const id = await me();
-    console.log(JSON.stringify(id));
-    return id.userID;
+    return id.id;
   }
   
-  useEffect(()=>{ 
-    const id = getId();
-    setUserID(id);
+  useEffect(() => {
+    const fetchId = async () => {
+      const id = await getId();
+      setUserID(id);
+      
+    };
+    fetchId();
   }, []);
 
   function Navigate(url){
     navigate(url);
   }
-
 
 
 
@@ -59,7 +61,7 @@ const Header = () => {
             </button>
 
             <div>
-            <button className="bg-primaryLanding text-xl p-0 mx-2 text-CTALanding" onClick={Navigate("/lleidahacker/"+userID)}>
+            <button className="bg-primaryLanding text-xl p-0 mx-2 text-CTALanding" onClick={() => Navigate("/lleidahacker/"+userID)}>
               <i class="fa-solid fa-user"></i>
             </button>
             </div>
