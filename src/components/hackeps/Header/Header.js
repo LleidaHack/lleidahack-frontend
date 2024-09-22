@@ -20,11 +20,11 @@ const Header = () => {
     const fetchData = async () => {
       if (localStorage.getItem("userToken")) {
         const verification = await checkToken();
-        
+
         if (verification.success) {
           setValidToken(true);
           localStorage.setItem("validToken", true);
-          
+
           try {
             if (!localStorage.getItem("imageProfile")) {
               const info = await me();
