@@ -39,7 +39,7 @@ export default function ResetPassword() {
     );
 
     if (servicePassword.errCode) {
-      setFeedErr(servicePassword.errMssg);
+      setFeedErr(servicePassword.errMessage);
       setSended(true);
     } else {
       navigate("/");
