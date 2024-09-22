@@ -14,11 +14,12 @@ const NavbarComponent = ({
   const [bgColor1, setBgColor1] = useState(bgColor);
   const [bgColor2, setBgColor2] = useState(bgColor);
   const [navDrop, setNavDrop] = useState(window.innerWidth > 768);
-  
+
   const [centerContent1, setCenterContent] = useState(centerContent);
   const [endContent1, setEndContent] = useState(endContent);
   const [dropEndContent1, setDropEndContent] = useState(dropEndContent);
-  const [showCenterContentOnlyOnDrop1, setShowCenterContentOnlyOnDrop] = useState(showCenterContentOnlyOnDrop);
+  const [showCenterContentOnlyOnDrop1, setShowCenterContentOnlyOnDrop] =
+    useState(showCenterContentOnlyOnDrop);
   const [bgColor4, setBgColor] = useState(bgColor);
   const [textColor1, setTextColor] = useState(textColor);
   const [logoimg1, setLogoimg] = useState(logoimg);
