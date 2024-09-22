@@ -81,7 +81,6 @@ import {
   addEventSponsor,
   removeEventSponsor,
   getHackeps,
-  getEventHackerGroup,
 } from "src/services/EventService";
 import {
   login,
@@ -639,12 +638,7 @@ const Testing = () => {
           body: getHackeps,
           params: [],
           status: false,
-        },
-        {
-          body: getEventHackerGroup,
-          params: [event.id, hacker.id],
-          status: false,
-        },
+        }
       ],
     },
     {
