@@ -37,7 +37,7 @@ const HeaderPfp = ({ icon, validToken }) => {
   return (
     <>
       {validToken && is_not_empty(icon) ? (
-        <img className=" profileImage d-flex" src={icon} alt="" />
+        <img className="Profile profileImage d-flex" src={icon} alt="" />
       ) : (
         <i
           className={`fa-user fa-solid d-flex ${
@@ -71,9 +71,7 @@ const ProfilePic = ({
             is_profile={is_profile}
           />
         ) : size === "small" ? (
-          console.log("icon", localStorage.getItem("imageProfile")),
-          console.log("validToken", localStorage.getItem("validToken")),
-          <HeaderPfp icon={localStorage.getItem("imageProfile")} validToken={localStorage.getItem("validToken")} />
+          <HeaderPfp icon={icon} validToken={validToken} />
         ) : (
           <></>
         )

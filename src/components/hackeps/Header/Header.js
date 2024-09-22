@@ -124,6 +124,22 @@ const Header = () => {
     );
   }, []);
 
+  useEffect(() => {
+    setDropEndContent(
+      <>
+        <li className="list-none">
+          <Link
+            to="/perfil"
+            className="text-xl list-none no-underline text-black"
+          >
+            <ProfilePic size="small" icon={icon} validToken={validToken} />
+          </Link>
+        </li>
+      </>,
+    );
+    console.log("updated");
+  }, [icon, validToken]);
+
   return (
     <>
       <NavbarComponent

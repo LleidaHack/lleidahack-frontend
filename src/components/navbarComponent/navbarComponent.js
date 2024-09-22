@@ -13,6 +13,26 @@ const NavbarComponent = ({
   const [bgColor1, setBgColor1] = useState(bgColor);
   const [bgColor2, setBgColor2] = useState(bgColor);
   const [navDrop, setNavDrop] = useState(window.innerWidth > 768);
+  
+  const [centerContent1, setCenterContent] = useState(centerContent);
+  const [endContent1, setEndContent] = useState(endContent);
+  const [dropEndContent1, setDropEndContent] = useState(dropEndContent);
+  const [showCenterContentOnlyOnDrop1, setShowCenterContentOnlyOnDrop] = useState(showCenterContentOnlyOnDrop);
+  const [bgColor4, setBgColor] = useState(bgColor);
+  const [textColor1, setTextColor] = useState(textColor);
+  const [logoimg1, setLogoimg] = useState(logoimg);
+
+  useEffect(() => {
+    setCenterContent(centerContent);
+    setEndContent(endContent);
+    setDropEndContent(dropEndContent);
+    setShowCenterContentOnlyOnDrop(showCenterContentOnlyOnDrop);
+    setBgColor(bgColor);
+    setTextColor(textColor);
+    setLogoimg(logoimg);
+  }, [centerContent, endContent, dropEndContent, showCenterContentOnlyOnDrop, bgColor, textColor, logoimg]);
+
+
 
   const changeNavStatus = () => {
     if (navStatus) {
@@ -30,7 +50,7 @@ const NavbarComponent = ({
       setBgColor2("white");
     } else {
       setNavStatus(true);
-      setBgColor2(bgColor);
+      setBgColor2(bgColor4);
     }
     setNavDrop(window.innerWidth > 768);
   }, []);
@@ -44,7 +64,7 @@ const NavbarComponent = ({
         // Do something when window width is less than or equal to 768
       } else {
         setNavStatus(true);
-        setBgColor2(bgColor);
+        setBgColor2(bgColor4);
         document.body.style.overflow = "auto";
         document.body.style.overflowX = "hidden";
         // Do something when window width is greater than 768
@@ -72,7 +92,7 @@ const NavbarComponent = ({
     <div className={`flex flex-col `}>
       <div
         className={`w-full h-16 px-4 py-2 items-center`}
-        style={{ backgroundColor: bgColor1, color: textColor }}
+        style={{ backgroundColor: bgColor1, color: textColor1 }}
       >
         <div
           className="md:hidden flex flex-row justify-between mt-0"
@@ -80,7 +100,7 @@ const NavbarComponent = ({
         >
           <div className="">
             <a href="/lleidahack">
-              <img src={logoimg} alt="logo" className="h-12 w-12 flex-none " />
+              <img src={logoimg1} alt="logo" className="h-12 w-12 flex-none " />
             </a>
           </div>
           <div className="text-white text-3xl" onClick={changeNavStatus}>
@@ -99,7 +119,7 @@ const NavbarComponent = ({
             <div className="hidden md:block items-center  ">
               <div className="flex items-center h-full relative">
                 <a href="/lleidahack">
-                  <img src={logoimg} alt="logo" className="h-16" />
+                  <img src={logoimg1} alt="logo" className="h-16" />
                 </a>
               </div>
             </div>
@@ -107,9 +127,9 @@ const NavbarComponent = ({
               className="absolute  md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0"
               onClick={changeNavStatus}
             >
-              {(!showCenterContentOnlyOnDrop ||
-                (showCenterContentOnlyOnDrop && !navDrop)) &&
-                centerContent}
+              {(!showCenterContentOnlyOnDrop1 ||
+                (showCenterContentOnlyOnDrop1 && !navDrop)) &&
+                centerContent1}
             </div>
             <div className="  mt-10 md:mt-0 md:bottom-0 absolute md:relative bottom-0 right-0 mr-4 mb-28 visible md:mr-0 md:mb-0 text-black">
               <div className="block md:hidden md:center align-center">
@@ -117,7 +137,7 @@ const NavbarComponent = ({
               </div>
 
               <div className="flex justify-end items-center">
-                {navDrop ? endContent : dropEndContent}
+                {navDrop ? endContent1 : dropEndContent1}
               </div>
             </div>
           </div>
