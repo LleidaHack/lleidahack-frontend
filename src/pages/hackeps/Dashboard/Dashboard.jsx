@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  acceptHackerToEvent,
-  getPendingHackersGruped,
-  rejectHackerToEvent,
-} from "src/services/EventManagementService";
+import { acceptHackerToEvent, getPendingHackersGruped, rejectHackerToEvent } from "src/services/EventService";
 import { getUserById } from "src/services/UserService";
 
 export default function Dashboard() {

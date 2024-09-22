@@ -84,21 +84,6 @@ import {
   getEventHackerGroup,
 } from "src/services/EventService";
 import {
-  registerHackerToEvent,
-  unregisterHackerToEvent,
-  participateHackerToEvent,
-  unparticipateHackerToEvent,
-  acceptHackerToEvent,
-  acceptGroupToEvent,
-  rejectHackerToEvent,
-  rejectGroupToEvent,
-  getPendingHackers,
-  getPendingHackersGruped,
-  getRejectedHackers,
-  getEventStatus,
-  hackerEatsFoodFrom,
-} from "src/services/EventManagementService";
-import {
   login,
   resetPassword,
   confirmResetPassword,
@@ -658,78 +643,6 @@ const Testing = () => {
         {
           body: getEventHackerGroup,
           params: [event.id, hacker.id],
-          status: false,
-        },
-      ],
-    },
-    {
-      name: "event management",
-      left: 0,
-      comentaris: "",
-      body: [
-        {
-          body: registerHackerToEvent,
-          params: [hacker.id, event.id],
-          status: false,
-        },
-        {
-          body: unregisterHackerToEvent,
-          params: [hacker.id, event.id],
-          status: false,
-        },
-        {
-          body: participateHackerToEvent,
-          params: [hacker.id, event.id],
-          status: false,
-        },
-        {
-          body: unparticipateHackerToEvent,
-          params: [hacker.id, event.id],
-          status: false,
-        },
-        {
-          body: acceptHackerToEvent,
-          params: [hacker.id, event.id],
-          status: false,
-        },
-        {
-          body: acceptGroupToEvent,
-          params: [grup.id, event.id],
-          status: false,
-        },
-        {
-          body: rejectHackerToEvent,
-          params: [hacker.id, event.id],
-          status: false,
-        },
-        {
-          body: rejectGroupToEvent,
-          params: [grup.id, event.id],
-          status: false,
-        },
-        {
-          body: getPendingHackers,
-          params: [event.id],
-          status: false,
-        },
-        {
-          body: getPendingHackersGruped,
-          params: [event.id],
-          status: false,
-        },
-        {
-          body: getRejectedHackers,
-          params: [event.id],
-          status: false,
-        },
-        {
-          body: getEventStatus,
-          params: [event.id],
-          status: false,
-        },
-        {
-          body: hackerEatsFoodFrom,
-          params: [hacker.id, 1, event.id],
           status: false,
         },
       ],
