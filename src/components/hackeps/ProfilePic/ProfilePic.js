@@ -15,7 +15,7 @@ const StandardPfp = ({ hacker, bgcolor, extra_id, border, is_profile }) => {
           id={extra_id}
           className={`${bgcolor ? `bg-${bgcolor}` : ""} ${
             border ? "border " : ""
-          }${is_profile ? "profilePfpStyle" : "team-member-image"}`}
+          }${is_profile ? "profilePfpStyle" : "team-member-image"} object-cover`}
           src={hacker.image}
           alt=""
           style={{ objectFit: "cover", display: "block"}}

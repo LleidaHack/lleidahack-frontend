@@ -1,13 +1,13 @@
 import React from "react";
-import "src/components/event_cards/eventCard_one/eventCard_one.css";
-import background from "src/components/event_cards/defaultImage.jpg";
+import "src/components/eventCards/EventCardOne/EventCardOne.css";
 
-const EventCard_one = ({ title, description, date, image }) => {
+const EventCardOne = ({ title, description, date, image }) => {
   return (
     <div className="max-w-[19.5rem] max-h-[23.5rem] shadow">
       <img
         src={image}
         className="object-cover w-[19.5rem] max-h-[33.875rem] h-[11.75rem]"
+        alt="event"
       ></img>
 
       <p className=" ml-4 mt-2 text-[1.5rem] leading-[2.221rem] font-space-mono font-bold tracking-[-0.02em]">
@@ -23,4 +23,4 @@ const EventCard_one = ({ title, description, date, image }) => {
   );
 };
 
-export default EventCard_one;
+export default EventCardOne;

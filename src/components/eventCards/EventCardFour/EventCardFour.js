@@ -1,7 +1,7 @@
 import React from "react";
-import "src/components/event_cards/eventCard_four/eventCard_four.css";
+import "src/components/eventCards/EventCardFour/EventCardFour.css";
 
-const EventCard_four = ({ title, image }) => {
+const EventCardFour = ({ title, image }) => {
   return (
     <div className="bg-transparent shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full max-h-32 w-48">
       <div
@@ -19,4 +19,4 @@ const EventCard_four = ({ title, image }) => {
   );
 };
 
-export default EventCard_four;
+export default EventCardFour;

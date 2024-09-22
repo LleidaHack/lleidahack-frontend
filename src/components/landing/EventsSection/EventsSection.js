@@ -1,9 +1,9 @@
 import { React, useEffect, useState } from "react";
-import EventCard_five from "src/components/event_cards/eventCard_five/eventCard_five";
-import EventCard_four from "src/components/event_cards/eventCard_four/eventCard_four";
+import EventCardFive from "src/components/eventCards/EventCardFive/EventCardFive";
+import EventCardFour from "src/components/eventCards/EventCardFour/EventCardFour";
 
-import background from "src/components/event_cards/defaultImage.jpg";
-import hack from "src/components/event_cards/Hack2023.jpg";
+import background from "src/components/eventCards/defaultImage.jpg";
+import hack from "src/components/eventCards/Hack2023.jpg";
 
 const EventSection = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -42,7 +42,7 @@ const EventSection = () => {
 
         <div className="flex flex-col md:flex-row justify-between gap-4">
           <div className="w-5/6	">
-            <EventCard_five
+            <EventCardFive
               title="HackEPS 2023"
               description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent."
               image={hack}
@@ -52,23 +52,23 @@ const EventSection = () => {
           <div className="max-[740px]:ml-[-1rem] max-[740px]:mt-2 max-[740px]:w-auto max-[740px]:h-auto h-32 w-2/12		">
             <div className="max-[740px]:flex">
               <div className="">
-                <EventCard_four
+                <EventCardFour
                   image={background}
                   title="Event Title"
-                ></EventCard_four>
+                ></EventCardFour>
               </div>
               <div className="max-[740px]:mt-0">
-                <EventCard_four
+                <EventCardFour
                   image={background}
                   title="Event Title"
-                ></EventCard_four>
+                ></EventCardFour>
               </div>
             </div>
             <div className="">
-              <EventCard_four
+              <EventCardFour
                 image={background}
                 title="Event Title"
-              ></EventCard_four>
+              ></EventCardFour>
             </div>
             <p className="text-[#ff742f] font-space-mono font-normal tracking-[-0.02em] text-[1rem] mt-[0.313rem] leading-[1.481rem] ml-4">
               Veure més...
@@ -86,7 +86,7 @@ const EventSection = () => {
           </p>
         </div>
         <div className="mb-3 ">
-          <EventCard_five
+          <EventCardFive
             title="HackEPS 2023"
             description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent."
             image={hack}
@@ -95,12 +95,12 @@ const EventSection = () => {
 
         <div className="flex flex-col gap-3">
           <div className="flex flex-row gap-2 bg-transparent">
-            <EventCard_four image={background} title="Event Title" />
-            <EventCard_four image={background} title="Event Title" />
+            <EventCardFour image={background} title="Event Title" />
+            <EventCardFour image={background} title="Event Title" />
           </div>
           <div className="flex flex-row gap-2">
-            <EventCard_four image={background} title="Event Title" />
-            <EventCard_four image={background} title="Event Title" />
+            <EventCardFour image={background} title="Event Title" />
+            <EventCardFour image={background} title="Event Title" />
           </div>
           <p className="text-[#ff742f] font-space-mono font-normal tracking-[-0.02em] text-[1rem] mt-[0.313rem] leading-[1.481rem] ml-4">
             Veure més...
