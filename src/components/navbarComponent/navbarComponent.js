@@ -80,7 +80,7 @@ const NavbarComponent = ({
         >
           <div className="">
             <a href="/lleidahack">
-              <img src={logoimg} alt="logo" className="h-12 w-12 flex-none" />
+              <img src={logoimg} alt="logo" className="h-12 w-12 flex-none " />
             </a>
           </div>
           <div className="text-white text-3xl" onClick={changeNavStatus}>
@@ -89,20 +89,22 @@ const NavbarComponent = ({
         </div>
 
         <div
-          className="absolute h-[100%] w-screen bg-white z-50 inset-x-0  md:relative  appear-animation mt-2 md:mt-3   md:w-full"
+          className="absolute  h-[100%] w-screen bg-white z-50 inset-x-0  md:relative  appear-animation mt-2 md:mt-3   md:w-full"
           id="container-points"
         >
           <div
-            className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none`}
+            className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3`}
             style={{ backgroundColor: bgColor2 }}
           >
-            <div className="hidden md:block md:pb-5">
-              <a href="/lleidahack">
-                <img src={logoimg} alt="logo" className="h-12 w-12 flex-none" />
-              </a>
+            <div className="hidden md:block items-center  ">
+              <div className="flex items-center h-full relative">
+                <a href="/lleidahack">
+                  <img src={logoimg} alt="logo" className="h-16" />
+                </a>
+              </div>
             </div>
             <div
-              className="absolute md:pb-5 md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0"
+              className="absolute  md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0"
               onClick={changeNavStatus}
             >
               {(!showCenterContentOnlyOnDrop ||
@@ -114,7 +116,7 @@ const NavbarComponent = ({
                 <div className="w-11/12 border-1 border-white" />
               </div>
 
-              <div className="flex justify-end">
+              <div className="flex justify-end items-center">
                 {navDrop ? endContent : dropEndContent}
               </div>
             </div>

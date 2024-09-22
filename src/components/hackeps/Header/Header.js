@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import "src/components/hackeps/Header/Header.css";
-import hackIcon from "src/icons/hackIcon.png";
+import hackIcon from "src/icons/hackIconBig.png";
 import { me, checkToken } from "src/services/AuthenticationService";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Button from "src/components/buttons/Button";
@@ -45,27 +45,27 @@ const Header = () => {
     fetchData();
     setEndContent(
       <>
-        <li className="nav-item list-none">
+        <li className="nav-item list-none text-xl">
           <Link to="/#dates" className="nav-link !text-textPrimaryHackeps  ">
             Dates
           </Link>
         </li>
-        <li className="nav-item list-none">
+        <li className="nav-item list-none text-xl">
           <Link to="/#sponsors" className="nav-link !text-textPrimaryHackeps ">
             Sponsors
           </Link>
         </li>
-        <li className="nav-item list-none">
+        <li className="nav-item list-none text-xl">
           <Link to="/faq" className="nav-link !text-textPrimaryHackeps ">
             FAQ
           </Link>
         </li>
-        <li className="nav-item list-none">
+        <li className="nav-item list-none text-xl">
           <Link to="/contacte" className="nav-link !text-textPrimaryHackeps ">
             Contacte
           </Link>
         </li>
-        <li className="nav-item list-none">
+        <li className="nav-item list-none text-xl">
           <Link to="/perfil" className="nav-link !text-textPrimaryHackeps ">
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
