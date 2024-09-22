@@ -22,20 +22,20 @@ export async function getLleidaHackerById(lleidaHacker_id) {
   });
 }
 
+export async function deleteLleidaHacker(lleidaHacker_id) {
+  return fetchPlus({
+    Url: `/lleidahacker/${lleidaHacker_id}`,
+    Method: "DELETE",
+    hasUserauth: true,
+  });
+}
+
 export async function updateLleidaHacker(lleidaHacker) {
   return fetchPlus({
     Url: `/lleidahacker/${lleidaHacker.id}`,
     Method: "PUT",
     hasUserauth: true,
     Body: lleidaHacker,
-  });
-}
-
-export async function deleteLleidaHacker(lleidaHacker_id) {
-  return fetchPlus({
-    Url: `/lleidahacker/${lleidaHacker_id}`,
-    Method: "DELETE",
-    hasUserauth: true,
   });
 }
 
