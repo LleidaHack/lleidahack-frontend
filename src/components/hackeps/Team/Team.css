@@ -11,6 +11,11 @@
   margin: auto;
 }
 
+.same-size-icon {
+  font-size: 128px; /* Tamaño de la fuente del icono */
+  line-height: 128px; /* Altura de la línea */
+}
+
 .team-modal-no-border {
   border-width: 0px !important;
 }

@@ -1,7 +1,7 @@
 import React from "react";
-import "src/components/event_cards/eventCard_five/eventCard_five.css";
+import "src/components/eventCards/EventCardFive/EventCardFive.css";
 
-const EventCard_five = ({ title, description, image }) => {
+const EventCardFive = ({ title, description, image }) => {
   return (
     <div class="shadow">
       <div
@@ -29,4 +29,4 @@ const EventCard_five = ({ title, description, image }) => {
   );
 };
 
-export default EventCard_five;
+export default EventCardFive;
