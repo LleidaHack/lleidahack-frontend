@@ -18,6 +18,7 @@ const StandardPfp = ({ hacker, bgcolor, extra_id, border, is_profile }) => {
           }${is_profile ? "profilePfpStyle" : "team-member-image"}`}
           src={hacker.image}
           alt=""
+          style={{ objectFit: "cover", display: "block"}}
         />
       ) : (
         <img
@@ -27,6 +28,7 @@ const StandardPfp = ({ hacker, bgcolor, extra_id, border, is_profile }) => {
           }${is_profile ? "profilePfpStyle" : "team-member-image"}`}
           src={def}
           alt=""
+          style={{ objectFit: "cover", display: "block"}}
         />
       )}
     </>
