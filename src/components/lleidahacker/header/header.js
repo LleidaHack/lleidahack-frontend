@@ -1,21 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { me } from "src/services/AuthenticationService";
+import { get } from "react-scroll/modules/mixins/scroller";
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [userID, setUserID] = useState(null);
+
+
+  async function getId(){
+    const id = await me();
+    console.log(JSON.stringify(id));
+    return id.userID;
+  }
+  
+  useEffect(()=>{ 
+    const id = getId();
+    setUserID(id);
+  }, []);
+
+  function Navigate(url){
+    navigate(url);
+  }
+
+
+
 
   return (
     <div>
       <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
         <div className="flex justify-between items-center">
-          <a href="/lleidahack">
-            <img
-              src={logoLleidaHack}
-              alt="logo"
-              className="h-12 w-12 flex-none"
-            />
-          </a>
+
+          
           <div className="flex items-center justify-center ">
             <li className="mx-8 text-xl list-none">
               <a
@@ -38,9 +57,12 @@ const Header = () => {
             <button className="bg-primaryLanding text-xl p-0 mx-2 ">
               <i class="fa-solid fa-arrow-right-from-bracket text-white"></i>
             </button>
-            <button className="bg-primaryLanding text-xl p-0 mx-2 text-CTALanding">
+
+            <div>
+            <button className="bg-primaryLanding text-xl p-0 mx-2 text-CTALanding" onClick={Navigate("/lleidahacker/"+userID)}>
               <i class="fa-solid fa-user"></i>
             </button>
+            </div>
           </div>
         </div>
       </div>
