@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import "src/components/hackeps/Header/Header.css";
-import hackIcon from "src/icons/hackIcon.png";
+import hackIcon from "src/icons/hackIconBig.png";
 import { me, checkToken } from "src/services/AuthenticationService";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Button from "src/components/buttons/Button";
@@ -11,24 +11,29 @@ const Header = () => {
   const [centerContent, setCenterContent] = useState(<></>);
   const [endContent, setEndContent] = useState(<></>);
   const [dropEndContent, setDropEndContent] = useState(<></>);
-
-  const [icon, setUserIcon] = useState("string");
+  const [logoRed, setLogoRed] = useState("/hackeps");
+  const [icon, setUserIcon] = useState("");
   const [validToken, setValidToken] = useState(false);
+  localStorage.setItem("validToken", false);
 
   useEffect(() => {
     const fetchData = async () => {
       if (localStorage.getItem("userToken")) {
         const verification = await checkToken();
+
         if (verification.success) {
           setValidToken(true);
+          localStorage.setItem("validToken", true);
+
           try {
             if (!localStorage.getItem("imageProfile")) {
               const info = await me();
               if (info.nickname) {
                 if (
-                  info.image !== null &&
-                  info.image !== undefined &&
-                  info.image !== ""
+                  info.image !== null ||
+                  info.image !== undefined ||
+                  info.image !== "" ||
+                  info.image !== "string"
                 ) {
                   setUserIcon(info.image);
                   localStorage.setItem("imageProfile", info.image);
@@ -45,27 +50,27 @@ const Header = () => {
     fetchData();
     setEndContent(
       <>
-        <li className="nav-item list-none">
+        <li className="nav-item list-none text-xl">
           <Link to="/#dates" className="nav-link !text-textPrimaryHackeps  ">
             Dates
           </Link>
         </li>
-        <li className="nav-item list-none">
+        <li className="nav-item list-none text-xl">
           <Link to="/#sponsors" className="nav-link !text-textPrimaryHackeps ">
             Sponsors
           </Link>
         </li>
-        <li className="nav-item list-none">
+        <li className="nav-item list-none text-xl">
           <Link to="/faq" className="nav-link !text-textPrimaryHackeps ">
             FAQ
           </Link>
         </li>
-        <li className="nav-item list-none">
+        <li className="nav-item list-none text-xl">
           <Link to="/contacte" className="nav-link !text-textPrimaryHackeps ">
             Contacte
           </Link>
         </li>
-        <li className="nav-item list-none">
+        <li className="nav-item list-none text-xl w-10">
           <Link to="/perfil" className="nav-link !text-textPrimaryHackeps ">
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
@@ -119,6 +124,22 @@ const Header = () => {
     );
   }, []);
 
+  useEffect(() => {
+    setDropEndContent(
+      <>
+        <li className="list-none">
+          <Link
+            to="/perfil"
+            className="text-xl list-none no-underline text-black"
+          >
+            <ProfilePic size="small" icon={icon} validToken={validToken} />
+          </Link>
+        </li>
+      </>,
+    );
+    console.log("updated");
+  }, [icon, validToken]);
+
   return (
     <>
       <NavbarComponent
@@ -129,6 +150,7 @@ const Header = () => {
         endContent={endContent}
         dropEndContent={dropEndContent}
         showCenterContentOnlyOnDrop={true}
+        logoRedirect={logoRed}
       />
 
       {String(process.env.REACT_APP_MAIN) === "0" && (

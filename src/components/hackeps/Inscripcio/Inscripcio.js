@@ -4,7 +4,7 @@ import "src/components/hackeps/Inscripcio/Inscripcio.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { SelectField } from "formik-stepper";
-import { registerHackerToEvent } from "src/services/EventManagementService";
+import { registerHackerToEvent } from "src/services/EventService";
 import { getHackeps } from "src/services/EventService";
 import FailFeedback from "src/components/hackeps/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/hackeps/Feedbacks/SuccesFeedback";
@@ -341,12 +341,14 @@ const InscripcioForm = () => {
                     >
                       Adjunta el teu CV (Opcional)
                     </label>
-                    <FileBase
-                      type="file"
-                      id="cvinfo_file"
-                      name="cvinfo_file"
-                      onDone={handleFileChange}
-                    />
+                    <div className="cv-input-container">
+                      <FileBase
+                        type="file"
+                        id="cvinfo_file"
+                        name="cvinfo_file"
+                        onDone={handleFileChange}
+                      />
+                    </div>
                     {cvFile && (
                       <div className="file-info">
                         <span className="file-name text-textSecondaryHackeps">

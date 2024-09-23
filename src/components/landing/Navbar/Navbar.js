@@ -174,6 +174,7 @@ const Navbar = () => {
         endContent={endContent}
         dropEndContent={dropEndContent}
         showCenterContentOnlyOnDrop={false}
+        logoRedirect={"/lleidahack"}
       />
       {String(process.env.REACT_APP_MAIN) === "0" && (
         <nav

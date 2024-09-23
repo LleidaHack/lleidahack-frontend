@@ -14,20 +14,20 @@ export async function getLleidaHackerGroupById(lleidaHacker_group_id) {
   });
 }
 
-export async function deleteLleidaHackerGroup(lleidaHacker_group_id) {
-  return fetchPlus({
-    Url: `/lleidahacker/group/${lleidaHacker_group_id}`,
-    Method: "DELETE",
-    hasUserauth: true,
-  });
-}
-
 export async function addLleidaHackerGroup(lleidaHacker_group) {
   return fetchPlus({
     Url: "/lleidahacker/group/",
     Method: "POST",
     hasUserauth: true,
     Body: lleidaHacker_group,
+  });
+}
+
+export async function deleteLleidaHackerGroup(lleidaHacker_group_id) {
+  return fetchPlus({
+    Url: `/lleidahacker/group/${lleidaHacker_group_id}`,
+    Method: "DELETE",
+    hasUserauth: true,
   });
 }
 
