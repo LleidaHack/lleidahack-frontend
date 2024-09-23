@@ -295,12 +295,14 @@ export const HackerStepperForm = () => {
                       placeholder="https://..."
                       onChange={handleImageUrlChange}
                     />
+                    <div className="image-input-container">
                     <FileBase
                       id="avatarInput"
                       type="file"
                       multiple={false}
                       onDone={handleImageChange}
                     />
+                    </div>
                   </div>
                 </div>
               </Row>

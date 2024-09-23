@@ -341,12 +341,15 @@ const InscripcioForm = () => {
                     >
                       Adjunta el teu CV (Opcional)
                     </label>
+                    <div className="cv-input-container">
                     <FileBase
+                      
                       type="file"
                       id="cvinfo_file"
                       name="cvinfo_file"
                       onDone={handleFileChange}
                     />
+                    </div>
                     {cvFile && (
                       <div className="file-info">
                         <span className="file-name text-textSecondaryHackeps">
