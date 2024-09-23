@@ -31,9 +31,8 @@ export async function refreshToken() {
   return fetchPlus({
     Url: "/auth/refresh-token",
     Method: "POST",
-    Query: { refresh_token: localStorage.getItem("refreshToken") },
-    hasUserauth: true,
     saveLoginInfo: true,
+    refresh_token: true,
   });
 }
 

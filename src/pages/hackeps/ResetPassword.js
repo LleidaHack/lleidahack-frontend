@@ -40,7 +40,7 @@ export default function ResetPassword() {
     );
 
     if (servicePassword.errCode) {
-      setFeedErr(servicePassword.errMessage);
+      setFeedErr(servicePassword.errMssg);
       setSended(true);
     } else {
       navigate("/");

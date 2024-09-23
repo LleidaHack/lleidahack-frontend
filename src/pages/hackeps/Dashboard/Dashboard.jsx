@@ -3,7 +3,7 @@ import {
   acceptHackerToEvent,
   getPendingHackersGruped,
   rejectHackerToEvent,
-} from "src/services/EventManagementService";
+} from "src/services/EventService";
 import { getUserById } from "src/services/UserService";
 
 export default function Dashboard() {
