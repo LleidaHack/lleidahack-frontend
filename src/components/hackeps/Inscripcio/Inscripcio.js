@@ -84,15 +84,14 @@ const InscripcioForm = () => {
       });
       setHackepsEvent(hackepsEvent);
       setPreviousRegistration(me);
-      if (process.env.REACT_APP_DEBUG==="true")
-        console.log(me);
+      if (process.env.REACT_APP_DEBUG === "true") console.log(me);
     };
 
     fetchData();
   }, []);
 
   const handleSubmit = async (values) => {
-    console.log("hola")
+    console.log("hola");
     const data = {
       shirt_size: values.size,
       food_restrictions: values.food,
@@ -388,7 +387,7 @@ const InscripcioForm = () => {
                       className="text-errorRed"
                     />
                   </div>
-                  
+
                   <div className="checkbox-container">
                     <br />
                     <br />
@@ -401,7 +400,8 @@ const InscripcioForm = () => {
                       className="text-textSecondaryHackeps"
                       htmlFor="checkboxcredit"
                     >
-                      Vull 1 crèdit ECTS de matèria transversal (només aplicable a alumnes de la UDL)
+                      Vull 1 crèdit ECTS de matèria transversal (només aplicable
+                      a alumnes de la UDL)
                     </label>
                   </div>
 

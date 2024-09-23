@@ -137,8 +137,7 @@ const Header = () => {
         </li>
       </>,
     );
-    if (process.env.REACT_APP_DEBUG==="true")
-      console.log("updated header");
+    if (process.env.REACT_APP_DEBUG === "true") console.log("updated header");
   }, [icon, validToken]);
 
   return (

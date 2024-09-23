@@ -38,7 +38,7 @@ const MainTitle = () => {
         <div className="magic_div">
           <div className="col-12">
             <div className="rowe">
-                <img className="imagelogo" src={hackLogo} alt="" />
+              <img className="imagelogo" src={hackLogo} alt="" />
             </div>
             <div className="text-center">
               <Button onClick={handleShow} secondary outline>
