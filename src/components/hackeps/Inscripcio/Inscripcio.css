@@ -102,6 +102,10 @@ input[type="text"] {
   height: 50px; /* Ajusta esta altura según tus preferencias */
 }
 
+.cv-input-container input[type="file" i]::-webkit-file-upload-button {
+  color: var(--text-primary);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
