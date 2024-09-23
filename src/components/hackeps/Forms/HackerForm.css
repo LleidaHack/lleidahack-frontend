@@ -65,6 +65,6 @@ input[type="file"]::-webkit-file-upload-button {
   flex-shrink: 0;
 }
 
-.image-input-container input[type="file" i]::-webkit-file-upload-button{
+.image-input-container input[type="file" i]::-webkit-file-upload-button {
   color: var(--text-primary);
 }

@@ -41,7 +41,7 @@
   min-height: 100vh;
 }
 
-.file-input-container input[type="file" i]::-webkit-file-upload-button{
+.file-input-container input[type="file" i]::-webkit-file-upload-button {
   color: var(--text-primary);
 }
 

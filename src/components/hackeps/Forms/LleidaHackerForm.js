@@ -373,13 +373,13 @@ export const LleidaHackerForm = () => {
                       onChange={handleImageUrlChange}
                     />
                     <div className="image-input-container">
-                    <FileBase
-                      id="avatarInput"
-                      type="file"
-                      multiple={false}
-                      onDone={handleImageChange}
-                    />
-                  </div>
+                      <FileBase
+                        id="avatarInput"
+                        type="file"
+                        multiple={false}
+                        onDone={handleImageChange}
+                      />
+                    </div>
                   </div>
                   <SelectField
                     name="default_lang"

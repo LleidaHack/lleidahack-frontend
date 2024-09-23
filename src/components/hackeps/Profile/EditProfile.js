@@ -154,12 +154,12 @@ const EditProfile = (props) => {
                         Adjunta el teu CV (Opcional)
                       </label>
                       <div className="file-input-container">
-                      <FileBase
-                        type="file"
-                        id="cvinfo_file"
-                        name="cvinfo_file"
-                        onDone={handleFileChange}
-                      />
+                        <FileBase
+                          type="file"
+                          id="cvinfo_file"
+                          name="cvinfo_file"
+                          onDone={handleFileChange}
+                        />
                       </div>
                       {cvFile && (
                         <div className="file-info">
@@ -209,12 +209,12 @@ const EditProfile = (props) => {
                           onChange={handleImageUrlChange}
                         />
                         <div className="file-input-container">
-                        <FileBase
-                          id="avatarInput"
-                          type="file"
-                          multiple={false}
-                          onDone={handleImageChange}
-                        />
+                          <FileBase
+                            id="avatarInput"
+                            type="file"
+                            multiple={false}
+                            onDone={handleImageChange}
+                          />
                         </div>
                       </div>
                     </Row>
