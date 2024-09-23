@@ -177,21 +177,36 @@ const EditProfile = (props) => {
                       >
                         {isUrl && urlImage !== "" ? (
                           <img
-                            style={{ height: "250px", width: "250px" }}
+                            style={{
+                              height: "250px",
+                              width: "250px",
+                              objectFit: "cover",
+                              display: "block",
+                            }}
                             className="avatar-image bg-white rounded-circle m-auto"
                             src={urlImage}
                             alt="avatar"
                           />
                         ) : avatar ? (
                           <img
-                            style={{ height: "250px", width: "250px" }}
+                            style={{
+                              height: "250px",
+                              width: "250px",
+                              objectFit: "cover",
+                              display: "block",
+                            }}
                             className="avatar-image bg-white rounded-circle m-auto"
                             src={avatar}
                             alt="avatar"
                           />
                         ) : (
                           <img
-                            style={{ height: "250px", width: "250px" }}
+                            style={{
+                              height: "250px",
+                              width: "250px",
+                              objectFit: "cover",
+                              display: "block",
+                            }}
                             className="avatar-image bg-white rounded-circle m-auto"
                             src={userIcon}
                             alt="avatar"
