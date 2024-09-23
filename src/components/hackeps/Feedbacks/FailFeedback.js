@@ -38,7 +38,6 @@ const FailFeedback = ({
   return (
     <div className="valerr bg-secondaryHackeps text-textSecondaryHackeps">
       <div className="iconBox">
-
         <i class="mt-48 mb-6 fa-regular fa-circle-xmark text-8xl"></i>
 
         <h2>{title}</h2>
