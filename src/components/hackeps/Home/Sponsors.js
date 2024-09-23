@@ -34,7 +34,11 @@ let imgs2 = [
   { image: eCityclic, importance: 1, url: "https://www.ecityclic.com/ca" },
   { image: paeria, importance: 2, url: "https://www.paeria.cat/" },
   { image: uniLleida, importance: 1, url: "https://www.udl.cat/ca/" },
-  { image: escolaPolitecnica, importance: 2, url: "https://www.eps.udl.cat/ca/" },
+  {
+    image: escolaPolitecnica,
+    importance: 2,
+    url: "https://www.eps.udl.cat/ca/",
+  },
   { image: insdo, importance: 1, url: "https://www.insdosl.com" },
   { image: useit, importance: 2, url: "https://www.useit.es" },
 ];
@@ -106,20 +110,14 @@ const Sponsors = () => {
         </Button>
       </Link>
       <section className="spnsection">
-      <div className="sponsors-container">
-          <div
-            className="sponsor-group-group-1"
-          >
-            {groups[1]}
-          </div>
+        <div className="sponsors-container">
+          <div className="sponsor-group-group-1">{groups[1]}</div>
           <div className="sponsor-group-group-2">{groups[2]}</div>
         </div>
       </section>
       <br />
-
     </div>
   );
 };
 
 export default Sponsors;
-
