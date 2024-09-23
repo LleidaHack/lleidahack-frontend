@@ -44,7 +44,7 @@ const EventSection = () => {
           <div className="w-5/6	">
             <EventCardFive
               title="HackEPS 2024"
-              description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent."
+              description="Lleidahack celebra la 8a edició de la HackEPS, la hackató més gran de les terres de ponent."
               image={hack}
             />
           </div>
@@ -88,7 +88,7 @@ const EventSection = () => {
         <div className="mb-3 ">
           <EventCardFive
             title="HackEPS 2024"
-            description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent."
+            description="Lleidahack celebra la 8a edició de la HackEPS, la hackató més gran de les terres de ponent."
             image={hack}
           />
         </div>
