@@ -84,13 +84,15 @@ const InscripcioForm = () => {
       });
       setHackepsEvent(hackepsEvent);
       setPreviousRegistration(me);
-      console.log(me);
+      if (process.env.REACT_APP_DEBUG==="true")
+        console.log(me);
     };
 
     fetchData();
   }, []);
 
   const handleSubmit = async (values) => {
+    console.log("hola")
     const data = {
       shirt_size: values.size,
       food_restrictions: values.food,
@@ -102,6 +104,7 @@ const InscripcioForm = () => {
       study_center: values.center,
       location: values.location,
       how_did_you_meet_us: values.meet,
+      wants_credit: values.checkboxcredit,
       update_user: true,
       terms_accepted: values.checkboxterms,
     };
@@ -176,6 +179,7 @@ const InscripcioForm = () => {
                   linkedin: previousRegistration.linkedin,
                   github: previousRegistration.github,
                   devpost: previousRegistration.cv,
+                  checkboxcredit: false,
                   checkboxterms: registered,
                 }}
                 validationSchema={validationSchema}
@@ -265,6 +269,7 @@ const InscripcioForm = () => {
                       labelColor="#000000"
                     />
                   </div>
+
                   <div className="formik-field">
                     <label
                       className="text-textSecondaryHackeps"
@@ -360,9 +365,8 @@ const InscripcioForm = () => {
                       </div>
                     )}
                   </div>
+
                   <div className="checkbox-container">
-                    <br />
-                    <br />
                     <Field
                       type="checkbox"
                       id="checkboxterms"
@@ -378,14 +382,29 @@ const InscripcioForm = () => {
                       </a>{" "}
                       de la HackEPS 2023
                     </label>
-                    <br />
-                    <br />
                     <ErrorMessage
                       name="checkboxterms"
                       component="div"
                       className="text-errorRed"
                     />
                   </div>
+                  
+                  <div className="checkbox-container">
+                    <br />
+                    <br />
+                    <Field
+                      type="checkbox"
+                      id="checkboxcredit"
+                      name="checkboxcredit"
+                    />
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="checkboxcredit"
+                    >
+                      Vull 1 crèdit ECTS de matèria transversal (només aplicable a alumnes de la UDL)
+                    </label>
+                  </div>
+
                   <div className="button-submit-container m-8 mt-2">
                     <Button primary type="submit">
                       {registered ? "Actualitza" : "Envia"}

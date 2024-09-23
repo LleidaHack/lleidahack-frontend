@@ -11,7 +11,7 @@ const InputSearch = ({ placeholder, searchtype }) => {
 
   useEffect(() => {
     if (window.innerWidth <= 768) {
-      setItemTextButtonSearch(<i class="fa-solid fa-magnifying-glass"></i>);
+      setItemTextButtonSearch(<i className="fa-solid fa-magnifying-glass"></i>);
     } else {
       setItemTextButtonSearch("Cercar");
     }
