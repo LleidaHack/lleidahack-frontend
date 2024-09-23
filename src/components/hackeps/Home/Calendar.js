@@ -26,18 +26,18 @@ const CalendarDates = (props) => {
         <Row>
           <Col className="calendar-content">
             <p className="text-justify mr-5">
-              Lleidahack et dona la benvinguda a la HackEPS 2023, la primera
+              Lleidahack et dona la benvinguda a la HackEPS 2024, la primera
               hackató de les terres de Lleida!
             </p>
             <p className="text-justify mr-5">
               La setena edició de la HackEPS tindrà lloc a l'edifici de l'Escola
-              Politècnica Superior de la Universitat de Lleida els dies 25 i 26
-              de novembre de 2023. Aquest és un esdeveniment que no voldràs
+              Politècnica Superior de la Universitat de Lleida els dies 23 i 24
+              de novembre de 2024. Aquest és un esdeveniment que no voldràs
               perdre't!
             </p>
             <p className="text-justify mr-5">
               Així que, si ets un apassionat de la tecnologia, amant dels reptes
-              i defensor del treball en equip, la HackEPS 2023 és el teu lloc.
+              i defensor del treball en equip, la HackEPS 2024 és el teu lloc.
               Uneix-te a nosaltres per a una experiència inoblidable per a
               desenvolupar-te com a futur programador!
             </p>

@@ -111,11 +111,11 @@ const InscripcioForm = () => {
 
     if (registered) {
       data.id = previousRegistration.id;
-      updateHacker(data);
+      await updateHacker(data);
     } else {
       let registration = await registerHackerToEvent(
-        localStorage.getItem("userID"),
         hackepsEvent.id,
+        localStorage.getItem("userID"),
         data,
       );
       if (registration.errCode) {
@@ -163,7 +163,7 @@ const InscripcioForm = () => {
           <br />
           <div className="container-inscripcio">
             <TitleGeneralized underline>
-              Inscripció HackEPS 2023
+              Inscripció HackEPS 2024
             </TitleGeneralized>
             <div className="form-container">
               <Formik
@@ -380,7 +380,7 @@ const InscripcioForm = () => {
                       <a href="/terms" target="_blank">
                         Termes i Condicions
                       </a>{" "}
-                      de la HackEPS 2023
+                      de la HackEPS 2024
                     </label>
                     <ErrorMessage
                       name="checkboxterms"

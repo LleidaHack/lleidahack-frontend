@@ -161,7 +161,7 @@ const Header = () => {
         >
           <div className="container">
             <div style={{ maxWidth: "100%", wordWrap: "break-word" }}>
-              Aquesta pàgina és de proves. La pàgina de la HackEPS 2023 és{" "}
+              Aquesta pàgina és de proves. La pàgina de la HackEPS 2024 és{" "}
               <a
                 style={{ color: "var(--primary)" }}
                 href="https://www.lleidahack.dev/hackeps"
