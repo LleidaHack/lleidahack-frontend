@@ -15,7 +15,6 @@ const Schedule = (props) => {
         dateClassName="odd:text-left"
         iconClassName="bg-primaryHackeps shadow-none "
         textClassName="bg-transparent shadow-none "
-        
       >
         <h3 className="text-textSecondaryHackeps underline underline-offset-4 pb-4">
           {event.title}
