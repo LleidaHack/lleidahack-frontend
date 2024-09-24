@@ -42,10 +42,20 @@ const Sponsors = () => {
         const companyDataTier2 = await getCompanyByTier(2);
         getInfoAll(companyData);
         companyData.map((pos, index) => {
-          imgs2[index] = {image: pos.image, importance: 1, url:pos.website, id: pos.id}
+          imgs2[index] = {
+            image: pos.image,
+            importance: 1,
+            url: pos.website,
+            id: pos.id,
+          };
         });
         companyDataTier2.map((pos, index) => {
-          imgs2.push({image: pos.image, importance: 2, url:pos.website, id: pos.id})
+          imgs2.push({
+            image: pos.image,
+            importance: 2,
+            url: pos.website,
+            id: pos.id,
+          });
         });
       } catch (error) {
         console.log("El error obtenido es:", error);
