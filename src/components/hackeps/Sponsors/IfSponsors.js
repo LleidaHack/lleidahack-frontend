@@ -57,7 +57,7 @@ const InfoSponsors = ({ id }) => {
     let linkedintag = infoCompany.linkdin; //Enllaç del likedin tag de la empresa.
     let correu = infoCompany.address; //Correu de la empresa
     let webtag = infoCompany.website; //Web de la empresa
-    let imgLogo = infoCompany.logo;
+    let imgLogo = infoCompany.image;
     //un cop existeixi l'importancia a get/company/{id} let importancia = infoCompany.importancia;
     let description = infoCompany.description;
     let edicions = []; //Aqui afegir les edicions en les que han participat (2020, 2021, 2022, 2023,....)
@@ -145,7 +145,7 @@ const InfoSponsors = ({ id }) => {
         </section>
         <br />
         <section className="redesYOthers p-bg-grey">
-          <p className="text-aftTitle2 text-textSecondaryHackeps">
+          <p className="text-aftTitle2 text-textSecondaryHackeps text-white">
             📩 {correu} |{text}
           </p>
         </section>
@@ -181,7 +181,7 @@ const InfoSponsors = ({ id }) => {
         <br />
         <br />
 
-        <section className="bussinesActivity bg-primaryHackeps text-textPrimaryHackeps">
+        {/*<section className="bussinesActivity bg-primaryHackeps text-textPrimaryHackeps">
           <br />
           <h2>Historial d'activitats</h2>
 
@@ -191,7 +191,7 @@ const InfoSponsors = ({ id }) => {
               <img key={index} src={image} alt={`Imagen ${index}`} /> //Editar aixo per a que sigui una url fixa i nomes camvii la edicio Eg: C/wefwf/efwef/2021.jpg, C/wefwf/efwef/2022.jpg...
             ))}
           </div>
-        </section>
+        </section>*/}
         <br />
         <br />
       </div>
