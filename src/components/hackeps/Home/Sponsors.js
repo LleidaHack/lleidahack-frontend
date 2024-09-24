@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "src/components/hackeps/Home/Sponsors.css";
-import { getAllCompanies } from "src/services/CompanyService";
+import { getAllCompanies, getCompanyByTier } from "src/services/CompanyService";
 import Button from "src/components/buttons/Button";
 
 /*IMAGES IMPORTS*/
@@ -23,37 +23,14 @@ import fruilar from "src/icons/sponsors logos/2nd/fruilar-gran-3.png";
 import plusfresc from "src/icons/sponsors logos/2nd/plusfresc-logo.jpg";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
-function redirectToURL(url) {
-  window.open(url, "_blank");
+function redirectToURL(id) {
+  const targ = `hackeps/sponsors/${id}`;
+  window.open(targ, "_blank");
 }
 
 /*End Imports 😭*/
 
-let imgs2 = [
-  { image: GFT, importance: 2, url: "https://www.gft.com/es/es" },
-  { image: eCityclic, importance: 1, url: "https://www.ecityclic.com/ca" },
-  { image: paeria, importance: 2, url: "https://www.paeria.cat/" },
-  { image: uniLleida, importance: 1, url: "https://www.udl.cat/ca/" },
-  {
-    image: escolaPolitecnica,
-    importance: 2,
-    url: "https://www.eps.udl.cat/ca/",
-  },
-  { image: insdo, importance: 1, url: "https://www.insdosl.com" },
-  { image: useit, importance: 2, url: "https://www.useit.es" },
-];
-
-let imgs1 = [
-  { image: VallCompanys, importance: 1, url: "https://vallcompanys.es/ca/" },
-  { image: Alter, importance: 2, url: "https://altersoftware.es/" },
-  { image: GFT, importance: 2, url: "https://www.gft.com/es/es" },
-  { image: actium, importance: 2, url: "https://www.actiumdigital.es/" },
-  { image: Cosantex, importance: 2, url: "https://www.cosantex.com/" },
-  { image: intech3d, importance: 2, url: "https://intech3d.es/" },
-  { image: alumni, importance: 2, url: "https://alumni.udl.cat/" },
-  { image: fruilar, importance: 2, url: "https://www.fruilar.com/es" },
-  { image: plusfresc, importance: 2, url: "https://www.plusfresc.cat/" },
-];
+let imgs2 = [];
 
 const Sponsors = () => {
   const [infoCompany, getInfoAll] = useState(null);
@@ -61,14 +38,14 @@ const Sponsors = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const companyData = await getAllCompanies();
+        const companyData = await getCompanyByTier(1);
+        const companyDataTier2 = await getCompanyByTier(2);
         getInfoAll(companyData);
         companyData.map((pos, index) => {
-          if (index < 4) {
-            //imgs1[index] = {image: pos.image, url:pos.website}
-          } else {
-            //imgs2[index - 4] = {image: pos.image}
-          }
+          imgs2[index] = {image: pos.image, importance: 1, url:pos.website, id: pos.id}
+        });
+        companyDataTier2.map((pos, index) => {
+          imgs2.push({image: pos.image, importance: 2, url:pos.website, id: pos.id})
         });
       } catch (error) {
         console.log("El error obtenido es:", error);
@@ -90,7 +67,7 @@ const Sponsors = () => {
         src={img.image}
         alt={`Logo ${img.importance}`}
         className="bg-white pepers"
-        onClick={() => redirectToURL(img.url)}
+        onClick={() => redirectToURL(img.id)}
       />,
     );
   });
