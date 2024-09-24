@@ -181,6 +181,16 @@ img {
     max-width: 25%; /*Si empitjora, s'elimina*/
   }
 
+  .sponsor-group-group-1 {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    scale: 0.85;
+    flex-wrap: wrap;
+  }
+
   .sponsor-group-group-2 {
     display: flex;
     flex-direction: row;

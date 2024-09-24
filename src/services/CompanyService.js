@@ -67,3 +67,9 @@ export async function getCompanyEvents(company_id) {
     hasUserauth: true,
   });
 }
+
+export async function getCompanyByTier(tier) {
+  return fetchPlus({
+    Url: `/company/tier/${tier}/`,
+  });
+}
