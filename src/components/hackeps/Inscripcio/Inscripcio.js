@@ -91,7 +91,6 @@ const InscripcioForm = () => {
   }, []);
 
   const handleSubmit = async (values) => {
-    console.log("hola");
     const data = {
       shirt_size: values.size,
       food_restrictions: values.food,
