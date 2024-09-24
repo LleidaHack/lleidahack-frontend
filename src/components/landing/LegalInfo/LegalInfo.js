@@ -2,7 +2,7 @@ import React from "react";
 
 const LegalInfo = () => {
   return (
-    <div class="flex flex-col pb-16 gap-16">
+    <div className="flex flex-col pb-16 gap-16">
       <div
         className={
           "flex-row items-center py-12 px-16 self-stretch bg-background-patron bg-cover bg-center"

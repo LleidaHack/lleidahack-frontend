@@ -100,12 +100,12 @@ const FiltersComponent = ({ categoryType }) => {
       <div className="flex flex-row justify-between">
         <div className="filter-button ">
           <ButtonLleidahack primary white className="px-12">
-            <i class="fa-solid fa-filter"></i> Filtrar
+            <i className="fa-solid fa-filter"></i> Filtrar
           </ButtonLleidahack>
         </div>
         <div className="filter-button ">
           <ButtonLleidahack primary white className="px-12">
-            <i class="fa-solid fa-bars-staggered"></i> Ordenar
+            <i className="fa-solid fa-bars-staggered"></i> Ordenar
           </ButtonLleidahack>
         </div>
       </div>

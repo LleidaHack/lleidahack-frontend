@@ -115,7 +115,7 @@ const NavbarComponent = ({
             </a>
           </div>
           <div className="text-white text-3xl" onClick={changeNavStatus}>
-            <i class="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-bars"></i>
           </div>
         </div>
 

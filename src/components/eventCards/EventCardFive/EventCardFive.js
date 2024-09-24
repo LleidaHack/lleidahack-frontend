@@ -3,7 +3,7 @@ import "src/components/eventCards/EventCardFive/EventCardFive.css";
 
 const EventCardFive = ({ title, description, image }) => {
   return (
-    <div class="shadow">
+    <div className="shadow">
       <div
         className="w-full z-20"
         style={{

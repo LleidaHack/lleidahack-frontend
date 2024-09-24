@@ -132,6 +132,15 @@ export async function registerHackerToEvent(event_id, hacker_id, data) {
   });
 }
 
+export async function updateRregisterHackerToEvent(event_id, hacker_id, data) {
+  return fetchPlus({
+    Url: `/event/${event_id}/update-register/${hacker_id}`,
+    Method: "PUT",
+    hasUserauth: true,
+    Body: data,
+  });
+}
+
 export async function addEventSponsor(event_id, company_id) {
   return fetchPlus({
     Url: `/event/${event_id}/sponsors/${company_id}`,
