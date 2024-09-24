@@ -84,7 +84,7 @@ const InscripcioForm = () => {
       });
       setHackepsEvent(hackepsEvent);
       setPreviousRegistration(me);
-      console.log(me);
+      if (process.env.REACT_APP_DEBUG === "true") console.log(me);
     };
 
     fetchData();
@@ -102,17 +102,18 @@ const InscripcioForm = () => {
       study_center: values.center,
       location: values.location,
       how_did_you_meet_us: values.meet,
+      wants_credit: values.checkboxcredit,
       update_user: true,
       terms_accepted: values.checkboxterms,
     };
 
     if (registered) {
       data.id = previousRegistration.id;
-      updateHacker(data);
+      await updateHacker(data);
     } else {
       let registration = await registerHackerToEvent(
-        localStorage.getItem("userID"),
         hackepsEvent.id,
+        localStorage.getItem("userID"),
         data,
       );
       if (registration.errCode) {
@@ -160,7 +161,7 @@ const InscripcioForm = () => {
           <br />
           <div className="container-inscripcio">
             <TitleGeneralized underline>
-              Inscripció HackEPS 2023
+              Inscripció HackEPS 2024
             </TitleGeneralized>
             <div className="form-container">
               <Formik
@@ -176,6 +177,7 @@ const InscripcioForm = () => {
                   linkedin: previousRegistration.linkedin,
                   github: previousRegistration.github,
                   devpost: previousRegistration.cv,
+                  checkboxcredit: false,
                   checkboxterms: registered,
                 }}
                 validationSchema={validationSchema}
@@ -265,6 +267,7 @@ const InscripcioForm = () => {
                       labelColor="#000000"
                     />
                   </div>
+
                   <div className="formik-field">
                     <label
                       className="text-textSecondaryHackeps"
@@ -360,9 +363,8 @@ const InscripcioForm = () => {
                       </div>
                     )}
                   </div>
+
                   <div className="checkbox-container">
-                    <br />
-                    <br />
                     <Field
                       type="checkbox"
                       id="checkboxterms"
@@ -376,16 +378,32 @@ const InscripcioForm = () => {
                       <a href="/terms" target="_blank">
                         Termes i Condicions
                       </a>{" "}
-                      de la HackEPS 2023
+                      de la HackEPS 2024
                     </label>
-                    <br />
-                    <br />
                     <ErrorMessage
                       name="checkboxterms"
                       component="div"
                       className="text-errorRed"
                     />
                   </div>
+
+                  <div className="checkbox-container">
+                    <br />
+                    <br />
+                    <Field
+                      type="checkbox"
+                      id="checkboxcredit"
+                      name="checkboxcredit"
+                    />
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="checkboxcredit"
+                    >
+                      Vull 1 crèdit ECTS de matèria transversal (només aplicable
+                      a alumnes de la UDL)
+                    </label>
+                  </div>
+
                   <div className="button-submit-container m-8 mt-2">
                     <Button primary type="submit">
                       {registered ? "Actualitza" : "Envia"}

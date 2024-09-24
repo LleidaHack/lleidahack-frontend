@@ -43,8 +43,8 @@ const EventSection = () => {
         <div className="flex flex-col md:flex-row justify-between gap-4">
           <div className="w-5/6	">
             <EventCardFive
-              title="HackEPS 2023"
-              description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent."
+              title="HackEPS 2024"
+              description="Lleidahack celebra la 8a edició de la HackEPS, la hackató més gran de les terres de ponent."
               image={hack}
             />
           </div>
@@ -87,8 +87,8 @@ const EventSection = () => {
         </div>
         <div className="mb-3 ">
           <EventCardFive
-            title="HackEPS 2023"
-            description="Lleidahack celebra la 7a edició de la HackEPS, la hackató més gran de les terres de ponent."
+            title="HackEPS 2024"
+            description="Lleidahack celebra la 8a edició de la HackEPS, la hackató més gran de les terres de ponent."
             image={hack}
           />
         </div>
