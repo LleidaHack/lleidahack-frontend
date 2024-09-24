@@ -2,7 +2,7 @@ import className from "classnames";
 
 const Button = (props) => {
   const classes = className(
-    `font-mono py-2 px-3 duration-300 ${props.className}`,
+    `py-2 px-3 duration-300 ${props.className}`,
     {
       "text-secondaryHackeps bg-primaryHackeps hover:bg-primaryHackepsDark":
         props.primary && !props.outline,

@@ -25,7 +25,7 @@
 }
 
 .backgrounder {
-  background-image: url(src/icons/icons_home_3.png);
+  background-image: url(src/icons/banner_home.png);
   background-size: cover;
   height: 50vh;
   overflow: hidden;
@@ -40,13 +40,39 @@
   display: flex; /* O cualquier otro estilo que necesites */
   justify-content: center;
   margin-bottom: 1vw;
-  height: 32vh;
+  height: 38vh;
   margin-bottom: 2rem;
+}
+
+.join-button {
+  justify-content: flex-end;
+  align-items: center; 
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
   .rowe {
     height: 24vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .imagelogo {
+    height: 36vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .join-button {
+    justify-content: flex-end; /* Empuja el botón hacia la parte inferior */
+    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding-top: 10vh;
+
   }
 }
 

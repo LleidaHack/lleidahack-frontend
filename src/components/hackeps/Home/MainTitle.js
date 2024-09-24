@@ -2,7 +2,7 @@ import "src/components/hackeps/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Button from "src/components/buttons/Button";
-import hackLogo from "src/icons/hackLogoMainTitle.png";
+import hackLogo from "src/icons/banner_home_icon.png";
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
 
@@ -35,18 +35,18 @@ const MainTitle = () => {
     <>
       <div className="backgrounder bg-primaryHackeps bg-center">
         <div className="fantasma" id="home"></div>
-        <div className="magic_div">
+        {/* <div className="magic_div"> */}
           <div className="col-12">
             <div className="rowe">
               <img className="imagelogo" src={hackLogo} alt="" />
             </div>
-            <div className="text-center">
+          </div>
+          <div className="join-button">
               <Button onClick={handleShow} secondary outline>
                 Apunta't!
               </Button>
             </div>
-          </div>
-        </div>
+        {/* </div> */}
       </div>
 
       <Modal show={show} onHide={handleClose} centered>
