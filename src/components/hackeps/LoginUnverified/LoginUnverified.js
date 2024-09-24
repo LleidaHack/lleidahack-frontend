@@ -45,7 +45,7 @@ const LoginUnverified = ({ email }) => {
   return (
     <div className="faq-container bg-secondaryHackeps flex flex-col items-center justify-start">
       <TitleGeneralized big className="mt-48">
-        `&gt;`:(
+        {">:("}
       </TitleGeneralized>
       <h3 className="text">
         Verifica el teu compte obrint el link que t'hem enviat al correu.

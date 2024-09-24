@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import { React, useState, useEffect } from "react";
 
 const NavbarComponent = ({
@@ -100,7 +101,10 @@ const NavbarComponent = ({
   }, [navStatus]);
 
   return (
-    <div className={`flex flex-col `}>
+    <nav
+      className={`flex flex-col md:!sticky md:top-0 md:z-50`}
+      style={{ boxShadow: "0 2px 5px 0 rgba(0,0,0,0.2)" }}
+    >
       <div
         className={`w-full h-16 px-4 py-2 items-center`}
         style={{ backgroundColor: bgColor1, color: textColor1 }}
@@ -120,7 +124,7 @@ const NavbarComponent = ({
         </div>
 
         <div
-          className="absolute  h-[100%] w-screen bg-white z-50 inset-x-0  md:relative  appear-animation mt-2 md:mt-3   md:w-full"
+          className="absolute h-[100%] w-screen bg-white z-50 inset-x-0  md:relative  appear-animation mt-2 md:mt-3   md:w-full"
           id="container-points"
         >
           <div
@@ -154,7 +158,7 @@ const NavbarComponent = ({
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
