@@ -100,7 +100,7 @@ const NavbarComponent = ({
   }, [navStatus]);
 
   return (
-    <div className={`flex flex-col `}>
+    <nav className={`flex flex-col !sticky top-0 z-50`}>
       <div
         className={`w-full h-16 px-4 py-2 items-center`}
         style={{ backgroundColor: bgColor1, color: textColor1 }}
@@ -154,7 +154,7 @@ const NavbarComponent = ({
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
