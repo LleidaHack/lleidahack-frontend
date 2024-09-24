@@ -46,7 +46,7 @@
 
 .join-button {
   justify-content: flex-end;
-  align-items: center; 
+  align-items: center;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -67,12 +67,11 @@
 @media (max-width: 768px) {
   .join-button {
     justify-content: flex-end; /* Empuja el botón hacia la parte inferior */
-    align-items: center; 
+    align-items: center;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
     padding-top: 10vh;
-
   }
 }
 

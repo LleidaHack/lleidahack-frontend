@@ -36,16 +36,16 @@ const MainTitle = () => {
       <div className="backgrounder bg-primaryHackeps bg-center">
         <div className="fantasma" id="home"></div>
         {/* <div className="magic_div"> */}
-          <div className="col-12">
-            <div className="rowe">
-              <img className="imagelogo" src={hackLogo} alt="" />
-            </div>
+        <div className="col-12">
+          <div className="rowe">
+            <img className="imagelogo" src={hackLogo} alt="" />
           </div>
-          <div className="join-button">
-              <Button onClick={handleShow} secondary outline>
-                Apunta't!
-              </Button>
-            </div>
+        </div>
+        <div className="join-button">
+          <Button onClick={handleShow} secondary outline>
+            Apunta't!
+          </Button>
+        </div>
         {/* </div> */}
       </div>
 
