@@ -39,7 +39,7 @@ function TableRow({ user: userParam, isGroup }) {
   }, [userParam]);
 
   async function handleAcceptar() {
-    let hack = await getHackeps()
+    let hack = await getHackeps();
     if (await acceptHackerToEvent(user.id, hack.id)) {
       setIsApproved(true);
     }
@@ -57,7 +57,7 @@ function TableRow({ user: userParam, isGroup }) {
       ]);
 
       if (res !== user.name) return;
-      let hack = await getHackeps()
+      let hack = await getHackeps();
       await rejectHackerToEvent(user.id, hack.id);
       window.location.reload();
       return;

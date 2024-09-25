@@ -77,7 +77,7 @@ const Sponsors = () => {
   const groups = {
     1: [],
     2: [],
-    3: []
+    3: [],
   };
 
   imgs2.forEach((img) => {
