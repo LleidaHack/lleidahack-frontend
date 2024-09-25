@@ -356,7 +356,7 @@ const InscripcioForm = () => {
                         </span>
                         <Button delete onClick={clearFile}>
                           &#10005;
-                        </button>
+                        </Button>
                       </div>
                     )}
                   </div>
@@ -404,7 +404,7 @@ const InscripcioForm = () => {
                   <div className="button-submit-container m-8 mt-2">
                     <Button primary type="submit">
                       {registered ? "Actualitza" : "Envia"}
-                    </button>
+                    </Button>
                   </div>
                 </Form>
               </Formik>

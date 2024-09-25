@@ -213,7 +213,7 @@ const Team = (props) => {
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
           <TitleGeneralized padTop="0" primary>
             {team.name} {team.code && `Codi: #${team.code}`}
-          </h1>
+          </TitleGeneralized>
           <Container className="">
             <Row className="justify-content-center">
               {team.members.map((member, index) => (

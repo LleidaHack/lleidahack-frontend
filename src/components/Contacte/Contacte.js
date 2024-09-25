@@ -169,7 +169,7 @@ const ContactePage = () => {
                   <div className="button-submit-container mb-8">
                     <Button primary type="submit">
                       Enviar
-                    </button>
+                    </Button>
                   </div>
                 </Form>
               </Formik>
