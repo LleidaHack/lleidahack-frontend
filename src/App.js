@@ -97,6 +97,16 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
+      {/*
+      <Router basename="/lleidahack">
+        <Routes>
+          <Route path="/" element={<HomeLanding />} />
+          <Route path="/home" element={<HomeLanding />} />
+          <Route path="*" element={<Error404Landing />} />
+          <Route path="/events" element={<EventsLanding />} />
+          <Route path="/legalinfo" element={<LegalInfoLanding />} />
+        </Routes>
+      </Router>*/}
     </div>
   );
 }
