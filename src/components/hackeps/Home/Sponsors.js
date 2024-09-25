@@ -108,9 +108,15 @@ const Sponsors = () => {
       </Link>
       <section className="justify-center flex flex-col">
         <div className="flex pt-8 gap-y-6 text-xs ">
-          <div className="flex flex-wrap justify-center gap-4 p-4">{groups[1]}</div>
-          <div className="flex flex-wrap justify-center gap-4 p-4">{groups[2]}</div>
-          <div className="flex flex-wrap justify-center gap-4 p-4">{groups[3]}</div>
+          <div className="flex flex-wrap justify-center gap-4 p-4">
+            {groups[1]}
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 p-4">
+            {groups[2]}
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 p-4">
+            {groups[3]}
+          </div>
         </div>
       </section>
       <br />
