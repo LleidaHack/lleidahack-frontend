@@ -24,7 +24,7 @@ import plusfresc from "src/icons/sponsors logos/2nd/plusfresc-logo.jpg";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 function redirectToURL(id) {
-  const targ = `hackeps/sponsors/${id}`;
+  const targ = `/hackeps/sponsors/${id}`;
   window.open(targ, "_blank");
 }
 
@@ -42,7 +42,7 @@ const Sponsors = () => {
         const companyDataTier2 = await getCompanyByTier(2);
         const companyDataTier3 = await getCompanyByTier(3);
         getInfoAll(companyDataTier1);
-        companyDataTier1.map((pos, index) => {
+        companyDataTier1.forEach((pos, index) => {
           imgs2[index] = {
             image: pos.image,
             importance: 1,
@@ -50,7 +50,7 @@ const Sponsors = () => {
             id: pos.id,
           };
         });
-        companyDataTier2.map((pos, index) => {
+        companyDataTier2.forEach((pos, index) => {
           imgs2.push({
             image: pos.image,
             importance: 2,
@@ -58,7 +58,7 @@ const Sponsors = () => {
             id: pos.id,
           });
         });
-        companyDataTier3.map((pos, index) => {
+        companyDataTier3.forEach((pos, index) => {
           imgs2.push({
             image: pos.image,
             importance: 3,
@@ -80,13 +80,13 @@ const Sponsors = () => {
     3: [],
   };
 
-  imgs2.forEach((img) => {
+  imgs2.forEach((img, index) => {
     groups[img.importance].push(
       <img
-        key={img.image}
+        key={index}
         src={img.image}
         alt={`Logo empresa`}
-        className="bg-white pepers"
+        className={`sponsor-group-group-${img.importance} bg-white p-3 max-h-48 object-contain border rounded-2xl border-gray-200 transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px] cursor-pointer`}
         onClick={() => redirectToURL(img.id)}
       />,
     );
@@ -106,11 +106,11 @@ const Sponsors = () => {
           Contacta
         </Button>
       </Link>
-      <section className="spnsection">
-        <div className="sponsors-container text-xs">
-          <div className="sponsor-group-group-1">{groups[1]}</div>
-          <div className="sponsor-group-group-2">{groups[2]}</div>
-          <div className="sponsor-group-group-3">{groups[3]}</div>
+      <section className="justify-center flex flex-col">
+        <div className="flex pt-8 gap-y-6 text-xs ">
+          <div className="flex flex-wrap justify-center gap-4 p-4">{groups[1]}</div>
+          <div className="flex flex-wrap justify-center gap-4 p-4">{groups[2]}</div>
+          <div className="flex flex-wrap justify-center gap-4 p-4">{groups[3]}</div>
         </div>
       </section>
       <br />
