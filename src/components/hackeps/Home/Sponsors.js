@@ -106,8 +106,8 @@ const Sponsors = () => {
           Contacta
         </Button>
       </Link>
-      <section className="justify-center flex flex-col">
-        <div className="flex pt-8 gap-y-6 text-xs ">
+      <section className="justify-center w-full">
+        <div className="flex flex-col pt-8 gap-y-6 text-xs">
           <div className="flex flex-wrap justify-center gap-4 p-4">
             {groups[1]}
           </div>
