@@ -11,7 +11,7 @@ export default function Verify() {
   useEffect(() => {
     async function callService() {
       const res = await verify(params.get("token"));
-      if (res.success) {
+      if (!res.errCode) {
         navigate("/");
         return;
       }
