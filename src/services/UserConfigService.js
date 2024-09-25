@@ -22,21 +22,3 @@ export async function updateUserConfig(id, config) {
     hasUserauth: true,
   });
 }
-
-/*
-export async function deleteALLUserConfigs() {
-  return fetchPlus({
-    Url: `/userConfig/`,
-    Method: "DELETE",
-    hasUserauth: true,
-  });
-}
-
-export async function createALLUserConfigs() {
-  return fetchPlus({
-    Url: `/userConfig/userconfig_all_creator`,
-    Method: "POST",
-    hasUserauth: true,
-  });
-}
-*/
