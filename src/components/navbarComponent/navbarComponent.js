@@ -96,14 +96,14 @@ const NavbarComponent = ({
                   </a>
                 </div>
               </div>
-              {(!showCenterContentOnlyOnDrop || !navDrop) &&
+              {(!showCenterContentOnlyOnDrop || !navDrop) && (
                 <div
                   className="absolute  md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0"
                   onClick={changeNavStatus}
                 >
                   {centerContent}
                 </div>
-              }
+              )}
               <div className="  mt-10 md:mt-0 md:bottom-0 absolute md:relative bottom-0 right-0 mr-4 mb-28 visible md:mr-0 md:mb-0 text-black">
                 <div className="block md:hidden md:center align-center">
                   <div className="w-11/12 border-1 border-white" />
