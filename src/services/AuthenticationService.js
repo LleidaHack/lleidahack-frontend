@@ -70,6 +70,6 @@ export async function contacte(mail) {
   return fetchPlus({
     Url: "/auth/contact",
     Method: "POST",
-    Body: mail
+    Body: mail,
   });
 }
