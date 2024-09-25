@@ -18,7 +18,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("El correu ha de ser una adreça de correu vàlida")
     .required("Correu requerit"),
-  subject: Yup.string().required("Títol del missatge requerit"),
+  title: Yup.string().required("Títol del missatge requerit"),
   message: Yup.string().required("Missatge requerit"),
 });
 
@@ -27,12 +27,8 @@ const ContactePage = () => {
   const [mailStatus, setMailStatus] = useState(false);
 
   const handleSubmit = async (values) => {
-    const onMail = await contacte(
-      values.name,
-      values.subject,
-      values.email,
-      values.message,
-    );
+    console.log(values)
+    const onMail = await contacte(values);
 
     if (onMail.success) {
       setMailStatus(true); //primer fiquem que el estat es correcte
@@ -104,7 +100,7 @@ const ContactePage = () => {
                 initialValues={{
                   name: "",
                   email: "",
-                  subject: "",
+                  title: "",
                   message: "",
                 }}
                 validationSchema={validationSchema}
@@ -141,13 +137,13 @@ const ContactePage = () => {
                   <div className="formik-field">
                     <label
                       className="text-textSecondaryHackeps"
-                      htmlFor="subject"
+                      htmlFor="title"
                     >
                       Títol del missatge:
                     </label>
-                    <Field type="text" id="subject" name="subject" />
+                    <Field type="text" id="title" name="title" />
                     <ErrorMessage
-                      name="subject"
+                      name="title"
                       component="div"
                       className="error-message"
                     />
