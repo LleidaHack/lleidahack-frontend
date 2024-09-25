@@ -38,10 +38,11 @@ const Sponsors = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const companyData = await getCompanyByTier(1);
+        const companyDataTier1 = await getCompanyByTier(1);
         const companyDataTier2 = await getCompanyByTier(2);
-        getInfoAll(companyData);
-        companyData.map((pos, index) => {
+        const companyDataTier3 = await getCompanyByTier(3);
+        getInfoAll(companyDataTier1);
+        companyDataTier1.map((pos, index) => {
           imgs2[index] = {
             image: pos.image,
             importance: 1,
@@ -57,6 +58,14 @@ const Sponsors = () => {
             id: pos.id,
           });
         });
+        companyDataTier3.map((pos, index) => {
+          imgs2.push({
+            image: pos.image,
+            importance: 3,
+            url: pos.website,
+            id: pos.id,
+          });
+        });
       } catch (error) {
         console.log("El error obtenido es:", error);
       }
@@ -68,6 +77,7 @@ const Sponsors = () => {
   const groups = {
     1: [],
     2: [],
+    3: [],
   };
 
   imgs2.forEach((img) => {
@@ -75,7 +85,7 @@ const Sponsors = () => {
       <img
         key={img.image}
         src={img.image}
-        alt={`Logo ${img.importance}`}
+        alt={`Logo empresa`}
         className="bg-white pepers"
         onClick={() => redirectToURL(img.id)}
       />,
@@ -97,9 +107,10 @@ const Sponsors = () => {
         </Button>
       </Link>
       <section className="spnsection">
-        <div className="sponsors-container">
+        <div className="sponsors-container text-xs">
           <div className="sponsor-group-group-1">{groups[1]}</div>
           <div className="sponsor-group-group-2">{groups[2]}</div>
+          <div className="sponsor-group-group-3">{groups[3]}</div>
         </div>
       </section>
       <br />

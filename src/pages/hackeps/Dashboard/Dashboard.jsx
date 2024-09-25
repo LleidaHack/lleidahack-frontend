@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   acceptHackerToEvent,
+  getHackeps,
   getPendingHackersGruped,
   rejectHackerToEvent,
 } from "src/services/EventService";
@@ -38,7 +39,8 @@ function TableRow({ user: userParam, isGroup }) {
   }, [userParam]);
 
   async function handleAcceptar() {
-    if (await acceptHackerToEvent(user.id, "1")) {
+    let hack = await getHackeps();
+    if (await acceptHackerToEvent(user.id, hack.id)) {
       setIsApproved(true);
     }
   }
@@ -55,8 +57,8 @@ function TableRow({ user: userParam, isGroup }) {
       ]);
 
       if (res !== user.name) return;
-
-      await rejectHackerToEvent(user.id, "1");
+      let hack = await getHackeps();
+      await rejectHackerToEvent(user.id, hack.id);
       window.location.reload();
       return;
     }

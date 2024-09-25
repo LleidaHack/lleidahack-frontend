@@ -97,6 +97,7 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
+      {/*
       <Router basename="/lleidahack">
         <Routes>
           <Route path="/" element={<HomeLanding />} />
@@ -105,7 +106,7 @@ export default function App() {
           <Route path="/events" element={<EventsLanding />} />
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
-      </Router>
+      </Router>*/}
     </div>
   );
 }
