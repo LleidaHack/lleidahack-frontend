@@ -133,23 +133,23 @@ img {
 }
 
 .sponsor-group-group-1 {
+  margin-top: 2rem;
   display: flex;
   width: 100%;
+  scale: 1.5;
   justify-content: center;
-  scale: 1.2;
 }
 
 .sponsor-group-group-2 {
   display: flex;
-  width: 90%;
-  scale: 0.9;
+  width: 100%;
   justify-content: center;
+  scale: 1;
 }
 
 .sponsor-group-group-3 {
   display: flex;
-  width: 18%;
-  scale: 0.5;
+  scale: 0.81;
   justify-content: center;
 }
 
