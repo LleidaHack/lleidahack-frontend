@@ -100,11 +100,7 @@ const ForgetPassword = ({ nextScreen }) => {
                             </p>
                           </div>
                           <div className="button-container">
-                            <Button
-                              type="submit"
-                              primary
-                              md
-                            >
+                            <Button type="submit" primary md>
                               {isSubmitting
                                 ? "Enviant enllaç..."
                                 : "Envia enllaç d'accés"}
