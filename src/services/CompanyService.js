@@ -6,6 +6,15 @@ export async function getAllCompanies() {
   });
 }
 
+export async function addCompany(company) {
+  return fetchPlus({
+    Url: "/company/",
+    Method: "POST",
+    hasUserauth: true,
+    Body: company,
+  });
+}
+
 export async function getCompanyById(company_id) {
   return fetchPlus({
     Url: `/company/${company_id}`,
@@ -26,15 +35,6 @@ export async function deleteCompany(company_id) {
     Url: `/company/${company_id}`,
     Method: "DELETE",
     hasUserauth: true,
-  });
-}
-
-export async function addCompany(company) {
-  return fetchPlus({
-    Url: "/company/",
-    Method: "POST",
-    hasUserauth: true,
-    Body: company,
   });
 }
 
@@ -65,5 +65,11 @@ export async function getCompanyEvents(company_id) {
   return fetchPlus({
     Url: `/company/${company_id}/events`,
     hasUserauth: true,
+  });
+}
+
+export async function getCompanyByTier(tier) {
+  return fetchPlus({
+    Url: `/company/tier/${tier}/`,
   });
 }

@@ -24,7 +24,7 @@
 
 .team-member-name {
   font-size: 1.3rem;
-  color: var(--secondary);
+  color: var(--text-secondary);
   word-wrap: break-word;
 }
 
@@ -34,6 +34,11 @@
   height: 9rem;
   width: 9rem;
   margin: auto auto;
+}
+
+.same-size-icon {
+  font-size: 128px; /* Tamaño de la fuente del icono */
+  line-height: 128px; /* Altura de la línea */
 }
 
 .team-modal-no-border {
@@ -53,10 +58,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-}
-
-.black-color {
-  color: black;
 }
 
 .containerinf {

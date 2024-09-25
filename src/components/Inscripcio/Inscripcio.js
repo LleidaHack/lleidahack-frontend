@@ -4,7 +4,7 @@ import "src/components/Inscripcio/Inscripcio.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { SelectField } from "formik-stepper";
-import { registerHackerToEvent } from "src/services/EventManagementService";
+import { registerHackerToEvent } from "src/services/EventService";
 import { getHackeps } from "src/services/EventService";
 import FailFeedback from "src/components/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/Feedbacks/SuccesFeedback";
@@ -81,7 +81,7 @@ const InscripcioForm = () => {
       });
       setHackepsEvent(hackepsEvent);
       setPreviousRegistration(me);
-      console.log(me);
+      if (process.env.REACT_APP_DEBUG === "true") console.log(me);
     };
 
     fetchData();
@@ -99,22 +99,23 @@ const InscripcioForm = () => {
       study_center: values.center,
       location: values.location,
       how_did_you_meet_us: values.meet,
+      wants_credit: values.checkboxcredit,
       update_user: true,
       terms_accepted: values.checkboxterms,
     };
 
     if (registered) {
       data.id = previousRegistration.id;
-      updateHacker(data);
+      await updateHacker(data);
     } else {
       let registration = await registerHackerToEvent(
-        localStorage.getItem("userID"),
         hackepsEvent.id,
+        localStorage.getItem("userID"),
         data,
       );
-      if (registration.message) {
+      if (registration.errCode) {
         setErrRegister("");
-        if (registration.message === "Hacker already registered") {
+        if (registration.errCode === 400) {
           setErrRegister(
             "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.",
           );
@@ -151,14 +152,14 @@ const InscripcioForm = () => {
   };
 
   return (
-    <div className="container-all-inscripcio">
+    <div className="container-all-inscripcio bg-secondaryHackeps">
       {!submittRegister ? (
         <>
           <br />
           <div className="container-inscripcio">
-            <h1 className="title-contacte title-underline">
-              Inscripció HackEPS 2023
-            </h1>
+            <TitleGeneralized underline>
+              Inscripció HackEPS 2024
+            </TitleGeneralized>
             <div className="form-container">
               <Formik
                 enableReinitialize
@@ -173,6 +174,7 @@ const InscripcioForm = () => {
                   linkedin: previousRegistration.linkedin,
                   github: previousRegistration.github,
                   devpost: previousRegistration.cv,
+                  checkboxcredit: false,
                   checkboxterms: registered,
                 }}
                 validationSchema={validationSchema}
@@ -180,7 +182,10 @@ const InscripcioForm = () => {
               >
                 <Form>
                   <div className="formik-field">
-                    <label htmlFor="studies">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="studies"
+                    >
                       Què estudies o has estudiat?
                     </label>
                     <Field type="text" id="studies" name="studies" />
@@ -192,7 +197,12 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label htmlFor="center">Centre d'estudis:</label>
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="center"
+                    >
+                      Centre d'estudis:
+                    </label>
                     <Field type="text" id="center" name="center" />
                     <ErrorMessage
                       name="center"
@@ -202,7 +212,12 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label htmlFor="location">D'on vens?:</label>
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="location"
+                    >
+                      D'on vens?:
+                    </label>
                     <Field type="text" id="location" name="location" />
                     <ErrorMessage
                       name="location"
@@ -218,6 +233,7 @@ const InscripcioForm = () => {
                       label="Talla de samarreta:"
                       options={sizeOptions}
                       placeholder="La meva talla de samarreta és..."
+                      labelColor="#000000"
                     />
                     <ErrorMessage
                       name="size"
@@ -227,7 +243,7 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="formik-field">
-                    <label htmlFor="food">
+                    <label className="text-textSecondaryHackeps" htmlFor="food">
                       Tens alguna restricció alimentària o alèrgia?
                     </label>
                     <Field type="text" id="food" name="food" />
@@ -245,14 +261,19 @@ const InscripcioForm = () => {
                       options={meetOptions}
                       label="Com ens has conegut?"
                       placeholder="Us he conegut per..."
+                      labelColor="#000000"
                     />
                   </div>
+
                   <div className="formik-field">
-                    <label htmlFor="cvinfo_links">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="cvinfo_links"
+                    >
                       Vols que les empreses de Lleida et coneguin? (Opcional)
                     </label>
-                    <p className="subtitle">
-                      Tens expeciència en altres hackatons? Algun projecte
+                    <p className="subtitle text-textSecondaryHackeps">
+                      Tens experiència en altres hackatons? Algun projecte
                       personal que vulguis compartir? Explica'ns què t'apassiona
                       i deixa aquí els enllaços de les teves xarxes socials.
                     </p>
@@ -314,53 +335,74 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="file-input-container">
-                    <label htmlFor="cvinfo_file">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="cvinfo_file"
+                    >
                       Adjunta el teu CV (Opcional)
                     </label>
-                    <FileBase
-                      type="file"
-                      id="cvinfo_file"
-                      name="cvinfo_file"
-                      onDone={handleFileChange}
-                    />
+                    <div className="cv-input-container">
+                      <FileBase
+                        type="file"
+                        id="cvinfo_file"
+                        name="cvinfo_file"
+                        onDone={handleFileChange}
+                      />
+                    </div>
                     {cvFile && (
                       <div className="file-info">
-                        <span className="file-name">{cvFile.name}</span>
-                        <button
-                          type="button"
-                          className="delete-button"
-                          onClick={clearFile}
-                        >
+                        <span className="file-name text-textSecondaryHackeps">
+                          {cvFile.name}
+                        </span>
+                        <Button delete onClick={clearFile}>
                           &#10005;
                         </button>
                       </div>
                     )}
                   </div>
+
                   <div className="checkbox-container">
-                    <br />
-                    <br />
                     <Field
                       type="checkbox"
                       id="checkboxterms"
                       name="checkboxterms"
                     />
-                    <label htmlFor="checkboxterms">
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="checkboxterms"
+                    >
                       Accepto els{" "}
                       <a href="/terms" target="_blank">
                         Termes i Condicions
                       </a>{" "}
-                      de la HackEPS 2023
+                      de la HackEPS 2024
                     </label>
-                    <br />
-                    <br />
                     <ErrorMessage
                       name="checkboxterms"
                       component="div"
-                      className="error-message"
+                      className="text-errorRed"
                     />
                   </div>
-                  <div className="button-submit-container">
-                    <button className="button-submit" type="submit">
+
+                  <div className="checkbox-container">
+                    <br />
+                    <br />
+                    <Field
+                      type="checkbox"
+                      id="checkboxcredit"
+                      name="checkboxcredit"
+                    />
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="checkboxcredit"
+                    >
+                      Vull 1 crèdit ECTS de matèria transversal (només aplicable
+                      a alumnes de la UDL)
+                    </label>
+                  </div>
+
+                  <div className="button-submit-container m-8 mt-2">
+                    <Button primary type="submit">
                       {registered ? "Actualitza" : "Envia"}
                     </button>
                   </div>
@@ -387,7 +429,7 @@ const InscripcioForm = () => {
             <>
               <SuccessFeedback
                 title="T'has registrat correctament a l'esdeveniment!"
-                text={`El teu registre s'ha realitzat correctament. \n Quan siguis acceptat a l'esdeveniment rebràs un correu per a confirmar la teva assisténcia.\n Estigues atent! Tindrás 5 dies per confirmar-ho.`}
+                text={`El teu registre s'ha realitzat correctament. \n Quan siguis acceptat a l'esdeveniment rebràs un correu per a confirmar la teva assistència.\n Estigues atent! Tindrás 5 dies per confirmar-ho.`}
                 hasButton={true}
                 buttonLink="/perfil"
                 buttonText="Inicia sessió"

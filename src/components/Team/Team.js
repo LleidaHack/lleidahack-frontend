@@ -50,8 +50,8 @@ const Team = (props) => {
       localStorage.getItem("userID"),
       team.id,
     );
-    if (a.message) {
-      setErr(a.message);
+    if (a.errCode) {
+      setErr(a.errMssg);
     } else {
       setTeam(null);
     }
@@ -108,12 +108,11 @@ const Team = (props) => {
       <>
         {is_user && (
           <Container className="p-bg-grey text-center mt-5 m-0 p-3 contss">
-            <h1>Inscripcions</h1>
-            <Row className="justify-content-center">
-              <Button
-                className="m-3 team-button team-button-fit"
-                onClick={handleShowJoinTeam}
-              >
+            <TitleGeneralized marginBot="2" padTop="0" primary>
+              Inscripcions
+            </TitleGeneralized>
+            <Row className="gap-2 flex-row">
+              <Button primary onClick={handleShowJoinTeam}>
                 Ja tinc un equip
               </Button>
               <Button
@@ -140,7 +139,10 @@ const Team = (props) => {
               >
                 <Form>
                   <div className="formik-field">
-                    <label htmlFor="teamCode" className="black-color">
+                    <label
+                      htmlFor="teamCode"
+                      className="text-textSecondaryHackeps"
+                    >
                       Codi de l'equip (#XXXXXXXXXX):
                     </label>
                     <Field type="text" id="teamCode" name="teamCode" />
@@ -209,7 +211,7 @@ const Team = (props) => {
     return (
       <div className="Alineador">
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
-          <h1>
+          <TitleGeneralized padTop="0" primary>
             {team.name} {team.code && `Codi: #${team.code}`}
           </h1>
           <Container className="">
@@ -217,7 +219,7 @@ const Team = (props) => {
               {team.members.map((member, index) => (
                 <Col className="col-xxl-3 cards" key={index}>
                   <div className="p-3 text-center bg-white smallCard">
-                    <ProfilePic hacker={member} />
+                    <ProfilePic hacker={member} size="big" bgcolor="black" />
                     <p className="team-member-name">{member.name}</p>
                     {String(member.id) === localStorage.getItem("userID") ? (
                       ""

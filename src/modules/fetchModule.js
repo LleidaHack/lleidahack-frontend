@@ -5,13 +5,18 @@ export async function fetchPlus({
   Query,
   hasUserauth = false,
   saveLoginInfo = false,
+  refresh_token = false,
   loginAuth,
+  apiVersion = 1,
+  forceDebug = false,
 }) {
   const headers = { "Content-Type": "application/json" };
-  if (hasUserauth || loginAuth)
+  if (hasUserauth || refresh_token || loginAuth)
     headers.Authorization = loginAuth
       ? "Basic " + btoa(`${loginAuth.email}:${loginAuth.password}`)
-      : "Bearer " + localStorage.getItem("userToken");
+      : hasUserauth
+        ? "Bearer " + localStorage.getItem("userToken")
+        : "Bearer " + localStorage.getItem("refreshToken");
   const args = {
     method: Method,
     headers: headers,
@@ -22,15 +27,27 @@ export async function fetchPlus({
     query = `?${Object.entries(Query)
       .map(([key, value]) => `${key}=${value}`)
       .join("&")}`;
-  if (process.env.REACT_APP_DEBUG === "true") console.log("headers: ", args);
-  return fetch(process.env.REACT_APP_DOMAIN + Url + query, args)
-    .then((response) => {
-      if (process.env.REACT_APP_DEBUG === "true")
+  if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
+    console.log("headers: ", args);
+  return fetch(
+    process.env.REACT_APP_DOMAIN + `/v${apiVersion}` + Url + query,
+    args,
+  )
+    .then(async (response) => {
+      if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
         console.log("response: ", response);
+      if (!response.ok) {
+        const error = await response.json();
+        return {
+          errCode: response.status,
+          errMssg: error.message,
+        };
+      }
       return response.json();
     })
     .then((data) => {
-      if (process.env.REACT_APP_DEBUG === "true") console.log("data: ", data);
+      if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
+        console.log("data: ", data);
       if (saveLoginInfo) {
         localStorage.setItem("userToken", data.access_token);
         localStorage.setItem("userID", data.user_id);
@@ -40,6 +57,6 @@ export async function fetchPlus({
     })
     .catch((error) => {
       console.warn(error);
-      return [];
+      return error;
     });
 }

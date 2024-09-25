@@ -3,14 +3,13 @@
 /* Estilos generales del header */
 body {
   background-color: var(--primary);
-  color: var(--white);
+  color: var(--text-primary);
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .navbar {
-  background-color: var(--primary);
   padding: 10px 0;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
   position: sticky !important;
@@ -20,14 +19,12 @@ body {
 }
 
 .navbar-brand {
-  color: var(--black);
   font-weight: bold;
   font-size: 30px;
   text-decoration: none;
 }
 
 .navbar-nav .nav-link {
-  color: var(--black);
   font-size: 18px;
   text-decoration: none;
   transition: color 0.3s;
@@ -35,7 +32,6 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-  color: var(--black);
   font-weight: 10;
 }
 
@@ -67,7 +63,7 @@ body {
 }
 
 .navbar-toggler-icon {
-  color: var(--black);
+  color: var(--text-primary);
 }
 
 .menu-items.show {
@@ -82,7 +78,7 @@ body {
 }
 
 .navbar-toggler .navbar-toggler-icon {
-  color: var(--black);
+  color: var(--text-primary);
 }
 
 .navbar-nav {
@@ -148,26 +144,6 @@ body {
   max-width: 100%;
 }
 
-.popup-contenter {
-  display: block;
-  position: fixed;
-  right: 20px;
-  top: 3%;
-  background-color: var(--white);
-  padding: 1vw;
-  width: 40%;
-  margin: 6rem 2rem;
-  opacity: 1;
-  z-index: 100;
-  border-radius: 5px;
-  max-width: 22rem;
-}
-
-.popup-options button {
-  display: block;
-  margin-bottom: 10px;
-}
-
 .main-content {
   padding: 20px;
 }
@@ -199,20 +175,7 @@ body {
   object-fit: cover; /* Ajusta el tamaño de la imagen para que cubra el círculo */
 }
 
-.apuntat-buttonex {
-  color: var(--white);
-  background-color: var(--secondary);
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.1s ease-in-out;
-  scale: 0.9;
-}
-
-.apuntat-buttonex:hover {
-  background-color: var(--primary);
-}
-
-.profileImage2 {
+.profileImage {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%; /* Hace que el div sea un círculo */
@@ -245,18 +208,9 @@ body {
     margin-right: 0rem;
   }
 
-  .popup-contenter {
-    align-items: center;
-    width: 16rem;
-  }
-
   .peperse {
     max-width: 100%;
     scale: 1;
-  }
-
-  .apuntat-buttonex {
-    scale: 0.9;
   }
 
   .nav-item:last-child {

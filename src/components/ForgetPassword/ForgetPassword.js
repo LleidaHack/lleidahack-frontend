@@ -18,13 +18,13 @@ const ForgetPassword = ({ nextScreen }) => {
     // console.log("El email es:", values.email);
     const sendingQuest = await resetPassword(values.email);
     console.log(sendingQuest);
-    if (sendingQuest.message) {
-      if (sendingQuest.message === "User not found") {
+    if (sendingQuest.errCode) {
+      if (sendingQuest.errCode === 404) {
         setFieldError(
           "email",
           "No s'ha trobat un compte asociat a aquest correu. Comprova que estigui tot correcte.",
         );
-      } else if (sendingQuest.message === "User not verified") {
+      } else if (sendingQuest.errCode === 400) {
         setFieldError(
           "email",
           "Sembla ser que encara no estas verificat. Comproba la teva bustia de spam.",
@@ -43,7 +43,7 @@ const ForgetPassword = ({ nextScreen }) => {
   };
 
   return (
-    <div className="login-page">
+    <div className="login-page bg-loginPage">
       {!status ? (
         <div className="content">
           <Container>
@@ -52,7 +52,7 @@ const ForgetPassword = ({ nextScreen }) => {
                 <div className="login-container">
                   <img src={logo} className="App-logo" alt="logo" />
                   <br></br>
-                  <h2 className="mb-4 h2-title">
+                  <h2 className="mb-4 h2-title text-white">
                     Necesites ajuda per a iniciar sessió?
                   </h2>
                   <Formik
@@ -64,8 +64,11 @@ const ForgetPassword = ({ nextScreen }) => {
                     {({ isSubmitting, submitForm, errors, touched }) => (
                       <Form>
                         <div className="form-group">
-                          <label htmlFor="email">
-                            Introdueix el teu correu electrónic
+                          <label
+                            className="text-textPrimaryHackeps"
+                            htmlFor="email"
+                          >
+                            Introdueix el teu correu electrònic
                           </label>
                           <Field
                             type="email"
@@ -83,7 +86,7 @@ const ForgetPassword = ({ nextScreen }) => {
                           )}
                         </div>
 
-                        <div className="redirects">
+                        <div className="redirects text-white">
                           <p>
                             Rebràs un correu electrònic per amb les instruccions
                             per a poder recuperar el teu compte
@@ -111,10 +114,10 @@ const ForgetPassword = ({ nextScreen }) => {
         </div>
       ) : (
         <div className="content">
-          <section className="informative">
+          <section className="informative text-white">
             <div className="Part2">
               <div className="iconBox">
-                <div className="wrapper">
+                <div className="wrapper bg-loginPage">
                   <svg
                     className="checkmark"
                     xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +125,7 @@ const ForgetPassword = ({ nextScreen }) => {
                   >
                     {" "}
                     <circle
-                      className="checkmark__circle"
+                      className="checkmark__circle stroke-errorRed"
                       cx="26"
                       cy="26"
                       r="25"

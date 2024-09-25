@@ -1,5 +1,5 @@
 .calendar-content {
-  color: var(--white);
+  color: var(--text-secondary);
 }
 
 /*https://blog.loprimaryket.com/react-calendar-tutorial-build-customize-calendar/*/
@@ -37,6 +37,7 @@
 .react-calendar button {
   margin: 3px;
   border: 0;
+  background-color: var(--primary-strong);
 }
 .react-calendar button:enabled:hover {
   cursor: pointer;
@@ -97,7 +98,7 @@
   background: var(--primary-strong);
   text-align: center;
   line-height: 16px;
-  color: var(--white);
+  color: var(--black);
   border-radius: 5px;
 }
 .react-calendar__tile:disabled {
@@ -108,17 +109,18 @@
   background-color: var(--gray-light2);
 }
 .react-calendar__tile--now {
-  background: var(--gray-light);
-  color: var(--primary-strong);
+  background: var(--primary-strong3);
+  color: var(--black);
   font-weight: bold;
 }
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
   background: var(--white);
+  color: var(--primary-strong);
   border-radius: 5px;
 }
 .react-calendar__tile--hasActive {
-  background: var(--white);
+  background: var(--primary-strong2) !important;
   color: var(--primary);
   font-weight: bold;
   border-radius: 5px;
@@ -131,7 +133,7 @@
   border-radius: 5px;
 }
 .react-calendar__tile--active {
-  background: var(--white);
+  background: var(--primary-strong2);
   color: var(--primary);
   font-weight: bold;
   border-radius: 5px;

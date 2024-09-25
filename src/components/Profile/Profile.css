@@ -22,31 +22,27 @@
   cursor: pointer;
 }
 
-#profile-image {
-  position: relative;
-  color: white;
-  object-fit: cover;
-  border-color: var(--primary) !important;
-  border-width: 3px !important;
+.editSpace {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.logOut-button {
-  padding: 10px 12px;
-  font-size: 18px;
-  background-color: var(--secondary);
-  color: var(--white);
-  border: 2px solid var(--primary);
-  cursor: pointer;
-  font-family: "space mono";
+.editAjust {
+  width: 50%;
 }
 
-.logOut-button:hover {
-  background-color: var(--primary);
-  color: var(--secondary);
+.sort-horizontally {
+  display: flex;
+  justify-content: center;
 }
 
 .main-screen {
   min-height: 100vh;
+}
+
+.file-input-container input[type="file" i]::-webkit-file-upload-button {
+  color: var(--text-primary);
 }
 
 @media (max-width: 768px) {

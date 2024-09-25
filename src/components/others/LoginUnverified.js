@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { resendVerification } from "src/services/AuthenticationService";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const LoginUnverified = ({ email }) => {
   const navigate = useNavigate();
@@ -42,22 +43,18 @@ const LoginUnverified = ({ email }) => {
   };
 
   return (
-    <div
-      className="faq-container"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-      }}
-    >
-      <h3 className="text" style={{ margin: "10px" }}>
+    <div className="faq-container bg-secondaryHackeps flex flex-col items-center justify-start">
+      <TitleGeneralized big className="mt-48">
+        {">:("}
+      </TitleGeneralized>
+      <h3 className="text">
         Verifica el teu compte obrint el link que t'hem enviat al correu.
       </h3>
       <Button
         onClick={handleClick}
         disabled={isCooldownActive}
-        style={{ margin: "10px" }}
+        primary
+        className="mt-4 py-3"
       >
         No m'ha arribat el correu{isCooldownActive && `: ${countdown}`}
       </Button>

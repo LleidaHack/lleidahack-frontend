@@ -3,23 +3,32 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import "src/components/Home/Schedule.css";
+import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const Schedule = (props) => {
   const rendered_events = props.events.map((event) => {
     return (
-      <VerticalTimelineElement key={event.time} date={event.time}>
-        <h3 className="vertical-timeline-element-title">{event.title}</h3>
+      <VerticalTimelineElement
+        key={event.time}
+        date={event.time}
+        className="odd:text-right max-ml:!text-left"
+        dateClassName="odd:text-left"
+        iconClassName="bg-primaryHackeps shadow-none "
+        textClassName="bg-transparent shadow-none "
+      >
+        <h3 className="text-textSecondaryHackeps underline underline-offset-4 pb-4">
+          {event.title}
+        </h3>
       </VerticalTimelineElement>
     );
   });
 
   return (
-    <div className="dark-background">
-      <h1 className="text-center title-underline" href="#horari">
+    <div className="bg-secondaryHackeps">
+      <TitleGeneralized underline href="#horari">
         Horari
-      </h1>
-      <VerticalTimeline>{rendered_events}</VerticalTimeline>
+      </TitleGeneralized>
+      <VerticalTimeline lineColor="#0e3a29">{rendered_events}</VerticalTimeline>
     </div>
   );
 };

@@ -1,9 +1,8 @@
 import "src/components/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import hackLogo from "src/icons/hackLogo_black_cover.png";
-
+import Button from "src/components/buttons/Button";
+import hackLogo from "src/icons/banner_home_icon.png";
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
 
@@ -34,24 +33,20 @@ const MainTitle = () => {
 
   return (
     <>
-      <div className="backgrounder">
+      <div className="backgrounder bg-primaryHackeps bg-center">
         <div className="fantasma" id="home"></div>
-        <div className="magic_div">
-          <div className="col-12">
-            <div className="rowe">
-              <img className="imagelogo" src={hackLogo} alt="" />
-            </div>
-            <div className="row text-center">
-              <button
-                style={{ width: "fit-content", textDecoration: "none" }}
-                className="py-2 px-4 m-auto apuntat-button"
-                onClick={handleShow}
-              >
-                Apunta't!
-              </button>
-            </div>
+        {/* <div className="magic_div"> */}
+        <div className="col-12">
+          <div className="rowe">
+            <img className="imagelogo" src={hackLogo} alt="" />
           </div>
         </div>
+        <div className="join-button">
+          <Button onClick={handleShow} secondary outline>
+            Apunta't!
+          </Button>
+        </div>
+        {/* </div> */}
       </div>
 
       <Modal show={show} onHide={handleClose} centered>

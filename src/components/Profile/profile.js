@@ -10,7 +10,9 @@ import {
   getHackeps,
   getEventIsHackerRegistered,
   getEventIsHackerAccepted,
+  getEventHasHackerConfirmed,
 } from "src/services/EventService";
+<<<<<<<< HEAD:src/components/Profile/profile.js
 
 import qrIcon from "src/icons/qr-black.png";
 
@@ -20,6 +22,18 @@ import Team from "src/components/Team/Team";
 import LinkAccounts from "src/components/LinkAccounts/LinkAccounts";
 import Join from "src/components/Join/Join";
 import QrCode from "src/components/Home/QrCode.js";
+========
+import { getUserById } from "src/services/UserService";
+import EditProfile from "./EditProfile";
+import qrIcon from "src/icons/qr.png";
+
+//import Medals from "src/components/Medals/Medals";
+//import Calendar from "react-calendar/dist/umd/Calendar";
+import Team from "src/components/hackeps/Team/Team";
+import LinkAccounts from "src/components/hackeps/LinkAccounts/LinkAccounts";
+import Join from "src/components/hackeps/Join/Join";
+import QrCode from "src/components/hackeps/QrCode/QrCode.js";
+>>>>>>>> origin/integration:src/components/Profile/Profile.js
 import { getHackerGroupById } from "src/services/HackerGroupService";
 import UserNotFound from "./UserNotFound";
 import ProfilePic from "../others/ProfilePic";
@@ -29,12 +43,13 @@ const ProfileComponent = () => {
   const [isUser, setIsUser] = useState(
     hacker_id === localStorage.getItem("userID"),
   );
+  const [isHacker, setIsHacker] = useState(false);
 
   const [showQR, setShowQR] = useState(false);
   const handleShowQR = () => setShowQR(true);
   const handleCloseQR = () => setShowQR(false);
 
-  const [hacker, setHacker] = useState(null);
+  const [user, setUser] = useState(null);
   const [team, setTeam] = useState(null);
   const [event, setEvent] = useState(null);
   const [qrCode, setQrCode] = useState(null);
@@ -43,13 +58,37 @@ const ProfileComponent = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const checkIsHacker = (userCheck) => {
+    return userCheck?.type === "hacker";
+  };
+
+  const checkIsLleidaHacker = () => {
+    return user?.type === "lleida_hacker";
+  };
+
   useEffect(() => {
     let event_id;
     getHackeps().then((response) => {
       event_id = response.id;
       getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
         if (response) {
-          setEvent({ event_id: event_id, accepted: true, registered: true });
+          getEventHasHackerConfirmed(event_id, hacker_id).then((response) => {
+            if (response) {
+              setEvent({
+                event_id: event_id,
+                accepted: true,
+                registered: true,
+                confirmed: true,
+              });
+            } else {
+              setEvent({
+                event_id: event_id,
+                accepted: true,
+                registered: true,
+                confirmed: false,
+              });
+            }
+          });
         } else {
           getEventIsHackerRegistered(event_id, hacker_id).then((response) => {
             if (response) {
@@ -57,12 +96,14 @@ const ProfileComponent = () => {
                 event_id: event_id,
                 accepted: false,
                 registered: true,
+                confirmed: false,
               });
             } else {
               setEvent({
                 event_id: event_id,
                 accepted: false,
                 registered: false,
+                confirmed: false,
               });
             }
           });
@@ -75,19 +116,25 @@ const ProfileComponent = () => {
       setIsUser(true);
       hacker_id = localStorage.getItem("userID");
     }
-    getHackerById(hacker_id).then(async (response) => {
-      setHacker(await response);
+    getUserById(hacker_id).then(async (response) => {
+      setUser(await response);
+      setIsHacker(checkIsHacker(response));
       setQrCode(await response.code);
-      const response_1 = await getHackerGroups(hacker_id);
-      if (response_1 && !response_1.message) {
-        for (let i = 0; i < response_1.length; i++) {
-          if (response_1[i].event_id === event_id) {
-            setTeam(await getHackerGroupById(response_1[i].id));
-            break;
+    });
+    if (isHacker) {
+      getHackerById(hacker_id).then(async (response) => {
+        setUser(await response);
+        const response_1 = await getHackerGroups(hacker_id);
+        if (response_1 && !response_1.message) {
+          for (let i = 0; i < response_1.length; i++) {
+            if (response_1[i].event_id === event_id) {
+              setTeam(await getHackerGroupById(response_1[i].id));
+              break;
+            }
           }
         }
-      }
-    });
+      });
+    }
   }, [useParams()]);
 
   function logOut() {
@@ -107,8 +154,7 @@ const ProfileComponent = () => {
 
     return `${~~days} dies`;
   }
-  if (hacker)
-    if (hacker.message === "Hacker not found") return <UserNotFound />;
+  if (user) if (user.errCode === 404) return <UserNotFound />;
 
   return (
     <>
@@ -118,7 +164,18 @@ const ProfileComponent = () => {
           <div className="row align-middle mx-auto mb-3">
             {/* User Image */}
             <div className="col-12 col-xl-4 m-auto text-center">
+<<<<<<<< HEAD:src/components/Profile/profile.js
               <ProfilePic hacker={hacker} is_profile={true} />
+========
+              <ProfilePic
+                id="profile-pic-big"
+                hacker={user}
+                size="big"
+                bgcolor="white"
+                border={true}
+                is_profile={true}
+              />
+>>>>>>>> origin/integration:src/components/Profile/Profile.js
               <br />
               <br />
               {isUser && (
@@ -134,33 +191,49 @@ const ProfileComponent = () => {
             <div className="col-12 col-xl-4 px-0 my-3 text-center">
               <div className="row ">
                 {isUser && (
-                  <h3 className="text-center">Benvingut/da, hacker!</h3>
+                  <h3 className="text-textSecondaryHackeps text-center underline decoration-primaryHackeps underline-offset-[5px] decoration-[5px] rounded pb-4">
+                    Benvingut/da, hacker!
+                  </h3>
                 )}
               </div>
               <div className="row my-3">
                 <div className="col-xxl-1 col-2 d-flex">
+<<<<<<<< HEAD:src/components/Profile/profile.js
                   <h1 className="text-center m-auto">-</h1>
                 </div>
                 <h1 className="col-xxl-10 col-8">{hacker && hacker.name}</h1>
                 <div className="col-xxl-1 col-2 d-flex">
                   <h1 className="text-center m-auto">-</h1>
+========
+                  <TitleGeneralized className="m-auto" normal>
+                    -
+                  </TitleGeneralized>
+                </div>
+                <TitleGeneralized className="col-xxl-10 col-8" normal>
+                  {user && user.name}
+                </TitleGeneralized>
+                <div className="col-xxl-1 col-2 d-flex">
+                  <TitleGeneralized className="m-auto" normal>
+                    -
+                  </TitleGeneralized>
+>>>>>>>> origin/integration:src/components/Profile/Profile.js
                 </div>
               </div>
               <div className="row">
-                <span className="text-center">
+                <span className="text-center text-textSecondaryHackeps">
                   Membre desde fa{" "}
-                  {hacker ? generateMemberTime(hacker.created_at) : ""}
+                  {user ? generateMemberTime(user.created_at) : ""}
                 </span>
               </div>
             </div>
             {/* QR Column */}
-            <div className="col-12 col-xl-4 mx-auto text-dark">
+            <div className="col-12 col-xl-4 mx-auto text-textSecondaryHackeps">
               {isUser &&
                 event &&
                 event.accepted &&
-                (hacker ? (
+                (user ? (
                   <div
-                    className="container qr-container p-bg-primary p-2 text-center m-auto"
+                    className="container qr-container text-textPrimaryHackeps p-bg-primary p-2 text-center m-auto"
                     onClick={handleShowQR}
                   >
                     <div className="row">
@@ -189,11 +262,29 @@ const ProfileComponent = () => {
           </div>
 
           {/* Accounts link */}
-          {hacker && <LinkAccounts hacker={hacker} />}
+          {user && <LinkAccounts hacker={user} />}
 
+<<<<<<<< HEAD:src/components/Profile/profile.js
           {isUser && <Join event={event} />}
+========
+          {isUser && (
+            <div className="editSpace">
+              <div className="editAjust">
+                {user && <EditProfile hacker={user} />}
+              </div>
+            </div>
+          )}
 
-          {event && event.registered && <Team team={team} is_user={isUser} />}
+          {isHacker && (
+            <div className="sort-horizontally">
+              <Join event={event} />
+            </div>
+          )}
+>>>>>>>> origin/integration:src/components/Profile/Profile.js
+
+          {event && event.registered && isHacker && (
+            <Team team={team} is_user={isUser} />
+          )}
 
           {/* Calendar and Achievements */}
           <div className="row m-5 gy-5 bottom-container text-center m-auto">

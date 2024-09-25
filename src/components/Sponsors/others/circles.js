@@ -6,7 +6,7 @@ const UserCircle = ({ imageSrc, name, description }) => {
 
   return (
     <div
-      className="circle-item"
+      className="circle-item bg-primaryHackeps"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

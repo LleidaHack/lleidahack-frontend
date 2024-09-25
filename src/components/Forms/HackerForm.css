@@ -1,7 +1,6 @@
 .custom-form {
   justify-content: center;
   min-height: 100vh;
-  background: var(--secondary);
   display: flex;
   align-items: top;
   padding-bottom: 20px;
@@ -14,20 +13,12 @@
   }
 }
 
-.custom-form-Dailyhack {
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  padding-bottom: 20px;
-}
-
 label {
-  color: var(--white);
+  color: var(--text-secondary);
 }
 
 .stepper-horizontal {
-  color: var(--white);
+  color: var(--text-secondary);
 }
 .stepper-step.active-step {
   color: var(--primary);
@@ -51,7 +42,7 @@ h1 {
 .hacker-panel-title {
   text-align: center;
   padding: 20px 0 10px 0;
-  color: var(--white);
+  color: var(--text-secondary);
   font-size: 30px;
   font-weight: regular;
 }
@@ -76,4 +67,8 @@ input[type="file"]::-webkit-file-upload-button {
 
 .stepper-horizontal > .stepper-step {
   flex-shrink: 0;
+}
+
+.image-input-container input[type="file" i]::-webkit-file-upload-button {
+  color: var(--text-primary);
 }

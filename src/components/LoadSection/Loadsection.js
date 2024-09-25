@@ -3,7 +3,7 @@ import "src/components/LoadSection/LoadSection.css";
 
 const LoadSection = () => {
   return (
-    <div className="valerre">
+    <div className="valerre bg-secondaryHackeps">
       <div className="loader">
         <svg className="circular-loader" viewBox="25 25 50 50">
           <circle

@@ -3,10 +3,10 @@ import { Container } from "react-bootstrap";
 
 const PrivacyComponent = () => {
   return (
-    <div className="dark-background">
-      <Container className="py-5 text-white">
-        <h3>POLÍTICA DE PRIVADESA</h3>
-        <p>
+    <div className="bg-secondaryHackeps">
+      <Container className="py-5 text-textSecondaryHackeps">
+        <h3 className="font-bold pb-2">POLÍTICA DE PRIVADESA</h3>
+        <p className="text-justify ml-4">
           La present Política de Privadesa estableix els termes en què
           LleidaHack usa i protegeix la informació que és proporcionada pels
           seus usuaris al moment d'utilitzar el seu lloc web. Aquesta companyia
@@ -20,14 +20,14 @@ const PrivacyComponent = () => {
         </p>
 
         <h4>Informació que és recollida</h4>
-        <p>
+        <p className="text-justify ml-4">
           El nostre lloc web podrà recollir informació personal per exemple:
           Nom, informació de contacte com la seva adreça de correu electrònic i
           informació demogràfica.
         </p>
 
         <h4>Ús de la informació recollida</h4>
-        <p>
+        <p className="text-justify ml-4">
           El nostre lloc web fa servir la informació amb la finalitat de
           proporcionar el millor servei possible, particularment per a mantenir
           un registre d'usuaris, de comandes en cas que aplicació, i millorar
@@ -39,7 +39,7 @@ const PrivacyComponent = () => {
           vostè proporcioni i podran ser cancel·lats en qualsevol moment.
         </p>
 
-        <p>
+        <p className="text-justify ml-4">
           LleidaHack està altament compromès per a complir amb el compromís de
           mantenir la seva informació segura. Usem els sistemes més avançats i
           els actualitzem constantment per a assegurar-nos que no existeixi cap
@@ -47,7 +47,7 @@ const PrivacyComponent = () => {
         </p>
 
         <h4>Cookies</h4>
-        <p>
+        <p className="text-justify ml-4">
           Una cookie es refereix a un fitxer que és enviat amb la finalitat de
           sol·licitar permís per a emmagatzemar-se en el seu ordinador, en
           acceptar aquest fitxer es crea i la cookie serveix llavors per a tenir
@@ -56,7 +56,7 @@ const PrivacyComponent = () => {
           que amb elles les webs poden reconèixer-te individualment i, per tant,
           brindar-te el millor servei personalitzat del seu web.
         </p>
-        <p>
+        <p className="text-justify ml-4">
           El nostre lloc web empra les cookies per a poder identificar les
           pàgines que són visitades i la seva freqüència. Aquesta informació és
           usada únicament per a anàlisi estadística i després la informació
@@ -73,7 +73,7 @@ const PrivacyComponent = () => {
         </p>
 
         <h4>Enllaços a tercers</h4>
-        <p>
+        <p className="text-justify ml-4">
           Aquest lloc web pot contenir enllaços a altres llocs que poguessin ser
           del seu interès. Una vegada que vostè faci clic en aquests enllaços i
           abandoni la nostra pàgina, ja no tenim control sobre el lloc al qual
@@ -85,7 +85,7 @@ const PrivacyComponent = () => {
         </p>
 
         <h4>Control de la seva informació personal</h4>
-        <p>
+        <p className="text-justify ml-4">
           En qualsevol moment vostè pot restringir la recopilació o l'ús de la
           informació personal que és proporcionada al nostre lloc web. Cada
           vegada que se li sol·liciti emplenar un formulari, com el d'alta
@@ -94,7 +94,7 @@ const PrivacyComponent = () => {
           butlletí o publicitat vostè pot cancel·lar-la en qualsevol moment.
         </p>
 
-        <p>
+        <p className="text-justify ml-4">
           Aquesta companyia no vendrà, cedirà ni distribuirà la informació
           personal que és recopilada sense el seu consentiment, tret que sigui
           requerit per un jutge amb un ordre judicial. LleidaHack es reserva el

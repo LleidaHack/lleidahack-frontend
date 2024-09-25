@@ -93,14 +93,14 @@ export const HackerStepperForm = () => {
 
     const res = await signupHacker(hacker);
     console.log(res);
-    if (res.message) {
+    if (res.errCode) {
       setStatusSubmit(false);
       let causeError = "Error al tramitar dades";
-      if (res.message === "Email already exists") {
+      if (res.errMssg === "Email already exists") {
         causeError = "El correu que has introduit es troba registrat.";
-      } else if (res.message === "Nickname already exists") {
+      } else if (res.errMssg === "Nickname already exists") {
         causeError = "El nickname que has introduit es troba registrat.";
-      } else if (res.message === "Telephone already exists") {
+      } else if (res.errMssg === "Telephone already exists") {
         causeError = "El telefon que has introduit es troba registrat.";
       }
       setCauseError(causeError);
@@ -131,7 +131,7 @@ export const HackerStepperForm = () => {
 
   return (
     <>
-      <div id="hackerForm" className="custom-form">
+      <div id="hackerForm" className="custom-form bg-secondaryHackeps">
         {!submiting ? (
           <FormikStepper
             /// Accept all Formik props
@@ -151,22 +151,33 @@ export const HackerStepperForm = () => {
             withStepperLine /// false as default and If it is false, it hides stepper line
             nextButton={{
               label: "Següent",
-              style: { background: "var(--primary)", color: "black" },
+              style: {
+                background: "var(--primary)",
+                color: "var(--secondary)",
+              },
             }}
             prevButton={{
               label: "Enrere",
-              style: { background: "var(--primary)", color: "black" },
+              style: {
+                background: "var(--primary)",
+                color: "var(--secondary)",
+              },
             }}
             submitButton={{
               label: "Envia",
-              style: { background: "var(--primary)", color: "black" },
+              style: {
+                background: "var(--primary)",
+                color: "var(--secondary)",
+              },
             }}
           >
             <FormikStepper.Step label="Informació personal">
               <Row className="align-content-center d-flex">
                 <HackerPanel />
                 <div className="col-12 col-xxl-6 ">
-                  <h1 className="white-color">Informació Personal</h1>
+                  <TitleGeneralized marginBot="2" alignText="left">
+                    Informació Personal
+                  </TitleGeneralized>
                   <InputField
                     className="w-100"
                     name="firstName"
@@ -204,7 +215,9 @@ export const HackerStepperForm = () => {
               <Row>
                 <HackerPanel />
                 <div className="col-12 col-xxl-6 ">
-                  <h1 className="white-color">Contacte</h1>
+                  <TitleGeneralized marginBot="2" alignText="left">
+                    Contacte
+                  </TitleGeneralized>
                   <InputField
                     className="w-100"
                     name="phone"
@@ -226,21 +239,36 @@ export const HackerStepperForm = () => {
                 <div className="col-12 col-xxl-6 d-flex flex-column">
                   {isUrl && urlImage !== "" ? (
                     <img
-                      style={{ height: "250px", width: "250px" }}
+                      style={{
+                        height: "250px",
+                        width: "250px",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                       className="avatar-image bg-white rounded-circle m-auto"
                       src={urlImage}
                       alt="avatar"
                     />
                   ) : avatar ? (
                     <img
-                      style={{ height: "250px", width: "250px" }}
+                      style={{
+                        height: "250px",
+                        width: "250px",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                       className="avatar-image bg-white rounded-circle m-auto"
                       src={avatar}
                       alt="avatar"
                     />
                   ) : (
                     <img
-                      style={{ height: "250px", width: "250px" }}
+                      style={{
+                        height: "250px",
+                        width: "250px",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
                       className="avatar-image bg-white rounded-circle m-auto"
                       src={userIcon}
                       alt="avatar"
@@ -248,7 +276,9 @@ export const HackerStepperForm = () => {
                   )}
                 </div>
                 <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
-                  <h1 className="white-color">Avatar</h1>
+                  <TitleGeneralized marginBot="2" alignText="left">
+                    Avatar
+                  </TitleGeneralized>
                   <InputField
                     className="w-100"
                     name="nickname"
@@ -264,12 +294,14 @@ export const HackerStepperForm = () => {
                       placeholder="https://..."
                       onChange={handleImageUrlChange}
                     />
-                    <FileBase
-                      id="avatarInput"
-                      type="file"
-                      multiple={false}
-                      onDone={handleImageChange}
-                    />
+                    <div className="image-input-container">
+                      <FileBase
+                        id="avatarInput"
+                        type="file"
+                        multiple={false}
+                        onDone={handleImageChange}
+                      />
+                    </div>
                   </div>
                 </div>
               </Row>

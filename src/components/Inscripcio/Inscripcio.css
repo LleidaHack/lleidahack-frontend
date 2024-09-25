@@ -1,6 +1,5 @@
 /* ContactPage.css */
 .container-all-inscripcio {
-  background-color: var(--secondary);
   min-height: 100vh;
   justify-content: center;
   align-items: center;
@@ -71,35 +70,16 @@ form {
 label {
   font-size: 18px;
   margin-bottom: 16px;
-  color: var(--white);
 }
 
 input,
 textarea {
   padding: 10px;
   font-size: 12px;
-  border: 1px solid var(--white);
+  border: 1px solid;
   border-radius: 4px;
   margin-bottom: 16px;
   width: 100%;
-}
-
-.button-submit {
-  padding: 12px 32px;
-  font-size: 18px;
-  background-color: var(--secondary);
-  color: var(--white);
-  border: 2px solid var(--primary);
-  border-radius: 8px;
-  cursor: pointer;
-  width: fit-content;
-  margin: 20px;
-  justify-content: center;
-}
-
-.button-submit:hover {
-  background-color: var(--primary);
-  color: var(--secondary);
 }
 
 .button-submit-container {
@@ -111,18 +91,12 @@ textarea {
   margin-bottom: 50px;
 }
 
-.error-message {
-  color: var(--primary);
-}
-
 .subtitle {
-  color: var(--white);
   font-size: 14px;
   margin-bottom: 20px;
 }
 
 .file-name {
-  color: var(--white);
   font-size: 14px;
   margin-bottom: 20px;
 }
@@ -138,18 +112,13 @@ textarea {
   margin-top: 5px;
 }
 
-.delete-button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .select-field .react-select__control,
 input[type="text"] {
   height: 50px; /* Ajusta esta altura según tus preferencias */
+}
+
+.cv-input-container input[type="file" i]::-webkit-file-upload-button {
+  color: var(--text-primary);
 }
 
 @keyframes fadeIn {

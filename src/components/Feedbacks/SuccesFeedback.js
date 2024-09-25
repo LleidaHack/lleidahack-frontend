@@ -23,31 +23,9 @@ const SuccessFeedback = ({
   }, []);
 
   return (
-    <div className="valerr">
-      <br></br>
-      <br></br>
+    <div className="valerr bg-secondaryHackeps text-textSecondaryHackeps">
       <div className="iconBox">
-        <div>
-          <svg
-            className="checkmark"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 52 52"
-          >
-            {" "}
-            <circle
-              className="checkmark__circle"
-              cx="26"
-              cy="26"
-              r="25"
-              fill="none"
-            />{" "}
-            <path
-              className="checkmark__check"
-              fill="none"
-              d="M14.1 27.2l7.1 7.2 16.7-16.8"
-            />
-          </svg>
-        </div>
+        <i className="mt-48 mb-6 fa-regular fa-circle-check text-8xl"></i>
         <h2>{title}</h2>
         <p>{formattedText}</p>
         <p></p>

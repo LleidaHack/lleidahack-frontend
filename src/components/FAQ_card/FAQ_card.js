@@ -3,9 +3,9 @@ import "src/components/FAQ_card/FAQ_card.css"; // Agregar el archivo de estilos 
 
 const FAQCard = ({ question, answer }) => {
   return (
-    <div className="faq-card">
-      <h3 className="question">{question}</h3>
-      <p className="answer">{answer}</p>
+    <div className="faq-card bg-white">
+      <h3 className="question text-primaryHackeps">{question}</h3>
+      <p className="answer text-black">{answer}</p>
     </div>
   );
 };

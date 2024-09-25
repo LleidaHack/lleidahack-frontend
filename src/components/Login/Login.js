@@ -18,8 +18,8 @@ const LoginPage = ({ nextScreen }) => {
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
       let a = await login(values);
-      console.log(a.message);
-      if (a.message === "User not verified") {
+      if (process.env.REACT_APP_DEBUG === "true") console.log(a);
+      if (a.errCode === 400) {
         navigate("/user-verification", { state: { email: values.email } });
       } else if (localStorage.getItem("userToken") !== "undefined") {
         if (process.env.REACT_APP_DEBUG === "true")
@@ -27,9 +27,9 @@ const LoginPage = ({ nextScreen }) => {
         if (nextScreen) {
           navigate(nextScreen);
         } else navigate("/home");
-      } else if (a.message === "Incorrect password") {
+      } else if (a.errCode === 401) {
         setFieldError("password", "Contrasenya incorrecta");
-      } else if (a.message === "User not found") {
+      } else if (a.errCode === 404) {
         setFieldError("email", "E-mail no trobat");
       }
     } catch (error) {
@@ -41,13 +41,13 @@ const LoginPage = ({ nextScreen }) => {
 
   return (
     <div className="login-page">
-      <div className="content">
+      <div className="content bg-loginPage">
         <Container>
           <Row className="justify-content-center">
             <Col md={6}>
-              <div className="login-container">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h2 className="mb-4 h2-title">Hola de nou!</h2>
+              <div className="login-container ">
+                <img src={logo} className="App-logo mb-3" alt="logo" />
+                <h2 className="text-white mb-4 h2-title ">Hola de nou!</h2>
                 <Formik
                   initialValues={{ email: "", password: "" }}
                   validationSchema={validationSchema}
@@ -57,7 +57,9 @@ const LoginPage = ({ nextScreen }) => {
                   {({ isSubmitting, submitForm, errors, touched }) => (
                     <Form>
                       <div className="form-group">
-                        <label htmlFor="email">Correu</label>
+                        <label className="text-white" htmlFor="email">
+                          Correu
+                        </label>
                         <Field
                           type="email"
                           name="email"
@@ -71,7 +73,9 @@ const LoginPage = ({ nextScreen }) => {
                         )}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="password">Contrasenya</label>
+                        <label className="text-white" htmlFor="password">
+                          Contrasenya
+                        </label>
                         <Field
                           type="password"
                           name="password"
@@ -91,23 +95,24 @@ const LoginPage = ({ nextScreen }) => {
 
                       <div className="redirects">
                         <p className="mb-1">
-                          <Link to="/forgot-password" className="custom-link">
+                          <Link
+                            to="/forgot-password"
+                            className="custom-link text-grayColor"
+                          >
                             Has oblidat les teves credencials?
                           </Link>
                         </p>
                         <p className="mb-0">
-                          <Link to="/hacker-form" className="custom-link">
+                          <Link
+                            to="/hacker-form"
+                            className="custom-link text-grayColor"
+                          >
                             Encara no tens compte?
                           </Link>
                         </p>
                       </div>
                       <div className="button-container">
-                        <Button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="btn btn-default"
-                          onClick={submitForm}
-                        >
+                        <Button type="submit" primary lg>
                           {isSubmitting
                             ? "Iniciant sessió..."
                             : "Inicia sessió"}

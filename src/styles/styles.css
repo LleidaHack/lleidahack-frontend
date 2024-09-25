@@ -1,17 +1,28 @@
-.title-underline {
-  color: var(--white);
-  text-decoration: underline;
-  text-decoration-color: var(--primary);
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 0.2em;
-  border-radius: 5px;
-  padding-bottom: 1em;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.appear-animation {
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
 }
 
-.dark-background {
-  background-color: var(--secondary);
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.white-color {
-  color: var(--white);
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

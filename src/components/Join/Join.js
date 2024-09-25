@@ -10,21 +10,32 @@ const Join = (props) => {
     }
 
     if (props.event.accepted) {
-      return (
-        <div
-          style={{ width: `fit-content`, textDecoration: `none` }}
-          className="py-2 px-4 m-auto text-dark p-bg-primary"
-        >
-          Acceptat!
-        </div>
-      );
+      if (props.event.confirmed) {
+        return (
+          <div
+            style={{ width: `fit-content`, textDecoration: `none` }}
+            className="py-2 px-4 m-auto p-bg-primary text-textPrimaryHackeps"
+          >
+            Acceptat!
+          </div>
+        );
+      } else {
+        return (
+          <div
+            style={{ width: `fit-content`, textDecoration: `none` }}
+            className="py-2 px-4 m-auto p-bg-primary text-textPrimaryHackeps"
+          >
+            Confirma el correu
+          </div>
+        );
+      }
     }
 
     if (props.event.registered) {
       return (
         <div
           style={{ width: `fit-content`, textDecoration: `none` }}
-          className="py-2 px-4 m-auto text-dark p-bg-primary"
+          className="py-2 px-4 m-auto text-textPrimaryHackeps p-bg-primary"
         >
           Pendent d'acceptació
         </div>
@@ -34,7 +45,7 @@ const Join = (props) => {
         <a
           href="/hackeps/inscripcio"
           style={{ width: `fit-content`, textDecoration: `none` }}
-          className="py-2 px-4 m-auto text-dark p-bg-primary"
+          className="py-2 px-4 m-auto text-textPrimaryHackeps p-bg-primary"
         >
           Inscriure's
         </a>

@@ -43,11 +43,13 @@ const InfoSponsors = ({ id }) => {
   }, [id]);
 
   if (!infoCompany) {
-    return <div className="The-Grand-Phather">Cargando...</div>;
+    return (
+      <div className="The-Grand-Phather bg-secondaryHackeps">Cargando...</div>
+    );
   }
 
   console.log("la longitud de la tabla es:", infoCompany.name);
-  if (Object.keys(infoCompany).length > 0) {
+  if (Object.keys(infoCompany) && Object.keys(infoCompany).length > 0) {
     //Pagina que es mostrará si amb la id s'ha obtingut alguna cosa
 
     let SpnName = infoCompany.name; //Nom del Sponsor
@@ -55,11 +57,12 @@ const InfoSponsors = ({ id }) => {
     let linkedintag = infoCompany.linkdin; //Enllaç del likedin tag de la empresa.
     let correu = infoCompany.address; //Correu de la empresa
     let webtag = infoCompany.website; //Web de la empresa
-    let imgLogo = infoCompany.logo;
+    let imgLogo = infoCompany.image;
+    //un cop existeixi l'importancia a get/company/{id} let importancia = infoCompany.importancia;
     let description = infoCompany.description;
     let edicions = []; //Aqui afegir les edicions en les que han participat (2020, 2021, 2022, 2023,....)
     let xarxes = false; //Variable que servira per a informar si la empresa te enllaç web o no. Per defecte false. Si te web, s'ha de posar true
-    if (webtag.length > 0) {
+    if (webtag && webtag.length > 0) {
       xarxes = true;
     }
 
@@ -95,17 +98,32 @@ const InfoSponsors = ({ id }) => {
 
     if (xarxes) {
       text = [
-        <a href={linkedintag} target="_blank" rel="noreferrer" className="rel">
+        <a
+          href={linkedintag}
+          target="_blank"
+          rel="noreferrer"
+          className="rel text-textPrimaryHackeps"
+        >
           <i className="fa-brands fa-linkedin" /> LinkedIn
         </a>,
         "|",
-        <a href={webtag} target="_blank" rel="noreferrer" className="rel">
-          <i className="fa-solid fa-globe" /> Web
+        <a
+          href={webtag}
+          target="_blank"
+          rel="noreferrer"
+          className="rel text-textPrimaryHackeps"
+        >
+          <i className="fa-solid fa-globe " /> Web
         </a>,
       ];
     } else {
       text = [
-        <a href={linkedintag} target="_blank" rel="noreferrer" className="rel">
+        <a
+          href={linkedintag}
+          target="_blank"
+          rel="noreferrer"
+          className="rel text-textPrimaryHackeps"
+        >
           <i className="fa-brands fa-linkedin" /> LinkedIn
         </a>,
       ];
@@ -117,7 +135,7 @@ const InfoSponsors = ({ id }) => {
           <h1 className="title-Info-sponsors">- {SpnName} -</h1>
           <br />
 
-          <p className="text-aftTitle">
+          <p className="text-aftTitle text-textSecondaryHackeps">
             Benvingut/da <br /> al panell de patrocinador
           </p>
           <br />
@@ -127,11 +145,11 @@ const InfoSponsors = ({ id }) => {
         </section>
         <br />
         <section className="redesYOthers p-bg-grey">
-          <p className="text-aftTitle2 ">
+          <p className="text-aftTitle2 text-textSecondaryHackeps text-white">
             📩 {correu} |{text}
           </p>
         </section>
-        <section className="descriptions">
+        <section className="descriptions text-textSecondaryHackeps">
           <br />
           <h2>Descripció</h2>
           <br />
@@ -163,7 +181,7 @@ const InfoSponsors = ({ id }) => {
         <br />
         <br />
 
-        <section className="businesActivity">
+        {/*<section className="bussinesActivity bg-primaryHackeps text-textPrimaryHackeps">
           <br />
           <h2>Historial d'activitats</h2>
 
@@ -173,7 +191,7 @@ const InfoSponsors = ({ id }) => {
               <img key={index} src={image} alt={`Imagen ${index}`} /> //Editar aixo per a que sigui una url fixa i nomes camvii la edicio Eg: C/wefwf/efwef/2021.jpg, C/wefwf/efwef/2022.jpg...
             ))}
           </div>
-        </section>
+        </section>*/}
         <br />
         <br />
       </div>
@@ -196,7 +214,9 @@ const InfoSponsors = ({ id }) => {
     return (
       <div className="The-Grand-Phather">
         <section className="Imagecontener2">
-          <h1 className="title-Info-sponsors">Oh No, Something happened..</h1>
+          <h1 className="title-Info-sponsors text-textSecondaryHackeps">
+            Oh No, Something happened..
+          </h1>
           <br />
           <img className="peperoni" src={errorImage} alt="Gif" />
         </section>

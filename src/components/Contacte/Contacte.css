@@ -1,6 +1,5 @@
 /* ContactPage.css */
 .container-all {
-  background-color: var(--secondary);
   min-height: 100vh;
 }
 
@@ -27,7 +26,6 @@
 }
 
 .title-logo {
-  color: var(--white);
   font-size: 22px;
   margin-bottom: 30px;
   text-align: center;
@@ -67,35 +65,16 @@
 label {
   font-size: 16px;
   margin-bottom: 8px;
-  color: var(--white);
 }
 
 input,
 textarea {
   padding: 10px;
   font-size: 12px;
-  border: 1px solid var(--white);
+  border: 1px solid var(--text-secondary);
   border-radius: 4px;
   margin-bottom: 16px;
   width: 100%;
-}
-
-.button-submit {
-  padding: 12px 20px;
-  font-size: 18px;
-  background-color: var(--primary);
-  color: var(--secondary);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  width: fit-content;
-  margin: 20px;
-  justify-content: center;
-}
-
-.button-submit:hover {
-  background-color: var(--white);
-  color: var(--secondary);
 }
 
 .button-submit-container {
@@ -105,10 +84,6 @@ textarea {
 
 .formik-field {
   margin-bottom: 20px;
-}
-
-.error-message {
-  color: var(--primary);
 }
 
 @keyframes fadeIn {
@@ -164,7 +139,7 @@ textarea {
 }
 
 .valerr {
-  color: var(--white);
+  color: var(--text-secondary);
 }
 
 .iconBox {
