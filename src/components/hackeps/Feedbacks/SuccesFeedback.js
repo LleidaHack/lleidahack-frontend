@@ -6,6 +6,7 @@ import Button from "src/components/buttons/Button";
 const SuccessFeedback = ({
   title,
   text,
+  italics,
   hasButton,
   buttonLink,
   buttonText,
@@ -29,7 +30,7 @@ const SuccessFeedback = ({
         <i className="mt-48 mb-6 fa-regular fa-circle-check text-8xl"></i>
         <h2>{title}</h2>
         <p>{formattedText}</p>
-        <p></p>
+        <p><i>{italics}</i></p>
       </div>
       {hasButton ? (
         <div className="infbuttonok">
