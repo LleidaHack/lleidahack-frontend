@@ -104,7 +104,6 @@ const ForgetPassword = ({ nextScreen }) => {
                               type="submit"
                               primary
                               md
-                              onClick={submitForm}
                             >
                               {isSubmitting
                                 ? "Enviant enllaç..."
