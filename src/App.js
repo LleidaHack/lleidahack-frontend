@@ -28,6 +28,7 @@ import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
 import "src/styles/styles.css";
+import InscripcioMentor from "src/pages/hackeps/InscripcioMentor";
 
 export default function App() {
   useEffect(() => {
@@ -81,6 +82,14 @@ export default function App() {
             element={
               <RequireAuth originalRoute="/inscripcio">
                 <Inscripcio />
+              </RequireAuth>
+            }
+          />
+                    <Route
+            path="/inscripcio-mentor"
+            element={
+              <RequireAuth originalRoute="/inscripcio-mentor">
+                <InscripcioMentor />
               </RequireAuth>
             }
           />

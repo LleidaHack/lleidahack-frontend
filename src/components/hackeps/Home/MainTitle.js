@@ -8,13 +8,14 @@ import { checkToken } from "src/services/AuthenticationService";
 
 const MainTitle = () => {
   const navigate = useNavigate();
-  const [show, setShow] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {setShowLogin(false); setShowForm(false)};
 
   async function handleShow() {
     if (localStorage.getItem("userToken") === null) {
-      setShow(true);
+      setShowLogin(true);
     } else if (
       await checkToken().then((key) => {
         return !key["success"];
@@ -22,7 +23,7 @@ const MainTitle = () => {
     ) {
       navigate("/login", { state: { nextScreen: "/inscripcio" } });
     } else {
-      navigate("/inscripcio");
+      setShowForm(true)
     }
   }
 
@@ -30,7 +31,8 @@ const MainTitle = () => {
   const handleSignIn = () => {
     navigate("/login", { state: { nextScreen: "/inscripcio" } });
   };
-
+  const handleHacker = () => navigate("/inscripcio")
+  const handleMentor = () => navigate("/inscripcio-mentor")
   return (
     <>
       <div className="backgrounder bg-primaryHackeps bg-center">
@@ -49,7 +51,7 @@ const MainTitle = () => {
         {/* </div> */}
       </div>
 
-      <Modal show={show} onHide={handleClose} centered>
+      <Modal show={showLogin} onHide={handleClose} centered>
         <Modal.Header closeButton className="no-border">
           <Modal.Title>Inici de sessió</Modal.Title>
         </Modal.Header>
@@ -62,6 +64,23 @@ const MainTitle = () => {
           </Button>
           <Button primary onClick={handleSignUp}>
             Crear compte
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showForm} onHide={handleClose} centered>
+        <Modal.Header closeButton className="no-border">
+          <Modal.Title>Formulari d'inscripció</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="no-border">
+          Com vols formar part d'aquesta Hackathon?
+        </Modal.Body>
+        <Modal.Footer className="no-border justify-content-center">
+          <Button primary onClick={handleHacker}>
+            Hacker
+          </Button>
+          <Button primary onClick={handleMentor}>
+            Mentor
           </Button>
         </Modal.Footer>
       </Modal>
