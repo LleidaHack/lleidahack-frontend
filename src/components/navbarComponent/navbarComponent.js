@@ -82,9 +82,8 @@ const NavbarComponent = ({
 
         {navStatus ? (
           <div
-            className="absolute h-56 w-screen bg-white z-50 inset-x-0 md:relative appear-animation mt-2 md:mt-3 md:w-full flex border-b-[1] border-gray-300"
+            className="absolute h-full max-md:h-56 w-screen bg-white z-50 inset-x-0 md:relative appear-animation mt-2 md:mt-3 md:w-full flex border-b-[1] border-gray-300"
             id="container-points"
-            style={{ boxShadow: "0 2px 5px 0 rgba(0,0,0,0.2)" }}
           >
             <div
               className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3`}
