@@ -30,7 +30,9 @@ const SuccessFeedback = ({
         <i className="mt-48 mb-6 fa-regular fa-circle-check text-8xl"></i>
         <h2>{title}</h2>
         <p>{formattedText}</p>
-        <p><i>{italics}</i></p>
+        <p>
+          <i>{italics}</i>
+        </p>
       </div>
       {hasButton ? (
         <div className="infbuttonok">

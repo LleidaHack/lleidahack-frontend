@@ -79,7 +79,9 @@ const ForgetPassword = ({ nextScreen }) => {
                               id="email"
                               placeholder="Correu electrònic"
                               className={`form-control ${
-                                touched.email && errors.email ? "is-invalid" : ""
+                                touched.email && errors.email
+                                  ? "is-invalid"
+                                  : ""
                               }`}
                             />
                             {touched.email && errors.email ? (
@@ -93,12 +95,17 @@ const ForgetPassword = ({ nextScreen }) => {
 
                           <div className="redirects text-white">
                             <p>
-                              Rebràs un correu electrònic per amb les instruccions
-                              per a poder recuperar el teu compte
+                              Rebràs un correu electrònic per amb les
+                              instruccions per a poder recuperar el teu compte
                             </p>
                           </div>
                           <div className="button-container">
-                            <Button type="submit" primary md onClick={submitForm}>
+                            <Button
+                              type="submit"
+                              primary
+                              md
+                              onClick={submitForm}
+                            >
                               {isSubmitting
                                 ? "Enviant enllaç..."
                                 : "Envia enllaç d'accés"}
