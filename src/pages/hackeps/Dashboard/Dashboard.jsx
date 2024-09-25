@@ -13,7 +13,8 @@ export default function Dashboard() {
 
   useEffect(() => {
     const callService = async () => {
-      setData(await getPendingHackersGruped("1"));
+      let hack = await getHackeps();
+      setData(await getPendingHackersGruped(hack.id));
       setIsLoading(false);
     };
     callService();
