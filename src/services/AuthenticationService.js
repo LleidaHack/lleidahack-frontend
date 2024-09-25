@@ -71,6 +71,6 @@ export async function contacte(mail) {
     Url: "/auth/contact",
     Method: "POST",
     Body: mail,
-    forceDebug: true
+    forceDebug: true,
   });
 }

@@ -27,7 +27,7 @@ const ContactePage = () => {
   const [mailStatus, setMailStatus] = useState(false);
 
   const handleSubmit = async (values) => {
-    console.log(values)
+    console.log(values);
     const onMail = await contacte(values);
 
     if (onMail.success) {
