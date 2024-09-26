@@ -1,10 +1,11 @@
-import {React, useEffect, useRef} from "react";
+import {React, useEffect, useRef, useState} from "react";
 import hackLogo from "src/icons/banner_home_icon.png";
 import "./Waiting.css";
 import Button from "src/components/buttons/Button";
 import camaleon from "src/assets/camaleon.gif";
+import pato from "src/assets/patotexto.png";
 const WaitingComponent = () => {
-
+    const [showPato, setShowPato] = useState(false);
     const logoRef = useRef(null);
 
     const animateLogo = () => {
@@ -30,7 +31,7 @@ const WaitingComponent = () => {
     }, []);
 
     function mikoShow() {
-        //Mostrar un mono que ponga que proximamente se abren inscripciones
+        setShowPato(true);
     }
 
     return (
@@ -38,26 +39,33 @@ const WaitingComponent = () => {
             <div className="">
                 <div className="absolute top-48 w-screen h-36 z-20 overflow-hidden	max-w-screen">
                     <div className="overflow-hidden">
-                        <div class="bird-container bird-container--one">
-                            <div class="bird bird--one"></div>
+                        <div className="bird-container bird-container--one">
+                            <div className="bird bird--one"></div>
                         </div>
-                        <div class="bird-container bird-container--two">
-                            <div class="bird bird--two"></div>
-                        </div>
-                        
-                        <div class="bird-container bird-container--three">
-                            <div class="bird bird--three"></div>
+                        <div className="bird-container bird-container--two">
+                            <div className="bird bird--two"></div>
                         </div>
                         
-                        <div class="bird-container bird-container--four">
-                            <div class="bird bird--four"></div>
+                        <div className="bird-container bird-container--three">
+                            <div className="bird bird--three"></div>
+                        </div>
+                        
+                        <div className="bird-container bird-container--four">
+                            <div className="bird bird--four"></div>
                         </div>
                     </div>
                 
                 </div>
                 <div className="flex flex-row">
-                    <div id="animals-1 " className="w-full">
-                    </div>
+                    
+                        <div id="animals-1" className="w-full">
+                        {showPato && (
+                            <div>
+                                <img src={pato} className="patostyle"/>
+                            </div>
+                        )}
+                        </div>
+                    
                     <div className="flex flex-col w-screen h-screen text-white text-2xl z-30">
                         
                         <div className="loader text-center">

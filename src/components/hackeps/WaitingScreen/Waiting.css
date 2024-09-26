@@ -295,3 +295,25 @@
     transform: translateX(200vw);
   }
 }
+
+#animals-1{
+  display: hidden;
+}
+
+.patostyle{
+  scale: 0.7;
+  transform: translate(0, -50%);
+  animation: champ 2s forwards;
+}
+
+@keyframes champ {
+  0% {
+    transform: translate(0, 100%);
+    opacity: 0;
+  }
+ 
+  100% {
+    transform: translate(0, 20%);
+    opacity: 1;
+  }
+}
