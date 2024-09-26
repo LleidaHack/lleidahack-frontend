@@ -43,6 +43,7 @@ module.exports = {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",
       "background-patron": "url('/src/imgs/patron_imagen.png')",
       "background-none": "url()",
+      "background-hojas": "url('/src/assets/banner_home_empty.png')", //Cambiar, es muy grande la escala. Quitar fondo al original y ya
     },
   },
   plugins: [],
