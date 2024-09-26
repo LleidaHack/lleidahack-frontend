@@ -17,7 +17,7 @@
 
 .logo.animate {
     animation: drop 10s forwards ;
-    -webkit-animation: drop 10s forwards ;
+    -webkit-animation: drop 10s forwards;
 }
 
 @keyframes drop {
@@ -273,3 +273,25 @@
       transform: translateY(0vh) translateX(110vw) scale(0.45);
     }
   }
+
+.animated-cham{
+  opacity: 0.6;
+  animation: moves 40s infinite;
+  width: fit-content;
+  transform: translateX(-100%);
+  transform: translateY(23%);
+  scale: 2.0;
+  margin-bottom: -10vw;
+}
+
+@keyframes moves {
+  0% {
+    }
+
+  
+  
+
+  100% {
+    transform: translateX(200vw);
+  }
+}
