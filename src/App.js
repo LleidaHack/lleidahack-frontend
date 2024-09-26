@@ -27,6 +27,7 @@ import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
+import WaitLanding from "./pages/hackeps/WaitLanding";
 import "src/styles/styles.css";
 
 export default function App() {
@@ -95,6 +96,11 @@ export default function App() {
           <Route path="/forgot-password" element={<PasswordForget />} />
           <Route path="/user-verification" element={<LoginVerify />} />
           <Route path="*" element={<Error404 />} />
+        </Routes>
+      </Router>
+      <Router basename="/waiting-page">
+        <Routes>
+          <Route path="/" element={<WaitLanding />} />
         </Routes>
       </Router>
       {/*
