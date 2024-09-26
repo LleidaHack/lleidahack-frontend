@@ -161,7 +161,7 @@ const InscripcioMentorForm = () => {
           <br />
           <div className="container-inscripcio">
             <TitleGeneralized underline>
-              Inscripció HackEPS 2024
+              Inscripció Mentors HackEPS 2024
             </TitleGeneralized>
             <div className="form-container">
               <Formik
