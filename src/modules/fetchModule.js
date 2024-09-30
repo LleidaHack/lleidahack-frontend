@@ -25,7 +25,10 @@ export async function fetchPlus({
   let query = "";
   if (Query)
     query = `?${Object.entries(Query)
-      .map(([key, value]) => `${key}=${value}`)
+      .map(
+        ([key, value]) =>
+          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
+      )
       .join("&")}`;
   if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
     console.log("headers: ", args);

@@ -125,7 +125,7 @@ const ProfileComponent = () => {
         }
       });
     }
-  }, [useParams()]);
+  }, [useParams(), isHacker]);
 
   function logOut() {
     localStorage.clear();
