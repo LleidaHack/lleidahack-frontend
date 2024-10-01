@@ -3,6 +3,5 @@
 // }
 
 if (window.location.pathname !== "/waiting") {
-  window.history.replaceState("", "", "/waiting" );
+  window.history.replaceState("", "", "/waiting");
 }
-
