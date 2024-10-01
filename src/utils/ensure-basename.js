@@ -2,7 +2,7 @@
 //   window.history.replaceState("", "", "/hackeps" + window.location.pathname);
 // }
 
-if (window.location.pathname !== "/waiting-page") {
-  window.history.replaceState("", "", "/waiting-page" );
+if (window.location.pathname !== "/waiting") {
+  window.history.replaceState("", "", "/waiting" );
 }
 

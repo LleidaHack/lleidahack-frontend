@@ -98,7 +98,7 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
-      <Router basename="/waiting-page">
+      <Router basename="/waiting">
         <Routes>
           <Route path="/" element={<WaitLanding />} />
         </Routes>
