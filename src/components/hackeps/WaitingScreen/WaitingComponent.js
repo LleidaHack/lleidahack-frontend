@@ -3,7 +3,7 @@ import hackLogo from "src/icons/banner_home_icon.png";
 import "./Waiting.css";
 import Button from "src/components/buttons/Button";
 import camaleon from "src/assets/camaleon.gif";
-import pato from "src/assets/patotexto.png";
+import pato from "src/assets/patonuevo.png";
 const WaitingComponent = () => {
     const [showPato, setShowPato] = useState(false);
     const logoRef = useRef(null);
