@@ -16,6 +16,8 @@ const EditProfile = (props) => {
   const [avatar, setAvatar] = useState(null);
   const [urlImage, setUrlImage] = useState(props.hacker.image);
   const [isUrl, setIsUrl] = useState(props.hacker.is_image_url);
+  const [isSending, setIsLoading] = useState(false);
+  const [isTooLarge, setTooLarge] = useState(false);
 
   const sizeOptions = [
     { value: "S", label: "S" },
@@ -45,9 +47,11 @@ const EditProfile = (props) => {
   };
 
   const handleImageChange = (event) => {
+    setTooLarge(parseFloat(event.size) > 1024);
     setAvatar(event.base64);
     setIsUrl(false);
   };
+
   const handleImageUrlChange = (event) => {
     setUrlImage(event.target.value);
     setIsUrl(true);
@@ -57,22 +61,22 @@ const EditProfile = (props) => {
     const pfp = isUrl ? urlImage : avatar;
     const data = {
       id: props.hacker.id,
-      food_restrictions: values.food,
       shirt_size: values.size,
       linkedin: values.linkedin,
       github: values.github,
-      studies: values.studies,
-      study_center: values.center,
-      location: values.location,
       cv: cvFile,
       image: pfp,
       is_image_url: isUrl,
-      update_user: true,
     };
-
+    setIsLoading(true)
     let result = await updateHacker(data);
+    setIsLoading(false)
     if (result.success) {
       window.location.reload();
+    } else if (result.errCode === 413) {
+      console.warn("too large")
+    } else {
+      console.warn("error?")
     }
   };
 
@@ -239,7 +243,7 @@ const EditProfile = (props) => {
                       style={{ marginTop: "2%" }}
                     >
                       <Button outline secondary type="submit">
-                        Actualitzar
+                        {isSending ? "Actualitzant..." : "Actualitzar"}
                       </Button>
                     </div>
                   </Form>
