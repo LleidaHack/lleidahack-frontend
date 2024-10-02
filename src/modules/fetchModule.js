@@ -59,6 +59,11 @@ export async function fetchPlus({
       return data;
     })
     .catch((error) => {
+      if (error.message.includes("Failed to fetch")) {
+        return {
+          errCode: 0,
+          errMssg: "Network error or request failed",
+        }};
       console.warn(error);
       return error;
     });
