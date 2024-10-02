@@ -18,7 +18,8 @@ const EditProfile = (props) => {
   const [isUrl, setIsUrl] = useState(props.hacker.is_image_url);
   const [isSending, setIsLoading] = useState(false);
   const [isTooLarge, setTooLarge] = useState(false);
-
+  const [hasImageChanged, setHasImageChanged] = useState(false);
+  const [cvFileChanged, setcvFileChanged] = useState(false);
   const sizeOptions = [
     { value: "S", label: "S" },
     { value: "M", label: "M" },
@@ -31,6 +32,7 @@ const EditProfile = (props) => {
   const handleFileChange = (event) => {
     let file = event.base64;
     setCvFile(file);
+    setcvFileChanged(true)
   };
 
   const clearFile = () => {
@@ -47,12 +49,14 @@ const EditProfile = (props) => {
   };
 
   const handleImageChange = (event) => {
+    setHasImageChanged(true)
     setTooLarge(parseFloat(event.size) > 1024);
     setAvatar(event.base64);
     setIsUrl(false);
   };
 
   const handleImageUrlChange = (event) => {
+    setHasImageChanged(true)
     setUrlImage(event.target.value);
     setIsUrl(true);
   };
@@ -64,19 +68,23 @@ const EditProfile = (props) => {
       shirt_size: values.size,
       linkedin: values.linkedin,
       github: values.github,
-      cv: cvFile,
-      image: pfp,
-      is_image_url: isUrl,
     };
+    if (hasImageChanged) {
+      data.image = pfp;
+      data.is_image_url = isUrl;
+    }
+    if (cvFileChanged){
+      data.cv = cvFile;
+    }
+
     setIsLoading(true)
     let result = await updateHacker(data);
     setIsLoading(false)
+
     if (result.success) {
       window.location.reload();
-    } else if (result.errCode === 413) {
-      console.warn("too large")
     } else {
-      console.warn("error?")
+      console.warn("hi ha hagut un error")
     }
   };
 
@@ -89,7 +97,6 @@ const EditProfile = (props) => {
               <Button secondary outline onClick={onEditButtonClick}>
                 <i className="fas fa-sign-out"></i> Close
               </Button>
-
               <div className="form-container">
                 <Formik
                   enableReinitialize
@@ -179,43 +186,17 @@ const EditProfile = (props) => {
                         className="col-12 col-xxl-6 d-flex flex-column "
                         style={{ marginTop: "7%", marginBottom: "1%" }}
                       >
-                        {isUrl && urlImage !== "" ? (
-                          <img
-                            style={{
-                              height: "250px",
-                              width: "250px",
-                              objectFit: "cover",
-                              display: "block",
-                            }}
-                            className="avatar-image bg-white rounded-circle m-auto"
-                            src={urlImage}
-                            alt="avatar"
-                          />
-                        ) : avatar ? (
-                          <img
-                            style={{
-                              height: "250px",
-                              width: "250px",
-                              objectFit: "cover",
-                              display: "block",
-                            }}
-                            className="avatar-image bg-white rounded-circle m-auto"
-                            src={avatar}
-                            alt="avatar"
-                          />
-                        ) : (
-                          <img
-                            style={{
-                              height: "250px",
-                              width: "250px",
-                              objectFit: "cover",
-                              display: "block",
-                            }}
-                            className="avatar-image bg-white rounded-circle m-auto"
-                            src={userIcon}
-                            alt="avatar"
-                          />
-                        )}
+                        <img
+                          style={{
+                            height: "250px",
+                            width: "250px",
+                            objectFit: "cover",
+                            display: "block",
+                          }}
+                          className="avatar-image bg-white rounded-circle m-auto"
+                          src={isUrl && urlImage !== "" ? urlImage : avatar ? avatar : userIcon}
+                          alt="avatar"
+                        />
                       </div>
 
                       <div className=" mb-3 mb-xxl-0 align-self-center text-textSecondaryHackeps">
@@ -235,6 +216,7 @@ const EditProfile = (props) => {
                             onDone={handleImageChange}
                           />
                         </div>
+                        {isTooLarge && <label htmlFor="avatarInput" className="text-red-600">La imatge no pot ser més gran que 1mb</label>}
                       </div>
                     </Row>
 
