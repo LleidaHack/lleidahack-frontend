@@ -63,7 +63,8 @@ export async function fetchPlus({
         return {
           errCode: 0,
           errMssg: "Network error or request failed",
-        }};
+        };
+      }
       console.warn(error);
       return error;
     });

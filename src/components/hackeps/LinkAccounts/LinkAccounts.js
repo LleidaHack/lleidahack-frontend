@@ -2,9 +2,11 @@ import React from "react";
 
 const LinkAccounts = ({ hacker }) => {
   let is_git_valid =
-    hacker.github && /^((https?:\/\/)?(www\.)?linkedin\.com\/in\/)/.test(hacker.github);
+    hacker.github &&
+    /^((https?:\/\/)?(www\.)?linkedin\.com\/in\/)/.test(hacker.github);
   let is_lin_valid =
-    hacker.linkedin && /^((https?:\/\/)?(www\.|es\.)?linkedin\.com\/in\/)/.test(hacker.linkedin);
+    hacker.linkedin &&
+    /^((https?:\/\/)?(www\.|es\.)?linkedin\.com\/in\/)/.test(hacker.linkedin);
   return (
     <div className="container m-auto p-0">
       <div className="row join-container p-bg-grey p-3 text-center m-auto mt-5">

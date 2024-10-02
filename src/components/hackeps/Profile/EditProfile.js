@@ -32,7 +32,7 @@ const EditProfile = (props) => {
   const handleFileChange = (event) => {
     let file = event.base64;
     setCvFile(file);
-    setcvFileChanged(true)
+    setcvFileChanged(true);
   };
 
   const clearFile = () => {
@@ -49,14 +49,14 @@ const EditProfile = (props) => {
   };
 
   const handleImageChange = (event) => {
-    setHasImageChanged(true)
+    setHasImageChanged(true);
     setTooLarge(parseFloat(event.size) > 1024);
     setAvatar(event.base64);
     setIsUrl(false);
   };
 
   const handleImageUrlChange = (event) => {
-    setHasImageChanged(true)
+    setHasImageChanged(true);
     setUrlImage(event.target.value);
     setIsUrl(true);
   };
@@ -73,18 +73,18 @@ const EditProfile = (props) => {
       data.image = pfp;
       data.is_image_url = isUrl;
     }
-    if (cvFileChanged){
+    if (cvFileChanged) {
       data.cv = cvFile;
     }
 
-    setIsLoading(true)
+    setIsLoading(true);
     let result = await updateHacker(data);
-    setIsLoading(false)
+    setIsLoading(false);
 
     if (result.success) {
       window.location.reload();
     } else {
-      console.warn("hi ha hagut un error")
+      console.warn("hi ha hagut un error");
     }
   };
 
@@ -194,7 +194,13 @@ const EditProfile = (props) => {
                             display: "block",
                           }}
                           className="avatar-image bg-white rounded-circle m-auto"
-                          src={isUrl && urlImage !== "" ? urlImage : avatar ? avatar : userIcon}
+                          src={
+                            isUrl && urlImage !== ""
+                              ? urlImage
+                              : avatar
+                                ? avatar
+                                : userIcon
+                          }
                           alt="avatar"
                         />
                       </div>
@@ -216,7 +222,11 @@ const EditProfile = (props) => {
                             onDone={handleImageChange}
                           />
                         </div>
-                        {isTooLarge && <label htmlFor="avatarInput" className="text-red-600">La imatge no pot ser més gran que 1mb</label>}
+                        {isTooLarge && (
+                          <label htmlFor="avatarInput" className="text-red-600">
+                            La imatge no pot ser més gran que 1mb
+                          </label>
+                        )}
                       </div>
                     </Row>
 

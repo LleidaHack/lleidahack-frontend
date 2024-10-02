@@ -31,26 +31,29 @@ function redirectToURL(id) {
 /*End Imports 😭*/
 
 const Sponsors = () => {
-  const [groups, setGroups] = useState([[],[],[]])
+  const [groups, setGroups] = useState([[], [], []]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let imgs = [[],[],[]];
+        let imgs = [[], [], []];
 
-        const tiers = [1,2,3]
-        const companyDataTiers = await Promise.all(tiers.map(i => getCompanyByTier(i)));
+        const tiers = [1, 2, 3];
+        const companyDataTiers = await Promise.all(
+          tiers.map((i) => getCompanyByTier(i)),
+        );
 
-        tiers.forEach((tier,indexT)=>
-        companyDataTiers[indexT].forEach((pos, index) => {
-          imgs[indexT][index] = {
-            image: pos.image,
-            importance: tier,
-            url: pos.website,
-            id: pos.id,
-          };
-        }));
-        setGroups(imgs)
+        tiers.forEach((tier, indexT) =>
+          companyDataTiers[indexT].forEach((pos, index) => {
+            imgs[indexT][index] = {
+              image: pos.image,
+              importance: tier,
+              url: pos.website,
+              id: pos.id,
+            };
+          }),
+        );
+        setGroups(imgs);
       } catch (error) {
         console.log("El error obtenido es:", error);
       }
@@ -75,9 +78,9 @@ const Sponsors = () => {
       </Link>
       <section className="justify-center w-full">
         <div className="flex flex-col pt-8 gap-y-6 text-xs">
-          {groups.map((group)=>
+          {groups.map((group) => (
             <div className="flex flex-wrap justify-center gap-4 p-4">
-              {group.map((company,index) => 
+              {group.map((company, index) => (
                 <img
                   key={index}
                   src={company.image}
@@ -85,9 +88,9 @@ const Sponsors = () => {
                   className={`sponsor-group-group-${company.importance} bg-white p-3 max-h-48 object-contain border rounded-2xl border-gray-200 transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px] cursor-pointer`}
                   onClick={() => redirectToURL(company.id)}
                 />
-              )}
+              ))}
             </div>
-          )}
+          ))}
         </div>
       </section>
       <br />
