@@ -107,12 +107,12 @@ const InscripcioForm = () => {
       terms_accepted: values.checkboxterms,
     };
 
-    let registration
+    let registration;
     if (registered) {
       data.id = previousRegistration.id;
       registration = await updateHacker(data);
     } else {
-        registration = await registerHackerToEvent(
+      registration = await registerHackerToEvent(
         hackepsEvent.id,
         localStorage.getItem("userID"),
         data,
@@ -135,7 +135,6 @@ const InscripcioForm = () => {
     }
 
     setsubmittRegister(true);
-    
   };
 
   const handleButtonClick = () => {
