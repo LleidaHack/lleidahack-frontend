@@ -107,33 +107,35 @@ const InscripcioForm = () => {
       terms_accepted: values.checkboxterms,
     };
 
+    let registration
     if (registered) {
       data.id = previousRegistration.id;
-      await updateHacker(data);
+      registration = await updateHacker(data);
     } else {
-      let registration = await registerHackerToEvent(
+        registration = await registerHackerToEvent(
         hackepsEvent.id,
         localStorage.getItem("userID"),
         data,
       );
-      if (registration.errCode) {
-        setErrRegister("");
-        if (registration.errCode === 400) {
-          setErrRegister(
-            "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.",
-          );
-        }
-
-        setStateRegister(false);
-      } else if (registration.detail) {
-        setErrRegister(registration.detail);
-        setStateRegister(false);
-      } else {
-        setStateRegister(true);
+    }
+    if (registration.errCode) {
+      setErrRegister("");
+      if (registration.errCode === 400) {
+        setErrRegister(
+          "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.",
+        );
       }
 
-      setsubmittRegister(true);
+      setStateRegister(false);
+    } else if (registration.detail) {
+      setErrRegister(registration.detail);
+      setStateRegister(false);
+    } else {
+      setStateRegister(true);
     }
+
+    setsubmittRegister(true);
+    
   };
 
   const handleButtonClick = () => {
@@ -430,13 +432,23 @@ const InscripcioForm = () => {
             </>
           ) : (
             <>
-              <SuccessFeedback
-                title="T'has registrat correctament a l'esdeveniment!"
-                text={`El teu registre s'ha realitzat correctament. \n Quan siguis acceptat a l'esdeveniment rebràs un correu per a confirmar la teva assistència.\n Estigues atent! Tindrás 5 dies per confirmar-ho.`}
-                hasButton={true}
-                buttonLink="/perfil"
-                buttonText="Inicia sessió"
-              />
+              {registered ? (
+                <SuccessFeedback
+                  title="La teva informació ha estat actualitzada correctament!"
+                  text={`El teu registre s'ha actualitzat correctament. Si hi ha algun canvi, rebràs les notificacions corresponents.`}
+                  hasButton={true}
+                  buttonLink="/perfil"
+                  buttonText="Tornar al perfil"
+                />
+              ) : (
+                <SuccessFeedback
+                  title="T'has registrat correctament a l'esdeveniment!"
+                  text={`El teu registre s'ha realitzat correctament. Quan siguis acceptat a l'esdeveniment, rebràs un correu per confirmar la teva assistència. Estigues atent! Tindrás 5 dies per confirmar-ho.`}
+                  hasButton={true}
+                  buttonLink="/perfil"
+                  buttonText="Inicia sessió"
+                />
+              )}
             </>
           )}
         </>
