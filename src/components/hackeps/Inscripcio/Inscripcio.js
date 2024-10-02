@@ -445,7 +445,7 @@ const InscripcioForm = () => {
                   text={`El teu registre s'ha realitzat correctament. Quan siguis acceptat a l'esdeveniment, rebràs un correu per confirmar la teva assistència. Estigues atent! Tindrás 5 dies per confirmar-ho.`}
                   hasButton={true}
                   buttonLink="/perfil"
-                  buttonText="Inicia sessió"
+                  buttonText="Tornar al perfil"
                 />
               )}
             </>
