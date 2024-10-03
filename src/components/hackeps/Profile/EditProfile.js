@@ -17,9 +17,12 @@ const EditProfile = (props) => {
   const [urlImage, setUrlImage] = useState(props.hacker.image);
   const [isUrl, setIsUrl] = useState(props.hacker.is_image_url);
   const [isSending, setIsLoading] = useState(false);
-  const [isTooLarge, setTooLarge] = useState(false);
+  const [isPfpTooLarge, setPfpTooLarge] = useState(false);
+  const [isCvTooLarge, setCvTooLarge] = useState(false);
   const [hasImageChanged, setHasImageChanged] = useState(false);
   const [cvFileChanged, setcvFileChanged] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
   const sizeOptions = [
     { value: "S", label: "S" },
     { value: "M", label: "M" },
@@ -31,12 +34,15 @@ const EditProfile = (props) => {
 
   const handleFileChange = (event) => {
     let file = event.base64;
+    setCvTooLarge(parseFloat(event.size) > 1024)
     setCvFile(file);
     setcvFileChanged(true);
   };
 
   const clearFile = () => {
     setCvFile("");
+    setCvTooLarge(false);
+    setcvFileChanged(true);
     // Clear the input field to allow selecting the same file again
     const inputElement = document.getElementById("cvinfo_file");
     if (inputElement) {
@@ -50,7 +56,7 @@ const EditProfile = (props) => {
 
   const handleImageChange = (event) => {
     setHasImageChanged(true);
-    setTooLarge(parseFloat(event.size) > 1024);
+    setPfpTooLarge(parseFloat(event.size) > 1024);
     setAvatar(event.base64);
     setIsUrl(false);
   };
@@ -84,7 +90,8 @@ const EditProfile = (props) => {
     if (result.success) {
       window.location.reload();
     } else {
-      console.warn("hi ha hagut un error");
+      console.warn("hi ha hagut un error", result.errMssg);
+      setSubmitError(result.errMssg)
     }
   };
 
@@ -180,8 +187,14 @@ const EditProfile = (props) => {
                           </Button>
                         </div>
                       )}
+                      
+                      {isCvTooLarge && (
+                          <label htmlFor="cvinfo_file" className="text-red-600">
+                            El CV no pot ser més gran que 1mb
+                          </label>
+                        )}
                     </div>
-                    <Row className="">
+                    <Row>
                       <div
                         className="col-12 col-xxl-6 d-flex flex-column "
                         style={{ marginTop: "7%", marginBottom: "1%" }}
@@ -222,7 +235,7 @@ const EditProfile = (props) => {
                             onDone={handleImageChange}
                           />
                         </div>
-                        {isTooLarge && (
+                        {isPfpTooLarge && (
                           <label htmlFor="avatarInput" className="text-red-600">
                             La imatge no pot ser més gran que 1mb
                           </label>
@@ -234,9 +247,18 @@ const EditProfile = (props) => {
                       className="button-submit-container"
                       style={{ marginTop: "2%" }}
                     >
-                      <Button outline secondary type="submit">
+                      {(isCvTooLarge || isPfpTooLarge)?
+                      <Button id="submitUpdateProfile" outline disabled type="submit" >
+                        Actualitzar
+                      </Button>:
+                      <Button id="submitUpdateProfile" outline secondary type="submit">
                         {isSending ? "Actualitzant..." : "Actualitzar"}
-                      </Button>
+                      </Button>}
+                      {submitError!=="" && (
+                          <label htmlFor="submitUpdateProfile" className="text-red-600">
+                            Hi ha hagut un error, contactan's! <br/> {submitError}
+                          </label>
+                        )}
                     </div>
                   </Form>
                 </Formik>
