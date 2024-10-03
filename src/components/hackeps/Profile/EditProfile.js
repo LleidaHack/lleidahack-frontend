@@ -34,7 +34,7 @@ const EditProfile = (props) => {
 
   const handleFileChange = (event) => {
     let file = event.base64;
-    setCvTooLarge(parseFloat(event.size) > 1024)
+    setCvTooLarge(parseFloat(event.size) > 1024);
     setCvFile(file);
     setcvFileChanged(true);
   };
@@ -91,7 +91,7 @@ const EditProfile = (props) => {
       window.location.reload();
     } else {
       console.warn("hi ha hagut un error", result.errMssg);
-      setSubmitError(result.errMssg)
+      setSubmitError(result.errMssg);
     }
   };
 
@@ -187,12 +187,12 @@ const EditProfile = (props) => {
                           </Button>
                         </div>
                       )}
-                      
+
                       {isCvTooLarge && (
-                          <label htmlFor="cvinfo_file" className="text-red-600">
-                            El CV no pot ser més gran que 1mb
-                          </label>
-                        )}
+                        <label htmlFor="cvinfo_file" className="text-red-600">
+                          El CV no pot ser més gran que 1mb
+                        </label>
+                      )}
                     </div>
                     <Row>
                       <div
@@ -247,18 +247,34 @@ const EditProfile = (props) => {
                       className="button-submit-container"
                       style={{ marginTop: "2%" }}
                     >
-                      {(isCvTooLarge || isPfpTooLarge)?
-                      <Button id="submitUpdateProfile" outline disabled type="submit" >
-                        Actualitzar
-                      </Button>:
-                      <Button id="submitUpdateProfile" outline secondary type="submit">
-                        {isSending ? "Actualitzant..." : "Actualitzar"}
-                      </Button>}
-                      {submitError!=="" && (
-                          <label htmlFor="submitUpdateProfile" className="text-red-600">
-                            Hi ha hagut un error, contactan's! <br/> {submitError}
-                          </label>
-                        )}
+                      {isCvTooLarge || isPfpTooLarge ? (
+                        <Button
+                          id="submitUpdateProfile"
+                          outline
+                          disabled
+                          type="submit"
+                        >
+                          Actualitzar
+                        </Button>
+                      ) : (
+                        <Button
+                          id="submitUpdateProfile"
+                          outline
+                          secondary
+                          type="submit"
+                        >
+                          {isSending ? "Actualitzant..." : "Actualitzar"}
+                        </Button>
+                      )}
+                      {submitError !== "" && (
+                        <label
+                          htmlFor="submitUpdateProfile"
+                          className="text-red-600"
+                        >
+                          Hi ha hagut un error, contactan's! <br />{" "}
+                          {submitError}
+                        </label>
+                      )}
                     </div>
                   </Form>
                 </Formik>

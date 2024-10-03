@@ -21,7 +21,12 @@ const Button = (props) => {
     "text-3xl": props.xxxl,
   });
   return (
-    <button type={props.type} onClick={props.onClick} className={classes} disabled={props.disabled}>
+    <button
+      type={props.type}
+      onClick={props.onClick}
+      className={classes}
+      disabled={props.disabled}
+    >
       {props.children}
     </button>
   );
