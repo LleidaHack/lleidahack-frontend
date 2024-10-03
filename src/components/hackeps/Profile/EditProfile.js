@@ -2,10 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { updateHacker } from "src/services/HackerService";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FormikStepper, InputField, SelectField } from "formik-stepper";
+import { SelectField } from "formik-stepper";
 import FileBase from "react-file-base64";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import userIcon from "src/icons/user2.png";
 import Button from "src/components/buttons/Button";
 
@@ -13,9 +12,7 @@ const EditProfile = (props) => {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [cvFile, setCvFile] = useState("");
 
-  const [avatar, setAvatar] = useState(null);
-  const [urlImage, setUrlImage] = useState(props.hacker.image);
-  const [isUrl, setIsUrl] = useState(props.hacker.is_image_url);
+  const [pfpImage, setImage] = useState(props.hacker.image);
   const [isSending, setIsLoading] = useState(false);
   const [isPfpTooLarge, setPfpTooLarge] = useState(false);
   const [isCvTooLarge, setCvTooLarge] = useState(false);
@@ -57,18 +54,15 @@ const EditProfile = (props) => {
   const handleImageChange = (event) => {
     setHasImageChanged(true);
     setPfpTooLarge(parseFloat(event.size) > 1024);
-    setAvatar(event.base64);
-    setIsUrl(false);
+    setImage(event.base64);
   };
 
   const handleImageUrlChange = (event) => {
     setHasImageChanged(true);
-    setUrlImage(event.target.value);
-    setIsUrl(true);
+    setImage(event.target.value.trim());
   };
 
   const handleEditProfileSubmit = async (values) => {
-    const pfp = isUrl ? urlImage : avatar;
     const data = {
       id: props.hacker.id,
       shirt_size: values.size,
@@ -76,8 +70,7 @@ const EditProfile = (props) => {
       github: values.github,
     };
     if (hasImageChanged) {
-      data.image = pfp;
-      data.is_image_url = isUrl;
+      data.image = pfpImage;
     }
     if (cvFileChanged) {
       data.cv = cvFile;
@@ -108,16 +101,10 @@ const EditProfile = (props) => {
                 <Formik
                   enableReinitialize
                   initialValues={{
-                    food: props.hacker.food_restrictions,
                     size: props.hacker.shirt_size,
-                    //image: profile.image,
-                    //is_image_url: profile.is_image_url,
-                    receive_emails: props.hacker.receive_emails,
+                    //imageUrl: props.hacker.image.startsWith("http") && props.hacker.image,
                     github: props.hacker.github,
                     linkedin: props.hacker.linkedin,
-                    studies: props.hacker.studies,
-                    center: props.hacker.study_center,
-                    location: props.hacker.location,
                     cvinfo: props.hacker.cv,
                   }}
                   onSubmit={handleEditProfileSubmit}
@@ -207,13 +194,7 @@ const EditProfile = (props) => {
                             display: "block",
                           }}
                           className="avatar-image bg-white rounded-circle m-auto"
-                          src={
-                            isUrl && urlImage !== ""
-                              ? urlImage
-                              : avatar
-                                ? avatar
-                                : userIcon
-                          }
+                          src={pfpImage || userIcon}
                           alt="avatar"
                         />
                       </div>
