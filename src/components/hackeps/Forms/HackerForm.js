@@ -109,7 +109,9 @@ export const HackerStepperForm = () => {
       } else if (res.errMssg === "Telephone already exists") {
         causeError = "El telefon que has introduit es troba registrat.";
       } else {
-        causeError = isPfpTooLarge ? "La foto de perfil introduida és massa gran" : "Error al tramitar dades"
+        causeError = isPfpTooLarge
+          ? "La foto de perfil introduida és massa gran"
+          : "Error al tramitar dades";
       }
       setCauseError(causeError);
       setErrorMsg(causeError);
@@ -125,12 +127,12 @@ export const HackerStepperForm = () => {
   };
 
   const handleImageChange = (event) => {
-    setErrorMsg("")
+    setErrorMsg("");
     setPfpTooLarge(parseFloat(event.size) > 1024);
     setImage(event.base64);
   };
   const handleImageUrlChange = (event) => {
-    setErrorMsg("")
+    setErrorMsg("");
     setImage(event.target.value.trim());
     setPfpTooLarge(false);
   };
@@ -257,17 +259,17 @@ export const HackerStepperForm = () => {
             <FormikStepper.Step label="Avatar">
               <Row className="">
                 <div className="col-12 col-xxl-6 d-flex flex-column">
-                    <img
-                      style={{
-                        height: "250px",
-                        width: "250px",
-                        objectFit: "cover",
-                        display: "block",
-                      }}
-                      className="avatar-image bg-white rounded-circle m-auto"
-                      src={pfpImage || userIcon}
-                      alt="avatar"
-                    />
+                  <img
+                    style={{
+                      height: "250px",
+                      width: "250px",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                    className="avatar-image bg-white rounded-circle m-auto"
+                    src={pfpImage || userIcon}
+                    alt="avatar"
+                  />
                 </div>
                 <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
                   <TitleGeneralized marginBot="2" alignText="left">
@@ -295,7 +297,7 @@ export const HackerStepperForm = () => {
                         multiple={false}
                         onDone={handleImageChange}
                       />
-                    </div> 
+                    </div>
                     {isPfpTooLarge && (
                       <label htmlFor="avatarInput" className="text-red-600">
                         La imatge no pot ser més gran que 1mb
