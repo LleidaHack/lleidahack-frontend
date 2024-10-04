@@ -78,8 +78,8 @@ const Sponsors = () => {
       </Link>
       <section className="justify-center w-full">
         <div className="flex flex-col pt-8 gap-y-6 text-xs">
-          {groups.map((group) => (
-            <div className="flex flex-wrap justify-center gap-4 p-4">
+          {groups.map((group, tier) => (
+            <div key={tier} className="flex flex-wrap justify-center gap-4 p-4">
               {group.map((company, index) => (
                 <img
                   key={index}
