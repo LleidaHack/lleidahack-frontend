@@ -98,9 +98,8 @@ export const LleidaHackerForm = () => {
     { value: "XXXL", label: "XXXL" },
   ];
 
-  const [avatar, setAvatar] = useState(null);
-  const [urlImage, setUrlImage] = useState("");
-  const [isUrl, setIsUrl] = useState(false);
+  const [pfpImage, setImage] = useState("");
+  const [isPfpTooLarge, setPfpTooLarge] = useState(false);
   // Error message for last page of the form
   const [errorMsg, setErrorMsg] = useState("");
   //Feedback component
@@ -109,7 +108,6 @@ export const LleidaHackerForm = () => {
   const [errCause, setCauseError] = useState(""); //si es false, error, si es true tot esta correcte
 
   const onSubmit = async (values) => {
-    const pfp = isUrl ? urlImage : avatar;
     const LleidaHacker = {
       name: [values.firstName, values.lastName].join(" "),
       nickname: values.nickname,
@@ -126,7 +124,7 @@ export const LleidaHackerForm = () => {
       telephone: values.phone.replace(/\s+/g, ""),
       address: "",
       shirt_size: values.shirt_size,
-      image: pfp,
+      image: pfpImage,
       github: "",
       linkedin: "",
       role: values.role,
@@ -140,13 +138,17 @@ export const LleidaHackerForm = () => {
     if (res.errCode) {
       setStatusSubmit(false);
       console.log(res.errMssg);
-      let causeError = "Error al tramitar dades";
+      let causeError = "";
       if (res.errMssg === "Email already exists") {
         causeError = "El correu que has introduit es troba registrat.";
       } else if (res.errMssg === "Nickname already exists") {
         causeError = "El nickname que has introduit es troba registrat.";
       } else if (res.errMssg === "Telephone already exists") {
         causeError = "El telefon que has introduit es troba registrat.";
+      } else {
+        causeError = isPfpTooLarge
+          ? "La foto de perfil introduida és massa gran"
+          : "Error al tramitar dades";
       }
       setCauseError(causeError);
       setErrorMsg(causeError);
@@ -162,12 +164,14 @@ export const LleidaHackerForm = () => {
   };
 
   const handleImageChange = (event) => {
-    setAvatar(event.base64);
-    setIsUrl(false);
+    setErrorMsg("");
+    setPfpTooLarge(parseFloat(event.size) > 1024);
+    setImage(event.base64);
   };
   const handleImageUrlChange = (event) => {
-    setUrlImage(event.target.value);
-    setIsUrl(true);
+    setErrorMsg("");
+    setImage(event.target.value.trim());
+    setPfpTooLarge(false);
   };
 
   const handleButtonClick = () => {
@@ -326,28 +330,12 @@ export const LleidaHackerForm = () => {
             <FormikStepper.Step label="Avatar">
               <Row className="">
                 <div className="col-12 col-xxl-6 d-flex flex-column">
-                  {isUrl && urlImage !== "" ? (
-                    <img
-                      style={{ height: "250px", width: "250px" }}
-                      className="avatar-image bg-white rounded-circle m-auto"
-                      src={urlImage}
-                      alt="avatar"
-                    />
-                  ) : avatar ? (
-                    <img
-                      style={{ height: "250px", width: "250px" }}
-                      className="avatar-image bg-white rounded-circle m-auto"
-                      src={avatar}
-                      alt="avatar"
-                    />
-                  ) : (
-                    <img
-                      style={{ height: "250px", width: "250px" }}
-                      className="avatar-image bg-white rounded-circle m-auto"
-                      src={userIcon}
-                      alt="avatar"
-                    />
-                  )}
+                  <img
+                    style={{ height: "250px", width: "250px" }}
+                    className="avatar-image bg-white rounded-circle m-auto"
+                    src={pfpImage || userIcon}
+                    alt="avatar"
+                  />
                 </div>
                 <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
                   <TitleGeneralized
@@ -380,6 +368,11 @@ export const LleidaHackerForm = () => {
                         onDone={handleImageChange}
                       />
                     </div>
+                    {isPfpTooLarge && (
+                      <label htmlFor="avatarInput" className="text-red-600">
+                        La imatge no pot ser més gran que 1mb
+                      </label>
+                    )}
                   </div>
                   <SelectField
                     name="default_lang"

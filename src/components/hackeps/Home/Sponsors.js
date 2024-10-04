@@ -25,47 +25,35 @@ import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 function redirectToURL(id) {
   const targ = `/hackeps/sponsors/${id}`;
-  window.open(targ, "_blank");
+  window.open(targ, "_blank", "noopener,noreferrer");
 }
 
 /*End Imports 😭*/
 
-let imgs2 = [];
-
 const Sponsors = () => {
-  const [infoCompany, getInfoAll] = useState(null);
+  const [groups, setGroups] = useState([[], [], []]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const companyDataTier1 = await getCompanyByTier(1);
-        const companyDataTier2 = await getCompanyByTier(2);
-        const companyDataTier3 = await getCompanyByTier(3);
-        getInfoAll(companyDataTier1);
-        companyDataTier1.forEach((pos, index) => {
-          imgs2[index] = {
-            image: pos.image,
-            importance: 1,
-            url: pos.website,
-            id: pos.id,
-          };
-        });
-        companyDataTier2.forEach((pos, index) => {
-          imgs2.push({
-            image: pos.image,
-            importance: 2,
-            url: pos.website,
-            id: pos.id,
-          });
-        });
-        companyDataTier3.forEach((pos, index) => {
-          imgs2.push({
-            image: pos.image,
-            importance: 3,
-            url: pos.website,
-            id: pos.id,
-          });
-        });
+        let imgs = [[], [], []];
+
+        const tiers = [1, 2, 3];
+        const companyDataTiers = await Promise.all(
+          tiers.map((i) => getCompanyByTier(i)),
+        );
+
+        tiers.forEach((tier, indexT) =>
+          companyDataTiers[indexT].forEach((pos, index) => {
+            imgs[indexT][index] = {
+              image: pos.image,
+              importance: tier,
+              url: pos.website,
+              id: pos.id,
+            };
+          }),
+        );
+        setGroups(imgs);
       } catch (error) {
         console.log("El error obtenido es:", error);
       }
@@ -73,24 +61,6 @@ const Sponsors = () => {
 
     fetchData();
   }, []);
-
-  const groups = {
-    1: [],
-    2: [],
-    3: [],
-  };
-
-  imgs2.forEach((img, index) => {
-    groups[img.importance].push(
-      <img
-        key={index}
-        src={img.image}
-        alt={`Logo empresa`}
-        className={`sponsor-group-group-${img.importance} bg-white p-3 max-h-48 object-contain border rounded-2xl border-gray-200 transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px] cursor-pointer`}
-        onClick={() => redirectToURL(img.id)}
-      />,
-    );
-  });
 
   return (
     <div className="sponsors bg-secondaryHackeps">
@@ -108,15 +78,19 @@ const Sponsors = () => {
       </Link>
       <section className="justify-center w-full">
         <div className="flex flex-col pt-8 gap-y-6 text-xs">
-          <div className="flex flex-wrap justify-center gap-4 p-4">
-            {groups[1]}
-          </div>
-          <div className="flex flex-wrap justify-center gap-4 p-4">
-            {groups[2]}
-          </div>
-          <div className="flex flex-wrap justify-center gap-4 p-4">
-            {groups[3]}
-          </div>
+          {groups.map((group, tier) => (
+            <div key={tier} className="flex flex-wrap justify-center gap-4 p-4">
+              {group.map((company, index) => (
+                <img
+                  key={index}
+                  src={company.image}
+                  alt={`Logo empresa`}
+                  className={`sponsor-group-group-${company.importance} bg-white p-3 max-h-48 object-contain border rounded-2xl border-gray-200 transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px] cursor-pointer`}
+                  onClick={() => redirectToURL(company.id)}
+                />
+              ))}
+            </div>
+          ))}
         </div>
       </section>
       <br />

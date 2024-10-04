@@ -10,6 +10,7 @@ const Button = (props) => {
       props.outline && props.primary,
     "bg-secondaryHackeps text-primaryHackeps hover:text-secondaryHackeps hover:bg-primaryHackeps border-solid border-2 border-primaryHackeps":
       props.outline && props.secondary,
+    "bg-grayLightHackeps": props.disabled,
     "bg-red-500 hover:bg-red-400": props.delete,
     "rounded-md": props.rounded,
     "text-xs": props.xs,
@@ -20,7 +21,12 @@ const Button = (props) => {
     "text-3xl": props.xxxl,
   });
   return (
-    <button type={props.type} onClick={props.onClick} className={classes}>
+    <button
+      type={props.type}
+      onClick={props.onClick}
+      className={classes}
+      disabled={props.disabled}
+    >
       {props.children}
     </button>
   );
