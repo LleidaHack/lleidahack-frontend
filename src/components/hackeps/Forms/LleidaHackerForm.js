@@ -146,7 +146,9 @@ export const LleidaHackerForm = () => {
       } else if (res.errMssg === "Telephone already exists") {
         causeError = "El telefon que has introduit es troba registrat.";
       } else {
-        causeError = isPfpTooLarge ? "La foto de perfil introduida és massa gran" : "Error al tramitar dades"
+        causeError = isPfpTooLarge
+          ? "La foto de perfil introduida és massa gran"
+          : "Error al tramitar dades";
       }
       setCauseError(causeError);
       setErrorMsg(causeError);
@@ -162,12 +164,12 @@ export const LleidaHackerForm = () => {
   };
 
   const handleImageChange = (event) => {
-    setErrorMsg("")
+    setErrorMsg("");
     setPfpTooLarge(parseFloat(event.size) > 1024);
     setImage(event.base64);
   };
   const handleImageUrlChange = (event) => {
-    setErrorMsg("")
+    setErrorMsg("");
     setImage(event.target.value.trim());
     setPfpTooLarge(false);
   };
@@ -328,12 +330,12 @@ export const LleidaHackerForm = () => {
             <FormikStepper.Step label="Avatar">
               <Row className="">
                 <div className="col-12 col-xxl-6 d-flex flex-column">
-                    <img
-                      style={{ height: "250px", width: "250px" }}
-                      className="avatar-image bg-white rounded-circle m-auto"
-                      src={pfpImage || userIcon}
-                      alt="avatar"
-                    />
+                  <img
+                    style={{ height: "250px", width: "250px" }}
+                    className="avatar-image bg-white rounded-circle m-auto"
+                    src={pfpImage || userIcon}
+                    alt="avatar"
+                  />
                 </div>
                 <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
                   <TitleGeneralized
