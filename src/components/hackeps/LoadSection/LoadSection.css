@@ -1,8 +1,8 @@
-.valerre {
+/* .valerre {
   width: 100%;
   min-height: 100vh;
   justify-content: center;
-}
+} */
 
 .valerre .loader {
   display: flex;
@@ -19,10 +19,10 @@
 
   -webkit-transform-origin: center center;
   -ms-transform-origin: center center;
-  transform-origin: center center;
-  width: 15%;
+   transform-origin: center center; /*origin-center */
+   /* width: 15%;
 
-  margin: 5% auto;
+  margin: 5% auto; */ */
 }
 
 .loader-path {

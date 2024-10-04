@@ -3,9 +3,9 @@ import "src/components/hackeps/LoadSection/LoadSection.css";
 
 const LoadSection = () => {
   return (
-    <div className="valerre bg-secondaryHackeps">
+    <div className="valerre bg-secondaryHackeps w-full min-h-screen justify-center">
       <div className="loader">
-        <svg className="circular-loader" viewBox="25 25 50 50">
+        <svg className="circular-loader w-[15%] mx-[5%] my-auto " viewBox="25 25 50 50">
           <circle
             className="loader-path"
             cx="50"
