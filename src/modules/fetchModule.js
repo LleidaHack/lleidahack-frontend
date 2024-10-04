@@ -61,7 +61,7 @@ export async function fetchPlus({
     .catch((error) => {
       if (error.message.includes("Failed to fetch")) {
         return {
-          errCode: 0,
+          errCode: -1,
           errMssg: "Network error or request failed",
         };
       }
