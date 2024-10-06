@@ -240,7 +240,12 @@ const ProfileComponent = () => {
           </div>
 
           {/* Accounts link */}
-          {user && <LinkAccounts hacker={user} />}
+          {user && (
+            <>
+              <LinkAccounts hacker={user} />
+              <br />
+            </>
+          )}
 
           {isUser && (
             <div className="editSpace">

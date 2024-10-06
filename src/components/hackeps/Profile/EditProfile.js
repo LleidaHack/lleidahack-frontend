@@ -2,10 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { updateHacker } from "src/services/HackerService";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FormikStepper, InputField, SelectField } from "formik-stepper";
+import { SelectField } from "formik-stepper";
 import FileBase from "react-file-base64";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import userIcon from "src/icons/user2.png";
 import Button from "src/components/buttons/Button";
 
@@ -13,9 +12,13 @@ const EditProfile = (props) => {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [cvFile, setCvFile] = useState("");
 
-  const [avatar, setAvatar] = useState(null);
-  const [urlImage, setUrlImage] = useState(props.hacker.image);
-  const [isUrl, setIsUrl] = useState(props.hacker.is_image_url);
+  const [pfpImage, setImage] = useState(props.hacker.image);
+  const [isSending, setIsLoading] = useState(false);
+  const [isPfpTooLarge, setPfpTooLarge] = useState(false);
+  const [isCvTooLarge, setCvTooLarge] = useState(false);
+  const [hasImageChanged, setHasImageChanged] = useState(false);
+  const [cvFileChanged, setcvFileChanged] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const sizeOptions = [
     { value: "S", label: "S" },
@@ -28,11 +31,15 @@ const EditProfile = (props) => {
 
   const handleFileChange = (event) => {
     let file = event.base64;
+    setCvTooLarge(parseFloat(event.size) > 1024);
     setCvFile(file);
+    setcvFileChanged(true);
   };
 
   const clearFile = () => {
     setCvFile("");
+    setCvTooLarge(false);
+    setcvFileChanged(true);
     // Clear the input field to allow selecting the same file again
     const inputElement = document.getElementById("cvinfo_file");
     if (inputElement) {
@@ -45,34 +52,39 @@ const EditProfile = (props) => {
   };
 
   const handleImageChange = (event) => {
-    setAvatar(event.base64);
-    setIsUrl(false);
+    setHasImageChanged(true);
+    setPfpTooLarge(parseFloat(event.size) > 1024);
+    setImage(event.base64);
   };
+
   const handleImageUrlChange = (event) => {
-    setUrlImage(event.target.value);
-    setIsUrl(true);
+    setHasImageChanged(true);
+    setImage(event.target.value.trim());
   };
 
   const handleEditProfileSubmit = async (values) => {
-    const pfp = isUrl ? urlImage : avatar;
     const data = {
       id: props.hacker.id,
-      food_restrictions: values.food,
       shirt_size: values.size,
       linkedin: values.linkedin,
       github: values.github,
-      studies: values.studies,
-      study_center: values.center,
-      location: values.location,
-      cv: cvFile,
-      image: pfp,
-      is_image_url: isUrl,
-      update_user: true,
     };
+    if (hasImageChanged) {
+      data.image = pfpImage;
+    }
+    if (cvFileChanged) {
+      data.cv = cvFile;
+    }
 
+    setIsLoading(true);
     let result = await updateHacker(data);
+    setIsLoading(false);
+
     if (result.success) {
       window.location.reload();
+    } else {
+      console.warn("hi ha hagut un error", result.errMssg);
+      setSubmitError(result.errMssg);
     }
   };
 
@@ -85,21 +97,14 @@ const EditProfile = (props) => {
               <Button secondary outline onClick={onEditButtonClick}>
                 <i className="fas fa-sign-out"></i> Close
               </Button>
-
               <div className="form-container">
                 <Formik
                   enableReinitialize
                   initialValues={{
-                    food: props.hacker.food_restrictions,
                     size: props.hacker.shirt_size,
-                    //image: profile.image,
-                    //is_image_url: profile.is_image_url,
-                    receive_emails: props.hacker.receive_emails,
+                    //imageUrl: props.hacker.image.startsWith("http") && props.hacker.image,
                     github: props.hacker.github,
                     linkedin: props.hacker.linkedin,
-                    studies: props.hacker.studies,
-                    center: props.hacker.study_center,
-                    location: props.hacker.location,
                     cvinfo: props.hacker.cv,
                   }}
                   onSubmit={handleEditProfileSubmit}
@@ -169,49 +174,29 @@ const EditProfile = (props) => {
                           </Button>
                         </div>
                       )}
+
+                      {isCvTooLarge && (
+                        <label htmlFor="cvinfo_file" className="text-red-600">
+                          El CV no pot ser més gran que 1mb
+                        </label>
+                      )}
                     </div>
-                    <Row className="">
+                    <Row>
                       <div
                         className="col-12 col-xxl-6 d-flex flex-column "
                         style={{ marginTop: "7%", marginBottom: "1%" }}
                       >
-                        {isUrl && urlImage !== "" ? (
-                          <img
-                            style={{
-                              height: "250px",
-                              width: "250px",
-                              objectFit: "cover",
-                              display: "block",
-                            }}
-                            className="avatar-image bg-white rounded-circle m-auto"
-                            src={urlImage}
-                            alt="avatar"
-                          />
-                        ) : avatar ? (
-                          <img
-                            style={{
-                              height: "250px",
-                              width: "250px",
-                              objectFit: "cover",
-                              display: "block",
-                            }}
-                            className="avatar-image bg-white rounded-circle m-auto"
-                            src={avatar}
-                            alt="avatar"
-                          />
-                        ) : (
-                          <img
-                            style={{
-                              height: "250px",
-                              width: "250px",
-                              objectFit: "cover",
-                              display: "block",
-                            }}
-                            className="avatar-image bg-white rounded-circle m-auto"
-                            src={userIcon}
-                            alt="avatar"
-                          />
-                        )}
+                        <img
+                          style={{
+                            height: "250px",
+                            width: "250px",
+                            objectFit: "cover",
+                            display: "block",
+                          }}
+                          className="avatar-image bg-white rounded-circle m-auto"
+                          src={pfpImage || userIcon}
+                          alt="avatar"
+                        />
                       </div>
 
                       <div className=" mb-3 mb-xxl-0 align-self-center text-textSecondaryHackeps">
@@ -231,6 +216,11 @@ const EditProfile = (props) => {
                             onDone={handleImageChange}
                           />
                         </div>
+                        {isPfpTooLarge && (
+                          <label htmlFor="avatarInput" className="text-red-600">
+                            La imatge no pot ser més gran que 1mb
+                          </label>
+                        )}
                       </div>
                     </Row>
 
@@ -238,9 +228,34 @@ const EditProfile = (props) => {
                       className="button-submit-container"
                       style={{ marginTop: "2%" }}
                     >
-                      <Button outline secondary type="submit">
-                        Actualitzar
-                      </Button>
+                      {isCvTooLarge || isPfpTooLarge ? (
+                        <Button
+                          id="submitUpdateProfile"
+                          outline
+                          disabled
+                          type="submit"
+                        >
+                          Actualitzar
+                        </Button>
+                      ) : (
+                        <Button
+                          id="submitUpdateProfile"
+                          outline
+                          secondary
+                          type="submit"
+                        >
+                          {isSending ? "Actualitzant..." : "Actualitzar"}
+                        </Button>
+                      )}
+                      {submitError !== "" && (
+                        <label
+                          htmlFor="submitUpdateProfile"
+                          className="text-red-600"
+                        >
+                          Hi ha hagut un error, contactan's! <br />{" "}
+                          {submitError}
+                        </label>
+                      )}
                     </div>
                   </Form>
                 </Formik>
