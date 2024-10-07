@@ -50,6 +50,7 @@ const InscripcioForm = () => {
 
   const [cvFile, setCvFile] = useState("");
   const [hackepsEvent, setHackepsEvent] = useState(null);
+  const [isCvTooLarge, setCvTooLarge] = useState(false);
   const [previousRegistration, setPreviousRegistration] = useState({
     studies: "",
     center: "",
@@ -143,11 +144,13 @@ const InscripcioForm = () => {
 
   const handleFileChange = (event) => {
     let file = event.base64;
+    setCvTooLarge(parseFloat(event.size) > 1024);
     setCvFile(file);
   };
 
   const clearFile = () => {
     setCvFile("");
+    setCvTooLarge(false);
     // Clear the input field to allow selecting the same file again
     const inputElement = document.getElementById("cvinfo_file");
     if (inputElement) {
@@ -363,6 +366,12 @@ const InscripcioForm = () => {
                         </Button>
                       </div>
                     )}
+
+                    {isCvTooLarge && (
+                      <label htmlFor="cvinfo_file" className="text-red-600">
+                        El fitxer seleccionat supera el límit permès de 1MB.
+                      </label>
+                    )}
                   </div>
 
                   <div className="checkbox-container">
@@ -406,9 +415,15 @@ const InscripcioForm = () => {
                   </div>
 
                   <div className="button-submit-container m-8 mt-2">
-                    <Button primary type="submit">
-                      {registered ? "Actualitza" : "Envia"}
-                    </Button>
+                    {isCvTooLarge ? (
+                      <Button disabled type="submit">
+                        {registered ? "Actualitza" : "Envia"}
+                      </Button>
+                    ) : (
+                      <Button primary type="submit">
+                        {registered ? "Actualitza" : "Envia"}
+                      </Button>
+                    )}
                   </div>
                 </Form>
               </Formik>
