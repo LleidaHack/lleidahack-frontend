@@ -370,7 +370,7 @@ export const LleidaHackerForm = () => {
                     </div>
                     {isPfpTooLarge && (
                       <label htmlFor="avatarInput" className="text-red-600">
-                        La imatge no pot ser més gran que 1mb
+                        El fitxer seleccionat supera el límit permès de 1MB.
                       </label>
                     )}
                   </div>
