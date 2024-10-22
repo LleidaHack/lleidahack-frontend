@@ -35,7 +35,7 @@ const Team = (props) => {
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
   const [err, setErr] = useState("");
-  const [JoinErrorMessage, setJoinErrorMessage] = useState("")
+  const [JoinErrorMessage, setJoinErrorMessage] = useState("");
   async function handleKick(member) {
     await removeHackerFromGroup(member.id, team.id);
     setTeam(await getHackerGroupById(team.id));
@@ -67,7 +67,7 @@ const Team = (props) => {
       setTeam(await getHackerGroupById(a.added_group_id));
       setShowJoinTeam(false);
     } else {
-      setJoinErrorMessage(a.errMssg)
+      setJoinErrorMessage(a.errMssg);
     }
   }
 
