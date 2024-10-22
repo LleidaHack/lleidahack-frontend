@@ -38,7 +38,7 @@ const Home = () => {
     },
     {
       time: "11:00 h - 23 de novembre",
-      title: "Começa el temps de hacking",
+      title: "Comença el temps de hacking",
     },
     {
       time: "15:00 h - 23 de novembre",
