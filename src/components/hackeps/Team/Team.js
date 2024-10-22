@@ -35,7 +35,7 @@ const Team = (props) => {
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
   const [err, setErr] = useState("");
-
+  const [JoinErrorMessage, setJoinErrorMessage] = useState("");
   async function handleKick(member) {
     await removeHackerFromGroup(member.id, team.id);
     setTeam(await getHackerGroupById(team.id));
@@ -64,8 +64,10 @@ const Team = (props) => {
       localStorage.getItem("userID"),
     );
     if (a.success) {
-      setTeam(await getHackerGroupById(a.added_id));
+      setTeam(await getHackerGroupById(a.added_group_id));
       setShowJoinTeam(false);
+    } else {
+      setJoinErrorMessage(a.errMssg);
     }
   }
 
@@ -144,6 +146,7 @@ const Team = (props) => {
                       Codi de l'equip (#XXXXXXXXXX):
                     </label>
                     <Field type="text" id="teamCode" name="teamCode" />
+                    <p>{JoinErrorMessage}</p>
                     <ErrorMessage
                       name="teamCode"
                       component="div"

@@ -70,7 +70,7 @@ const TermsComponent = () => {
           obligatori mostrar l'acreditació cada vegada que s'entri a l'espai de
           l'esdeveniment.
           <br />
-          El nombre de participants serà com a màxim de 160 persones. Si se
+          El nombre de participants serà com a màxim de 200 persones. Si se
           supera el nombre d'inscrits, l'ORGANITZACIÓ gestionarà l'assistència
           en cas d'ampliar el nombre de places per rigorós ordre d'inscripció.
           <br />
