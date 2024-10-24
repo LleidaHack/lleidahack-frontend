@@ -70,7 +70,7 @@ export default function App() {
           <Route path="/confirm-password" element={<ResetPassword />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
-          <Route path="/testing" element={<Testing />} />
+          {/*<Route path="/testing" element={<Testing />} />*/}
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
