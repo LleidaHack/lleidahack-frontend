@@ -1,3 +1,10 @@
+function b64EncodeUnicode(str) {
+  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+      function toSolidBytes(match, p1) {
+          return String.fromCharCode('0x' + p1);
+  }));
+}
+
 export async function fetchPlus({
   Url,
   Method = "GET",
@@ -13,7 +20,7 @@ export async function fetchPlus({
   const headers = { "Content-Type": "application/json" };
   if (hasUserauth || refresh_token || loginAuth)
     headers.Authorization = loginAuth
-      ? "Basic " + btoa(`${loginAuth.email}:${loginAuth.password}`)
+      ? "Basic " + b64EncodeUnicode(`${loginAuth.email}:${loginAuth.password}`)
       : hasUserauth
         ? "Bearer " + localStorage.getItem("userToken")
         : "Bearer " + localStorage.getItem("refreshToken");
