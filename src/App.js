@@ -28,6 +28,7 @@ import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
 import "src/styles/styles.css";
+import ConfirmAssistancePage from "./pages/hackeps/Confirm";
 
 export default function App() {
   useEffect(() => {
@@ -94,6 +95,7 @@ export default function App() {
           />
           <Route path="/forgot-password" element={<PasswordForget />} />
           <Route path="/user-verification" element={<LoginVerify />} />
+          <Route path="/assistance" element={<ConfirmAssistancePage/>}/>
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
