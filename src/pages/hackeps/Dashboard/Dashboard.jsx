@@ -10,12 +10,12 @@ import { getUserById } from "src/services/UserService";
 export default function Dashboard() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [hackeps, sethackeps] = useState(null)
+  const [hackeps, sethackeps] = useState(null);
 
   useEffect(() => {
     const callService = async () => {
       let hack = await getHackeps();
-      sethackeps(hackeps)
+      sethackeps(hackeps);
       setData(await getPendingHackersGruped(hack.id));
       setIsLoading(false);
     };
@@ -25,7 +25,7 @@ export default function Dashboard() {
   return (
     <div className="container-fluid">
       <h2 className="m-3">Pendents d'acceptar</h2>
-      {!isLoading && <DashboardGrid data={data} hackeps={hackeps}/>}
+      {!isLoading && <DashboardGrid data={data} hackeps={hackeps} />}
     </div>
   );
 }
@@ -101,7 +101,7 @@ function TableRow({ user: userParam, isGroup, hackeps }) {
   );
 }
 
-function DashboardGrid({ data , hackeps}) {
+function DashboardGrid({ data, hackeps }) {
   return (
     <table className="table table-bordered">
       <thead>
@@ -133,7 +133,12 @@ function DashboardGrid({ data , hackeps}) {
               </tr>
               {group.members &&
                 group.members.map((user) => (
-                  <TableRow isGroup={true} user={user} key={user.id} hackeps={hackeps}/>
+                  <TableRow
+                    isGroup={true}
+                    user={user}
+                    key={user.id}
+                    hackeps={hackeps}
+                  />
                 ))}
             </>
           ))}
