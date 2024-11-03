@@ -10,10 +10,12 @@ import { getUserById } from "src/services/UserService";
 export default function Dashboard() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [hackeps, sethackeps] = useState(null);
 
   useEffect(() => {
     const callService = async () => {
       let hack = await getHackeps();
+      sethackeps(hackeps);
       setData(await getPendingHackersGruped(hack.id));
       setIsLoading(false);
     };
@@ -23,12 +25,12 @@ export default function Dashboard() {
   return (
     <div className="container-fluid">
       <h2 className="m-3">Pendents d'acceptar</h2>
-      {!isLoading && <DashboardGrid data={data}></DashboardGrid>}
+      {!isLoading && <DashboardGrid data={data} hackeps={hackeps} />}
     </div>
   );
 }
 
-function TableRow({ user: userParam, isGroup }) {
+function TableRow({ user: userParam, isGroup, hackeps }) {
   const [isApproved, setIsApproved] = useState(userParam.approved);
   const [user, setUser] = useState(null);
 
@@ -40,8 +42,7 @@ function TableRow({ user: userParam, isGroup }) {
   }, [userParam]);
 
   async function handleAcceptar() {
-    let hack = await getHackeps();
-    if (await acceptHackerToEvent(user.id, hack.id)) {
+    if (await acceptHackerToEvent(userParam.id, hackeps.id)) {
       setIsApproved(true);
     }
   }
@@ -58,8 +59,7 @@ function TableRow({ user: userParam, isGroup }) {
       ]);
 
       if (res !== user.name) return;
-      let hack = await getHackeps();
-      await rejectHackerToEvent(user.id, hack.id);
+      await rejectHackerToEvent(user.id, hackeps.id);
       window.location.reload();
       return;
     }
@@ -101,7 +101,7 @@ function TableRow({ user: userParam, isGroup }) {
   );
 }
 
-function DashboardGrid({ data }) {
+function DashboardGrid({ data, hackeps }) {
   return (
     <table className="table table-bordered">
       <thead>
@@ -133,7 +133,12 @@ function DashboardGrid({ data }) {
               </tr>
               {group.members &&
                 group.members.map((user) => (
-                  <TableRow isGroup={true} user={user} key={user.id}></TableRow>
+                  <TableRow
+                    isGroup={true}
+                    user={user}
+                    key={user.id}
+                    hackeps={hackeps}
+                  />
                 ))}
             </>
           ))}
