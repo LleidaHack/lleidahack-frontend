@@ -14,7 +14,7 @@ export default function Dashboard() {
   useEffect(() => {
     const callService = async () => {
       let hack = await getHackeps();
-      sethackeps(hack)
+      sethackeps(hack);
       setData(await getPendingHackersGruped(hack.id));
       setIsLoading(false);
     };
@@ -33,7 +33,7 @@ function TableRow({ user, isGroup, hackeps }) {
   const [isApproved, setIsApproved] = useState(user.approved);
 
   async function handleAcceptar() {
-    console.log(hackeps)
+    console.log(hackeps);
     if (await acceptHackerToEvent(user.id, hackeps.id)) {
       setIsApproved(true);
     }
@@ -110,7 +110,12 @@ function DashboardGrid({ data, hackeps }) {
       <tbody>
         {data.nogroup &&
           data.nogroup.map((user) => (
-            <TableRow key={user.id} user={user} isGroup={false} hackeps={hackeps}/>
+            <TableRow
+              key={user.id}
+              user={user}
+              isGroup={false}
+              hackeps={hackeps}
+            />
           ))}
 
         {data.groups &&
