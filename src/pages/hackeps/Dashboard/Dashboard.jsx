@@ -5,7 +5,6 @@ import {
   getPendingHackersGruped,
   rejectHackerToEvent,
 } from "src/services/EventService";
-import { getUserById } from "src/services/UserService";
 
 export default function Dashboard() {
   const [data, setData] = useState({});
@@ -15,7 +14,7 @@ export default function Dashboard() {
   useEffect(() => {
     const callService = async () => {
       let hack = await getHackeps();
-      sethackeps(hackeps)
+      sethackeps(hack)
       setData(await getPendingHackersGruped(hack.id));
       setIsLoading(false);
     };
@@ -30,19 +29,12 @@ export default function Dashboard() {
   );
 }
 
-function TableRow({ user: userParam, isGroup, hackeps }) {
-  const [isApproved, setIsApproved] = useState(userParam.approved);
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    async function _() {
-      setUser(await getUserById(userParam.id));
-    }
-    _();
-  }, [userParam]);
+function TableRow({ user, isGroup, hackeps }) {
+  const [isApproved, setIsApproved] = useState(user.approved);
 
   async function handleAcceptar() {
-    if (await acceptHackerToEvent(userParam.id, hackeps.id)) {
+    console.log(hackeps)
+    if (await acceptHackerToEvent(user.id, hackeps.id)) {
       setIsApproved(true);
     }
   }
@@ -60,7 +52,7 @@ function TableRow({ user: userParam, isGroup, hackeps }) {
 
       if (res !== user.name) return;
       await rejectHackerToEvent(user.id, hackeps.id);
-      window.location.reload();
+      //window.location.reload();
       return;
     }
   }
@@ -102,6 +94,7 @@ function TableRow({ user: userParam, isGroup, hackeps }) {
 }
 
 function DashboardGrid({ data , hackeps}) {
+
   return (
     <table className="table table-bordered">
       <thead>
@@ -118,7 +111,7 @@ function DashboardGrid({ data , hackeps}) {
       <tbody>
         {data.nogroup &&
           data.nogroup.map((user) => (
-            <TableRow key={user.id} user={user} isGroup={false} />
+            <TableRow key={user.id} user={user} isGroup={false} hackeps={hackeps}/>
           ))}
 
         {data.groups &&
