@@ -19,15 +19,19 @@ export async function fetchPlus({
   refresh_token = false,
   loginAuth,
   apiVersion = 1,
+  token,
   forceDebug = false,
 }) {
   const headers = { "Content-Type": "application/json" };
-  if (hasUserauth || refresh_token || loginAuth)
+  if (hasUserauth || refresh_token || loginAuth || token)
     headers.Authorization = loginAuth
       ? "Basic " + b64EncodeUnicode(`${loginAuth.email}:${loginAuth.password}`)
-      : hasUserauth
-        ? "Bearer " + localStorage.getItem("userToken")
-        : "Bearer " + localStorage.getItem("refreshToken");
+      : "Bearer " +
+        (hasUserauth
+          ? localStorage.getItem("userToken")
+          : refresh_token
+            ? localStorage.getItem("refreshToken")
+            : token);
   const args = {
     method: Method,
     headers: headers,
