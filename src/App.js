@@ -95,7 +95,7 @@ export default function App() {
           />
           <Route path="/forgot-password" element={<PasswordForget />} />
           <Route path="/user-verification" element={<LoginVerify />} />
-          <Route path="/assistance" element={<ConfirmAssistancePage/>}/>
+          <Route path="/assistance" element={<ConfirmAssistancePage />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>

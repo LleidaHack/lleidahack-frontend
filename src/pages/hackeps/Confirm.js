@@ -19,9 +19,15 @@ const ConfirmAssistancePage = (props) => {
 
   return (
     <div>
-      {confirm&&token?(<><Header />
-      <ConfirmAssistance confirm={confirm} token={token}/>
-      <Footer /></>):<></>}
+      {confirm && token ? (
+        <>
+          <Header />
+          <ConfirmAssistance confirm={confirm} token={token} />
+          <Footer />
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

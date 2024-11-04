@@ -22,7 +22,7 @@ const FailFeedback = ({
       <br />
     </React.Fragment>
   ));
-  
+
   const italicFormated = italic.split("\n").map((item, index) => (
     <React.Fragment key={index}>
       {item}
