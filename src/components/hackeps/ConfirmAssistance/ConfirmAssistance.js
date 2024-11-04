@@ -14,9 +14,19 @@ const ConfirmAssistance = ({ confirm, token }) => {
     }
   }, []);
   return (
-    <div>
+    <div className="min-h-screen">
       {confirm == "false" ? (
-        <TitleGeneralized>{"Pos ok:("}</TitleGeneralized>
+        <div className="mt-60">
+          <TitleGeneralized>
+            {"Encara estàs a temps de pensar-ho"}
+          </TitleGeneralized>
+          <br />
+          <p className="text-center">T'esperem l'any que ve!</p>
+          <p className="text-center">
+            Si canvies d'opinió encara pots confirmar l'assistencia des de
+            l'email.
+          </p>
+        </div>
       ) : (
         <>
           {!sending ? (
