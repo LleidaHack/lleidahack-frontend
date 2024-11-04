@@ -26,11 +26,12 @@ export async function fetchPlus({
   if (hasUserauth || refresh_token || loginAuth || token)
     headers.Authorization = loginAuth
       ? "Basic " + b64EncodeUnicode(`${loginAuth.email}:${loginAuth.password}`)
-      : "Bearer " + (hasUserauth
-        ? localStorage.getItem("userToken")
-        : refresh_token
-          ? localStorage.getItem("refreshToken")
-          : token);
+      : "Bearer " +
+        (hasUserauth
+          ? localStorage.getItem("userToken")
+          : refresh_token
+            ? localStorage.getItem("refreshToken")
+            : token);
   const args = {
     method: Method,
     headers: headers,
