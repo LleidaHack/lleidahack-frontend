@@ -9,9 +9,7 @@ const ConfirmAssistance = ({ confirm, token }) => {
   const [result, setResult] = useState(null)
   useEffect(async ()=>{
     if (confirm) {
-      const a = await confirmAssistance(token)
-      console.log(a)
-      setResult(a)
+      setResult(await confirmAssistance(token))
       setSending(false)
     }
   },[])
