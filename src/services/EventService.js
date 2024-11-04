@@ -195,7 +195,6 @@ export async function confirmAssistance(confirm_token) {
   return fetchPlus({
     Url: `/event/confirm-assistance`,
     token: confirm_token,
-    forceDebug: true
   });
 }
 
