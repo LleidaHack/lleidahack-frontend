@@ -193,14 +193,14 @@ export async function getUnregisteredHackersCount(event_id) {
 
 export async function confirmAssistance(confirm_token) {
   return fetchPlus({
-    Url: `/event/confirm-assistance`,
+    Url: `/event/confirm_assistance/`,
     token: confirm_token,
   });
 }
 
 export async function forceConfirmAssistance(event_id, user_id) {
   return fetchPlus({
-    Url: `/event/force-confirm-assistance/${event_id}/${user_id}`,
+    Url: `/event/force/confirm_assistance/${event_id}/${user_id}`,
     hasUserauth: true,
   });
 }
