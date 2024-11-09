@@ -30,7 +30,7 @@ const CalendarDates = (props) => {
               hackató de les terres de Lleida!
             </p>
             <p className="text-justify mr-5">
-              La setena edició de la HackEPS tindrà lloc a l'edifici de l'Escola
+              La vuitena edició de la HackEPS tindrà lloc a l'edifici de l'Escola
               Politècnica Superior de la Universitat de Lleida els dies 23 i 24
               de novembre de 2024. Aquest és un esdeveniment que no voldràs
               perdre't!
