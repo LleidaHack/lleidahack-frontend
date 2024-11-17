@@ -109,11 +109,11 @@ const ProfileComponent = () => {
     getUserById(hacker_id).then(async (response) => {
       setUser(await response);
       setIsHacker(checkIsHacker(response));
-      setQrCode(await response.code);
     });
     if (isHacker) {
       getHackerById(hacker_id).then(async (response) => {
         setUser(await response);
+        setQrCode(await response.code);
         const response_1 = await getHackerGroups(hacker_id);
         if (response_1 && !response_1.message) {
           for (let i = 0; i < response_1.length; i++) {
