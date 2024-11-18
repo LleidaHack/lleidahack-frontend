@@ -40,7 +40,7 @@ const Join = (props) => {
           Pendent d'acceptació
         </div>
       );
-    } else {
+    } else if (props.event.is_open) {
       return (
         <a
           href="/hackeps/inscripcio"
@@ -49,6 +49,15 @@ const Join = (props) => {
         >
           Inscriure's
         </a>
+      );
+    } else {
+      return (
+        <div
+          style={{ width: `fit-content`, textDecoration: `none` }}
+          className="py-2 px-4 m-auto text-textPrimaryHackeps p-bg-primary"
+        >
+          Inscripcions tancades!
+        </div>
       );
     }
   }
