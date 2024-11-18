@@ -8,7 +8,7 @@ const Join = (props) => {
     if (!props.event) {
       return <HSkeleton width={"20%"} height={"40px"} inline />;
     }
-    
+
     if (props.event.accepted) {
       if (props.event.confirmed) {
         return (

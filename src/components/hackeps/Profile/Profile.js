@@ -60,7 +60,7 @@ const ProfileComponent = () => {
     let event_id;
     getHackeps().then((response) => {
       event_id = response.id;
-      let is_open = response.is_open
+      let is_open = response.is_open;
       getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
         if (response) {
           getEventHasHackerConfirmed(event_id, hacker_id).then((response) => {
