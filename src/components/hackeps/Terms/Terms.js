@@ -24,7 +24,7 @@ const TermsComponent = () => {
           Lleida, Lleida, Espanya.
           <br />
           Per a contactar amb L'ORGANITZACIÓ, pot posar-se en contacte a través
-          del correu electrònic lleidahack@gmail.com.
+          del correu electrònic contacte@lleidahack.dev.
         </p>
 
         <h4>Àmbit</h4>
@@ -172,7 +172,7 @@ const TermsComponent = () => {
           participant. Aquest tractament és opcional i el participant pot
           informar de la seva disconformitat sobre aquest tema durant el procés
           d'inscripció o, posteriorment, anul·lar aquest consentiment mitjançant
-          un correu a lleidahack@gmail.com.
+          un correu a contacte@lleidahack.dev.
         </p>
 
         <h4>Drets de Propietat Intel·lectual</h4>
