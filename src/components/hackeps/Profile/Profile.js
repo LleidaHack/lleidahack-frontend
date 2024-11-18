@@ -60,11 +60,13 @@ const ProfileComponent = () => {
     let event_id;
     getHackeps().then((response) => {
       event_id = response.id;
+      let is_open = response.is_open;
       getEventIsHackerAccepted(event_id, hacker_id).then((response) => {
         if (response) {
           getEventHasHackerConfirmed(event_id, hacker_id).then((response) => {
             if (response) {
               setEvent({
+                is_open: is_open,
                 event_id: event_id,
                 accepted: true,
                 registered: true,
@@ -72,6 +74,7 @@ const ProfileComponent = () => {
               });
             } else {
               setEvent({
+                is_open: is_open,
                 event_id: event_id,
                 accepted: true,
                 registered: true,
@@ -83,6 +86,7 @@ const ProfileComponent = () => {
           getEventIsHackerRegistered(event_id, hacker_id).then((response) => {
             if (response) {
               setEvent({
+                is_open: is_open,
                 event_id: event_id,
                 accepted: false,
                 registered: true,
@@ -90,6 +94,7 @@ const ProfileComponent = () => {
               });
             } else {
               setEvent({
+                is_open: is_open,
                 event_id: event_id,
                 accepted: false,
                 registered: false,
