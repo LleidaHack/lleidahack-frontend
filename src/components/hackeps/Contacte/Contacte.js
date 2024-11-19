@@ -59,7 +59,8 @@ const ContactePage = () => {
                 Esdeveniment organitzat per LleidaHack
               </h2>
               <img src={logo} alt="Logo" className="logo" />
-              <div className="social-logos">
+              <div className="flex-row justify-center flex mt-5">
+              <div className="transition-transform duration-300 ease-in-out hover:scale-105  ">
                 <a
                   href="https://www.twitter.com/lleidahack"
                   target="_blank"
@@ -71,6 +72,9 @@ const ContactePage = () => {
                     className="social-logo"
                   />
                 </a>
+                </div>
+                <div className="transition-transform duration-300 ease-in-out hover:scale-105 ">
+
                 <a
                   href="https://www.linkedin.com/company/lleidahack"
                   target="_blank"
@@ -82,6 +86,9 @@ const ContactePage = () => {
                     className="social-logo"
                   />
                 </a>
+                </div>
+
+                <div className="transition-transform duration-300 ease-in-out hover:scale-105  ">
                 <a
                   href="https://www.instagram.com/lleidahack"
                   target="_blank"
@@ -94,8 +101,13 @@ const ContactePage = () => {
                   />
                 </a>
               </div>
+             
+                </div>
+                
+              
             </div>
-            <div className="form-container-contacte">
+
+            <div className="form-container-contacte flex-row w-full max-w-full m-2.5 my-10">
               <Formik
                 initialValues={{
                   name: "",

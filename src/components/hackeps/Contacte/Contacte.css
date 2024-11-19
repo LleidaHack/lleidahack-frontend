@@ -108,22 +108,18 @@ textarea {
     margin: 20px;
   }
 
-  .social-logos {
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 20px;
-  }
+  
 
   .social-logo {
     width: 40px;
   }
 
-  .form-container-contacte {
+  /* .form-container-contacte {
     flex-direction: row;
     width: 100%;
     max-width: 100%;
     margin: 10px;
-  }
+  } */
 
   .form-container-contacte {
     margin-top: 40px;
