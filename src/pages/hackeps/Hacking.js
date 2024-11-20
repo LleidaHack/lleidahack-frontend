@@ -4,10 +4,10 @@ import Body from 'src/components/hackeps/Hacking/Body'
 
 const Hacking = () => {
   return (
-    <>
+    <div class='overflow-y-hidden w-full h-screen'>
       <Header />
       <Body />
-    </>
+    </div>
   )
 }
 
