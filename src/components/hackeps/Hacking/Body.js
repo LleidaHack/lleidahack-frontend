@@ -1,21 +1,27 @@
-import {React, useEffect, useState} from 'react'
+import { React, useEffect, useRef, useState } from "react";
+import hackLogo from "src/icons/banner_home_icon.png";
 import profiles from "./Profiles";
+import "./Waiting.css";
 import "./elements.css"
-import CounterActivity from "./CounterActivity";
 
-const Body = () => {
+import Button from "src/components/buttons/Button";
+import camaleon from "src/assets/camaleon.gif";
+const WaitingComponent = () => {
+  const logoRef = useRef(null);
   const [profile, setProfile] = useState("Hacking")
-  const [title, setTitle] = useState("HackEPS 2024")
-  const [midSideElement, setMidSideElement] = useState(<div className='midSideElement'>MidSideElement</div>)
-  const [botSideElement, setBotSideElement] = useState(<div className='botSideElement'>BotSideElement</div>)
-  //Hacer una configuración con 4 perfiles de actividad (1. Hacking, 2. Anuncios de actividad en curso, 3. Comidas o cenas junto a las instrucciones del aula, 4. Modo noche( oscuro))
-  //En Backend, una tabla con el itinerario y en frontend, un endpoint que actualize cada X tiempo buscando si hay nueva actividad que anunciar.
-  //En frontend, la actualización dependerá de la hora local. Esto es para que todo se sincronize al mismo tiempo en todos los dispositivos.
-  
-  //Las configuraciones deben cambiar entre ellas de forma suave, con animaciones y sin saltos.
-  
 
-  //Aqui hi haura un servell a backend per obtindre el perfil actual.
+  const animateLogo = () => {
+    const logo = logoRef.current;
+    logo.classList.remove("animate"); // Reinicia la animación
+    void logo.offsetWidth; // Fuerza el reflujo para reiniciar la animación
+    logo.classList.add("animate"); // Añade la clase de animación
+  };
+  useEffect(() => {
+    animateLogo(); //Animación del logo
+  }, []);
+
+
+
   useEffect(() => {
     const actualProfile = "Hacking"; //getActualHackingProfile();
     setProfile(actualProfile);
@@ -37,7 +43,7 @@ const Body = () => {
     if (!/^#[0-9A-Fa-f]{6}$/.test(bg1) || !/^#[0-9A-Fa-f]{6}$/.test(bg2)) {
         console.error("Uno de los colores no es válido:", { bg1, bg2 });
         return;
-    }  
+    }
     const step = 0.1;
     let opacity = 0;
     const mainDiv = document.querySelector(".mainDiv");
@@ -62,40 +68,54 @@ const Body = () => {
   }
 
   return (
-    <div className='mainDiv w-screen h-full flex flex-col overflow-hidden justify-between items-center'>
-      <div className='topSide '>
+    <div className="mainDiv h-screen w-screen overflow-hidden">
+      <div className="">
+        <div className="absolute top-48 w-screen h-36 z-20 overflow-hidden	max-w-screen">
+          <div className="overflow-hidden">
+            <div className="bird-container bird-container--one">
+              <div className="bird bird--one"></div>
+            </div>
+            <div className="bird-container bird-container--two">
+              <div className="bird bird--two"></div>
+            </div>
 
-    {/* Aquesta corredera anuncis, al finalitzar, pasara a formar part de una component anomenada AdsContainer */}
-        <div className='Corredera-Anuncis bg-red-300 w-[80vw] mt-5 rounded-lg flex flex-col absolute left-1/2 transform -translate-x-1/2 z-[20]'>
-    {/* Aixo es mostrara per damunt de lo que hi hagi al top side, animacions o lo que sigui. */}
-          <div className='X button mb-2'>
-            <p>X</p>
+            <div className="bird-container bird-container--three">
+              <div className="bird bird--three"></div>
+            </div>
+
+            <div className="bird-container bird-container--four">
+              <div className="bird bird--four"></div>
+            </div>
           </div>
-          <div className='Titol Activitat'>
-            <p>Activitat Lúdica</p>   
-          </div>
-          <div className='Descripcio'>
-            <p><span>Aula: </span> 0.05</p>
-          </div>
-          <div className='CounterActivity mt-2'>
-            <p className='EventStatus'>La activitat comença dintre de </p>
-            <CounterActivity type="1" time="57" /> 
-            
-          </div>      
-    {/* Fins aqui el AdsContainer */}
         </div>
-        
-      </div>
-      <div className='midSide bg-red-300'>
-        {midSideElement}
-      </div>
+        <div className="flex flex-row">
+          
 
-      <div className='botSide mb-40 self-end mr-10 bg-red-300'>
-        {botSideElement} 
-        {/* canviara entre patrocinadors, counterhack block, etc... */}
+          <div className="flex flex-col w-screen h-screen text-white text-2xl z-30">
+            <div className="loader text-center">
+              <img
+                className="imagelogo h-[30rem] logo"
+                src={hackLogo}
+                alt=""
+                ref={logoRef}
+              />
+            </div>
+            <div className="mt-32 ml-5 w-full text-center ">
+              <Button primary outline>
+                Inscripcions HackEPS 2024
+              </Button>
+            </div>
+          </div>
+          <div id="animals-2" className="w-full "></div>
+        </div>
+        <div className="absolute bottom-0 w-screen h-36 z-20 overflow-hidden w-screen ">
+          <div className="flex flex-row w-full  h-full w-screen ">
+            <img src={camaleon} className="animated-cham h-full" />
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Body
+export default WaitingComponent;
