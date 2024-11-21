@@ -7,6 +7,7 @@ import CounterActivity from "./CounterActivity";
 import Button from "src/components/buttons/Button";
 import camaleon from "src/assets/camaleon.gif";
 import LogosComp from "./LogosComp";
+import AdsContainer from "./AdsContainer";
 
 
 const WaitingComponent = () => {
@@ -14,7 +15,9 @@ const WaitingComponent = () => {
   const [profile, setProfile] = useState("Hacking")
   const [heightContent, setHeightContent] = useState(`h-72`);
   const [heightFooter, setHeightFooter] = useState(`h-40`);
-  const [content, setContent] = useState(<div className="text-center"><p>Waiting for the activity to Start</p><CounterActivity type="2"/></div>);
+  const targetTime = new Date("2024-11-21T23:59:00").getTime();
+
+  const [content, setContent] = useState(<div className="text-center"><p>Waiting for the activity to Start</p><CounterActivity type={2} targetTime={targetTime}/></div>);
   const [footer, setFooter] = useState(<div className="w-full align-end"> <LogosComp/> </div>);
 
   const animateLogo = () => {
@@ -28,7 +31,7 @@ const WaitingComponent = () => {
   }, []);
 
 
-
+  
   useEffect(() => {
     const actualProfile = "Hacking"; //getActualHackingProfile();
     setProfile(actualProfile);
@@ -76,7 +79,7 @@ const WaitingComponent = () => {
   return (
     <div className="mainDiv h-screen w-screen overflow-hidden">
       <div className="">
-        <div className="absolute top-28 w-screen h-56 z-20 overflow-hidden	max-w-screen">
+        <div className="absolute top-16 w-screen h-72 z-20 overflow-hidden	max-w-screen">
           <div className="overflow-hidden">
             <div className="bird-container bird-container--one">
               <div className="bird bird--one"></div>
@@ -94,24 +97,7 @@ const WaitingComponent = () => {
             </div>
           </div>
 
-          <div className='Corredera-Anuncis bg-red-300 w-[80vw] h-full  rounded-lg flex flex-col absolute left-1/2 transform -translate-x-1/2 z-[20]'>
-          {/* Aixo es mostrara per damunt de lo que hi hagi al top side, animacions o lo que sigui. */}
-          <div className='X button mb-2'>
-            <p>X</p>
-          </div>
-          <div className='Titol Activitat'>
-            <p>Activitat Lúdica</p>   
-          </div>
-          <div className='Descripcio'>
-            <p><span>Aula: </span> 0.05</p>
-          </div>
-          <div className='CounterActivity mt-2'>
-            <p className='EventStatus'>La activitat comença dintre de </p>
-            <CounterActivity type="1" time="13:30"/> 
-            
-          </div>      
-          {/* Fins aqui el AdsContainer */}
-        </div>
+          <AdsContainer title="Activitat Lúdica" element1="Aula: 0.05" element2={<CounterActivity type={1} targetTime={targetTime}/>} />
         </div>
 
           
@@ -127,7 +113,7 @@ const WaitingComponent = () => {
           </div>
         </div>
         <div className="flex flex-col h-full ">
-          <div className={`bg-red-300 w-full justify-items-center ${heightContent}`}>
+          <div className={`bg-white w-fit translate-x-1/2	 rounded-lg justify-items-center ${heightContent}`}>
             {content}
           </div>
           <div className={`bg-red-300 w-full absolute bottom-0 ${heightFooter}`}>

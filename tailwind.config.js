@@ -4,9 +4,6 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        digits: ['DS-DIGI', 'Sans-serif'],
-      },
       colors: {
         primaryLanding: "#FF7430",
         secondaryLanding: "#232323",
