@@ -26,3 +26,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+
+@font-face {
+  font-family: 'DS-DIGI';
+  src: url('../assets/fonts/ds_digital/DS-DIGI.TTF') format('truetype');
+  font-weight: normal; /* Ajusta según el archivo */
+  font-style: normal; /* Cambia a "italic" si es necesario */
+}

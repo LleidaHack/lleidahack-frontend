@@ -1,13 +1,7 @@
 
 
 .mainDiv{
-    background-image: url(src/assets/banner_home_no_background.png);
+    background-image: url(src/assets/banner_home_nobackground.png);
     background-size: cover;
 }
 
-.backgrounder-wait {
-    background-image: url(src/assets/banner_home_no_background.png);
-    background-size: cover;
-    height: 50vh;
-    overflow: hidden;
-  }

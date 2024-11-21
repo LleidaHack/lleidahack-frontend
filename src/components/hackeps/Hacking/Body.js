@@ -3,12 +3,19 @@ import hackLogo from "src/icons/banner_home_icon.png";
 import profiles from "./Profiles";
 import "./Waiting.css";
 import "./elements.css"
-
+import CounterActivity from "./CounterActivity";
 import Button from "src/components/buttons/Button";
 import camaleon from "src/assets/camaleon.gif";
+import LogosComp from "./LogosComp";
+
+
 const WaitingComponent = () => {
   const logoRef = useRef(null);
   const [profile, setProfile] = useState("Hacking")
+  const [heightContent, setHeightContent] = useState(`h-72`);
+  const [heightFooter, setHeightFooter] = useState(`h-40`);
+  const [content, setContent] = useState(<div className="text-center"><p>Waiting for the activity to Start</p><CounterActivity type="2"/></div>);
+  const [footer, setFooter] = useState(<div className="w-full align-end"> <LogosComp/> </div>);
 
   const animateLogo = () => {
     const logo = logoRef.current;
@@ -47,7 +54,6 @@ const WaitingComponent = () => {
     const step = 0.1;
     let opacity = 0;
     const mainDiv = document.querySelector(".mainDiv");
-
     let interval = setInterval(() => {
         if (opacity >= 1) {
             clearInterval(interval);
@@ -66,11 +72,11 @@ const WaitingComponent = () => {
         }
     }, 100);
   }
-
+  
   return (
     <div className="mainDiv h-screen w-screen overflow-hidden">
       <div className="">
-        <div className="absolute top-48 w-screen h-36 z-20 overflow-hidden	max-w-screen">
+        <div className="absolute top-28 w-screen h-56 z-20 overflow-hidden	max-w-screen">
           <div className="overflow-hidden">
             <div className="bird-container bird-container--one">
               <div className="bird bird--one"></div>
@@ -87,27 +93,48 @@ const WaitingComponent = () => {
               <div className="bird bird--four"></div>
             </div>
           </div>
+
+          <div className='Corredera-Anuncis bg-red-300 w-[80vw] h-full  rounded-lg flex flex-col absolute left-1/2 transform -translate-x-1/2 z-[20]'>
+          {/* Aixo es mostrara per damunt de lo que hi hagi al top side, animacions o lo que sigui. */}
+          <div className='X button mb-2'>
+            <p>X</p>
+          </div>
+          <div className='Titol Activitat'>
+            <p>Activitat Lúdica</p>   
+          </div>
+          <div className='Descripcio'>
+            <p><span>Aula: </span> 0.05</p>
+          </div>
+          <div className='CounterActivity mt-2'>
+            <p className='EventStatus'>La activitat comença dintre de </p>
+            <CounterActivity type="1" time="13:30"/> 
+            
+          </div>      
+          {/* Fins aqui el AdsContainer */}
         </div>
-        <div className="flex flex-row">
+        </div>
+
           
 
-          <div className="flex flex-col w-screen h-screen text-white text-2xl z-30">
-            <div className="loader text-center">
-              <img
-                className="imagelogo h-[30rem] logo"
-                src={hackLogo}
-                alt=""
-                ref={logoRef}
-              />
-            </div>
-            <div className="mt-32 ml-5 w-full text-center ">
-              <Button primary outline>
-                Inscripcions HackEPS 2024
-              </Button>
-            </div>
+        <div className="w-screen h-[25rem] text-white text-2xl">
+          <div className="loader text-center">
+            <img
+              className="imagelogo h-[25rem] logo z-[10]"
+              src={hackLogo}
+              alt=""
+              ref={logoRef}
+            />
           </div>
-          <div id="animals-2" className="w-full "></div>
         </div>
+        <div className="flex flex-col h-full ">
+          <div className={`bg-red-300 w-full justify-items-center ${heightContent}`}>
+            {content}
+          </div>
+          <div className={`bg-red-300 w-full absolute bottom-0 ${heightFooter}`}>
+
+          </div>
+        </div>
+        
         <div className="absolute bottom-0 w-screen h-36 z-20 overflow-hidden w-screen ">
           <div className="flex flex-row w-full  h-full w-screen ">
             <img src={camaleon} className="animated-cham h-full" />

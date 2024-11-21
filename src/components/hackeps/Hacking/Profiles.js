@@ -1,22 +1,44 @@
+import LogosComp from "./LogosComp";
+import CounterActivity from "./CounterActivity";
 
 
 const profiles = {
     Hacking: {
         bgColor: "#b3bc24",
-        animations: ["Cocodrils", "Patos"],
+        footer: <div className="w-full align-end"> <LogosComp/> </div>,
+        content: <div className="text-center"><p>Temps per Hackejar</p><CounterActivity type="2"/></div>,
+        heightContent: `h-72`,
+        heightFooter: `h-40`
     },
     Announcements: {
         bgColor: "#6524bc",
-        animations: ["Camaleons", "Pato"],
+        // footer:
+        // content:
+        // heightContent:
+        // heightFooter: 
     },
     Meals: {
         bgColor: "#24bc7d",
-        animations: ["Pato", "Serp"],
+        // footer:
+        // content:
+        // heightContent:
+        // heightFooter: 
     },
     NightMode: {
         bgColor: "#2484bc",
-        animations: ["ocells", "mimimimimi"],
-    }
+        // footer:
+        // content:
+        // heightContent:
+        // heightFooter: 
+    },
+    EndMode: {
+        bgColor: "#2484bc",
+        // footer:
+        // content:
+        // heightContent:
+        // heightFooter: 
+    },
+
 }
 
 export default profiles;
