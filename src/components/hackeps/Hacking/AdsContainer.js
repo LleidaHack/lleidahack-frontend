@@ -1,15 +1,29 @@
-import {React} from 'react'
+import {React, useEffect, useState} from 'react'
 
 
-const adsContainer = ({color, title, element1, element2}) => {
+const AdsContainer = ({color, title, element1, element2}) => {
+    
+    const [show, setShow] = useState(true);
+    function hideAdvice(){
+        if(show){
+            setShow(false);
+            document.querySelector('.Corredera-Anuncis').style.display = 'none';
+        }
+    }
+    useEffect(() => {
+        if(!show){
+            document.querySelector('.Corredera-Anuncis').style.display = 'block';
+        }
+    } , [])
+
 
   return (
     <>
         <div className={`Corredera-Anuncis bg-green-500 w-[80vw] h-full  rounded-lg flex flex-col absolute left-1/2 transform -translate-x-1/2 z-[20] shadow-2xl opacity-90`}>
             {/* Aixo es mostrara per damunt de lo que hi hagi al top side, animacions o lo que sigui. */}
             
-            <div className='X button mb-2 text-red-600 font-semibold text-end mt-2 mr-4 text-3xl	'>
-                <p>×</p>
+            <div className='X button mb-2 text-red-600 font-semibold text-end mt-2 mr-4 text-3xl cursor-pointer	'>
+                <p onClick={hideAdvice}>×</p>
             </div>
             <div className='Titol-Activitat text-center	font-extrabold'>
                 <h2 className='text-4xl '>{title} </h2>  
@@ -33,4 +47,4 @@ const adsContainer = ({color, title, element1, element2}) => {
   )
 }
 
-export default adsContainer
+export default AdsContainer

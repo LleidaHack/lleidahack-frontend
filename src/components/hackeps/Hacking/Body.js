@@ -17,6 +17,9 @@ const WaitingComponent = () => {
   const [heightContent, setHeightContent] = useState(`h-72`);
   const [heightFooter, setHeightFooter] = useState(`h-28`);
   const targetTime = new Date("2024-11-21T23:59:00").getTime();
+  const [adviceElement, setAdviceElement] = useState();
+  const [activitiesList, setActivitiesList] = useState();
+  const [oldActivitiesList, setOldActivitiesList] = useState();
 
   const [content, setContent] = useState(<div className="text-center"><p>Waiting for the activity to Start</p><CounterActivity type={2} targetTime={targetTime}/></div>);
   const [footer, setFooter] = useState(<div className="w-full align-end"> <LogosComp/> </div>);
@@ -30,8 +33,6 @@ const WaitingComponent = () => {
   useEffect(() => {
     animateLogo(); //Animación del logo
   }, []);
-
-
   
   useEffect(() => {
     const actualProfile = "Hacking"; //getActualHackingProfile();
@@ -46,6 +47,25 @@ const WaitingComponent = () => {
 
     return () => clearTimeout(timer); // Cleanup the timer on component unmount
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      //ACTUALITZAR LA LLISTA D'ACTIVITATS
+        //const activities = await getActivities();
+        //setActivitiesList(activities);
+      //ACTUALITZAR PERFIL ACTUAL.
+        //const actualProfile = await getActualActivityProfile();
+        //si es diferent al actual, utilitzar la funcio de transicio de perfils per a canviar al nou.
+    }, 300000); // 300000 milliseconds = 5 minutes
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, []);
+
+  useEffect(() => {
+      //Aqui se comprobara la llista de activitats i se comparara amb la antiga.
+      //Es comprobaran els tempos i si esta activa (es mostrarà a la llista antiga.)
+      //Si no esta activa, la activará i setejara els anuncis que fagi falta
+  }, [activitiesList]);
 
   function transitionBackgrounds(nextProfile) {
     const bg1 = profiles[profile].bgColor?.trim(); // Actual profile
@@ -97,8 +117,7 @@ const WaitingComponent = () => {
               <div className="bird bird--four"></div>
             </div>
           </div>
-
-          <AdsContainer title="Activitat Lúdica" element1="Aula: 0.05" element2={<CounterActivity type={1} targetTime={targetTime}/>} />
+          {adviceElement}
         </div>
 
           
