@@ -8,13 +8,14 @@ import Button from "src/components/buttons/Button";
 import camaleon from "src/assets/camaleon.gif";
 import LogosComp from "./LogosComp";
 import AdsContainer from "./AdsContainer";
+import CarruselLogos from "./CarruselLogos";
 
 
 const WaitingComponent = () => {
   const logoRef = useRef(null);
   const [profile, setProfile] = useState("Hacking")
   const [heightContent, setHeightContent] = useState(`h-72`);
-  const [heightFooter, setHeightFooter] = useState(`h-40`);
+  const [heightFooter, setHeightFooter] = useState(`h-28`);
   const targetTime = new Date("2024-11-21T23:59:00").getTime();
 
   const [content, setContent] = useState(<div className="text-center"><p>Waiting for the activity to Start</p><CounterActivity type={2} targetTime={targetTime}/></div>);
@@ -39,7 +40,7 @@ const WaitingComponent = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       // Do something after 5 seconds
-      const profile2 = "Meals";
+      const profile2 = "Announcements";
       transitionBackgrounds(profile2)
     }, 5000);
 
@@ -113,11 +114,13 @@ const WaitingComponent = () => {
           </div>
         </div>
         <div className="flex flex-col h-full ">
-          <div className={`bg-white w-fit translate-x-1/2	 rounded-lg justify-items-center ${heightContent}`}>
+          <div className={`bg-white w-fit translate-x-1/2	 rounded-lg justify-items-center pt-4 ${heightContent}`}>
             {content}
           </div>
-          <div className={`bg-red-300 w-full absolute bottom-0 ${heightFooter}`}>
-
+          <div className={` w-full absolute bottom-0 ${heightFooter} justify-items-end	mb-2`}>
+            <div className="w-32 h-full bg-white align-middle	 rounded-lg mr-8 px-2 ">
+              <CarruselLogos />
+            </div>
           </div>
         </div>
         

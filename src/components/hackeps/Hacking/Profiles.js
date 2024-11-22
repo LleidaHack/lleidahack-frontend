@@ -4,14 +4,14 @@ import CounterActivity from "./CounterActivity";
 
 const profiles = {
     Hacking: {
-        bgColor: "#b3bc24",
+        bgColor: "#0e3a29",
         footer: <div className="w-full align-end"> <LogosComp/> </div>,
         content: <div className="text-center"><p>Temps per Hackejar</p><CounterActivity type="2"/></div>,
         heightContent: `h-72`,
         heightFooter: `h-40`
     },
     Announcements: {
-        bgColor: "#6524bc",
+        bgColor: "#0e3a29",
         // footer:
         // content:
         // heightContent:
@@ -32,7 +32,7 @@ const profiles = {
         // heightFooter: 
     },
     EndMode: {
-        bgColor: "#2484bc",
+        bgColor: "#0e3a29",
         // footer:
         // content:
         // heightContent:
