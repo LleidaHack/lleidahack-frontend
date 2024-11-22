@@ -44,8 +44,8 @@ const MainTitle = () => {
     console.log("fwewf")
     const today = new Date();
     const eventDays = [  // Aqui es fiquen les dates dels dies de la Hack.
-      new Date("2024-11-20"),
-      new Date("2024-11-21"),
+      new Date("2024-11-22"),
+      new Date("2024-11-23"),
     ];
 
     if (eventDays.some(eventDay => 

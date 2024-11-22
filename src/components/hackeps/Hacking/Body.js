@@ -16,8 +16,8 @@ const WaitingComponent = () => {
   const [profile, setProfile] = useState("Hacking")
   const [heightContent, setHeightContent] = useState(`h-72`);
   const [heightFooter, setHeightFooter] = useState(`h-28`);
-  const targetTime = new Date("2024-11-21T23:59:00").getTime();
-  const [adviceElement, setAdviceElement] = useState();
+  const targetTime = new Date("2024-11-22T23:59:00").getTime();
+  const [adviceElement, setAdviceElement] = useState(<AdsContainer color="bg-green-500" title="Activitat" element1="Descripció de l'activitat" element2={<CounterActivity type={1} targetTime={targetTime}/>}/>);
   const [activitiesList, setActivitiesList] = useState();
   const [oldActivitiesList, setOldActivitiesList] = useState();
 
@@ -132,12 +132,12 @@ const WaitingComponent = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col h-full ">
-          <div className={`bg-white w-fit translate-x-1/2	 rounded-lg justify-items-center pt-4 ${heightContent}`}>
+        <div className="flex flex-col h-full items-center">
+          <div className={`bg-white w-fit  rounded-lg justify-items-center pt-4 ${heightContent}`}>
             {content}
           </div>
           <div className={` w-full absolute bottom-0 ${heightFooter} justify-items-end	mb-2`}>
-            <div className="w-32 h-full bg-white align-middle	 rounded-lg mr-8 px-2 ">
+            <div className="w-32 h-full bg-white content-center rounded-lg mr-8 px-2 ">
               <CarruselLogos />
             </div>
           </div>

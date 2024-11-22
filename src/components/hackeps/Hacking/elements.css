@@ -1,7 +1,7 @@
 
 
 .mainDiv{
-    background-image: url(src/assets/banner_home_nobackground.png);
-    background-size: cover;
+    background-image: url(src/assets/Background_gif_big.gif);
+    background-size: contain;
 }
 

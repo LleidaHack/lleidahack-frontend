@@ -30,7 +30,7 @@ const AdsContainer = ({color, title, element1, element2}) => {
             </div>
             <div className='flex flex-row w-full pl-8 mt-2'>
                 
-                <div className='CounterActivity mt-2 flex-1 justify-items-center	pr-8'>
+                <div className='CounterActivity mt-2 flex-1 justify-items-center pr-8'>
                     <p className='EventStatus text-xl'>La activitat comença dintre de </p>
                     <div className='items-end'>{element2}</div>
                     

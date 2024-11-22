@@ -71,7 +71,8 @@ const CarruselLogos = () => {
             ref={logoRef}
             src={logos[currentLogoIndex] || ''} // Mostrar un logo vacío mientras se cargan los datos
             alt="Logo"
-            style={{ opacity: 1, transform: 'translate(0, 50%)', objectFit: 'contain' }} 
+            style={{ opacity: 1 }} 
+            className='object-center object-contain'
         />
     );
 };

@@ -61,17 +61,17 @@ const CounterActivity = ({ type, targetTime }) => {
       {tip === 1 && 
       <>
         <div className='flex flex-row rounded-md  bg-white w-fit pt-3	'>
-          <div className='flex flex-col px-4 items-center'>
+          <div className='flex flex-col px-2 items-center'>
             <div className='digit-hour oswald-700 text-2xl drop-shadow-2xl'>{hoursLeft}</div>
             <p>Hores</p>
           </div>
-
-          <div className='flex flex-col px-4 border-l-2 border-black items-center	'>
+          <div className='oswald-700 text-2xl drop-shadow-7xl items-center translate-y-[-3%]'><p>:</p></div>
+          <div className='flex flex-col px-2  border-black items-center	'>
             <div className='digit-hour oswald-700 text-2xl drop-shadow-2xl'>{minutesLeft}</div>
             <p>Minuts</p>
           </div>
-
-          <div className='flex flex-col px-4 border-l-2 border-black items-center'>
+          <div className='oswald-700 text-2xl drop-shadow-7xl items-center translate-y-[-3%]'><p>:</p></div>
+          <div className='flex flex-col px-2 border-black items-center'>
             <div className='digit-hour oswald-700 text-2xl drop-shadow-2xl'>{secondsLeft}</div>
             <p>Segons</p>
           </div>
@@ -81,22 +81,24 @@ const CounterActivity = ({ type, targetTime }) => {
       {tip === 2 && 
       <>
         <div className='flex flex-row rounded-md  mx-96 '>
-          <div className='flex flex-col px-4 '>
+          <div className='flex flex-col px-2 '>
             <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{hoursLeft}</div>
             <p>Hores</p>
           </div>
+          <div className='oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]'><p>:</p></div>
 
-          <div className='flex flex-col px-4 border-l-2 border-black'>
+          <div className='flex flex-col px-2 border-black '>
             <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{minutesLeft}</div>
             <p>Minuts</p>
           </div>
+          <div className='oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]'><p>:</p></div>
 
-          <div className='flex flex-col px-4 border-l-2 border-black'>
+          <div className='flex flex-col px-2 border-black '>
             <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{secondsLeft}</div>
             <p>Segons</p>
           </div>
         </div>
-        <p className='opacity-85'>El compte enrere finalitza el {dateEnd}</p>
+        <p className='opacity-85'>El compte enrere finalitza el <span className='text-red-700'>{dateEnd}</span></p>
       </>
       }
       {tip === 3 && 
