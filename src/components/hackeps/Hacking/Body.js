@@ -13,7 +13,16 @@ import CarruselLogos from "./CarruselLogos";
 
 const WaitingComponent = () => {
   const logoRef = useRef(null);
-  const [profile, setProfile] = useState("Hacking")
+  const [profile, setProfiles] = useState("Hacking");
+
+  const setProfile = (newProfile) => {
+    // Funció per a que al setejar un perfil nou, es realitzi tota la interacció de canvis entre perfils.
+    transitionBackgrounds(newProfile)
+    setProfiles(newProfile);
+    transitionChangeContent(profiles[newProfile].content.content, profiles[newProfile].content.heightContent, profiles[newProfile].content.heightFooter);
+  };
+
+
   const [heightContent, setHeightContent] = useState(`h-72`);
   const [heightFooter, setHeightFooter] = useState(`h-28`);
   const targetTime = new Date("2024-11-22T23:59:00").getTime();
@@ -30,33 +39,23 @@ const WaitingComponent = () => {
     void logo.offsetWidth; // Fuerza el reflujo para reiniciar la animación
     logo.classList.add("animate"); // Añade la clase de animación
   };
+
   useEffect(() => {
     animateLogo(); //Animación del logo
   }, []);
   
-  useEffect(() => {
-    const actualProfile = "Hacking"; //getActualHackingProfile();
-    setProfile(actualProfile);
-  }, [])
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      // Do something after 5 seconds
-      const profile2 = "Announcements";
-      transitionBackgrounds(profile2)
-    }, 5000);
-
-    return () => clearTimeout(timer); // Cleanup the timer on component unmount
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
+      setProfile("EndMode")
+      console.log("Canvi de perfil")
       //ACTUALITZAR LA LLISTA D'ACTIVITATS
         //const activities = await getActivities();
         //setActivitiesList(activities);
       //ACTUALITZAR PERFIL ACTUAL.
         //const actualProfile = await getActualActivityProfile();
         //si es diferent al actual, utilitzar la funcio de transicio de perfils per a canviar al nou.
-    }, 300000); // 300000 milliseconds = 5 minutes
+    }, 10000); // 300000 milliseconds = 5 minutes
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, []);
@@ -68,20 +67,30 @@ const WaitingComponent = () => {
   }, [activitiesList]);
 
   function transitionBackgrounds(nextProfile) {
-    const bg1 = profiles[profile].bgColor?.trim(); // Actual profile
+    const mainDiv = document.querySelector(".mainDiv");
+    var bg1 = window.getComputedStyle(mainDiv).backgroundColor; // Actual background on screen
+    if (bg1.startsWith("rgba")) {
+      const rgba = bg1.match(/rgba\((\d+), (\d+), (\d+), (\d+)\)/);
+      if (rgba) {
+      bg1 = `#${((1 << 24) + (parseInt(rgba[1]) << 16) + (parseInt(rgba[2]) << 8) + parseInt(rgba[3])).toString(16).slice(1)}`;
+      }
+    }
+    if (bg1.startsWith("rgb")) {
+      const rgb = parseRgb(bg1);
+      bg1 = `#${((1 << 24) + (rgb.r << 16) + (rgb.g << 8) + rgb.b).toString(16).slice(1)}`;
+    }
+    bg1 = bg1.trim();
     const bg2 = profiles[nextProfile]?.bgColor?.trim();
-    // Validar que bg1 y bg2 sean cadenas válidas
     if (!/^#[0-9A-Fa-f]{6}$/.test(bg1) || !/^#[0-9A-Fa-f]{6}$/.test(bg2)) {
         console.error("Uno de los colores no es válido:", { bg1, bg2 });
         return;
     }
     const step = 0.1;
     let opacity = 0;
-    const mainDiv = document.querySelector(".mainDiv");
     let interval = setInterval(() => {
         if (opacity >= 1) {
             clearInterval(interval);
-            setProfile(nextProfile); // Actualizar el perfil al finalizar
+            setProfiles(nextProfile); // Actualizar el perfil al finalizar
         } else {
             opacity += step;
 
@@ -95,6 +104,82 @@ const WaitingComponent = () => {
             mainDiv.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
         }
     }, 100);
+  }
+  function parseRgb(rgbString) {
+    const match = rgbString.match(/rgb\((\d+), (\d+), (\d+)\)/);
+    if (!match) throw new Error("El color RGB no es válido.");
+    return {
+      r: parseInt(match[1], 10),
+      g: parseInt(match[2], 10),
+      b: parseInt(match[3], 10),
+    };
+  }
+
+  function hexToRgb(hex) {
+    // Asegurarse de que el formato HEX sea correcto
+    if (hex.length === 9) { // RGBA (8 caracteres)
+      hex = hex.slice(0, 7); // Convertir a formato HEX estándar (#RRGGBB)
+    } else if (hex.length !== 7) {
+      throw new Error("El color HEX no es válido.");
+    }
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return { r, g, b };
+  }
+  function transitionChangeContent(contents, hContent, hFooter){
+    //La utilitat de aquesta funció sera per a transicio entre canvis del content (zona del rellotge central)
+    //Els canvis poden ser: (Modo nit(colors diferents), modo fi de la hack (instruccions de entrega))
+      const div = document.querySelector(".container4Content");
+      const bg = contents.bgColor
+      const textC = contents.textColor
+      const step = 0.1;
+      let opacity = 0;
+      const interval = setInterval(() => {
+        if (opacity >= 1) {
+          clearInterval(interval);
+        } else {
+          opacity += step;
+
+          const bgRgb = hexToRgb(bg);
+          const currentBgRgb = parseRgb(window.getComputedStyle(div).backgroundColor);
+          // Calcular los valores RGB mezclados
+          const r = Math.round(bgRgb.r * (1 - opacity) + currentBgRgb.r * opacity);
+          const g = Math.round(bgRgb.g * (1 - opacity) + currentBgRgb.g * opacity);
+          const b = Math.round(bgRgb.b * (1 - opacity) + currentBgRgb.b * opacity);
+
+          // Aplicar estilo al elemento
+          div.style.transition = `background-color 0.1s ease-in-out, color 0.1s ease-in-out`;
+          div.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+          div.style.color = textC;
+        }
+      }, 100);
+    clearInterval(interval);
+    
+      const newContent = contents.div;
+      const steps = 0.1;
+      let opacitys = 1;
+      
+      const intervalOut = setInterval(() => {
+        if (opacitys <= 0) {
+          clearInterval(intervalOut);
+          setContent(newContent);
+          setHeightContent(hContent);
+          setHeightFooter(hFooter);
+          let opacityIn = 0;
+          const intervalIn = setInterval(() => {
+            if (opacityIn >= 1) {
+        clearInterval(intervalIn);
+            } else {
+        opacityIn += steps;
+        div.style.opacity = opacityIn;
+            }
+          }, 100);
+        } else {
+          opacitys -= steps;
+          div.style.opacity = opacitys;
+        }
+      }, 100);
   }
   
   return (
@@ -133,7 +218,7 @@ const WaitingComponent = () => {
           </div>
         </div>
         <div className="flex flex-col h-full items-center">
-          <div className={`bg-white w-fit  rounded-lg justify-items-center pt-4 ${heightContent}`}>
+          <div className={`bg-white w-fit  rounded-lg justify-items-center pt-4 ${heightContent} container4Content`}>
             {content}
           </div>
           <div className={` w-full absolute bottom-0 ${heightFooter} justify-items-end	mb-2`}>
