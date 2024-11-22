@@ -102,9 +102,27 @@ const CounterActivity = ({ type, targetTime }) => {
       </>
       }
       {tip === 3 && 
-        <div>
-          CounterActivity
+        <>
+        <div className='flex flex-row rounded-md  mx-16 '>
+          <div className='flex flex-col px-2 '>
+            <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{hoursLeft}</div>
+            <p>Hores</p>
+          </div>
+          <div className='oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]'><p>:</p></div>
+
+          <div className='flex flex-col px-2 border-black '>
+            <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{minutesLeft}</div>
+            <p>Minuts</p>
+          </div>
+          <div className='oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]'><p>:</p></div>
+
+          <div className='flex flex-col px-2 border-black '>
+            <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{secondsLeft}</div>
+            <p>Segons</p>
+          </div>
         </div>
+        <p className='opacity-85'>El compte enrere finalitza el <span className='text-red-700'>{dateEnd}</span></p>
+      </>
       }
       {tip !== 1 && tip !== 2 && tip !== 3 && 
         <div>

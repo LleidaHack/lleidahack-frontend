@@ -42,6 +42,8 @@ const WaitingComponent = () => {
 
   useEffect(() => {
     animateLogo(); //Animación del logo
+    setProfile("EndMode")
+
   }, []);
   
 
@@ -55,7 +57,7 @@ const WaitingComponent = () => {
       //ACTUALITZAR PERFIL ACTUAL.
         //const actualProfile = await getActualActivityProfile();
         //si es diferent al actual, utilitzar la funcio de transicio de perfils per a canviar al nou.
-    }, 10000); // 300000 milliseconds = 5 minutes
+    }, 300000); // 300000 milliseconds = 5 minutes
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, []);
@@ -159,27 +161,31 @@ const WaitingComponent = () => {
       const newContent = contents.div;
       const steps = 0.1;
       let opacitys = 1;
-      
-      const intervalOut = setInterval(() => {
-        if (opacitys <= 0) {
-          clearInterval(intervalOut);
-          setContent(newContent);
-          setHeightContent(hContent);
-          setHeightFooter(hFooter);
-          let opacityIn = 0;
-          const intervalIn = setInterval(() => {
-            if (opacityIn >= 1) {
-        clearInterval(intervalIn);
-            } else {
-        opacityIn += steps;
-        div.style.opacity = opacityIn;
-            }
-          }, 100);
-        } else {
-          opacitys -= steps;
-          div.style.opacity = opacitys;
-        }
-      }, 100);
+      console.log("newContent", newContent);
+      console.log("content", content);
+      console.log(content.props !== newContent.props);
+      if ((content.props !== newContent.props)) {
+        const intervalOut = setInterval(() => {
+          if (opacitys <= 0) {
+            clearInterval(intervalOut);
+            setContent(newContent);
+            setHeightContent(hContent);
+            setHeightFooter(hFooter);
+            let opacityIn = 0;
+            const intervalIn = setInterval(() => {
+              if (opacityIn >= 1) {
+          clearInterval(intervalIn);
+              } else {
+          opacityIn += steps;
+          div.style.opacity = opacityIn;
+              }
+            }, 100);
+          } else {
+            opacitys -= steps;
+            div.style.opacity = opacitys;
+          }
+        }, 100);
+      }
   }
   
   return (
@@ -218,7 +224,7 @@ const WaitingComponent = () => {
           </div>
         </div>
         <div className="flex flex-col h-full items-center">
-          <div className={`bg-white w-fit  rounded-lg justify-items-center pt-4 ${heightContent} container4Content`}>
+          <div className={`bg-white w-fit  rounded-lg justify-items-center content-center	 pt-4 ${heightContent} container4Content`}>
             {content}
           </div>
           <div className={` w-full absolute bottom-0 ${heightFooter} justify-items-end	mb-2`}>
