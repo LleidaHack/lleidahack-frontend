@@ -48,7 +48,7 @@ const faqs = [
   {
     question: "Vols col·laborar amb nosaltres?",
     answer:
-      "Estem oberts a qualsevol tipus de col·laboració ja sigui com a organitzador o sponsor. Contacta amb nosaltres a lleidahack@gmail.com.",
+      "Estem oberts a qualsevol tipus de col·laboració ja sigui com a organitzador o sponsor. Contacta amb nosaltres a contacte@lleidahack.dev.",
   },
 ];
 
