@@ -26,8 +26,8 @@ const WaitingComponent = () => {
 
   const [heightContent, setHeightContent] = useState(`h-72`);
   const [heightFooter, setHeightFooter] = useState(`h-28`);
-  const targetTime = new Date("2024-11-22T23:59:00").getTime();
-  const [adviceElement, setAdviceElement] = useState(<AdsContainer color="bg-green-500" title="Activitat" element1="Descripció de l'activitat" element2={<CounterActivity type={1} targetTime={targetTime}/>}/>);
+  const targetTime = new Date("2024-11-24T11:00:00").getTime();
+  const [adviceElement, setAdviceElement] = useState();
   const [activeActivity, setActiveActivity] = useState("none");
   const [content, setContent] = useState(<div className="text-center"><p>Waiting for the activity to Start</p><CounterActivity type={2} targetTime={targetTime}/></div>);
   const [footer, setFooter] = useState(<div className="w-full align-end"> <LogosComp/> </div>);

@@ -1,7 +1,7 @@
 
 
 const activities = [
-    {date:"2024-11-23T13:00:00", title: "Diana!", description:<div className="flex flex-col">
+    {date:"2024-11-23T17:00:00", title: "Diana!", description:<div className="flex flex-col">
         <p>Aula: L4 (Aula d'informatica final del passadis)</p>
         <p>Coordinadors: Dinamització</p>
         <p>Premis? Sempre hi ha premis!!</p>
@@ -27,8 +27,6 @@ const activities = [
         <p>Coordinadors: Dinamització</p>
         <p>Premis? Sempre hi ha premis!!</p>
     </div>},
-
-
 ];
 
 

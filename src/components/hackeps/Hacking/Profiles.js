@@ -1,12 +1,12 @@
 import LogosComp from "./LogosComp";
 import CounterActivity from "./CounterActivity";
-const targetTime = new Date("2024-11-22T23:59:00").getTime();
+const targetTime = new Date("2024-11-24T11:00:00").getTime();
 
 
 const profiles = {
     Hacking: {
         bgColor: "#0e3a29",
-        footer: <div className="w-full align-end"> <LogosComp/> </div>,
+        footer: null,
         content: {type: "content", content:{div: <div className="text-center"><p>Temps per Hackejar</p><CounterActivity type={2} targetTime={targetTime}/></div>, bgColor: "#2484bc", textColor: "#2484bc"}},
         heightContent: `h-72`,
         heightFooter: `h-40`
