@@ -20,15 +20,15 @@ const MainTitle = () => {
         return !key["success"];
       })
     ) {
-      if(!hackDay){
+      if (!hackDay) {
         navigate("/login", { state: { nextScreen: "/inscripcio" } });
-      }else{
+      } else {
         navigate("/hacking");
       }
     } else {
-      if(!hackDay){
+      if (!hackDay) {
         navigate("/inscripcio");
-      }else{
+      } else {
         navigate("/hacking");
       }
     }
@@ -39,19 +39,21 @@ const MainTitle = () => {
     navigate("/login", { state: { nextScreen: "/inscripcio" } });
   };
 
-  
   useEffect(() => {
-    console.log("fwewf")
+    console.log("fwewf");
     const today = new Date();
     const eventDays = [  // Aqui es fiquen les dates dels dies de la Hack.
       new Date("2024-11-23"),
       new Date("2024-11-24"),
     ];
 
-    if (eventDays.some(eventDay => 
-      today.getFullYear() === eventDay.getFullYear() &&
-      today.getMonth() === eventDay.getMonth() &&
-      today.getDate() === eventDay.getDate())
+    if (
+      eventDays.some(
+        (eventDay) =>
+          today.getFullYear() === eventDay.getFullYear() &&
+          today.getMonth() === eventDay.getMonth() &&
+          today.getDate() === eventDay.getDate(),
+      )
     ) {
       setTextButton("Hacking..");
       setHackDay(true);

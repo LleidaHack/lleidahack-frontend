@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const LogosComp = () => {
-  return (
-    <div>LogosComp</div>
-  )
-}
+  return <div>LogosComp</div>;
+};
 
-export default LogosComp
+export default LogosComp;
