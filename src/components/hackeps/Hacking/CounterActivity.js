@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 const CounterActivity = ({ type, targetTime }) => {
   const [horas, setHoras] = useState(0);
@@ -9,11 +9,10 @@ const CounterActivity = ({ type, targetTime }) => {
   const [secondsLeft, setSecondsLeft] = useState("0");
   const [dateEnd, setDateEnd] = useState("21/11/2024 23:59:00");
 
-
   useEffect(() => {
-    setTip(type)
-    console.log("CounterActivity",tip)
-  }, [type])
+    setTip(type);
+    console.log("CounterActivity", tip);
+  }, [type]);
 
   useEffect(() => {
     const updateCountdown = () => {
@@ -31,7 +30,9 @@ const CounterActivity = ({ type, targetTime }) => {
 
       // Convertir el tiempo restante en horas, minutos y segundos
       const totalHours = Math.floor(timeRemaining / (1000 * 60 * 60)); // Total de horas, incluyendo días
-      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      const minutes = Math.floor(
+        (timeRemaining % (1000 * 60 * 60)) / (1000 * 60),
+      );
       const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
       // Actualizar el estado
@@ -46,90 +47,127 @@ const CounterActivity = ({ type, targetTime }) => {
     // Ejecuta una actualización inicial para evitar el retraso de 1 segundo
     updateCountdown();
     const endDate = new Date(targetTime);
-    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' };
-    const formattedDate = endDate.toLocaleDateString('ca-ES', options);
+    const options = {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    };
+    const formattedDate = endDate.toLocaleDateString("ca-ES", options);
     setDateEnd(formattedDate);
     // Limpia el intervalo al desmontar el componente
     return () => clearInterval(intervalId);
   }, [targetTime]);
 
-  
-  
-
   return (
     <>
-      {tip === 1 && 
-      <>
-        <div className='flex flex-row rounded-md  bg-white w-fit pt-3	'>
-          <div className='flex flex-col px-2 items-center'>
-            <div className='digit-hour oswald-700 text-2xl drop-shadow-2xl'>{hoursLeft}</div>
-            <p>Hores</p>
-          </div>
-          <div className='oswald-700 text-2xl drop-shadow-7xl items-center translate-y-[-3%]'><p>:</p></div>
-          <div className='flex flex-col px-2  border-black items-center	'>
-            <div className='digit-hour oswald-700 text-2xl drop-shadow-2xl'>{minutesLeft}</div>
-            <p>Minuts</p>
-          </div>
-          <div className='oswald-700 text-2xl drop-shadow-7xl items-center translate-y-[-3%]'><p>:</p></div>
-          <div className='flex flex-col px-2 border-black items-center'>
-            <div className='digit-hour oswald-700 text-2xl drop-shadow-2xl'>{secondsLeft}</div>
-            <p>Segons</p>
-          </div>
-        </div>
-        </>
-      }
-      {tip === 2 && 
-      <>
-        <div className='flex flex-row rounded-md  mx-96 '>
-          <div className='flex flex-col px-2 '>
-            <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{hoursLeft}</div>
-            <p>Hores</p>
-          </div>
-          <div className='oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]'><p>:</p></div>
-
-          <div className='flex flex-col px-2 border-black '>
-            <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{minutesLeft}</div>
-            <p>Minuts</p>
-          </div>
-          <div className='oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]'><p>:</p></div>
-
-          <div className='flex flex-col px-2 border-black '>
-            <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{secondsLeft}</div>
-            <p>Segons</p>
-          </div>
-        </div>
-        <p className='opacity-85'>El compte enrere finalitza el <span className='text-red-700'>{dateEnd}</span></p>
-      </>
-      }
-      {tip === 3 && 
+      {tip === 1 && (
         <>
-        <div className='flex flex-row rounded-md justify-center mx-16 '>
-          <div className='flex flex-col px-2 '>
-            <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{hoursLeft}</div>
-            <p>Hores</p>
+          <div className="flex flex-row rounded-md  bg-white w-fit pt-3	">
+            <div className="flex flex-col px-2 items-center">
+              <div className="digit-hour oswald-700 text-2xl drop-shadow-2xl">
+                {hoursLeft}
+              </div>
+              <p>Hores</p>
+            </div>
+            <div className="oswald-700 text-2xl drop-shadow-7xl items-center translate-y-[-3%]">
+              <p>:</p>
+            </div>
+            <div className="flex flex-col px-2  border-black items-center	">
+              <div className="digit-hour oswald-700 text-2xl drop-shadow-2xl">
+                {minutesLeft}
+              </div>
+              <p>Minuts</p>
+            </div>
+            <div className="oswald-700 text-2xl drop-shadow-7xl items-center translate-y-[-3%]">
+              <p>:</p>
+            </div>
+            <div className="flex flex-col px-2 border-black items-center">
+              <div className="digit-hour oswald-700 text-2xl drop-shadow-2xl">
+                {secondsLeft}
+              </div>
+              <p>Segons</p>
+            </div>
           </div>
-          <div className='oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]'><p>:</p></div>
+        </>
+      )}
+      {tip === 2 && (
+        <>
+          <div className="flex flex-row rounded-md  mx-96 ">
+            <div className="flex flex-col px-2 ">
+              <div className="digit-hour oswald-700 text-9xl drop-shadow-2xl">
+                {hoursLeft}
+              </div>
+              <p>Hores</p>
+            </div>
+            <div className="oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]">
+              <p>:</p>
+            </div>
 
-          <div className='flex flex-col px-2 border-black '>
-            <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{minutesLeft}</div>
-            <p>Minuts</p>
-          </div>
-          <div className='oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]'><p>:</p></div>
+            <div className="flex flex-col px-2 border-black ">
+              <div className="digit-hour oswald-700 text-9xl drop-shadow-2xl">
+                {minutesLeft}
+              </div>
+              <p>Minuts</p>
+            </div>
+            <div className="oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]">
+              <p>:</p>
+            </div>
 
-          <div className='flex flex-col px-2 border-black '>
-            <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{secondsLeft}</div>
-            <p>Segons</p>
+            <div className="flex flex-col px-2 border-black ">
+              <div className="digit-hour oswald-700 text-9xl drop-shadow-2xl">
+                {secondsLeft}
+              </div>
+              <p>Segons</p>
+            </div>
           </div>
-        </div>
-        <p className='opacity-85'>El compte enrere finalitza el <span className='text-red-700'>{dateEnd}</span></p>
-      </>
-      }
-      {tip !== 1 && tip !== 2 && tip !== 3 && 
-        <div>
-          Notype set
-        </div>}
+          <p className="opacity-85">
+            El compte enrere finalitza el{" "}
+            <span className="text-red-700">{dateEnd}</span>
+          </p>
+        </>
+      )}
+      {tip === 3 && (
+        <>
+          <div className="flex flex-row rounded-md justify-center mx-16 ">
+            <div className="flex flex-col px-2 ">
+              <div className="digit-hour oswald-700 text-9xl drop-shadow-2xl">
+                {hoursLeft}
+              </div>
+              <p>Hores</p>
+            </div>
+            <div className="oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]">
+              <p>:</p>
+            </div>
+
+            <div className="flex flex-col px-2 border-black ">
+              <div className="digit-hour oswald-700 text-9xl drop-shadow-2xl">
+                {minutesLeft}
+              </div>
+              <p>Minuts</p>
+            </div>
+            <div className="oswald-700 text-9xl drop-shadow-7xl translate-y-[-10%]">
+              <p>:</p>
+            </div>
+
+            <div className="flex flex-col px-2 border-black ">
+              <div className="digit-hour oswald-700 text-9xl drop-shadow-2xl">
+                {secondsLeft}
+              </div>
+              <p>Segons</p>
+            </div>
+          </div>
+          <p className="opacity-85">
+            El compte enrere finalitza el{" "}
+            <span className="text-red-700">{dateEnd}</span>
+          </p>
+        </>
+      )}
+      {tip !== 1 && tip !== 2 && tip !== 3 && <div>Notype set</div>}
     </>
-  )
-}
+  );
+};
 
-export default CounterActivity
+export default CounterActivity;
