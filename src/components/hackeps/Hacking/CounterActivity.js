@@ -103,7 +103,7 @@ const CounterActivity = ({ type, targetTime }) => {
       }
       {tip === 3 && 
         <>
-        <div className='flex flex-row rounded-md  mx-16 '>
+        <div className='flex flex-row rounded-md justify-center mx-16 '>
           <div className='flex flex-col px-2 '>
             <div className='digit-hour oswald-700 text-9xl drop-shadow-2xl'>{hoursLeft}</div>
             <p>Hores</p>

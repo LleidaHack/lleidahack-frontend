@@ -19,12 +19,12 @@ const profiles = {
         heightFooter: `h-40`
     },
     EndMode: {
-        bgColor: "#2c5973",
+        bgColor: "#0e3a29",
         footer: <div className="w-full align-end"> <LogosComp/> </div>,
         content: {type: "content", content:
             {
                 div: <div className="text-center flex flex-row">
-                    <div className="flex-1 border-r-2 border-black">
+                    <div className="flex-1 border-r-2 border-black items-center">
                         <CounterActivity type={3} targetTime={targetTime}/> 
                     </div>
                     <div className="instruccionsEntrega flex-1 text-justify	mr-28 ml-4">

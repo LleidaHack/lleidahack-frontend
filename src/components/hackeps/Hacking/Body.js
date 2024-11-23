@@ -9,7 +9,8 @@ import camaleon from "src/assets/camaleon.gif";
 import LogosComp from "./LogosComp";
 import AdsContainer from "./AdsContainer";
 import CarruselLogos from "./CarruselLogos";
-
+import activities from "./ActivityList";
+import ProfileTiming from "./ProfileTiming";
 
 const WaitingComponent = () => {
   const logoRef = useRef(null);
@@ -27,9 +28,7 @@ const WaitingComponent = () => {
   const [heightFooter, setHeightFooter] = useState(`h-28`);
   const targetTime = new Date("2024-11-22T23:59:00").getTime();
   const [adviceElement, setAdviceElement] = useState(<AdsContainer color="bg-green-500" title="Activitat" element1="Descripció de l'activitat" element2={<CounterActivity type={1} targetTime={targetTime}/>}/>);
-  const [activitiesList, setActivitiesList] = useState();
-  const [oldActivitiesList, setOldActivitiesList] = useState();
-
+  const [activeActivity, setActiveActivity] = useState("none");
   const [content, setContent] = useState(<div className="text-center"><p>Waiting for the activity to Start</p><CounterActivity type={2} targetTime={targetTime}/></div>);
   const [footer, setFooter] = useState(<div className="w-full align-end"> <LogosComp/> </div>);
 
@@ -42,31 +41,77 @@ const WaitingComponent = () => {
 
   useEffect(() => {
     animateLogo(); //Animación del logo
-    setProfile("EndMode")
-
-  }, []);
+  }, [ ]);
   
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProfile("EndMode")
-      console.log("Canvi de perfil")
-      //ACTUALITZAR LA LLISTA D'ACTIVITATS
-        //const activities = await getActivities();
-        //setActivitiesList(activities);
-      //ACTUALITZAR PERFIL ACTUAL.
-        //const actualProfile = await getActualActivityProfile();
-        //si es diferent al actual, utilitzar la funcio de transicio de perfils per a canviar al nou.
-    }, 300000); // 300000 milliseconds = 5 minutes
+    const updateProfile = () => {
+      const now = new Date().getTime();
+      let currentProfile = ProfileTiming[0].profile;
+      let nextProfileTime = Infinity;
+      let oldProfile = 0;
+      ProfileTiming.forEach(profile => {
+        const profileTime = new Date(profile.date).getTime();
+        if (profileTime <= now && profileTime > oldProfile) {
+          currentProfile = profile.profile;
+          oldProfile = profileTime;
+        }
+        if (profileTime > now && profileTime < nextProfileTime) {
+          nextProfileTime = profileTime;
+        }
+        console.log(profile.profile, profileTime - now);
+      });
+
+      setProfile(currentProfile);
+      console.log("Current profile:", currentProfile);
+    };
+
+    updateProfile(); // Execute first time on open window
+
+    const interval = setInterval(updateProfile, 300000); // 300000 milliseconds = 5 minutes
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, []);
+  }, [setProfile]);
+
+
 
   useEffect(() => {
-      //Aqui se comprobara la llista de activitats i se comparara amb la antiga.
-      //Es comprobaran els tempos i si esta activa (es mostrarà a la llista antiga.)
-      //Si no esta activa, la activará i setejara els anuncis que fagi falta
-  }, [activitiesList]);
+      const checkActivityTime = () => {
+        const now = new Date().getTime();
+        const time2Advice = 20; // 20 minutes
+        const upcomingActivity = activities.find(activity => {
+          const activityTime = new Date(activity.date).getTime();
+          console.log("activityTime", activityTime);
+          return activityTime - now <= time2Advice * 60 * 1000 && activityTime - now > 0;
+        });
+        console.log("upcomingActivity", upcomingActivity);
+        console.log("activeActivity", activeActivity);
+        if (activeActivity && upcomingActivity && new Date(upcomingActivity.endTime).getTime() <= now) {
+          setAdviceElement(null);
+          setActiveActivity("none");
+        }
+        if (activeActivity !== upcomingActivity?.title) {
+          if (upcomingActivity) {
+            setAdviceElement(
+              <AdsContainer
+                color="bg-green-500"
+                title={upcomingActivity.title}
+                element1={upcomingActivity.description}
+                element2={<CounterActivity type={1} targetTime={new Date(upcomingActivity.date).getTime()} />}
+                key={upcomingActivity.title}
+              />
+            );
+            setActiveActivity(upcomingActivity.title);
+          }
+        }
+      };
+
+      checkActivityTime(); // Execute first time on open window
+
+      const interval = setInterval(checkActivityTime, 120000); // 120000 milliseconds = 2 minutes
+
+      return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, [activeActivity]);
 
   function transitionBackgrounds(nextProfile) {
     const mainDiv = document.querySelector(".mainDiv");
