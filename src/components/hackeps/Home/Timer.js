@@ -60,7 +60,7 @@ const CountdownTimer = (props) => {
   }
 
   if (timestampDay >= nowDay && active) {
-    return (
+    return ( 
       <div className="countdown-timer bg-loginPage text-white">
         {remainingTime.months ? (
           <span className="text-white">{remainingTime.months}</span>
@@ -130,7 +130,7 @@ const CountdownTimer = (props) => {
     );
   } else if (eventendDay >= nowDay && active) {
     return (
-      <div className="countdown-timer text-black">
+      <div className="countdown-timer bg-loginPage text-white">
         {remainingTime.hours ? (
           <span className="text-white">
             {padWithZeros(remainingTime.hours)}
