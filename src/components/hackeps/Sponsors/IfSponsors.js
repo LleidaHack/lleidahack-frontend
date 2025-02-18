@@ -97,37 +97,50 @@ const InfoSponsors = ({ id }) => {
     }
 
     if (xarxes) {
-      text = [
-        <a
-          href={linkedintag}
-          target="_blank"
-          rel="noreferrer"
-          className="rel text-textPrimaryHackeps"
-        >
-          <i className="fa-brands fa-linkedin" /> LinkedIn
-        </a>,
-        "|",
-        <a
-          href={webtag}
-          target="_blank"
-          rel="noreferrer"
-          className="rel text-textPrimaryHackeps"
-        >
-          <i className="fa-solid fa-globe " /> Web
-        </a>,
-      ];
+      text = [];
+      
+      if (linkedintag && linkedintag.length > 0) {
+        text.push(
+          <a
+            href={linkedintag}
+            target="_blank"
+            rel="noreferrer"
+            className="rel text-textPrimaryHackeps"
+          >
+            <i className="fa-brands fa-linkedin" /> LinkedIn
+          </a>
+        );
+      }
+
+      if (webtag && webtag.length > 0) {
+        if (text.length > 0) text.push(" | ");
+        text.push(
+          <a
+            href={webtag}
+            target="_blank"
+            rel="noreferrer"
+            className="rel text-textPrimaryHackeps"
+          >
+            <i className="fa-solid fa-globe " /> Web
+          </a>
+        );
+      }
     } else {
-      text = [
-        <a
-          href={linkedintag}
-          target="_blank"
-          rel="noreferrer"
-          className="rel text-textPrimaryHackeps"
-        >
-          <i className="fa-brands fa-linkedin" /> LinkedIn
-        </a>,
-      ];
+      text = [];
+      if (linkedintag && linkedintag.length > 0) {
+        text.push(
+          <a
+            href={linkedintag}
+            target="_blank"
+            rel="noreferrer"
+            className="rel text-textPrimaryHackeps"
+          >
+            <i className="fa-brands fa-linkedin" /> LinkedIn
+          </a>
+        );
+      }
     }
+    
 
     return (
       <div className="The-Grand-Phather">
