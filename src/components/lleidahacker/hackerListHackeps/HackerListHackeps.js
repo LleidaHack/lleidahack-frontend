@@ -1,5 +1,11 @@
 import { React, useEffect, useState } from "react";
 import TableHackers from "./TableHackers";
+import {
+  acceptHackerToEvent,
+  getPendingHackersGruped,
+  rejectHackerToEvent,
+} from "src/services/EventManagementService";
+import { getHackeps } from "src/services/EventService";
 
 const HackerListHackeps = () => {
   //TODO: Pensa com diseñar la mostra dels grups amb els membres i la seva info.
@@ -7,248 +13,242 @@ const HackerListHackeps = () => {
   const [grups, setGrups] = useState([]);
   const [visibilityOptions, setVisibilityOptions] = useState([]);
   const [visibilityOptions2, setVisibilityOptions2] = useState([]);
+  let actualHackepsId
+//Llamada a la api:
 
-  //TABLAS QUE SIMULAN INFORMACION DE LA API
-  const participantsList = [
-    {
-      status: "Acepted",
-      nom: "Joan",
-      mail: "nouMail@gmail.com",
-      telefon: 666623245,
-      edat: 23,
-      talla: "M",
-      error: "",
-    },
-    {
-      status: "Pending",
-      nom: "Maria",
-      mail: "maria@gmail.com",
-      telefon: 555123456,
-      edat: 28,
-      talla: "S",
-      error: "",
-    },
-    {
-      status: "Rejected",
-      nom: "David",
-      mail: "david@gmail.com",
-      telefon: 666987654,
-      edat: 32,
-      talla: "L",
-      error: "",
-    },
-    {
-      status: "Pending",
-      nom: "Laura",
-      mail: "laura@gmail.com",
-      telefon: 777654321,
-      edat: 25,
-      talla: "M",
-      error: "",
-    },
-    {
-      status: "Acepted",
-      nom: "Carlos",
-      mail: "carlos@gmail.com",
-      telefon: 888456789,
-      edat: 30,
-      talla: "XL",
-      error: "",
-    },
-    {
-      status: "Pending",
-      nom: "Ana",
-      mail: "ana@gmail.com",
-      telefon: 999234567,
-      edat: 27,
-      talla: "S",
-      error: "",
-    },
-    {
-      status: "Acepted",
-      nom: "Pedro",
-      mail: "pedro@gmail.com",
-      telefon: 111345678,
-      edat: 29,
-      talla: "M",
-      error: "",
-    },
-    {
-      status: "Pending",
-      nom: "Sara",
-      mail: "sara@gmail.com",
-      telefon: 222876543,
-      edat: 26,
-      talla: "L",
-      error: "",
-    },
-    {
-      status: "Acepted",
-      nom: "Miguel",
-      mail: "miguel@gmail.com",
-      telefon: 333765432,
-      edat: 31,
-      talla: "XL",
-      error: "",
-    },
-    {
-      status: "Pending",
-      nom: "Elena",
-      mail: "elena@gmail.com",
-      telefon: 444654321,
-      edat: 24,
-      talla: "S",
-      error: "",
-    },
-    {
-      status: "Acepted",
-      nom: "Pablo",
-      mail: "pablo@gmail.com",
-      telefon: 555543216,
-      edat: 33,
-      talla: "M",
-      error: "",
-    },
-  ];
-  const grupsList = [
-    {
-      grup: "Grup 1",
-      nom: "Los Sacapuntas",
-      maxMembers: 4,
-      desplegable: true,
-      membres: [
-        {
-          status: "Acepted",
-          nom: "Joan",
-          mail: "nouMail@gmail.com",
-          telefon: 666623245,
-          edat: 23,
-          talla: "M",
-          error: "",
-        },
-        {
-          status: "Acepted",
-          nom: "Maria",
-          mail: "maria@gmail.com",
-          telefon: 555123456,
-          edat: 28,
-          talla: "S",
-          error: "",
-        },
-        {
-          status: "Rejected",
-          nom: "David",
-          mail: "david@gmail.com",
-          telefon: 666987654,
-          edat: 32,
-          talla: "L",
-          error: "",
-        },
-        {
-          status: "Acepted",
-          nom: "Laura",
-          mail: "laura@gmail.com",
-          telefon: 777654321,
-          edat: 25,
-          talla: "M",
-          error: "",
-        },
-      ],
-    },
-    {
-      grup: "Grup 2",
-      nom: "wakaWaka",
-      maxMembers: 4,
-      desplegable: true,
-      membres: [
-        {
-          status: "Acepted",
-          nom: "Carlos",
-          mail: "carlos@gmail.com",
-          telefon: 888456789,
-          edat: 30,
-          talla: "XL",
-          error: "",
-        },
-        {
-          status: "Pending",
-          nom: "Ana",
-          mail: "ana@gmail.com",
-          telefon: 999234567,
-          edat: 27,
-          talla: "S",
-          error: "",
-        },
-        {
-          status: "Acepted",
-          nom: "Pedro",
-          mail: "pedro@gmail.com",
-          telefon: 111345678,
-          edat: 29,
-          talla: "M",
-          error: "",
-        },
-      ],
-    },
-    {
-      grup: "Grup 3",
-      nom: "Santo Domingo",
-      maxMembers: 4,
-      desplegable: true,
-      membres: [
-        {
-          status: "Pending",
-          nom: "Elena",
-          mail: "elena@gmail.com",
-          telefon: 444654321,
-          edat: 24,
-          talla: "S",
-          error: "",
-        },
-        {
-          status: "Acepted",
-          nom: "Pablo",
-          mail: "pablo@gmail.com",
-          telefon: 555543216,
-          edat: 33,
-          talla: "M",
-          error: "",
-        },
-      ],
-    },
-    {
-      grup: "Grup 4",
-      nom: "Los Sacapuntas",
-      maxMembers: 4,
-      desplegable: true,
-      membres: [
-        {
-          status: "Pending",
-          nom: "Sara",
-          mail: "sara@gmail.com",
-          telefon: 222876543,
-          edat: 26,
-          talla: "L",
-          error: "",
-        },
-        {
-          status: "Acepted",
-          nom: "Miguel",
-          mail: "miguel@gmail.com",
-          telefon: 333765432,
-          edat: 31,
-          talla: "XL",
-          error: "",
-        },
-      ],
-    },
-  ];
-  //TABLAS QUE SIMULAN INFORMACION DE LA API  -- END
+function getAge(birthday) {
+  const birthDate = new Date(birthday);
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDifference = today.getMonth() - birthDate.getMonth();
+  if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
 
   useEffect(() => {
-    setParticipants(participantsList); //Exemple de setejar valors obtinguts de la API. IMPORTANT!: Setejar de forma similar a participantsList!!!!!!
-    setGrups(grupsList); //Exemple de setejar valors obtinguts de la API. IMPORTANT!: Setejar de forma similar a grupsList!!!!!!
-  }, []);
+    async function getPendingParticipants(){
+      const hack = await getHackeps();
+      const maxGroupSize = hack.max_group_size;
+      actualHackepsId = hack.id
+      console.log(actualHackepsId);
+      const listGrouped = await getPendingHackersGruped(actualHackepsId);
+      const grouped = listGrouped.groups;
+      console.log(grouped);
+      const nonGrouped = listGrouped.nogroup;
+      console.log(nonGrouped);
+      
+      const formattedNonGrouped = nonGrouped.map((element) => ({
+        status: element.approved === false ? "Pending" : "Acepted",
+        nom: element.name,
+        mail: element.email,
+        edat: getAge(element.birthday),
+        talla: element.shirt_size,
+        foodRestrictions: element.food_restrictions || "",
+        error: element.error || "",
+      }));
+
+      const formattedGrouped = grouped.map((group, index) => ({
+        grup: "Grup " + (index + 1),
+        nom: group.name,
+        maxMembers: maxGroupSize,
+        desplegable: true,
+        membres: group.members.map((member) => ({
+          status: member.approved === false ? "Pending" : "Acepted",
+          nom: member.name,
+          mail: member.email,
+          telefon: member.phone,
+          edat: getAge(member.birthday),
+          talla: member.shirt_size,
+          error: member.error || "",
+          foodRestrictions: member.food_restrictions || "",
+        })),
+      }));
+
+      setParticipants(formattedNonGrouped);
+      setGrups(formattedGrouped);
+    }
+    getPendingParticipants();
+    
+    
+  }, [setParticipants, setGrups]);
+
+
+
+  //TABLAS QUE SIMULAN INFORMACION DE LA API
+  // const participantsList = [
+  //   {
+  //     status: "Acepted",
+  //     nom: "Joan",
+  //     mail: "nouMail@gmail.com",
+  //     edat: 23,
+  //     talla: "M",
+  //     foodRestrictions: "",
+  //     error: "",
+  //   },
+  //   {
+  //     status: "Pending",
+  //     nom: "Maria",
+  //     mail: "maria@gmail.com",
+  //     telefon: 555123456,
+  //     edat: 28,
+  //     talla: "S",
+  //     error: "",
+  //   },
+  //   {
+  //     status: "Rejected",
+  //     nom: "David",
+  //     mail: "david@gmail.com",
+  //     telefon: 666987654,
+  //     edat: 32,
+  //     talla: "L",
+  //     error: "",
+  //   },
+   
+  // ];
+  // const grupsList = [
+  //   {
+  //     grup: "Grup 1",
+  //     nom: "Los Sacapuntas",
+  //     maxMembers: 4,
+  //     desplegable: true,
+  //     membres: [
+  //       {
+  //         status: "Acepted",
+  //         nom: "Joan",
+  //         mail: "nouMail@gmail.com",
+  //         telefon: 666623245,
+  //         edat: 23,
+  //         talla: "M",
+  //         error: "",
+  //       },
+  //       {
+  //         status: "Acepted",
+  //         nom: "Maria",
+  //         mail: "maria@gmail.com",
+  //         telefon: 555123456,
+  //         edat: 28,
+  //         talla: "S",
+  //         error: "",
+  //       },
+  //       {
+  //         status: "Rejected",
+  //         nom: "David",
+  //         mail: "david@gmail.com",
+  //         telefon: 666987654,
+  //         edat: 32,
+  //         talla: "L",
+  //         error: "",
+  //       },
+  //       {
+  //         status: "Acepted",
+  //         nom: "Laura",
+  //         mail: "laura@gmail.com",
+  //         telefon: 777654321,
+  //         edat: 25,
+  //         talla: "M",
+  //         error: "",
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     grup: "Grup 2",
+  //     nom: "wakaWaka",
+  //     maxMembers: 4,
+  //     desplegable: true,
+  //     membres: [
+  //       {
+  //         status: "Acepted",
+  //         nom: "Carlos",
+  //         mail: "carlos@gmail.com",
+  //         telefon: 888456789,
+  //         edat: 30,
+  //         talla: "XL",
+  //         error: "",
+  //       },
+  //       {
+  //         status: "Pending",
+  //         nom: "Ana",
+  //         mail: "ana@gmail.com",
+  //         telefon: 999234567,
+  //         edat: 27,
+  //         talla: "S",
+  //         error: "",
+  //       },
+  //       {
+  //         status: "Acepted",
+  //         nom: "Pedro",
+  //         mail: "pedro@gmail.com",
+  //         telefon: 111345678,
+  //         edat: 29,
+  //         talla: "M",
+  //         error: "",
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     grup: "Grup 3",
+  //     nom: "Santo Domingo",
+  //     maxMembers: 4,
+  //     desplegable: true,
+  //     membres: [
+  //       {
+  //         status: "Pending",
+  //         nom: "Elena",
+  //         mail: "elena@gmail.com",
+  //         telefon: 444654321,
+  //         edat: 24,
+  //         talla: "S",
+  //         error: "",
+  //       },
+  //       {
+  //         status: "Acepted",
+  //         nom: "Pablo",
+  //         mail: "pablo@gmail.com",
+  //         telefon: 555543216,
+  //         edat: 33,
+  //         talla: "M",
+  //         error: "",
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     grup: "Grup 4",
+  //     nom: "Los Sacapuntas",
+  //     maxMembers: 4,
+  //     desplegable: true,
+  //     membres: [
+  //       {
+  //         status: "Pending",
+  //         nom: "Sara",
+  //         mail: "sara@gmail.com",
+  //         telefon: 222876543,
+  //         edat: 26,
+  //         talla: "L",
+  //         error: "",
+  //       },
+  //       {
+  //         status: "Acepted",
+  //         nom: "Miguel",
+  //         mail: "miguel@gmail.com",
+  //         telefon: 333765432,
+  //         edat: 31,
+  //         talla: "XL",
+  //         error: "",
+  //       },
+  //     ],
+  //   },
+  // ];
+  // //TABLAS QUE SIMULAN INFORMACION DE LA API  -- END
+
+
+
+
+  // useEffect(() => {
+  //   setParticipants(participantsList); //Exemple de setejar valors obtinguts de la API. IMPORTANT!: Setejar de forma similar a participantsList!!!!!!
+  //   setGrups(grupsList); //Exemple de setejar valors obtinguts de la API. IMPORTANT!: Setejar de forma similar a grupsList!!!!!!
+  // }, []);
 
   function getLength(array) {
     return array.length;

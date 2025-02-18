@@ -81,7 +81,7 @@ export async function getPendingHackers(event_id) {
 
 export async function getPendingHackersGruped(event_id) {
   return fetchPlus({
-    Url: `/eventmanagment/${event_id}/pendinggruped`,
+    Url: `/event/${event_id}/pendinggruped`,
     hasUserauth: true,
   });
 }
