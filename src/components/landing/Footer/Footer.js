@@ -14,7 +14,7 @@ const Footer = () => {
           <li className="list-none text-base md:text-xl">
             <a
               className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
-              href="/lleidahack"
+              href="/lleidahack/legalinfo"
             >
               Política de privacitat
             </a>
@@ -22,7 +22,7 @@ const Footer = () => {
           <li className="list-none text-base md:text-xl">
             <a
               className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
-              href="/lleidahack"
+              href="/lleidahack/legalinfo"
             >
               Avís legal
             </a>
@@ -30,7 +30,7 @@ const Footer = () => {
           <li className="list-none text-base md:text-xl">
             <a
               className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
-              href="/lleidahack"
+              href="/lleidahack/legalinfo"
             >
               Política de cookies
             </a>
