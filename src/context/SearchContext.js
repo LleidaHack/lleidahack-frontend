@@ -5,12 +5,18 @@ const SearchContext = createContext();
 export const SearchProvider = ({ children }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [contextType, setContextType] = useState("Noticies"); // Tipo de búsqueda
-    const [categoryList, setCategoryList] = useState([]); // Lista de los campos del filtro categorias
+    const [categoryList, setCategoryList] = useState([
+        { data: "categoria1", value: false },
+        { data: "categoria2", value: false },
+        { data: "categoria3", value: false },
+        { data: "categoria4", value: false },
+        { data: "categoria5", value: false },
+    ]); // Lista de los campos del filtro categorias  // [{data: "categoria1", value: false}, {data: "categoria2", value: false}, ...]
     const [dateList, setDateList] = useState([]); // Lista de los campos del filtro fecha
     const [typeList, setTypeList] = useState([]); // Lista de los campos del filtro tipo
     const [hasCategory, setHasCategory] = useState(true); // Si tiene filtros categorias
     const [hasDates, setHasDate] = useState(true); // Si tiene filtros de fecha
-    const [hasType, setHasType] = useState(false); // Si tiene filtros de tipo
+    const [hasType, setHasType] = useState(true); // Si tiene filtros de tipo
     const [categorySelected, setCategorySelected] = useState(""); // Categoria seleccionada
     const [dateSelected, setDateSelected] = useState(""); // Fecha seleccionada
     const [typeSelected, setTypeSelected] = useState(""); // Tipo seleccionado
@@ -51,6 +57,9 @@ export const SearchProvider = ({ children }) => {
     }, [searchTerm, contextType]);
     
     const contextData = {
+        setCategoryList,
+        setDateList,
+        setTypeList,
         setContextType,
         setSearchTerm,
         searchTerm,
