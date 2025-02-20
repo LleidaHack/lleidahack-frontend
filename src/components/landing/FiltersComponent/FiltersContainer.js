@@ -30,17 +30,18 @@ const FiltersContainer = ({type}) => {
                 item.data === data ? { ...item, value: e.target.checked } : item
             );            
             setCategoryList(updatedList);
+            console.log(fromBoolToString(updatedList))
             setCategorySelected(fromBoolToString(updatedList));
             setListStr(updatedList);
         }else if(typeFilter === "date"){
-            updatedList = categoryList.map(item =>
+            updatedList = dateList.map(item =>
                 item.data === data ? { ...item, value: e.target.checked } : item
             );  
             setDateList(updatedList);
             setDateSelected(fromBoolToString(updatedList));
             setListStr(updatedList);
         }else if(typeFilter === "type"){
-            updatedList = categoryList.map(item =>
+            updatedList = typeList.map(item =>
                 item.data === data ? { ...item, value: e.target.checked } : item
             ); 
             setTypeList(updatedList); //Lista de bools para aplicar en bk los filtros de busqueda
@@ -52,8 +53,8 @@ const FiltersContainer = ({type}) => {
     function fromBoolToString(list){
         let listStre = [];
         list.forEach((item) => {
-            if(item.estado){
-                listStre.push(item.nombre);
+            if(item.value){
+                listStre.push(item.data);
             }
         });
         return listStre.join(', '); // Join the array into a string separated by commas
@@ -61,12 +62,12 @@ const FiltersContainer = ({type}) => {
 
   return (
     <>
-    <div className="bg-blue-100 w-full h-96 z-50 my-3 flex flex-col px-3 py-3 rounded-b-lg shadow-lg">
+    <div className="bg-blue-100 w-full h-96 z-50 my-3 flex flex-col px-3 py-3 pb-5 rounded-b-lg shadow-lg">
         <div className=''>
             <p className='mx-2'>Opcions de filtre:</p>
             <hr className="my-4 border-black mx-2" />
         </div>
-        <div>
+        <div className='overflow-y-auto'>
             {listStr.map((item) => (
                 <label key={item.data} className="flex items-center gap-2">
                     <input

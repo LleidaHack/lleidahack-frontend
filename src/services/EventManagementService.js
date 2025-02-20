@@ -107,3 +107,10 @@ export async function hackerEatsFoodFrom(hacker_id, meal_id, event_id) {
     hasUserauth: true,
   });
 }
+
+export async function getApprovedHackers(event_id) {
+  return fetchPlus({
+    Url: `/event/${event_id}/get_approved_hackers`,
+    hasUserauth: true,
+  });
+}

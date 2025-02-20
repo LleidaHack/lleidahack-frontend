@@ -9,7 +9,7 @@ const HackepsDashboard = () => {
   return (
     <SearchProvider>
     <div>
-      <div className="header-events bg-background-patron min-h-0 bg-cover bg-no-repeat bg-center py-12 mb-10">
+      <div className="header-events min-h-0 bg-cover bg-no-repeat bg-center mb-10">
         {""}
         {/*//TODO:Cambiar el background por el banner de la hackeps */}
         <div className="flex flex-col w-full px-2">
@@ -17,7 +17,8 @@ const HackepsDashboard = () => {
             <div className="align-left"></div>
             <div className="self-center	flex flex-col justify-center w-full ">
               
-              <HeaderEvents title={nameEvent}/>
+              <HeaderEvents title={nameEvent} type={"HackersHackeps"} showNumberResults = {true}/>
+              <p></p>
             </div>
           </div>
         </div>

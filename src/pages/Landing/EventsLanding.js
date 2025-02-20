@@ -12,7 +12,7 @@ const EventsLanding = () => {
     <div>
       <SearchProvider>
         <Navbar />
-        <HeaderEvents title={"Events"}/>
+        <HeaderEvents title={"Events"} type={"Events"}/>
         <HeaderEventsLinks />
         <PrincipalEvents />
         <SecondaryEvents />

@@ -109,7 +109,7 @@ const FiltersComponent = ({}) => {
           </div>
         </div>
         {showingTypeList && (<>
-          <FiltersContainer typeList={"type"}/>
+          <FiltersContainer type={"type"}/>
         </>)}
         
       </div>
@@ -139,7 +139,7 @@ const FiltersComponent = ({}) => {
           </div>
         </div>
         {showingDateList && (<>
-          <FiltersContainer typeList={"date"}/>
+          <FiltersContainer type={"date"}/>
         </>)}
       </div>
       )}

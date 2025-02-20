@@ -22,21 +22,69 @@ export const SearchProvider = ({ children }) => {
     const [typeSelected, setTypeSelected] = useState(""); // Tipo seleccionado
     const [placeholder, setPlaceholder] = useState(""); // Placeholder del input de búsqueda
     const [results, setResults] = useState([]); // Resultados de la búsqueda
-    var oldContext = "Noticies"
+    var oldContext = ""
+    
+    
+    useEffect(() => {
+        // Este useEffect, detectará cuando se defina el contextType y cambiará el placeholder del input de búsqueda y los filtros a mostrar
+        //Si oldContext esta vacio, se le asignará el contextType
+        if (oldContext == ""){
+            oldContext = contextType;
+        }
+        //Si el contextType ha cambiado, se resetearán los filtros
+        if (oldContext !== contextType) {
+            oldContext = contextType;
+            setHasCategory(false);
+            setHasDate(false);
+            setHasType(false);
+            setCategoryList([]);
+            setDateList([]);
+            setTypeList([]);
+        }
+        //Dependiendo del contextType, se mostrarán los filtros correspondientes
+        if (contextType === "Noticies") {
+            setPlaceholder("Cerca notícies");
+            setHasCategory(true);
+            setHasDate(true);
+            setHasType(true);
+        } else if (contextType === "Events") {
+            setPlaceholder("Cerca events");
+            setHasCategory(true);
+            setHasDate(true);
+            setHasType(true);
+        } else if (contextType === "HackersHackeps") {
+            setPlaceholder("Cerca hackers (Pots buscar per id (ID 325), nom o correu electrònic)");
+            setHasCategory(true);
+            setHasType(true);
+            setHasDate(false);
+            setCategoryList([
+                { data: "Pendents", value: false },
+                { data: "Acceptats", value: false },
+                { data: "Rebutjats", value: false },
+                { data: "Individual", value: false },
+                { data: "Grups", value: false },
+                
+            ]);
+            setTypeList([
+                { data: "Menor d'edat", value: false },
+                { data: "Major d'edat", value: false },
+                { data: "Amb restriccions alimentaries", value: false },
+                { data: "Sense restriccions alimentaries", value: false },
+                { data: "Vegà", value: false },
+                { data: "Vegetarià", value: false },
+                { data: "Celiac", value: false },
+                { data: "Intolerant a la lactosa", value: false },
+                { data: "Diabetis", value: false },
+                { data: "Altres", value: false },
+            ]);
+        }
+    }
+    , [contextType]);
+    
+    
     useEffect(() => {
         // Este useEffect, detectará los cambios en el searchTerm y realizará las consultas pertinentes a la API
-        //A parte, se encargará de resetear los filtros si se cambia el contextType
-        
-        // Si el contextType cambia, se resetearán los filtros
-        // if(oldContext !== contextType){  //desactivado mientras test
-        //     setHasCategory(false);
-        //     setHasDate(false);
-        //     setHasType(false);
-        //     setCategoryList([]);
-        //     setDateList([]);
-        //     setTypeList([]);
-        //     oldContext = contextType;
-        // }
+        //A parte, se encargará de resetear los filtros si se cambia el contextType       
 
         async function fetchData() {
             //Dependiendo del contextType, se realizará una consulta u otra 
@@ -54,7 +102,7 @@ export const SearchProvider = ({ children }) => {
             //Si tiene mas de 3 caracteres, se realizará la consulta y las actualizaciones pertinentes.
             fetchData();
         }
-    }, [searchTerm, contextType]);
+    }, [searchTerm]);
     
     const contextData = {
         setCategoryList,
@@ -72,8 +120,12 @@ export const SearchProvider = ({ children }) => {
         setCategorySelected,
         setDateSelected,
         setTypeSelected,
+        categorySelected,
+        dateSelected,
+        typeSelected,
         placeholder,
-        results
+        results,
+        setResults
     };
 
     return (
