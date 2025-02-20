@@ -1,18 +1,16 @@
 import React from "react";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
+import { useSearch } from "src/context/SearchContext";
+const InputSearch = ({ }) => {
+  const{setSearchTerm, placeholder} = useSearch(); 
 
-const InputSearch = ({ placeholder, searchtype }) => {
-  if (searchtype == "events") {
-    //buscador de events
-  } else if (searchtype == "news") {
-    //buscador de news
-  }
   return (
     <div className="input-search border border-grayColor h-13 relative bg-white rounded flex flex-row">
       <input
         type="text"
         placeholder={placeholder}
         className="w-full h-full border-none rounded-md p-4"
+        onChange={(e) => setSearchTerm(e.target.value)}
       />
       <ButtonLleidahack primary white className="px-12">
         Cerca

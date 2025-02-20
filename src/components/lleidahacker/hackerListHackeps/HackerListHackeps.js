@@ -210,8 +210,7 @@ function getAge(birthday) {  //TODO: No funciona correctament aquesta funcio. Re
                 </h1>
               </div>
               <div
-                className={`Desplegable-Members bg-gray-100 rounded-md ${visibilityOptions[index] ? visibilityOptions[index] : "hidden"}`}
-              >
+                className={`Desplegable-Members bg-gray-100 rounded-md ${visibilityOptions[index] ? visibilityOptions[index] : "hidden"}`}>
                 <TableHackers mapList={grup.membres} />
               </div>
             </div>

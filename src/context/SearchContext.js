@@ -8,8 +8,8 @@ export const SearchProvider = ({ children }) => {
     const [categoryList, setCategoryList] = useState([]); // Lista de los campos del filtro categorias
     const [dateList, setDateList] = useState([]); // Lista de los campos del filtro fecha
     const [typeList, setTypeList] = useState([]); // Lista de los campos del filtro tipo
-    const [hasCategory, setHasCategory] = useState(false); // Si tiene filtros categorias
-    const [hasDate, setHasDate] = useState(false); // Si tiene filtros de fecha
+    const [hasCategory, setHasCategory] = useState(true); // Si tiene filtros categorias
+    const [hasDates, setHasDate] = useState(true); // Si tiene filtros de fecha
     const [hasType, setHasType] = useState(false); // Si tiene filtros de tipo
     const [categorySelected, setCategorySelected] = useState(""); // Categoria seleccionada
     const [dateSelected, setDateSelected] = useState(""); // Fecha seleccionada
@@ -22,15 +22,15 @@ export const SearchProvider = ({ children }) => {
         //A parte, se encargará de resetear los filtros si se cambia el contextType
         
         // Si el contextType cambia, se resetearán los filtros
-        if(oldContext !== contextType){
-            setHasCategory(false);
-            setHasDate(false);
-            setHasType(false);
-            setCategoryList([]);
-            setDateList([]);
-            setTypeList([]);
-            oldContext = contextType;
-        }
+        // if(oldContext !== contextType){  //desactivado mientras test
+        //     setHasCategory(false);
+        //     setHasDate(false);
+        //     setHasType(false);
+        //     setCategoryList([]);
+        //     setDateList([]);
+        //     setTypeList([]);
+        //     oldContext = contextType;
+        // }
 
         async function fetchData() {
             //Dependiendo del contextType, se realizará una consulta u otra 
@@ -55,7 +55,7 @@ export const SearchProvider = ({ children }) => {
         setSearchTerm,
         searchTerm,
         hasCategory,
-        hasDate,
+        hasDates,
         hasType,
         categoryList,
         dateList,

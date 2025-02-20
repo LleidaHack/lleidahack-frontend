@@ -35,6 +35,7 @@ import TechmeetingPage from "./pages/Administrator/TechmeetingPage";
 import AdminPanelPage from "./pages/Administrator/AdminPanelPage";
 import LleidaHacker from "./pages/Administrator/LleidaHacker";
 import HackepsDashboardPage from "./pages/Administrator/HackepsDashboardPage";
+import NewsLanding from "./pages/Landing/NewsLanding";
 
 import "src/styles/styles.css";
 
@@ -103,6 +104,7 @@ export default function App() {
           <Route path="/home" element={<HomeLanding />} />
           <Route path="*" element={<Error404Landing />} />
           <Route path="/events" element={<EventsLanding />} />
+          <Route path="/noticies" element={<NewsLanding />} />
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
       </Router>

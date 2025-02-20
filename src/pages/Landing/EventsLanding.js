@@ -4,16 +4,20 @@ import HeaderEvents from "src/components/landing/HeaderEvents/HeaderEvents";
 import HeaderEventsLinks from "src/components/landing/HeaderEvents/HeaderEventsLinks";
 import PrincipalEvents from "src/components/landing/EventsSections/PrincipalEvents";
 import SecondaryEvents from "src/components/landing/EventsSections/SecondaryEvents";
+import { SearchProvider } from "src/context/SearchContext";
+
 
 const EventsLanding = () => {
   return (
     <div>
-      <Navbar />
-      <HeaderEvents />
-      <HeaderEventsLinks />
-      <PrincipalEvents />
-      <SecondaryEvents />
-      <Footer />
+      <SearchProvider>
+        <Navbar />
+        <HeaderEvents title={"Events"}/>
+        <HeaderEventsLinks />
+        <PrincipalEvents />
+        <SecondaryEvents />
+        <Footer />
+      </SearchProvider>
     </div>
   );
 };
