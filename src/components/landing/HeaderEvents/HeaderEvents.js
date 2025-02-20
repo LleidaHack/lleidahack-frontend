@@ -1,7 +1,15 @@
-import React from "react";
+import {React, useState, useEffect} from "react";
 import InputSearch from "../InputSearch/InputSearch";
 import FiltersComponent from "../FiltersComponent/FiltersComponent";
-const HeaderEvents = () => {
+import { useSearch } from "src/context/SearchContext";
+const HeaderEvents = ({searchtype}) => {  //TODO Se tendria que especificar que tipo de buscador es (noticias, eventos, hackeps participants y asi gestionar el tipo de filtros y datos a mostrar.)
+  const [filterComp, setFilterComp] = useState();
+  const {setSearchType} = useSearch();
+  useEffect(() => {
+    setSearchType(searchtype);
+    
+  }, [searchtype]);
+  
   return (
     <div className="header-events bg-background-patron px-16 min-h-0 bg-cover bg-no-repeat bg-center py-12 ">
       <div className="header-events__content ">

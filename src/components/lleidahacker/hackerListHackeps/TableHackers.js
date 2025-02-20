@@ -78,27 +78,30 @@ const TableHackers = ({ mapList }) => {
 
   return (
     <div>
-      <table className="w-full ">
+      <table className="w-full border-separate border-spacing-0.5">
         <thead style={{ position: "sticky", top: 0, backgroundColor: "white" }}>
           <tr className="text-xl">
-            <th>
+            <th className="border p-1 text-left">
               {" "}
+              <p>Acció</p>
+            </th>
+            <th className="border p-1 text-left">
               <p>Status</p>
             </th>
-            <th>
+            <th className="border p-1 text-left">
               <p>Nom</p>
             </th>
-            <th>
+            <th className="border p-1 text-left">
               <p>Mail</p>
             </th>
-            <th>
+            <th className="border p-1 text-left">
               <p>Edat</p>
             </th>
-            <th>
+            <th className="border p-1 text-left">
               <p>Talla</p>
             </th>
-            <th>
-              <p className="text-center">Acció</p>
+            <th className="border p-1 text-left">
+              <p className="text-center">Restriccions alimentaries</p>
             </th>
           </tr>
         </thead>
@@ -106,7 +109,7 @@ const TableHackers = ({ mapList }) => {
           {participants.map((participant, index) => (
             <>
               <tr key={index}>
-                <td>
+                <td className="border p-1">
                   <div className="flex">
                     <div
                       className="bg-primaryLanding text-white rounded-md px-2 py-1 font-semibold cursor-pointer"
@@ -122,13 +125,7 @@ const TableHackers = ({ mapList }) => {
                     </div>
                   </div>
                 </td>
-                <td>{participant.nom}</td>
-                <td>{participant.mail}</td>
-                <td className={checkAge(participant.edat)}>
-                  {participant.edat}
-                </td>
-                <td>{participant.talla}</td>
-                <td>
+                <td className="border p-1">
                   <p
                     className={`${createStatusClass(participant.status)} flex flex-row gap-1 items-center mb-0`}
                   >
@@ -136,6 +133,15 @@ const TableHackers = ({ mapList }) => {
                     {participant.status}
                   </p>
                 </td>
+                <td className="border p-1">{participant.nom}</td>
+                <td className="border p-1">{participant.mail}</td>
+                <td className= {"border p-1" + checkAge(participant.edat)}>
+                  {participant.edat}
+                </td>
+                <td className="border p-1">{participant.talla}</td>
+                <td className="border p-1">
+                  {participant.foodRestrictions}</td>
+                
               </tr>
 
               <div className="mb-2 flex flex-row gap-1 text-red-500 text-sm items-center ml-1">

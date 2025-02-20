@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
 import TableHackers from "./TableHackers";
+import SwitchView from "src/components/switch/SwitchView";
 import {
   acceptHackerToEvent,
   getPendingHackersGruped,
@@ -13,10 +14,11 @@ const HackerListHackeps = () => {
   const [grups, setGrups] = useState([]);
   const [visibilityOptions, setVisibilityOptions] = useState([]);
   const [visibilityOptions2, setVisibilityOptions2] = useState([]);
+  const [reducedView, setReducedView] = useState(false);
   let actualHackepsId
 //Llamada a la api:
 
-function getAge(birthday) {
+function getAge(birthday) {  //TODO: No funciona correctament aquesta funcio. Revisar!
   const birthDate = new Date(birthday);
   const today = new Date();
   let age = today.getFullYear() - birthDate.getFullYear();
@@ -95,7 +97,10 @@ function getAge(birthday) {
         <div className="w-6/12 border-2 border-primaryLanding rounded-lg" />
       </div>
       <div className="mt-12 border-3 rounded-lg mx-8 flex flex-col py-12 px-24 justify-between text-base flex-wrap">
-        <h1 className="text-3xl ">Participants sense grup</h1>
+        <div className="flex flex-row justify-between">
+          <div><h1 className="text-3xl ">Participants sense grup</h1></div>
+          <div> <SwitchView text1={"Complete"} text2={"Reduced"} activity1={() => setReducedView(false)} activity2={() =>setReducedView(true)}/></div>
+        </div>
         <div className=" center flex mb-5">
           <div className="w-4/12 border-1 border-primaryLanding rounded-lg" />
         </div>
