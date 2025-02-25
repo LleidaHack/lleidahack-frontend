@@ -123,7 +123,7 @@ const ContactePage = () => {
                     />
                   </div>
 
-                  <div className="formik-field">
+                  <div className="formik-field my-5">
                     <label
                       className="text-textSecondaryHackeps"
                       htmlFor="email"
@@ -138,7 +138,7 @@ const ContactePage = () => {
                     />
                   </div>
 
-                  <div className="formik-field">
+                  <div className="formik-field my-5">
                     <label
                       className="text-textSecondaryHackeps"
                       htmlFor="subject"
@@ -153,7 +153,7 @@ const ContactePage = () => {
                     />
                   </div>
 
-                  <div className="formik-field">
+                  <div className="formik-field my-5">
                     <label
                       className="text-textSecondaryHackeps"
                       htmlFor="message"
