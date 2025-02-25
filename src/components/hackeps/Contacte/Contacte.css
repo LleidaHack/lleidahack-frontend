@@ -1,4 +1,7 @@
 /* ContactPage.css */
+/* .container-all {
+  min-height: 100vh;
+} */
 
 /* .container-all {
   min-height: 100vh;
@@ -68,6 +71,7 @@ textarea {
   border-radius: 4px;
   margin-bottom: 16px;
   width: 100%;
+  
 }
 
 /* .button-submit-container {
@@ -91,10 +95,10 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
-    align-items: center;
-  }
+  /* .contact-container {
+    flex-direction: column; 
+     align-items: center;  
+  } */
 
   .logo-container {
     margin-bottom: 20px;
