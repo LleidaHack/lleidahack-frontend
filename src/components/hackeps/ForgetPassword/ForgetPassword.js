@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "src/components/hackeps/ForgetPassword/forgetPassword.css";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { Container, Row, Col } from "react-bootstrap";
@@ -46,15 +45,15 @@ const ForgetPassword = ({ nextScreen }) => {
   return (
     <>
       {!status ? (
-        <div className="login-page bg-loginPage">
-          <div className="content">
+        <div className="flex flex-col min-h-screen bg-loginPage">
+          <div className="flex-1 flex items-center justify-center">
             <Container>
               <Row className="justify-content-center">
                 <Col md={6}>
-                  <div className="login-container">
-                    <img src={logo} className="App-logo" alt="logo" />
+                  <div className="rounded-xl flex flex-col items-center">
+                    <img src={logo} className="w-[20vh] h-auto block mx-auto" alt="Logo" />
                     <br></br>
-                    <h2 className="mb-4 h2-title text-white">
+                    <h2 className="mb-4 text-[5vh] flex items-center text-center text-white">
                       Necesites ajuda per a iniciar sessió?
                     </h2>
                     <Formik
@@ -65,7 +64,7 @@ const ForgetPassword = ({ nextScreen }) => {
                     >
                       {({ isSubmitting, submitForm, errors, touched }) => (
                         <Form>
-                          <div className="form-group">
+                          <div className="font-bold text-[3vh]">
                             <label
                               className="text-textPrimaryHackeps"
                               htmlFor="email"
@@ -84,7 +83,7 @@ const ForgetPassword = ({ nextScreen }) => {
                               }`}
                             />
                             {touched.email && errors.email ? (
-                              <div className="invalid-feedback">
+                              <div className="text-[1.5vh] text-red-500">
                                 {errors.email}
                               </div>
                             ) : (
@@ -92,13 +91,13 @@ const ForgetPassword = ({ nextScreen }) => {
                             )}
                           </div>
 
-                          <div className="redirects text-white">
+                          <div className="mt-[5%] mb-[5%] text-[1.5vh] text-center text-white">
                             <p>
                               Rebràs un correu electrònic per amb les
                               instruccions per a poder recuperar el teu compte
                             </p>
                           </div>
-                          <div className="button-container">
+                          <div className="flex justify-center mt-[5%]">
                             <Button type="submit" primary md>
                               {isSubmitting
                                 ? "Enviant enllaç..."
@@ -116,8 +115,8 @@ const ForgetPassword = ({ nextScreen }) => {
         </div>
       ) : (
         <div className="bg-secondaryHackeps">
-          <div className="content">
-            <section className="informative text-white">
+          <div className="flex-1 flex items-center justify-center">
+            <section className="w-[68%] flex justify-center rounded-[18px] p-5 flex-wrap text-white">
               <div className="Part2">
                 <SuccessFeedback
                   title="Enllaç enviat correctament."

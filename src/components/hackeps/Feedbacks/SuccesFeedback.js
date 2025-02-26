@@ -35,7 +35,7 @@ const SuccessFeedback = ({
         </p>
       </div>
       {hasButton ? (
-        <div className="infbuttonok">
+        <div className="text-center mb-14">
           <Link to={buttonLink}>
             <Button onClick={onButtonClick} primary>
               {buttonText}
