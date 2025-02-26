@@ -51,7 +51,11 @@ const ForgetPassword = ({ nextScreen }) => {
               <Row className="justify-content-center">
                 <Col md={6}>
                   <div className="rounded-xl flex flex-col items-center">
-                    <img src={logo} className="w-[20vh] h-auto block mx-auto" alt="Logo" />
+                    <img
+                      src={logo}
+                      className="w-[20vh] h-auto block mx-auto"
+                      alt="Logo"
+                    />
                     <br></br>
                     <h2 className="mb-4 text-[5vh] flex items-center text-center text-white">
                       Necesites ajuda per a iniciar sessió?

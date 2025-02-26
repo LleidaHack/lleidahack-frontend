@@ -46,8 +46,14 @@ const LoginPage = ({ nextScreen }) => {
           <Row className="justify-content-center">
             <Col md={6}>
               <div className="rounded-xl flex flex-col items-center">
-                <img src={logo} className="w-[20vh] h-auto block mx-auto mb-3"alt="Logo" />
-                <h2 className="text-white mb-4 text-[5vh] flex items-center text-center">Hola de nou!</h2>
+                <img
+                  src={logo}
+                  className="w-[20vh] h-auto block mx-auto mb-3"
+                  alt="Logo"
+                />
+                <h2 className="text-white mb-4 text-[5vh] flex items-center text-center">
+                  Hola de nou!
+                </h2>
                 <Formik
                   initialValues={{ email: "", password: "" }}
                   validationSchema={validationSchema}
@@ -69,7 +75,9 @@ const LoginPage = ({ nextScreen }) => {
                           }`}
                         />
                         {touched.email && errors.email && (
-                          <div className="text-[1.5vh] text-red-500">{errors.email}</div>
+                          <div className="text-[1.5vh] text-red-500">
+                            {errors.email}
+                          </div>
                         )}
                       </div>
                       <div className="font-bold text-[3vh]">
