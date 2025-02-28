@@ -53,11 +53,11 @@ const ForgetPassword = ({ nextScreen }) => {
                   <div className="rounded-xl flex flex-col items-center">
                     <img
                       src={logo}
-                      className="w-[20vh] h-auto block mx-auto"
+                      className="w-1/3 h-auto block mx-auto"
                       alt="Logo"
                     />
                     <br></br>
-                    <h2 className="mb-4 text-[5vh] flex items-center text-center text-white">
+                    <h2 className="mb-4 text-5xl flex items-center text-center text-white">
                       Necesites ajuda per a iniciar sessió?
                     </h2>
                     <Formik
@@ -68,7 +68,7 @@ const ForgetPassword = ({ nextScreen }) => {
                     >
                       {({ isSubmitting, submitForm, errors, touched }) => (
                         <Form>
-                          <div className="font-bold text-[3vh]">
+                          <div className="font-bold text-base mt-7">
                             <label
                               className="text-textPrimaryHackeps"
                               htmlFor="email"
@@ -87,7 +87,7 @@ const ForgetPassword = ({ nextScreen }) => {
                               }`}
                             />
                             {touched.email && errors.email ? (
-                              <div className="text-[1.5vh] text-red-500">
+                              <div className="text-red-500">
                                 {errors.email}
                               </div>
                             ) : (
@@ -95,13 +95,13 @@ const ForgetPassword = ({ nextScreen }) => {
                             )}
                           </div>
 
-                          <div className="mt-[5%] mb-[5%] text-[1.5vh] text-center text-white">
+                          <div className="mt-7 mb-7 text-base text-center text-white">
                             <p>
                               Rebràs un correu electrònic per amb les
                               instruccions per a poder recuperar el teu compte
                             </p>
                           </div>
-                          <div className="flex justify-center mt-[5%]">
+                          <div className="flex justify-center mt-7">
                             <Button type="submit" primary md>
                               {isSubmitting
                                 ? "Enviant enllaç..."
@@ -120,7 +120,7 @@ const ForgetPassword = ({ nextScreen }) => {
       ) : (
         <div className="bg-secondaryHackeps">
           <div className="flex-1 flex items-center justify-center">
-            <section className="w-[68%] flex justify-center rounded-[18px] p-5 flex-wrap text-white">
+            <section className="w-1/2 flex justify-center rounded-2xl p-5 flex-wrap text-white">
               <div className="Part2">
                 <SuccessFeedback
                   title="Enllaç enviat correctament."

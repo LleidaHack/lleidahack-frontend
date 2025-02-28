@@ -48,10 +48,10 @@ const LoginPage = ({ nextScreen }) => {
               <div className="rounded-xl flex flex-col items-center">
                 <img
                   src={logo}
-                  className="w-[20vh] h-auto block mx-auto mb-3"
+                  className="w-1/3 h-auto block mx-auto mb-3"
                   alt="Logo"
                 />
-                <h2 className="text-white mb-4 text-[5vh] flex items-center text-center">
+                <h2 className="text-white mb-4 text-5xl flex items-center text-center">
                   Hola de nou!
                 </h2>
                 <Formik
@@ -62,7 +62,7 @@ const LoginPage = ({ nextScreen }) => {
                 >
                   {({ isSubmitting, submitForm, errors, touched }) => (
                     <Form>
-                      <div className="font-bold text-[3vh]">
+                      <div className="font-bold text-base mt-7">
                         <label className="text-white" htmlFor="email">
                           Correu
                         </label>
@@ -75,12 +75,12 @@ const LoginPage = ({ nextScreen }) => {
                           }`}
                         />
                         {touched.email && errors.email && (
-                          <div className="text-[1.5vh] text-red-500">
+                          <div className="text-red-500">
                             {errors.email}
                           </div>
                         )}
                       </div>
-                      <div className="font-bold text-[3vh]">
+                      <div className="font-bold text-base mt-7">
                         <label className="text-white" htmlFor="password">
                           Contrasenya
                         </label>
@@ -95,17 +95,17 @@ const LoginPage = ({ nextScreen }) => {
                           }`}
                         />
                         {touched.password && errors.password && (
-                          <div className="text-[1.5vh] text-red-500">
+                          <div className="text-red-500">
                             {errors.password}
                           </div>
                         )}
                       </div>
 
-                      <div className="mt-[5%] mb-[5%] text-[1.5vh] text-center">
+                      <div className="mt-7 mb-7 text-xl text-center">
                         <p className="mb-1">
                           <Link
                             to="/forgot-password"
-                            className="text-xl text-grayColor"
+                            className="text-grayColor"
                           >
                             Has oblidat les teves credencials?
                           </Link>
@@ -113,13 +113,13 @@ const LoginPage = ({ nextScreen }) => {
                         <p className="mb-0">
                           <Link
                             to="/hacker-form"
-                            className="text-xl text-grayColor"
+                            className="text-grayColor"
                           >
                             Encara no tens compte?
                           </Link>
                         </p>
                       </div>
-                      <div className="flex justify-center mt-[5%]">
+                      <div className="flex justify-center mt-3">
                         <Button type="submit" primary lg>
                           {isSubmitting
                             ? "Iniciant sessió..."

@@ -64,7 +64,7 @@ export default function ResetPassword() {
                 Restablir contrasenya
               </h2>
               <div className="w-75 mx-auto">
-                <div className="font-bold text-[3vh] p-2">
+                <div className="font-bold text-base p-2">
                   <label className=" text-textSecondaryHackeps form-label">
                     Nova contrasenya
                   </label>
@@ -76,7 +76,7 @@ export default function ResetPassword() {
                     pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$"
                   />
                 </div>
-                <div className="font-bold text-[3vh] p-2">
+                <div className="font-bold text-base p-2">
                   <label className="text-textSecondaryHackeps form-label">
                     Confirmar contrasenya
                   </label>
