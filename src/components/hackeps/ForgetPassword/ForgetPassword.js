@@ -87,9 +87,7 @@ const ForgetPassword = ({ nextScreen }) => {
                               }`}
                             />
                             {touched.email && errors.email ? (
-                              <div className="text-red-500">
-                                {errors.email}
-                              </div>
+                              <div className="text-red-500">{errors.email}</div>
                             ) : (
                               <></>
                             )}

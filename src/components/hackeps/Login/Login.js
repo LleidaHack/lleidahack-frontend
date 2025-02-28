@@ -75,9 +75,7 @@ const LoginPage = ({ nextScreen }) => {
                           }`}
                         />
                         {touched.email && errors.email && (
-                          <div className="text-red-500">
-                            {errors.email}
-                          </div>
+                          <div className="text-red-500">{errors.email}</div>
                         )}
                       </div>
                       <div className="font-bold text-base mt-7">
@@ -95,9 +93,7 @@ const LoginPage = ({ nextScreen }) => {
                           }`}
                         />
                         {touched.password && errors.password && (
-                          <div className="text-red-500">
-                            {errors.password}
-                          </div>
+                          <div className="text-red-500">{errors.password}</div>
                         )}
                       </div>
 
@@ -111,10 +107,7 @@ const LoginPage = ({ nextScreen }) => {
                           </Link>
                         </p>
                         <p className="mb-0">
-                          <Link
-                            to="/hacker-form"
-                            className="text-grayColor"
-                          >
+                          <Link to="/hacker-form" className="text-grayColor">
                             Encara no tens compte?
                           </Link>
                         </p>
