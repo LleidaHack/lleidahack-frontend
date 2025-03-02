@@ -5,7 +5,7 @@ import {
   acceptHackerToEvent,
   getPendingHackersGruped,
   rejectHackerToEvent,
-} from "src/services/EventManagementService";
+} from "src/services/EventService";
 import { getHackeps } from "src/services/EventService";
 
 const HackerListHackeps = () => {

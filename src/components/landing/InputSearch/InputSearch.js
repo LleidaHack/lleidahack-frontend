@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 import { useSearch } from "src/context/SearchContext";
-const InputSearch = ({ }) => {
+const InputSearch = ({ itemTextButtonSearch}) => {
   const{setSearchTerm, placeholder} = useSearch(); 
 
   return (

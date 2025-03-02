@@ -4,6 +4,7 @@ import HeaderEvents from "src/components/landing/HeaderEvents/HeaderEvents";
 import PrincipalEvents from "src/components/landing/EventsSections/PrincipalEvents";
 import SecondaryEvents from "src/components/landing/EventsSections/SecondaryEvents";
 import { SearchProvider } from "src/context/SearchContext";
+import HeaderEventsLinks from "src/components/landing/HeaderEvents/HeaderEventsLinks";
 
 
 const EventsLanding = () => {
