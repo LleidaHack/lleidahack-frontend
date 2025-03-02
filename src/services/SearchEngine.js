@@ -2,12 +2,12 @@ import { React, useEffect, useState } from "react";
 import { useSearch } from "src/context/SearchContext";
 
 import {
-    acceptHackerToEvent,
-    rejectHackerToEvent,
-    getPendingHackersGruped, //Aixo mostra i classifica als hackers en grouped i nogroup
-    getRejectedHackers,
-    getApprovedHackers
-  } from "src/services/EventService";
+  acceptHackerToEvent,
+  rejectHackerToEvent,
+  getPendingHackersGruped, //Aixo mostra i classifica als hackers en grouped i nogroup
+  getRejectedHackers,
+  getApprovedHackers,
+} from "src/services/EventService";
 import { getHackeps } from "src/services/EventService";
 
 export const searchItems = async () => {

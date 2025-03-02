@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from "react";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 import { useSearch } from "src/context/SearchContext";
-const InputSearch = ({ itemTextButtonSearch}) => {
-  const{setSearchTerm, placeholder} = useSearch(); 
+const InputSearch = ({ itemTextButtonSearch }) => {
+  const { setSearchTerm, placeholder } = useSearch();
 
   return (
     <div className="input-search border border-grayColor h-9 relative bg-white rounded flex flex-row">
