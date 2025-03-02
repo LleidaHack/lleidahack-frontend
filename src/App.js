@@ -104,7 +104,7 @@ export default function App() {
           <Route path="/hacking" element={<Hacking />} />
         </Routes>
       </Router>
-      {/*
+      
       <Router basename="/lleidahack">
         <Routes>
           <Route path="/" element={<HomeLanding />} />
