@@ -10,33 +10,27 @@ const Header = () => {
   const navigate = useNavigate();
   const [userID, setUserID] = useState(null);
 
-
-  async function getId(){
+  async function getId() {
     const id = await me();
     return id.id;
   }
-  
+
   useEffect(() => {
     const fetchId = async () => {
       const id = await getId();
       setUserID(id);
-      
     };
     fetchId();
   }, []);
 
-  function Navigate(url){
+  function Navigate(url) {
     navigate(url);
   }
-
-
 
   return (
     <div>
       <div className="bg-primaryLanding w-full h-16 px-4 py-2 items-center">
         <div className="flex justify-between items-center">
-
-          
           <div className="flex items-center justify-center ">
             <li className="mx-8 text-xl list-none">
               <a
@@ -61,9 +55,12 @@ const Header = () => {
             </button>
 
             <div>
-            <button className="bg-primaryLanding text-xl p-0 mx-2 text-CTALanding" onClick={() => Navigate("/lleidahacker/"+userID)}>
-              <i class="fa-solid fa-user"></i>
-            </button>
+              <button
+                className="bg-primaryLanding text-xl p-0 mx-2 text-CTALanding"
+                onClick={() => Navigate("/lleidahacker/" + userID)}
+              >
+                <i class="fa-solid fa-user"></i>
+              </button>
             </div>
           </div>
         </div>

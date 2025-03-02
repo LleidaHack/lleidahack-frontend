@@ -15,32 +15,36 @@ const HackerListHackeps = () => {
   const [visibilityOptions, setVisibilityOptions] = useState([]);
   const [visibilityOptions2, setVisibilityOptions2] = useState([]);
   const [reducedView, setReducedView] = useState(false);
-  let actualHackepsId
-//Llamada a la api:
+  let actualHackepsId;
+  //Llamada a la api:
 
-function getAge(birthday) {  //TODO: No funciona correctament aquesta funcio. Revisar!
-  const birthDate = new Date(birthday);
-  const today = new Date();
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const monthDifference = today.getMonth() - birthDate.getMonth();
-  if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
+  function getAge(birthday) {
+    //TODO: No funciona correctament aquesta funcio. Revisar!
+    const birthDate = new Date(birthday);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    if (
+      monthDifference < 0 ||
+      (monthDifference === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+    return age;
   }
-  return age;
-}
 
   useEffect(() => {
-    async function getPendingParticipants(){
+    async function getPendingParticipants() {
       const hack = await getHackeps();
       const maxGroupSize = hack.max_group_size;
-      actualHackepsId = hack.id
+      actualHackepsId = hack.id;
       console.log(actualHackepsId);
       const listGrouped = await getPendingHackersGruped(actualHackepsId);
       const grouped = listGrouped.groups;
       console.log(grouped);
       const nonGrouped = listGrouped.nogroup;
       console.log(nonGrouped);
-      
+
       const formattedNonGrouped = nonGrouped.map((element) => ({
         status: element.approved === false ? "Pending" : "Acepted",
         nom: element.name,
@@ -72,8 +76,6 @@ function getAge(birthday) {  //TODO: No funciona correctament aquesta funcio. Re
       setGrups(formattedGrouped);
     }
     getPendingParticipants();
-    
-    
   }, [setParticipants, setGrups]);
 
   function getLength(array) {
@@ -98,8 +100,18 @@ function getAge(birthday) {  //TODO: No funciona correctament aquesta funcio. Re
       </div>
       <div className="mt-12 border-3 rounded-lg mx-8 flex flex-col py-12 px-24 justify-between text-base flex-wrap">
         <div className="flex flex-row justify-between">
-          <div><h1 className="text-3xl ">Participants sense grup</h1></div>
-          <div> <SwitchView text1={"Complete"} text2={"Reduced"} activity1={() => setReducedView(false)} activity2={() =>setReducedView(true)}/></div>
+          <div>
+            <h1 className="text-3xl ">Participants sense grup</h1>
+          </div>
+          <div>
+            {" "}
+            <SwitchView
+              text1={"Complete"}
+              text2={"Reduced"}
+              activity1={() => setReducedView(false)}
+              activity2={() => setReducedView(true)}
+            />
+          </div>
         </div>
         <div className=" center flex mb-5">
           <div className="w-4/12 border-1 border-primaryLanding rounded-lg" />
@@ -210,7 +222,8 @@ function getAge(birthday) {  //TODO: No funciona correctament aquesta funcio. Re
                 </h1>
               </div>
               <div
-                className={`Desplegable-Members bg-gray-100 rounded-md ${visibilityOptions[index] ? visibilityOptions[index] : "hidden"}`}>
+                className={`Desplegable-Members bg-gray-100 rounded-md ${visibilityOptions[index] ? visibilityOptions[index] : "hidden"}`}
+              >
                 <TableHackers mapList={grup.membres} />
               </div>
             </div>

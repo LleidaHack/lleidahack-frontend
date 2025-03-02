@@ -135,13 +135,11 @@ const TableHackers = ({ mapList }) => {
                 </td>
                 <td className="border p-1">{participant.nom}</td>
                 <td className="border p-1">{participant.mail}</td>
-                <td className= {"border p-1" + checkAge(participant.edat)}>
+                <td className={"border p-1" + checkAge(participant.edat)}>
                   {participant.edat}
                 </td>
                 <td className="border p-1">{participant.talla}</td>
-                <td className="border p-1">
-                  {participant.foodRestrictions}</td>
-                
+                <td className="border p-1">{participant.foodRestrictions}</td>
               </tr>
 
               <div className="mb-2 flex flex-row gap-1 text-red-500 text-sm items-center ml-1">

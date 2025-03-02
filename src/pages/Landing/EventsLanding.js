@@ -6,13 +6,12 @@ import SecondaryEvents from "src/components/landing/EventsSections/SecondaryEven
 import { SearchProvider } from "src/context/SearchContext";
 import HeaderEventsLinks from "src/components/landing/HeaderEvents/HeaderEventsLinks";
 
-
 const EventsLanding = () => {
   return (
     <div>
       <SearchProvider>
         <Navbar />
-        <HeaderEvents title={"Events"} type={"Events"}/>
+        <HeaderEvents title={"Events"} type={"Events"} />
         <HeaderEventsLinks />
         <PrincipalEvents />
         <SecondaryEvents />

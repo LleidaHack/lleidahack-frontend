@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import InputSearch from "../InputSearch/InputSearch";
 import FiltersComponent from "../FiltersComponent/FiltersComponent";
 import { useSearch } from "src/context/SearchContext";
-const HeaderEvents = ({title, type, showNumberResults = false}) => {
+const HeaderEvents = ({ title, type, showNumberResults = false }) => {
   const { setContextType, results } = useSearch();
   setContextType(type);
   return (
@@ -14,7 +14,9 @@ const HeaderEvents = ({title, type, showNumberResults = false}) => {
         </div>
         <div className="filters_div mb-12">
           <FiltersComponent />
-          <p className="mt-3 mx-2 font-semibold text-primaryLanding">{"S'han trobat "+ results.length + " resultats" || ""}</p>
+          <p className="mt-3 mx-2 font-semibold text-primaryLanding">
+            {"S'han trobat " + results.length + " resultats" || ""}
+          </p>
         </div>
       </div>
     </div>
