@@ -24,7 +24,7 @@ const TermsComponent = () => {
           Lleida, Lleida, Espanya.
           <br />
           Per a contactar amb L'ORGANITZACIÓ, pot posar-se en contacte a través
-          del correu electrònic lleidahack@gmail.com.
+          del correu electrònic contacte@lleidahack.dev.
         </p>
 
         <h4>Àmbit</h4>
@@ -70,7 +70,7 @@ const TermsComponent = () => {
           obligatori mostrar l'acreditació cada vegada que s'entri a l'espai de
           l'esdeveniment.
           <br />
-          El nombre de participants serà com a màxim de 160 persones. Si se
+          El nombre de participants serà com a màxim de 200 persones. Si se
           supera el nombre d'inscrits, l'ORGANITZACIÓ gestionarà l'assistència
           en cas d'ampliar el nombre de places per rigorós ordre d'inscripció.
           <br />
@@ -172,7 +172,7 @@ const TermsComponent = () => {
           participant. Aquest tractament és opcional i el participant pot
           informar de la seva disconformitat sobre aquest tema durant el procés
           d'inscripció o, posteriorment, anul·lar aquest consentiment mitjançant
-          un correu a lleidahack@gmail.com.
+          un correu a contacte@lleidahack.dev.
         </p>
 
         <h4>Drets de Propietat Intel·lectual</h4>

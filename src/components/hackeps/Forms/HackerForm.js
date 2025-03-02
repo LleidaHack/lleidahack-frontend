@@ -65,9 +65,8 @@ const HackerPanel = () => {
 };
 
 export const HackerStepperForm = () => {
-  const [avatar, setAvatar] = useState(null);
-  const [urlImage, setUrlImage] = useState("");
-  const [isUrl, setIsUrl] = useState(false);
+  const [pfpImage, setImage] = useState("");
+  const [isPfpTooLarge, setPfpTooLarge] = useState(false);
   // Error message for last page of the form
   const [errorMsg, setErrorMsg] = useState("");
   //Feedback component
@@ -76,7 +75,6 @@ export const HackerStepperForm = () => {
   const [errCause, setCauseError] = useState(""); //si es false, error, si es true tot esta correcte
 
   const onSubmit = async (values) => {
-    const pfp = isUrl ? urlImage : avatar;
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
       nickname: values.nickname,
@@ -94,8 +92,7 @@ export const HackerStepperForm = () => {
       acceptNotifications: values.acceptNotifications || false, //accept notification checkbox a contacte field
       address: "",
       shirt_size: values.shirtSize,
-      image: pfp,
-      is_image_url: isUrl,
+      image: pfpImage,
       github: "",
       linkedin: "",
     };
@@ -104,13 +101,17 @@ export const HackerStepperForm = () => {
     console.log(res);
     if (res.errCode) {
       setStatusSubmit(false);
-      let causeError = "Error al tramitar dades";
+      let causeError = "";
       if (res.errMssg === "Email already exists") {
         causeError = "El correu que has introduit es troba registrat.";
       } else if (res.errMssg === "Nickname already exists") {
         causeError = "El nickname que has introduit es troba registrat.";
       } else if (res.errMssg === "Telephone already exists") {
         causeError = "El telefon que has introduit es troba registrat.";
+      } else {
+        causeError = isPfpTooLarge
+          ? "La foto de perfil introduida és massa gran"
+          : "Error al tramitar dades";
       }
       setCauseError(causeError);
       setErrorMsg(causeError);
@@ -126,12 +127,14 @@ export const HackerStepperForm = () => {
   };
 
   const handleImageChange = (event) => {
-    setAvatar(event.base64);
-    setIsUrl(false);
+    setErrorMsg("");
+    setPfpTooLarge(parseFloat(event.size) > 1024);
+    setImage(event.base64);
   };
   const handleImageUrlChange = (event) => {
-    setUrlImage(event.target.value);
-    setIsUrl(true);
+    setErrorMsg("");
+    setImage(event.target.value.trim());
+    setPfpTooLarge(false);
   };
 
   const handleButtonClick = () => {
@@ -184,11 +187,7 @@ export const HackerStepperForm = () => {
               <Row className="align-content-center d-flex">
                 <HackerPanel />
                 <div className="col-12 col-xxl-6 ">
-                  <TitleGeneralized
-                    bold={false}
-                    marginBot="0.5rem"
-                    alignText="left"
-                  >
+                  <TitleGeneralized marginBot="2" alignText="left">
                     Informació Personal
                   </TitleGeneralized>
                   <InputField
@@ -208,12 +207,14 @@ export const HackerStepperForm = () => {
                     name="password"
                     type="password"
                     label="Contrasenya"
+                    autoComplete="new-password"
                   />
                   <InputField
                     className="w-100"
                     name="confirmPassword"
                     type="password"
                     label="Repetir contrasenya"
+                    autoComplete="new-password"
                   />
                   <InputField
                     className="w-100"
@@ -228,11 +229,7 @@ export const HackerStepperForm = () => {
               <Row>
                 <HackerPanel />
                 <div className="col-12 col-xxl-6 ">
-                  <TitleGeneralized
-                    bold={false}
-                    marginBot="0.5rem"
-                    alignText="left"
-                  >
+                  <TitleGeneralized marginBot="2" alignText="left">
                     Contacte
                   </TitleGeneralized>
                   <InputField
@@ -247,6 +244,7 @@ export const HackerStepperForm = () => {
                     type="email"
                     id="email"
                     label="E-mail"
+                    autoComplete="email"
                   />
                   <CheckboxField
                     className="w-100 text-center"
@@ -261,35 +259,20 @@ export const HackerStepperForm = () => {
             <FormikStepper.Step label="Avatar">
               <Row className="">
                 <div className="col-12 col-xxl-6 d-flex flex-column">
-                  {isUrl && urlImage !== "" ? (
-                    <img
-                      style={{ height: "250px", width: "250px" }}
-                      className="avatar-image bg-white rounded-circle m-auto"
-                      src={urlImage}
-                      alt="avatar"
-                    />
-                  ) : avatar ? (
-                    <img
-                      style={{ height: "250px", width: "250px" }}
-                      className="avatar-image bg-white rounded-circle m-auto"
-                      src={avatar}
-                      alt="avatar"
-                    />
-                  ) : (
-                    <img
-                      style={{ height: "250px", width: "250px" }}
-                      className="avatar-image bg-white rounded-circle m-auto"
-                      src={userIcon}
-                      alt="avatar"
-                    />
-                  )}
+                  <img
+                    style={{
+                      height: "250px",
+                      width: "250px",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                    className="avatar-image bg-white rounded-circle m-auto"
+                    src={pfpImage || userIcon}
+                    alt="avatar"
+                  />
                 </div>
                 <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
-                  <TitleGeneralized
-                    bold={false}
-                    marginBot="0.5rem"
-                    alignText="left"
-                  >
+                  <TitleGeneralized marginBot="2" alignText="left">
                     Avatar
                   </TitleGeneralized>
                   <InputField
@@ -307,12 +290,19 @@ export const HackerStepperForm = () => {
                       placeholder="https://..."
                       onChange={handleImageUrlChange}
                     />
-                    <FileBase
-                      id="avatarInput"
-                      type="file"
-                      multiple={false}
-                      onDone={handleImageChange}
-                    />
+                    <div className="image-input-container">
+                      <FileBase
+                        id="avatarInput"
+                        type="file"
+                        multiple={false}
+                        onDone={handleImageChange}
+                      />
+                    </div>
+                    {isPfpTooLarge && (
+                      <label htmlFor="avatarInput" className="text-red-600">
+                        El fitxer seleccionat supera el límit permès de 1MB.
+                      </label>
+                    )}
                   </div>
                 </div>
               </Row>

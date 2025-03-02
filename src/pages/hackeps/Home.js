@@ -29,31 +29,31 @@ const Home = () => {
 
   const events = [
     {
-      time: "8:30 h - 25 de novembre",
+      time: "8:30 h - 23 de novembre",
       title: "Inici del check-in",
     },
     {
-      time: "10:00 h - 25 de novembre",
+      time: "10:00 h - 23 de novembre",
       title: "Cerimònia d'obertura",
     },
     {
-      time: "11:00 h - 25 de novembre",
-      title: "Começa el temps de hacking",
+      time: "11:00 h - 23 de novembre",
+      title: "Comença el temps de hacking",
     },
     {
-      time: "15:00 h - 25 de novembre",
+      time: "15:00 h - 23 de novembre",
       title: "Finalitza el check-in",
     },
     {
-      time: "11:00 h - 26 de novembre",
+      time: "11:00 h - 24 de novembre",
       title: "Finalitza el temps de hacking",
     },
     {
-      time: "11:30 h - 26 de novembre",
+      time: "11:30 h - 24 de novembre",
       title: "Presentacions dels projectes",
     },
     {
-      time: "14:00 h - 26 de novembre",
+      time: "14:00 h - 24 de novembre",
       title: "Cerimònia de cloenda i entrega de premis",
     },
   ];

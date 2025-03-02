@@ -11,7 +11,7 @@ export default function Verify() {
   useEffect(() => {
     async function callService() {
       const res = await verify(params.get("token"));
-      if (res.success) {
+      if (!res.errCode) {
         navigate("/");
         return;
       }
@@ -19,7 +19,7 @@ export default function Verify() {
       let mail;
       if (
         !(mail = window.prompt(
-          "Introdueix el teu mail per tornar a general el token",
+          "Introdueix el teu mail per tornar a generar el token",
         ))
       );
 

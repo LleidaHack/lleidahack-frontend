@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import {
   acceptHackerToEvent,
+  getHackeps,
   getPendingHackersGruped,
   rejectHackerToEvent,
-} from "src/services/EventManagementService";
-import { getUserById } from "src/services/UserService";
+} from "src/services/EventService";
 
 export default function Dashboard() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [hackeps, sethackeps] = useState(null);
 
   useEffect(() => {
     const callService = async () => {
-      setData(await getPendingHackersGruped("1"));
+      let hack = await getHackeps();
+      sethackeps(hack);
+      setData(await getPendingHackersGruped(hack.id));
       setIsLoading(false);
     };
     callService();
@@ -21,24 +24,17 @@ export default function Dashboard() {
   return (
     <div className="container-fluid">
       <h2 className="m-3">Pendents d'acceptar</h2>
-      {!isLoading && <DashboardGrid data={data}></DashboardGrid>}
+      {!isLoading && <DashboardGrid data={data} hackeps={hackeps} />}
     </div>
   );
 }
 
-function TableRow({ user: userParam, isGroup }) {
-  const [isApproved, setIsApproved] = useState(userParam.approved);
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    async function _() {
-      setUser(await getUserById(userParam.id));
-    }
-    _();
-  }, [userParam]);
+function TableRow({ user, isGroup, hackeps }) {
+  const [isApproved, setIsApproved] = useState(user.approved);
 
   async function handleAcceptar() {
-    if (await acceptHackerToEvent(user.id, "1")) {
+    console.log(hackeps);
+    if (await acceptHackerToEvent(user.id, hackeps.id)) {
       setIsApproved(true);
     }
   }
@@ -55,9 +51,8 @@ function TableRow({ user: userParam, isGroup }) {
       ]);
 
       if (res !== user.name) return;
-
-      await rejectHackerToEvent(user.id, "1");
-      window.location.reload();
+      await rejectHackerToEvent(user.id, hackeps.id);
+      //window.location.reload();
       return;
     }
   }
@@ -98,7 +93,7 @@ function TableRow({ user: userParam, isGroup }) {
   );
 }
 
-function DashboardGrid({ data }) {
+function DashboardGrid({ data, hackeps }) {
   return (
     <table className="table table-bordered">
       <thead>
@@ -115,7 +110,12 @@ function DashboardGrid({ data }) {
       <tbody>
         {data.nogroup &&
           data.nogroup.map((user) => (
-            <TableRow key={user.id} user={user} isGroup={false} />
+            <TableRow
+              key={user.id}
+              user={user}
+              isGroup={false}
+              hackeps={hackeps}
+            />
           ))}
 
         {data.groups &&
@@ -130,7 +130,12 @@ function DashboardGrid({ data }) {
               </tr>
               {group.members &&
                 group.members.map((user) => (
-                  <TableRow isGroup={true} user={user} key={user.id}></TableRow>
+                  <TableRow
+                    isGroup={true}
+                    user={user}
+                    key={user.id}
+                    hackeps={hackeps}
+                  />
                 ))}
             </>
           ))}

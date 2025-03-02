@@ -41,6 +41,10 @@
   min-height: 100vh;
 }
 
+.file-input-container input[type="file" i]::-webkit-file-upload-button {
+  color: var(--text-primary);
+}
+
 @media (max-width: 768px) {
   .peter {
     max-width: 90%;

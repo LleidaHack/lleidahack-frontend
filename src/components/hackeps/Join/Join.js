@@ -10,14 +10,25 @@ const Join = (props) => {
     }
 
     if (props.event.accepted) {
-      return (
-        <div
-          style={{ width: `fit-content`, textDecoration: `none` }}
-          className="py-2 px-4 m-auto p-bg-primary text-textPrimaryHackeps"
-        >
-          Acceptat!
-        </div>
-      );
+      if (props.event.confirmed) {
+        return (
+          <div
+            style={{ width: `fit-content`, textDecoration: `none` }}
+            className="py-2 px-4 m-auto p-bg-primary text-textPrimaryHackeps"
+          >
+            Acceptat!
+          </div>
+        );
+      } else {
+        return (
+          <div
+            style={{ width: `fit-content`, textDecoration: `none` }}
+            className="py-2 px-4 m-auto p-bg-primary text-textPrimaryHackeps"
+          >
+            Confirma el correu
+          </div>
+        );
+      }
     }
 
     if (props.event.registered) {
@@ -29,7 +40,7 @@ const Join = (props) => {
           Pendent d'acceptació
         </div>
       );
-    } else {
+    } else if (props.event.is_open) {
       return (
         <a
           href="/hackeps/inscripcio"
@@ -38,6 +49,15 @@ const Join = (props) => {
         >
           Inscriure's
         </a>
+      );
+    } else {
+      return (
+        <div
+          style={{ width: `fit-content`, textDecoration: `none` }}
+          className="py-2 px-4 m-auto text-textPrimaryHackeps p-bg-primary"
+        >
+          Inscripcions tancades!
+        </div>
       );
     }
   }

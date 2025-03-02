@@ -4,14 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const CountdownTimer = (props) => {
   const timestampDay = props.startTime;
-  const eventEndDay = props.endTime;
+  const eventendDay = props.endTime;
   const nowDay = new Date();
   const active = Boolean(props.timerActive);
   let countdown;
-  if (timestampDay >= eventEndDay) {
+  if (timestampDay >= eventendDay) {
     countdown = timestampDay;
   } else {
-    countdown = eventEndDay;
+    countdown = eventendDay;
   }
 
   function getRemainingTimeUntilMsTimestamp(countdown, nowDay) {
@@ -42,11 +42,11 @@ const CountdownTimer = (props) => {
       if (timestampDay >= nowDay) {
         updateRemainingTime(timestampDay);
       } else {
-        updateRemainingTime(eventEndDay);
+        updateRemainingTime(eventendDay);
       }
     }, 1000);
     return () => clearInterval(intervalId);
-  }, [timestampDay, eventEndDay, nowDay, updateRemainingTime]);
+  }, [timestampDay, eventendDay, nowDay, updateRemainingTime]);
 
   function updateRemainingTime(countdown) {
     const nowDay = new Date();
@@ -59,28 +59,9 @@ const CountdownTimer = (props) => {
     return "0".repeat(minLength - numberString.length) + numberString;
   }
 
-  if (isNaN(remainingTime.seconds)) {
-    return (
-      <div className="countdown-timer bg-blackHackeps text-white">
-        <span className="text-white">X</span>
-        <span className="text-white" style={{ fontSize: "2vw" }}>
-          mesos
-        </span>
-        <span className="text-white">X</span>
-        <span className="text-white" style={{ fontSize: "2vw" }}>
-          dies
-        </span>
-        <span className="text-white">X</span>
-        <span className="text-white" style={{ fontSize: "2vw" }}>
-          hores
-        </span>
-      </div>
-    );
-  }
-
   if (timestampDay >= nowDay && active) {
     return (
-      <div className="countdown-timer bg-blackHackeps text-white">
+      <div className="countdown-timer bg-loginPage text-white">
         {remainingTime.months ? (
           <span className="text-white">{remainingTime.months}</span>
         ) : (
@@ -147,9 +128,9 @@ const CountdownTimer = (props) => {
         )}
       </div>
     );
-  } else if (eventEndDay >= nowDay && active) {
+  } else if (eventendDay >= nowDay && active) {
     return (
-      <div className="countdown-timer text-black">
+      <div className="countdown-timer bg-loginPage text-white">
         {remainingTime.hours ? (
           <span className="text-white">
             {padWithZeros(remainingTime.hours)}

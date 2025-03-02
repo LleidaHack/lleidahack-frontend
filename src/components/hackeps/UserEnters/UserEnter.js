@@ -29,7 +29,7 @@ const LinkAccounts = () => {
         <br />
         <div className="GridContainer">
           <div className="columna">
-            <div className="iconContainer">
+            <div className="iconContainer flex justify-center items-center">
               <svg
                 width="55"
                 height="80"
@@ -46,6 +46,11 @@ const LinkAccounts = () => {
             <Link to="/hacker-form">
               <Button primary className="m-2">
                 Hacker
+              </Button>
+            </Link>
+            <Link to="/lleidahacker-form">
+              <Button primary className="m-2">
+                Lleidahacker
               </Button>
             </Link>
           </div>

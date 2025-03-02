@@ -35,7 +35,7 @@ const Team = (props) => {
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
   const [err, setErr] = useState("");
-
+  const [JoinErrorMessage, setJoinErrorMessage] = useState("");
   async function handleKick(member) {
     await removeHackerFromGroup(member.id, team.id);
     setTeam(await getHackerGroupById(team.id));
@@ -52,7 +52,7 @@ const Team = (props) => {
       team.id,
     );
     if (a.errCode) {
-      setErr(a.errMessage);
+      setErr(a.errMssg);
     } else {
       setTeam(null);
     }
@@ -64,8 +64,10 @@ const Team = (props) => {
       localStorage.getItem("userID"),
     );
     if (a.success) {
-      setTeam(await getHackerGroupById(a.added_id));
+      setTeam(await getHackerGroupById(a.added_group_id));
       setShowJoinTeam(false);
+    } else {
+      setJoinErrorMessage(a.errMssg);
     }
   }
 
@@ -109,12 +111,7 @@ const Team = (props) => {
       <>
         {is_user && (
           <Container className="p-bg-grey text-center mt-5 m-0 p-3 contss">
-            <TitleGeneralized
-              marginBot="0.5rem"
-              bold={false}
-              padTop="0%"
-              lettersColor="primary"
-            >
+            <TitleGeneralized marginBot="2" padTop="0" primary>
               Inscripcions
             </TitleGeneralized>
             <Row className="gap-2 flex-row">
@@ -149,6 +146,7 @@ const Team = (props) => {
                       Codi de l'equip (#XXXXXXXXXX):
                     </label>
                     <Field type="text" id="teamCode" name="teamCode" />
+                    <p>{JoinErrorMessage}</p>
                     <ErrorMessage
                       name="teamCode"
                       component="div"
@@ -214,7 +212,7 @@ const Team = (props) => {
     return (
       <div className="Alineador">
         <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
-          <TitleGeneralized bold={false} padTop="0%" lettersColor="primary">
+          <TitleGeneralized padTop="0" primary>
             {team.name} {team.code && `Codi: #${team.code}`}
           </TitleGeneralized>
           <Container className="">

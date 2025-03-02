@@ -4,7 +4,7 @@ import "src/components/hackeps/Inscripcio/Inscripcio.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { SelectField } from "formik-stepper";
-import { registerHackerToEvent } from "src/services/EventManagementService";
+import { registerHackerToEvent } from "src/services/EventService";
 import { getHackeps } from "src/services/EventService";
 import FailFeedback from "src/components/hackeps/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/hackeps/Feedbacks/SuccesFeedback";
@@ -50,6 +50,7 @@ const InscripcioForm = () => {
 
   const [cvFile, setCvFile] = useState("");
   const [hackepsEvent, setHackepsEvent] = useState(null);
+  const [isCvTooLarge, setCvTooLarge] = useState(false);
   const [previousRegistration, setPreviousRegistration] = useState({
     studies: "",
     center: "",
@@ -84,7 +85,7 @@ const InscripcioForm = () => {
       });
       setHackepsEvent(hackepsEvent);
       setPreviousRegistration(me);
-      console.log(me);
+      if (process.env.REACT_APP_DEBUG === "true") console.log(me);
     };
 
     fetchData();
@@ -102,37 +103,39 @@ const InscripcioForm = () => {
       study_center: values.center,
       location: values.location,
       how_did_you_meet_us: values.meet,
+      wants_credit: values.checkboxcredit,
       update_user: true,
       terms_accepted: values.checkboxterms,
     };
 
+    let registration;
     if (registered) {
       data.id = previousRegistration.id;
-      updateHacker(data);
+      registration = await updateHacker(data);
     } else {
-      let registration = await registerHackerToEvent(
-        localStorage.getItem("userID"),
+      registration = await registerHackerToEvent(
         hackepsEvent.id,
+        localStorage.getItem("userID"),
         data,
       );
-      if (registration.errCode) {
-        setErrRegister("");
-        if (registration.errCode === 400) {
-          setErrRegister(
-            "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.",
-          );
-        }
-
-        setStateRegister(false);
-      } else if (registration.detail) {
-        setErrRegister(registration.detail);
-        setStateRegister(false);
-      } else {
-        setStateRegister(true);
+    }
+    if (registration.errCode) {
+      setErrRegister("");
+      if (registration.errCode === 400) {
+        setErrRegister(
+          "Ja estas registrat a aquest esdeveniment. En cas que es tracti d'un error, contacta amb nosatres.",
+        );
       }
 
-      setsubmittRegister(true);
+      setStateRegister(false);
+    } else if (registration.detail) {
+      setErrRegister(registration.detail);
+      setStateRegister(false);
+    } else {
+      setStateRegister(true);
     }
+
+    setsubmittRegister(true);
   };
 
   const handleButtonClick = () => {
@@ -141,11 +144,13 @@ const InscripcioForm = () => {
 
   const handleFileChange = (event) => {
     let file = event.base64;
+    setCvTooLarge(parseFloat(event.size) > 1024);
     setCvFile(file);
   };
 
   const clearFile = () => {
     setCvFile("");
+    setCvTooLarge(false);
     // Clear the input field to allow selecting the same file again
     const inputElement = document.getElementById("cvinfo_file");
     if (inputElement) {
@@ -159,8 +164,8 @@ const InscripcioForm = () => {
         <>
           <br />
           <div className="container-inscripcio">
-            <TitleGeneralized underline={true}>
-              Inscripció HackEPS 2023
+            <TitleGeneralized underline>
+              Inscripció HackEPS 2024
             </TitleGeneralized>
             <div className="form-container">
               <Formik
@@ -176,6 +181,7 @@ const InscripcioForm = () => {
                   linkedin: previousRegistration.linkedin,
                   github: previousRegistration.github,
                   devpost: previousRegistration.cv,
+                  checkboxcredit: false,
                   checkboxterms: registered,
                 }}
                 validationSchema={validationSchema}
@@ -265,6 +271,7 @@ const InscripcioForm = () => {
                       labelColor="#000000"
                     />
                   </div>
+
                   <div className="formik-field">
                     <label
                       className="text-textSecondaryHackeps"
@@ -341,12 +348,14 @@ const InscripcioForm = () => {
                     >
                       Adjunta el teu CV (Opcional)
                     </label>
-                    <FileBase
-                      type="file"
-                      id="cvinfo_file"
-                      name="cvinfo_file"
-                      onDone={handleFileChange}
-                    />
+                    <div className="cv-input-container">
+                      <FileBase
+                        type="file"
+                        id="cvinfo_file"
+                        name="cvinfo_file"
+                        onDone={handleFileChange}
+                      />
+                    </div>
                     {cvFile && (
                       <div className="file-info">
                         <span className="file-name text-textSecondaryHackeps">
@@ -357,10 +366,15 @@ const InscripcioForm = () => {
                         </Button>
                       </div>
                     )}
+
+                    {isCvTooLarge && (
+                      <label htmlFor="cvinfo_file" className="text-red-600">
+                        El fitxer seleccionat supera el límit permès de 1MB.
+                      </label>
+                    )}
                   </div>
+
                   <div className="checkbox-container">
-                    <br />
-                    <br />
                     <Field
                       type="checkbox"
                       id="checkboxterms"
@@ -374,20 +388,42 @@ const InscripcioForm = () => {
                       <a href="/terms" target="_blank">
                         Termes i Condicions
                       </a>{" "}
-                      de la HackEPS 2023
+                      de la HackEPS 2024
                     </label>
-                    <br />
-                    <br />
                     <ErrorMessage
                       name="checkboxterms"
                       component="div"
                       className="text-errorRed"
                     />
                   </div>
+
+                  <div className="checkbox-container">
+                    <br />
+                    <br />
+                    <Field
+                      type="checkbox"
+                      id="checkboxcredit"
+                      name="checkboxcredit"
+                    />
+                    <label
+                      className="text-textSecondaryHackeps"
+                      htmlFor="checkboxcredit"
+                    >
+                      Vull 1 crèdit ECTS de matèria transversal (només aplicable
+                      a alumnes de la UDL)
+                    </label>
+                  </div>
+
                   <div className="button-submit-container m-8 mt-2">
-                    <Button primary type="submit">
-                      {registered ? "Actualitza" : "Envia"}
-                    </Button>
+                    {isCvTooLarge ? (
+                      <Button disabled type="submit">
+                        {registered ? "Actualitza" : "Envia"}
+                      </Button>
+                    ) : (
+                      <Button primary type="submit">
+                        {registered ? "Actualitza" : "Envia"}
+                      </Button>
+                    )}
                   </div>
                 </Form>
               </Formik>
@@ -410,13 +446,23 @@ const InscripcioForm = () => {
             </>
           ) : (
             <>
-              <SuccessFeedback
-                title="T'has registrat correctament a l'esdeveniment!"
-                text={`El teu registre s'ha realitzat correctament. \n Quan siguis acceptat a l'esdeveniment rebràs un correu per a confirmar la teva assistència.\n Estigues atent! Tindrás 5 dies per confirmar-ho.`}
-                hasButton={true}
-                buttonLink="/perfil"
-                buttonText="Inicia sessió"
-              />
+              {registered ? (
+                <SuccessFeedback
+                  title="La teva informació ha estat actualitzada correctament!"
+                  text={`El teu registre s'ha actualitzat correctament. Si hi ha algun canvi, rebràs les notificacions corresponents.`}
+                  hasButton={true}
+                  buttonLink="/perfil"
+                  buttonText="Tornar al perfil"
+                />
+              ) : (
+                <SuccessFeedback
+                  title="T'has registrat correctament a l'esdeveniment!"
+                  text={`El teu registre s'ha realitzat correctament. Quan siguis acceptat a l'esdeveniment, rebràs un correu per confirmar la teva assistència. Estigues atent! Tindrás 5 dies per confirmar-ho.`}
+                  hasButton={true}
+                  buttonLink="/perfil"
+                  buttonText="Tornar al perfil"
+                />
+              )}
             </>
           )}
         </>

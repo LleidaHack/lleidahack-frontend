@@ -32,6 +32,7 @@ module.exports = {
         md: "768px",
         "max-md": { max: "768px" },
         "max-lg": { max: "998px" },
+        "max-ml": { max: "1170px" },
         "max-xl": { max: "1400px" },
       },
       height: {
@@ -43,6 +44,7 @@ module.exports = {
     backgroundImage: {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",
       "background-patron": "url('/src/imgs/patron_imagen.png')",
+      "background-none": "url()",
     },
   },
   plugins: [],

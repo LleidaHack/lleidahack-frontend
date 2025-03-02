@@ -7,10 +7,27 @@ export async function getMeals(id) {
   });
 }
 
-export async function getMealById(id, meal_id) {
+export async function getMealById(meal_id) {
   return fetchPlus({
-    Url: `/meal/${id}/${meal_id}`,
+    Url: `/meal/${meal_id}`,
     hasUserauth: true,
+  });
+}
+
+export async function deleteMeal(meal_id) {
+  return fetchPlus({
+    Url: `/meal/${meal_id}`,
+    Method: "DELETE",
+    hasUserauth: true,
+  });
+}
+
+export async function createMeal(meal) {
+  return fetchPlus({
+    Url: "/meal/",
+    Method: "POST",
+    hasUserauth: true,
+    Body: meal,
   });
 }
 
@@ -23,19 +40,10 @@ export async function updateMeal(id, meal) {
   });
 }
 
-export async function deleteMeal(id, meal_id) {
+export async function hackerEatsFood(hacker_code, meal_id) {
   return fetchPlus({
-    Url: `/meal/${id}/${meal_id}`,
-    Method: "DELETE",
+    Url: `/meal/${meal_id}/eat/${hacker_code}`,
+    Method: "PUT",
     hasUserauth: true,
-  });
-}
-
-export async function createMeal(meal) {
-  return fetchPlus({
-    Url: "/meal/",
-    Method: "POST",
-    hasUserauth: true,
-    Body: meal,
   });
 }

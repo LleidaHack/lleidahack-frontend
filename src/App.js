@@ -7,6 +7,7 @@ import Home from "src/pages/hackeps/Home";
 import HomeLanding from "./pages/Landing/HomeLanding";
 import Profile from "src/pages/hackeps/Profile.js";
 import HackerForm from "src/pages/hackeps/HackerSignup";
+import { LleidaHackerForm } from "src/components/hackeps/Forms/LleidaHackerForm.js";
 import Testing from "src/components/hackeps/Testing/Testing";
 import Terms from "src/pages/hackeps/Terms";
 import Privacy from "src/pages/hackeps/Privacy";
@@ -38,6 +39,8 @@ import HackepsDashboardPage from "./pages/Administrator/HackepsDashboardPage";
 import NewsLanding from "./pages/Landing/NewsLanding";
 
 import "src/styles/styles.css";
+import ConfirmAssistancePage from "./pages/hackeps/Confirm";
+import Hacking from "./pages/hackeps/Hacking";
 
 export default function App() {
   useEffect(() => {
@@ -80,11 +83,12 @@ export default function App() {
           <Route path="/confirm-password" element={<ResetPassword />} />
           <Route path="/hacker-form" element={<HackerForm />} />
           <Route path="/entrance" element={<Entrances />} />
-          <Route path="/testing" element={<Testing />} />
+          {/*<Route path="/testing" element={<Testing />} />*/}
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
+          <Route path="/lleidahacker-form" element={<LleidaHackerForm />} />
           <Route
             path="/inscripcio"
             element={
@@ -95,9 +99,12 @@ export default function App() {
           />
           <Route path="/forgot-password" element={<PasswordForget />} />
           <Route path="/user-verification" element={<LoginVerify />} />
+          <Route path="/assistance" element={<ConfirmAssistancePage />} />
           <Route path="*" element={<Error404 />} />
+          <Route path="/hacking" element={<Hacking />} />
         </Routes>
       </Router>
+      {/*
       <Router basename="/lleidahack">
         <Routes>
           <Route path="/" element={<HomeLanding />} />

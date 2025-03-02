@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import InputSearch from "../InputSearch/InputSearch";
 import FiltersComponent from "../FiltersComponent/FiltersComponent";
 import { useSearch } from "src/context/SearchContext";

@@ -7,12 +7,7 @@ import Button from "src/components/buttons/Button";
 const Error404 = () => {
   return (
     <div className="error-container bg-secondaryHackeps">
-      <TitleGeneralized
-        lettersColor={"secondary"}
-        size={"big"}
-        bold={false}
-        classTitle="mt-48"
-      >
+      <TitleGeneralized big className="mt-48">
         404
       </TitleGeneralized>
       <p className="text text-textSecondaryHackeps">
