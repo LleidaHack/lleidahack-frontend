@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "src/components/buttons/Button";
 import { Link } from "react-router-dom";
-import "src/components/hackeps/Login/Login.css";
 import logo from "src/icons/hackLogoWellDone.png";
 import { login } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
@@ -41,14 +40,20 @@ const LoginPage = ({ nextScreen }) => {
   };
 
   return (
-    <div className="login-page">
-      <div className="content bg-loginPage">
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-1 flex items-center justify-center bg-loginPage">
         <Container>
           <Row className="justify-content-center">
             <Col md={6}>
-              <div className="login-container ">
-                <img src={logo} className="App-logo mb-3" alt="logo" />
-                <h2 className="text-white mb-4 h2-title ">Hola de nou!</h2>
+              <div className="rounded-xl flex flex-col items-center">
+                <img
+                  src={logo}
+                  className="w-48 h-auto block mx-auto mb-3"
+                  alt="Logo"
+                />
+                <h2 className="text-white mb-2 text-5xl flex items-center text-center">
+                  Hola de nou!
+                </h2>
                 <Formik
                   initialValues={{ email: "", password: "" }}
                   validationSchema={validationSchema}
@@ -57,7 +62,7 @@ const LoginPage = ({ nextScreen }) => {
                 >
                   {({ isSubmitting, submitForm, errors, touched }) => (
                     <Form>
-                      <div className="form-group">
+                      <div className="font-bold text-base mt-7">
                         <label className="text-white" htmlFor="email">
                           Correu
                         </label>
@@ -70,10 +75,10 @@ const LoginPage = ({ nextScreen }) => {
                           }`}
                         />
                         {touched.email && errors.email && (
-                          <div className="invalid-feedback">{errors.email}</div>
+                          <div className="text-red-500">{errors.email}</div>
                         )}
                       </div>
-                      <div className="form-group">
+                      <div className="font-bold text-base mt-3">
                         <label className="text-white" htmlFor="password">
                           Contrasenya
                         </label>
@@ -88,31 +93,26 @@ const LoginPage = ({ nextScreen }) => {
                           }`}
                         />
                         {touched.password && errors.password && (
-                          <div className="invalid-feedback">
-                            {errors.password}
-                          </div>
+                          <div className="text-red-500">{errors.password}</div>
                         )}
                       </div>
 
-                      <div className="redirects">
+                      <div className="mt-7 mb-7 text-xl text-center">
                         <p className="mb-1">
                           <Link
                             to="/forgot-password"
-                            className="custom-link text-grayColor"
+                            className="text-grayColor"
                           >
                             Has oblidat les teves credencials?
                           </Link>
                         </p>
                         <p className="mb-0">
-                          <Link
-                            to="/hacker-form"
-                            className="custom-link text-grayColor"
-                          >
+                          <Link to="/hacker-form" className="text-grayColor">
                             Encara no tens compte?
                           </Link>
                         </p>
                       </div>
-                      <div className="button-container">
+                      <div className="flex justify-center mt-3">
                         <Button type="submit" primary lg>
                           {isSubmitting
                             ? "Iniciant sessió..."
