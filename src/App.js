@@ -41,6 +41,7 @@ import NewsLanding from "./pages/Landing/NewsLanding";
 import "src/styles/styles.css";
 import ConfirmAssistancePage from "./pages/hackeps/Confirm";
 import Hacking from "./pages/hackeps/Hacking";
+import ForgetPasswordLleidaHacker from "./pages/Administrator/ForgetPassword";
 
 export default function App() {
   useEffect(() => {
@@ -127,6 +128,7 @@ export default function App() {
           <Route path="/grups/admin-panel" element={<AdminPanelPage />} />
           <Route path="/lleidahacker/:id" element={<LleidaHacker />} />
           <Route path="/hackeps-dashboard" element={<HackepsDashboardPage />} />
+          <Route path="/forgot-password" element={<ForgetPasswordLleidaHacker />} />
         </Routes>
       </Router>
     </div>

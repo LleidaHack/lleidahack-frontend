@@ -19,6 +19,7 @@ const Button = (props) => {
     "text-xl": props.xl,
     "text-2xl": props.xxl,
     "text-3xl": props.xxxl,
+    
   });
   return (
     <button

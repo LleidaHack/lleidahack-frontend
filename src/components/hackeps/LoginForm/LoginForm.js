@@ -93,7 +93,7 @@ const LoginForm = ({ nextScreen, lleidahacker }) => {
                 <div className="invalid-feedback">{errors.password}</div>
               )}
             </div>
-            {!lleidahacker ? (
+            {lleidahacker ? (
               <div className="redirects">
                 <p className="mb-1">
                   <Link
