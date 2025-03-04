@@ -53,7 +53,7 @@ const ForgetPassword = ({ nextScreen }) => {
                   <div className="rounded-xl flex flex-col items-center">
                     <img
                       src={logo}
-                      className="w-1/3 h-auto block mx-auto"
+                      className="w-48 h-auto block mx-auto"
                       alt="Logo"
                     />
                     <br></br>
@@ -68,7 +68,7 @@ const ForgetPassword = ({ nextScreen }) => {
                     >
                       {({ isSubmitting, submitForm, errors, touched }) => (
                         <Form>
-                          <div className="font-bold text-base mt-7">
+                          <div className="font-bold text-base mt-3">
                             <label
                               className="text-textPrimaryHackeps"
                               htmlFor="email"
@@ -93,7 +93,7 @@ const ForgetPassword = ({ nextScreen }) => {
                             )}
                           </div>
 
-                          <div className="mt-7 mb-7 text-base text-center text-white">
+                          <div className="mt-7 mb-3 text-sm text-center text-white">
                             <p>
                               Rebràs un correu electrònic per amb les
                               instruccions per a poder recuperar el teu compte

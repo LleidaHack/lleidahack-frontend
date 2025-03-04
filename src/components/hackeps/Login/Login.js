@@ -48,10 +48,10 @@ const LoginPage = ({ nextScreen }) => {
               <div className="rounded-xl flex flex-col items-center">
                 <img
                   src={logo}
-                  className="w-1/3 h-auto block mx-auto mb-3"
+                  className="w-48 h-auto block mx-auto mb-3"
                   alt="Logo"
                 />
-                <h2 className="text-white mb-4 text-5xl flex items-center text-center">
+                <h2 className="text-white mb-2 text-5xl flex items-center text-center">
                   Hola de nou!
                 </h2>
                 <Formik
@@ -78,7 +78,7 @@ const LoginPage = ({ nextScreen }) => {
                           <div className="text-red-500">{errors.email}</div>
                         )}
                       </div>
-                      <div className="font-bold text-base mt-7">
+                      <div className="font-bold text-base mt-3">
                         <label className="text-white" htmlFor="password">
                           Contrasenya
                         </label>

@@ -27,7 +27,7 @@ const SuccessFeedback = ({
   return (
     <div className="valerr bg-secondaryHackeps text-textSecondaryHackeps">
       <div className="iconBox">
-        <i className="mt-48 mb-6 fa-regular fa-circle-check text-8xl"></i>
+        <i className="mt-1 mb-6 fa-regular fa-circle-check text-8xl"></i>
         <h2>{title}</h2>
         <p>{formattedText}</p>
         <p>
