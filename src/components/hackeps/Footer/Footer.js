@@ -20,14 +20,14 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={linkedinIcon} alt="LinkedIn" class="w-8 mx-1.5"/>
+            <img src={linkedinIcon} alt="LinkedIn" class="w-8 mx-1.5" />
           </a>
           <a
             href="https://www.instagram.com/hackeps_/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={instagramIcon} alt="Instagram" class="w-8 mx-1.5"/>
+            <img src={instagramIcon} alt="Instagram" class="w-8 mx-1.5" />
           </a>
         </div>
       </div>
