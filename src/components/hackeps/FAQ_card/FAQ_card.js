@@ -1,9 +1,8 @@
 import React from "react";
-import "src/components/hackeps/FAQ_card/FAQ_card.css"; // Agregar el archivo de estilos CSS para FAQCard
 
 const FAQCard = ({ question, answer }) => {
   return (
-    <div className="faq-card bg-white">
+    <div className="p-4 rounded-lg shadow-md flex flex-col text-left hover:scale-110 transition-transform duration-300 m-1 h-52 bg-white">
       <h3 className="text-2xl font-bold text-primaryHackeps">{question}</h3>
       <p className="text-sm	text-black">{answer}</p>
     </div>
