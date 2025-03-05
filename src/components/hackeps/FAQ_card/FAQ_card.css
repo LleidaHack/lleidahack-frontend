@@ -10,15 +10,6 @@
   text-align: left;
 }
 
-.question {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.answer {
-  font-size: 14px;
-}
-
 .faq-card:hover {
   transform: scale(1.1);
 }
