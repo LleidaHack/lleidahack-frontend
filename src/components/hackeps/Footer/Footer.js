@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="p-12 text-center left-0 bottom-0 w-full font-bold bg-primaryHackeps text-textPrimaryHackeps">
       <div className="container">
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-2">
           <a
             href="https://twitter.com/hackeps"
             target="_blank"
@@ -51,7 +51,7 @@ const Footer = () => {
           Política de Privadesa
         </a>
       </div>
-      <div className="mt-3 footer-links ">
+      <div className="mt-4 footer-links ">
         Made with ❤️ by{" "}
         <a
           className="no-underline hover:font-bold text-textPrimaryHackeps"
