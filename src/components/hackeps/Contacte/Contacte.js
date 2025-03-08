@@ -31,7 +31,7 @@ const ContactePage = () => {
   };
 
   return (
-    <div className="container-all bg-secondaryHackeps">
+    <div className="h-screen bg-secondaryHackeps">
       {!mailSended ? (
         <>
           <TitleGeneralized underline>Contacte</TitleGeneralized>
