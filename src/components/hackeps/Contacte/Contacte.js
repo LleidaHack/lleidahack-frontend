@@ -27,7 +27,6 @@ const ContactePage = () => {
     const success = await contacte(data);
     setMailStatus(success)
     setMailSended(true)
-  
   };
 
   return (
@@ -62,7 +61,7 @@ const ContactePage = () => {
                   {...register("name", {required: "El nom no pot estar buit"})} 
                   />
 
-                  {errors.name && <span style={{ color: "red" }}>{errors.name.message}</span>}
+                  {errors.name && <span className="text-red-400">{errors.name.message}</span>}
                 </label>
                 
 
@@ -72,7 +71,7 @@ const ContactePage = () => {
                   {...register("email", {required: "Et falta indicar-nos el teu correu de contacte", pattern: { value: /^\S+@\S+$/i, message: "El correu no és vàlid" }}, )} 
                   />
                   
-                  {errors.email && <span style={{ color: "red" }}>{errors.email.message}</span>}
+                  {errors.email && <span className="text-red-400">{errors.email.message}</span>}
                 </label>
                 
 
@@ -82,7 +81,7 @@ const ContactePage = () => {
                   {...register("title", {required: "El titol no pot estar buit"})} 
                   />
 
-                  {errors.title && <span style={{ color: "red" }}>{errors.title.message}</span>}
+                  {errors.title && <span className="text-red-400">{errors.title.message}</span>}
                 </label>
                 
 
@@ -92,7 +91,7 @@ const ContactePage = () => {
                   {...register("message", {required: "El missatge no pot estar buit"})} 
                   />
 
-                  {errors.message && <span style={{ color: "red" }}>{errors.message.message}</span>}
+                  {errors.message && <span className="text-red-400">{errors.message.message}</span>}
                 </label>
                 
                 <input className="hover:bg-primaryHackeps hover:text-white transition ease-in-out delay-100 min-h-10" type="submit" />
