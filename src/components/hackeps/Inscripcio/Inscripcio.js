@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "src/components/hackeps/Inscripcio/Inscripcio.css";
 
 import { useForm } from "react-hook-form";
 import { registerHackerToEvent } from "src/services/EventService";
@@ -150,28 +149,28 @@ const InscripcioForm = () => {
   };
 
   return (
-    <div className="container-all-inscripcio bg-secondaryHackeps">
+    <div className="min-h-screen justify-center items-center flex bg-secondaryHackeps">
       {!submittRegister ? (
         <>
           <br />
-          <div className="container-inscripcio">
+          <div className="w-2/3 items-center">
             <TitleGeneralized underline>
               Inscripció HackEPS 2024
             </TitleGeneralized>
-            <div className="form-container">
+            <div className="w-full flex flex-col justify-center items-center animate-[fadeIn_0.5s_ease-in-out]">
               <form className="flex flex-col gap-3">
-                <label>
+                <label className="mb-3">
                   Que estudies o has estudiat?
-                  <input className={`${errors.studies ? 'bg-pink-100' : 'bg-white'} min-h-10 px-2 text-base mt-2`} placeholder="Estudis" 
+                  <input className={`${errors.studies ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base mt-2`} placeholder="Estudis" 
                   {...register("studies", {required: "Aquest camp és obligatori"})} 
                   />
 
                 </label>
                   {errors.studies && <span className="text-red-400">{errors.studies.message}</span>}
                 
-                <label>
+                <label className="mb-3">
                   Centre d'estudis:
-                  <input className={`${errors.center ? 'bg-pink-100' : 'bg-white'} min-h-10 px-2 text-base mt-2`} placeholder="Udl" 
+                  <input className={`${errors.center ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base mt-2`} placeholder="Udl" 
                   {...register("center", {required: "Aquest camp és obligatori"})} 
                   />
 
@@ -179,18 +178,18 @@ const InscripcioForm = () => {
                   {errors.school && <span className="text-red-400">{errors.school.message}</span>}
                 
 
-                <label>
+                <label className="mb-3">
                   D'on vens?
-                  <input className={`${errors.location ? 'bg-pink-100' : 'bg-white'} min-h-10 px-2 text-base mt-2`} placeholder="Lleida, Barcelona, etc." 
+                  <input className={`${errors.location ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base mt-2`} placeholder="Lleida, Barcelona, etc." 
                   {...register("location", {required: "Aquest camp és obligatori"})} 
                   />
 
                 </label>
                   {errors.location && <span className="text-red-400">{errors.location.message}</span>}
 
-                <label>
+                <label className="mb-3">
                   Talla de samarreta:
-                  <select className={`${errors.size ? 'bg-pink-100' : 'bg-white'} min-h-10 px-2 text-base mt-2`} 
+                  <select className={`${errors.size ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base mt-2`} 
                   {...register("size", {required: "Aquest camp és obligatori"})}
                   >
                     {sizeOptions.map((option) => (
@@ -202,44 +201,55 @@ const InscripcioForm = () => {
                 </label>
                 {errors.size && <span className="text-red-400">{errors.size.message}</span>}
 
-                <label>
+                <label className="mb-3">
                   Tens alguna restricció alimentària o alèrgia?
-                  <select className={`${errors.food ? 'bg-pink-100' : 'bg-white'} min-h-10 px-2 text-base ml-2`} 
-                  {...register("food", {
-                    required: "Aquest camp és obligatori",
-                    validate: value => value !== "nan" || "Selecciona una opció vàlida"
-                    
-                  })}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    if (value === "yes") {
-                      setDisabledRestrictions(false);
-                    } else if (value === "no") {
-                      setDisabledRestrictions(true);
-                    } else {
-                      setDisabledRestrictions(true);
-                    }
-                  }}>
+                  <select className={`${errors.meets ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base ml-2`} 
+                    {...register("meets", {
+                      required: "Aquest camp és obligatori",
+                      validate: value => value !== "" || "Selecciona una opció vàlida"
+                      
+                    })}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      const box = document.getElementById("foodTextArea");
+                      if (value === "yes") {
+                        setDisabledRestrictions(false);
+                      } else if (value === "no") {
+                        setDisabledRestrictions(true);
+                      } else {
+                        setDisabledRestrictions(true);
+                      }
+                      if (box) {
+                        box.value = "";
+                      }
+                    }}>
                     <option value="nan">Sense Seleccionar</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
+                    <option value="yes">Si en tinc</option>
+                    <option value="no">No en tinc</option>
                   </select>
-                  {!disabledRestrictions && (
-                    <div >
-                      Quines restriccions o alèrgies tens?
-                      <input id="food_restrictions_input" className={`${errors.food && !disabledRestrictions ? 'bg-pink-100' : 'bg-white'} ${``}  min-h-10 px-2 text-base mt-2`} placeholder="Lactosa, gluten, etc." 
-                      {...register("food", {required: !disabledRestrictions && "Indicans les teves restriccions o alergies."} )}  />
-                      {errors.food && !disabledRestrictions && <span className="text-red-400">{errors.food.message}</span>}
-                    </div>
-                  )}
-                </label>
+                  </label>
 
-                <label>
+                  <label>
+                    {!disabledRestrictions && (
+                      <div id="foodTextArea">
+                        Quines restriccions o alèrgies tens?
+                        <input 
+                          className={`${errors.food && !disabledRestrictions ? 'bg-pink-100' : 'bg-white'} ${``} py-2 min-h-10 px-2 text-base mt-2`}  
+                          placeholder="Lactosa, gluten, etc." 
+                          defaultValue={""}
+                          {...register("food", {required: !disabledRestrictions && "Indicans les teves restriccions o alergies."} )}  />
+                          {errors.food && !disabledRestrictions && <span className="text-red-400">{errors.food.message}</span>}
+                      </div>
+                    )}
+                  </label>
+                
+
+                <label className="mb-3">
                   Com ens has conegut?
-                  <select className={`${errors.meet ? 'bg-pink-100' : 'bg-white'} min-h-10 px-2 text-base ml-2`} 
+                  <select className={`${errors.meet ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base ml-2`} 
                   {...register("meet", {
                     required: "Aquest camp és obligatori",
-                    validate: value => value !== "nan" || "Selecciona una opció vàlida"
+                    validate: value => (value !== "nan") || "Selecciona una opció vàlida"
                   })}
                   >
                     {meetOptions.map((option) => (
@@ -255,7 +265,7 @@ const InscripcioForm = () => {
                 
                 <div className="flex flex-col w-full">
                   <p className="text-xl">Vols que les empreses de Lleida et coneguin? (Opcional)</p>
-                  <label>
+                  <label className="mb-3">
                     <p className="text-sm">Tens experiència en altres hackatons? Algun projecte personal que vulguis compartir? Explica'ns què t'apassiona i deixa aquí els enllaços de les teves xarxes socials</p>
                     <textarea className={`${errors.cvinfo_links ? 'bg-pink-100' : 'bg-white'} px-2 text-base mt-2`} placeholder="Explica'ns què t'apassiona i deixa aquí els enllaços de les teves xarxes socials"
                     {...register("cvinfo_links")}
@@ -263,23 +273,23 @@ const InscripcioForm = () => {
                   </label>
                   
                   
-                  <label>
+                  <label className="mb-3">
                     Github:
-                    <input className={`min-h-10 px-2 text-base mt-2`} placeholder="Github" 
+                    <input className={`py-2 min-h-10 px-2 text-base mt-2`} placeholder="Github" 
                     {...register("github")} 
                     />
                   </label>
 
-                  <label>
+                  <label className="mb-3">
                     Linkedin:
-                    <input className={`min-h-10 px-2 text-base mt-2`} placeholder="Linkedin" 
+                    <input className={`py-2 min-h-10 px-2 text-base mt-2`} placeholder="Linkedin" 
                     {...register("linkedin")} 
                     />
                   </label>
 
-                  <label>
+                  <label className="">
                     Adjunta el teu CV (Opcional)
-                    <div className="flex flex-row gap-3 mt-2">
+                    <div className="flex flex-col md:flex-row gap-3 mt-2 image-input-container">
                       <FileBase
                         type="file"
                         id="avatarInput"
@@ -289,7 +299,7 @@ const InscripcioForm = () => {
                       />
                       <Button
                         onClick={clearFile}
-                        className="bg-red-500 hover:bg-red-400 h-14 text-white "
+                        className="bg-red-500 hover:bg-red-400  text-white "
                       >
                         Esborra
                       </Button>
