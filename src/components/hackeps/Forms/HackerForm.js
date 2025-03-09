@@ -1,11 +1,4 @@
-import "src/components/hackeps/Forms/HackerForm.css";
-import "formik-stepper/dist/style.css";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { useState } from "react";
-
-import * as Yup from "yup";
-
 import { signupHacker } from "src/services/HackerService";
 import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
@@ -111,16 +104,25 @@ export const HackerStepperForm = () => {
 
   return (
     <>
-      <div id="hackerForm" className="custom-form bg-secondaryHackeps">
+      <div id="hackerForm" className="sm:px-56 justify-center min-h-screen flex pb-5 align-top bg-secondaryHackeps">
         {!submiting ? (
           <div className="flex flex-col gap-3 w-full">
-            <div className="stepInfo self-center my-4">Info del step actual</div>
+            <div className="stepInfo self-center my-4">
+              <div className="flex justify-center items-center space-x-4">
+                {[1, 2, 3].map((num) => (
+                  <div key={num} className={`w-8 h-8 flex items-center justify-center rounded-full ${step === num ? 'bg-primaryHackeps text-white' : 'bg-gray-300 text-black'}`}>
+                    {num}
+                  </div>
+                ))}
+              </div>
+              <hr className="w-1/2 mt-4 border-t-2 border-gray-300" />
+            </div>
             
-            <div className="flex flex-row w-full h-full">
+            <div className="flex flex-row w-full h-full justify-center content-center">
 
-              <div className="basis-1/2 justify-items-center content-center">
+              <div className="basis-1/2 justify-items-center content-center hidden md:block">
                 <div>
-                  <img src={require("src/imgs/hacker_image.svg").default} className="w-48" />
+                  <img src={require("src/imgs/hacker_image.svg").default} className=" md:w-48" />
                   <h2 className="text-center mt-3">Hacker</h2>
                 </div>
               </div>
@@ -254,7 +256,7 @@ export const HackerStepperForm = () => {
                   Accepto rebre notificacions electròniques de caràcter informatiu, comercial i promocional.
                 </label>
 
-                <div className="buttonsBox flex flex-row justify-between">
+                <div className="buttonsBox flex flex-row justify-between gap-2 md:gap-0">
                   <Button className="bg-primaryHackeps text-white min-h-10" onClick={() => setStep(1)}>Anterior</Button>
                   <Button disabled={!isValid} className={`bg-primaryHackeps text-white min-h-10 ${!isValid ? 'opacity-50' : ''}`} onClick={() => setStep(3)}>Següent</Button>
                 </div>
@@ -308,7 +310,7 @@ export const HackerStepperForm = () => {
                       <p>Acceptes els nostres <a href="/hackeps/terms" className="text-primaryHackeps">termes i condicions</a>.</p>
                     </label>
 
-                    <div className="buttonsBox flex flex-row justify-between">
+                    <div className="buttonsBox flex flex-row justify-between gap-2 md:gap-0">
                       <Button className="bg-primaryHackeps text-white min-h-10" onClick={() => setStep(2)}>Anterior</Button>
                       <Button disabled={!isValid || !watch("termsConditions") || hideSubmit } className={`bg-primaryHackeps text-white min-h-10 ${!isValid || !watch("termsConditions" || hideSubmit) ? 'opacity-50' : ''}`} onClick={handleSubmit(onSubmit)}>Enviar</Button>
                     </div>

@@ -31,3 +31,11 @@ body {
 .image-input-container input[type="file" i]::-webkit-file-upload-button {
   color: var(--text-primary);
 }
+
+input[type="file"]::-webkit-file-upload-button {
+  color: black;
+  background-color: var(--primary);
+  border: none;
+  padding: 0.5em;
+  border-radius: 0.2em;
+}
