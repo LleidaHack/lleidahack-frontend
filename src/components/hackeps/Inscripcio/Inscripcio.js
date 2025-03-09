@@ -290,6 +290,7 @@ const InscripcioForm = () => {
                         type="file"
                         id="avatarInput"
                         multiple={false}
+                        accept="application/pdf"
                         onDone={handleFileChange}
                         
                       />

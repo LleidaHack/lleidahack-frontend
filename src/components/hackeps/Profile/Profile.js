@@ -255,7 +255,7 @@ const ProfileComponent = () => {
           {isUser && (
             <div className="editSpace">
               <div className="editAjust">
-                {user && <EditProfile hacker={user} />}
+                {user && <EditProfile hackerObj={user} />}
               </div>
             </div>
           )}
