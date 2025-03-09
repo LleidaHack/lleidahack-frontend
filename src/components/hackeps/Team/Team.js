@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Button from "src/components/buttons/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import {
@@ -30,7 +31,9 @@ const Team = (props) => {
   const [showCreateTeam, setShowCreateTeam] = useState(false);
   const handleShowCreateTeam = () => setShowCreateTeam(true);
   const handleCloseCreateTeam = () => setShowCreateTeam(false);
-
+  const { register, handleSubmit, watch, formState: { errors, isValid }, trigger } = useForm({
+      mode: "onChange", 
+    });
   const [showJoinTeam, setShowJoinTeam] = useState(false);
   const handleShowJoinTeam = () => setShowJoinTeam(true);
   const handleCloseJoinTeam = () => setShowJoinTeam(false);
@@ -130,36 +133,31 @@ const Team = (props) => {
           </Modal.Header>
           <Modal.Body className="team-modal-no-border">
             <div className="team-form-container">
-              <Formik
-                initialValues={{
-                  teamCode: "#",
-                }}
-                validationSchema={validationSchemaJoinTeam}
-                onSubmit={handleSubmitJoinTeam}
-              >
-                <Form>
-                  <div className="formik-field">
-                    <label
-                      htmlFor="teamCode"
-                      className="text-textSecondaryHackeps"
-                    >
-                      Codi de l'equip (#XXXXXXXXXX):
-                    </label>
-                    <Field type="text" id="teamCode" name="teamCode" />
-                    <p>{JoinErrorMessage}</p>
-                    <ErrorMessage
-                      name="teamCode"
-                      component="div"
-                      className="error-message"
-                    />
-                  </div>
-                  <div className="button-submit-container">
-                    <Button primary type="submit">
-                      Envia
-                    </Button>
-                  </div>
-                </Form>
-              </Formik>
+              <form className="flex flex-col gap-3">
+
+              <label>
+                Codi de l'equip (#XXXXXXXXXX):
+                  <input
+                    className={`${errors.teamCode ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                    placeholder="#1234567890 (Fica el #)"
+
+                    {...register("teamCode", { required: "El codi de l'equip és obligatori" })}
+                  />
+                  {errors.teamCode && <span className="text-red-400">{errors.teamCode.message}</span>}
+                </label>
+
+                <Button primary onClick={handleSubmit(createTeam)} disabled={!isValid}>
+                  Envia
+                </Button>
+              </form>
+              
+              
+              
+
+
+
+
+
             </div>
           </Modal.Body>
         </Modal>
@@ -170,7 +168,39 @@ const Team = (props) => {
           </Modal.Header>
           <Modal.Body className="team-modal-no-border">
             <div className="team-form-container">
-              <Formik
+              <form className="flex flex-col gap-3">
+
+                <label>
+                  Nom de l'equip:
+                  <input
+                    className={`${errors.teamName ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                    placeholder=""
+                    {...register("teamName", { required: "El nom de l'equip és obligatori" })}
+                  />
+                  {errors.teamName && <span className="text-red-400">{errors.teamName.message}</span>}
+                </label>
+
+                <label>
+                  Descripció:
+                  <input
+                    className={`${errors.teamDesc ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                    placeholder=""
+                    {...register("teamDesc", { required: "La descripció de l'equip és obligatori" })}
+                  />
+                  {errors.teamDesc && <span className="text-red-400">{errors.teamDesc.message}</span>}
+                </label>
+
+                <Button primary onClick={handleSubmit(createTeam)} disabled={!isValid}>
+                  Envia
+                </Button>
+
+              </form>
+              
+              
+              
+              
+              
+              {/* <Formik
                 initialValues={{
                   teamName: "",
                   teamDesc: "",
@@ -200,7 +230,7 @@ const Team = (props) => {
                     </Button>
                   </div>
                 </Form>
-              </Formik>
+              </Formik> */}
             </div>
           </Modal.Body>
         </Modal>
