@@ -33,57 +33,63 @@ export const HackerStepperForm = () => {
   const [statusSubmit, setStatusSubmit] = useState(false); //si es false, error, si es true tot esta correcte
   const [errCause, setCauseError] = useState(""); //si es false, error, si es true tot esta correcte
   const [step, setStep] = useState(1);
+  const [hideSubmit, setHideSubmit] = useState(false);
 
   const onSubmit = async (values) => {
+    setHideSubmit(true);
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
       nickname: values.nickname,
       password: values.password,
-      birthdate: values.birthDate,
+      birthdate: values.birthdate,
       food_restrictions: "",
       email: values.email,
       config: {
-        recive_notifications: values.acceptNotifications,
+        recive_notifications: values.notifications,
         default_lang: "cat",
-        comercial_notifications: false,
+        comercial_notifications: values.notifications,
         terms_and_conditions: true,
       },
       telephone: values.phone.replace(/\s+/g, ""),
-      acceptNotifications: values.acceptNotifications || false, //accept notification checkbox a contacte field
       address: "",
-      shirt_size: values.shirtSize,
       image: pfpImage,
       github: "",
       linkedin: "",
     };
-
-    const res = await signupHacker(hacker);
-    console.log(res);
-    if (res.errCode) {
-      setStatusSubmit(false);
-      let causeError = "";
-      if (res.errMssg === "Email already exists") {
-        causeError = "El correu que has introduit es troba registrat.";
-      } else if (res.errMssg === "Nickname already exists") {
-        causeError = "El nickname que has introduit es troba registrat.";
-      } else if (res.errMssg === "Telephone already exists") {
-        causeError = "El telefon que has introduit es troba registrat.";
-      } else {
-        causeError = isPfpTooLarge
-          ? "La foto de perfil introduida és massa gran"
-          : "Error al tramitar dades";
+    if (values.termsConditions) {
+      const res = await signupHacker(hacker);
+      if (res.errCode) {
+        setStatusSubmit(false);
+        let causeError = "";
+        if (res.errMssg === "Email already exists") {
+          causeError = "El correu que has introduit es troba registrat.";
+        } else if (res.errMssg === "Nickname already exists") {
+          causeError = "El nickname que has introduit es troba registrat.";
+        } else if (res.errMssg === "Telephone already exists") {
+          causeError = "El telefon que has introduit es troba registrat.";
+        } else {
+          causeError = isPfpTooLarge
+            ? "La foto de perfil introduida és massa gran"
+            : "Imatge no vàlida";
+        }
+        setCauseError(causeError);
+        setErrorMsg(causeError);
+        setHideSubmit(false);
+        return;
+      } else if (res.detail) {
+        setStatusSubmit(false);
+        setCauseError(res.detail[0].msg);
+        setErrorMsg(res.detail[0].msg);
+        setHideSubmit(false);
+      } else if (res.success) {
+        setStatusSubmit(true);
+        setSubmiting(true);
+        setHideSubmit(false);
       }
-      setCauseError(causeError);
-      setErrorMsg(causeError);
-      return;
-    } else if (res.detail) {
-      setStatusSubmit(false);
-      setCauseError(res.detail[0].msg);
-      setErrorMsg(res.detail[0].msg);
-    } else if (res.success) {
-      setStatusSubmit(true);
-      setSubmiting(true);
+    }else{
+      setErrorMsg("Has d'acceptar els termes i condicions");
     }
+  
   };
 
   const handleImageChange = (event) => {
@@ -292,8 +298,20 @@ export const HackerStepperForm = () => {
                       />
                     </div>
                     {isPfpTooLarge && <span className="text-red-400">La foto de perfil introduida és massa gran</span>}
+                    
+                    <label className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        className="w-fit mr-5"
+                        {...register("termsConditions", { required: "Has d'acceptar els termes i condicions" })}
+                      />
+                      <p>Acceptes els nostres <a href="/hackeps/terms" className="text-primaryHackeps">termes i condicions</a>.</p>
+                    </label>
 
-                    <Button disabled={!isValid} className={`bg-primaryHackeps text-white min-h-10 ${!isValid ? 'opacity-50' : ''}`} onClick={handleSubmit(onSubmit)}>Enviar</Button>
+                    <div className="buttonsBox flex flex-row justify-between">
+                      <Button className="bg-primaryHackeps text-white min-h-10" onClick={() => setStep(2)}>Anterior</Button>
+                      <Button disabled={!isValid || !watch("termsConditions") || hideSubmit } className={`bg-primaryHackeps text-white min-h-10 ${!isValid || !watch("termsConditions" || hideSubmit) ? 'opacity-50' : ''}`} onClick={handleSubmit(onSubmit)}>Enviar</Button>
+                    </div>
                     {errorMsg && <span className="text-red-400">{errorMsg}</span>}
                   </form>
                 </div>
