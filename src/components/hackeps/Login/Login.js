@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Button from "src/components/buttons/Button";
 import { Link } from "react-router-dom";
@@ -6,11 +6,16 @@ import logo from "src/icons/hackLogoWellDone.png";
 import { login } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 
-
 const LoginPage = ({ nextScreen }) => {
-  const { register, handleSubmit, watch, formState: { errors, isValid }, trigger } = useForm({
-      mode: "onChange", 
-    });
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+    trigger,
+  } = useForm({
+    mode: "onChange",
+  });
   const navigate = useNavigate();
   const [isSubmitting, setSubmitting] = useState(false);
   const [errorText, setErrorText] = useState("");
@@ -27,9 +32,9 @@ const LoginPage = ({ nextScreen }) => {
           navigate(nextScreen);
         } else navigate("/home");
       } else if (a.errCode === 401) {
-        setErrorText( "Contrasenya incorrecta");
+        setErrorText("Contrasenya incorrecta");
       } else if (a.errCode === 404) {
-        setErrorText( "E-mail no trobat");
+        setErrorText("E-mail no trobat");
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -54,38 +59,46 @@ const LoginPage = ({ nextScreen }) => {
                   Hola de nou!
                 </h2>
                 <form className="">
-                  
                   <div className="font-bold text-base mt-7 w-full">
                     <label className="w-full text-base">
-                      <p className="text-white mb-1">Correu:</p> 
-                      <input className={`${errors.email ? 'bg-pink-100' : 'bg-white'} min-h-10 px-2 text-sm md:text-base`} placeholder="Correu" 
-                      {...register("email", {required: "E-mail obligatori"})} 
+                      <p className="text-white mb-1">Correu:</p>
+                      <input
+                        className={`${errors.email ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-sm md:text-base`}
+                        placeholder="Correu"
+                        {...register("email", {
+                          required: "E-mail obligatori",
+                        })}
                       />
-
                     </label>
-                      {errors.email && <span className="text-red-400">{errors.email.message}</span>}
+                    {errors.email && (
+                      <span className="text-red-400">
+                        {errors.email.message}
+                      </span>
+                    )}
                   </div>
-                  
+
                   <div className="font-bold text-base mt-3">
                     <label className="w-full text-base">
-                      <p className="text-white mb-1">Contrasenya:</p> 
-                      <input 
-                      type="password"
-                      className={`${errors.password ? 'bg-pink-100' : 'bg-white'} min-h-10 px-2 text-sm md:text-base`}
-                      placeholder="Contrasenya" 
-                      {...register("password", {required: "Contraseña obligatoria"})} 
+                      <p className="text-white mb-1">Contrasenya:</p>
+                      <input
+                        type="password"
+                        className={`${errors.password ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-sm md:text-base`}
+                        placeholder="Contrasenya"
+                        {...register("password", {
+                          required: "Contraseña obligatoria",
+                        })}
                       />
                     </label>
-                      {errors.password && <span className="text-red-400">{errors.password.message}</span>}
-                    
+                    {errors.password && (
+                      <span className="text-red-400">
+                        {errors.password.message}
+                      </span>
+                    )}
                   </div>
 
                   <div className="my-3 md:my-7 text-base md:text-xl text-center">
                     <p className="mb-1">
-                      <Link
-                        to="/forgot-password"
-                        className="text-grayColor"
-                      >
+                      <Link to="/forgot-password" className="text-grayColor">
                         Has oblidat les teves credencials?
                       </Link>
                     </p>
@@ -96,11 +109,15 @@ const LoginPage = ({ nextScreen }) => {
                     </p>
                   </div>
                   <div className="flex flex-col justify-center mt-3">
-                    <Button type="submit" primary lg onClick={handleSubmit(submit)} className={` ${!isValid ? "opacity-50 hover:none" : "hover:bg-primaryHackepsDark"}`} disabled={!isValid}>
-                      {isSubmitting
-                        ? "Iniciant sessió..."
-                        : "Inicia sessió"}
-                        
+                    <Button
+                      type="submit"
+                      primary
+                      lg
+                      onClick={handleSubmit(submit)}
+                      className={` ${!isValid ? "opacity-50 hover:none" : "hover:bg-primaryHackepsDark"}`}
+                      disabled={!isValid}
+                    >
+                      {isSubmitting ? "Iniciant sessió..." : "Inicia sessió"}
                     </Button>
                     <p className="text-red-400 mt-2">{errorText}</p>
                   </div>

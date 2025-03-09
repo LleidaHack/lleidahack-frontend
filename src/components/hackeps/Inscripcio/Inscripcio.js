@@ -12,8 +12,14 @@ import { updateHacker } from "src/services/HackerService";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const InscripcioForm = () => {
-  const { register, handleSubmit, watch, formState: { errors, isValid }, trigger } = useForm({
-    mode: "onChange", 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+    trigger,
+  } = useForm({
+    mode: "onChange",
   });
   const sizeOptions = [
     { value: "S", label: "S" },
@@ -25,7 +31,7 @@ const InscripcioForm = () => {
   ];
 
   const meetOptions = [
-    { value:"nan", label: "Sense Seleccionar" },
+    { value: "nan", label: "Sense Seleccionar" },
     { value: "Xarxes socials", label: "Xarxes socials" },
     { value: "Un amic", label: "Un amic" },
     { value: "Altres edicions", label: "Altres edicions" },
@@ -157,36 +163,55 @@ const InscripcioForm = () => {
               <form className="flex flex-col gap-3">
                 <label className="mb-3">
                   Que estudies o has estudiat?
-                  <input className={`${errors.studies ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base mt-2`} placeholder="Estudis" 
-                  {...register("studies", {required: "Aquest camp és obligatori"})} 
+                  <input
+                    className={`${errors.studies ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
+                    placeholder="Estudis"
+                    {...register("studies", {
+                      required: "Aquest camp és obligatori",
+                    })}
                   />
-
                 </label>
-                  {errors.studies && <span className="text-red-400">{errors.studies.message}</span>}
-                
+                {errors.studies && (
+                  <span className="text-red-400">{errors.studies.message}</span>
+                )}
+
                 <label className="mb-3">
                   Centre d'estudis:
-                  <input className={`${errors.center ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base mt-2`} placeholder="Udl" 
-                  {...register("center", {required: "Aquest camp és obligatori"})} 
+                  <input
+                    className={`${errors.center ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
+                    placeholder="Udl"
+                    {...register("center", {
+                      required: "Aquest camp és obligatori",
+                    })}
                   />
-
                 </label>
-                  {errors.school && <span className="text-red-400">{errors.school.message}</span>}
-                
+                {errors.school && (
+                  <span className="text-red-400">{errors.school.message}</span>
+                )}
 
                 <label className="mb-3">
                   D'on vens?
-                  <input className={`${errors.location ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base mt-2`} placeholder="Lleida, Barcelona, etc." 
-                  {...register("location", {required: "Aquest camp és obligatori"})} 
+                  <input
+                    className={`${errors.location ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
+                    placeholder="Lleida, Barcelona, etc."
+                    {...register("location", {
+                      required: "Aquest camp és obligatori",
+                    })}
                   />
-
                 </label>
-                  {errors.location && <span className="text-red-400">{errors.location.message}</span>}
+                {errors.location && (
+                  <span className="text-red-400">
+                    {errors.location.message}
+                  </span>
+                )}
 
                 <label className="mb-3">
                   Talla de samarreta:
-                  <select className={`${errors.size ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base mt-2`} 
-                  {...register("size", {required: "Aquest camp és obligatori"})}
+                  <select
+                    className={`${errors.size ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
+                    {...register("size", {
+                      required: "Aquest camp és obligatori",
+                    })}
                   >
                     {sizeOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -195,15 +220,18 @@ const InscripcioForm = () => {
                     ))}
                   </select>
                 </label>
-                {errors.size && <span className="text-red-400">{errors.size.message}</span>}
+                {errors.size && (
+                  <span className="text-red-400">{errors.size.message}</span>
+                )}
 
                 <label className="mb-3">
                   Tens alguna restricció alimentària o alèrgia?
-                  <select className={`${errors.meets ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base ml-2`} 
+                  <select
+                    className={`${errors.meets ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base ml-2`}
                     {...register("meets", {
                       required: "Aquest camp és obligatori",
-                      validate: value => value !== "" || "Selecciona una opció vàlida"
-                      
+                      validate: (value) =>
+                        value !== "" || "Selecciona una opció vàlida",
                     })}
                     onChange={(e) => {
                       const value = e.target.value;
@@ -218,35 +246,46 @@ const InscripcioForm = () => {
                       if (box) {
                         box.value = "";
                       }
-                    }}>
+                    }}
+                  >
                     <option value="nan">Sense Seleccionar</option>
                     <option value="yes">Si en tinc</option>
                     <option value="no">No en tinc</option>
                   </select>
-                  </label>
+                </label>
 
-                  <label>
-                    {!disabledRestrictions && (
-                      <div id="foodTextArea">
-                        Quines restriccions o alèrgies tens?
-                        <input 
-                          className={`${errors.food && !disabledRestrictions ? 'bg-pink-100' : 'bg-white'} ${``} py-2 min-h-10 px-2 text-base mt-2`}  
-                          placeholder="Lactosa, gluten, etc." 
-                          defaultValue={""}
-                          {...register("food", {required: !disabledRestrictions && "Indicans les teves restriccions o alergies."} )}  />
-                          {errors.food && !disabledRestrictions && <span className="text-red-400">{errors.food.message}</span>}
-                      </div>
-                    )}
-                  </label>
-                
+                <label>
+                  {!disabledRestrictions && (
+                    <div id="foodTextArea">
+                      Quines restriccions o alèrgies tens?
+                      <input
+                        className={`${errors.food && !disabledRestrictions ? "bg-pink-100" : "bg-white"} ${``} py-2 min-h-10 px-2 text-base mt-2`}
+                        placeholder="Lactosa, gluten, etc."
+                        defaultValue={""}
+                        {...register("food", {
+                          required:
+                            !disabledRestrictions &&
+                            "Indicans les teves restriccions o alergies.",
+                        })}
+                      />
+                      {errors.food && !disabledRestrictions && (
+                        <span className="text-red-400">
+                          {errors.food.message}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </label>
 
                 <label className="mb-3">
                   Com ens has conegut?
-                  <select className={`${errors.meet ? 'bg-pink-100' : 'bg-white'} py-2 min-h-10 px-2 text-base ml-2`} 
-                  {...register("meet", {
-                    required: "Aquest camp és obligatori",
-                    validate: value => (value !== "nan") || "Selecciona una opció vàlida"
-                  })}
+                  <select
+                    className={`${errors.meet ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base ml-2`}
+                    {...register("meet", {
+                      required: "Aquest camp és obligatori",
+                      validate: (value) =>
+                        value !== "nan" || "Selecciona una opció vàlida",
+                    })}
                   >
                     {meetOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -255,31 +294,44 @@ const InscripcioForm = () => {
                     ))}
                   </select>
                 </label>
-                {errors.meet && <span className="text-red-400">{errors.meet.message}</span>}
+                {errors.meet && (
+                  <span className="text-red-400">{errors.meet.message}</span>
+                )}
 
                 <hr className="my-4" />
-                
+
                 <div className="flex flex-col w-full">
-                  <p className="text-xl">Vols que les empreses de Lleida et coneguin? (Opcional)</p>
+                  <p className="text-xl">
+                    Vols que les empreses de Lleida et coneguin? (Opcional)
+                  </p>
                   <label className="mb-3">
-                    <p className="text-sm">Tens experiència en altres hackatons? Algun projecte personal que vulguis compartir? Explica'ns què t'apassiona i deixa aquí els enllaços de les teves xarxes socials</p>
-                    <textarea className={`${errors.cvinfo_links ? 'bg-pink-100' : 'bg-white'} px-2 text-base mt-2`} placeholder="Explica'ns què t'apassiona i deixa aquí els enllaços de les teves xarxes socials"
-                    {...register("cvinfo_links")}
+                    <p className="text-sm">
+                      Tens experiència en altres hackatons? Algun projecte
+                      personal que vulguis compartir? Explica'ns què t'apassiona
+                      i deixa aquí els enllaços de les teves xarxes socials
+                    </p>
+                    <textarea
+                      className={`${errors.cvinfo_links ? "bg-pink-100" : "bg-white"} px-2 text-base mt-2`}
+                      placeholder="Explica'ns què t'apassiona i deixa aquí els enllaços de les teves xarxes socials"
+                      {...register("cvinfo_links")}
                     />
                   </label>
-                  
-                  
+
                   <label className="mb-3">
                     Github:
-                    <input className={`py-2 min-h-10 px-2 text-base mt-2`} placeholder="Github" 
-                    {...register("github")} 
+                    <input
+                      className={`py-2 min-h-10 px-2 text-base mt-2`}
+                      placeholder="Github"
+                      {...register("github")}
                     />
                   </label>
 
                   <label className="mb-3">
                     Linkedin:
-                    <input className={`py-2 min-h-10 px-2 text-base mt-2`} placeholder="Linkedin" 
-                    {...register("linkedin")} 
+                    <input
+                      className={`py-2 min-h-10 px-2 text-base mt-2`}
+                      placeholder="Linkedin"
+                      {...register("linkedin")}
                     />
                   </label>
 
@@ -292,7 +344,6 @@ const InscripcioForm = () => {
                         multiple={false}
                         accept="application/pdf"
                         onDone={handleFileChange}
-                        
                       />
                       <Button
                         onClick={clearFile}
@@ -309,25 +360,37 @@ const InscripcioForm = () => {
                   </label>
 
                   <label className="flex items-center space-x-2">
-                    <input type="checkbox" 
-                    className="w-fit mr-5" 
-                    {...register("checkboxterms", {required: "Aquest camp és obligatori"})}
+                    <input
+                      type="checkbox"
+                      className="w-fit mr-5"
+                      {...register("checkboxterms", {
+                        required: "Aquest camp és obligatori",
+                      })}
                     />
-                    <p>Accepto els <a href="/hackeps/terms" className="text-primaryHackeps">termes i condicions</a></p>
+                    <p>
+                      Accepto els{" "}
+                      <a href="/hackeps/terms" className="text-primaryHackeps">
+                        termes i condicions
+                      </a>
+                    </p>
                   </label>
 
                   <label className="flex items-center space-x-2">
-                    <input type="checkbox" 
-                    className="w-fit mr-5" 
-                    {...register("checkboxcredit")}
+                    <input
+                      type="checkbox"
+                      className="w-fit mr-5"
+                      {...register("checkboxcredit")}
                     />
-                    <p>Vull1 crèdit ETCS de matèria transversal (només aplicable a alumnes de la UDL)</p>
+                    <p>
+                      Vull1 crèdit ETCS de matèria transversal (només aplicable
+                      a alumnes de la UDL)
+                    </p>
                   </label>
                 </div>
                 <div className="flex flex-col gap-0 mb-20 ">
                   <Button
                     onClick={handleSubmit(submit)}
-                    className={`bg-primaryHackeps text-white mb-2  ${!isValid ? 'opacity-50' : 'opacity-100 hover:bg-primaryHackepsDark'}`}
+                    className={`bg-primaryHackeps text-white mb-2  ${!isValid ? "opacity-50" : "opacity-100 hover:bg-primaryHackepsDark"}`}
                   >
                     Enviar
                   </Button>

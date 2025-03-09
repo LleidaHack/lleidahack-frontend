@@ -38,7 +38,7 @@ const Team = (props) => {
   } = useForm({
     mode: "onChange",
   });
-  
+
   const {
     register: registerCreateTeam,
     handleSubmit: handleSubmitCreateTeam,
@@ -75,7 +75,7 @@ const Team = (props) => {
   }
 
   async function joinTeam(val) {
-    console.log("wefwefwefwefw")
+    console.log("wefwefwefwefw");
     let a = await addHackerToGroupByCode(
       val.teamCode ? val.teamCode.replace(/[# ]/g, "") : "",
       localStorage.getItem("userID"),
@@ -89,7 +89,7 @@ const Team = (props) => {
   }
 
   async function createTeam(val) {
-    console.log("wefwefwefwefw")
+    console.log("wefwefwefwefw");
     const team = {
       name: val.teamName,
       description: val.teamDesc,
@@ -104,14 +104,13 @@ const Team = (props) => {
   }
 
   function TeamButtons() {
-
     const handleSubmitJoinTeam2 = (data) => {
-      console.log("JKOIN team submit")
+      console.log("JKOIN team submit");
       joinTeam(data);
     };
 
     const handleSubmitCreateTeam2 = (data) => {
-      console.log("Create team submit")
+      console.log("Create team submit");
       createTeam(data);
     };
 
@@ -132,22 +131,37 @@ const Team = (props) => {
             </div>
           </div>
         )}
-        
-        <PopupBody crossColor="gray-300" isOpen={showJoinTeam} onClose={handleCloseJoinTeam} children={
-            
-            <div className="team-form-container">
-              <TitleGeneralized className="text-black text-2xl"> Unir-se a un equip </TitleGeneralized>
-              <form className="flex flex-col gap-3" onSubmit={ handleSubmitJoinTeam((data) =>handleSubmitJoinTeam2(data))}>
 
-              <label className="text-black">
-                Codi de l'equip (#XXXXXXXXXX):
+        <PopupBody
+          crossColor="gray-300"
+          isOpen={showJoinTeam}
+          onClose={handleCloseJoinTeam}
+          children={
+            <div className="team-form-container">
+              <TitleGeneralized className="text-black text-2xl">
+                {" "}
+                Unir-se a un equip{" "}
+              </TitleGeneralized>
+              <form
+                className="flex flex-col gap-3"
+                onSubmit={handleSubmitJoinTeam((data) =>
+                  handleSubmitJoinTeam2(data),
+                )}
+              >
+                <label className="text-black">
+                  Codi de l'equip (#XXXXXXXXXX):
                   <input
                     className={`${errorsJoinTeam.teamCode ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
                     placeholder="#1234567890"
-
-                    {...registerJoinTeam("teamCode", { required: "El codi de l'equip és obligatori" })}
+                    {...registerJoinTeam("teamCode", {
+                      required: "El codi de l'equip és obligatori",
+                    })}
                   />
-                  {errorsJoinTeam.teamCode && <span className="text-red-400">{errorsJoinTeam.teamCode.message}</span>}
+                  {errorsJoinTeam.teamCode && (
+                    <span className="text-red-400">
+                      {errorsJoinTeam.teamCode.message}
+                    </span>
+                  )}
                 </label>
 
                 <Button primary type="submit">
@@ -156,42 +170,64 @@ const Team = (props) => {
                 <p className="text-red-400">{JoinErrorMessage}</p>
               </form>
             </div>
-        }/>
-        
-        <PopupBody crossColor="gray-300" isOpen={showCreateTeam} onClose={handleCloseCreateTeam} children={
+          }
+        />
+
+        <PopupBody
+          crossColor="gray-300"
+          isOpen={showCreateTeam}
+          onClose={handleCloseCreateTeam}
+          children={
             <div className="team-form-container">
-            <form className="flex flex-col gap-3" onSubmit={handleSubmitCreateTeam((data) => handleSubmitCreateTeam2(data))}>
-            <TitleGeneralized className="text-black text-2xl"> Unir-se a un equip </TitleGeneralized>
-              <label className="text-black">
-                Nom de l'equip:
-                <input
-                  className={`${errorsCreateTeam.teamName ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
-                  placeholder=""
-                  {...registerCreateTeam("teamName", { required: "El nom de l'equip és obligatori" })}
-                />
-                {errorsCreateTeam.teamName && <span className="text-red-400">{errorsCreateTeam.teamName.message}</span>}
-              </label>
+              <form
+                className="flex flex-col gap-3"
+                onSubmit={handleSubmitCreateTeam((data) =>
+                  handleSubmitCreateTeam2(data),
+                )}
+              >
+                <TitleGeneralized className="text-black text-2xl">
+                  {" "}
+                  Unir-se a un equip{" "}
+                </TitleGeneralized>
+                <label className="text-black">
+                  Nom de l'equip:
+                  <input
+                    className={`${errorsCreateTeam.teamName ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                    placeholder=""
+                    {...registerCreateTeam("teamName", {
+                      required: "El nom de l'equip és obligatori",
+                    })}
+                  />
+                  {errorsCreateTeam.teamName && (
+                    <span className="text-red-400">
+                      {errorsCreateTeam.teamName.message}
+                    </span>
+                  )}
+                </label>
 
-              <label className="text-black">
-                Descripció:
-                <input
-                  className={`${errorsCreateTeam.teamDesc ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
-                  placeholder=""
-                  {...registerCreateTeam("teamDesc", { required: "La descripció de l'equip és obligatori" })}
-                />
-                {errorsCreateTeam.teamDesc && <span className="text-red-400">{errorsCreateTeam.teamDesc.message}</span>}
-              </label>
+                <label className="text-black">
+                  Descripció:
+                  <input
+                    className={`${errorsCreateTeam.teamDesc ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                    placeholder=""
+                    {...registerCreateTeam("teamDesc", {
+                      required: "La descripció de l'equip és obligatori",
+                    })}
+                  />
+                  {errorsCreateTeam.teamDesc && (
+                    <span className="text-red-400">
+                      {errorsCreateTeam.teamDesc.message}
+                    </span>
+                  )}
+                </label>
 
-              <Button primary type="submit">
-                Crear equip
-              </Button>
-
-            </form>
+                <Button primary type="submit">
+                  Crear equip
+                </Button>
+              </form>
             </div>
-            
-            
-        }/>
-
+          }
+        />
       </>
     );
   }

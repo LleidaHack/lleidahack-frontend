@@ -53,10 +53,6 @@ label {
   border-width: 5px;
 }
 
-
-
 .stepper-horizontal > .stepper-step {
   flex-shrink: 0;
 }
-
-

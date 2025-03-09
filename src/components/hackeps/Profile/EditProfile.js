@@ -1,17 +1,23 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { updateHacker } from "src/services/HackerService";
 import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import Button from "src/components/buttons/Button";
 import { useForm } from "react-hook-form";
 
-const EditProfile = ({hackerObj}) => {
+const EditProfile = ({ hackerObj }) => {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [cvFile, setCvFile] = useState("");
-  const { register, handleSubmit, watch, formState: { errors, isValid }, trigger } = useForm({
-      mode: "onChange", 
-    });
-  
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+    trigger,
+  } = useForm({
+    mode: "onChange",
+  });
+
   const [isSending, setIsLoading] = useState(false);
   const [isPfpTooLarge, setPfpTooLarge] = useState(false);
   const [isCvTooLarge, setCvTooLarge] = useState(false);
@@ -32,15 +38,13 @@ const EditProfile = ({hackerObj}) => {
   ];
 
   useEffect(() => {
-      const hacker_id = localStorage.getItem("userID");
-      hackerObj.id = hacker_id;
-      setHacker(hackerObj);
-      setImage(hackerObj.image || userIcon);
-      setHackerLinkedin(hackerObj.linkedin || "");
-      setHackerGithub(hackerObj.github || "");
+    const hacker_id = localStorage.getItem("userID");
+    hackerObj.id = hacker_id;
+    setHacker(hackerObj);
+    setImage(hackerObj.image || userIcon);
+    setHackerLinkedin(hackerObj.linkedin || "");
+    setHackerGithub(hackerObj.github || "");
   }, [hackerObj]);
-
-
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -149,7 +153,7 @@ const EditProfile = ({hackerObj}) => {
                       {...register("linkedin")}
                     />
                   </label>
-                  
+
                   <label>
                     Enllaç de GitHub:
                     <input
@@ -188,7 +192,11 @@ const EditProfile = ({hackerObj}) => {
 
                   <div className="w-full">
                     <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border border-gray-300">
-                      <img src={pfpImage || userIcon} alt="Profile" className="w-full h-full object-cover" />
+                      <img
+                        src={pfpImage || userIcon}
+                        alt="Profile"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <label className="w-full mb-4">
                       Image URL:
@@ -215,7 +223,13 @@ const EditProfile = ({hackerObj}) => {
                     )}
                   </div>
                   <div className="w-full flex flex-col mb-5">
-                    <Button className="text-white bg-primaryHackeps hover:bg-primaryHackepsDark transition ease-in-out delay-100 min-h-10" onClick={handleSubmit(onSubmit)}> Actualitzar dades</Button>
+                    <Button
+                      className="text-white bg-primaryHackeps hover:bg-primaryHackepsDark transition ease-in-out delay-100 min-h-10"
+                      onClick={handleSubmit(onSubmit)}
+                    >
+                      {" "}
+                      Actualitzar dades
+                    </Button>
                     <p className="text-red-400 mt-2">{submitError}</p>
                   </div>
                 </form>
