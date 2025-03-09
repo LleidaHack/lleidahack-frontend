@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import icon from "src/assets/img/programmersen.png";
 import plus from "src/assets/img/plus.png";
 import GrupsCardBoxProfile from "src/components/lleidahacker/grupsCardBox/grupsCardBoxProfile";
-import PopupBody from "../emergentPopup/PopupBody";
+import PopupBody from "src/components/emergentPopup/PopupBody";
 
 //TODO: 1º Fer trucada al servell per obtindre info sobre els grups i asignar-ho .
 //TODO: 2º Fer trucada al servell per obtindre els grups del usuari i mostrarlos en listGrups
