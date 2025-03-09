@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
-
 import { useForm } from "react-hook-form";
 import { registerHackerToEvent } from "src/services/EventService";
 import { getHackeps } from "src/services/EventService";
 import FailFeedback from "src/components/hackeps/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/hackeps/Feedbacks/SuccesFeedback";
-
 import Button from "src/components/buttons/Button";
-
 import FileBase from "react-file-base64";
 import { getHackerById } from "src/services/HackerService";
-
 import { getEventIsHackerRegistered } from "src/services/EventService";
 import { updateHacker } from "src/services/HackerService";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
@@ -335,7 +331,6 @@ const InscripcioForm = () => {
                     Enviar
                   </Button>
                 </div>
-
               </form>
             </div>
           </div>
