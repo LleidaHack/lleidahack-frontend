@@ -1,21 +1,20 @@
-import React from "react";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
-import { Container, Row, Col } from "react-bootstrap";
+import React, {useState} from "react";
+import { useForm } from "react-hook-form";
 import Button from "src/components/buttons/Button";
 import { Link } from "react-router-dom";
 import logo from "src/icons/hackLogoWellDone.png";
 import { login } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 
-const validationSchema = Yup.object().shape({
-  email: Yup.string().required("Correu requerit"),
-  password: Yup.string().required("Contrasenya requerida"),
-});
 
 const LoginPage = ({ nextScreen }) => {
+  const { register, handleSubmit, watch, formState: { errors, isValid }, trigger } = useForm({
+      mode: "onChange", 
+    });
   const navigate = useNavigate();
-  const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
+  const [isSubmitting, setSubmitting] = useState(false);
+  const [errorText, setErrorText] = useState("");
+  const submit = async (values) => {
     try {
       let a = await login(values);
       if (process.env.REACT_APP_DEBUG === "true") console.log(a);
@@ -28,9 +27,9 @@ const LoginPage = ({ nextScreen }) => {
           navigate(nextScreen);
         } else navigate("/home");
       } else if (a.errCode === 401) {
-        setFieldError("password", "Contrasenya incorrecta");
+        setErrorText( "Contrasenya incorrecta");
       } else if (a.errCode === 404) {
-        setFieldError("email", "E-mail no trobat");
+        setErrorText( "E-mail no trobat");
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -41,91 +40,75 @@ const LoginPage = ({ nextScreen }) => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="flex-1 flex items-center justify-center bg-loginPage">
-        <Container>
-          <Row className="justify-content-center">
-            <Col md={6}>
+      <div className="flex-1 w-full flex items-center justify-center bg-loginPage">
+        <div className="w-full">
+          <div className="justify-content-center">
+            <div className=" md:mx-0 md:my-0 mx-4 my-2">
               <div className="rounded-xl flex flex-col items-center">
                 <img
                   src={logo}
-                  className="w-48 h-auto block mx-auto mb-3"
+                  className="w-24 md:w-48 h-auto block mx-auto mb-3"
                   alt="Logo"
                 />
-                <h2 className="text-white mb-2 text-5xl flex items-center text-center">
+                <h2 className="text-white md:mb-2 text-3xl md:text-5xl flex items-center text-center">
                   Hola de nou!
                 </h2>
-                <Formik
-                  initialValues={{ email: "", password: "" }}
-                  validationSchema={validationSchema}
-                  onSubmit={handleSubmit}
-                  submitButton={{ label: "Envia" }}
-                >
-                  {({ isSubmitting, submitForm, errors, touched }) => (
-                    <Form>
-                      <div className="font-bold text-base mt-7">
-                        <label className="text-white" htmlFor="email">
-                          Correu
-                        </label>
-                        <Field
-                          type="email"
-                          name="email"
-                          id="email"
-                          className={`form-control ${
-                            touched.email && errors.email ? "is-invalid" : ""
-                          }`}
-                        />
-                        {touched.email && errors.email && (
-                          <div className="text-red-500">{errors.email}</div>
-                        )}
-                      </div>
-                      <div className="font-bold text-base mt-3">
-                        <label className="text-white" htmlFor="password">
-                          Contrasenya
-                        </label>
-                        <Field
-                          type="password"
-                          name="password"
-                          id="password"
-                          className={`form-control ${
-                            touched.password && errors.password
-                              ? "is-invalid"
-                              : ""
-                          }`}
-                        />
-                        {touched.password && errors.password && (
-                          <div className="text-red-500">{errors.password}</div>
-                        )}
-                      </div>
+                <form className="">
+                  
+                  <div className="font-bold text-base mt-7 w-full">
+                    <label className="w-full text-base">
+                      <p className="text-white mb-1">Correu:</p> 
+                      <input className={`${errors.email ? 'bg-pink-100' : 'bg-white'} min-h-10 px-2 text-sm md:text-base`} placeholder="Correu" 
+                      {...register("email", {required: "E-mail obligatori"})} 
+                      />
 
-                      <div className="mt-7 mb-7 text-xl text-center">
-                        <p className="mb-1">
-                          <Link
-                            to="/forgot-password"
-                            className="text-grayColor"
-                          >
-                            Has oblidat les teves credencials?
-                          </Link>
-                        </p>
-                        <p className="mb-0">
-                          <Link to="/hacker-form" className="text-grayColor">
-                            Encara no tens compte?
-                          </Link>
-                        </p>
-                      </div>
-                      <div className="flex justify-center mt-3">
-                        <Button type="submit" primary lg>
-                          {isSubmitting
-                            ? "Iniciant sessió..."
-                            : "Inicia sessió"}
-                        </Button>
-                      </div>
-                    </Form>
-                  )}
-                </Formik>
+                    </label>
+                      {errors.email && <span className="text-red-400">{errors.email.message}</span>}
+                  </div>
+                  
+                  <div className="font-bold text-base mt-3">
+                    <label className="w-full text-base">
+                      <p className="text-white mb-1">Contrasenya:</p> 
+                      <input 
+                      type="password"
+                      className={`${errors.password ? 'bg-pink-100' : 'bg-white'} min-h-10 px-2 text-sm md:text-base`}
+                      placeholder="Contrasenya" 
+                      {...register("password", {required: "Contraseña obligatoria"})} 
+                      />
+                    </label>
+                      {errors.password && <span className="text-red-400">{errors.password.message}</span>}
+                    
+                  </div>
+
+                  <div className="my-3 md:my-7 text-base md:text-xl text-center">
+                    <p className="mb-1">
+                      <Link
+                        to="/forgot-password"
+                        className="text-grayColor"
+                      >
+                        Has oblidat les teves credencials?
+                      </Link>
+                    </p>
+                    <p className="mb-0">
+                      <Link to="/hacker-form" className="text-grayColor">
+                        Encara no tens compte?
+                      </Link>
+                    </p>
+                  </div>
+                  <div className="flex flex-col justify-center mt-3">
+                    <Button type="submit" primary lg onClick={handleSubmit(submit)} className={` ${!isValid ? "opacity-50 hover:none" : "hover:bg-primaryHackepsDark"}`} disabled={!isValid}>
+                      {isSubmitting
+                        ? "Iniciant sessió..."
+                        : "Inicia sessió"}
+                        
+                    </Button>
+                    <p className="text-red-400 mt-2">{errorText}</p>
+                  </div>
+                </form>
               </div>
-            </Col>
-          </Row>
-        </Container>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
