@@ -17,8 +17,6 @@
     "dayjs": "^1.11.5",
     "dotenv": "^16.3.1",
     "events": "^3.3.0",
-    "formik": "^2.2.9",
-    "formik-stepper": "^2.2.1",
     "lodash.debounce": "^4.0.8",
     "moment": "^2.29.4",
     "prettier": "^3.0.1",
