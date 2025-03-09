@@ -4,8 +4,6 @@ import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import Button from "src/components/buttons/Button";
 import { useForm } from "react-hook-form";
-import { getHackerById } from "src/services/HackerService";
-
 
 const EditProfile = ({hackerObj}) => {
   const [showEditProfile, setShowEditProfile] = useState(false);
