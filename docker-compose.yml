@@ -11,4 +11,4 @@ services:
       - .env # Carga todas las variables del archivo .env
     environment:
       - CHOKIDAR_USEPOLLING=true # Puedes seguir definiendo variables aquí si necesitas
-    command: ["npm", "start"]
+    command: ["npm", "start", "--reload"]
