@@ -3,11 +3,12 @@ services:
   react-app:
     build: .
     ports:
-      - "3000:3000"
+      - "${PORT}:${PORT}"  # Usa la variable PORT definida en el .env
     volumes:
       - .:/app  # Mount local files to the container
       - /app/node_modules  # Prevent overwriting node_modules
+    env_file:
+      - .env  # Carga todas las variables del archivo .env
     environment:
-      - CHOKIDAR_USEPOLLING=true  # Enable file watching in Docker
+      - CHOKIDAR_USEPOLLING=true  # Puedes seguir definiendo variables aquí si necesitas
     command: ["npm", "start"]
-  
