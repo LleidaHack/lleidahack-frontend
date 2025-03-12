@@ -11,4 +11,4 @@ COPY package.json package-lock.json ./
 RUN npm install
 
 # Start the React app in development mode
-CMD ["npm", "start"]
+CMD ["npm", "start", "--reload"]
