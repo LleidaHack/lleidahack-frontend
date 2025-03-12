@@ -1,0 +1,13 @@
+version: "3"
+services:
+  react-app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app  # Mount local files to the container
+      - /app/node_modules  # Prevent overwriting node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Enable file watching in Docker
+    command: ["npm", "start"]
+  
