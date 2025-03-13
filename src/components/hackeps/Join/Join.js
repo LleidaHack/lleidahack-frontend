@@ -76,17 +76,3 @@ const Join = (props) => {
 };
 
 export default Join;
-
-/*  return (
-  <div className="responsive-amongButton">
-  <div className="pendentAcceptPC row container-fluid  p-bg-grey text-center m-auto lolospace">
-    <div className="col-12 p-bg-grey">
-      <div className="row">
-        <img className="imgbox" src={logo} alt="" />
-      </div>
-      <div className="row text-center">
-        <ManageButton />
-      </div>
-    </div>
-  </div>
-</div> */
