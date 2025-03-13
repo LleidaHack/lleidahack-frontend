@@ -1,7 +1,6 @@
 import React from "react";
 import HSkeleton from "src/components/hackeps/LoadingSkeleton/HSkeleton";
 import logo from "src/icons/hackLogoWellDone.png";
-import "src/components/hackeps/Join/Join.css";
 
 const Join = (props) => {
   function ManageButton() {
@@ -63,15 +62,13 @@ const Join = (props) => {
   }
 
   return (
-    <div className="responsive-amongButton">
-      <div className="pendentAcceptPC row container-fluid  p-bg-grey text-center m-auto lolospace">
-        <div className="col-12 p-bg-grey">
-          <div className="row">
-            <img className="imgbox" src={logo} alt="" />
-          </div>
-          <div className="row text-center">
-            <ManageButton />
-          </div>
+    <div className="w-1/5 sm:w-full sm:mt-10 sm:mb-10">
+      <div className="w-11/12 my-10 mx-auto bg-gray-100 text-center p-8 sm:p-16">
+        <div className="flex justify-center">
+          <img className="w-1/2 mx-auto pb-8" src={logo} alt="" />
+        </div>
+        <div className="mt-4">
+          <ManageButton />
         </div>
       </div>
     </div>
@@ -79,3 +76,17 @@ const Join = (props) => {
 };
 
 export default Join;
+
+/*  return (
+  <div className="responsive-amongButton">
+  <div className="pendentAcceptPC row container-fluid  p-bg-grey text-center m-auto lolospace">
+    <div className="col-12 p-bg-grey">
+      <div className="row">
+        <img className="imgbox" src={logo} alt="" />
+      </div>
+      <div className="row text-center">
+        <ManageButton />
+      </div>
+    </div>
+  </div>
+</div> */
