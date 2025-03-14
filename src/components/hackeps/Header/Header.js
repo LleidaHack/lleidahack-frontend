@@ -140,7 +140,7 @@ const Header = () => {
   }, [icon, validToken]);
 
   return (
-    <>
+    <div data-testid="headerHackeps">
       <NavbarComponent
         bgColor={"#0e3a29"}
         textColor={"white"}
@@ -170,7 +170,7 @@ const Header = () => {
           </div>
         </nav>
       )}
-    </>
+    </div>
   );
 };
 

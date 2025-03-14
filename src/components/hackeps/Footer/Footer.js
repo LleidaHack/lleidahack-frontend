@@ -5,7 +5,7 @@ import twitterIcon from "src/icons/X.png";
 
 const Footer = () => {
   return (
-    <footer className="p-12 text-center left-0 bottom-0 w-full font-bold bg-primaryHackeps text-textPrimaryHackeps">
+    <footer data-testid="footerHackeps" className="p-12 text-center left-0 bottom-0 w-full font-bold bg-primaryHackeps text-textPrimaryHackeps">
       <div className="container">
         <div className="flex justify-center mb-2">
           <a
@@ -13,21 +13,21 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={twitterIcon} alt="Twitter" class="w-8 mx-1.5" />
+            <img src={twitterIcon} alt="Twitter" className="w-8 mx-1.5" />
           </a>
           <a
             href="https://www.linkedin.com/company/hackeps/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={linkedinIcon} alt="LinkedIn" class="w-8 mx-1.5" />
+            <img src={linkedinIcon} alt="LinkedIn" className="w-8 mx-1.5" />
           </a>
           <a
             href="https://www.instagram.com/hackeps_/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={instagramIcon} alt="Instagram" class="w-8 mx-1.5" />
+            <img src={instagramIcon} alt="Instagram" className="w-8 mx-1.5" />
           </a>
         </div>
       </div>
