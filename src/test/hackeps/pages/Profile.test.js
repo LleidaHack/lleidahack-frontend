@@ -2,8 +2,8 @@
 // import { render, screen } from '@testing-library/react';
 // import Profile from 'src/pages/hackeps/Profile';
 // import { MemoryRouter, useLocation } from 'react-router-dom';
-  
-// describe('Profile - Render', () => { 
+
+// describe('Profile - Render', () => {
 //     test(`renders without crashing + header and footer.`, async () => {
 //       useLocation.mockReturnValue({
 //           state: {
@@ -11,7 +11,7 @@
 //           },
 //       });
 
-//       render( 
+//       render(
 //           <MemoryRouter>
 //               <Profile />
 //           </MemoryRouter>
@@ -26,5 +26,5 @@
 // });
 
 test("dummy test", () => {
-    expect(true).toBe(true);
-  });
+  expect(true).toBe(true);
+});

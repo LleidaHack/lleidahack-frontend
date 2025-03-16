@@ -1,4 +1,3 @@
-
 export const mockEventService = {
   getHackeps: jest.fn().mockResolvedValue({
     id: 1,
@@ -13,9 +12,9 @@ export const mockEventService = {
     max_participants: 150,
     max_group_size: 4,
     max_sponsors: 10,
-    image: "string"
+    image: "string",
   }),
   getEventIsHackerRegistered: jest.fn().mockResolvedValue({
-    success: true
+    success: true,
   }),
 };

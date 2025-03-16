@@ -2,8 +2,8 @@
 // import { render, screen } from '@testing-library/react';
 // import Inscripcio from 'src/pages/hackeps/Inscripcio';
 // import { MemoryRouter, useLocation } from 'react-router-dom';
-  
-// describe('Inscripcio - Render', () => { 
+
+// describe('Inscripcio - Render', () => {
 //     test(`renders without crashing + header and footer.`, async () => {
 //       useLocation.mockReturnValue({
 //           state: {
@@ -26,5 +26,5 @@
 // });
 
 test("dummy test", () => {
-    expect(true).toBe(true);
-  });
+  expect(true).toBe(true);
+});

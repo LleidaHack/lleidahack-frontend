@@ -2,8 +2,8 @@
 // import { render, screen } from '@testing-library/react';
 // import HackerForm from 'src/pages/hackeps/HackerSignup';
 // import { MemoryRouter, useLocation } from 'react-router-dom';
-  
-// describe('Hacker Signup - Render', () => { 
+
+// describe('Hacker Signup - Render', () => {
 //     test(`renders without crashing + header and footer.`, async () => {
 //       useLocation.mockReturnValue({
 //           state: {
@@ -11,7 +11,7 @@
 //           },
 //       });
 
-//       render( 
+//       render(
 //           <MemoryRouter>
 //               <HackerForm />
 //           </MemoryRouter>
@@ -26,5 +26,5 @@
 // });
 
 test("dummy test", () => {
-    expect(true).toBe(true);
-  });
+  expect(true).toBe(true);
+});

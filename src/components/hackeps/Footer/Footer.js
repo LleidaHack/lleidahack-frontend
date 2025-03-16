@@ -5,7 +5,10 @@ import twitterIcon from "src/icons/X.png";
 
 const Footer = () => {
   return (
-    <footer data-testid="footerHackeps" className="p-12 text-center left-0 bottom-0 w-full font-bold bg-primaryHackeps text-textPrimaryHackeps">
+    <footer
+      data-testid="footerHackeps"
+      className="p-12 text-center left-0 bottom-0 w-full font-bold bg-primaryHackeps text-textPrimaryHackeps"
+    >
       <div className="container">
         <div className="flex justify-center mb-2">
           <a
