@@ -151,7 +151,6 @@ const WaitingComponent = () => {
     bg1 = bg1.trim();
     const bg2 = profiles[nextProfile]?.bgColor?.trim();
     if (!/^#[0-9A-Fa-f]{6}$/.test(bg1) || !/^#[0-9A-Fa-f]{6}$/.test(bg2)) {
-      console.error("Uno de los colores no es válido:", { bg1, bg2 });
       return;
     }
     const step = 0.1;
