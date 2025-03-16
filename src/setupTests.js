@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/extend-expect';
-import { mockEventService } from './test/services';
+import { mockEventService, mockHackerService } from './test/services';
 
 // Mock de IntersectionObserver
 beforeAll(() => {
@@ -24,5 +24,21 @@ beforeAll(() => {
 beforeAll(() => {
   // Service mocks:
   jest.mock('src/services/EventService', () => mockEventService);
+  jest.mock('src/services/HackerService', () => mockHackerService);
   });
 
+  // Mock de localStorage.getItem
+  beforeAll(() => {
+    const localStorageMock = {
+      getItem: jest.fn((key) => {
+        if (key === 'userID') {
+          return '1';
+        }
+        return null;
+      }),
+      setItem: jest.fn(),
+      removeItem: jest.fn(),
+      clear: jest.fn(),
+    };
+    global.localStorage = localStorageMock;
+  });

@@ -1,22 +1,19 @@
 import React from 'react';
-import { render, screen, act } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Privacy from 'src/pages/hackeps/Privacy';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Error404 - Render', () => { 
-
+describe('Privacy - Render', () => { 
     test(`renders without crashing + header and footer.`, async () => {
-      await act(async () => {
-          render(
-              <MemoryRouter>
-                  <Privacy />
-              </MemoryRouter>
-          );
-      });
-      // Verifica que tengamos el footer y el header
-      const footerElement = screen.getByTestId('footerHackeps');
-      expect(footerElement).toBeInTheDocument();
-      const headerElement = screen.getByTestId('headerHackeps');
-      expect(headerElement).toBeInTheDocument();
+        render(
+            <MemoryRouter>
+                <Privacy />
+            </MemoryRouter>
+        );
+        // Verifica que tengamos el footer y el header
+        const footerElement = screen.getByTestId('footerHackeps');
+        expect(footerElement).toBeInTheDocument();
+        const headerElement = screen.getByTestId('headerHackeps');
+        expect(headerElement).toBeInTheDocument();
     });
 });

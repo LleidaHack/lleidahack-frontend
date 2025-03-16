@@ -4,7 +4,7 @@ import IfSponsors from "src/components/hackeps/Sponsors/IfSponsors.js";
 import React from "react";
 import { useParams } from "react-router-dom";
 
-const Home = () => {
+const Sponsors = () => {
   const { ids } = useParams();
   console.log("ID desde la ruta:", ids);
   const sponsorId = ids || 0;
@@ -18,4 +18,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Sponsors;
