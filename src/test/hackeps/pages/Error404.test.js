@@ -1,11 +1,8 @@
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import Error404 from 'src/pages/hackeps/Error404';
 import { MemoryRouter } from 'react-router-dom';
 
-
-  
 describe('Error404 - Render', () => { 
 
     test(`renders without crashing + header and footer.`, async () => {

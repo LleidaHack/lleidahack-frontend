@@ -3,22 +3,12 @@
 
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import ConfirmAssistancePage from 'src/pages/hackeps/Confirm';
-import { MemoryRouter } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { MemoryRouter, useLocation } from 'react-router-dom';
 
-//Mock user location
-jest.mock('react-router-dom', () => ({
-    ...jest.requireActual('react-router-dom'),
-    useLocation: jest.fn(),
-}));
+
   
 describe('ConfirmAssistancePage - Render', () => { 
-    beforeEach(() => {
-        jest.clearAllMocks();
-    });
-
     test(`renders without crashing + header and footer.`, async () => {
         
         useLocation.mockReturnValue({
