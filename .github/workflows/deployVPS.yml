@@ -23,8 +23,7 @@ jobs:
       - run: npm install
 
       # Run tests
-      - run: npm run test -- --watchAll=false --ci --passWithNoTests --silent
-      
+      - run: npm run test -- --watchAll=false --ci --passWithNoTests --silent 
   deploy:
     runs-on: ubuntu-latest
     steps:
