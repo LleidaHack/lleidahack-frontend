@@ -4,7 +4,6 @@ on:
     branches:
       - main
       - integration
-      - FRONT-169-Crear-tests-de-frontend
   workflow_dispatch:
 
 jobs:
@@ -26,36 +25,36 @@ jobs:
       # Run tests
       - run: npm run test -- --watchAll=false --ci --passWithNoTests --silent
       
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Extract branch name
-  #       shell: bash
-  #       run: echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >>$GITHUB_OUTPUT
-  #       id: extract_branch
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >>$GITHUB_OUTPUT
+        id: extract_branch
 
-  #     - name: Push to server
-  #       uses: appleboy/ssh-action@master
-  #       with:
-  #         host: ${{ secrets.SERVER_IP }}
-  #         port: ${{ secrets.SERVER_PORT }}
-  #         username: ${{ secrets.SERVER_USERNAME }}
-  #         password: ${{ secrets.SERVER_PASSWORD }}
-  #         script: |
-  #           cd ${{ secrets.PROJECT_PATH }}/${{ steps.extract_branch.outputs.branch }}
-  #           git fetch
-  #           git checkout ${{ steps.extract_branch.outputs.branch }}
-  #           git pull
-  #           rm -rf build
-  #           npm run build      # Construcción del proyecto
-  #           sudo systemctl restart frontend.${{ steps.extract_branch.outputs.branch }}
+      - name: Push to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          port: ${{ secrets.SERVER_PORT }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            cd ${{ secrets.PROJECT_PATH }}/${{ steps.extract_branch.outputs.branch }}
+            git fetch
+            git checkout ${{ steps.extract_branch.outputs.branch }}
+            git pull
+            rm -rf build
+            npm run build      # Construcción del proyecto
+            sudo systemctl restart frontend.${{ steps.extract_branch.outputs.branch }}
 
-  #     - name: Check server status
-  #       uses: appleboy/ssh-action@master
-  #       with:
-  #         host: ${{ secrets.SERVER_IP }}
-  #         port: ${{ secrets.SERVER_PORT }}
-  #         username: ${{ secrets.SERVER_USERNAME }}
-  #         password: ${{ secrets.SERVER_PASSWORD }}
-  #         script: |
-  #           systemctl status frontend.${{ steps.extract_branch.outputs.branch }}.service
+      - name: Check server status
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          port: ${{ secrets.SERVER_PORT }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            systemctl status frontend.${{ steps.extract_branch.outputs.branch }}.service
