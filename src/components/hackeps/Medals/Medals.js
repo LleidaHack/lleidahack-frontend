@@ -3,7 +3,7 @@ import medal from "src/icons/medal_example.png";
 
 const Medals = () => {
   return (
-    <div className="container w-100 p-bg-primary p-4 pb-5">
+    <div className="container w-100 bg-primaryHackeps p-4 pb-5">
       <h2>Medalles</h2>
       <div className="container mt-2 text-center m-0">
         <div className="row m-auto">
