@@ -1,7 +1,6 @@
 import React from "react";
 import HSkeleton from "src/components/hackeps/LoadingSkeleton/HSkeleton";
 import logo from "src/icons/hackLogoWellDone.png";
-import "src/components/hackeps/Join/Join.css";
 
 const Join = (props) => {
   function ManageButton() {
