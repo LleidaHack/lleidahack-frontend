@@ -25,6 +25,7 @@ jobs:
       # Run tests
       - run: npm run test -- --watchAll=false --ci --passWithNoTests --silent 
   deploy:
+    needs: tests
     runs-on: ubuntu-latest
     steps:
       - name: Extract branch name
