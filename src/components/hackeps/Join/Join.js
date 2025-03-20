@@ -63,19 +63,19 @@ const Join = (props) => {
   }
 
   return (
-  <div className="w-full mx-auto md:w-1/5"> 
-    <div className="w-9/10 my-8 md:my-0.5 text-center md:flex md:flex-wrap md:justify-between container mx-auto px-6 py-14 md:py-10 bg-grayStrongHackeps">
-      <div className="w-full bg-grayStrongHackeps">
-        <div className="w-full px-2.5">
-          <img className="w-full m-auto pb-8" src={logo} alt="" />
-        </div>
-        <div className="flex justify-center m-auto">
-          <ManageButton />
-        </div>
+    <div className="w-full mx-auto md:w-1/5">
+      <div className="w-9/10 my-8 md:my-0.5 text-center md:flex md:flex-wrap md:justify-between container mx-auto px-6 py-14 md:py-10 bg-grayStrongHackeps">
+        <div className="w-full bg-grayStrongHackeps">
+          <div className="w-full px-2.5">
+            <img className="w-full m-auto pb-8" src={logo} alt="" />
+          </div>
+          <div className="flex justify-center m-auto">
+            <ManageButton />
+          </div>
         </div>
       </div>
     </div>
   );
-};  
+};
 
 export default Join;
