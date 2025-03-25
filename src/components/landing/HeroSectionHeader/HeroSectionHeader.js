@@ -26,10 +26,10 @@ const HeroSectionHeader = () => {
             </p>
           </div>
           <div className="hero-buttons flex flex-1 h-16 mb-16 gap-4">
-            <ButtonLleidahack primary white>
+            <ButtonLleidahack primary black>
               Descobreix més
             </ButtonLleidahack>
-            <ButtonLleidahack secondary orange>
+            <ButtonLleidahack  secondary orange>
               Uneix-te!
             </ButtonLleidahack>
           </div>
