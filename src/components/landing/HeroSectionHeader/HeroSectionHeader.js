@@ -29,7 +29,7 @@ const HeroSectionHeader = () => {
             <ButtonLleidahack primary black>
               Descobreix més
             </ButtonLleidahack>
-            <ButtonLleidahack  secondary orange>
+            <ButtonLleidahack secondary orange>
               Uneix-te!
             </ButtonLleidahack>
           </div>
