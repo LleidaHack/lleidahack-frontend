@@ -144,7 +144,7 @@ const InfoSponsors = ({ id }) => {
           <img className="peperoni" src={imgLogo} alt="Logo de la empresa" />
         </section>
         <br />
-        <section className="redesYOthers p-bg-grey">
+        <section className="redesYOthers bg-grayStrongHackeps">
           <p className="text-aftTitle2 text-textSecondaryHackeps text-white">
             📩 {correu} |{text}
           </p>
