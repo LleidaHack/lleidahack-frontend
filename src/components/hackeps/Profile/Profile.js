@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import "src/palette.css";
 import "./Profile.css";
 import Modal from "react-bootstrap/Modal";
 import HSkeleton from "src/components/hackeps/LoadingSkeleton/HSkeleton";
@@ -153,7 +152,7 @@ const ProfileComponent = () => {
 
   return (
     <>
-      <div className="p-bg-black text-white main-screen">
+      <div className="bg-secondaryHackeps text-white main-screen">
         <div className="container-xxl pt-3 peter">
           {/* User info and qr */}
           <div className="row align-middle mx-auto mb-3">
@@ -216,7 +215,7 @@ const ProfileComponent = () => {
                 event.accepted &&
                 (user ? (
                   <div
-                    className="container qr-container text-textPrimaryHackeps p-bg-primary p-2 text-center m-auto"
+                    className="container qr-container text-textPrimaryHackeps bg-primaryHackeps p-2 text-center m-auto"
                     onClick={handleShowQR}
                   >
                     <div className="row">

@@ -110,7 +110,7 @@ const Team = (props) => {
     return (
       <>
         {is_user && (
-          <Container className="p-bg-grey text-center mt-5 m-0 p-3 contss">
+          <Container className="bg-grayStrongHackeps text-center mt-5 m-0 p-3 contss">
             <TitleGeneralized marginBot="2" padTop="0" primary>
               Inscripcions
             </TitleGeneralized>
@@ -211,7 +211,7 @@ const Team = (props) => {
   function TeamInfo() {
     return (
       <div className="Alineador">
-        <div className="p-bg-grey text-center mt-5 m-0 p-3 containerinf">
+        <div className="bg-grayStrongHackeps text-center mt-5 m-0 p-3 containerinf">
           <TitleGeneralized padTop="0" primary>
             {team.name} {team.code && `Codi: #${team.code}`}
           </TitleGeneralized>
