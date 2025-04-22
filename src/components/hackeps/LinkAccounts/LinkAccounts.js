@@ -9,7 +9,7 @@ const LinkAccounts = ({ hacker }) => {
     /^((https?:\/\/)?(www\.|es\.)?linkedin\.com\/in\/)/.test(hacker.linkedin);
   return (
     <div className="container m-auto p-0">
-      <div className="row join-container p-bg-grey p-3 text-center m-auto mt-5">
+      <div className="row join-container bg-grayStrongHackeps p-3 text-center m-auto mt-5">
         <div className="col-8 col-sm-8 align-middle text-start m-auto pe-0">
           Coneix aquest/a hacker:
         </div>

@@ -23,7 +23,7 @@ const AnnouncementPanel = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-12 col-xl-7 m-auto p-4 p-bg-grey">
+        <div className="col-12 col-xl-7 m-auto p-4 bg-grayStrongHackeps">
           <h3 className="text-center mt-1 mb-1">Nou Anunci</h3>
           <form className="d-inline" action="">
             {/* Title */}
