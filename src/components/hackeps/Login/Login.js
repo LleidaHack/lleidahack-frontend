@@ -59,7 +59,7 @@ const LoginPage = ({ nextScreen }) => {
                   Hola de nou!
                 </h2>
                 <form className="">
-                  <div className="font-bold text-base mt-7 w-full">
+                  <div className="text-base mt-7 w-full">
                     <label className="w-full text-base">
                       <p className="text-white mb-1">Correu:</p>
                       <input
@@ -77,7 +77,7 @@ const LoginPage = ({ nextScreen }) => {
                     )}
                   </div>
 
-                  <div className="font-bold text-base mt-3">
+                  <div className="text-base mt-3">
                     <label className="w-full text-base">
                       <p className="text-white mb-1">Contrasenya:</p>
                       <input
