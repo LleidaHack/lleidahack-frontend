@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 
 const Sponsors = () => {
   const { ids } = useParams();
-  console.log("ID desde la ruta:", ids);
   const sponsorId = ids || 0;
 
   return (

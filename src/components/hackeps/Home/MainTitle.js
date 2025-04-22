@@ -40,7 +40,6 @@ const MainTitle = () => {
   };
 
   useEffect(() => {
-    console.log("fwewf");
     const today = new Date();
     const eventDays = [
       // Aqui es fiquen les dates dels dies de la Hack.
