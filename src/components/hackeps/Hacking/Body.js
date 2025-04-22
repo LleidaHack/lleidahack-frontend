@@ -71,11 +71,9 @@ const WaitingComponent = () => {
         if (profileTime > now && profileTime < nextProfileTime) {
           nextProfileTime = profileTime;
         }
-        
       });
 
       setProfile(currentProfile);
-      
     };
 
     updateProfile(); // Execute first time on open window
@@ -91,13 +89,13 @@ const WaitingComponent = () => {
       const time2Advice = 20; // 20 minutes
       const upcomingActivity = activities.find((activity) => {
         const activityTime = new Date(activity.date).getTime();
-        
+
         return (
           activityTime - now <= time2Advice * 60 * 1000 &&
           activityTime - now > 0
         );
       });
-      
+
       if (
         activeActivity &&
         upcomingActivity &&
@@ -244,7 +242,7 @@ const WaitingComponent = () => {
     const newContent = contents.div;
     const steps = 0.1;
     let opacitys = 1;
-    
+
     if (content.props !== newContent.props) {
       const intervalOut = setInterval(() => {
         if (opacitys <= 0) {

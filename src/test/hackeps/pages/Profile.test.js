@@ -1,26 +1,26 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Profile from 'src/pages/hackeps/Profile';
-import { MemoryRouter, useLocation } from 'react-router-dom';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import Profile from "src/pages/hackeps/Profile";
+import { MemoryRouter, useLocation } from "react-router-dom";
 
-describe('Profile - Render', () => {
-    test(`renders without crashing + header and footer.`, async () => {
-      useLocation.mockReturnValue({
-          state: {
-              fakevalue: 'fakevalue',
-          },
-      });
-
-      render(
-          <MemoryRouter>
-              <Profile />
-          </MemoryRouter>
-      );
-
-      // Verifica que tengamos el footer y el header
-      const footerElement = screen.getByTestId('footerHackeps');
-      expect(footerElement).toBeInTheDocument();
-      const headerElement = screen.getByTestId('headerHackeps');
-      expect(headerElement).toBeInTheDocument();
+describe("Profile - Render", () => {
+  test(`renders without crashing + header and footer.`, async () => {
+    useLocation.mockReturnValue({
+      state: {
+        fakevalue: "fakevalue",
+      },
     });
+
+    render(
+      <MemoryRouter>
+        <Profile />
+      </MemoryRouter>,
+    );
+
+    // Verifica que tengamos el footer y el header
+    const footerElement = screen.getByTestId("footerHackeps");
+    expect(footerElement).toBeInTheDocument();
+    const headerElement = screen.getByTestId("headerHackeps");
+    expect(headerElement).toBeInTheDocument();
+  });
 });
