@@ -1,11 +1,8 @@
-version: "3.8"
-
 services:
   frontend:
     build:
       context: .
       dockerfile: Dockerfile
-    image: lleidahack-frontend:latest
     container_name: lleidahack-frontend
     ports:
       - "3000:3000"
