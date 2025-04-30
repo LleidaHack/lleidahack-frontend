@@ -3,7 +3,7 @@ FROM node:18 AS builder
 WORKDIR /app
 
 
-COPY package.json package-lock.json ./
+COPY package.json ./
 RUN npm cache clean --force
 RUN npm install --legacy-peer-deps --force
 
