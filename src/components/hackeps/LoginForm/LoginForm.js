@@ -1,11 +1,8 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Container, Row, Col } from "react-bootstrap";
 import Button from "src/components/buttons/Button";
 import { Link } from "react-router-dom";
-import "src/components/hackeps/Login/Login.css";
-import logo from "src/icons/hackLogoWellDone.png";
 import { login, me } from "src/services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";

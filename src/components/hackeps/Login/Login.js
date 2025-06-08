@@ -1,12 +1,9 @@
 import React from "react";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
+
 import { Container, Row, Col } from "react-bootstrap";
-import Button from "src/components/buttons/Button";
-import { Link } from "react-router-dom";
+
 import logo from "src/icons/hackLogoWellDone.png";
-import { login } from "src/services/AuthenticationService";
-import { useNavigate } from "react-router-dom";
+
 import LoginForm from "src/components/hackeps/LoginForm/LoginForm";
 
 const LoginPage = ({ nextScreen }) => {
@@ -25,74 +22,7 @@ const LoginPage = ({ nextScreen }) => {
                 <h2 className="text-white mb-2 text-5xl flex items-center text-center">
                   Hola de nou!
                 </h2>
-                <Formik
-                  initialValues={{ email: "", password: "" }}
-                  validationSchema={validationSchema}
-                  onSubmit={handleSubmit}
-                  submitButton={{ label: "Envia" }}
-                >
-                  {({ isSubmitting, submitForm, errors, touched }) => (
-                    <Form>
-                      <div className="font-bold text-base mt-7">
-                        <label className="text-white" htmlFor="email">
-                          Correu
-                        </label>
-                        <Field
-                          type="email"
-                          name="email"
-                          id="email"
-                          className={`form-control ${
-                            touched.email && errors.email ? "is-invalid" : ""
-                          }`}
-                        />
-                        {touched.email && errors.email && (
-                          <div className="text-red-500">{errors.email}</div>
-                        )}
-                      </div>
-                      <div className="font-bold text-base mt-3">
-                        <label className="text-white" htmlFor="password">
-                          Contrasenya
-                        </label>
-                        <Field
-                          type="password"
-                          name="password"
-                          id="password"
-                          className={`form-control ${
-                            touched.password && errors.password
-                              ? "is-invalid"
-                              : ""
-                          }`}
-                        />
-                        {touched.password && errors.password && (
-                          <div className="text-red-500">{errors.password}</div>
-                        )}
-                      </div>
-
-                      <div className="mt-7 mb-7 text-xl text-center">
-                        <p className="mb-1">
-                          <Link
-                            to="/forgot-password"
-                            className="text-grayColor"
-                          >
-                            Has oblidat les teves credencials?
-                          </Link>
-                        </p>
-                        <p className="mb-0">
-                          <Link to="/hacker-form" className="text-grayColor">
-                            Encara no tens compte?
-                          </Link>
-                        </p>
-                      </div>
-                      <div className="flex justify-center mt-3">
-                        <Button type="submit" primary lg>
-                          {isSubmitting
-                            ? "Iniciant sessió..."
-                            : "Inicia sessió"}
-                        </Button>
-                      </div>
-                    </Form>
-                  )}
-                </Formik>
+                <LoginForm nextScreen={nextScreen} />
               </div>
             </Col>
           </Row>
