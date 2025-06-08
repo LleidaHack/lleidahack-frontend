@@ -1,6 +1,5 @@
 import React from "react";
 import HSkeleton from "../LoadingSkeleton/HSkeleton";
-import "./ProfilePic.css";
 import def from "src/imgs/default.png";
 
 function is_not_empty(icon) {
@@ -15,7 +14,7 @@ const StandardPfp = ({ hacker, bgcolor, extra_id, border, is_profile }) => {
           id={extra_id}
           className={`${bgcolor ? `bg-${bgcolor}` : ""} ${
             border ? "border " : ""
-          }${is_profile ? "profilePfpStyle" : "team-member-image"} object-cover`}
+          }${is_profile ? "rounded-full w-5/12 mx-auto aspect-square" : "team-member-image"} object-cover`}
           src={hacker.image}
           alt=""
           style={{ objectFit: "cover", display: "block" }}
@@ -25,7 +24,7 @@ const StandardPfp = ({ hacker, bgcolor, extra_id, border, is_profile }) => {
           id={extra_id}
           className={`${bgcolor ? `bg-white` : ""} ${
             border ? "border " : ""
-          }${is_profile ? "profilePfpStyle" : "team-member-image"}`}
+          }${is_profile ? "rounded-full w-5/12 mx-auto aspect-square" : "team-member-image"}`}
           src={def}
           alt=""
           style={{ objectFit: "cover", display: "block" }}
