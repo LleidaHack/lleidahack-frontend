@@ -7,7 +7,6 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "base-64": "^1.0.0",
     "bootstrap": "^5.2.3",
@@ -67,8 +66,8 @@
   },
   "homePage": "/hackeps",
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.41",
-    "tailwindcss": "^3.4.9"
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.2.0",
+    "tailwindcss": "^3.4.3"
   }
 }
