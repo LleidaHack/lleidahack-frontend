@@ -4,7 +4,7 @@ import Body from "src/components/hackeps/Hacking/Body";
 
 const Hacking = () => {
   return (
-    <div class="overflow-y-hidden w-full h-screen">
+    <div className="overflow-y-hidden w-full h-screen">
       <Body />
     </div>
   );

@@ -7,11 +7,15 @@ import FailFeedback from "../Feedbacks/FailFeedback";
 const ConfirmAssistance = ({ confirm, token }) => {
   const [sending, setSending] = useState(true);
   const [result, setResult] = useState(null);
-  useEffect(async () => {
-    if (confirm) {
-      setResult(await confirmAssistance(token));
-      setSending(false);
-    }
+  useEffect(() => {
+    const fetchData = async () => {
+      if (confirm) {
+        const res = await confirmAssistance(confirm, token);
+        setResult(res);
+        setSending(false);
+      }
+    };
+    fetchData();
   }, []);
   return (
     <div className="min-h-screen">
