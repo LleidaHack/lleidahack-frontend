@@ -71,11 +71,9 @@ const WaitingComponent = () => {
         if (profileTime > now && profileTime < nextProfileTime) {
           nextProfileTime = profileTime;
         }
-        console.log(profile.profile, profileTime - now);
       });
 
       setProfile(currentProfile);
-      console.log("Current profile:", currentProfile);
     };
 
     updateProfile(); // Execute first time on open window
@@ -91,14 +89,13 @@ const WaitingComponent = () => {
       const time2Advice = 20; // 20 minutes
       const upcomingActivity = activities.find((activity) => {
         const activityTime = new Date(activity.date).getTime();
-        console.log("activityTime", activityTime);
+
         return (
           activityTime - now <= time2Advice * 60 * 1000 &&
           activityTime - now > 0
         );
       });
-      console.log("upcomingActivity", upcomingActivity);
-      console.log("activeActivity", activeActivity);
+
       if (
         activeActivity &&
         upcomingActivity &&
@@ -151,7 +148,6 @@ const WaitingComponent = () => {
     bg1 = bg1.trim();
     const bg2 = profiles[nextProfile]?.bgColor?.trim();
     if (!/^#[0-9A-Fa-f]{6}$/.test(bg1) || !/^#[0-9A-Fa-f]{6}$/.test(bg2)) {
-      console.error("Uno de los colores no es válido:", { bg1, bg2 });
       return;
     }
     const step = 0.1;
@@ -246,9 +242,7 @@ const WaitingComponent = () => {
     const newContent = contents.div;
     const steps = 0.1;
     let opacitys = 1;
-    console.log("newContent", newContent);
-    console.log("content", content);
-    console.log(content.props !== newContent.props);
+
     if (content.props !== newContent.props) {
       const intervalOut = setInterval(() => {
         if (opacitys <= 0) {

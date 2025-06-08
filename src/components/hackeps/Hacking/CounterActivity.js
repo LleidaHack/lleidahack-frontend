@@ -11,7 +11,6 @@ const CounterActivity = ({ type, targetTime }) => {
 
   useEffect(() => {
     setTip(type);
-    console.log("CounterActivity", tip);
   }, [type]);
 
   useEffect(() => {
