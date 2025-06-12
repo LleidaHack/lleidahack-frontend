@@ -19,7 +19,7 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-    if (localStorage.getItem("userToken") !== "undefined") {
+    if (localStorage.getItem("userToken")) {
       checkLleidaHacker().then((result) => {
         setIsVerified(result);
       });
