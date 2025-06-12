@@ -49,7 +49,7 @@ const Dashboard = () => {
               <h1 className="text-3xl font-bold text-center text-white mb-2">
                 Inicia sessió com a LleidaHacker
               </h1>
-              <LoginForm lleidahacker={callbackFunction} />
+              <LoginForm nextScreen={callbackFunction} />
             </div>
           </div>
         </div>
