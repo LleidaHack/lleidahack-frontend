@@ -22,6 +22,7 @@ const LoginForm = ({ nextScreen, textWhite = false }) => {
   const [isSubmitting, setSubmitting] = useState(false);
   const [errorText, setErrorText] = useState("");
   const submit = async (values) => {
+    setSubmitting(true);
     try {
       let a = await login(values);
       if (process.env.REACT_APP_DEBUG === "true") console.log(a);
