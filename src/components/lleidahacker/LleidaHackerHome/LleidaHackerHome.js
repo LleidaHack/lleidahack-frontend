@@ -1,10 +1,7 @@
 import React from "react";
 
-
 const LleidaHackerHome = () => {
-  return (
-    <div>LleidaHackerHome</div>
-  )
-}
+  return <div>LleidaHackerHome</div>;
+};
 
-export default LleidaHackerHome
+export default LleidaHackerHome;

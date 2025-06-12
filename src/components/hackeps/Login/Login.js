@@ -18,7 +18,7 @@ const LoginPage = ({ nextScreen }) => {
                 <h2 className="text-white md:mb-2 text-3xl md:text-5xl flex items-center text-center">
                   Hola de nou!
                 </h2>
-               <LoginForm nextScreen={nextScreen} />
+                <LoginForm nextScreen={nextScreen} />
               </div>
             </div>
           </div>
