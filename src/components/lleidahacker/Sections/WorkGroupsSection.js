@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const WorkGroups = () => {
-  return (
-    <div>WorkGroups</div>
-  )
-}
+  return <div>WorkGroups</div>;
+};
 
-export default WorkGroups
+export default WorkGroups;

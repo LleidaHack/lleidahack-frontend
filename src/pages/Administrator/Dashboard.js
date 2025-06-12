@@ -6,7 +6,7 @@ import LleidaHackerHome from "src/components/lleidahacker/Sections/LleidaHackerH
 import LoadSection from "src/components/hackeps/LoadSection/Loadsection";
 import Header from "src/components/lleidahacker/header/header";
 
-const Dashboard = ({section}) => {
+const Dashboard = ({ section }) => {
   const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [subSection, setSubSection] = useState(section || <LleidaHackerHome />);
@@ -27,7 +27,7 @@ const Dashboard = ({section}) => {
     } else {
       setIsLoading(false);
     }
-    console.log("pepersitoo")
+    console.log("pepersitoo");
     setSubSection(section || <LleidaHackerHome />);
   }, []);
 
@@ -35,7 +35,8 @@ const Dashboard = ({section}) => {
     setIsVerified(childData);
   }
   if (!isLoading) {
-    if (isVerified) {  //This condition normaly is !isVerified but deleted to test the login
+    if (isVerified) {
+      //This condition normaly is !isVerified but deleted to test the login
       return (
         <div className="absolute flex flex-col bg-primaryLanding w-screen h-[100vh] justify-center content-center items-center">
           <div className="">
@@ -62,7 +63,6 @@ const Dashboard = ({section}) => {
         <div className="overflow-hidden h-screen">
           <Header />
           {subSection}
-          
         </div>
       );
     }

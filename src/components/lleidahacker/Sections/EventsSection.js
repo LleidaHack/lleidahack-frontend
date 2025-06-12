@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const EventsSection = () => {
-  return (
-    <div>EventsSection</div>
-  )
-}
+  return <div>EventsSection</div>;
+};
 
-export default EventsSection
+export default EventsSection;

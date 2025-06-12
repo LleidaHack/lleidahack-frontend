@@ -1,8 +1,6 @@
 import { React, useState, useEffect } from "react";
 
-const GrupsCardBox = ({title, bgImg, url}) => {
-
-
+const GrupsCardBox = ({ title, bgImg, url }) => {
   return (
     <div className="w-full min-h-full relative ">
       <div
@@ -24,8 +22,8 @@ const GrupsCardBox = ({title, bgImg, url}) => {
 
 export default GrupsCardBox;
 
-
-{/* <div
+{
+  /* <div
   onClick={() => url && window.location.assign(url)}
   className="w-full h-full flex items-center cursor-pointer shadow-md transition-shadow duration-200"
   style={{
@@ -40,4 +38,5 @@ export default GrupsCardBox;
     {title}
   </div>
   
-</div> */}
+</div> */
+}

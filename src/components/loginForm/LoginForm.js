@@ -96,7 +96,9 @@ const LoginForm = ({ nextScreen, textWhite = false }) => {
         <div className="flex flex-col justify-center mt-3">
           <Button
             type="submit"
-            {...(textWhite ? { secondaryLanding: true } : { primaryHackeps: true })}
+            {...(textWhite
+              ? { secondaryLanding: true }
+              : { primaryHackeps: true })}
             lg
             onClick={handleSubmit(submit)}
             className={` ${!isValid ? "opacity-50 hover:none bg-secondaryLanding" : "hover:bg-secondaryLanding"}`}
