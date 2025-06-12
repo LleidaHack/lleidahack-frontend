@@ -15,7 +15,7 @@ const Dashboard = () => {
     if (myuser) {
       setIsLoading(false);
     }
-    return myuser.type === "lleida_hacker";
+    return myuser && myuser.type === "lleida_hacker";
   }
 
   useEffect(() => {
