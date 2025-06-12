@@ -15,11 +15,11 @@ const Dashboard = () => {
     if (myuser) {
       setIsLoading(false);
     }
-    return myuser.type === "lleida_hacker";
+    return myuser && myuser.type === "lleida_hacker";
   }
 
   useEffect(() => {
-    if (localStorage.getItem("userToken") !== "undefined") {
+    if (localStorage.getItem("userToken")) {
       checkLleidaHacker().then((result) => {
         setIsVerified(result);
       });
