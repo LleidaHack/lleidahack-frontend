@@ -12,7 +12,7 @@ const GrupsCardBox = ({ title, bgImg, url }) => {
           backgroundPosition: "center",
         }}
       >
-        <div className="bg-black/50 py-20 text-white px-6 py-6 text-5xl font-bold h-full w-full text-center content-center">
+        <div className="bg-black/50 py-6 text-white px-6 text-5xl font-bold h-full w-full text-center content-center">
           {title}
         </div>
       </div>
