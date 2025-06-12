@@ -29,7 +29,7 @@ const Dashboard = ({ section }) => {
     }
     console.log("pepersitoo");
     setSubSection(section || <LleidaHackerHome />);
-  }, []);
+  }, [section]);
 
   function callbackFunction(childData) {
     setIsVerified(childData);
