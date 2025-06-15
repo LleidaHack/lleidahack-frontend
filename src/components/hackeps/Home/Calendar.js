@@ -44,11 +44,15 @@ const CalendarDates = (props) => {
           </Col>
           <Col>
             <div className="calendar-container">
-              <Calendar
-                value={[startDate, endDate]}
-                locale={"ca"}
-                minDetail={"month"}
-              />
+              {startDate && endDate && !isNaN(startDate.getTime()) && !isNaN(endDate.getTime()) ? (
+                <Calendar
+                  value={[startDate, endDate]}
+                  locale={"ca"}
+                  minDetail={"month"}
+                />
+              ) : (
+                <div>Loading calendar...</div>
+              )}
             </div>
           </Col>
         </Row>

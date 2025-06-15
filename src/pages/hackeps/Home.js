@@ -14,13 +14,28 @@ const Home = () => {
 
   useEffect(() => {
     async function getDates() {
-      const response = await getHackeps();
-      const start = new Date(response.start_date);
-      start.setMonth(start.getMonth());
-      const end = new Date(response.end_date);
-      end.setMonth(end.getMonth());
-      setStartDate(start);
-      setEndDate(end);
+      try {
+        const response = await getHackeps();
+        if (response && response.start_date && response.end_date) {
+          const start = new Date(response.start_date);
+          const end = new Date(response.end_date);
+          
+          // Check if dates are valid
+          if (!isNaN(start.getTime()) && !isNaN(end.getTime())) {
+            setStartDate(start);
+            setEndDate(end);
+            return;
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch event dates:', error);
+      }
+      
+      // Fallback to hardcoded dates for HackEPS 2024
+      const fallbackStart = new Date('2024-11-23');
+      const fallbackEnd = new Date('2024-11-24');
+      setStartDate(fallbackStart);
+      setEndDate(fallbackEnd);
     }
     getDates();
   }, []);
