@@ -3,11 +3,9 @@ import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
 const Schedule = ({ events }) => {
   return (
-    <div className="relative bg-secondaryHackeps px-6 py-12">
-
-      {/* Línea vertical central del timeline */}
+    <body className="bg-secondaryHackeps">
+    <div className="relative px-6 md:px-16 py-12 max-w-4xl mx-auto">
       
-
       {/* Título */}
       <TitleGeneralized underline href="#horari">
         Horari
@@ -26,6 +24,7 @@ const Schedule = ({ events }) => {
         ))}
       </div>
     </div>
+    </body>
   );
 };
 

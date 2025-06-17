@@ -1,4 +1,5 @@
-import "../../../assets/TIMON.png";
+import timonImg from "../../../assets/TIMON.png";
+
 
 const ScheduleItem = ({ time, title, description, isRight }) => {
   const rowClass = isRight ? "md:flex-row-reverse" : "md:flex-row";
@@ -26,7 +27,7 @@ const ScheduleItem = ({ time, title, description, isRight }) => {
           ${clamOffset}
         `}
       >
-        <img src="../../../assets/TIMON.png" className="h-12 w-12" />
+        <img src={timonImg} className="h-12 w-12" />
       </div>
 
       {/* Contenido */}
