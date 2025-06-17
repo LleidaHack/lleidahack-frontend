@@ -27,3 +27,15 @@ body {
   --text-primary: #f5f5f5;
   --text-secondary: #000000;
 }
+
+.image-input-container input[type="file" i]::-webkit-file-upload-button {
+  color: var(--text-primary);
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  color: black;
+  background-color: var(--primary);
+  border: none;
+  padding: 0.5em;
+  border-radius: 0.2em;
+}

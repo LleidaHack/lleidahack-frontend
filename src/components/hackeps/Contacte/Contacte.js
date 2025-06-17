@@ -4,41 +4,20 @@ import logo from "src/assets/logo_text_llh.svg";
 import instagramLogo from "src/icons/instagram_negre.png";
 import linkedinLogo from "src/icons/linkedin_negre.png";
 import twitterLogo from "src/icons/X_negre.png";
-import Button from "src/components/buttons/Button";
-
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import { useForm } from "react-hook-form";
 import { contacte } from "src/services/AuthenticationService";
 import SuccessFeedback from "src/components/hackeps/Feedbacks/SuccesFeedback";
 import FailFeedback from "src/components/hackeps/Feedbacks/FailFeedback";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required("Nom requerit"),
-  email: Yup.string()
-    .email("El correu ha de ser una adreça de correu vàlida")
-    .required("Correu requerit"),
-  title: Yup.string().required("Títol del missatge requerit"),
-  message: Yup.string().required("Missatge requerit"),
-});
-
 const ContactePage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [mailSended, setMailSended] = useState(false);
   const [mailStatus, setMailStatus] = useState(false);
-
-  const handleSubmit = async (values) => {
-    console.log(values);
-    const onMail = await contacte(values);
-
-    if (onMail.success) {
-      setMailStatus(true); //primer fiquem que el estat es correcte
-      setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
-    } else {
-      setMailStatus(false); //primer fiquem que el estat es incorrecte
-      setMailSended(true); //Despres indiquem que ja es pot carregar la pagina de status
-    }
-  };
-
   const handleButtonClick = () => {
     window.location.reload();
   };
@@ -48,128 +27,109 @@ const ContactePage = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const onSubmit = async (data) => {
+    const success = await contacte(data);
+    setMailStatus(success);
+    setMailSended(true);
+  };
+
   return (
-    <div className="container-all bg-secondaryHackeps">
+    <div className="h-screen bg-secondaryHackeps">
       {!mailSended ? (
         <>
           <TitleGeneralized underline>Contacte</TitleGeneralized>
-          <div className="contact-container">
-            <div className="logo-container">
-              <h2 className="title-logo text-textSecondaryHackeps">
+          <div className="flex flex-row justify-center gap-2 mx-4 ">
+            <div className="  basis-1/2 justify-items-center content-center">
+              <img src={logo} alt="logo" className="w-1/3" />
+              <p className="text-xl mt-3">
                 Esdeveniment organitzat per LleidaHack
-              </h2>
-              <img src={logo} alt="Logo" className="logo" />
-              <div className="social-logos">
-                <a
-                  href="https://www.twitter.com/lleidahack"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={twitterLogo}
-                    alt="Twitter"
-                    className="social-logo"
-                  />
+              </p>
+              <div className="flex flex-row gap-3 mt-2">
+                <a href="https://twitter.com/lleidahack">
+                  <img src={twitterLogo} alt="twitter" className="w-12" />
                 </a>
-                <a
-                  href="https://www.linkedin.com/company/lleidahack"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={linkedinLogo}
-                    alt="LinkedIn"
-                    className="social-logo"
-                  />
+                <a href="https://www.linkedin.com/company/lleidahack">
+                  <img src={linkedinLogo} alt="linkedin" className="w-12" />
                 </a>
-                <a
-                  href="https://www.instagram.com/lleidahack"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={instagramLogo}
-                    alt="Instagram"
-                    className="social-logo"
-                  />
+                <a href="https://www.instagram.com/lleidahack/">
+                  <img src={instagramLogo} alt="instagram" className="w-12" />
                 </a>
               </div>
             </div>
-            <div className="form-container-contacte">
-              <Formik
-                initialValues={{
-                  name: "",
-                  email: "",
-                  title: "",
-                  message: "",
-                }}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
+
+            <div className="basis-1/2 ">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col gap-3"
               >
-                <Form className="form-contacte">
-                  <div className="formik-field">
-                    <label className="text-textSecondaryHackeps" htmlFor="name">
-                      Nom:
-                    </label>
-                    <Field type="text" id="name" name="name" />
-                    <ErrorMessage
-                      name="name"
-                      component="div"
-                      className="error-message"
-                    />
-                  </div>
+                <label>
+                  Nom:
+                  <input
+                    className={`${errors.name ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base`}
+                    placeholder="Nom"
+                    {...register("name", {
+                      required: "El nom no pot estar buit",
+                    })}
+                  />
+                  {errors.name && (
+                    <span className="text-red-400">{errors.name.message}</span>
+                  )}
+                </label>
 
-                  <div className="formik-field">
-                    <label
-                      className="text-textSecondaryHackeps"
-                      htmlFor="email"
-                    >
-                      Correu:
-                    </label>
-                    <Field type="email" id="email" name="email" />
-                    <ErrorMessage
-                      name="email"
-                      component="div"
-                      className="error-message"
-                    />
-                  </div>
+                <label>
+                  Correu:
+                  <input
+                    className={`${errors.name ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base`}
+                    placeholder="correu"
+                    {...register("email", {
+                      required:
+                        "Et falta indicar-nos el teu correu de contacte",
+                      pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: "El correu no és vàlid",
+                      },
+                    })}
+                  />
+                  {errors.email && (
+                    <span className="text-red-400">{errors.email.message}</span>
+                  )}
+                </label>
 
-                  <div className="formik-field">
-                    <label
-                      className="text-textSecondaryHackeps"
-                      htmlFor="title"
-                    >
-                      Títol del missatge:
-                    </label>
-                    <Field type="text" id="title" name="title" />
-                    <ErrorMessage
-                      name="title"
-                      component="div"
-                      className="error-message"
-                    />
-                  </div>
+                <label>
+                  Títol:
+                  <input
+                    className={`${errors.name ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base`}
+                    placeholder="Titol del missatge"
+                    {...register("title", {
+                      required: "El titol no pot estar buit",
+                    })}
+                  />
+                  {errors.title && (
+                    <span className="text-red-400">{errors.title.message}</span>
+                  )}
+                </label>
 
-                  <div className="formik-field">
-                    <label
-                      className="text-textSecondaryHackeps"
-                      htmlFor="message"
-                    >
-                      Missatge:
-                    </label>
-                    <Field as="textarea" id="message" name="message" rows="4" />
-                    <ErrorMessage
-                      name="message"
-                      component="div"
-                      className="text-primaryHackeps"
-                    />
-                  </div>
-                  <div className="button-submit-container mb-8">
-                    <Button primary type="submit">
-                      Enviar
-                    </Button>
-                  </div>
-                </Form>
-              </Formik>
+                <label>
+                  Missatge:
+                  <textarea
+                    className={`${errors.name ? "bg-pink-100" : "bg-white"} px-2 text-base`}
+                    placeholder="Indicans en que et podem ajudar."
+                    {...register("message", {
+                      required: "El missatge no pot estar buit",
+                    })}
+                  />
+                  {errors.message && (
+                    <span className="text-red-400">
+                      {errors.message.message}
+                    </span>
+                  )}
+                </label>
+
+                <input
+                  className="hover:bg-primaryHackeps hover:text-white transition ease-in-out delay-100 min-h-10"
+                  type="submit"
+                />
+              </form>
             </div>
           </div>
         </>

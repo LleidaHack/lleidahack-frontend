@@ -5,14 +5,34 @@ on:
       - main
       - integration
   workflow_dispatch:
+
 jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - uses: actions/checkout@v2
+
+      # Install Node 12
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+
+      # Install dependencies
+      - run: npm install
+
+      # Run tests
+      - run: npm run test -- --watchAll=false --ci --passWithNoTests --silent 
   deploy:
+    needs: tests
     runs-on: ubuntu-latest
     steps:
       - name: Extract branch name
         shell: bash
         run: echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >>$GITHUB_OUTPUT
         id: extract_branch
+
       - name: Push to server
         uses: appleboy/ssh-action@master
         with:
@@ -26,9 +46,10 @@ jobs:
             git checkout ${{ steps.extract_branch.outputs.branch }}
             git pull
             rm -rf build
-            npm run build
+            npm run build      # Construcción del proyecto
             sudo systemctl restart frontend.${{ steps.extract_branch.outputs.branch }}
-      - name: check server status
+
+      - name: Check server status
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
