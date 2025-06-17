@@ -10,7 +10,7 @@ const ScheduleItem = ({ time, title, description, isRight }) => {
       className={`flex flex-col ${rowClass} items-center gap-6 py-6 md:items-start`}
     >
       {/* Contenido: Hora + título + descripción */}
-      <div className="md:w-1/2 text-center md:text-left space-y-2">
+      <div  className="md:w-1/2 text-center md:text-left space-y-2">
        {/* Hora */}
         <time
           className="text-xl font-mono font-bold text-textSecondaryHackeps"
@@ -19,23 +19,25 @@ const ScheduleItem = ({ time, title, description, isRight }) => {
           {time}
         </time>
 
-      {/*
-      
-        <div
-          className={`
-            w-[80px] border-t border-textSecondaryHackeps my-2 
-            ${isRight ? 'ml-0' : 'ml-auto'}
-          `}
-        />
+        {/*
         
-      */}
+          <div
+            className={`
+              w-[80px] border-t border-textSecondaryHackeps my-2 
+              ${isRight ? 'ml-0' : 'ml-auto'}
+            `}
+          />
+          
+        */}
 
 
-        {/* Descripción */}
-        <h3 className="text-lg  text-textSecondaryHackeps">
-          {title}
+        {/* Descripción 
+         className="text-lg  text-textSecondaryHackeps"
+        */}
+        <h3>
+          {title} 
         </h3>
-        <p className="text-sm text-gray-700">{description}</p>
+        <p>{description}</p>
       </div>
 
       {/* Ícono (timon) */}
@@ -46,7 +48,7 @@ const ScheduleItem = ({ time, title, description, isRight }) => {
           ${clamOffset}
         `}
       >
-        <img src={timonImg} className="h-12 w-12" />
+        <img src={timonImg} />
       </div>
     </article>
   );
