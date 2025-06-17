@@ -74,7 +74,7 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           Clouding.io
-          </a>
+        </a>
       </div>
     </footer>
   );
