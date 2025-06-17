@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "src/components/hackeps/Home/Calendar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
@@ -8,14 +7,6 @@ import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 import Calendar from "src/components/hackeps/Calendar/Calendar";
 
 const CalendarDates = (props) => {
-  const [startDate, setStartDate] = useState(props.startDate);
-  const [endDate, setEndDate] = useState(props.endDate);
-
-  useEffect(() => {
-    setStartDate(props.startDate);
-    setEndDate(props.endDate);
-  }, [props.startDate, props.endDate]);
-
   return (
     <div className="bg-secondaryHackeps p-5">
       <div className="claseGhosting" id="dates"></div>

@@ -3,49 +3,44 @@ import React from "react";
 const Calendar = () => {
   const daysOfWeek = ["Dl", "Dt", "Dc", "Dj", "Dv", "Ds", "Dg"];
   const year = 2025;
-  const month = 10; // Novembre (0-indexat)
+  const month = 10; // Novembre (0-indexado)
   const daysInMonth = 30;
-
   const highlightedDays = [22, 23];
 
-  // Primer dia del mes (0 = Dg, 1 = Dl, ..., 6 = Ds)
-  const rawFirstDay = new Date(year, month, 1).getDay();
-  const firstDay = (rawFirstDay + 6) % 7; // Ajustar perquè dilluns sigui primer
+  const rawFirstDay = new Date(year, month, 1).getDay(); // Día real (0 = domingo)
+  const firstDay = (rawFirstDay + 6) % 7; // Ajustamos para que lunes sea el primero
 
   const calendarDays = [];
-  for (let i = 0; i < firstDay; i++) {
-    calendarDays.push(null);
-  }
-  for (let day = 1; day <= daysInMonth; day++) {
-    calendarDays.push(day);
-  }
+  for (let i = 0; i < firstDay; i++) calendarDays.push(null);
+  for (let day = 1; day <= daysInMonth; day++) calendarDays.push(day);
 
   const weeks = [];
-  for (let i = 0; i < calendarDays.length; i += 7) {
+  for (let i = 0; i < calendarDays.length; i += 7)
     weeks.push(calendarDays.slice(i, i + 7));
-  }
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-[var(--primary)] text-[var(--white)] rounded">
-      <h2 className="text-xl font-bold text-center mb-4">Novembre 2025</h2>
-      <div className="grid grid-cols-7 text-center font-medium mb-2">
+    <div className="max-w-sm mx-auto p-6 bg-[#3c3c3c] text-white rounded-xl shadow-lg font-mono">
+      <h2 className="text-2xl text-center mb-4">Novembre</h2>
+      <div className="grid grid-cols-7 gap-2 text-center text-lg mb-1">
         {daysOfWeek.map((day) => (
           <div key={day}>{day}</div>
         ))}
       </div>
-      <div className="grid grid-cols-7 gap-1 text-center">
-        {weeks.flat().map((day, index) => (
-          <div
-            key={index}
-            className={`p-2 border rounded h-10 flex items-center justify-center ${
-              highlightedDays.includes(day)
-                ? "bg-[var(--primary-strong2)] text-black font-bold border-white"
-                : "bg-[var(--primary-strong)]"
-            }`}
-          >
-            {day || ""}
-          </div>
-        ))}
+      <div className="grid grid-cols-7 gap-2 text-center">
+        {weeks.flat().map((day, idx) => {
+          const isHighlighted = highlightedDays.includes(day);
+          const bgColor = isHighlighted ? "bg-[#1d6aa3]" : "bg-[#fceee5]";
+          const textColor = isHighlighted ? "text-white" : "text-black";
+
+          return (
+            <div
+              key={idx}
+              className={`h-10 rounded-md shadow-md flex items-center justify-center ${bgColor} ${textColor}`}
+            >
+              {day || ""}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
