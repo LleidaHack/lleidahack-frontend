@@ -12,10 +12,10 @@ module.exports = {
         errorLanding: "#E55010",
         linkLanding: "#3366CC",
         grayColor: "#757575",
-        primaryHackeps: "#0e3a29", // src/components/hackeps/Home/Schedule.js, line 23
+        primaryHackeps: "#54311A", // src/components/hackeps/Home/Schedule.js, line 23
         textPrimaryHackeps: "#F5F5F5",
         primaryHackepsDark: "#2F7D5F",
-        secondaryHackeps: "#F7F7F2",
+        secondaryHackeps: "#F5E7DE",
         textSecondaryHackeps: "#000000",
         blackHackeps: "#0F0F0F",
         lightHackeps: "#F5F5F5",
