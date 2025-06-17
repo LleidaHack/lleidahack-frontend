@@ -7,19 +7,38 @@ const ScheduleItem = ({ time, title, description, isRight }) => {
 
   return (
     <article
-      className={`flex flex-col ${rowClass} items-start md:items-center gap-6 py-6`}
+      className={`flex flex-col ${rowClass} items-center gap-6 py-6 md:items-start`}
     >
-      {/* Hora */}
-      <div className="md:w-1/2 text-center md:text-left">
+      {/* Contenido: Hora + título + descripción */}
+      <div className="md:w-1/2 text-center md:text-left space-y-2">
+       {/* Hora */}
         <time
-          className="text-xl font-mono text-textSecondaryHackeps"
+          className="text-xl font-mono font-bold text-textSecondaryHackeps"
           dateTime={time}
         >
           {time}
         </time>
+
+      {/*
+      
+        <div
+          className={`
+            w-[80px] border-t border-textSecondaryHackeps my-2 
+            ${isRight ? 'ml-0' : 'ml-auto'}
+          `}
+        />
+        
+      */}
+
+
+        {/* Descripción */}
+        <h3 className="text-lg  text-textSecondaryHackeps">
+          {title}
+        </h3>
+        <p className="text-sm text-gray-700">{description}</p>
       </div>
 
-      {/* Espacio foto icono*/}
+      {/* Ícono (timon) */}
       <div
         className={`
           hidden md:flex items-center justify-center
@@ -29,16 +48,9 @@ const ScheduleItem = ({ time, title, description, isRight }) => {
       >
         <img src={timonImg} className="h-12 w-12" />
       </div>
-
-      {/* Contenido */}
-      <div className="md:w-1/2">
-        <h3 className="text-lg font-bold text-textSecondaryHackeps">
-          {title}
-        </h3>
-        <p className="text-sm text-gray-700 mt-1">{description}</p>
-      </div>
     </article>
   );
 };
+
 
 export default ScheduleItem;
