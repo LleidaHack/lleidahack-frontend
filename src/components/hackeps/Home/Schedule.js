@@ -15,7 +15,7 @@ const Schedule = ({ events }) => {
       <div className="mt-12 space-y-12 relative z-10">
         {events.map((event, index) => (
           <ScheduleItem
-            key={event.id ?? index} // usa id si está, sino el índice
+            key={index}
             time={event.time}
             title={event.title}
             description={event.description}
