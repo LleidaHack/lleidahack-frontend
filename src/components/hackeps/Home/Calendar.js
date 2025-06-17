@@ -43,6 +43,7 @@ const CalendarDates = (props) => {
             </p>
           </Col>
           <Col>
+
             <div className="calendar-container">
               <Calendar
                 value={[startDate, endDate]}
