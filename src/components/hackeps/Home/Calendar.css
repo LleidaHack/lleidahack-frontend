@@ -168,6 +168,13 @@
   background-color: var(--primary);
 }
 
+.highlighted-day {
+  background-color: var(--primary-strong2) !important;
+  color: var(--white) !important;
+  font-weight: bold;
+  border: 2px solid var(--white);
+}
+
 .claseGhosting {
   position: relative;
   top: -13.2vh;
