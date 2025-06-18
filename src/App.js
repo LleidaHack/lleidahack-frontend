@@ -19,7 +19,7 @@ import RequireAuth from "src/modules/RequireAuth";
 import RequireLleidahacker from "./modules/RequireLleidahacker";
 import ResetPassword from "./pages/hackeps/ResetPassword";
 import PasswordForget from "./pages/hackeps/ForgetPassword";
-import Dashboard from "./pages/hackeps/Dashboard/Dashboard";
+import Dashboard from "./pages/Administrator/Dashboard";
 import "src/utils/ensure-basename";
 import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
@@ -84,14 +84,6 @@ export default function App() {
               </RequireAuth>
             }
           />
-          <Route
-            path="/dashboard"
-            element={
-              <RequireLleidahacker originalRoute="/dashboard">
-                <Dashboard />
-              </RequireLleidahacker>
-            }
-          />
           <Route path="/forgot-password" element={<PasswordForget />} />
           <Route path="/user-verification" element={<LoginVerify />} />
           <Route path="/assistance" element={<ConfirmAssistancePage />} />
@@ -109,6 +101,11 @@ export default function App() {
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
       </Router>*/}
+      <Router basename="/admin">
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
