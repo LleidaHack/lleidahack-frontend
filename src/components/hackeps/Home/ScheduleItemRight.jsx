@@ -4,10 +4,10 @@ const ScheduleItem = ({ time, title, description }) => {
   return (
     <article className="flex flex-col md:flex-row  gap-4 py-6 md:items-center justify-end">
       {/* Ícono (timón) */}
-      <div className="md:w-24 h-full center ">
+      <div className=" md:w-24 h-full center">
         <img
           src={timonImg}
-          className="w-full h-full object-contain"
+          className="hidden md:block w-full h-full object-contain"
           alt="Ícono timón"
         />
       </div>

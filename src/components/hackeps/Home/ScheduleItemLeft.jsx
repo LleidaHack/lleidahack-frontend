@@ -2,7 +2,7 @@ import timonImg from "../../../assets/TIMON.png";
 
 const ScheduleItem = ({ time, title, description }) => {
   return (
-    <article className="flex flex-col md:flex-row gap-4 py-6 md:items-center  ">
+    <article className="flex flex-col md:flex-row gap-4 py-6 md:items-center ">
       
       {/* Caja: time + title */}
       <div className=" md:w-1/2 space-y-2">
@@ -27,10 +27,10 @@ const ScheduleItem = ({ time, title, description }) => {
       </div>
 
       {/* Ícono (timón) */}
-      <div className="md:w-24 h-full">
+      <div className=" md:w-24 h-full">
         <img
           src={timonImg}
-          className="w-full h-full object-contain"
+          className="hidden md:block w-full h-full object-contain"
           alt="Ícono timón"
         />
       </div>

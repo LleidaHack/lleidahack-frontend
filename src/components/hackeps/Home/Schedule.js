@@ -5,7 +5,7 @@ import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 const Schedule = ({ events }) => {
   return (
     <body className="bg-secondaryHackeps">
-      <div className="relative px-6 md:px-16 py-12 max-w-6xl mx-auto">
+      <div className="relative px-6 md:px-16 py-12 max-w-6xl mx-auto ">
         {/* Título */}
         <TitleGeneralized underline href="#horari">
           Horari
