@@ -174,11 +174,7 @@
   font-weight: bold;
   border: 2px solid var(--white);
 }
-:root {
-  --cream: #fceee5;
-  --blue-accent: #1d6aa3;
-  --red-accent: #b13737;
-}
+
 
 .claseGhosting {
   position: relative;
