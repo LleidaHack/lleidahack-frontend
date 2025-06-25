@@ -3,12 +3,12 @@ import React from "react";
 const Calendar = () => {
   const daysOfWeek = ["Dl", "Dt", "Dc", "Dj", "Dv", "Ds", "Dg"];
   const year = 2025;
-  const month = 10; // Novembre (0-indexado)
+  const month = 10;
   const daysInMonth = 30;
   const highlightedDays = [22, 23];
 
-  const rawFirstDay = new Date(year, month, 1).getDay(); // Día real (0 = domingo)
-  const firstDay = (rawFirstDay + 6) % 7; // Ajustamos para que lunes sea el primero
+  const rawFirstDay = new Date(year, month, 1).getDay();
+  const firstDay = (rawFirstDay + 6) % 7;
 
   const calendarDays = [];
   for (let i = 0; i < firstDay; i++) calendarDays.push(null);
