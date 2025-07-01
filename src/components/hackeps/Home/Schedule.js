@@ -25,26 +25,29 @@ const ScheduleItem = ({ time, title, description, align = "right" }) => {
       {/* Ícono (timón) a la izquierda si align es left */}
       {!isRight && <TimonIcon />}
 
-      {/* Caja: time + title */}
-      <div className="md:w-1/2 space-y-2 ">
-        <div className="grid grid-cols-3 w-full">
-          <>
-            <time
-              dateTime={time}
-              className={`${alignmentClass} text-xl font-mono text-textSecondaryHackeps`}
-            >
-              {time}
-            </time>
-            <h3
-              className={`${alignmentClass} text-2xl font-semibold col-span-2`}
-            >
-              {title}
-            </h3>
-          </>
+      {/* Caja: time + title i Caja description */}
+      <div className=" md:w-1/2 space-y-2 ">
+        {/* Caja: time + title */}
+        <div className={`flex items-center ${isRight ? "md:justify-end" : "md:justify-start"} md:gap-7 md:flex-row flex-col w-full`}>
+            <>
+              <time
+                dateTime={time}
+                className={`${alignmentClass} text-xl font-mono text-textSecondaryHackeps`}
+              >
+                {time}
+              </time>
+
+              <h2 className={`text-2xl font-semibold w-fit m-0 p-0 ${alignmentClass} text-center `}>
+                {title}
+              </h2>
+            </>
+          
         </div>
 
         {description && (
-          <p className={`${alignmentClass} text-textSecondaryHackeps`}>
+          <p
+            className={`${alignmentClass} text-center text-textSecondaryHackeps md:items-left `}
+          >
             {description}
           </p>
         )}
