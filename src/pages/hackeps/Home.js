@@ -56,7 +56,8 @@ const Home = () => {
     {
       time: "11:30 h",
       title: "Presentacions dels projectes",
-      description: "Presentació dels projectes desenvolupats durant el hackathon",
+      description:
+        "Presentació dels projectes desenvolupats durant el hackathon",
     },
     {
       time: "14:00 h",

@@ -15,7 +15,7 @@ const TimonIcon = () => (
 const ScheduleItem = ({ time, title, description, align = "right" }) => {
   const isRight = align === "right";
 
-const alignmentClass = isRight ? "text-right" : "text-left";
+  const alignmentClass = isRight ? "text-right" : "text-left";
   return (
     <article
       className={`flex flex-col md:flex-row gap-4 py-6 md:items-center ${
@@ -28,24 +28,23 @@ const alignmentClass = isRight ? "text-right" : "text-left";
       {/* Caja: time + title */}
       <div className="md:w-1/2 space-y-2 ">
         <div className="grid grid-cols-3 w-full">
-            <>
-              <time
-                dateTime={time}
-                className={`${alignmentClass} text-xl font-mono text-textSecondaryHackeps`}
-              >
-                {time}
-              </time>
-              <h3 className={`${alignmentClass} text-2xl font-semibold col-span-2`}>
-                {title}
-              </h3>
-            </>
-          
+          <>
+            <time
+              dateTime={time}
+              className={`${alignmentClass} text-xl font-mono text-textSecondaryHackeps`}
+            >
+              {time}
+            </time>
+            <h3
+              className={`${alignmentClass} text-2xl font-semibold col-span-2`}
+            >
+              {title}
+            </h3>
+          </>
         </div>
 
         {description && (
-          <p
-            className={`${alignmentClass} text-textSecondaryHackeps`}
-          >
+          <p className={`${alignmentClass} text-textSecondaryHackeps`}>
             {description}
           </p>
         )}
