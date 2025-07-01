@@ -53,18 +53,6 @@ label {
   border-width: 5px;
 }
 
-input[type="file"]::-webkit-file-upload-button {
-  color: black;
-  background-color: var(--primary);
-  border: none;
-  padding: 0.5em;
-  border-radius: 0.2em;
-}
-
 .stepper-horizontal > .stepper-step {
   flex-shrink: 0;
-}
-
-.image-input-container input[type="file" i]::-webkit-file-upload-button {
-  color: var(--text-primary);
 }

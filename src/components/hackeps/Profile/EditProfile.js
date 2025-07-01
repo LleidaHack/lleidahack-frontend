@@ -1,25 +1,33 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { updateHacker } from "src/services/HackerService";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { SelectField } from "formik-stepper";
 import FileBase from "react-file-base64";
-import Row from "react-bootstrap/Row";
 import userIcon from "src/icons/user2.png";
 import Button from "src/components/buttons/Button";
+import { useForm } from "react-hook-form";
 
-const EditProfile = (props) => {
+const EditProfile = ({ hackerObj }) => {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [cvFile, setCvFile] = useState("");
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+    trigger,
+  } = useForm({
+    mode: "onChange",
+  });
 
-  const [pfpImage, setImage] = useState(props.hacker.image);
   const [isSending, setIsLoading] = useState(false);
   const [isPfpTooLarge, setPfpTooLarge] = useState(false);
   const [isCvTooLarge, setCvTooLarge] = useState(false);
   const [hasImageChanged, setHasImageChanged] = useState(false);
   const [cvFileChanged, setcvFileChanged] = useState(false);
   const [submitError, setSubmitError] = useState("");
-
+  const [hacker, setHacker] = useState({});
+  const [pfpImage, setImage] = useState(hacker.image || userIcon);
+  const [hackerLinkedin, setHackerLinkedin] = useState(hacker.linkedin || "");
+  const [hackerGithub, setHackerGithub] = useState(hacker.github || "");
   const sizeOptions = [
     { value: "S", label: "S" },
     { value: "M", label: "M" },
@@ -29,11 +37,28 @@ const EditProfile = (props) => {
     { value: "XXXL", label: "XXXL" },
   ];
 
+  useEffect(() => {
+    const hacker_id = localStorage.getItem("userID");
+    hackerObj.id = hacker_id;
+    setHacker(hackerObj);
+    setImage(hackerObj.image || userIcon);
+    setHackerLinkedin(hackerObj.linkedin || "");
+    setHackerGithub(hackerObj.github || "");
+  }, [hackerObj]);
+
   const handleFileChange = (event) => {
-    let file = event.base64;
-    setCvTooLarge(parseFloat(event.size) > 1024);
-    setCvFile(file);
-    setcvFileChanged(true);
+    const file = event.target.files[0];
+    if (file.type !== "application/pdf") {
+      setSubmitError("Només es permeten fitxers PDF.");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setCvTooLarge(file.size > 1024 * 1024);
+      setCvFile(reader.result);
+      setcvFileChanged(true);
+    };
+    reader.readAsDataURL(file);
   };
 
   const clearFile = () => {
@@ -62,12 +87,13 @@ const EditProfile = (props) => {
     setImage(event.target.value.trim());
   };
 
-  const handleEditProfileSubmit = async (values) => {
+  const onSubmit = async (formData) => {
+    console.log(hacker);
     const data = {
-      id: props.hacker.id,
-      shirt_size: values.size,
-      linkedin: values.linkedin,
-      github: values.github,
+      id: hacker.id,
+      shirt_size: formData.size || hacker.shirt_size,
+      linkedin: formData.linkedin || hackerLinkedin,
+      github: formData.github || hackerGithub,
     };
     if (hasImageChanged) {
       data.image = pfpImage;
@@ -90,175 +116,123 @@ const EditProfile = (props) => {
 
   return (
     <>
-      {props.hacker && (
+      {hacker && (
         <div className="row align-middle mx-auto mb-3 col-12">
           {showEditProfile ? (
             <div>
               <Button secondary outline onClick={onEditButtonClick}>
                 <i className="fas fa-sign-out"></i> Close
               </Button>
-              <div className="form-container">
-                <Formik
-                  enableReinitialize
-                  initialValues={{
-                    size: props.hacker.shirt_size,
-                    //imageUrl: props.hacker.image.startsWith("http") && props.hacker.image,
-                    github: props.hacker.github,
-                    linkedin: props.hacker.linkedin,
-                    cvinfo: props.hacker.cv,
-                  }}
-                  onSubmit={handleEditProfileSubmit}
-                >
-                  <Form>
-                    <div
-                      className="formik-field "
-                      style={{ marginTop: "5%", color: "black" }}
+              <div className="text-black mt-4">
+                <form className="flex flex-col gap-3">
+                  <label>
+                    Talla de samarreta:
+                    <select
+                      id="size"
+                      name="size"
+                      className={`py-2 min-h-10 px-2 text-base mt-2 ml-2`}
+                      defaultValue={hacker.shirt_size}
+                      {...register("size")}
                     >
-                      <SelectField
-                        id="size"
-                        name="size"
-                        label="Talla de samarreta:"
-                        options={sizeOptions}
-                        placeholder="La meva talla de samarreta és..."
-                      />
-                      <ErrorMessage
-                        name="size"
-                        component="div"
-                        className="error-message"
-                      />
-                    </div>
+                      {sizeOptions.map((size) => (
+                        <option key={size.value} value={size.value}>
+                          {size.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
 
-                    <div className="subfield text-textSecondaryHackeps">
-                      <label htmlFor="linkedin">Enllaç de LinkedIn</label>
-                      <Field type="text" id="linkedin" name="linkedin" />
-                      <ErrorMessage
-                        name="linkedin"
-                        component="div"
-                        className="error-message"
-                      />
-                    </div>
+                  <label>
+                    Enllaç de LinkedIn:
+                    <input
+                      type="text"
+                      id="linkedin"
+                      name="linkedin"
+                      placeholder={hackerLinkedin}
+                      className={`py-2 min-h-10 px-2 text-base mt-2`}
+                      {...register("linkedin")}
+                    />
+                  </label>
 
-                    <div
-                      className="subfield text-textSecondaryHackeps"
-                      style={{ marginTop: "8%" }}
-                    >
-                      <label htmlFor="linkedin">Enllaç de GitHub</label>
-                      <Field type="text" id="github" name="github" />
-                      <ErrorMessage
-                        name="github"
-                        component="div"
-                        className="error-message"
-                      />
-                    </div>
+                  <label>
+                    Enllaç de GitHub:
+                    <input
+                      type="text"
+                      id="github"
+                      name="github"
+                      placeholder={hackerGithub}
+                      className={`py-2 min-h-10 px-2 text-base mt-2`}
+                      {...register("github")}
+                    />
+                  </label>
 
-                    <div
-                      className="file-input-container text-textSecondaryHackeps"
-                      style={{ marginTop: "8%" }}
-                    >
-                      <label htmlFor="cvinfo_file">
-                        Adjunta el teu CV (Opcional)
+                  <label className="image-input-container">
+                    Adjunta el teu CV (Opcional):
+                    <input
+                      type="file"
+                      id="cvinfo_file"
+                      name="cvinfo_file"
+                      accept="application/pdf"
+                      onChange={handleFileChange}
+                    />
+                    {cvFile && (
+                      <div className="">
+                        <span className="file-name">{cvFile.name}</span>
+                        <Button primary onClick={clearFile}>
+                          &#10005;
+                        </Button>
+                      </div>
+                    )}
+                    {isCvTooLarge && (
+                      <label htmlFor="cvinfo_file" className="text-red-600">
+                        El fitxer seleccionat supera el límit permès de 1MB.
                       </label>
-                      <div className="file-input-container">
-                        <FileBase
-                          type="file"
-                          id="cvinfo_file"
-                          name="cvinfo_file"
-                          onDone={handleFileChange}
-                        />
-                      </div>
-                      {cvFile && (
-                        <div className="file-info">
-                          <span className="file-name">{cvFile.name}</span>
-                          <Button primary onClick={clearFile}>
-                            &#10005;
-                          </Button>
-                        </div>
-                      )}
+                    )}
+                  </label>
 
-                      {isCvTooLarge && (
-                        <label htmlFor="cvinfo_file" className="text-red-600">
-                          El fitxer seleccionat supera el límit permès de 1MB.
-                        </label>
-                      )}
+                  <div className="w-full">
+                    <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border border-gray-300">
+                      <img
+                        src={pfpImage || userIcon}
+                        alt="Profile"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    <Row>
-                      <div
-                        className="col-12 col-xxl-6 d-flex flex-column "
-                        style={{ marginTop: "7%", marginBottom: "1%" }}
-                      >
-                        <img
-                          style={{
-                            height: "250px",
-                            width: "250px",
-                            objectFit: "cover",
-                            display: "block",
-                          }}
-                          className="avatar-image bg-white rounded-circle m-auto"
-                          src={pfpImage || userIcon}
-                          alt="avatar"
-                        />
-                      </div>
-
-                      <div className=" mb-3 mb-xxl-0 align-self-center text-textSecondaryHackeps">
-                        <label htmlFor="imageUrl">Image URL:</label>
-                        <input
-                          className="mb-1"
-                          type="text"
-                          id="imageUrl"
-                          placeholder="https://..."
-                          onChange={handleImageUrlChange}
-                        />
-                        <div className="file-input-container">
-                          <FileBase
-                            id="avatarInput"
-                            type="file"
-                            multiple={false}
-                            onDone={handleImageChange}
-                          />
-                        </div>
-                        {isPfpTooLarge && (
-                          <label htmlFor="avatarInput" className="text-red-600">
-                            El fitxer seleccionat supera el límit permès de 1MB.
-                          </label>
-                        )}
-                      </div>
-                    </Row>
-
-                    <div
-                      className="button-submit-container"
-                      style={{ marginTop: "2%" }}
+                    <label className="w-full mb-4">
+                      Image URL:
+                      <input
+                        type="text"
+                        id="imageUrl"
+                        name="imageUrl"
+                        onChange={handleImageUrlChange}
+                        className="w-full"
+                      />
+                    </label>
+                    <div className="image-input-container">
+                      <FileBase
+                        type="file"
+                        id="avatarInput"
+                        multiple={false}
+                        onDone={handleImageChange}
+                      />
+                    </div>
+                    {isPfpTooLarge && (
+                      <label htmlFor="avatarInput" className="text-red-600">
+                        El fitxer seleccionat supera el límit permès de 1MB.
+                      </label>
+                    )}
+                  </div>
+                  <div className="w-full flex flex-col mb-5">
+                    <Button
+                      className="text-white bg-primaryHackeps hover:bg-primaryHackepsDark transition ease-in-out delay-100 min-h-10"
+                      onClick={handleSubmit(onSubmit)}
                     >
-                      {isCvTooLarge || isPfpTooLarge ? (
-                        <Button
-                          id="submitUpdateProfile"
-                          outline
-                          disabled
-                          type="submit"
-                        >
-                          Actualitzar
-                        </Button>
-                      ) : (
-                        <Button
-                          id="submitUpdateProfile"
-                          outline
-                          secondary
-                          type="submit"
-                        >
-                          {isSending ? "Actualitzant..." : "Actualitzar"}
-                        </Button>
-                      )}
-                      {submitError !== "" && (
-                        <label
-                          htmlFor="submitUpdateProfile"
-                          className="text-red-600"
-                        >
-                          Hi ha hagut un error, contactan's! <br />{" "}
-                          {submitError}
-                        </label>
-                      )}
-                    </div>
-                  </Form>
-                </Formik>
+                      {" "}
+                      Actualitzar dades
+                    </Button>
+                    <p className="text-red-400 mt-2">{submitError}</p>
+                  </div>
+                </form>
               </div>
             </div>
           ) : (

@@ -53,12 +53,12 @@ export default function ResetPassword() {
       {!sended ? (
         <>
           <div
-            className="containter-fluid p-bg-black d-flex"
+            className="containter-fluid bg-secondaryHackeps d-flex"
             style={{ height: "90vh" }}
           >
             <form
               onSubmit={(e) => handleResetPassword(e)}
-              className="p-bg-black p-3 mx-auto my-auto col-12 col-xxl-4 "
+              className="bg-secondaryHackeps p-3 mx-auto my-auto col-12 col-xxl-4 "
             >
               <h2 className="text-textSecondaryHackeps mb-3 w-75 mx-auto">
                 Restablir contrasenya

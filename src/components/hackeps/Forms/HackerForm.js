@@ -1,70 +1,27 @@
-import "src/components/hackeps/Forms/HackerForm.css";
-import "formik-stepper/dist/style.css";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { useState } from "react";
-
-import * as Yup from "yup";
-import { FormikStepper, InputField } from "formik-stepper";
 import { signupHacker } from "src/services/HackerService";
 import FileBase from "react-file-base64";
 import userIcon from "src/icons/user2.png";
 import FailFeedback from "../Feedbacks/FailFeedback";
 import SuccessFeedback from "../Feedbacks/SuccesFeedback";
-import CheckboxField from "./CheckboxField";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
+import { useForm } from "react-hook-form";
+import Button from "src/components/buttons/Button";
 
 const minAge = "14";
 const date = new Date();
 date.setFullYear(date.getFullYear() - minAge);
 
-const validationSchema = Yup.object({
-  firstName: Yup.string().required("Nom requerit"),
-  lastName: Yup.string().required("Cognoms requerits"),
-  password: Yup.string()
-    .required("Contrasenya requerida")
-    .min(8, "La contrasenya requereix d'almenys 8 caràcters")
-    .matches(/[0-9]/, "La contrasenya requereix d'almenys un número")
-    .matches(
-      /[a-z]/,
-      "La contrasenya requereix d'almenys una lletra en minúscules",
-    )
-    .matches(
-      /[A-Z]/,
-      "La contrasenya requereix d'almenys una lletra en majúscules",
-    ),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "La contrasenya ha de coincidir")
-    .required("Confirma la contrasenya"),
-  birthDate: Yup.date()
-    .required("Data de naixment requerida")
-    .max(
-      date.toISOString().split("T")[0],
-      `Has de ser major de ${minAge} anys`,
-    ),
-  phone: Yup.string()
-    .required("Telèfon requerit")
-    .matches(/^ *(\+ *(\d *){1,2})?(\d *){9}$/, "Nombre de telèfon no vàlid"),
-  email: Yup.string()
-    .required("Correu requerit")
-    .email("El correu ha de tenir un format vàlid"),
-  nickname: Yup.string().required("Nickname requerit"),
-});
-
-const HackerPanel = () => {
-  return (
-    <Col className="hacker-panel">
-      <Row>
-        <img src={require("src/imgs/hacker_image.svg").default} alt="Hacker" />
-      </Row>
-      <Row>
-        <h2 className="hacker-panel-title">Hacker</h2>
-      </Row>
-    </Col>
-  );
-};
-
 export const HackerStepperForm = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+    trigger,
+  } = useForm({
+    mode: "onChange",
+  });
   const [pfpImage, setImage] = useState("");
   const [isPfpTooLarge, setPfpTooLarge] = useState(false);
   // Error message for last page of the form
@@ -73,56 +30,62 @@ export const HackerStepperForm = () => {
   const [submiting, setSubmiting] = useState(false); //si es false, encara no s'ha donat al submit, pero si es true, es mostra el feedback
   const [statusSubmit, setStatusSubmit] = useState(false); //si es false, error, si es true tot esta correcte
   const [errCause, setCauseError] = useState(""); //si es false, error, si es true tot esta correcte
+  const [step, setStep] = useState(1);
+  const [hideSubmit, setHideSubmit] = useState(false);
 
   const onSubmit = async (values) => {
+    setHideSubmit(true);
     const hacker = {
       name: [values.firstName, values.lastName].join(" "),
       nickname: values.nickname,
       password: values.password,
-      birthdate: values.birthDate,
+      birthdate: values.birthdate,
       food_restrictions: "",
       email: values.email,
       config: {
-        recive_notifications: false,
+        recive_notifications: values.notifications,
         default_lang: "cat",
-        comercial_notifications: false,
+        comercial_notifications: values.notifications,
         terms_and_conditions: true,
       },
       telephone: values.phone.replace(/\s+/g, ""),
-      acceptNotifications: values.acceptNotifications || false, //accept notification checkbox a contacte field
       address: "",
-      shirt_size: values.shirtSize,
       image: pfpImage,
       github: "",
       linkedin: "",
     };
-
-    const res = await signupHacker(hacker);
-    console.log(res);
-    if (res.errCode) {
-      setStatusSubmit(false);
-      let causeError = "";
-      if (res.errMssg === "Email already exists") {
-        causeError = "El correu que has introduit es troba registrat.";
-      } else if (res.errMssg === "Nickname already exists") {
-        causeError = "El nickname que has introduit es troba registrat.";
-      } else if (res.errMssg === "Telephone already exists") {
-        causeError = "El telefon que has introduit es troba registrat.";
-      } else {
-        causeError = isPfpTooLarge
-          ? "La foto de perfil introduida és massa gran"
-          : "Error al tramitar dades";
+    if (values.termsConditions) {
+      const res = await signupHacker(hacker);
+      if (res.errCode) {
+        setStatusSubmit(false);
+        let causeError = "";
+        if (res.errMssg === "Email already exists") {
+          causeError = "El correu que has introduit es troba registrat.";
+        } else if (res.errMssg === "Nickname already exists") {
+          causeError = "El nickname que has introduit es troba registrat.";
+        } else if (res.errMssg === "Telephone already exists") {
+          causeError = "El telefon que has introduit es troba registrat.";
+        } else {
+          causeError = isPfpTooLarge
+            ? "La foto de perfil introduida és massa gran"
+            : "Imatge no vàlida";
+        }
+        setCauseError(causeError);
+        setErrorMsg(causeError);
+        setHideSubmit(false);
+        return;
+      } else if (res.detail) {
+        setStatusSubmit(false);
+        setCauseError(res.detail[0].msg);
+        setErrorMsg(res.detail[0].msg);
+        setHideSubmit(false);
+      } else if (res.success) {
+        setStatusSubmit(true);
+        setSubmiting(true);
+        setHideSubmit(false);
       }
-      setCauseError(causeError);
-      setErrorMsg(causeError);
-      return;
-    } else if (res.detail) {
-      setStatusSubmit(false);
-      setCauseError(res.detail[0].msg);
-      setErrorMsg(res.detail[0].msg);
-    } else if (res.success) {
-      setStatusSubmit(true);
-      setSubmiting(true);
+    } else {
+      setErrorMsg("Has d'acceptar els termes i condicions");
     }
   };
 
@@ -141,181 +104,351 @@ export const HackerStepperForm = () => {
     window.location.reload();
   };
 
+  const password = watch("password");
+
   return (
     <>
-      <div id="hackerForm" className="custom-form bg-secondaryHackeps">
+      <div
+        id="hackerForm"
+        className="sm:px-56 justify-center min-h-screen flex pb-5 align-top bg-secondaryHackeps"
+      >
         {!submiting ? (
-          <FormikStepper
-            /// Accept all Formik props
-            onSubmit={onSubmit}
-            isSubmiting={true}
-            initialValues={{
-              firstName: "",
-              lastName: "",
-              password: "",
-              confirmPassword: "",
-              birthDate: "",
-              phone: "",
-              email: "",
-              nickname: "",
-            }}
-            validationSchema={validationSchema}
-            withStepperLine /// false as default and If it is false, it hides stepper line
-            nextButton={{
-              label: "Següent",
-              style: {
-                background: "var(--primary)",
-                color: "var(--secondary)",
-              },
-            }}
-            prevButton={{
-              label: "Enrere",
-              style: {
-                background: "var(--primary)",
-                color: "var(--secondary)",
-              },
-            }}
-            submitButton={{
-              label: "Envia",
-              style: {
-                background: "var(--primary)",
-                color: "var(--secondary)",
-              },
-            }}
-          >
-            <FormikStepper.Step label="Informació personal">
-              <Row className="align-content-center d-flex">
-                <HackerPanel />
-                <div className="col-12 col-xxl-6 ">
-                  <TitleGeneralized marginBot="2" alignText="left">
-                    Informació Personal
-                  </TitleGeneralized>
-                  <InputField
-                    className="w-100"
-                    name="firstName"
-                    type="text"
-                    label="Nom"
-                  />
-                  <InputField
-                    className="w-100"
-                    name="lastName"
-                    type="text"
-                    label="Cognoms"
-                  />
-                  <InputField
-                    className="w-100"
-                    name="password"
-                    type="password"
-                    label="Contrasenya"
-                    autoComplete="new-password"
-                  />
-                  <InputField
-                    className="w-100"
-                    name="confirmPassword"
-                    type="password"
-                    label="Repetir contrasenya"
-                    autoComplete="new-password"
-                  />
-                  <InputField
-                    className="w-100"
-                    name="birthDate"
-                    type="date"
-                    label="Data de naixement"
-                  />
-                </div>
-              </Row>
-            </FormikStepper.Step>
-            <FormikStepper.Step label="Contacte">
-              <Row>
-                <HackerPanel />
-                <div className="col-12 col-xxl-6 ">
-                  <TitleGeneralized marginBot="2" alignText="left">
-                    Contacte
-                  </TitleGeneralized>
-                  <InputField
-                    className="w-100"
-                    name="phone"
-                    type="tel"
-                    label="Telèfon"
-                  />
-                  <InputField
-                    className="w-100"
-                    name="email"
-                    type="email"
-                    id="email"
-                    label="E-mail"
-                    autoComplete="email"
-                  />
-                  <CheckboxField
-                    className="w-100 text-center"
-                    name="acceptNotifications"
-                    id="acceptNotifications"
-                    label="Accepto rebre notificacions electròniques de caràcter informatiu, comercial i promocional"
-                    defaultValue={false}
-                  />
-                </div>
-              </Row>
-            </FormikStepper.Step>
-            <FormikStepper.Step label="Avatar">
-              <Row className="">
-                <div className="col-12 col-xxl-6 d-flex flex-column">
+          <div className="flex flex-col gap-3 w-full">
+            <div className="stepInfo self-center my-4">
+              <div className="flex justify-center items-center space-x-4">
+                {[1, 2, 3].map((num) => (
+                  <div
+                    key={num}
+                    className={`w-8 h-8 flex items-center justify-center rounded-full ${step === num ? "bg-primaryHackeps text-white" : "bg-gray-300 text-black"}`}
+                  >
+                    {num}
+                  </div>
+                ))}
+              </div>
+              <hr className="w-1/2 mt-4 border-t-2 border-gray-300" />
+            </div>
+
+            <div className="flex flex-row w-full h-full justify-center content-center">
+              <div className="basis-1/2 justify-items-center content-center hidden md:block">
+                <div>
                   <img
-                    style={{
-                      height: "250px",
-                      width: "250px",
-                      objectFit: "cover",
-                      display: "block",
-                    }}
-                    className="avatar-image bg-white rounded-circle m-auto"
-                    src={pfpImage || userIcon}
-                    alt="avatar"
+                    src={require("src/imgs/hacker_image.svg").default}
+                    className=" md:w-48"
                   />
+                  <h2 className="text-center mt-3">Hacker</h2>
                 </div>
-                <div className="col-12 col-xxl-6 d-flex flex-column justify-content-center">
-                  <TitleGeneralized marginBot="2" alignText="left">
-                    Avatar
-                  </TitleGeneralized>
-                  <InputField
-                    className="w-100"
-                    name="nickname"
-                    type="text"
-                    label="Nickname"
-                  />
-                  <div className=" mb-3 mb-xxl-0 align-self-center">
-                    <label htmlFor="imageUrl">Image URL:</label>
-                    <input
-                      className="mb-1"
-                      type="text"
-                      id="imageUrl"
-                      placeholder="https://..."
-                      onChange={handleImageUrlChange}
-                    />
-                    <div className="image-input-container">
-                      <FileBase
-                        id="avatarInput"
-                        type="file"
-                        multiple={false}
-                        onDone={handleImageChange}
+              </div>
+              <div className="basis-1/2 ">
+                {step === 1 ? (
+                  <>
+                    <TitleGeneralized alignText={"left"}>
+                      {" "}
+                      Informació Personal
+                    </TitleGeneralized>
+                    <form className="flex flex-col gap-3">
+                      <label>
+                        Nom:
+                        <input
+                          className={`${errors.name ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-4`}
+                          placeholder="Nom"
+                          {...register("firstName", {
+                            required: "El nom no pot estar buit",
+                          })}
+                        />
+                        {errors.name && (
+                          <span className="text-red-400">
+                            {errors.name.message}
+                          </span>
+                        )}
+                      </label>
+
+                      <label>
+                        Cognoms:
+                        <input
+                          className={`${errors.name ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-4`}
+                          placeholder="Cognoms"
+                          {...register("lastName", {
+                            required: "Els cognoms no pot estar buit",
+                          })}
+                        />
+                        {errors.name && (
+                          <span className="text-red-400">
+                            {errors.name.message}
+                          </span>
+                        )}
+                      </label>
+
+                      <label>
+                        Contrasenya:
+                        <input
+                          type="password"
+                          className={`${errors.password ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                          placeholder="Contrasenya"
+                          {...register("password", {
+                            required: "La contrasenya no pot estar buida",
+                            minLength: {
+                              value: 8,
+                              message: "Ha de tenir almenys 8 caràcters",
+                            },
+                            validate: {
+                              hasUpperCase: (value) =>
+                                /[A-Z]/.test(value) ||
+                                "Ha de tenir almenys una majúscula",
+                              hasLowerCase: (value) =>
+                                /[a-z]/.test(value) ||
+                                "Ha de tenir almenys una minúscula",
+                            },
+                          })}
+                        />
+                        {errors.password && (
+                          <span className="text-red-400">
+                            {errors.password.message}
+                          </span>
+                        )}
+                      </label>
+
+                      <label>
+                        Confirma la contrasenya:
+                        <input
+                          type="password"
+                          className={`${errors.confirmPassword ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                          placeholder="Confirma la contrasenya"
+                          {...register("confirmPassword", {
+                            required: "Has de confirmar la contrasenya",
+                            validate: (value) =>
+                              value === password ||
+                              "Les contrasenyes no coincideixen",
+                          })}
+                        />
+                        {errors.confirmPassword && (
+                          <span className="text-red-400">
+                            {errors.confirmPassword.message}
+                          </span>
+                        )}
+                      </label>
+
+                      <label>
+                        Data de naixement:
+                        <input
+                          type="date"
+                          className={`${errors.birthdate ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                          {...register("birthdate", {
+                            required: "La data de naixement és obligatòria",
+                            validate: {
+                              isOldEnough: (value) => {
+                                const birthDate = new Date(value);
+                                const today = new Date();
+                                const age =
+                                  today.getFullYear() - birthDate.getFullYear();
+
+                                // Si no ha llegado su cumpleaños este año, restamos 1 año a la edad
+                                return (
+                                  age > 14 ||
+                                  (age === 14 &&
+                                    today.getMonth() >= birthDate.getMonth()) ||
+                                  "Has de ser major de 14 anys"
+                                );
+                              },
+                            },
+                          })}
+                        />
+                        {errors.birthdate && (
+                          <span className="text-red-400">
+                            {errors.birthdate.message}
+                          </span>
+                        )}
+                      </label>
+
+                      <Button
+                        disabled={!isValid}
+                        className={`bg-primaryHackeps text-white min-h-10 ${!isValid ? "opacity-50" : ""}`}
+                        onClick={() => setStep(2)}
+                      >
+                        Següent
+                      </Button>
+                    </form>
+                  </>
+                ) : null}
+                {step === 2 ? (
+                  <>
+                    <TitleGeneralized alignText={"left"}>
+                      Contacte{" "}
+                    </TitleGeneralized>
+                    <form className="flex flex-col gap-3">
+                      <label>
+                        Telèfon:
+                        <input
+                          type="tel"
+                          className={`${errors.phone ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                          placeholder="Telèfon"
+                          {...register("phone", {
+                            required: "El telèfon és obligatori",
+                            pattern: {
+                              value: /^ *(\+ *(\d *){1,2})?(\d *){9}$/,
+                              message: "Nombre de telèfon no vàlid",
+                            },
+                          })}
+                        />
+                        {errors.phone && (
+                          <span className="text-red-400">
+                            {errors.phone.message}
+                          </span>
+                        )}
+                      </label>
+
+                      <label>
+                        Correu electrònic:
+                        <input
+                          type="email"
+                          className={`${errors.email ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                          placeholder="Correu electrònic"
+                          {...register("email", {
+                            required: "El correu electrònic és obligatori",
+                            pattern: {
+                              value:
+                                /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                              message: "El correu ha de tenir un format vàlid",
+                            },
+                          })}
+                        />
+                        {errors.email && (
+                          <span className="text-red-400">
+                            {errors.email.message}
+                          </span>
+                        )}
+                      </label>
+
+                      <label className="flex items-center space-x-2">
+                        <input
+                          type="checkbox"
+                          className="w-fit mr-5"
+                          {...register("notifications")}
+                        />
+                        Accepto rebre notificacions electròniques de caràcter
+                        informatiu, comercial i promocional.
+                      </label>
+
+                      <div className="buttonsBox flex flex-row justify-between gap-2 md:gap-0">
+                        <Button
+                          className="bg-primaryHackeps text-white min-h-10"
+                          onClick={() => setStep(1)}
+                        >
+                          Anterior
+                        </Button>
+                        <Button
+                          disabled={!isValid}
+                          className={`bg-primaryHackeps text-white min-h-10 ${!isValid ? "opacity-50" : ""}`}
+                          onClick={() => setStep(3)}
+                        >
+                          Següent
+                        </Button>
+                      </div>
+                    </form>
+                  </>
+                ) : null}
+                {step === 3 ? (
+                  <div className="flex flex-col items-center">
+                    <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
+                      <img
+                        src={pfpImage || userIcon}
+                        alt="Profile"
+                        className="w-full h-full object-cover"
                       />
                     </div>
-                    {isPfpTooLarge && (
-                      <label htmlFor="avatarInput" className="text-red-600">
-                        El fitxer seleccionat supera el límit permès de 1MB.
+                    <TitleGeneralized alignText={"left"}>
+                      Avatar
+                    </TitleGeneralized>
+                    <form className="flex flex-col gap-3">
+                      <label>
+                        Nickname:
+                        <input
+                          className={`${errors.nickname ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                          placeholder="Nickname"
+                          {...register("nickname", {
+                            required: "El nickname és obligatori",
+                          })}
+                        />
+                        {errors.nickname && (
+                          <span className="text-red-400">
+                            {errors.nickname.message}
+                          </span>
+                        )}
                       </label>
-                    )}
+
+                      <label>
+                        Image URL:
+                        <input
+                          className={`${errors.imageUrl ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base mt-2`}
+                          placeholder="Image URL"
+                          {...register("imageUrl")}
+                          onChange={handleImageUrlChange}
+                        />
+                        {errors.imageUrl && (
+                          <span className="text-red-400">
+                            {errors.imageUrl.message}
+                          </span>
+                        )}
+                      </label>
+                      <div className="image-input-container">
+                        <FileBase
+                          id="avatarInput"
+                          type="file"
+                          multiple={false}
+                          onDone={handleImageChange}
+                        />
+                      </div>
+                      {isPfpTooLarge && (
+                        <span className="text-red-400">
+                          La foto de perfil introduida és massa gran
+                        </span>
+                      )}
+
+                      <label className="flex items-center space-x-2">
+                        <input
+                          type="checkbox"
+                          className="w-fit mr-5"
+                          {...register("termsConditions", {
+                            required: "Has d'acceptar els termes i condicions",
+                          })}
+                        />
+                        <p>
+                          Acceptes els nostres{" "}
+                          <a
+                            href="/hackeps/terms"
+                            className="text-primaryHackeps"
+                          >
+                            termes i condicions
+                          </a>
+                          .
+                        </p>
+                      </label>
+
+                      <div className="buttonsBox flex flex-row justify-between gap-2 md:gap-0">
+                        <Button
+                          className="bg-primaryHackeps text-white min-h-10"
+                          onClick={() => setStep(2)}
+                        >
+                          Anterior
+                        </Button>
+                        <Button
+                          disabled={
+                            !isValid || !watch("termsConditions") || hideSubmit
+                          }
+                          className={`bg-primaryHackeps text-white min-h-10 ${!isValid || !watch("termsConditions" || hideSubmit) ? "opacity-50" : ""}`}
+                          onClick={handleSubmit(onSubmit)}
+                        >
+                          Enviar
+                        </Button>
+                      </div>
+                      {errorMsg && (
+                        <span className="text-red-400">{errorMsg}</span>
+                      )}
+                    </form>
                   </div>
-                </div>
-              </Row>
-              <Row>
-                <span
-                  className="text-danger text-center mt-5"
-                  style={{ whiteSpace: "pre" }}
-                >
-                  {errorMsg}
-                </span>
-              </Row>
-            </FormikStepper.Step>
-          </FormikStepper>
+                ) : null}
+              </div>
+            </div>
+          </div>
         ) : (
           <>
             {!statusSubmit ? (

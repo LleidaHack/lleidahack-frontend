@@ -7,7 +7,6 @@ import Home from "src/pages/hackeps/Home";
 import HomeLanding from "./pages/Landing/HomeLanding";
 import Profile from "src/pages/hackeps/Profile.js";
 import HackerForm from "src/pages/hackeps/HackerSignup";
-import { LleidaHackerForm } from "src/components/hackeps/Forms/LleidaHackerForm.js";
 import Testing from "src/components/hackeps/Testing/Testing";
 import Terms from "src/pages/hackeps/Terms";
 import Privacy from "src/pages/hackeps/Privacy";
@@ -20,7 +19,7 @@ import RequireAuth from "src/modules/RequireAuth";
 import RequireLleidahacker from "./modules/RequireLleidahacker";
 import ResetPassword from "./pages/hackeps/ResetPassword";
 import PasswordForget from "./pages/hackeps/ForgetPassword";
-import Dashboard from "./pages/hackeps/Dashboard/Dashboard";
+import Dashboard from "./pages/Administrator/Dashboard";
 import "src/utils/ensure-basename";
 import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
@@ -77,21 +76,12 @@ export default function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
           <Route path="/sponsors/:ids" element={<Sponsors />} />
-          <Route path="/lleidahacker-form" element={<LleidaHackerForm />} />
           <Route
             path="/inscripcio"
             element={
               <RequireAuth originalRoute="/inscripcio">
                 <Inscripcio />
               </RequireAuth>
-            }
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <RequireLleidahacker originalRoute="/dashboard">
-                <Dashboard />
-              </RequireLleidahacker>
             }
           />
           <Route path="/forgot-password" element={<PasswordForget />} />
@@ -111,6 +101,11 @@ export default function App() {
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
       </Router>*/}
+      <Router basename="/admin">
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
