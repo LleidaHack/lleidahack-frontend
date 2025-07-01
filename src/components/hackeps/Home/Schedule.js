@@ -28,20 +28,23 @@ const ScheduleItem = ({ time, title, description, align = "right" }) => {
       {/* Caja: time + title i Caja description */}
       <div className=" md:w-1/2 space-y-2 ">
         {/* Caja: time + title */}
-        <div className={`flex items-center ${isRight ? "md:justify-end" : "md:justify-start"} md:gap-7 md:flex-row flex-col w-full`}>
-            <>
-              <time
-                dateTime={time}
-                className={`${alignmentClass} text-xl font-mono text-textSecondaryHackeps`}
-              >
-                {time}
-              </time>
+        <div
+          className={`flex items-center ${isRight ? "md:justify-end" : "md:justify-start"} md:gap-7 md:flex-row flex-col w-full`}
+        >
+          <>
+            <time
+              dateTime={time}
+              className={`${alignmentClass} text-xl font-mono text-textSecondaryHackeps`}
+            >
+              {time}
+            </time>
 
-              <h2 className={`text-2xl font-semibold w-fit m-0 p-0 ${alignmentClass} text-center `}>
-                {title}
-              </h2>
-            </>
-          
+            <h2
+              className={`text-2xl font-semibold w-fit m-0 p-0 ${alignmentClass} text-center `}
+            >
+              {title}
+            </h2>
+          </>
         </div>
 
         {description && (
