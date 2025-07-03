@@ -43,6 +43,7 @@ module.exports = {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",
       "background-patron": "url('/src/imgs/patron_imagen.png')",
       "background-none": "url()",
+      "background-cartellA": "url('/src/assets/Cartell A.png')"
     },
   },
   plugins: [],
