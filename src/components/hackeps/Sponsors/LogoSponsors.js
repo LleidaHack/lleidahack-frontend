@@ -1,22 +1,41 @@
 import React from "react";
-//import wantedFrame2 from "src/assets/Cartell B.png";
 
-const LogoSponsors = ({ image, name }) => {
+const LogoSponsors = ({ image, name, small = false }) => {
+  const backgrounds = [
+    "bg-background-cartellA",
+    "bg-background-cartellB",
+    "bg-background-cartellC",
+    "bg-background-cartellD"
+  ];
+  
+  const randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  
+  // Canvi de tamany depenent de si es sponsor o patro
+  let containerSize, contentSize, imageSize;
+  
+  if (small) {
+    containerSize = "w-32 h-28";
+    contentSize = "w-9/12 h-3/12 mt-4 px-1";
+    imageSize = "h-16";
+  } else {
+    containerSize = "w-52 h-48";
+    contentSize = "w-9/12 h-3/12 mt-8 px-2";
+    imageSize = "h-24";
+  }
+  
   return (
-    <div className="relative w-52 h-48 bg-background-cartellA bg-cover items-center justify-center content-center flex">   
+    <div className={`relative ${containerSize} ${randomBackground} bg-cover items-center justify-center content-center flex`}>   
       {/* Contingut centrat dins el marc marró */}
-      <div
-        className="w-9/12 h-3/12 flex flex-col items-center justify-center mt-8 px-2"
-      >
+      <div className={`${contentSize} flex flex-col items-center justify-center`}>
         <img
           src={image}
           alt={name}
-          className="w-full h-24 object-contain"
+          className={`w-full ${imageSize} object-contain`}
         />
       </div>
-        {/* <p className="text-xs font-bold text-[#4b2e16] text-center mt-2">
-          {name}
-        </p> */}
+      {/* <p className="text-xs font-bold text-[#4b2e16] text-center mt-2">
+        {name}
+      </p> */}
     </div>
   );
 };
