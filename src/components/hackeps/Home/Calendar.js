@@ -43,13 +43,13 @@ const CalendarDates = (props) => {
             </p>
           </Col>
           <Col>
-            <div className="calendar-container">
+            {/* <div className="calendar-container">
               <Calendar
                 value={[startDate, endDate]}
                 locale={"ca"}
                 minDetail={"month"}
               />
-            </div>
+            </div> */}
           </Col>
         </Row>
       </Container>
