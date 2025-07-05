@@ -24,7 +24,8 @@ const ButtonLleidahack = (props) => {
       "text-xl h-[46px] px-5 ": props.xl,
       "text-2xl h-[46px] px-5 ": props.xxl,
       "text-3xl h-[46px] px-5 ": props.xxxl,
-      "w-14 h-14 flex items-center justify-center rounded-full bg-primaryLanding text-white shadow-lg text-3xl hover:bg-primary-dark transition" : props.roundedLanding
+      "w-14 h-14 flex items-center justify-center rounded-full bg-primaryLanding text-white shadow-lg text-3xl hover:bg-primary-dark transition":
+        props.roundedLanding,
     },
   );
   return (
