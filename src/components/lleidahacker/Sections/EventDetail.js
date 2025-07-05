@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import PopupBody from "src/components/emergentPopup/PopupBody";
 
 const EventDetail = () => {
   // Get eventId from URL params
@@ -129,6 +130,18 @@ const EventDetail = () => {
             </span>
           </ButtonLleidahack>
         </div>
+        <PopupBody
+          crossColor="gray-300"
+          isOpen={popUpOpen}
+          onClose={() => setPopUpOpen(false)}
+          children={
+            <div className="pb-8">
+              <h1 className="text-2xl font-bold mb-4">Editar esdeveniment</h1>
+              {/* Aquí puedes agregar un formulario para editar el evento */}
+              <p>Formulario de edición de evento</p>
+            </div>
+          }
+        />
       </div>
     </div>
   );
