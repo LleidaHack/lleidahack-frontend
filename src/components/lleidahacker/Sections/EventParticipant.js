@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const EventParticipant = () => {
-  return (
-    <div>EventParticipant</div>
-  )
-}
+  return <div>EventParticipant</div>;
+};
 
-export default EventParticipant
+export default EventParticipant;

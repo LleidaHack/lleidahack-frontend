@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import InputSearch from "src/components/landing/InputSearch/InputSearch";
 import FiltersComponent from "src/components/landing/FiltersComponent/FiltersComponent";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
@@ -113,7 +113,9 @@ const EventsSection = () => {
                     <div
                       key={eventIdx}
                       className="resultItem bg-white p-4 rounded shadow mb-4 w-full cursor-pointer hover:shadow-lg transition-shadow duration-300"
-                      onClick={() => {navigate(`/events/${event.id}`);}}
+                      onClick={() => {
+                        navigate(`/events/${event.id}`);
+                      }}
                     >
                       <img
                         src={event.img}
