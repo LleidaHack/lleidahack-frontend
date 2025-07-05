@@ -30,7 +30,7 @@ const Groups = [
   {
     title: "Techmeeting",
     bgImage: techmeeting,
-    url: "/Techmeeting",
+    url: "/techmeeting",
   },
 ];
 
