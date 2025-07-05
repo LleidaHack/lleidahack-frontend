@@ -2,8 +2,12 @@ import React, {useState, useEffect} from "react";
 import InputSearch from "src/components/landing/InputSearch/InputSearch";
 import FiltersComponent from "src/components/landing/FiltersComponent/FiltersComponent";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
+import PopupBody from "src/components/emergentPopup/PopupBody";
+import EventCreatorForm from "src/components/lleidahacker/EventCreatorForm/EventCreatorForm";
 
 const EventsSection = () => {
+  const [openFilters, setOpenFilters] = useState(false);
+  const [openNewEvent, setOpenNewEvent] = useState(false);
   const [resultsSearch, setResultsSearch] = useState([
     {primaryCategory: "Hackeps", eventsList:[
       {title: "Hackeps 2017", description: "Hackeps 2017 esdeveniment de programació", creationDate: "2017-01-01", img: "https://www.eps.udl.cat/export/sites/Eps/HackEPS.png"},
@@ -15,8 +19,17 @@ const EventsSection = () => {
       {title: "Hackeps 2023", description: "Hackeps 2023 esdeveniment de programació", creationDate: "2023-10-01", img: "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/637/629/datas/original.png"},
       {title: "Hackeps 2024", description: "Hackeps 2024 esdeveniment de programació", creationDate: "2024-01-01", img: "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/106/152/datas/original.jpg"},
     ]},
-
   ]);
+
+  function newEventPopUp(){
+    setOpenNewEvent(!openNewEvent);
+  }
+
+  function searchPopUp(){
+    setOpenFilters(!openFilters);
+  }
+
+
   return (
     <div>
       <div className="flex flex-col h-screen">
@@ -25,18 +38,7 @@ const EventsSection = () => {
             <h1 className="header-events__title text-4xl ">Esdeveniments</h1>
           </div>
           <div className="flex justify-end w-full">
-            <ButtonLleidahack primary white className="px-12 text-white px-4 py-2 rounded shadow ml-auto">
-              + Nou Esdeveniment
-            </ButtonLleidahack>
-          </div>
-          <div className="searcher_div my-6">
-            <InputSearch
-              placeholder={"Cerca esdeveniments"}
-              searchtype={"events"}
-            />
-          </div>
-          <div className="filters_div pt-3">
-            <FiltersComponent />
+
           </div>
         </div>
 
@@ -63,6 +65,53 @@ const EventsSection = () => {
           </div>
         </div>
       </div>
+      
+      {/* bottons inferiors */}
+      <div className="fixed bottom-12 right-12 flex flex-col items-center space-y-4 z-50">
+        <ButtonLleidahack roundedLanding onClick={() => newEventPopUp()}>
+              +
+        </ButtonLleidahack>
+
+        <ButtonLleidahack roundedLanding onClick={() => searchPopUp()}>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
+            <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </ButtonLleidahack>
+      </div>
+      
+        <PopupBody
+          crossColor="gray-300"
+          isOpen={openFilters}
+          onClose={() => setOpenFilters(false)}
+          children={
+            <div className="pb-8">
+              <h1 className="text-2xl font-bold mb-4">Busqueda d'esdeveniments</h1>
+              <div className="searcher_div my-6">
+                <InputSearch
+                  placeholder={"Cerca esdeveniments"}
+                  searchtype={"events"}
+                />
+              </div>
+              <div className="filters_div pt-3">
+                <FiltersComponent />
+              </div>
+            </div>
+          }
+        />
+      <PopupBody
+        crossColor="gray-300"
+        isOpen={openNewEvent}
+        onClose={() => setOpenNewEvent(false)}
+        children={
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Crear nou esdeveniment</h2>
+            <EventCreatorForm />
+          </div>
+        } 
+      />
+
+
     </div>
   );
 };
