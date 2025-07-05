@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
-const GrupsCardBox = ({ title, bgImg, url, small=false}) => {
+const GrupsCardBox = ({ title, bgImg, url, small = false }) => {
   const [classWidth, setClassWidth] = useState("w-11/12");
   const [classHeight, setClassHeight] = useState("h-full");
   const [sizeText, setSizeText] = useState("text-4xl");
@@ -23,7 +23,9 @@ const GrupsCardBox = ({ title, bgImg, url, small=false}) => {
           backgroundPosition: "center",
         }}
       >
-        <div className={`bg-black/50 py-6 text-white px-6 ${sizeText} font-bold h-full w-full text-center content-center`}>
+        <div
+          className={`bg-black/50 py-6 text-white px-6 ${sizeText} font-bold h-full w-full text-center content-center`}
+        >
           {title}
         </div>
       </div>
