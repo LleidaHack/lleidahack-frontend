@@ -3,8 +3,6 @@ import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { me } from "src/services/AuthenticationService";
-import { get } from "react-scroll/modules/mixins/scroller";
-
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
