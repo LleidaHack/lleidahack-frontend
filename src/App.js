@@ -33,6 +33,8 @@ import LleidaHackerHome from "./components/lleidahacker/Sections/LleidaHackerHom
 import WorkGroupsSection from "./components/lleidahacker/Sections/WorkGroupsSection";
 import EventsSection from "./components/lleidahacker/Sections/EventsSection";
 import AdminSection from "./components/lleidahacker/Sections/AdminSection";
+import EventDetail from "./components/lleidahacker/Sections/EventDetail";
+import EventParticipant from "./components/lleidahacker/Sections/EventParticipant";
 
 export default function App() {
   useEffect(() => {
@@ -118,6 +120,14 @@ export default function App() {
           <Route
             path="/events"
             element={<Dashboard section={<EventsSection />} />}
+          />
+          <Route
+            path="/events/:eventId"
+            element={<Dashboard section={<EventDetail />} />}
+          />
+          <Route
+            path="/events/:eventId/participants"
+            element={<Dashboard section={<EventParticipant />} />}
           />
           <Route
             path="/administration"

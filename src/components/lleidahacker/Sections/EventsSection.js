@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import InputSearch from "src/components/landing/InputSearch/InputSearch";
 import FiltersComponent from "src/components/landing/FiltersComponent/FiltersComponent";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
@@ -6,6 +7,7 @@ import PopupBody from "src/components/emergentPopup/PopupBody";
 import EventCreatorForm from "src/components/lleidahacker/EventCreatorForm/EventCreatorForm";
 
 const EventsSection = () => {
+  const navigate = useNavigate();
   const [openFilters, setOpenFilters] = useState(false);
   const [openNewEvent, setOpenNewEvent] = useState(false);
   const [resultsSearch, setResultsSearch] = useState([
@@ -13,48 +15,56 @@ const EventsSection = () => {
       primaryCategory: "Hackeps",
       eventsList: [
         {
+          id: 1,
           title: "Hackeps 2017",
           description: "Hackeps 2017 esdeveniment de programació",
           creationDate: "2017-01-01",
           img: "https://www.eps.udl.cat/export/sites/Eps/HackEPS.png",
         },
         {
+          id: 2,
           title: "Hackeps 2018",
           description: "Hackeps 2018 esdeveniment de programació",
           creationDate: "2018-01-01",
           img: "https://www.eps.udl.cat/export/sites/Eps/hackeps2018.PNG",
         },
         {
+          id: 3,
           title: "Hackeps 2019",
           description: "Hackeps 2019 esdeveniment de programació",
           creationDate: "2019-01-01",
           img: "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_photos/000/857/884/datas/full_width.png",
         },
         {
+          id: 4,
           title: "Hackeps 2020",
           description: "Hackeps 2020 esdeveniment de programació",
           creationDate: "2020-01-01",
           img: "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/001/270/735/datas/original.png",
         },
         {
+          id: 5,
           title: "Hackeps 2021",
           description: "Hackeps 2021 esdeveniment de programació",
           creationDate: "2021-01-01",
           img: "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_photos/001/753/724/datas/full_width.jpg",
         },
         {
+          id: 6,
           title: "Hackeps 2022",
           description: "Hackeps 2022 esdeveniment de programació",
           creationDate: "2022-01-01",
           img: "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/249/569/datas/original.png",
         },
         {
+          id: 7,
           title: "Hackeps 2023",
           description: "Hackeps 2023 esdeveniment de programació",
           creationDate: "2023-10-01",
           img: "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/637/629/datas/original.png",
         },
         {
+          id: 8,
           title: "Hackeps 2024",
           description: "Hackeps 2024 esdeveniment de programació",
           creationDate: "2024-01-01",
@@ -102,7 +112,8 @@ const EventsSection = () => {
                   {category.eventsList.map((event, eventIdx) => (
                     <div
                       key={eventIdx}
-                      className="resultItem bg-white p-4 rounded shadow mb-4 w-full"
+                      className="resultItem bg-white p-4 rounded shadow mb-4 w-full cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                      onClick={() => {navigate(`/events/${event.id}`);}}
                     >
                       <img
                         src={event.img}
