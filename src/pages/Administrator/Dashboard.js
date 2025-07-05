@@ -27,7 +27,6 @@ const Dashboard = ({ section }) => {
     } else {
       setIsLoading(false);
     }
-    console.log("pepersitoo");
     setSubSection(section || <LleidaHackerHome />);
   }, [section]);
 

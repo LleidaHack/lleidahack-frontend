@@ -65,6 +65,17 @@ const Footer = () => {
           LleidaHack
         </a>
       </div>
+      <div className="mt-4 footer-links">
+        Powered By{" "}
+        <a
+          className="no-underline hover:font-bold text-textPrimaryHackeps"
+          href="https://clouding.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Clouding.io
+        </a>
+      </div>
     </footer>
   );
 };
