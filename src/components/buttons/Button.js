@@ -5,6 +5,8 @@ const Button = (props) => {
     "text-secondaryHackeps bg-primaryHackeps hover:bg-primaryHackepsDark":
       props.primary && !props.outline,
     "text-secondaryHackeps bg-secondaryLanding hover:bg-secondaryLanding":
+      props.secondaryLanding && !props.outline,
+    "text-secondaryHackeps bg-primaryLanding hover:bg-primaryLanding":
       props.primaryLanding && !props.outline,
     "text-gray-CTALanding bg-lightHackeps hover:bg-grayLightHackeps":
       props.light,

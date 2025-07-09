@@ -2,13 +2,14 @@ import { React, useEffect, useState } from "react";
 import LoginForm from "src/components/loginForm/LoginForm";
 import logoLleidaHack from "src/icons/isotip_lleidahack_blanc.png";
 import { login, me } from "src/services/AuthenticationService";
-import LleidaHackerHome from "src/components/lleidahacker/LleidaHackerHome/LleidaHackerHome";
+import LleidaHackerHome from "src/components/lleidahacker/Sections/LleidaHackerHomeSection";
 import LoadSection from "src/components/hackeps/LoadSection/Loadsection";
+import Header from "src/components/lleidahacker/header/header";
 
-const Dashboard = () => {
+const Dashboard = ({ section }) => {
   const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [subSection, setSubSection] = useState(section || <LleidaHackerHome />);
   async function checkLleidaHacker() {
     let a = localStorage.getItem("userID");
     let myuser = await me(a);
@@ -26,13 +27,16 @@ const Dashboard = () => {
     } else {
       setIsLoading(false);
     }
-  }, []);
+    console.log("pepersitoo");
+    setSubSection(section || <LleidaHackerHome />);
+  }, [section]);
 
   function callbackFunction(childData) {
     setIsVerified(childData);
   }
   if (!isLoading) {
-    if (!isVerified) {
+    if (isVerified) {
+      //This condition normaly is !isVerified but deleted to test the login
       return (
         <div className="absolute flex flex-col bg-primaryLanding w-screen h-[100vh] justify-center content-center items-center">
           <div className="">
@@ -56,8 +60,9 @@ const Dashboard = () => {
       );
     } else {
       return (
-        <div>
-          <LleidaHackerHome />
+        <div className="overflow-hidden h-screen">
+          <Header />
+          {subSection}
         </div>
       );
     }
