@@ -45,17 +45,17 @@ return (
             </div>
         </div>
         {/* Infinite moving hours image */}
-        <div className="overflow-hidden w-full h-32 overflow-hidden z-[50]">
+        <div className="overflow-hidden w-full z-[50]">
             <div className="flex w-max animate-marMove">
                 <img
                 src={mar}
-                className="h-72 flex-shrink-0 object-cover"
+                className="h-[100px] flex-shrink-0 object-cover"
                 alt="mar"
                 draggable={false}
                 />
                 <img
                 src={mar}
-                className="h-28 flex-shrink-0 object-cover"
+                className="h-[100px] flex-shrink-0 object-cover"
                 alt="mar"
                 draggable={false}
                 />

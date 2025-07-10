@@ -18,19 +18,19 @@
 
 @keyframes ship-rock {
   0% {
-    transform: translate(0, 6rem) rotate(0deg);
+    transform: translate(0, 2.2rem) rotate(0deg);
   }
   25% {
-    transform: translate(2%, 6rem) rotate(1deg);
+    transform: translate(2%, 2rem) rotate(1deg);
   }
   50% {
-    transform: translate(0, 6rem) rotate(0deg);
+    transform: translate(0, 1.9rem) rotate(0deg);
   }
   75% {
-    transform: translate(-2%, 6rem) rotate(-1deg);
+    transform: translate(-2%, 2rem) rotate(-1deg);
   }
   100% {
-    transform: translate(0, 6rem) rotate(0deg);
+    transform: translate(0, 2.2rem) rotate(0deg);
   }
 }
 
