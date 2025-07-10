@@ -100,6 +100,7 @@ const Sponsors = () => {
                   <LogoSponsors
                     image={company.image}
                     name={company.name || `Empresa ${index + 1}`}
+                    small={company.importance === 2}
                   />
                 </div>
               ))}
