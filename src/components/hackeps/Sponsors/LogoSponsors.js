@@ -14,9 +14,9 @@ const LogoSponsors = ({ image, name, small = false }) => {
   let containerSize, contentSize, imageSize;
   
   if (small) {
-    containerSize = "w-32 h-28";
-    contentSize = "w-9/12 h-3/12 mt-4 px-1";
-    imageSize = "h-16";
+    containerSize = "w-44 h-40";
+    contentSize = "w-9/12 h-3/12 mt-7 px-2";
+    imageSize = "h-22";
   } else {
     containerSize = "w-52 h-48";
     contentSize = "w-9/12 h-3/12 mt-8 px-2";
@@ -36,7 +36,7 @@ const LogoSponsors = ({ image, name, small = false }) => {
       {/* <p className="text-xs font-bold text-[#4b2e16] text-center mt-2">
         {name}
       </p> */}
-    </div>
+    </div>  
   );
 };
 
