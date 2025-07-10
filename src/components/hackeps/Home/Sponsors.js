@@ -27,27 +27,117 @@ import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 const mockSponsorsData = [
   // Tier 1 (Principales)
   [
-    { id: 1, image: useit, importance: 1, url: "https://example.com", name: "UseIT" },
-    { id: 2, image: insdo, importance: 1, url: "https://example.com", name: "INSDO" },
-    { id: 3, image: GFT, importance: 1, url: "https://example.com", name: "GFT" },
-    { id: 4, image: eCityclic, importance: 1, url: "https://example.com", name: "eCityclic" },
-    { id: 5, image: uniLleida, importance: 1, url: "https://example.com", name: "Universitat de Lleida" },
-    { id: 6, image: escolaPolitecnica, importance: 1, url: "https://example.com", name: "Escola Politècnica" },
-    { id: 7, image: paeria, importance: 1, url: "https://example.com", name: "Paeria" },
+    {
+      id: 1,
+      image: useit,
+      importance: 1,
+      url: "https://example.com",
+      name: "UseIT",
+    },
+    {
+      id: 2,
+      image: insdo,
+      importance: 1,
+      url: "https://example.com",
+      name: "INSDO",
+    },
+    {
+      id: 3,
+      image: GFT,
+      importance: 1,
+      url: "https://example.com",
+      name: "GFT",
+    },
+    {
+      id: 4,
+      image: eCityclic,
+      importance: 1,
+      url: "https://example.com",
+      name: "eCityclic",
+    },
+    {
+      id: 5,
+      image: uniLleida,
+      importance: 1,
+      url: "https://example.com",
+      name: "Universitat de Lleida",
+    },
+    {
+      id: 6,
+      image: escolaPolitecnica,
+      importance: 1,
+      url: "https://example.com",
+      name: "Escola Politècnica",
+    },
+    {
+      id: 7,
+      image: paeria,
+      importance: 1,
+      url: "https://example.com",
+      name: "Paeria",
+    },
   ],
   // Tier 2 (Secundarios)
   [
-    { id: 8, image: Alter, importance: 2, url: "https://example.com", name: "Alter Software" },
-    { id: 9, image: actium, importance: 2, url: "https://example.com", name: "Actium" },
-    { id: 10, image: VallCompanys, importance: 2, url: "https://example.com", name: "Vall Companys" },
-    { id: 11, image: Cosantex, importance: 2, url: "https://example.com", name: "Cosantex" },
-    { id: 12, image: intech3d, importance: 2, url: "https://example.com", name: "Intech3D" },
-    { id: 13, image: alumni, importance: 2, url: "https://example.com", name: "Alumni" },
-    { id: 14, image: fruilar, importance: 2, url: "https://example.com", name: "Fruilar" },
-    { id: 15, image: plusfresc, importance: 2, url: "https://example.com", name: "PlusFresc" },
+    {
+      id: 8,
+      image: Alter,
+      importance: 2,
+      url: "https://example.com",
+      name: "Alter Software",
+    },
+    {
+      id: 9,
+      image: actium,
+      importance: 2,
+      url: "https://example.com",
+      name: "Actium",
+    },
+    {
+      id: 10,
+      image: VallCompanys,
+      importance: 2,
+      url: "https://example.com",
+      name: "Vall Companys",
+    },
+    {
+      id: 11,
+      image: Cosantex,
+      importance: 2,
+      url: "https://example.com",
+      name: "Cosantex",
+    },
+    {
+      id: 12,
+      image: intech3d,
+      importance: 2,
+      url: "https://example.com",
+      name: "Intech3D",
+    },
+    {
+      id: 13,
+      image: alumni,
+      importance: 2,
+      url: "https://example.com",
+      name: "Alumni",
+    },
+    {
+      id: 14,
+      image: fruilar,
+      importance: 2,
+      url: "https://example.com",
+      name: "Fruilar",
+    },
+    {
+      id: 15,
+      image: plusfresc,
+      importance: 2,
+      url: "https://example.com",
+      name: "PlusFresc",
+    },
   ],
   // Tier 3 (si tienes más sponsors)
-  []
+  [],
 ];
 
 function redirectToURL(url) {
