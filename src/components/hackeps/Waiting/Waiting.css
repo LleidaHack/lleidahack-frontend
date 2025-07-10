@@ -1,0 +1,40 @@
+@keyframes cloud-move {
+0% { left: -25vw; }
+100% { left: 110vw; }
+}
+
+@keyframes mar-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marMove {
+  animation: mar-move 30s linear infinite;
+}
+
+@keyframes ship-rock {
+  0% {
+    transform: translate(0, 6rem) rotate(0deg);
+  }
+  25% {
+    transform: translate(2%, 6rem) rotate(1deg);
+  }
+  50% {
+    transform: translate(0, 6rem) rotate(0deg);
+  }
+  75% {
+    transform: translate(-2%, 6rem) rotate(-1deg);
+  }
+  100% {
+    transform: translate(0, 6rem) rotate(0deg);
+  }
+}
+
+.shipMovement {
+  animation: ship-rock 8s ease-in-out infinite;
+  transform-origin: center bottom; /* Pivote del balanceo */
+}

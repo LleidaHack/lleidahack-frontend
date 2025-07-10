@@ -33,6 +33,7 @@ import LleidaHackerHome from "./components/lleidahacker/Sections/LleidaHackerHom
 import WorkGroupsSection from "./components/lleidahacker/Sections/WorkGroupsSection";
 import EventsSection from "./components/lleidahacker/Sections/EventsSection";
 import AdminSection from "./components/lleidahacker/Sections/AdminSection";
+import WaitingPage from "./pages/hackeps/WaitingPage";
 
 export default function App() {
   useEffect(() => {
@@ -45,10 +46,16 @@ export default function App() {
 
   // Simulación de detección de token caducado
   setInterval(refreshToken, 1000 * 60 * 12);
+  console.log(process.env.REACT_APP_LAUNCH_PENDING);
 
   return (
     <div className="App">
       <Router basename="/hackeps">
+      {process.env.REACT_APP_LAUNCH_PENDING == 1 ? (
+        <Routes>
+          <Route path="*" element={<WaitingPage />} />
+        </Routes>
+      ) : 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/faq" element={<FAQPage />} />
@@ -94,6 +101,7 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
           <Route path="/hacking" element={<Hacking />} />
         </Routes>
+        }
       </Router>
       {/*
       <Router basename="/lleidahack">
