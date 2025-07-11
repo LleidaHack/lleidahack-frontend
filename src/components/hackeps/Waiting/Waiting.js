@@ -3,6 +3,7 @@ import isla from 'src/assets/img/isla.png'
 import barco from 'src/assets/img/barco.png'
 import hackLogo from "src/assets/img/logoHackeps2025.png"
 import nube from 'src/assets/img/nuve.png';
+import nubeClouding from 'src/assets/img/nuveClouding.png';
 import mar from 'src/assets/img/marAncho.png';
 import './Waiting.css' // Import your CSS file for styles
 
@@ -24,7 +25,7 @@ return (
             {clouds.map((cloud, idx) => (
                 <Cloud
                     key={idx}
-                    src={nube}
+                    src={idx === clouds.length - 1 ? nubeClouding : nube}
                     duration={cloud.duration}
                     width={cloud.width}
                     top={cloud.top}
