@@ -44,8 +44,8 @@ const Mentoring = () => {
             </div>
           </div>
 
-          {/* Columna central - Timón */}
-          <div className="w-96 h-96 lg:col-span-1 flex items-center justify-center lg:mr-64">
+          {/* Columna central - Timón (oculto en móvil) */}
+          <div className="w-96 h-96 lg:col-span-1 hidden lg:flex items-center justify-center lg:mr-64">
             <img
               src={TimonImage}
               alt="TIMON decorativo"
