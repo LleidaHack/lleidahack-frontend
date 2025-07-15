@@ -25,6 +25,9 @@ module.exports = {
         loginPage: "#211f1f",
         successGreen: "#4caf50",
         errorRed: "#f44336",
+        backgroundDuck: "#F6E6DD",
+        backgroundSea: "#71b6cc",
+
       },
       screens: {
         sm: "576px",
