@@ -3,19 +3,6 @@
 100% { left: 110vw; }
 }
 
-@keyframes mar-move {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marMove {
-  animation: mar-move 30s linear infinite;
-}
-
 @keyframes ship-rock {
   0% {
     transform: translate(10%, 2.2rem) rotate(0deg);
@@ -37,4 +24,8 @@
 .shipMovement {
   animation: ship-rock 8s ease-in-out infinite;
   transform-origin: center bottom; /* Pivote del balanceo */
+}
+
+.wavesSeaAnim {
+  background-image: url('/src/assets/img/mar.png');
 }

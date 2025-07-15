@@ -4,6 +4,15 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      keyframes: {
+        "olas-scroll": {
+          '0%':{backgroundPosition: '100% '},
+          '100%':{backgroundPosition: '0% '},
+        }
+      },
+      animation: {
+        'olas-scroll':'olas-scroll 40s linear infinite' //infinite
+      },
       colors: {
         primaryLanding: "#FF7430",
         secondaryLanding: "#232323",
