@@ -15,7 +15,7 @@ const TimonIcon = () => (
 const ScheduleItem = ({ time, title, description, align = "right" }) => {
   const isRight = align === "right";
 
-  const alignmentClass = isRight ? "text-right" : "text-left";
+  const alignmentClass = isRight ? "text-left" : "text-right";
   return (
     <article
       className={`flex flex-col md:flex-row gap-4 py-6 md:items-center ${
@@ -29,7 +29,7 @@ const ScheduleItem = ({ time, title, description, align = "right" }) => {
       <div className=" md:w-1/2 space-y-2 ">
         {/* Caja: time + title */}
         <div
-          className={`flex items-center ${isRight ? "md:justify-end" : "md:justify-start"} md:gap-7 md:flex-row flex-col w-full`}
+          className={`flex  ${isRight ? "items-start" : "items-end"} md:gap-7 md:flex-row flex-col w-full`}
         >
           <>
             <time
@@ -40,7 +40,7 @@ const ScheduleItem = ({ time, title, description, align = "right" }) => {
             </time>
 
             <h2
-              className={`text-2xl font-semibold w-fit m-0 p-0 ${alignmentClass} text-center `}
+              className={`md:text-2xl text-lg font-semibold w-fit m-0 p-0 ${alignmentClass}`}
             >
               {title}
             </h2>
@@ -49,7 +49,7 @@ const ScheduleItem = ({ time, title, description, align = "right" }) => {
 
         {description && (
           <p
-            className={`${alignmentClass} text-center text-textSecondaryHackeps md:items-left `}
+            className={`${alignmentClass}  text-textSecondaryHackeps md:items-left md:text-base text-sm`}
           >
             {description}
           </p>
