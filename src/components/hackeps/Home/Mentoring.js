@@ -15,7 +15,7 @@ const Mentoring = () => {
               Vols postular com a mentor?
             </h2>
 
-            <div className="space-y-4 text-grayStrongHackeps leading-relaxed">
+            <div className="space-y-4 text-grayStrongHackeps leading-relaxed max-w-prose mx-auto text-left">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                 eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
@@ -65,7 +65,10 @@ const Mentoring = () => {
             </div>
 
             <Link to={"/contacte"}>
-              <Button primary lg>
+              <Button
+                className="bg-secondaryColorButton text-white border-none"
+                lg
+              >
                 Contacta
               </Button>
             </Link>

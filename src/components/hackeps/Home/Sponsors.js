@@ -173,7 +173,10 @@ const Sponsors = () => {
       <p>Vols participar?</p>
       <p>No ho dubtis, contacta amb nosaltres!</p>
       <Link to={"/contacte"}>
-        <Button primary lg>
+        <Button
+          className="bg-secondaryColorButton text-white border-none"
+          lg
+        >
           Contacta
         </Button>
       </Link>
