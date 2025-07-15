@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import MentorImage from "src/assets/Mentor.png";
 import TimonImage from "src/assets/TIMON.png";
