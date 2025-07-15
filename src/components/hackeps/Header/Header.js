@@ -50,27 +50,42 @@ const Header = () => {
     setEndContent(
       <>
         <li className="mr-[4vw] list-none text-xl">
-          <Link to="/#dates" className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  ">
+          <Link
+            to="/#dates"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
             Dates
           </Link>
         </li>
         <li className="mr-[4vw] list-none text-xl">
-          <Link to="/#sponsors" className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  ">
+          <Link
+            to="/#sponsors"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
             Sponsors
           </Link>
         </li>
         <li className="mr-[4vw] list-none text-xl">
-          <Link to="/faq" className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  ">
+          <Link
+            to="/faq"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
             FAQ
           </Link>
         </li>
         <li className="mr-[4vw] list-none text-xl">
-          <Link to="/contacte" className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  ">
+          <Link
+            to="/contacte"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
             Contacte
           </Link>
         </li>
         <li className="mr-[4vw] list-none text-xl w-10">
-          <Link to="/perfil" className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  ">
+          <Link
+            to="/perfil"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
         </li>
