@@ -8,14 +8,14 @@ const Mentoring = () => {
   return (
     <section className="pb-32 bg-secondaryHackeps">
       <div className="container mx-auto px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 items-center">
           {/* Columna izquierda - Texto (más ancha) */}
           <div className="lg:col-span-3 space-y-6">
-            <h2 className="text-7xl font-bold text-center leading-relaxed text-primaryHackeps mb-8">
+            <h2 className=" text-2xl md:text-5xl font-bold text-center leading-relaxed text-primaryHackeps mb-8 px-3">
               Vols postular com a mentor?
             </h2>
 
-            <div className="space-y-4 text-grayStrongHackeps leading-relaxed max-w-prose mx-auto text-left">
+            <div className="space-y-4 text-grayStrongHackeps leading-relaxed max-w-prose mx-auto text-left md:text-base text-sm md:px-0 px-5">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                 eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
@@ -45,7 +45,7 @@ const Mentoring = () => {
           </div>
 
           {/* Columna central - Timón (oculto en móvil) */}
-          <div className="w-96 h-96 lg:col-span-1 hidden lg:flex items-center justify-center lg:mr-64">
+          <div className="w-72 opacity-90 lg:col-span-1 hidden lg:flex items-center justify-center lg:mr-56">
             <img
               src={TimonImage}
               alt="TIMON decorativo"
@@ -56,7 +56,7 @@ const Mentoring = () => {
           {/* Columna derecha - Mentor e imagen */}
           <div className="lg:col-span-1 flex flex-col items-center space-y-8 lg:ml-64">
             {/* Imagen de mentor */}
-            <div className="w-48 h-48 flex items-center justify-center">
+            <div className="md:mt-0 mt-5 w-36 md:w-48  flex items-center justify-center">
               <img
                 src={MentorImage}
                 alt="Mentor ilustración"
