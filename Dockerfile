@@ -1,6 +1,16 @@
 # Build stage
 FROM node:18-alpine as build
 
+# Set build-time arguments
+ARG REACT_APP_DOMAIN
+ARG REACT_APP_DEBUG
+ARG REACT_APP_MAIN
+
+# Pass args to env so React can read them
+ENV REACT_APP_DOMAIN=$REACT_APP_DOMAIN
+ENV REACT_APP_DEBUG=$REACT_APP_DEBUG
+ENV REACT_APP_MAIN=$REACT_APP_MAIN
+
 WORKDIR /app
 
 # Copy package files
