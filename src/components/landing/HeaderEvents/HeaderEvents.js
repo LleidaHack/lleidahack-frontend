@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
-import InputSearch from "../InputSearch/InputSearch";
-import FiltersComponent from "../FiltersComponent/FiltersComponent";
+import InputSearch from "src/components/landing/InputSearch/InputSearch";
+import FiltersComponent from "src/components/landing/FiltersComponent/FiltersComponent";
 import HeaderEventsLinks from "src/components/landing/HeaderEvents/HeaderEventsLinks";
 
 const HeaderEvents = () => {
