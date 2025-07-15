@@ -34,11 +34,11 @@ const InputSearch = ({ placeholder, searchtype }) => {
   }, []);
 
   return (
-    <div className="input-search border border-grayColor h-9 relative bg-white rounded flex flex-row">
+    <div className="input-search  border-grayColor h-9 relative bg-white rounded flex flex-row">
       <input
         type="text"
         placeholder={placeholder}
-        className="w-full h-full border-none rounded-md p-4"
+        className="w-full h-full  rounded-md p-4"
       />
       <ButtonLleidahack primary white className="px-12">
         {itemTextButtonSearch}

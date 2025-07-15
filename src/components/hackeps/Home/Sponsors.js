@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "src/components/hackeps/Home/Sponsors.css";
-import { getAllCompanies, getCompanyByTier } from "src/services/CompanyService";
 import Button from "src/components/buttons/Button";
+import LogoSponsors from "../Sponsors/LogoSponsors";
 
 /*IMAGES IMPORTS*/
 import useit from "src/icons/sponsors logos/1st/aww8G0J7_400x400.jpg";
@@ -23,43 +23,144 @@ import fruilar from "src/icons/sponsors logos/2nd/fruilar-gran-3.png";
 import plusfresc from "src/icons/sponsors logos/2nd/plusfresc-logo.jpg";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
-function redirectToURL(id) {
-  const targ = `/hackeps/sponsors/${id}`;
-  window.open(targ, "_blank", "noopener,noreferrer");
-}
+// Datos mock para pruebas sin backend
+const mockSponsorsData = [
+  // Tier 1 (Principales)
+  [
+    {
+      id: 1,
+      image: useit,
+      importance: 1,
+      url: "https://example.com",
+      name: "UseIT",
+    },
+    {
+      id: 2,
+      image: insdo,
+      importance: 1,
+      url: "https://example.com",
+      name: "INSDO",
+    },
+    {
+      id: 3,
+      image: GFT,
+      importance: 1,
+      url: "https://example.com",
+      name: "GFT",
+    },
+    {
+      id: 4,
+      image: eCityclic,
+      importance: 1,
+      url: "https://example.com",
+      name: "eCityclic",
+    },
+    {
+      id: 5,
+      image: uniLleida,
+      importance: 1,
+      url: "https://example.com",
+      name: "Universitat de Lleida",
+    },
+    {
+      id: 6,
+      image: escolaPolitecnica,
+      importance: 1,
+      url: "https://example.com",
+      name: "Escola Politècnica",
+    },
+    {
+      id: 7,
+      image: paeria,
+      importance: 1,
+      url: "https://example.com",
+      name: "Paeria",
+    },
+  ],
+  // Tier 2 (Secundarios)
+  [
+    {
+      id: 8,
+      image: Alter,
+      importance: 2,
+      url: "https://example.com",
+      name: "Alter Software",
+    },
+    {
+      id: 9,
+      image: actium,
+      importance: 2,
+      url: "https://example.com",
+      name: "Actium",
+    },
+    {
+      id: 10,
+      image: VallCompanys,
+      importance: 2,
+      url: "https://example.com",
+      name: "Vall Companys",
+    },
+    {
+      id: 11,
+      image: Cosantex,
+      importance: 2,
+      url: "https://example.com",
+      name: "Cosantex",
+    },
+    {
+      id: 12,
+      image: intech3d,
+      importance: 2,
+      url: "https://example.com",
+      name: "Intech3D",
+    },
+    {
+      id: 13,
+      image: alumni,
+      importance: 2,
+      url: "https://example.com",
+      name: "Alumni",
+    },
+    {
+      id: 14,
+      image: fruilar,
+      importance: 2,
+      url: "https://example.com",
+      name: "Fruilar",
+    },
+    {
+      id: 15,
+      image: plusfresc,
+      importance: 2,
+      url: "https://example.com",
+      name: "PlusFresc",
+    },
+  ],
+  // Tier 3 (si tienes más sponsors)
+  [],
+];
 
-/*End Imports 😭*/
+function redirectToURL(url) {
+  if (url) {
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+}
 
 const Sponsors = () => {
   const [groups, setGroups] = useState([[], [], []]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    // Simulamos la carga de datos sin backend
+    const loadMockData = () => {
       try {
-        let imgs = [[], [], []];
-
-        const tiers = [1, 2, 3];
-        const companyDataTiers = await Promise.all(
-          tiers.map((i) => getCompanyByTier(i)),
-        );
-
-        tiers.forEach((tier, indexT) =>
-          companyDataTiers[indexT].forEach((pos, index) => {
-            imgs[indexT][index] = {
-              image: pos.image,
-              importance: tier,
-              url: pos.website,
-              id: pos.id,
-            };
-          }),
-        );
-        setGroups(imgs);
+        // Usamos los datos mock directamente
+        setGroups(mockSponsorsData);
       } catch (error) {
-        console.log("El error obtenido es:", error);
+        console.log("Error cargando datos mock:", error);
       }
     };
 
-    fetchData();
+    loadMockData();
   }, []);
 
   return (
@@ -81,13 +182,17 @@ const Sponsors = () => {
           {groups.map((group, tier) => (
             <div key={tier} className="flex flex-wrap justify-center gap-4 p-4">
               {group.map((company, index) => (
-                <img
-                  key={index}
-                  src={company.image}
-                  alt={`Logo empresa`}
-                  className={`sponsor-group-group-${company.importance} bg-white p-3 max-h-48 object-contain border rounded-2xl border-gray-200 transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px] cursor-pointer`}
-                  onClick={() => redirectToURL(company.id)}
-                />
+                <div
+                  key={company.id || index}
+                  className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
+                  onClick={() => redirectToURL(company.url)}
+                >
+                  <LogoSponsors
+                    image={company.image}
+                    name={company.name || `Empresa ${index + 1}`}
+                    small={company.importance === 2}
+                  />
+                </div>
               ))}
             </div>
           ))}
