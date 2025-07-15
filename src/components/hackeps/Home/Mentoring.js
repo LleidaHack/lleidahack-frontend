@@ -6,13 +6,13 @@ import Button from "src/components/buttons/Button";
 
 const Mentoring = () => {
   return (
-    <section className="py-16 bg-secondaryHackeps">
+    <section className="pb-32 bg-secondaryHackeps">
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           
           {/* Columna izquierda - Texto (más ancha) */}
           <div className="lg:col-span-3 space-y-6">
-            <h2 className="text-5xl font-bold text-primaryHackeps mb-8">
+            <h2 className="text-7xl font-bold text-center leading-relaxed text-primaryHackeps mb-8">
               Vols postular com a mentor?
             </h2>
             
