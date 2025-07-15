@@ -40,7 +40,7 @@ const ScheduleItem = ({ time, title, description, align = "right" }) => {
             </time>
 
             <h2
-              className={`md:text-2xl text-lg font-semibold w-fit m-0 p-0 ${alignmentClass}`}
+              className={`md:text-2xl text-lg font-semibold w-fit m-0 p-0 ${alignmentClass} md:text-left`}
             >
               {title}
             </h2>
