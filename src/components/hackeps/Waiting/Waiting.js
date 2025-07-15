@@ -61,7 +61,7 @@ return (
         </div>
         {/* Infinite moving hours image */}
         <div className="overflow-hidden w-full z-[50] h-28 md:h-32">
-            <div className="w-full h-36  bottom-0 bg-repeat-x overflow-hidden wavesSeaAnim animate-olas-scroll transform translate-y-2 bg-contain">
+            <div className="w-full h-36  bottom-0 bg-repeat-x overflow-hidden wavesSeaAnim animate-olas-scroll transform translate-y-1 bg-contain">
             </div>
         </div>
     </div>
