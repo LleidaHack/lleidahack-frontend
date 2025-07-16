@@ -14,7 +14,7 @@ const CalendarDates = (props) => {
         Dates
       </TitleGeneralized>
       <Container>
-        <Row>
+        <Row className="flex flex-col md:flex-row gap-4 md:gap-0">
           <Col className="calendar-content">
             <p className="text-justify mr-5">
               Lleidahack et dona la benvinguda a la HackEPS 2024, la primera
