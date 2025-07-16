@@ -42,6 +42,7 @@ module.exports = {
     backgroundImage: {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",
       "background-patron": "url('/src/imgs/patron_imagen.png')",
+      "background-events": "url('/src/imgs/event_map.png')",
       "background-none": "url()",
     },
   },

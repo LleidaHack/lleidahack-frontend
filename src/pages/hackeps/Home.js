@@ -7,6 +7,7 @@ import Schedule from "src/components/hackeps/Home/Schedule.js";
 import CountdownTimer from "src/components/hackeps/Home/Timer.js";
 import MainTitle from "src/components/hackeps/Home/MainTitle.js";
 import { getHackeps } from "src/services/EventService";
+import ActivitiesSection from "src/components/hackeps/Home/Activites";
 
 const Home = () => {
   const [startDate, setStartDate] = useState(undefined);
@@ -69,6 +70,7 @@ const Home = () => {
       />
       <CalendarDates startDate={startDate} endDate={endDate} />
       <Schedule events={events} />
+      <ActivitiesSection />
       <Sponsors />
       <Footer />
     </div>
