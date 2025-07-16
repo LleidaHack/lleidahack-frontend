@@ -29,6 +29,10 @@ import Error404Landing from "./pages/Landing/Error404Landing";
 import "src/styles/styles.css";
 import ConfirmAssistancePage from "./pages/hackeps/Confirm";
 import Hacking from "./pages/hackeps/Hacking";
+import LleidaHackerHome from "./components/lleidahacker/Sections/LleidaHackerHomeSection";
+import WorkGroupsSection from "./components/lleidahacker/Sections/WorkGroupsSection";
+import EventsSection from "./components/lleidahacker/Sections/EventsSection";
+import AdminSection from "./components/lleidahacker/Sections/AdminSection";
 
 export default function App() {
   useEffect(() => {
@@ -103,7 +107,22 @@ export default function App() {
       </Router>*/}
       <Router basename="/admin">
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route
+            path="/"
+            element={<Dashboard section={<LleidaHackerHome />} />}
+          />
+          <Route
+            path="/workgroups"
+            element={<Dashboard section={<WorkGroupsSection />} />}
+          />
+          <Route
+            path="/events"
+            element={<Dashboard section={<EventsSection />} />}
+          />
+          <Route
+            path="/administration"
+            element={<Dashboard section={<AdminSection />} />}
+          />
         </Routes>
       </Router>
     </div>
