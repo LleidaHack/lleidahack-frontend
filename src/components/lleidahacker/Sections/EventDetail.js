@@ -3,6 +3,7 @@ import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import PopupBody from "src/components/emergentPopup/PopupBody";
+import ParticipantManager from "src/components/lleidahacker/ParticipantManager/ParticipantManager";
 
 const EventDetail = () => {
   // Get eventId from URL params
@@ -13,6 +14,7 @@ const EventDetail = () => {
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
   const [popUpOpen, setPopUpOpen] = useState(false);
+  const [showParticipants, setShowParticipants] = useState(true);
 
   useEffect(() => {
     // Simulate fetching event data
@@ -51,7 +53,7 @@ const EventDetail = () => {
           </div>
           <div className="flex justify-end w-full"></div>
         </div>
-        <div className="content px-16 py-3">
+        <div className="content px-16 py-3 overflow-y-auto mb-20">
           <div className="descripcio">
             <h2 className="text-3xl font-bold mb-4">
               Descripció de l'esdeveniment
@@ -91,15 +93,22 @@ const EventDetail = () => {
               <strong>Data Fi inscripcions:</strong> {event?.endJoinDate}
             </p>
           </div>
-          <div className="participants mt-8">
+          <div className="participants my-8">
             <h2 className="text-3xl font-bold mb-4">Participants</h2>
             <ButtonLleidahack
               primary
               white
-              onClick={() => navigate(`/events/${eventId}/participants`)}
+              onClick={() => setShowParticipants(!showParticipants)}
             >
-              Gestionar participants
+              {showParticipants ? "Ocultar Participants" : "Mostrar Participants"}
             </ButtonLleidahack>
+            {showParticipants && (
+              <div className="w-full px-4 py-5">
+                <ParticipantManager
+                  eventId={eventId}
+                />
+              </div>
+            )}
           </div>
         </div>
         <div className="fixed bottom-12 right-12 flex flex-col items-center space-y-4 z-50">
