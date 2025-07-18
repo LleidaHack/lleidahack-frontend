@@ -35,6 +35,7 @@ module.exports = {
         successGreen: "#4caf50",
         errorRed: "#f44336",
         blueSky: "#bdfffe",
+        secondaryColorButton: "#237090",
       },
       screens: {
         sm: "576px",
