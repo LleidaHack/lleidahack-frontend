@@ -1,6 +1,10 @@
 @keyframes cloud-move {
-0% { left: -25vw; }
-100% { left: 110vw; }
+  0% {
+    left: -25vw;
+  }
+  100% {
+    left: 110vw;
+  }
 }
 
 @keyframes ship-rock {
@@ -27,5 +31,5 @@
 }
 
 .wavesSeaAnim {
-  background-image: url('/src/assets/img/mar.png');
+  background-image: url("/src/assets/img/mar.png");
 }

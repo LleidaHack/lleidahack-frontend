@@ -51,57 +51,57 @@ export default function App() {
   return (
     <div className="App">
       <Router basename="/hackeps">
-      {process.env.REACT_APP_LAUNCH_PENDING == 1 ? (
-        <Routes>
-          <Route path="*" element={<WaitingPage />} />
-        </Routes>
-      ) : 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/contacte" element={<Contacte />} />
-          <Route path="/home" element={<Home />} />
-          <Route
-            path="/perfil"
-            element={
-              <RequireAuth originalRoute="/perfil">
-                <Profile />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/perfil/:hacker_id"
-            element={
-              <RequireAuth originalRoute="/perfil">
-                <Profile />
-              </RequireAuth>
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/validate-email/" element={<Verify />} />
-          <Route path="/confirm-password" element={<ResetPassword />} />
-          <Route path="/hacker-form" element={<HackerForm />} />
-          <Route path="/entrance" element={<Entrances />} />
-          {/*<Route path="/testing" element={<Testing />} />*/}
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
-          <Route path="/sponsors/:ids" element={<Sponsors />} />
-          <Route
-            path="/inscripcio"
-            element={
-              <RequireAuth originalRoute="/inscripcio">
-                <Inscripcio />
-              </RequireAuth>
-            }
-          />
-          <Route path="/forgot-password" element={<PasswordForget />} />
-          <Route path="/user-verification" element={<LoginVerify />} />
-          <Route path="/assistance" element={<ConfirmAssistancePage />} />
-          <Route path="*" element={<Error404 />} />
-          <Route path="/hacking" element={<Hacking />} />
-        </Routes>
-        }
+        {process.env.REACT_APP_LAUNCH_PENDING == 1 ? (
+          <Routes>
+            <Route path="*" element={<WaitingPage />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/contacte" element={<Contacte />} />
+            <Route path="/home" element={<Home />} />
+            <Route
+              path="/perfil"
+              element={
+                <RequireAuth originalRoute="/perfil">
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/perfil/:hacker_id"
+              element={
+                <RequireAuth originalRoute="/perfil">
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/validate-email/" element={<Verify />} />
+            <Route path="/confirm-password" element={<ResetPassword />} />
+            <Route path="/hacker-form" element={<HackerForm />} />
+            <Route path="/entrance" element={<Entrances />} />
+            {/*<Route path="/testing" element={<Testing />} />*/}
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
+            <Route path="/sponsors/:ids" element={<Sponsors />} />
+            <Route
+              path="/inscripcio"
+              element={
+                <RequireAuth originalRoute="/inscripcio">
+                  <Inscripcio />
+                </RequireAuth>
+              }
+            />
+            <Route path="/forgot-password" element={<PasswordForget />} />
+            <Route path="/user-verification" element={<LoginVerify />} />
+            <Route path="/assistance" element={<ConfirmAssistancePage />} />
+            <Route path="*" element={<Error404 />} />
+            <Route path="/hacking" element={<Hacking />} />
+          </Routes>
+        )}
       </Router>
       {/*
       <Router basename="/lleidahack">

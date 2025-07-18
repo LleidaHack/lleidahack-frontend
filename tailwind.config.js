@@ -6,12 +6,12 @@ module.exports = {
     extend: {
       keyframes: {
         "olas-scroll": {
-          '0%':{backgroundPosition: '100% '},
-          '100%':{backgroundPosition: '0% '},
-        }
+          "0%": { backgroundPosition: "100% " },
+          "100%": { backgroundPosition: "0% " },
+        },
       },
       animation: {
-        'olas-scroll':'olas-scroll 40s linear infinite' //infinite
+        "olas-scroll": "olas-scroll 40s linear infinite", //infinite
       },
       colors: {
         primaryLanding: "#FF7430",
