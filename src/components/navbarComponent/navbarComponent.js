@@ -58,13 +58,8 @@ const NavbarComponent = ({
   }, [bgColor]);
 
   return (
-    <nav
-      className={`flex flex-col !sticky top-0 z-50 shadow-[primaryHackeps]`}
-      
-    >
-      <div
-        className={`w-full h-16 px-4 py-2 items-center bg-primaryHackeps`}
-      >
+    <nav className={`flex flex-col !sticky top-0 z-50 shadow-[primaryHackeps]`}>
+      <div className={`w-full h-16 px-4 py-2 items-center bg-primaryHackeps`}>
         <div
           className="md:hidden flex flex-row justify-between mt-0"
           id="header-points"
@@ -85,7 +80,7 @@ const NavbarComponent = ({
             id="container-points"
           >
             <div
-              className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3 bg-primaryHackeps`}   
+              className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3 bg-primaryHackeps`}
             >
               <div className="hidden md:block items-center  ">
                 <div className="flex items-center h-full relative">
