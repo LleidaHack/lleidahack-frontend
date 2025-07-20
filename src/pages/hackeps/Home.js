@@ -6,6 +6,7 @@ import Sponsors from "src/components/hackeps/Home/Sponsors.js";
 import Schedule from "src/components/hackeps/Home/Schedule.js";
 import CountdownTimer from "src/components/hackeps/Home/Timer.js";
 import MainTitle from "src/components/hackeps/Home/MainTitle.js";
+import Mentoring from "src/components/hackeps/Home/Mentoring.js";
 import { getHackeps } from "src/services/EventService";
 
 const Home = () => {
@@ -78,6 +79,7 @@ const Home = () => {
       <CalendarDates startDate={startDate} endDate={endDate} />
       <Schedule events={events} />
       <Sponsors />
+      <Mentoring />
       <Footer />
     </div>
   );
