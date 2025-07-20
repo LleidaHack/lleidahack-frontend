@@ -81,7 +81,7 @@ const Header = () => {
             Contacte
           </Link>
         </li>
-        <li className="mr-[4vw] list-none text-xl w-10">
+        <li className=" list-none text-xl w-10">
           <Link
             to="/perfil"
             className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "

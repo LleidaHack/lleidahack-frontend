@@ -76,11 +76,11 @@ const NavbarComponent = ({
 
         {navStatus ? (
           <div
-            className="absolute h-full max-md:h-56 w-screen bg-primaryHackeps z-50 inset-x-0 md:relative appear-animation mt-2 md:mt-3 md:w-full flex border-b-[1] border-gray-300"
+            className="absolute h-full max-md:h-56 w-screen bg-white z-50 inset-x-0 md:relative appear-animation mt-2 md:mt-3 md:w-full flex border-b-[1] border-gray-300"
             id="container-points"
           >
             <div
-              className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3 bg-primaryHackeps`}
+              className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3 md:bg-primaryHackeps`}
             >
               <div className="hidden md:block items-center  ">
                 <div className="flex items-center h-full relative">
@@ -91,7 +91,7 @@ const NavbarComponent = ({
               </div>
               {(!showCenterContentOnlyOnDrop || !navDrop) && (
                 <div
-                  className="absolute  md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0"
+                  className="absolute md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0"
                   onClick={changeNavStatus}
                 >
                   {centerContent}
