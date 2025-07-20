@@ -169,8 +169,7 @@ const Header = () => {
 
       {String(process.env.REACT_APP_MAIN) === "0" && (
         <nav
-          className="py-2 shadow-md sticky top-0 z-[100]"
-          style={{ backgroundColor: "red", fontSize: "1.5em" }}
+          className="py-2 shadow-md sticky top-0 z-[100] secondaryHackeps text-2xl"
         >
           <div className="ml-0 mr-0 max-w-full">
             <div style={{ maxWidth: "100%", wordWrap: "break-word" }}>

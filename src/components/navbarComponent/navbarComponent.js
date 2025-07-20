@@ -25,7 +25,7 @@ const NavbarComponent = ({
   useEffect(() => {
     if (window.innerWidth <= 768) {
       setNavStatus(false);
-      setBgColor2("white");
+      setBgColor2("primaryHackeps");
     } else {
       setNavStatus(true);
       setBgColor2(bgColor);
@@ -39,7 +39,7 @@ const NavbarComponent = ({
 
       if (window.innerWidth <= 768) {
         setNavStatus(false);
-        setBgColor2("white");
+        setBgColor2("primaryHackeps");
         // Do something when window width is less than or equal to 768
       } else {
         setNavStatus(true);
@@ -59,12 +59,11 @@ const NavbarComponent = ({
 
   return (
     <nav
-      className={`flex flex-col !sticky top-0 z-50`}
-      style={{ boxShadow: "0 2px 5px 0 rgba(0,0,0,0.2)" }}
+      className={`flex flex-col !sticky top-0 z-50 shadow-[primaryHackeps]`}
+      
     >
       <div
-        className={`w-full h-16 px-4 py-2 items-center`}
-        style={{ backgroundColor: bgColor, color: textColor }}
+        className={`w-full h-16 px-4 py-2 items-center bg-primaryHackeps`}
       >
         <div
           className="md:hidden flex flex-row justify-between mt-0"
@@ -82,12 +81,11 @@ const NavbarComponent = ({
 
         {navStatus ? (
           <div
-            className="absolute h-full max-md:h-56 w-screen bg-white z-50 inset-x-0 md:relative appear-animation mt-2 md:mt-3 md:w-full flex border-b-[1] border-gray-300"
+            className="absolute h-full max-md:h-56 w-screen bg-primaryHackeps z-50 inset-x-0 md:relative appear-animation mt-2 md:mt-3 md:w-full flex border-b-[1] border-gray-300"
             id="container-points"
           >
             <div
-              className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3`}
-              style={{ backgroundColor: bgColor2 }}
+              className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3 bg-primaryHackeps`}   
             >
               <div className="hidden md:block items-center  ">
                 <div className="flex items-center h-full relative">
