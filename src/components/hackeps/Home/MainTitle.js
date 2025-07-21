@@ -61,12 +61,9 @@ const MainTitle = ({}) => {
 
   return (
     <>
-      <div className="justify-center items-center flex flex-col gap-5 mt-2">
-        
-        <div className="col-12">
-          <div className="rowe">
-            <img className="w-4/12 mx-auto" src={hackLogo} alt="" />
-          </div>
+      <div className="justify-center items-center flex flex-col gap-5 mt-2 w-full">
+        <div className="col-12 w-full flex justify-center">
+          <img className="w-7/12 md:w-4/12 md:mx-auto" src={hackLogo} alt="" />
         </div>
         <div className="join-button">
           <Button onClick={handleShow} className={"bg-red-500 text-white hover:bg-primaryHackeps duration-1"} outline>
