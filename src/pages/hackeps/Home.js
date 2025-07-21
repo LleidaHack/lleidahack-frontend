@@ -4,8 +4,9 @@ import Footer from "src/components/hackeps/Footer/Footer.js";
 import CalendarDates from "src/components/hackeps/Home/Calendar.js";
 import Sponsors from "src/components/hackeps/Home/Sponsors.js";
 import Schedule from "src/components/hackeps/Home/Schedule.js";
-import CountdownTimer from "src/components/hackeps/Home/Timer.js";
-import MainTitle from "src/components/hackeps/Home/MainTitle.js";
+
+
+import HeroSection from "src/components/hackeps/Home/HeroSection.js";
 import Mentoring from "src/components/hackeps/Home/Mentoring.js";
 import { getHackeps } from "src/services/EventService";
 
@@ -62,11 +63,10 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <MainTitle />
-      <CountdownTimer
-        startTime={startDate}
-        endTime={endDate}
-        timerActive={timerActive}
+      <HeroSection 
+        initialDate={startDate}
+        finalDate={endDate}
+        activeTimer={timerActive}
       />
       <CalendarDates startDate={startDate} endDate={endDate} />
       <Schedule events={events} />

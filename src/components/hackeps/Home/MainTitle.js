@@ -1,4 +1,3 @@
-import "src/components/hackeps/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useEffect, useState } from "react";
 import Button from "src/components/buttons/Button";
@@ -6,7 +5,7 @@ import hackLogo from "src/icons/banner_home_icon.png";
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
 
-const MainTitle = () => {
+const MainTitle = ({}) => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [hackDay, setHackDay] = useState(false);
@@ -62,11 +61,11 @@ const MainTitle = () => {
 
   return (
     <>
-      <div className="backgrounder bg-primaryHackeps bg-center">
-        <div className="fantasma" id="home"></div>
+      <div className="justify-center items-center flex flex-col gap-5 mt-2">
+        
         <div className="col-12">
           <div className="rowe">
-            <img className="imagelogo" src={hackLogo} alt="" />
+            <img className="w-4/12 mx-auto" src={hackLogo} alt="" />
           </div>
         </div>
         <div className="join-button">
