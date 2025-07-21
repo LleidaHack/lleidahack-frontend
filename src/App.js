@@ -49,7 +49,7 @@ export default function App() {
   console.log(process.env.REACT_APP_LAUNCH_PENDING);
 
   return (
-    <div className="App">
+    <div className="App overflow-x-hidden">
       <Router basename="/hackeps">
         {process.env.REACT_APP_LAUNCH_PENDING == 1 ? (
           <Routes>

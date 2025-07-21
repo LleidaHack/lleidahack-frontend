@@ -24,7 +24,9 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
         return {
             duration: Math.random() * 50 + 80, // 80s to 130s
             width: calculatedWidth, // 10vw to 20vw
-            top: Math.random() * 30 + 5, // 5vh to 35vh
+            top: Math.random() * 100 - 42,
+             // 5vh to 35vh
+            zIndex: Math.random() < 0.5 ? 10 : 40
         };
     };
 
@@ -50,15 +52,16 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
             src: fishData.src,
             needsFlip,
             delay: Math.random() * props.duration,
+            name: fishData.name,
             };
         });
     }, []); // se ejecuta solo al montar
 
     return (
-        <div>
+        <div className='overflow-hidden '>
             <div className='w-full h-screen bg-blueSea flex flex-row'>
-                <div className='logo&countdown flex flex-col justify-center items-center gap-2 w-2/3'>
-                    <div className='logoSection w-full h-2/3'>
+                <div className='logo&countdown flex flex-col justify-center items-center gap-2 w-2/3 z-30'>
+                    <div className='logoSection w-full h-2/3 '>
                         <MainTitle />
                     </div>
                     <div className='countdown h-1/3 flex justify-start items-end'>
@@ -69,9 +72,9 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
                         />
                     </div>
                 </div>
-                <div className='sirena flex flex-col items-end justify-end w-1/3 '>
-                    <div className='w-full flex justify-end'>
-                        <img src={sirena} alt='sirena' className='w-9/12' />
+                <div className='sirena flex flex-col items-end justify-end w-1/3 z-30 overflox-x-hidden'>
+                    <div className='w-full flex justify-end z-30'>
+                        <img src={sirena} alt='sirena' className='w-10/12 ' />
                     </div>
                     {fish.map((fishProps, idx) => (
 
@@ -83,6 +86,8 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
                             top={fishProps.top}
                             delay={fishProps.delay}
                             direction={fishProps.direction}
+                            needsFlip={fishProps.needsFlip}
+                            zIndex={fishProps.zIndex}
                         />
                     ))}
                 </div>
@@ -93,7 +98,7 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
     )
 
     // Componente Fish (igual que Cloud pero para peces)
-    function Fish({ src, duration, width, top, delay, direction, needsFlip }) {
+    function Fish({ src, duration, width, top, delay, direction, needsFlip, zIndex }) {
         const style = {
             position: "absolute",
             left: direction === 'right' ? "-25vw" : "100vw",
@@ -104,10 +109,10 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
             : `cloud-move-reverse ${duration}s linear infinite`,
             animationDelay: `-${delay}s`,
             zIndex: 10,
-            transform: needsFlip ? "rotate-180" : "rotate-0",
+            transform: needsFlip ? "scaleX(-1)" : "scaleX(1)"
         };
 
-        return <img src={src} style={style} alt="pez" className="md:w-auto" />;
+        return <img src={src} style={style} alt="pez" className={`md:w-auto z-${zIndex}`} />;
     }
 }
 

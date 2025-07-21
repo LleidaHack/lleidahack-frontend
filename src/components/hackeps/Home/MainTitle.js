@@ -69,7 +69,7 @@ const MainTitle = ({}) => {
           </div>
         </div>
         <div className="join-button">
-          <Button onClick={handleShow} secondary outline>
+          <Button onClick={handleShow} className={"bg-red-500 text-white hover:bg-primaryHackeps duration-1"} outline>
             {textButton}
           </Button>
         </div>
