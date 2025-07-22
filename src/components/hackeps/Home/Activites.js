@@ -11,7 +11,7 @@ const ActivitiesSection = () => {
           Activitats
         </TitleGeneralized>
 
-        <div className="bg-illa bg-no-repeat bg-contain bg-center w-full aspect-[4.5/2]  flex flex-col items-center justify-center">
+        <div className="bg-illa bg-no-repeat bg-contain bg-center w-full min-h-[33rem]  flex flex-col items-center justify-center">
           Activitat 1: Hackathon
         </div>
 
