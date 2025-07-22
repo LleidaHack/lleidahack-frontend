@@ -110,7 +110,7 @@ export default function ContactForm() {
 
   // Formulario principal
   return (
-    <div className="mx-auto p-6 bg-white">
+    <div className="px-16 py-16 p-6 bg-white">
       <div className="space-y-6">
         {/* Primera fila - Nom y Cognoms */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
