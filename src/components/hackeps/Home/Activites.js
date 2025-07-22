@@ -1,28 +1,34 @@
 import React from "react";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
-import illaMarro from "src/assets/illa.png"
-import ampolla from "src/assets/mapa-botella.png"
+import ampolla from "src/assets/mapa-botella.png";
+import banderaCreu from "src/assets/bandera.png";
 
 const ActivitiesSection = () => {
-    return (
+  return (
     <div className="bg-secondaryHackeps w-full h-auto px-20 py-10 items-center flex flex-col">
-        <div className="bg-background-events py-16 bg-contain bg-no-repeat w-full bg-center h-[50rem] flex flex-col items-center ">
-            <TitleGeneralized padTop="0" underline>
-                Activitats
-            </TitleGeneralized>
-            <img 
-                src={illaMarro} 
-                alt="Illa Activitats" 
-                className=" h-[32rem]" 
-            />
-            <img 
-                src={ampolla}
-                alt="Botella del tresor" 
-                className="h-96 transform translate-y-[-10rem] translate-x-[-23rem] "
-            />
+      <div className="bg-background-events py-16 bg-contain bg-no-repeat w-full bg-center h-[50rem] flex flex-col items-center ">
+        <TitleGeneralized padTop="0" underline>
+          Activitats
+        </TitleGeneralized>
+
+        <div className="bg-illa bg-no-repeat bg-contain bg-center w-full aspect-[4.5/2]  flex flex-col items-center justify-center">
+          Activitat 1: Hackathon
         </div>
+
+        <img
+          src={banderaCreu}
+          alt="Bandera Creu Roja"
+          className="h-[15rem] transfor translate-y-[-15rem] translate-x-[10rem] "
+        />
+
+        <img
+          src={ampolla}
+          alt="Botella del tresor"
+          className="h-96 transform translate-y-[-25rem] translate-x-[-25rem] "
+        />
+      </div>
     </div>
-    );
+  );
 };
 
 export default ActivitiesSection;

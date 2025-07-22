@@ -48,6 +48,7 @@ module.exports = {
       "background-cartellB": "url('/src/assets/Cartell B.png')",
       "background-cartellC": "url('/src/assets/Cartell C.png')",
       "background-cartellD": "url('/src/assets/Cartell D.png')",
+      illa: "url('/src/assets/illa.png')",
     },
   },
   plugins: [],
