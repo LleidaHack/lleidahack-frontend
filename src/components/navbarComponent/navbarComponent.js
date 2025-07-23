@@ -25,7 +25,7 @@ const NavbarComponent = ({
   useEffect(() => {
     if (window.innerWidth <= 768) {
       setNavStatus(false);
-      setBgColor2("white");
+      setBgColor2("primaryHackeps");
     } else {
       setNavStatus(true);
       setBgColor2(bgColor);
@@ -39,7 +39,7 @@ const NavbarComponent = ({
 
       if (window.innerWidth <= 768) {
         setNavStatus(false);
-        setBgColor2("white");
+        setBgColor2("primaryHackeps");
         // Do something when window width is less than or equal to 768
       } else {
         setNavStatus(true);
@@ -58,14 +58,8 @@ const NavbarComponent = ({
   }, [bgColor]);
 
   return (
-    <nav
-      className={`flex flex-col !sticky top-0 z-50`}
-      style={{ boxShadow: "0 2px 5px 0 rgba(0,0,0,0.2)" }}
-    >
-      <div
-        className={`w-full h-16 px-4 py-2 items-center`}
-        style={{ backgroundColor: bgColor, color: textColor }}
-      >
+    <nav className={`flex flex-col !sticky top-0 z-50 shadow-[primaryHackeps]`}>
+      <div className={`w-full h-16 px-4 py-2 items-center bg-primaryHackeps`}>
         <div
           className="md:hidden flex flex-row justify-between mt-0"
           id="header-points"
@@ -86,8 +80,7 @@ const NavbarComponent = ({
             id="container-points"
           >
             <div
-              className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3`}
-              style={{ backgroundColor: bgColor2 }}
+              className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3 md:bg-primaryHackeps`}
             >
               <div className="hidden md:block items-center  ">
                 <div className="flex items-center h-full relative">
@@ -98,7 +91,7 @@ const NavbarComponent = ({
               </div>
               {(!showCenterContentOnlyOnDrop || !navDrop) && (
                 <div
-                  className="absolute  md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0"
+                  className="absolute md:relative top-0 text-black flex flex-col md:flex-row items-left justify-center w-full gap-y-2 gap-x-10 mt-3 md:mt-0 pl-5 md:ml-0"
                   onClick={changeNavStatus}
                 >
                   {centerContent}
