@@ -61,8 +61,24 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
     }, []); // se ejecuta solo al montar
 
     return (
-        <div className='overflow-hidden'>
-            <div className='w-full h-screen bg-blueSea flex flex-row'>
+        <div className='overflow-hidden relative'>
+            <div className='w-full h-screen bg-blueSea flex flex-row relative'>
+                {/* Fish container absolutely positioned over the whole section */}
+                <div className='fish-container pointer-events-none absolute inset-0 w-full h-full z-40'>
+                    {fish.map((fishProps, idx) => (
+                        <Fish
+                            key={idx}
+                            src={fishProps.src}
+                            duration={fishProps.duration}
+                            width={fishProps.width}
+                            top={fishProps.top}
+                            delay={fishProps.delay}
+                            direction={fishProps.direction}
+                            needsFlip={fishProps.needsFlip}
+                            zIndex={fishProps.zIndex}
+                        />
+                    ))}
+                </div>
                 <div className='logo&countdown flex flex-col justify-center items-center gap-2 md:w-2/3 z-30'>
                     <div className='logoSection w-full md:h-2/3 '>
                         <MainTitle />
@@ -78,22 +94,6 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
                 <div className='sirena flex flex-col items-end justify-end w-1/3 z-30 overflow-x-hidden'>
                     <div className='w-full hidden md:flex justify-end z-30'>
                         <img src={sirena} alt='sirena' className='w-10/12 ' />
-                    </div>
-                    <div className='fish-container absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden'>
-                        {fish.map((fishProps, idx) => (
-
-                            <Fish
-                                key={idx}
-                                src={fishProps.src}
-                                duration={fishProps.duration}
-                                width={fishProps.width}
-                                top={fishProps.top}
-                                delay={fishProps.delay}
-                                direction={fishProps.direction}
-                                needsFlip={fishProps.needsFlip}
-                                zIndex={fishProps.zIndex}
-                            />
-                        ))}
                     </div>
                 </div>
                 <div className='bubbles'>
