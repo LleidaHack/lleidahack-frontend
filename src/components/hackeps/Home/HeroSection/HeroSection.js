@@ -61,7 +61,7 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
     }, []); // se ejecuta solo al montar
 
     return (
-        <div className='overflow-hidden '>
+        <div className='overflow-hidden'>
             <div className='w-full h-screen bg-blueSea flex flex-row'>
                 <div className='logo&countdown flex flex-col justify-center items-center gap-2 md:w-2/3 z-30'>
                     <div className='logoSection w-full md:h-2/3 '>

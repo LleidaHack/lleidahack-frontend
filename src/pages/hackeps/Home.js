@@ -6,7 +6,7 @@ import Sponsors from "src/components/hackeps/Home/Sponsors.js";
 import Schedule from "src/components/hackeps/Home/Schedule.js";
 
 
-import HeroSection from "src/components/hackeps/Home/HeroSection.js";
+import HeroSection from "src/components/hackeps/Home/HeroSection/HeroSection.js";
 import Mentoring from "src/components/hackeps/Home/Mentoring.js";
 import { getHackeps } from "src/services/EventService";
 
