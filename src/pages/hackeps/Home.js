@@ -6,6 +6,7 @@ import Sponsors from "src/components/hackeps/Home/Sponsors.js";
 import Schedule from "src/components/hackeps/Home/Schedule.js";
 import CountdownTimer from "src/components/hackeps/Home/Timer.js";
 import MainTitle from "src/components/hackeps/Home/MainTitle.js";
+import Mentoring from "src/components/hackeps/Home/Mentoring.js";
 import { getHackeps } from "src/services/EventService";
 
 const Home = () => {
@@ -29,32 +30,40 @@ const Home = () => {
 
   const events = [
     {
-      time: "8:30 h - 23 de novembre",
+      time: "8:30 h",
       title: "Inici del check-in",
+      description: "Arribada i registre dels participants",
     },
     {
-      time: "10:00 h - 23 de novembre",
+      time: "10:00 h",
       title: "Cerimònia d'obertura",
+      description: "Benvinguda i presentació de l'esdeveniment",
     },
     {
-      time: "11:00 h - 23 de novembre",
+      time: "11:00 h",
       title: "Comença el temps de hacking",
+      description: "Inici oficial del hackathon",
     },
     {
-      time: "15:00 h - 23 de novembre",
+      time: "15:00 h",
       title: "Finalitza el check-in",
+      description: "Tancament del registre per als participants",
     },
     {
-      time: "11:00 h - 24 de novembre",
+      time: "11:00 h",
       title: "Finalitza el temps de hacking",
+      description: "Tancament del període de desenvolupament dels projectes",
     },
     {
-      time: "11:30 h - 24 de novembre",
+      time: "11:30 h",
       title: "Presentacions dels projectes",
+      description:
+        "Presentació dels projectes desenvolupats durant el hackathon",
     },
     {
-      time: "14:00 h - 24 de novembre",
+      time: "14:00 h",
       title: "Cerimònia de cloenda i entrega de premis",
+      description: "Cloenda del hackathon i entrega de premis als guanyadors",
     },
   ];
 
@@ -70,6 +79,7 @@ const Home = () => {
       <CalendarDates startDate={startDate} endDate={endDate} />
       <Schedule events={events} />
       <Sponsors />
+      <Mentoring />
       <Footer />
     </div>
   );
