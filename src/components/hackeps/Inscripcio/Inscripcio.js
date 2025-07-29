@@ -1,36 +1,26 @@
 import React, { useState, useEffect } from "react";
-import "src/components/hackeps/Inscripcio/Inscripcio.css";
-
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { SelectField } from "formik-stepper";
+import { useForm } from "react-hook-form";
 import { registerHackerToEvent } from "src/services/EventService";
 import { getHackeps } from "src/services/EventService";
 import FailFeedback from "src/components/hackeps/Feedbacks/FailFeedback";
 import SuccessFeedback from "src/components/hackeps/Feedbacks/SuccesFeedback";
-
 import Button from "src/components/buttons/Button";
-
 import FileBase from "react-file-base64";
 import { getHackerById } from "src/services/HackerService";
-
 import { getEventIsHackerRegistered } from "src/services/EventService";
 import { updateHacker } from "src/services/HackerService";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 
-const validationSchema = Yup.object().shape({
-  studies: Yup.string().required("Aquest camp és obligatori"),
-  center: Yup.string().required("Aquest camp és obligatori"),
-  location: Yup.string().required("Aquest camp és obligatori"),
-  size: Yup.string().required("Aquest camp és obligatori"),
-  meet: Yup.string().required("Aquest camp és obligatori"),
-  checkboxterms: Yup.boolean().oneOf(
-    [true],
-    "Has d'acceptar els termes i condicions per a continuar",
-  ),
-});
-
 const InscripcioForm = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+    trigger,
+  } = useForm({
+    mode: "onChange",
+  });
   const sizeOptions = [
     { value: "S", label: "S" },
     { value: "M", label: "M" },
@@ -41,13 +31,14 @@ const InscripcioForm = () => {
   ];
 
   const meetOptions = [
+    { value: "nan", label: "Sense Seleccionar" },
     { value: "Xarxes socials", label: "Xarxes socials" },
     { value: "Un amic", label: "Un amic" },
     { value: "Altres edicions", label: "Altres edicions" },
     { value: "Cartells publicitaris", label: "Cartells publicitaris" },
     { value: "Altre mitjà", label: "Altre mitjà" },
   ];
-
+  const [disabledRestrictions, setDisabledRestrictions] = useState(true);
   const [cvFile, setCvFile] = useState("");
   const [hackepsEvent, setHackepsEvent] = useState(null);
   const [isCvTooLarge, setCvTooLarge] = useState(false);
@@ -77,6 +68,7 @@ const InscripcioForm = () => {
       const me = await getHackerById(localStorage.getItem("userID"));
       setCvFile(me.cv);
       getEventIsHackerRegistered(hackepsEvent.id, me.id).then((response) => {
+        console.log("response", response);
         if (response) {
           setRegistered(true);
         } else {
@@ -91,7 +83,7 @@ const InscripcioForm = () => {
     fetchData();
   }, []);
 
-  const handleSubmit = async (values) => {
+  const submit = async (values) => {
     const data = {
       shirt_size: values.size,
       food_restrictions: values.food,
@@ -110,12 +102,12 @@ const InscripcioForm = () => {
 
     let registration;
     if (registered) {
-      data.id = previousRegistration.id;
+      data.id = parseInt(previousRegistration.id, 10);
       registration = await updateHacker(data);
     } else {
       registration = await registerHackerToEvent(
-        hackepsEvent.id,
-        localStorage.getItem("userID"),
+        parseInt(hackepsEvent.id, 10),
+        parseInt(localStorage.getItem("userID"), 10),
         data,
       );
     }
@@ -159,274 +151,251 @@ const InscripcioForm = () => {
   };
 
   return (
-    <div className="container-all-inscripcio bg-secondaryHackeps">
+    <div className="min-h-screen justify-center items-center flex bg-secondaryHackeps">
       {!submittRegister ? (
         <>
           <br />
-          <div className="container-inscripcio">
+          <div className="w-2/3 items-center">
             <TitleGeneralized underline>
               Inscripció HackEPS 2024
             </TitleGeneralized>
-            <div className="form-container">
-              <Formik
-                enableReinitialize
-                initialValues={{
-                  studies: previousRegistration.studies,
-                  center: previousRegistration.study_center,
-                  location: previousRegistration.location,
-                  size: previousRegistration.shirt_size,
-                  food: previousRegistration.food_restrictions,
-                  cvinfo: previousRegistration.cv,
-                  meet: previousRegistration.how_did_you_meet_us,
-                  linkedin: previousRegistration.linkedin,
-                  github: previousRegistration.github,
-                  devpost: previousRegistration.cv,
-                  checkboxcredit: false,
-                  checkboxterms: registered,
-                }}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
-              >
-                <Form>
-                  <div className="formik-field">
-                    <label
-                      className="text-textSecondaryHackeps"
-                      htmlFor="studies"
-                    >
-                      Què estudies o has estudiat?
-                    </label>
-                    <Field type="text" id="studies" name="studies" />
-                    <ErrorMessage
-                      name="studies"
-                      component="div"
-                      className="error-message"
-                    />
-                  </div>
+            <div className="w-full flex flex-col justify-center items-center animate-[fadeIn_0.5s_ease-in-out]">
+              <form className="flex flex-col gap-3">
+                <label className="mb-3">
+                  Que estudies o has estudiat?
+                  <input
+                    className={`${errors.studies ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
+                    placeholder="Estudis"
+                    {...register("studies", {
+                      required: "Aquest camp és obligatori",
+                    })}
+                  />
+                </label>
+                {errors.studies && (
+                  <span className="text-red-400">{errors.studies.message}</span>
+                )}
 
-                  <div className="formik-field">
-                    <label
-                      className="text-textSecondaryHackeps"
-                      htmlFor="center"
-                    >
-                      Centre d'estudis:
-                    </label>
-                    <Field type="text" id="center" name="center" />
-                    <ErrorMessage
-                      name="center"
-                      component="div"
-                      className="error-message"
-                    />
-                  </div>
+                <label className="mb-3">
+                  Centre d'estudis:
+                  <input
+                    className={`${errors.center ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
+                    placeholder="Udl"
+                    {...register("center", {
+                      required: "Aquest camp és obligatori",
+                    })}
+                  />
+                </label>
+                {errors.school && (
+                  <span className="text-red-400">{errors.school.message}</span>
+                )}
 
-                  <div className="formik-field">
-                    <label
-                      className="text-textSecondaryHackeps"
-                      htmlFor="location"
-                    >
-                      D'on vens?:
-                    </label>
-                    <Field type="text" id="location" name="location" />
-                    <ErrorMessage
-                      name="location"
-                      component="div"
-                      className="error-message"
-                    />
-                  </div>
+                <label className="mb-3">
+                  D'on vens?
+                  <input
+                    className={`${errors.location ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
+                    placeholder="Lleida, Barcelona, etc."
+                    {...register("location", {
+                      required: "Aquest camp és obligatori",
+                    })}
+                  />
+                </label>
+                {errors.location && (
+                  <span className="text-red-400">
+                    {errors.location.message}
+                  </span>
+                )}
 
-                  <div className="formik-field">
-                    <SelectField
-                      id="size"
-                      name="size"
-                      label="Talla de samarreta:"
-                      options={sizeOptions}
-                      placeholder="La meva talla de samarreta és..."
-                      labelColor="#000000"
-                    />
-                    <ErrorMessage
-                      name="size"
-                      component="div"
-                      className="error-message"
-                    />
-                  </div>
+                <label className="mb-3">
+                  Talla de samarreta:
+                  <select
+                    className={`${errors.size ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
+                    {...register("size", {
+                      required: "Aquest camp és obligatori",
+                    })}
+                  >
+                    {sizeOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                {errors.size && (
+                  <span className="text-red-400">{errors.size.message}</span>
+                )}
 
-                  <div className="formik-field">
-                    <label className="text-textSecondaryHackeps" htmlFor="food">
-                      Tens alguna restricció alimentària o alèrgia?
-                    </label>
-                    <Field type="text" id="food" name="food" />
-                    <ErrorMessage
-                      name="food"
-                      component="div"
-                      className="error-message"
-                    />
-                  </div>
+                <label className="mb-3">
+                  Tens alguna restricció alimentària o alèrgia?
+                  <select
+                    className={`${errors.meets ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base ml-2`}
+                    {...register("meets", {
+                      required: "Aquest camp és obligatori",
+                      validate: (value) =>
+                        value !== "" || "Selecciona una opció vàlida",
+                    })}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      const box = document.getElementById("foodTextArea");
+                      if (value === "yes") {
+                        setDisabledRestrictions(false);
+                      } else if (value === "no") {
+                        setDisabledRestrictions(true);
+                      } else {
+                        setDisabledRestrictions(true);
+                      }
+                      if (box) {
+                        box.value = "";
+                      }
+                    }}
+                  >
+                    <option value="nan">Sense Seleccionar</option>
+                    <option value="yes">Si en tinc</option>
+                    <option value="no">No en tinc</option>
+                  </select>
+                </label>
 
-                  <div className="formik-field">
-                    <SelectField
-                      id="meet"
-                      name="meet"
-                      options={meetOptions}
-                      label="Com ens has conegut?"
-                      placeholder="Us he conegut per..."
-                      labelColor="#000000"
-                    />
-                  </div>
+                <label>
+                  {!disabledRestrictions && (
+                    <div id="foodTextArea">
+                      Quines restriccions o alèrgies tens?
+                      <input
+                        className={`${errors.food && !disabledRestrictions ? "bg-pink-100" : "bg-white"} ${``} py-2 min-h-10 px-2 text-base mt-2`}
+                        placeholder="Lactosa, gluten, etc."
+                        defaultValue={""}
+                        {...register("food", {
+                          required:
+                            !disabledRestrictions &&
+                            "Indicans les teves restriccions o alergies.",
+                        })}
+                      />
+                      {errors.food && !disabledRestrictions && (
+                        <span className="text-red-400">
+                          {errors.food.message}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </label>
 
-                  <div className="formik-field">
-                    <label
-                      className="text-textSecondaryHackeps"
-                      htmlFor="cvinfo_links"
-                    >
-                      Vols que les empreses de Lleida et coneguin? (Opcional)
-                    </label>
-                    <p className="subtitle text-textSecondaryHackeps">
+                <label className="mb-3">
+                  Com ens has conegut?
+                  <select
+                    className={`${errors.meet ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base ml-2`}
+                    {...register("meet", {
+                      required: "Aquest camp és obligatori",
+                      validate: (value) =>
+                        value !== "nan" || "Selecciona una opció vàlida",
+                    })}
+                  >
+                    {meetOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                {errors.meet && (
+                  <span className="text-red-400">{errors.meet.message}</span>
+                )}
+
+                <hr className="my-4" />
+
+                <div className="flex flex-col w-full">
+                  <p className="text-xl">
+                    Vols que les empreses de Lleida et coneguin? (Opcional)
+                  </p>
+                  <label className="mb-3">
+                    <p className="text-sm">
                       Tens experiència en altres hackatons? Algun projecte
                       personal que vulguis compartir? Explica'ns què t'apassiona
-                      i deixa aquí els enllaços de les teves xarxes socials.
+                      i deixa aquí els enllaços de les teves xarxes socials
                     </p>
-                    <Field
-                      as="textarea"
-                      id="cvinfo_links"
-                      name="cvinfo_links"
-                      rows="4"
+                    <textarea
+                      className={`${errors.cvinfo_links ? "bg-pink-100" : "bg-white"} px-2 text-base mt-2`}
+                      placeholder="Explica'ns què t'apassiona i deixa aquí els enllaços de les teves xarxes socials"
+                      {...register("cvinfo_links")}
                     />
+                  </label>
 
-                    {/* Agrupamos los campos de LinkedIn, GitHub y Devpost uno debajo del otro */}
-                    <div className="subfields-container">
-                      <div className="subfield">
-                        <Field
-                          type="text"
-                          id="linkedin"
-                          name="linkedin"
-                          placeholder="Enllaç de LinkedIn"
-                        />
-                        <ErrorMessage
-                          name="linkedin"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-                    </div>
+                  <label className="mb-3">
+                    Github:
+                    <input
+                      className={`py-2 min-h-10 px-2 text-base mt-2`}
+                      placeholder="Github"
+                      {...register("github")}
+                    />
+                  </label>
 
-                    <div className="subfields-container">
-                      <div className="subfield">
-                        <Field
-                          type="text"
-                          id="github"
-                          name="github"
-                          placeholder="Enllaç de GitHub"
-                        />
-                        <ErrorMessage
-                          name="github"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-                    </div>
+                  <label className="mb-3">
+                    Linkedin:
+                    <input
+                      className={`py-2 min-h-10 px-2 text-base mt-2`}
+                      placeholder="Linkedin"
+                      {...register("linkedin")}
+                    />
+                  </label>
 
-                    <div className="subfields-container">
-                      <div className="subfield">
-                        <Field
-                          type="text"
-                          id="devpost"
-                          name="devpost"
-                          placeholder="Enllaç de Devpost"
-                        />
-                        <ErrorMessage
-                          name="devpost"
-                          component="div"
-                          className="error-message"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="file-input-container">
-                    <label
-                      className="text-textSecondaryHackeps"
-                      htmlFor="cvinfo_file"
-                    >
-                      Adjunta el teu CV (Opcional)
-                    </label>
-                    <div className="cv-input-container">
+                  <label className="">
+                    Adjunta el teu CV (Opcional)
+                    <div className="flex flex-col md:flex-row gap-3 mt-2 image-input-container">
                       <FileBase
                         type="file"
-                        id="cvinfo_file"
-                        name="cvinfo_file"
+                        id="avatarInput"
+                        multiple={false}
+                        accept="application/pdf"
                         onDone={handleFileChange}
                       />
+                      <Button
+                        onClick={clearFile}
+                        className="bg-red-500 hover:bg-red-400  text-white "
+                      >
+                        Esborra
+                      </Button>
                     </div>
-                    {cvFile && (
-                      <div className="file-info">
-                        <span className="file-name text-textSecondaryHackeps">
-                          {cvFile.name}
-                        </span>
-                        <Button delete onClick={clearFile}>
-                          &#10005;
-                        </Button>
-                      </div>
-                    )}
-
                     {isCvTooLarge && (
-                      <label htmlFor="cvinfo_file" className="text-red-600">
-                        El fitxer seleccionat supera el límit permès de 1MB.
-                      </label>
+                      <span className="text-red-400">
+                        El fitxer és massa gran. Màxim 1MB.
+                      </span>
                     )}
-                  </div>
+                  </label>
 
-                  <div className="checkbox-container">
-                    <Field
+                  <label className="flex items-center space-x-2">
+                    <input
                       type="checkbox"
-                      id="checkboxterms"
-                      name="checkboxterms"
+                      className="w-fit mr-5"
+                      {...register("checkboxterms", {
+                        required: "Aquest camp és obligatori",
+                      })}
                     />
-                    <label
-                      className="text-textSecondaryHackeps"
-                      htmlFor="checkboxterms"
-                    >
+                    <p>
                       Accepto els{" "}
-                      <a href="/terms" target="_blank">
-                        Termes i Condicions
-                      </a>{" "}
-                      de la HackEPS 2024
-                    </label>
-                    <ErrorMessage
-                      name="checkboxterms"
-                      component="div"
-                      className="text-errorRed"
-                    />
-                  </div>
+                      <a href="/hackeps/terms" className="text-primaryHackeps">
+                        termes i condicions
+                      </a>
+                    </p>
+                  </label>
 
-                  <div className="checkbox-container">
-                    <br />
-                    <br />
-                    <Field
+                  <label className="flex items-center space-x-2">
+                    <input
                       type="checkbox"
-                      id="checkboxcredit"
-                      name="checkboxcredit"
+                      className="w-fit mr-5"
+                      {...register("checkboxcredit")}
                     />
-                    <label
-                      className="text-textSecondaryHackeps"
-                      htmlFor="checkboxcredit"
-                    >
-                      Vull 1 crèdit ECTS de matèria transversal (només aplicable
+                    <p>
+                      Vull1 crèdit ETCS de matèria transversal (només aplicable
                       a alumnes de la UDL)
-                    </label>
-                  </div>
-
-                  <div className="button-submit-container m-8 mt-2">
-                    {isCvTooLarge ? (
-                      <Button disabled type="submit">
-                        {registered ? "Actualitza" : "Envia"}
-                      </Button>
-                    ) : (
-                      <Button primary type="submit">
-                        {registered ? "Actualitza" : "Envia"}
-                      </Button>
-                    )}
-                  </div>
-                </Form>
-              </Formik>
+                    </p>
+                  </label>
+                </div>
+                <div className="flex flex-col gap-0 mb-20 ">
+                  <Button
+                    onClick={handleSubmit(submit)}
+                    className={`bg-primaryHackeps text-white mb-2  ${!isValid ? "opacity-50" : "opacity-100 hover:bg-primaryHackepsDark"}`}
+                  >
+                    Enviar
+                  </Button>
+                </div>
+              </form>
             </div>
           </div>
         </>

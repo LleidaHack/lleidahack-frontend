@@ -38,7 +38,7 @@ const FailFeedback = ({
   return (
     <div className="valerr bg-secondaryHackeps text-textSecondaryHackeps">
       <div className="iconBox">
-        <i className="mt-48 mb-6 fa-regular fa-circle-xmark text-8xl"></i>
+        <i className="mb-6 fa-regular fa-circle-xmark text-8xl"></i>
         <h2>{title}</h2>
         <p>{formattedText}</p>
         <p>
@@ -46,7 +46,7 @@ const FailFeedback = ({
         </p>
       </div>
       {hasButton ? (
-        <div className="infbuttonok">
+        <div className="text-center mb-14">
           <Link to={buttonLink}>
             <Button onClick={onButtonClick} primary>
               {buttonText}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
-import "src/components/hackeps/Header/Header.css";
 import hackIcon from "src/icons/hackIconBig.png";
 import { me, checkToken } from "src/services/AuthenticationService";
 import ProfilePic from "../ProfilePic/ProfilePic";
@@ -49,28 +48,43 @@ const Header = () => {
     fetchData();
     setEndContent(
       <>
-        <li className="nav-item list-none text-xl">
-          <Link to="/#dates" className="nav-link !text-textPrimaryHackeps  ">
+        <li className="mr-[4vw] list-none text-xl">
+          <Link
+            to="/#dates"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
             Dates
           </Link>
         </li>
-        <li className="nav-item list-none text-xl">
-          <Link to="/#sponsors" className="nav-link !text-textPrimaryHackeps ">
+        <li className="mr-[4vw] list-none text-xl">
+          <Link
+            to="/#sponsors"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
             Sponsors
           </Link>
         </li>
-        <li className="nav-item list-none text-xl">
-          <Link to="/faq" className="nav-link !text-textPrimaryHackeps ">
+        <li className="mr-[4vw] list-none text-xl">
+          <Link
+            to="/faq"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
             FAQ
           </Link>
         </li>
-        <li className="nav-item list-none text-xl">
-          <Link to="/contacte" className="nav-link !text-textPrimaryHackeps ">
+        <li className="mr-[4vw] list-none text-xl">
+          <Link
+            to="/contacte"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
             Contacte
           </Link>
         </li>
-        <li className="nav-item list-none text-xl w-10">
-          <Link to="/perfil" className="nav-link !text-textPrimaryHackeps ">
+        <li className=" list-none text-xl w-10">
+          <Link
+            to="/perfil"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
         </li>
@@ -140,7 +154,7 @@ const Header = () => {
   }, [icon, validToken]);
 
   return (
-    <>
+    <div data-testid="headerHackeps">
       <NavbarComponent
         bgColor={"#0e3a29"}
         textColor={"white"}
@@ -153,24 +167,19 @@ const Header = () => {
       />
 
       {String(process.env.REACT_APP_MAIN) === "0" && (
-        <nav
-          className="navbar"
-          style={{ backgroundColor: "red", fontSize: "1.5em" }}
-        >
-          <div className="container">
-            <div style={{ maxWidth: "100%", wordWrap: "break-word" }}>
-              Aquesta pàgina és de proves. La pàgina de la HackEPS 2024 és{" "}
-              <a
-                style={{ color: "var(--primary)" }}
-                href="https://www.lleidahack.dev/hackeps"
-              >
-                https://www.lleidahack.dev/hackeps
-              </a>
-            </div>
+        <nav className="py-2 shadow-md sticky top-0 z-[100] secondaryHackeps text-2xl">
+          <div className="ml-0 mr-0 max-w-full break-words">
+            Aquesta pàgina és de proves. La pàgina de la HackEPS 2024 és{" "}
+            <a
+              className="primaryHackeps"
+              href="https://www.lleidahack.dev/hackeps"
+            >
+              https://www.lleidahack.dev/hackeps
+            </a>
           </div>
         </nav>
       )}
-    </>
+    </div>
   );
 };
 
