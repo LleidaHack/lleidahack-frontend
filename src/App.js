@@ -115,7 +115,7 @@ export default function App() {
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
       </Router>*/}
-      <Router basename="/admin">
+      {/* <Router basename="/admin">
         <Routes>
           <Route
             path="/"
@@ -142,7 +142,7 @@ export default function App() {
             element={<Dashboard section={<AdminSection />} />}
           />
         </Routes>
-      </Router>
+      </Router> */}
     </div>
   );
 }
