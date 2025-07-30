@@ -49,22 +49,26 @@ const Waiting = () => {
         ))}
       </div>
       <div className="capaIsla+Barco flex flex-col md:flex-row justify-between items-center w-full  z-10 h-full ">
-        <div className="barco flex md:items-end h-full transform translate-y-44 md:translate-y-10  md:order-first">
-          <img src={barco} className="w-8/12 shipMovement" alt="barco" />
-        </div>
-        <div className="logoHackeps+text flex flex-col items-center justify-center gap-4 order-first md:order-last transform translate-y-48 md:translate-y-0">
-          <img className="w-5/12 md:w-7/12" src={hackLogo} alt="logo hackeps" />
+        <div className="logoHackeps+text flex flex-col  gap-4 order-first md:order-last transform translate-y-0 md:translate-y-0 md:translate-x-[100%] items-center md:items-start  justify-center h-full">
+          <img className="w-5/12 md:w-5/12" src={hackLogo} alt="logo hackeps" />
           <p className="text-3xl md:text-5xl font-bold text-primaryHackeps">
             Proximament...
           </p>
         </div>
-        <div className="isla hidden md:flex items-end justify-end h-full transform translate-y-20 md:order-none">
-          <img src={isla} className="w-9/12" alt="isla" />
+        <div className="isla hidden md:flex items-end justify-end h-full transform translate-y-10 -translate-x-5 md:order-none">
+          <img src={isla} className="w-5/12" alt="isla" />
         </div>
       </div>
       {/* Infinite moving hours image */}
+      <div className="barco absolute bottom-36 md:bottom-36 flex items-end h-full">
+        <img
+          src={barco}
+          className="w-6/12 md:w-3/12 shipMovement"
+          alt="barco"
+        />
+      </div>
       <div className="overflow-hidden w-full z-[50] h-28 md:h-32">
-        <div className="w-full h-36  bottom-0 bg-repeat-x overflow-hidden wavesSeaAnim animate-olas-scroll transform translate-y-1 bg-contain"></div>
+        <div className="w-full h-36 absolute bottom-0 bg-repeat-x overflow-hidden wavesSeaAnim animate-olas-scroll transform translate-y-3 md:translate-y-0 bg-contain"></div>
       </div>
     </div>
   );
