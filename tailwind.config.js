@@ -11,7 +11,7 @@ module.exports = {
         },
       },
       animation: {
-        "olas-scroll": "olas-scroll 4000s linear infinite", //infinite
+        "olas-scroll": "olas-scroll 40s linear infinite", //infinite
       },
       colors: {
         primaryLanding: "#FF7430",

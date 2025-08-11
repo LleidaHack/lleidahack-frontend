@@ -33,8 +33,6 @@ import LleidaHackerHome from "./components/lleidahacker/Sections/LleidaHackerHom
 import WorkGroupsSection from "./components/lleidahacker/Sections/WorkGroupsSection";
 import EventsSection from "./components/lleidahacker/Sections/EventsSection";
 import AdminSection from "./components/lleidahacker/Sections/AdminSection";
-import EventDetail from "./components/lleidahacker/Sections/EventDetail";
-import EventParticipant from "./components/lleidahacker/Sections/EventParticipant";
 import WaitingPage from "./pages/hackeps/WaitingPage";
 
 export default function App() {
@@ -115,7 +113,7 @@ export default function App() {
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
       </Router>*/}
-      {/* <Router basename="/admin">
+      <Router basename="/admin">
         <Routes>
           <Route
             path="/"
@@ -130,19 +128,11 @@ export default function App() {
             element={<Dashboard section={<EventsSection />} />}
           />
           <Route
-            path="/events/:eventId"
-            element={<Dashboard section={<EventDetail />} />}
-          />
-          <Route
-            path="/events/:eventId/participants"
-            element={<Dashboard section={<EventParticipant />} />}
-          />
-          <Route
             path="/administration"
             element={<Dashboard section={<AdminSection />} />}
           />
         </Routes>
-      </Router> */}
+      </Router>
     </div>
   );
 }
