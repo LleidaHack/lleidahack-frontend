@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useState, useRef} from 'react'
 import Hero2 from 'src/components/hackeps/Home/HeroSection/Hero2'
 import HeroSection from 'src/components/hackeps/Home/HeroSection/HeroSection'
 import Waiting from 'src/components/hackeps/Waiting/Waiting'
@@ -7,32 +7,25 @@ import { useGSAP } from '@gsap/react'
 import 'src/components/hackeps/Waiting/Waiting.css'
 
 const Animation = () => {
-  const div1 = useRef(null);
-  const div2 = useRef(null);
-  const div3 = useRef(null);
+    const div0 = useRef(null);
+    const div1 = useRef(null);
+    const div2 = useRef(null);
+    const div3 = useRef(null);
+    const [div2Status, setDiv2Status] = useState(false);
+
 
     useGSAP(() => {
         const tl = gsap.timeline();
-        tl.to(div1.current, {
-            duration: 5,
-            opacity: 0,
-            y: -10,
-            ease: "power1.inOut",
-            delay: 2
-        }, 0);
-        tl.to(div2.current, {
-            duration: 5,
-            y: "-110vh",
-            ease: "power1.inOut",
-            delay: 2
-        }, 0);
+        tl.to(div1.current, { y: '-100%', duration: 3, ease: 'power2.inOut', delay: 3 })
+            .to(div2.current, { y: '-90%', duration: 3, ease: 'power2.inOut', onComplete: () => setDiv2Status(true) }, '<')
+        
         
 
     }, []);
 
 
   return (
-    <div>
+    <div className='w-full max-h-screen overflow-hidden' ref={div0}>
         <div ref={div1}>
             <Waiting minimalMode={true} />
         </div>
@@ -42,7 +35,7 @@ const Animation = () => {
                     <div className="w-full h-full bg-repeat-x bg-bottom animate-olas-scroll wavesSeaAnim bg-contain"></div>
                 </div>
             </div>
-            <Hero2 />
+            <Hero2 completed={div2Status} />
         </div>
         <div ref={div3}>
             <HeroSection />
