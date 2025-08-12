@@ -96,7 +96,7 @@ const Header = () => {
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
         </li>
-      </>
+      </>,
     );
     setCenterContent(
       <>
@@ -137,7 +137,7 @@ const Header = () => {
             <p>Contacte</p>
           </Link>
         </li>
-      </>
+      </>,
     );
     setDropEndContent(
       <>
@@ -149,7 +149,7 @@ const Header = () => {
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
         </li>
-      </>
+      </>,
     );
   }, []);
 
@@ -164,7 +164,7 @@ const Header = () => {
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
         </li>
-      </>
+      </>,
     );
     if (process.env.REACT_APP_DEBUG === "true") console.log("updated header");
   }, [icon, validToken]);
