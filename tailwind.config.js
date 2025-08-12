@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const { ProgressBar } = require('react-bootstrap');
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -26,7 +28,8 @@ module.exports = {
         successGreen: "#4caf50",
         errorRed: "#f44336",
         backgroundDuck: "#F6E6DD",
-        backgroundSea: "#71b6cc",
+        backgroundSea: "#7ab1c5",
+        progressBarColor: "#854d0e",
 
       },
       screens: {
