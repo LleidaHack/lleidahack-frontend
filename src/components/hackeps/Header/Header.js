@@ -58,6 +58,14 @@ const Header = () => {
         </li>
         <li className="mr-[4vw] list-none text-xl">
           <Link
+            to="/#activitats"
+            className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
+          >
+            Activitats
+          </Link>
+        </li>
+        <li className="mr-[4vw] list-none text-xl">
+          <Link
             to="/#sponsors"
             className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
           >
@@ -88,7 +96,7 @@ const Header = () => {
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
         </li>
-      </>,
+      </>
     );
     setCenterContent(
       <>
@@ -98,6 +106,14 @@ const Header = () => {
             className="text-xl list-none no-underline text-black"
           >
             <p>Dates</p>
+          </Link>
+        </li>
+        <li className=" list-none">
+          <Link
+            to="/#activities"
+            className="text-xl list-none no-underline text-black"
+          >
+            <p>Activitats</p>
           </Link>
         </li>
         <li className=" list-none no-underline">
@@ -121,7 +137,7 @@ const Header = () => {
             <p>Contacte</p>
           </Link>
         </li>
-      </>,
+      </>
     );
     setDropEndContent(
       <>
@@ -133,7 +149,7 @@ const Header = () => {
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
         </li>
-      </>,
+      </>
     );
   }, []);
 
@@ -148,7 +164,7 @@ const Header = () => {
             <ProfilePic size="small" icon={icon} validToken={validToken} />
           </Link>
         </li>
-      </>,
+      </>
     );
     if (process.env.REACT_APP_DEBUG === "true") console.log("updated header");
   }, [icon, validToken]);
