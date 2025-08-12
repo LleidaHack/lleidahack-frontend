@@ -9,15 +9,15 @@ const LoadSection = () => {
   return (
     <div className="w-full h-screen flex flex-col bg-primaryHackeps">
       
-      <div className="w-full h-[55vh] bg-backgroundDuck bg-cover bg-center flex items-end justify-center">
+      <div className="w-full h-[55vh] bg-backgroundDuck bg-cover bg-center flex flex-row items-end justify-between">
         
-        <div className="flex gap-24 transform translate-y-1/3">
+        <div className="flex flex-row gap-24 transform translate-y-1/3 w-1/2 translate-x-48">
           <img src={pato2} alt="Pato parche" className="w-16 h-auto" />
           <img src={pato3} alt="Pato sirena" className="w-16 h-auto" />
           <img src={pato1} alt="Pato gorro" className="w-16 h-auto" />
         </div>
         
-        <div className="flex justify-start transform translate-y-[61%]">
+        <div className="flex justify-start transform translate-y-[61%] w-1/2">
           <img src={ola} alt="Ola de mar" className="w-4/6 h-auto ola-movement" />
         </div>
         
