@@ -32,4 +32,6 @@
 
 .wavesSeaAnim {
   background-image: url("/src/assets/img/mar.png");
+  background-size: cover;
+  width: 10000vw;
 }
