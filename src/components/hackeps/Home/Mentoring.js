@@ -6,8 +6,8 @@ import Button from "src/components/buttons/Button";
 
 const Mentoring = () => {
   return (
-    <section className="pb-32 bg-secondaryHackeps">
-      <div className="container mx-auto px-8">
+    <section className="p-5 pb-32 bg-secondaryHackeps">
+      <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 items-center">
           {/* Columna izquierda - Texto (más ancha) */}
           <div className="lg:col-span-3 space-y-6">
