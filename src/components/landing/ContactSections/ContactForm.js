@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { SuccessFeedback, FailFeedback } from './Feedback';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { SuccessFeedback, FailFeedback } from "./Feedback";
 
 export default function ContactForm() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
   const [mailSended, setMailSended] = useState(false);
   const [mailStatus, setMailStatus] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -12,14 +17,14 @@ export default function ContactForm() {
     setIsLoading(true);
     try {
       const formData = {
-        name: data.nom + ' ' + data.cognoms,
+        name: data.nom + " " + data.cognoms,
         email: data.email,
         title: data.assumpte,
-        message: data.missatge
+        message: data.missatge,
       };
 
       // Simulación de envío
-      const success = await new Promise(resolve => {
+      const success = await new Promise((resolve) => {
         setTimeout(() => resolve(Math.random() > 0.3), 1500);
       });
 
@@ -41,13 +46,15 @@ export default function ContactForm() {
   };
 
   const handleGoHome = () => {
-    window.location.href = '/lleidahack/';
+    window.location.href = "/lleidahack/";
   };
 
   if (mailSended) {
-    return mailStatus
-      ? <SuccessFeedback handleGoHome={handleGoHome} />
-      : <FailFeedback handleRetry={handleRetry} />;
+    return mailStatus ? (
+      <SuccessFeedback handleGoHome={handleGoHome} />
+    ) : (
+      <FailFeedback handleRetry={handleRetry} />
+    );
   }
 
   return (
@@ -64,15 +71,22 @@ export default function ContactForm() {
               type="text"
               placeholder="Nom"
               className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.nom ? 'bg-pink-100 border-red-300' : 'bg-white border-gray-300'
+                errors.nom
+                  ? "bg-pink-100 border-red-300"
+                  : "bg-white border-gray-300"
               }`}
-              {...register('nom', { 
-                required: 'El nom no pot estar buit',
-                minLength: { value: 2, message: 'El nom ha de tenir almenys 2 caràcters' }
+              {...register("nom", {
+                required: "El nom no pot estar buit",
+                minLength: {
+                  value: 2,
+                  message: "El nom ha de tenir almenys 2 caràcters",
+                },
               })}
               disabled={isLoading}
             />
-            {errors.nom && <p className="mt-1 text-sm text-red-400">{errors.nom.message}</p>}
+            {errors.nom && (
+              <p className="mt-1 text-sm text-red-400">{errors.nom.message}</p>
+            )}
           </div>
 
           {/* Cognoms */}
@@ -84,15 +98,24 @@ export default function ContactForm() {
               type="text"
               placeholder="Cognoms"
               className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.cognoms ? 'bg-pink-100 border-red-300' : 'bg-white border-gray-300'
+                errors.cognoms
+                  ? "bg-pink-100 border-red-300"
+                  : "bg-white border-gray-300"
               }`}
-              {...register('cognoms', { 
-                required: 'Els cognoms no poden estar buits',
-                minLength: { value: 2, message: 'Els cognoms han de tenir almenys 2 caràcters' }
+              {...register("cognoms", {
+                required: "Els cognoms no poden estar buits",
+                minLength: {
+                  value: 2,
+                  message: "Els cognoms han de tenir almenys 2 caràcters",
+                },
               })}
               disabled={isLoading}
             />
-            {errors.cognoms && <p className="mt-1 text-sm text-red-400">{errors.cognoms.message}</p>}
+            {errors.cognoms && (
+              <p className="mt-1 text-sm text-red-400">
+                {errors.cognoms.message}
+              </p>
+            )}
           </div>
         </div>
 
@@ -107,15 +130,24 @@ export default function ContactForm() {
               type="email"
               placeholder="Correu electrònic"
               className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.email ? 'bg-pink-100 border-red-300' : 'bg-white border-gray-300'
+                errors.email
+                  ? "bg-pink-100 border-red-300"
+                  : "bg-white border-gray-300"
               }`}
-              {...register('email', { 
-                required: 'Et falta indicar-nos el teu correu de contacte',
-                pattern: { value: /^\S+@\S+$/i, message: 'El correu no és vàlid' }
+              {...register("email", {
+                required: "Et falta indicar-nos el teu correu de contacte",
+                pattern: {
+                  value: /^\S+@\S+$/i,
+                  message: "El correu no és vàlid",
+                },
               })}
               disabled={isLoading}
             />
-            {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>}
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-400">
+                {errors.email.message}
+              </p>
+            )}
           </div>
 
           {/* Assumpte */}
@@ -127,15 +159,24 @@ export default function ContactForm() {
               type="text"
               placeholder="Assumpte"
               className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.assumpte ? 'bg-pink-100 border-red-300' : 'bg-white border-gray-300'
+                errors.assumpte
+                  ? "bg-pink-100 border-red-300"
+                  : "bg-white border-gray-300"
               }`}
-              {...register('assumpte', { 
-                required: 'El títol no pot estar buit',
-                minLength: { value: 3, message: 'El títol ha de tenir almenys 3 caràcters' }
+              {...register("assumpte", {
+                required: "El títol no pot estar buit",
+                minLength: {
+                  value: 3,
+                  message: "El títol ha de tenir almenys 3 caràcters",
+                },
               })}
               disabled={isLoading}
             />
-            {errors.assumpte && <p className="mt-1 text-sm text-red-400">{errors.assumpte.message}</p>}
+            {errors.assumpte && (
+              <p className="mt-1 text-sm text-red-400">
+                {errors.assumpte.message}
+              </p>
+            )}
           </div>
         </div>
 
@@ -148,22 +189,33 @@ export default function ContactForm() {
             placeholder="Indica'ns en què et podem ajudar."
             rows="6"
             className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-vertical ${
-              errors.missatge ? 'bg-pink-100 border-red-300' : 'bg-white border-gray-300'
+              errors.missatge
+                ? "bg-pink-100 border-red-300"
+                : "bg-white border-gray-300"
             }`}
-            {...register('missatge', { 
-              required: 'El missatge no pot estar buit',
-              minLength: { value: 10, message: 'El missatge ha de tenir almenys 10 caràcters' }
+            {...register("missatge", {
+              required: "El missatge no pot estar buit",
+              minLength: {
+                value: 10,
+                message: "El missatge ha de tenir almenys 10 caràcters",
+              },
             })}
             disabled={isLoading}
           />
-          {errors.missatge && <p className="mt-1 text-sm text-red-400">{errors.missatge.message}</p>}
+          {errors.missatge && (
+            <p className="mt-1 text-sm text-red-400">
+              {errors.missatge.message}
+            </p>
+          )}
         </div>
 
         {/* Info legal */}
         <div className="text-xs text-gray-500 leading-relaxed">
-          T’informem que les dades personals que facilitis passaran a formar part d’un fitxer responsabilitat de Lleidahack 
-          per a gestionar la teva petició. Pots exercir els drets d’accès, rectificació, 
-          cancel·lació o oposició al tractament de les teves dades a l’adreça de correu senyalada example@lleidahack.dev.
+          T’informem que les dades personals que facilitis passaran a formar
+          part d’un fitxer responsabilitat de Lleidahack per a gestionar la teva
+          petició. Pots exercir els drets d’accès, rectificació, cancel·lació o
+          oposició al tractament de les teves dades a l’adreça de correu
+          senyalada example@lleidahack.dev.
         </div>
 
         {/* Checkbox */}
@@ -172,8 +224,8 @@ export default function ContactForm() {
             type="checkbox"
             id="acceptConditions"
             className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-            {...register('acceptConditions', { 
-              required: 'Has de llegir i acceptar les condicions' 
+            {...register("acceptConditions", {
+              required: "Has de llegir i acceptar les condicions",
             })}
             disabled={isLoading}
           />
@@ -182,7 +234,9 @@ export default function ContactForm() {
           </label>
         </div>
         {errors.acceptConditions && (
-          <p className="text-sm text-red-400">{errors.acceptConditions.message}</p>
+          <p className="text-sm text-red-400">
+            {errors.acceptConditions.message}
+          </p>
         )}
 
         {/* Botón */}
@@ -191,10 +245,12 @@ export default function ContactForm() {
             type="submit"
             disabled={isLoading}
             className={`px-6 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors duration-200 ${
-              isLoading ? 'bg-gray-400 text-white cursor-not-allowed' : 'bg-gray-800 text-white hover:bg-gray-700'
+              isLoading
+                ? "bg-gray-400 text-white cursor-not-allowed"
+                : "bg-gray-800 text-white hover:bg-gray-700"
             }`}
           >
-            {isLoading ? 'Enviant...' : 'Enviar'}
+            {isLoading ? "Enviant..." : "Enviar"}
           </button>
         </div>
       </form>
