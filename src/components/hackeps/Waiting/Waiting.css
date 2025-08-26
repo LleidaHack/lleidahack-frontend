@@ -34,7 +34,7 @@
     transform: translate(10%, 2.2rem) rotate(0deg);
   }
 }
-
+ 
 .shipMovement {
   animation: ship-rock 8s ease-in-out infinite;
   transform-origin: center bottom; /* Pivote del balanceo */
