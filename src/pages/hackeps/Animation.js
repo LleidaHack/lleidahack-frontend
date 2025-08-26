@@ -6,7 +6,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import 'src/components/hackeps/Waiting/Waiting.css'
 
-const Animation = () => {
+const Animation = ({initialDate, finalDate, activeTimer}) => {
     const div0 = useRef(null);
     const div1 = useRef(null);
     const div2 = useRef(null);
@@ -35,11 +35,9 @@ const Animation = () => {
                     <div className="w-full h-full bg-repeat-x bg-bottom animate-olas-scroll wavesSeaAnim bg-contain"></div>
                 </div>
             </div>
-            <Hero2 completed={div2Status} />
+            <Hero2 completed={div2Status} initialDate={initialDate} finalDate={finalDate} activeTimer={activeTimer} />
         </div>
-        <div ref={div3}>
-            <HeroSection />
-        </div>
+       
     </div>
   )
 }

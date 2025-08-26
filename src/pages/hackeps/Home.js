@@ -100,7 +100,11 @@ const Home = () => {
   }else {
     return (
       <div>
-        <Animation />
+        <Animation 
+          initialDate={startDate}
+          finalDate={endDate}
+          activeTimer={timerActive}
+          />
       </div>
     );
   }
