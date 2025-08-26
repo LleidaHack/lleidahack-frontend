@@ -178,7 +178,6 @@ const Hero2 = ({completed=false, initialDate, finalDate, activeTimer}) => {
                                                                 });
                                                             }
                                                         }
-
                                                     }
                                                 });
                                             }
@@ -186,8 +185,6 @@ const Hero2 = ({completed=false, initialDate, finalDate, activeTimer}) => {
                                     }
                                 });
                             }
-
-
                         }
                     }
                 });
