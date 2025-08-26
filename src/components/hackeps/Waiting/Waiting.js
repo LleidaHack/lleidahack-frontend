@@ -9,7 +9,7 @@ import "./Waiting.css";
 const Waiting = () => { 
   // Helper to generate random speed and width
   const [isPhone, setIsPhone] = useState(false);
-
+ 
   useEffect(() => {
     const checkIsPhone = () => {
       setIsPhone(window.innerWidth <= 768);
