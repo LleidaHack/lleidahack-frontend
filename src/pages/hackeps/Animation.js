@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react'
 import Hero2 from 'src/components/hackeps/Home/HeroSection/Hero2'
 import HeroSection from 'src/components/hackeps/Home/HeroSection/HeroSection'
-import Waiting from 'src/components/hackeps/Waiting/Waiting'
+import Waiting from 'src/components/hackeps/Waiting/Waiting2'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react' 
 import 'src/components/hackeps/Waiting/Waiting.css'
