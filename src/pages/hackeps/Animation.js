@@ -3,7 +3,7 @@ import Hero2 from 'src/components/hackeps/Home/HeroSection/Hero2'
 import HeroSection from 'src/components/hackeps/Home/HeroSection/HeroSection'
 import Waiting from 'src/components/hackeps/Waiting/Waiting'
 import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
+import { useGSAP } from '@gsap/react' 
 import 'src/components/hackeps/Waiting/Waiting.css'
 
 const Animation = ({initialDate, finalDate, activeTimer}) => {
@@ -17,7 +17,7 @@ const Animation = ({initialDate, finalDate, activeTimer}) => {
     useGSAP(() => {
         const tl = gsap.timeline();
         tl.to(div1.current, { y: '-100%', duration: 3, ease: 'power2.inOut', delay: 3 })
-            .to(div2.current, { y: '-90%', duration: 3, ease: 'power2.inOut', onComplete: () => setDiv2Status(true) }, '<')
+            .to(div2.current, { y: '-100%', duration: 3, ease: 'power2.inOut', onComplete: () => setDiv2Status(true) }, '<')
         
         
 
@@ -29,10 +29,10 @@ const Animation = ({initialDate, finalDate, activeTimer}) => {
         <div ref={div1}>
             <Waiting minimalMode={true} />
         </div>
-        <div ref={div2} className='flex flex-col transform -translate-y-[10vh]'>
-            <div className='olas h-[10vh] w-full'>
+        <div ref={div2} className='flex flex-col transform -translate-y-[10vh] bg-blueSea'>
+            <div className='olas h-[10vh] w-full '>
                 <div className="relative bottom-0 left-0 w-full z-[50] h-28 md:h-32 pointer-events-none">
-                    <div className="w-full h-full bg-repeat-x bg-bottom animate-olas-scroll wavesSeaAnim bg-contain"></div>
+                    <div className="w-full h-full bg-repeat-x bg-bottom animate-olas-scroll wavesSeaAnim bg-contain"/>
                 </div>
             </div>
             <Hero2 completed={div2Status} initialDate={initialDate} finalDate={finalDate} activeTimer={activeTimer} />

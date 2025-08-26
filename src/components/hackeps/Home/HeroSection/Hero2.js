@@ -226,7 +226,7 @@ const Hero2 = ({completed=false, initialDate, finalDate, activeTimer}) => {
     }, [completed]);
 
     return (
-        <div>
+        <div className='transform translate-y-[10vh]'>
             <div className='bg-blueSea w-full h-[110vh] flex flex-row'>
                 <div className='col1 flex flex-row cartel w-1/3'>
                     <img src={cartell} ref={cartellet} className="w-3/12 absolute bottom-0 left-[10%] transform translate-y-[70%]" alt="cartell" />
