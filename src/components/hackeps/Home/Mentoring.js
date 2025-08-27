@@ -6,16 +6,16 @@ import Button from "src/components/buttons/Button";
 
 const Mentoring = () => {
   return (
-    <section className="pb-32 bg-secondaryHackeps">
-      <div className="container mx-auto px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 items-center">
+    <section className="p-5 pb-32 bg-secondaryHackeps">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 pr-0 md:pr-20 items-center">
           {/* Columna izquierda - Texto (más ancha) */}
-          <div className="lg:col-span-3 space-y-6">
+          <div className="lg:col-span-3 space-y-6 pr-0 md:pr-20">
             <h2 className=" text-2xl md:text-5xl font-bold text-center leading-relaxed text-primaryHackeps mb-8 px-3">
               Vols postular com a mentor?
             </h2>
 
-            <div className="space-y-4 text-grayStrongHackeps leading-relaxed max-w-prose mx-auto text-left md:text-base text-sm md:px-0 px-5">
+            <div className="space-y-4 text-grayStrongHackeps leading-relaxed text-left md:text-base text-sm text-justify">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                 eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
