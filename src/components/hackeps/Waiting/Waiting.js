@@ -35,7 +35,7 @@ const Waiting = () => {
   );
 
   return (
-    <div className="w-full h-screen flex flex-col bg-blueSky overflow-hidden scrollbar-hide relative">
+    <div className="w-full h-screen flex bg-blueSky overflow-hidden scrollbar-hide relative">
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         {clouds.map((cloud, idx) => (
           <Cloud
@@ -48,26 +48,31 @@ const Waiting = () => {
           />
         ))}
       </div>
-      <div className="capaIsla+Barco flex flex-col md:flex-row justify-between items-center w-full  z-10 h-full ">
-        <div className="logoHackeps+text flex flex-col  gap-4 order-first md:order-last transform translate-y-0 md:translate-y-0 md:translate-x-[100%] items-center md:items-start  justify-center h-full">
-          <img className="w-5/12 md:w-5/12" src={hackLogo} alt="logo hackeps" />
-          <p className="text-3xl md:text-5xl font-bold text-primaryHackeps">
-            Proximament...
-          </p>
-        </div>
-        <div className="isla hidden md:flex items-end justify-end h-full transform translate-y-10 -translate-x-5 md:order-none">
-          <img src={isla} className="w-5/12" alt="isla" />
-        </div>
+
+      {/* Logo centrado */}
+      <div className="absolute inset-0 flex flex-col gap-4 items-center justify-center z-10">
+        <img className="w-2/12 md:w-2/12" src={hackLogo} alt="logo hackeps" />
+        <p className="text-3xl md:text-5xl font-bold text-primaryHackeps">
+          Próximament...
+        </p>
       </div>
-      {/* Infinite moving hours image */}
-      <div className="barco absolute bottom-36 md:bottom-36 flex items-end h-full">
+
+      {/* Isla en el lado derecho */}
+      <div className="absolute bottom-20 right-0 hidden md:flex items-end justify-end h-full z-10">
+        <img src={isla} className="w-3/12" alt="isla" />
+      </div>
+
+      {/* Barco */}
+      <div className="absolute bottom-36 md:bottom-32 flex items-end h-full z-20">
         <img
           src={barco}
           className="w-6/12 md:w-3/12 shipMovement"
           alt="barco"
         />
       </div>
-      <div className="overflow-hidden w-full z-[50] h-28 md:h-32">
+
+      {/* Olas */}
+      <div className="absolute bottom-0 left-0 overflow-hidden w-full z-[50] h-28 md:h-32">
         <div className="w-full h-36 absolute bottom-0 bg-repeat-x overflow-hidden wavesSeaAnim animate-olas-scroll transform translate-y-3 md:translate-y-0 bg-contain"></div>
       </div>
     </div>
