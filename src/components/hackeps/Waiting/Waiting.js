@@ -53,7 +53,7 @@ const Waiting = () => {
       <div className="absolute inset-0 flex flex-col gap-4 items-center justify-center z-10">
         <img className="w-4/12 md:w-2/12" src={hackLogo} alt="logo hackeps" />
         <p className="text-3xl md:text-5xl font-bold text-primaryHackeps">
-          Próximament...
+          Pròximament...
         </p>
       </div>
 
