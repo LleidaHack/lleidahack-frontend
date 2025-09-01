@@ -58,7 +58,7 @@ const Waiting = () => {
       </div>
 
       {/* Isla en el lado derecho */}
-      <div className="absolute bottom-20 right-0 hidden md:flex items-end justify-end h-full z-10">
+      <div className="absolute bottom-20 md:bottom-28 lg:bottom-24 right-0 hidden md:flex items-end justify-end h-full z-10">
         <img src={isla} className="w-3/12" alt="isla" />
       </div>
 
