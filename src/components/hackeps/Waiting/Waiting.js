@@ -63,10 +63,10 @@ const Waiting = () => {
       </div>
 
       {/* Barco */}
-      <div className="absolute bottom-32 md:bottom-32 flex items-end h-full z-20">
+      <div className="absolute bottom-32 sm:bottom-32 md:bottom-36 lg:bottom-32 flex items-end h-full z-20 pointer-events-none">
         <img
           src={barco}
-          className="w-6/12 md:w-3/12 shipMovement"
+          className="w-7/12 sm:w-5/12 md:w-3/12 shipMovement"
           alt="barco"
         />
       </div>
