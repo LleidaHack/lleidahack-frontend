@@ -51,7 +51,7 @@ const Waiting = () => {
 
       {/* Logo centrado */}
       <div className="absolute inset-0 flex flex-col gap-4 items-center justify-center z-10">
-        <img className="w-2/12 md:w-2/12" src={hackLogo} alt="logo hackeps" />
+        <img className="w-4/12 md:w-2/12" src={hackLogo} alt="logo hackeps" />
         <p className="text-3xl md:text-5xl font-bold text-primaryHackeps">
           Próximament...
         </p>
@@ -63,7 +63,7 @@ const Waiting = () => {
       </div>
 
       {/* Barco */}
-      <div className="absolute bottom-36 md:bottom-32 flex items-end h-full z-20">
+      <div className="absolute bottom-32 md:bottom-32 flex items-end h-full z-20">
         <img
           src={barco}
           className="w-6/12 md:w-3/12 shipMovement"
