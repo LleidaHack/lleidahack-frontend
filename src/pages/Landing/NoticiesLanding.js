@@ -9,7 +9,7 @@ const NoticiesLanding = () => {
   return (
     <div>
       <Navbar />
-      <HeaderNoticies/>
+      <HeaderNoticies />
       <NoticiesSection />
       <Footer />
     </div>

@@ -31,9 +31,7 @@ const HeaderNoticies = () => {
   return (
     <div className="header-noticies bg-background-patron px-3 md:px-16 min-h-0 bg-cover bg-no-repeat bg-center py-12 ">
       <div className="header-noticies__content ">
-        <h1 className="header-noticies__title font-medium	text-4xl">
-          Notícies
-        </h1>
+        <h1 className="header-noticies__title font-medium	text-4xl">Notícies</h1>
         <div className="searcher_div my-6">
           <InputSearch
             placeholder={"Cercar Noticies"}

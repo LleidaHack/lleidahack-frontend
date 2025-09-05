@@ -27,7 +27,7 @@ import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import ContactLanding from "./pages/Landing/ContactLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
-import NoticiesLanding from './pages/Landing/NoticiesLanding';
+import NoticiesLanding from "./pages/Landing/NoticiesLanding";
 import "src/styles/styles.css";
 import ConfirmAssistancePage from "./pages/hackeps/Confirm";
 import Hacking from "./pages/hackeps/Hacking";
