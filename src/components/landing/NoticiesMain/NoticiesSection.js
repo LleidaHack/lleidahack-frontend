@@ -4,7 +4,7 @@ import EventCard1 from "../ImageCards/EventCard1.js";
 
 const NoticiesSection = () => {
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mx-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mx-10 my-10">
         {Array.from({ length: 16 }).map((_, idx) => (
             <EventCard1
             key={idx}
