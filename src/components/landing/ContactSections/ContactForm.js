@@ -23,7 +23,7 @@ export default function ContactForm() {
         message: data.missatge,
       };
 
-      // Simulación de envío
+      // Simulació de envío
       const success = await new Promise((resolve) => {
         setTimeout(() => resolve(Math.random() > 0.3), 1500);
       });
@@ -46,14 +46,32 @@ export default function ContactForm() {
   };
 
   const handleGoHome = () => {
-    window.location.href = "/lleidahack/";
+    window.location.href = "/lleidahack/#home";
+  };
+
+  const handleButtonClick = () => {
+    handleRetry();
   };
 
   if (mailSended) {
     return mailStatus ? (
-      <SuccessFeedback handleGoHome={handleGoHome} />
+      <SuccessFeedback
+        title="Missatge enviat correctament."
+        text={`Gràcies per contactar amb LleidaHack. El teu missatge s'ha enviat correctament. \n En cas que necessitem ficar-nos en contacte amb tu, ho farem amb el correu 
+        que ens has proporcionat.`}
+        hasButton={true}
+        buttonText="Tornar al inici"
+        onButtonClick={handleGoHome}
+      />
     ) : (
-      <FailFeedback handleRetry={handleRetry} />
+      <FailFeedback
+        title={`Error enviant el teu missatge.`}
+        text={`Sembla que algo ha fallat mentre registràvem el teu missatge.`}
+        hasButton={true}
+        buttonText={`Intentar novament`}
+        italic={`Torna a intentar-ho novament. En cas que segueixi fallant, contacta amb nosaltres utilitzant \n les nostres xarxes socials que trobaràs a la part inferior de la pantalla.`}
+        onButtonClick={handleButtonClick}
+      />
     );
   }
 
@@ -211,10 +229,10 @@ export default function ContactForm() {
 
         {/* Info legal */}
         <div className="text-xs text-gray-500 leading-relaxed">
-          T’informem que les dades personals que facilitis passaran a formar
-          part d’un fitxer responsabilitat de Lleidahack per a gestionar la teva
-          petició. Pots exercir els drets d’accès, rectificació, cancel·lació o
-          oposició al tractament de les teves dades a l’adreça de correu
+          T'informem que les dades personals que facilitis passaran a formar
+          part d'un fitxer responsabilitat de Lleidahack per a gestionar la teva
+          petició. Pots exercir els drets d'accès, rectificació, cancel·lació o
+          oposició al tractament de les teves dades a l'adreça de correu
           senyalada example@lleidahack.dev.
         </div>
 
