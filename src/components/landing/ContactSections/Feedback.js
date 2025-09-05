@@ -1,19 +1,15 @@
-export const SuccessFeedback = ({ 
-  title, 
-  text, 
-  hasButton, 
-  buttonText, 
-  onButtonClick 
+export const SuccessFeedback = ({
+  title,
+  text,
+  hasButton,
+  buttonText,
+  onButtonClick,
 }) => (
   <div className="text-center py-12">
     <div className="border rounded-lg p-8 max-w-2xl mx-auto">
       <div className="text-green-600 text-6xl mb-4">✓</div>
-      <h2 className="text-2xl font-bold text-green-800 mb-4">
-        {title}
-      </h2>
-      <p className="text-green-700 mb-6 whitespace-pre-line">
-        {text}
-      </p>
+      <h2 className="text-2xl font-bold text-green-800 mb-4">{title}</h2>
+      <p className="text-green-700 mb-6 whitespace-pre-line">{text}</p>
       {hasButton && (
         <button
           onClick={onButtonClick}
@@ -26,23 +22,19 @@ export const SuccessFeedback = ({
   </div>
 );
 
-export const FailFeedback = ({ 
-  title, 
-  text, 
-  hasButton, 
-  buttonText, 
-  italic, 
-  onButtonClick 
+export const FailFeedback = ({
+  title,
+  text,
+  hasButton,
+  buttonText,
+  italic,
+  onButtonClick,
 }) => (
   <div className="text-center py-12">
     <div className=" border rounded-lg p-8 max-w-2xl mx-auto">
       <div className="text-red-600 text-6xl mb-4">✕</div>
-      <h2 className="text-2xl font-bold text-red-800 mb-4">
-        {title}
-      </h2>
-      <p className="text-red-700 mb-4">
-        {text}
-      </p>
+      <h2 className="text-2xl font-bold text-red-800 mb-4">{title}</h2>
+      <p className="text-red-700 mb-4">{text}</p>
       {italic && (
         <p className="text-red-600 text-sm italic mb-6 whitespace-pre-line">
           {italic}
