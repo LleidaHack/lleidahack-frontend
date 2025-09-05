@@ -25,6 +25,7 @@ import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
+import ContactLanding from "./pages/Landing/ContactLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
 import "src/styles/styles.css";
 import ConfirmAssistancePage from "./pages/hackeps/Confirm";
@@ -105,17 +106,18 @@ export default function App() {
           </Routes>
         )}
       </Router>
-      {/*
-      <Router basename="/lleidahack">
+
+      {/*       <Router basename="/lleidahack">
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />
-          <Route path="*" element={<Error404Landing />} />
+          <Route path="/*" element={<Error404Landing />} />
+          <Route path="/contacte" element={<ContactLanding />} />
           <Route path="/events" element={<EventsLanding />} />
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
         </Routes>
-      </Router>*/}
-      {/* <Router basename="/admin">
+      </Router> */}
+      <Router basename="/admin">
         <Routes>
           <Route
             path="/"
@@ -142,7 +144,7 @@ export default function App() {
             element={<Dashboard section={<AdminSection />} />}
           />
         </Routes>
-      </Router> */}
+      </Router>
     </div>
   );
 }
