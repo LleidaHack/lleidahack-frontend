@@ -3,7 +3,13 @@ import InputSearch from "src/components/landing/InputSearch/InputSearch";
 import FiltersComponent from "src/components/landing/FiltersComponent/FiltersComponent";
 import HeaderLinks from "src/components/landing/GeneralHeader/HeaderLinks";
 
-const GeneralHeader = ({ sectionName, category=null, allowSearch=false, hasFilters=false, links=null }) => {
+const GeneralHeader = ({
+  sectionName,
+  category = null,
+  allowSearch = false,
+  hasFilters = false,
+  links = null,
+}) => {
   const [onMobile, setOnMobile] = useState(false);
   useEffect(() => {
     if (window.innerWidth <= 768) {
@@ -44,13 +50,12 @@ const GeneralHeader = ({ sectionName, category=null, allowSearch=false, hasFilte
             />
           </div>
         ) : null}
-        
-        {hasFilters ? (
-            <div className="filters_div mb-12">
-                <FiltersComponent category/>
-            </div>
-        ) : null}
 
+        {hasFilters ? (
+          <div className="filters_div mb-12">
+            <FiltersComponent category />
+          </div>
+        ) : null}
       </div>
 
       {!onMobile && links && <HeaderLinks links={links} />}

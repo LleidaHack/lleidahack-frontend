@@ -8,7 +8,12 @@ const NoticiesLanding = () => {
   return (
     <div>
       <Navbar />
-      <GeneralHeader sectionName="Notícies" category="news" allowSearch={true} hasFilters={true} />
+      <GeneralHeader
+        sectionName="Notícies"
+        category="news"
+        allowSearch={true}
+        hasFilters={true}
+      />
       <NoticiesSection />
       <Footer />
     </div>

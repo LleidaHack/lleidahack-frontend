@@ -12,13 +12,12 @@ import React from "react";
  */
 
 const HeaderLinks = ({ links }) => {
-  
   const linkItems = links.map((link, index) => (
-    <div className={index !== links.length - 1 ? 'mr-12' : ''}>
+    <div className={index !== links.length - 1 ? "mr-12" : ""}>
       <p className="mb-0">{link.label}</p>
     </div>
   ));
-  
+
   return (
     <div className="last_header flex flex-row gap-8 place-content-center py-4">
       {linkItems}
@@ -27,4 +26,3 @@ const HeaderLinks = ({ links }) => {
 };
 
 export default HeaderLinks;
-
