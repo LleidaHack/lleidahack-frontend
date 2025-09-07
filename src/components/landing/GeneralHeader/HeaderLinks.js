@@ -15,9 +15,7 @@ const HeaderLinks = ({ links }) => {
   
   const linkItems = links.map((link, index) => (
     <div className={index !== links.length - 1 ? 'mr-12' : ''}>
-      <p className="mb-0">
-        <a href={link.url}>{link.label}</a>
-      </p>
+      <p className="mb-0">{link.label}</p>
     </div>
   ));
   

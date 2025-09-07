@@ -1,13 +1,13 @@
 import Navbar from "src/components/landing/Navbar/Navbar";
 import Footer from "src/components/landing/Footer/Footer";
-import HeaderContact from "src/components/landing/HeaderContact/HeaderContact";
 import ContactForm from "src/components/landing/ContactSections/ContactForm";
+import GeneralHeader from "src/components/landing/GeneralHeader/GeneralHeader";
 
 const ContactLanding = () => {
   return (
     <div>
       <Navbar />
-      <HeaderContact />
+      <GeneralHeader sectionName="Contacte" />
       <ContactForm />
       <Footer />
     </div>
