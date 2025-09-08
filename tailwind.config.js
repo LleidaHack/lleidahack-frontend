@@ -6,6 +6,15 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      keyframes: {
+        "olas-scroll": {
+          "0%": { backgroundPosition: "100% " },
+          "100%": { backgroundPosition: "0% " },
+        },
+      },
+      animation: {
+        "olas-scroll": "olas-scroll 4000s linear infinite", //infinite
+      },
       colors: {
         primaryLanding: "#FF7430",
         secondaryLanding: "#232323",
@@ -27,10 +36,6 @@ module.exports = {
         loginPage: "#211f1f",
         successGreen: "#4caf50",
         errorRed: "#f44336",
-        backgroundDuck: "#F6E6DD",
-        backgroundSea: "#7ab1c5",
-        progressBarColor: "#854d0e",
-
       },
       screens: {
         sm: "576px",

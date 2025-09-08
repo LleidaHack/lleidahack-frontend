@@ -25,7 +25,9 @@ import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
+import ContactLanding from "./pages/Landing/ContactLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
+import NoticiesLanding from "./pages/Landing/NoticiesLanding";
 import "src/styles/styles.css";
 import ConfirmAssistancePage from "./pages/hackeps/Confirm";
 import Hacking from "./pages/hackeps/Hacking";
@@ -33,6 +35,9 @@ import LleidaHackerHome from "./components/lleidahacker/Sections/LleidaHackerHom
 import WorkGroupsSection from "./components/lleidahacker/Sections/WorkGroupsSection";
 import EventsSection from "./components/lleidahacker/Sections/EventsSection";
 import AdminSection from "./components/lleidahacker/Sections/AdminSection";
+import EventDetail from "./components/lleidahacker/Sections/EventDetail";
+import EventParticipant from "./components/lleidahacker/Sections/EventParticipant";
+import WaitingPage from "./pages/hackeps/WaitingPage";
 
 export default function App() {
   useEffect(() => {
@@ -45,66 +50,75 @@ export default function App() {
 
   // Simulación de detección de token caducado
   setInterval(refreshToken, 1000 * 60 * 12);
+  console.log(process.env.REACT_APP_LAUNCH_PENDING);
 
   return (
     <div className="App">
       <Router basename="/hackeps">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/contacte" element={<Contacte />} />
-          <Route path="/home" element={<Home />} />
-          <Route
-            path="/perfil"
-            element={
-              <RequireAuth originalRoute="/perfil">
-                <Profile />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/perfil/:hacker_id"
-            element={
-              <RequireAuth originalRoute="/perfil">
-                <Profile />
-              </RequireAuth>
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/validate-email/" element={<Verify />} />
-          <Route path="/confirm-password" element={<ResetPassword />} />
-          <Route path="/hacker-form" element={<HackerForm />} />
-          <Route path="/entrance" element={<Entrances />} />
-          {/*<Route path="/testing" element={<Testing />} />*/}
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
-          <Route path="/sponsors/:ids" element={<Sponsors />} />
-          <Route
-            path="/inscripcio"
-            element={
-              <RequireAuth originalRoute="/inscripcio">
-                <Inscripcio />
-              </RequireAuth>
-            }
-          />
-          <Route path="/forgot-password" element={<PasswordForget />} />
-          <Route path="/user-verification" element={<LoginVerify />} />
-          <Route path="/assistance" element={<ConfirmAssistancePage />} />
-          <Route path="*" element={<Error404 />} />
-          <Route path="/hacking" element={<Hacking />} />
-        </Routes>
+        {process.env.REACT_APP_LAUNCH_PENDING == 1 ? (
+          <Routes>
+            <Route path="*" element={<WaitingPage />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/contacte" element={<Contacte />} />
+            <Route path="/home" element={<Home />} />
+            <Route
+              path="/perfil"
+              element={
+                <RequireAuth originalRoute="/perfil">
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/perfil/:hacker_id"
+              element={
+                <RequireAuth originalRoute="/perfil">
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/validate-email/" element={<Verify />} />
+            <Route path="/confirm-password" element={<ResetPassword />} />
+            <Route path="/hacker-form" element={<HackerForm />} />
+            <Route path="/entrance" element={<Entrances />} />
+            {/*<Route path="/testing" element={<Testing />} />*/}
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/sponsors" element={<Sponsors defaultId={0} />} />
+            <Route path="/sponsors/:ids" element={<Sponsors />} />
+            <Route
+              path="/inscripcio"
+              element={
+                <RequireAuth originalRoute="/inscripcio">
+                  <Inscripcio />
+                </RequireAuth>
+              }
+            />
+            <Route path="/forgot-password" element={<PasswordForget />} />
+            <Route path="/user-verification" element={<LoginVerify />} />
+            <Route path="/assistance" element={<ConfirmAssistancePage />} />
+            <Route path="*" element={<Error404 />} />
+            <Route path="/hacking" element={<Hacking />} />
+          </Routes>
+        )}
       </Router>
-      {/*
-      <Router basename="/lleidahack">
+
+      {/*       <Router basename="/lleidahack">
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />
-          <Route path="*" element={<Error404Landing />} />
+          <Route path="/*" element={<Error404Landing />} />
+          <Route path="/contacte" element={<ContactLanding />} />
           <Route path="/events" element={<EventsLanding />} />
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
+          <Route path="/noticies" element={<NoticiesLanding />} />
         </Routes>
-      </Router>*/}
+      </Router>
       <Router basename="/admin">
         <Routes>
           <Route
@@ -120,11 +134,19 @@ export default function App() {
             element={<Dashboard section={<EventsSection />} />}
           />
           <Route
+            path="/events/:eventId"
+            element={<Dashboard section={<EventDetail />} />}
+          />
+          <Route
+            path="/events/:eventId/participants"
+            element={<Dashboard section={<EventParticipant />} />}
+          />
+          <Route
             path="/administration"
             element={<Dashboard section={<AdminSection />} />}
           />
         </Routes>
-      </Router>
+      </Router> */}
     </div>
   );
 }
