@@ -7,7 +7,7 @@ import ola from "src/assets/ola pero ola de ola no de hola.png";
 
 const LoadSection = () => {
   return (
-    <div className="w-full h-screen flex flex-col bg-primaryHackeps">
+    <div className="w-full h-screen flex flex-col bg-primaryHackeps overflow-x-hidden">
       
       <div className="w-full h-[55vh] bg-backgroundDuck bg-cover bg-center flex flex-row items-end justify-between">
         
