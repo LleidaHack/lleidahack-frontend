@@ -50,10 +50,13 @@
   0% {
     transform: translateY(0px);
   }
-  40% {
-    transform: translateY(-15px); /* Primer pato salta primero */
+  18% {
+    transform: translateY(0px);
   }
-  50% {
+  29% {
+    transform: translateY(-65px); /* Primer pato salta primero */
+  }
+  39% {
     transform: translateY(0px);
   }
   100% {
@@ -65,10 +68,13 @@
   0% {
     transform: translateY(0px);
   }
-  50% {
-    transform: translateY(-20px); /* Pato central salta en el medio */
+  28% {
+    transform: translateY(0px);
   }
-  60% {
+  36% {
+    transform: translateY(-68px); /* Pato central salta en el medio */
+  }
+  46% {
     transform: translateY(0px);
   }
   100% {
@@ -80,13 +86,72 @@
   0% {
     transform: translateY(0px);
   }
-  60% {
-    transform: translateY(-15px); /* Tercer pato salta al final */
+  35% {
+    transform: translateY(0px)
   }
-  70% {
+  44% {
+    transform: translateY(-70px); /* Tercer pato salta al final */
+  }
+  55% {
     transform: translateY(0px);
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+@media (max-width: 768px) {
+  @keyframes duck-jump-1 {
+    0% {
+      transform: translateY(0px);
+    }
+    9% {
+      transform: translateY(0px);
+    }
+    20% {
+      transform: translateY(-28px); /* Menos salto en móvil */
+    }
+    34% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes duck-jump-2 {
+    0% {
+      transform: translateY(0px);
+    }
+    27% {
+      transform: translateY(0px);
+    }
+    40% {
+      transform: translateY(-29px);
+    }
+    53% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes duck-jump-3 {
+    0% {
+      transform: translateY(0px);
+    }
+    46% {
+      transform: translateY(0px);
+    }
+    59% {
+      transform: translateY(-33px);
+    }
+    73% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
   }
 }

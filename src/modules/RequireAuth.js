@@ -22,7 +22,7 @@ export default function RequireAuth({ children, originalRoute }) {
       await checkToken().then((key) => {
         setAuth(key["success"]);
       });
-      setLoading(true);
+      setLoading(false);
     })();
   }, []);
 
