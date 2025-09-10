@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const { ProgressBar } = require('react-bootstrap');
+const { ProgressBar } = require("react-bootstrap");
 
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],

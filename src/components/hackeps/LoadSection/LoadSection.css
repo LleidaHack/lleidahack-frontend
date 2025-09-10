@@ -87,7 +87,7 @@
     transform: translateY(0px);
   }
   35% {
-    transform: translateY(0px)
+    transform: translateY(0px);
   }
   44% {
     transform: translateY(-70px); /* Tercer pato salta al final */
