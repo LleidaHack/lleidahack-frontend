@@ -14,7 +14,7 @@ import peix3 from 'src/assets/img/fish3.png'
 import peix4 from 'src/assets/img/fish4 invert.png'
 
 
-const Hero2 = ({completed=false, initialDate, finalDate, activeTimer}) => {
+const Hero2 = ({completed=false, initialDate, finalDate, activeTimer, phone=false}) => {
     const [ensureAnimations, setEnsureAnimations] = useState(true);
     const bubble1 = useRef(null);
     const bubble2 = useRef(null);
@@ -149,7 +149,7 @@ const Hero2 = ({completed=false, initialDate, finalDate, activeTimer}) => {
                                             onComplete: () => {
                                                 // Subir y desvanecer
                                                 gsap.to(cartellet.current, {
-                                                    y: "-250%",
+                                                    y: "-350%",
                                                     duration: 3,
                                                     ease: "sine.inOut",
                                                     onComplete: () => {
@@ -197,7 +197,7 @@ const Hero2 = ({completed=false, initialDate, finalDate, activeTimer}) => {
 
                 selected.forEach((bubbleRef, i) => {
                     tl.to(bubbleRef.current, {
-                        y: '-70vh',
+                        y: '-80vh',
                         scale: gsap.utils.random(0.5, 1),
                         duration: gsap.utils.random(6, 7),
                         ease: 'linear',
@@ -221,6 +221,17 @@ const Hero2 = ({completed=false, initialDate, finalDate, activeTimer}) => {
     useEffect(() => {
         setEnsureAnimations(completed);
     }, [completed]);
+    
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     return (
         <div className='transform translate-y-[10vh]'>
@@ -228,9 +239,9 @@ const Hero2 = ({completed=false, initialDate, finalDate, activeTimer}) => {
                 <div className='col1 flex flex-row cartel w-1/3'>
                     <img src={cartell} ref={cartellet} className="w-3/12 absolute bottom-0 left-[10%] transform translate-y-[70%]" alt="cartell" />
                     <div className='opacity-0' ref={logoHackeps2025}>
-                        <img src={logoHackeps} className="w-[22%] absolute bottom-0 left-[20%] transform -translate-y-[80%] " alt="logoHackeps" />
+                        <img src={logoHackeps} className="w-[22%] absolute bottom-[40%] left-[20%] transform  " alt="logoHackeps" />
                         <div className='absolute top-[65%] left-[28%]'>
-                            <Button onClick={() => {}} className={"bg-red-500 text-white hover:bg-primaryHackeps duration-1 cursor-pointer"} outline>
+                            <Button onClick={() => {window.location.reload();}} className={"bg-red-500 text-white hover:bg-primaryHackeps duration-1 cursor-pointer"} outline>
                                 Descobreix més
                             </Button>
                         </div>
@@ -245,14 +256,14 @@ const Hero2 = ({completed=false, initialDate, finalDate, activeTimer}) => {
                     </div>
                 </div>
                 <div className='col2 flex flex-row justify-end items-center align-middle w-1/3'>
-                    <img src={burbujas} alt="Burbujas" className='w-28 transform translate-y-[50vh]' ref={bubble1} />
-                    <img src={burbujas} alt="Burbujas" className='w-28 transform translate-y-[50vh]' ref={bubble2}/>
-                    <img src={burbujas} alt="Burbujas" className='w-28 transform translate-y-[50vh]' ref={bubble3}/>
-                    <img src={burbujas} alt="Burbujas" className='w-28 transform translate-y-[50vh]' ref={bubble4}/>
-                    <img src={burbujas} alt="Burbujas" className='w-28 transform translate-y-[50vh]' ref={bubble5}/>    
+                    <img src={burbujas} alt="Burbujas" className='w-28 transform translate-y-[80vh]' ref={bubble1} />
+                    <img src={burbujas} alt="Burbujas" className='w-28 transform translate-y-[80vh]' ref={bubble2}/>
+                    <img src={burbujas} alt="Burbujas" className='w-28 transform translate-y-[80vh]' ref={bubble3}/>
+                    <img src={burbujas} alt="Burbujas" className='w-28 transform translate-y-[80vh]' ref={bubble4}/>
+                    <img src={burbujas} alt="Burbujas" className='w-28 transform translate-y-[80vh]' ref={bubble5}/>    
                 </div>
                 <div className='col3 flex flex-row ancla w-1/3'>
-                    <img src={anclaCadena} ref={cadena} className={`w-2/12 absolute bottom-0 left-[80%] transform -translate-y-[80%] ${!ensureAnimations ? 'hidden' : 'block'}`} alt="ancla" />
+                    <img src={anclaCadena} ref={cadena} className={`w-3/12 absolute bottom-0 left-[80%] transform -translate-y-[80%] ${!ensureAnimations ? 'hidden' : 'block'}`} alt="ancla" />
                     <img src={sirena} ref={sirenaPiedra} className="w-2/12 absolute bottom-0 left-[84%] transform translate-y-[70%]" alt="sirena"/>
                 </div>
 

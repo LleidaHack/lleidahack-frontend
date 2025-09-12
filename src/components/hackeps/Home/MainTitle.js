@@ -5,13 +5,18 @@ import hackLogo from "src/icons/banner_home_icon.png";
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
 
-const MainTitle = ({}) => {
+const MainTitle = ({buttonText = "Apunta't!", refresh=false}) => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [hackDay, setHackDay] = useState(false);
   const handleClose = () => setShow(false);
-  const [textButton, setTextButton] = useState("Apunta't!");
+  
   async function handleShow() {
+    if (refresh) {
+      window.location.reload();
+      return;
+    };
+    
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
     } else if (
@@ -32,6 +37,13 @@ const MainTitle = ({}) => {
       }
     }
   }
+  const [textButton, setTextButton] = useState(buttonText);
+  
+  useEffect(() => {
+    setTextButton(buttonText);
+  }, [buttonText]);
+
+  
 
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => {

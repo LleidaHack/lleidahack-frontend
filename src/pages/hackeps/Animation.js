@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import Hero2 from 'src/components/hackeps/Home/HeroSection/Hero2'
 import HeroSection from 'src/components/hackeps/Home/HeroSection/HeroSection'
 import Waiting from 'src/components/hackeps/Waiting/Waiting2'
@@ -13,19 +13,32 @@ const Animation = ({initialDate, finalDate, activeTimer}) => {
     const div3 = useRef(null);
     const [div2Status, setDiv2Status] = useState(false);
 
+        const [isMobile, setIsMobile] = useState(false);
+    
+        useEffect(() => {
+            const checkMobile = () => {
+                setIsMobile(window.innerWidth <= 768);
+            };
+            checkMobile();
+            window.addEventListener('resize', checkMobile);
+            return () => window.removeEventListener('resize', checkMobile);
+        }, []);
 
-    useGSAP(() => {
-        const tl = gsap.timeline();
-        tl.to(div1.current, { y: '-100%', duration: 3, ease: 'power2.inOut', delay: 3 })
-            .to(div2.current, { y: '-100%', duration: 3, ease: 'power2.inOut', onComplete: () => setDiv2Status(true) }, '<')
-        
-        
 
-    }, []);
+        
+            useGSAP(() => {
+                if (!isMobile) {
+                    const tl = gsap.timeline();
+                    tl.to(div1.current, { y: '-100%', duration: 3, ease: 'power2.inOut', delay: 3 })
+                        .to(div2.current, { y: '-100%', duration: 3, ease: 'power2.inOut', onComplete: () => setDiv2Status(true) }, '<');
+                }
+            }, []);
+        
 
 
   return (
-    <div className='w-full max-h-screen overflow-hidden' ref={div0}>
+    !isMobile ? (
+      <div className='w-full max-h-screen overflow-hidden' ref={div0}>
         <div ref={div1}>
             <Waiting minimalMode={true} />
         </div>
@@ -37,8 +50,10 @@ const Animation = ({initialDate, finalDate, activeTimer}) => {
             </div>
             <Hero2 completed={div2Status} initialDate={initialDate} finalDate={finalDate} activeTimer={activeTimer} />
         </div>
-       
-    </div>
+      </div>
+    ) : (
+      <HeroSection initialDate={initialDate} finalDate={finalDate} activeTimer={activeTimer} animSection={true} />
+    )
   )
 }
 

@@ -7,11 +7,16 @@ import fish2 from "src/assets/img/fish2.png";
 import fish3 from "src/assets/img/fish3.png";
 import fish4 from "src/assets/img/fish4.png";
 
-const HeroSection = ({initialDate, finalDate, activeTimer}) => {
+const HeroSection = ({initialDate, finalDate, activeTimer, animSection = false}) => {
     const [startDate, setStartDate] = useState(initialDate);
     const [endDate, setEndDate] = useState(finalDate);
     const [timerActive, setTimerActive] = useState(activeTimer);
-    
+    const [animationSection, setAnimationSection] = useState(animSection);
+
+    useEffect(() => {
+        setAnimationSection(animSection);
+    }, [animSection]);
+
     useEffect(() => {
         setStartDate(initialDate);
         setEndDate(finalDate);
@@ -24,11 +29,14 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
         if(window.innerWidth <= 768) {
             calculatedWidth = calculatedWidth * 2;
         }
+        // If mobile, make fish move faster (shorter duration)
+        const isMobile = window.innerWidth <= 768;
         return {
-            duration: Math.random() * 50 + 80, // 80s to 130s
-            width: calculatedWidth, // 10vw to 20vw
+            duration: isMobile
+            ? Math.random() * 10 + 30 // 30s to 40s on mobile
+            : Math.random() * 50 + 80, // 80s to 130s on desktop
+            width: calculatedWidth, // 10vw to 20vw (doubled on mobile above)
             top: Math.random() * 100 - 42,
-             // 5vh to 35vh
             zIndex: Math.random() < 0.5 ? 10 : 40
         };
     };
@@ -81,7 +89,7 @@ const HeroSection = ({initialDate, finalDate, activeTimer}) => {
                 </div>
                 <div className='logo&countdown flex flex-col justify-center items-center gap-2 md:w-2/3 z-30'>
                     <div className='logoSection w-full md:h-2/3 '>
-                        <MainTitle />
+                        {animationSection ? <MainTitle buttonText={"Descobreix més"} refresh={true} /> : <MainTitle />}
                     </div>
                     <div className='countdown md:h-1/3 flex justify-start items-end'>
                         <CountdownTimer

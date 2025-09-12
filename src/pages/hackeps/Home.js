@@ -22,7 +22,7 @@ const Home = () => {
       const now = Date.now();
       if (!lastAnimation || now - Number(lastAnimation) >= minimalTime) {
         setShowAnimation(true);
-       // localStorage.setItem("lastAnimation", now);
+        localStorage.setItem("lastAnimation", now);
       }
     }
   }, []);
