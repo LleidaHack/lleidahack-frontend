@@ -240,7 +240,7 @@ const Hero2 = ({completed=false, initialDate, finalDate, activeTimer, phone=fals
                     <img src={cartell} ref={cartellet} className="w-3/12 absolute bottom-0 left-[10%] transform translate-y-[70%]" alt="cartell" />
                     <div className='opacity-0' ref={logoHackeps2025}>
                         <img src={logoHackeps} className="w-[22%] absolute bottom-[40%] left-[20%] transform  " alt="logoHackeps" />
-                        <div className='absolute top-[65%] left-[28%]'>
+                        <div className='absolute top-[65%] left-[28%] z-50'>
                             <Button onClick={() => {window.location.reload();}} className={"bg-red-500 text-white hover:bg-primaryHackeps duration-1 cursor-pointer"} outline>
                                 Descobreix més
                             </Button>

@@ -15,7 +15,7 @@ const Home = () => {
   const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
-    const minimalTime = 2 * 60 * 60 * 1000; 
+    const minimalTime = 2 * 60 * 60 * 1000;
     console.log(process.env.REACT_APP_HERO_ANIMATED);
     if (process.env.REACT_APP_HERO_ANIMATED == "1") {
       const lastAnimation = localStorage.getItem("lastAnimation");

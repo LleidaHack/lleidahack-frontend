@@ -1,17 +1,22 @@
 import React, {useEffect, useState, useMemo} from 'react'
 import CountdownTimer from "src/components/hackeps/Home/Timer.js";
 import MainTitle from "src/components/hackeps/Home/MainTitle.js";
-import sirena from "src/assets/img/sirenaancla.png";
+import sirena from "src/assets/img/sirenapiedra.png";
+import ancla from "src/assets/img/cadenalarga.png";
 import fish1 from "src/assets/img/fish1.png";
 import fish2 from "src/assets/img/fish2.png";
 import fish3 from "src/assets/img/fish3.png";
 import fish4 from "src/assets/img/fish4.png";
+import starfishImg from "src/assets/img/starfish.png";
 
 const HeroSection = ({initialDate, finalDate, activeTimer, animSection = false}) => {
     const [startDate, setStartDate] = useState(initialDate);
     const [endDate, setEndDate] = useState(finalDate);
     const [timerActive, setTimerActive] = useState(activeTimer);
     const [animationSection, setAnimationSection] = useState(animSection);
+    const [starfish, setStarfish] = useState([]);
+
+    
 
     useEffect(() => {
         setAnimationSection(animSection);
@@ -100,16 +105,35 @@ const HeroSection = ({initialDate, finalDate, activeTimer, animSection = false})
                     </div>
                 </div>
                 <div className='sirena flex flex-col items-end justify-end w-1/3 z-30 overflow-x-hidden'>
+                    <div className='w-full hidden md:flex justify-start z-30 mb-10 translate-y-[42%] translate-x-[25%]'>
+                        <img src={ancla} alt='ancla' className='w-7/12 ' />
+                    </div>
                     <div className='w-full hidden md:flex justify-end z-30'>
-                        <img src={sirena} alt='sirena' className='w-10/12 ' />
+                        <img src={sirena} alt='sirena' className='w-8/12 ' />
                     </div>
                 </div>
                 <div className='bubbles'>
                 </div>
             </div>
+            <div className='starfish-container pointer-events-none absolute inset-0 w-full h-full z-10'>
+                {starfish.map(star => (
+                    <img
+                        key={star.id}
+                        src={starfishImg}
+                        alt="Starfish"
+                        className="absolute transition-opacity duration-1000 ease-in-out"
+                        style={{
+                            top: star.y,
+                            left: star.x,
+                            width: `${star.size}px`,
+                            opacity: star.opacity,
+                        }}
+                    />
+                ))}
+            </div>
         </div>
     )
-
+   
     // Componente Fish (igual que Cloud pero para peces)
     function Fish({ src, duration, width, top, delay, direction, needsFlip, zIndex }) {
         const style = {
