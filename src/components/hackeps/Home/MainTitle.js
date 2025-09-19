@@ -5,18 +5,18 @@ import hackLogo from "src/icons/banner_home_icon.png";
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
 
-const MainTitle = ({buttonText = "Apunta't!", refresh=false}) => {
+const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [hackDay, setHackDay] = useState(false);
   const handleClose = () => setShow(false);
-  
+
   async function handleShow() {
     if (refresh) {
       window.location.reload();
       return;
-    };
-    
+    }
+
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
     } else if (
@@ -38,12 +38,10 @@ const MainTitle = ({buttonText = "Apunta't!", refresh=false}) => {
     }
   }
   const [textButton, setTextButton] = useState(buttonText);
-  
+
   useEffect(() => {
     setTextButton(buttonText);
   }, [buttonText]);
-
-  
 
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => {
@@ -78,7 +76,13 @@ const MainTitle = ({buttonText = "Apunta't!", refresh=false}) => {
           <img className="w-7/12 md:w-4/12 md:mx-auto" src={hackLogo} alt="" />
         </div>
         <div className="join-button">
-          <Button onClick={handleShow} className={"bg-red-500 text-white hover:bg-primaryHackeps duration-1"} outline>
+          <Button
+            onClick={handleShow}
+            className={
+              "bg-red-500 text-white hover:bg-primaryHackeps duration-1"
+            }
+            outline
+          >
             {textButton}
           </Button>
         </div>

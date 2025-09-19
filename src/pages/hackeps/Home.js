@@ -85,7 +85,7 @@ const Home = () => {
     return (
       <div>
         <Header />
-        <HeroSection 
+        <HeroSection
           initialDate={startDate}
           finalDate={endDate}
           activeTimer={timerActive}
@@ -97,14 +97,14 @@ const Home = () => {
         <Footer />
       </div>
     );
-  }else {
+  } else {
     return (
       <div>
-        <Animation 
+        <Animation
           initialDate={startDate}
           finalDate={endDate}
           activeTimer={timerActive}
-          />
+        />
       </div>
     );
   }

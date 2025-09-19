@@ -87,9 +87,7 @@ const CountdownTimer = (props) => {
           <></>
         )}
         {remainingTime.hours ? (
-          <span className="">
-            {padWithZeros(remainingTime.hours)}
-          </span>
+          <span className="">{padWithZeros(remainingTime.hours)}</span>
         ) : (
           <></>
         )}
@@ -115,9 +113,7 @@ const CountdownTimer = (props) => {
         {remainingTime.days ? (
           <></>
         ) : (
-          <span className="">
-            {padWithZeros(remainingTime.seconds)}
-          </span>
+          <span className="">{padWithZeros(remainingTime.seconds)}</span>
         )}
         {remainingTime.days ? (
           <></>
@@ -132,9 +128,7 @@ const CountdownTimer = (props) => {
     return (
       <div className="countdown-timer bg-loginPage ">
         {remainingTime.hours ? (
-          <span className="">
-            {padWithZeros(remainingTime.hours)}
-          </span>
+          <span className="">{padWithZeros(remainingTime.hours)}</span>
         ) : (
           <></>
         )}
@@ -146,9 +140,7 @@ const CountdownTimer = (props) => {
           <></>
         )}
         {remainingTime.minutes ? (
-          <span className="">
-            {padWithZeros(remainingTime.minutes)}
-          </span>
+          <span className="">{padWithZeros(remainingTime.minutes)}</span>
         ) : (
           <></>
         )}
@@ -160,9 +152,7 @@ const CountdownTimer = (props) => {
           <></>
         )}
         {remainingTime.seconds ? (
-          <span className="">
-            {padWithZeros(remainingTime.seconds)}
-          </span>
+          <span className="">{padWithZeros(remainingTime.seconds)}</span>
         ) : (
           <></>
         )}
