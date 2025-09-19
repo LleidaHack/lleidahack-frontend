@@ -5,6 +5,8 @@ FROM node:18-alpine as build
 ARG REACT_APP_DOMAIN
 ARG REACT_APP_DEBUG
 ARG REACT_APP_MAIN
+ARG REACT_APP_LAUNCH_PENDING
+ARG GIT_BRANCH
 
 # Pass args to env so React can read them
 ENV REACT_APP_DOMAIN=$REACT_APP_DOMAIN
@@ -13,14 +15,15 @@ ENV REACT_APP_MAIN=$REACT_APP_MAIN
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Instalar Git
+RUN apk add --no-cache git
+
+# Copy source code
+RUN git clone https://github.com/LleidaHack/lleidahack-frontend.git . && \
+    git checkout ${GIT_BRANCH}
 
 # Install dependencies
 RUN npm install --production
-
-# Copy source code
-COPY . .
 
 # Build the app
 RUN npm run build
