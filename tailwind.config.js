@@ -11,7 +11,7 @@ module.exports = {
         },
       },
       animation: {
-        "olas-scroll": "olas-scroll 40s linear infinite", //infinite
+        "olas-scroll": "olas-scroll 4000s linear infinite", //infinite
       },
       colors: {
         primaryLanding: "#FF7430",
@@ -35,7 +35,6 @@ module.exports = {
         successGreen: "#4caf50",
         errorRed: "#f44336",
         blueSky: "#bdfffe",
-        blueSea: "#77b1c9",
         secondaryColorButton: "#237090",
       },
       screens: {

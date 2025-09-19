@@ -6,10 +6,10 @@ import nube from "src/assets/img/nuve.png";
 import nubeClouding from "src/assets/img/nuveClouding.png";
 import "./Waiting.css";
 
-const Waiting = () => { 
+const Waiting = () => {
   // Helper to generate random speed and width
   const [isPhone, setIsPhone] = useState(false);
- 
+
   useEffect(() => {
     const checkIsPhone = () => {
       setIsPhone(window.innerWidth <= 768);
