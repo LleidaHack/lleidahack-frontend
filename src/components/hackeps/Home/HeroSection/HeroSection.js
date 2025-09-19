@@ -75,8 +75,8 @@ const HeroSection = ({
   }, []); // se ejecuta solo al montar
 
   return (
-    <div className="overflow-hidden relative">
-      <div className="w-full h-screen bg-blueSea flex flex-row relative">
+    <div className="overflow-hidden relative z-10">
+      <div className="w-full h-[70vh] bg-blueSea flex flex-row relative">
         {/* Fish container absolutely positioned over the whole section */}
         <div className="fish-container pointer-events-none absolute inset-0 w-full h-full z-40">
           {fish.map((fishProps, idx) => (
@@ -93,7 +93,7 @@ const HeroSection = ({
             />
           ))}
         </div>
-        <div className="logo&countdown flex flex-col justify-center items-center gap-2 md:w-2/3 z-30">
+        <div className="logo&countdown flex flex-col justify-center items-center gap-2z-30">
           <div className="logoSection w-full md:h-2/3 ">
             {animationSection ? (
               <MainTitle buttonText={"Descobreix més"} refresh={true} />
@@ -101,20 +101,14 @@ const HeroSection = ({
               <MainTitle />
             )}
           </div>
-          <div className="countdown md:h-1/3 flex justify-start items-end">
-            <CountdownTimer
-              startTime={startDate}
-              endTime={endDate}
-              timerActive={timerActive}
-            />
-          </div>
-        </div>
-        <div className="sirena flex flex-col items-end justify-end w-1/3 z-30 overflow-x-hidden">
-          <div className="w-full hidden md:flex justify-start z-30 mb-10 translate-y-[42%] translate-x-[25%]">
-            <img src={ancla} alt="ancla" className="w-7/12 " />
-          </div>
-          <div className="w-full hidden md:flex justify-end z-30">
-            <img src={sirena} alt="sirena" className="w-8/12 " />
+          <div className="countdown md:h-1/3  flex justify-start items-end">
+            <div className="transform translate-y-32 scale-75">
+              <CountdownTimer
+                startTime={startDate}
+                endTime={endDate}
+                timerActive={timerActive}
+              />
+            </div>
           </div>
         </div>
         <div className="bubbles"></div>

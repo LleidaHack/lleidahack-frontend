@@ -14,7 +14,7 @@ const TitleGeneralized = (props) => {
         props.underline,
 
       "text-textPrimaryHackeps": props.primary,
-      "text-textSecondaryHackeps": props.secondary || !props.primary,
+      "text-textSecondaryHackeps": props.secondary || (!props.primary && !props.textNone),
 
       "text-[120px]": props.big,
       "text-4xl": props.titleSize || !props.big,
