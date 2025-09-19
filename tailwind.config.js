@@ -33,6 +33,7 @@ module.exports = {
         grayStrongHackeps: "#444343",
         loginPage: "#211f1f",
         successGreen: "#4caf50",
+        blueSea: "#77b1c9",
         errorRed: "#f44336",
         blueSky: "#bdfffe",
         secondaryColorButton: "#237090",
