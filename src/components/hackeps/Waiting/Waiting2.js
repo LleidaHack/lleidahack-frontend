@@ -9,7 +9,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 
-const Waiting = ({minimalMode=false}) => {
+const Waiting2 = ({minimalMode=false}) => {
   // Helper to generate random speed and width
   const [isPhone, setIsPhone] = useState(false);
   const [componentMode, setComponentMode] = useState(minimalMode);
@@ -133,4 +133,4 @@ function Cloud({ src, duration, width, top, delay }) {
 
 */
 
-export default Waiting;
+export default Waiting2;

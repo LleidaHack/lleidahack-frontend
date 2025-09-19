@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react'
 import Hero2 from 'src/components/hackeps/Home/HeroSection/Hero2'
 import HeroSection from 'src/components/hackeps/Home/HeroSection/HeroSection'
-import Waiting from 'src/components/hackeps/Waiting/Waiting2'
+import Waiting2 from 'src/components/hackeps/Waiting/Waiting2'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react' 
 import 'src/components/hackeps/Waiting/Waiting.css'
@@ -40,7 +40,7 @@ const Animation = ({initialDate, finalDate, activeTimer}) => {
     !isMobile ? (
       <div className='w-full max-h-screen overflow-hidden' ref={div0}>
         <div ref={div1}>
-            <Waiting minimalMode={true} />
+            <Waiting2 minimalMode={true} />
         </div>
         <div ref={div2} className='flex flex-col transform -translate-y-[10vh] bg-blueSea'>
             <div className='olas h-[10vh] w-full '>

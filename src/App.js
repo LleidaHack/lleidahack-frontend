@@ -136,7 +136,7 @@ export default function App() {
             element={<Dashboard section={<AdminSection />} />}
           />
         </Routes>
-      </Router>
+      </Router>*/}
     </div>
   );
 }
