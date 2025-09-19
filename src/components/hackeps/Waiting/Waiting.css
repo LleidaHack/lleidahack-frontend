@@ -7,6 +7,15 @@
   }
 }
 
+@keyframes cloud-move-reverse {
+  0% {
+    left: 110vw;
+  }
+  100% {
+    left: -25vw;
+  }
+}
+
 @keyframes ship-rock {
   0% {
     transform: translate(10%, 2.2rem) rotate(0deg);

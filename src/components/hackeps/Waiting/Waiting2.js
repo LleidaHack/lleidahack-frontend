@@ -9,7 +9,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 
-const Waiting2 = ({minimalMode=false}) => {
+const Waiting2 = ({ minimalMode = false }) => {
   // Helper to generate random speed and width
   const [isPhone, setIsPhone] = useState(false);
   const [componentMode, setComponentMode] = useState(minimalMode);
@@ -60,7 +60,7 @@ const Waiting2 = ({minimalMode=false}) => {
           y: -50,
           ease: "power2.out",
         },
-        "<"
+        "<",
       );
     }
   });
@@ -86,7 +86,11 @@ const Waiting2 = ({minimalMode=false}) => {
             <img src={barco} className="w-8/12 shipMovement" alt="barco" />
           </div>
           <div className="logoHackeps+text flex flex-col items-center justify-center gap-4 order-first md:order-last transform translate-y-48 md:translate-y-0">
-            <img className="w-5/12 md:w-7/12" src={hackLogo} alt="logo hackeps" />
+            <img
+              className="w-5/12 md:w-7/12"
+              src={hackLogo}
+              alt="logo hackeps"
+            />
             <p className="text-3xl md:text-5xl font-bold text-primaryHackeps">
               Proximament...
             </p>
@@ -97,9 +101,18 @@ const Waiting2 = ({minimalMode=false}) => {
         </div>
       ) : (
         <div className="flex flex-row h-full w-full px-16">
-          <div className="textBox w-2/4 items-center justify-center align-middle self-center flex flex-row gap-5" ref={textWelcome}>
-            <p className=" text-primaryHackeps text-5xl font-extrabold z-[60]">Benvingut/da a la 6a edició de Hackeps!</p>
-            <img src={hackLogo} className="w-1/4 mt-4" alt="logo hackeps self-center" />
+          <div
+            className="textBox w-2/4 items-center justify-center align-middle self-center flex flex-row gap-5"
+            ref={textWelcome}
+          >
+            <p className=" text-primaryHackeps text-5xl font-extrabold z-[60]">
+              Benvingut/da a la 6a edició de Hackeps!
+            </p>
+            <img
+              src={hackLogo}
+              className="w-1/4 mt-4"
+              alt="logo hackeps self-center"
+            />
           </div>
           <div className="barco flex md:items-end  h-full transform translate-y-44 translate-x-1/3 md:translate-y-14 w-2/3">
             <img src={barco} className="w-8/12 shipMovement" alt="barco" />
@@ -107,7 +120,6 @@ const Waiting2 = ({minimalMode=false}) => {
         </div>
       )}
 
-      
       <div className="relative bottom-0 left-0 w-full z-[50] h-28 md:h-32 pointer-events-none">
         <div className="w-full h-full bg-repeat-x bg-bottom animate-olas-scroll wavesSeaAnim bg-contain"></div>
       </div>
