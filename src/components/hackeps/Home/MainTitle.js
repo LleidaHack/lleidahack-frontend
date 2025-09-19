@@ -1,4 +1,3 @@
-import "src/components/hackeps/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useEffect, useState } from "react";
 import Button from "src/components/buttons/Button";
@@ -6,13 +5,18 @@ import hackLogo from "src/icons/banner_home_icon.png";
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
 
-const MainTitle = () => {
+const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [hackDay, setHackDay] = useState(false);
   const handleClose = () => setShow(false);
-  const [textButton, setTextButton] = useState("Apunta't!");
+
   async function handleShow() {
+    if (refresh) {
+      window.location.reload();
+      return;
+    }
+
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
     } else if (
@@ -33,6 +37,11 @@ const MainTitle = () => {
       }
     }
   }
+  const [textButton, setTextButton] = useState(buttonText);
+
+  useEffect(() => {
+    setTextButton(buttonText);
+  }, [buttonText]);
 
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => {
@@ -62,15 +71,18 @@ const MainTitle = () => {
 
   return (
     <>
-      <div className="backgrounder bg-primaryHackeps bg-center">
-        <div className="fantasma" id="home"></div>
-        <div className="col-12">
-          <div className="rowe">
-            <img className="imagelogo" src={hackLogo} alt="" />
-          </div>
+      <div className="justify-center items-center flex flex-col gap-5 mt-2 w-full">
+        <div className="col-12 w-full flex justify-center">
+          <img className="w-7/12 md:w-4/12 md:mx-auto" src={hackLogo} alt="" />
         </div>
         <div className="join-button">
-          <Button onClick={handleShow} secondary outline>
+          <Button
+            onClick={handleShow}
+            className={
+              "bg-red-500 text-white hover:bg-primaryHackeps duration-1"
+            }
+            outline
+          >
             {textButton}
           </Button>
         </div>

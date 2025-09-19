@@ -4,14 +4,28 @@ import Footer from "src/components/hackeps/Footer/Footer.js";
 import CalendarDates from "src/components/hackeps/Home/Calendar.js";
 import Sponsors from "src/components/hackeps/Home/Sponsors.js";
 import Schedule from "src/components/hackeps/Home/Schedule.js";
-import CountdownTimer from "src/components/hackeps/Home/Timer.js";
-import MainTitle from "src/components/hackeps/Home/MainTitle.js";
+import HeroSection from "src/components/hackeps/Home/HeroSection/HeroSection.js";
 import Mentoring from "src/components/hackeps/Home/Mentoring.js";
 import { getHackeps } from "src/services/EventService";
+import Animation from "src/pages/hackeps/Animation.js";
 
 const Home = () => {
   const [startDate, setStartDate] = useState(undefined);
   const [endDate, setEndDate] = useState(undefined);
+  const [showAnimation, setShowAnimation] = useState(false);
+
+  useEffect(() => {
+    const minimalTime = 2 * 60 * 60 * 1000;
+    console.log(process.env.REACT_APP_HERO_ANIMATED);
+    if (process.env.REACT_APP_HERO_ANIMATED == "1") {
+      const lastAnimation = localStorage.getItem("lastAnimation");
+      const now = Date.now();
+      if (!lastAnimation || now - Number(lastAnimation) >= minimalTime) {
+        setShowAnimation(true);
+        localStorage.setItem("lastAnimation", now);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     async function getDates() {
@@ -67,22 +81,33 @@ const Home = () => {
     },
   ];
 
-  return (
-    <div>
-      <Header />
-      <MainTitle />
-      <CountdownTimer
-        startTime={startDate}
-        endTime={endDate}
-        timerActive={timerActive}
-      />
-      <CalendarDates startDate={startDate} endDate={endDate} />
-      <Schedule events={events} />
-      <Sponsors />
-      <Mentoring />
-      <Footer />
-    </div>
-  );
+  if (!showAnimation) {
+    return (
+      <div>
+        <Header />
+        <HeroSection
+          initialDate={startDate}
+          finalDate={endDate}
+          activeTimer={timerActive}
+        />
+        <CalendarDates startDate={startDate} endDate={endDate} />
+        <Schedule events={events} />
+        <Sponsors />
+        <Mentoring />
+        <Footer />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Animation
+          initialDate={startDate}
+          finalDate={endDate}
+          activeTimer={timerActive}
+        />
+      </div>
+    );
+  }
 };
 
 export default Home;
