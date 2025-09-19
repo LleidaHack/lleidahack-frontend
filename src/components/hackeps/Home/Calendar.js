@@ -10,7 +10,7 @@ import sirenapiedra from "src/assets/img/sirenapedruzco.png";
 
 const CalendarDates = (props) => {
   return (
-    <div className="bg-white">
+    <div className="bg-white pb-32">
       <div className="absolute w-full h-auto overflow-hidden top-[20%] ">
         <img src={Seapointed} alt="Seapointed" className="w-full h-auto " />
       </div>

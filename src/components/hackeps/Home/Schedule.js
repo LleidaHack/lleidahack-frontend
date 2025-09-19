@@ -1,5 +1,7 @@
 import timonImg from "../../../assets/TIMON.png";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
+import SandPointed from "src/assets/img/SandPointed.png";
+import Stars from "src/assets/img/Stars.png";
 
 // Componente para la imagen del timón
 const TimonIcon = () => (
@@ -64,24 +66,36 @@ const ScheduleItem = ({ time, title, description, align = "right" }) => {
 
 const Schedule = ({ events }) => {
   return (
-    <div className="bg-secondaryHackeps">
-      <div className="relative px-6 md:px-16 py-12 max-w-6xl mx-auto">
-        {/* Título */}
-        <TitleGeneralized underline href="#horari">
-          Horari
-        </TitleGeneralized>
+    <div className="bg-white">
+      
+      <div className="absolute w-full h-auto overflow-hidden top-[140%] ">
+        <div className="separador">
+          <img src={SandPointed} alt="Seapointed" className="w-full h-auto z-10" />
+        </div>
+        <div className="starts z-20">
+          <img src={Stars} alt="Seapointed" className="w-3/12 h-auto absolute top-20 z-20" />
+        </div>
+      </div>
 
-        {/* Lista de eventos */}
-        <div className="mt-12 space-y-12 relative z-10">
-          {events.map((event, index) => (
-            <ScheduleItem
-              key={index}
-              time={event.time}
-              title={event.title}
-              description={event.description}
-              align={index % 2 === 0 ? "right" : "left"}
-            />
-          ))}
+      <div className="bg-secondaryHackeps relative z-0">
+        <div className="relative px-6 md:px-16 py-12 max-w-6xl mx-auto">
+          {/* Título */}
+          <TitleGeneralized padTop="0" underline  textNone className="text-primaryHackeps font-semibold pl-2">
+            Horari
+          </TitleGeneralized>
+
+          {/* Lista de eventos */}
+          <div className="mt-12 space-y-12 relative z-10">
+            {events.map((event, index) => (
+              <ScheduleItem
+                key={index}
+                time={event.time}
+                title={event.title}
+                description={event.description}
+                align={index % 2 === 0 ? "right" : "left"}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
