@@ -70,7 +70,7 @@ const Schedule = ({ events }) => {
 
       <div className="flex flex-col h-16">
         <div className="estrellas">
-          <img src={Stars} alt="Seapointed" className="w-3/12 h-auto relative transform translate-y-28 md:translate-y-[0rem] z-30" />
+          <img src={Stars} alt="Seapointed" className="w-3/12 h-auto relative transform translate-y-28 lg:-translate-y-16 z-30"/>
         </div>
         <div className="separador2">
           <img src={SandPointed} alt="Seapointed" className="w-full h-auto transform -translate-y-24 lg:-translate-y-[27rem] md:-translate-y-[30rem] z-10" />
