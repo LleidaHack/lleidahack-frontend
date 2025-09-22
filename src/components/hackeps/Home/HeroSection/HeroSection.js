@@ -102,7 +102,7 @@ const HeroSection = ({
             )}
           </div>
           <div className="countdown md:h-1/3  flex justify-start items-end mt-5">
-            <div className="transform -translate-y-0 lg:-translate-y-16 md:-translate-y-20 scale-75">
+            <div className="transform md:translate-y-5 scale-75">
               <CountdownTimer
                 startTime={startDate}
                 endTime={endDate}

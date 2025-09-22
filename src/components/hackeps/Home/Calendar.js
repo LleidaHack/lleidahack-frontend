@@ -7,26 +7,24 @@ import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 import Calendar from "src/components/hackeps/Calendar/Calendar";
 import Seapointed from "src/assets/img/seapointed.png";
 import sirenapiedra from "src/assets/img/sirenapedruzco.png";
+import "./Olas.css";
 
 const CalendarDates = (props) => {
   return (
     <div className="bg-white md:pb-24 flex flex-col">
-      {/* <div className="absolute w-full h-auto overflow-hidden bottom-0 md:top-[25%] ">
-        <img src={Seapointed} alt="Seapointed" className="w-full h-auto " />
-      </div> */}
-      <div className="separador mt-0 h-0 lg:h-36 lg:h-44 md:h-56 transform -translate-y-5 md:-translate-y-56 ">
+      <div className="separador mt-0 h-0 lg:h-36 lg:h-44 md:h-56 wavesea">
         <img src={Seapointed} alt="Seapointed" className=" h-auto " />
       </div>
-      <div className=" p-5 pt-0 z-20 relative flex flex-col md:flex-col  items-center  ">
-        <div className="sirenaPiedra hidden lg:flex h-0lg:h-20 md:h-16 w-full flex-col items-end mb-5 tramsform -translate-y-72 ">
-          <div className="piedra flex justify-end transform translate-x-24 -translate-y-[17rem]">
+      <div className=" p-5 pt-0 z-10 relative flex flex-col md:flex-col  items-center  ">
+        <div className="sirenaPiedra hidden lg:flex h-0lg:h-20 md:h-16 w-full flex-col items-end mb-5 tramsform  ">
+          <div className="flex justify-end items-end relative z-10">
             <img
               src={sirenapiedra}
               alt="piedra"
-              className="w-6/12 h-auto z-0"
+              className="w-6/12 h-auto transform -translate-y-[37rem] translate-x-[10rem]"
             />
           </div>
-          <div className="calendario z-10 -translate-y-[40rem] ">
+          <div className="calendario z-10 transform -translate-y-[67rem] w-56 md:w-96  ">
             <Calendar />
           </div>
         </div>
@@ -64,7 +62,7 @@ const CalendarDates = (props) => {
               <Col></Col>
             </Row>
             <Row className="flex justify-center lg:hidden mt-10">
-              <div className="calendario z-10 flex justify-center lg:hidden">
+              <div className="calendario z-10 flex justify-center lg:hidden ">
                 <Calendar />
               </div>
             </Row>
