@@ -24,24 +24,40 @@ const Mentoring = () => {
 
             <div className="space-y-4 text-grayStrongHackeps leading-relaxed text-left md:text-base text-sm text-justify">
               <p>
-                A la nostra hackató, els mentors són el motor de la creativitat i el creixement. Són les persones que, amb la seva experiència i coneixements, ajuden els participants a trobar el camí correcte i a fer realitat els seus projectes més ambiciosos.
+                A la nostra hackató, els mentors són el motor de la creativitat
+                i el creixement. Són les persones que, amb la seva experiència i
+                coneixements, ajuden els participants a trobar el camí correcte
+                i a fer realitat els seus projectes més ambiciosos.
               </p>
               <p>
-                Si et consideres una persona proactiva i t'agrada acompanyar els altres en els seus reptes, et convidem a formar part de la nostra comunitat de mentors. No es tracta només d'oferir solucions, sinó de fer les <b>preguntes adequades</b> i ajudar els equips a descobrir el seu propi potencial.
+                Si et consideres una persona proactiva i t'agrada acompanyar els
+                altres en els seus reptes, et convidem a formar part de la
+                nostra comunitat de mentors. No es tracta només d'oferir
+                solucions, sinó de fer les <b>preguntes adequades</b> i ajudar
+                els equips a descobrir el seu propi potencial.
               </p>
-              <p>
-                El teu rol serà fonamental per:
-              </p>
+              <p>El teu rol serà fonamental per:</p>
               <ul>
-                <li><b>Inspirar:</b> Serveix de guia i motivació per als equips.</li>
-                <li><b>Guiar:</b> Ajuda a organitzar les idees i a trobar solucions a problemes tècnics o de disseny.</li>
-                <li><b>Connectar:</b> Crea sinergies entre participants i fomenta un ambient de col·laboració.</li>
+                <li>
+                  <b>Inspirar:</b> Serveix de guia i motivació per als equips.
+                </li>
+                <li>
+                  <b>Guiar:</b> Ajuda a organitzar les idees i a trobar
+                  solucions a problemes tècnics o de disseny.
+                </li>
+                <li>
+                  <b>Connectar:</b> Crea sinergies entre participants i fomenta
+                  un ambient de col·laboració.
+                </li>
               </ul>
               <p>
-                Si estàs preparat per a una experiència enriquidora on podràs donar i rebre coneixement, t'esperem!
+                Si estàs preparat per a una experiència enriquidora on podràs
+                donar i rebre coneixement, t'esperem!
               </p>
               <p>
-                <strong>[Contacta'ns i explica'ns per què vols ser mentor]</strong>
+                <strong>
+                  [Contacta'ns i explica'ns per què vols ser mentor]
+                </strong>
               </p>
             </div>
           </div>

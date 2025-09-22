@@ -49,26 +49,3 @@
         transform: translateY(-15rem);
     }
 }
-
-.calendarr {
-  width: 20rem;
-}
-
-@media (min-width: 768px) {
-  .calendarr {
-    transform: translateY(-2.5rem);
-  }
-}
-
-@media (min-width: 1024px) {
-  .calendarr {
-    transform: translateY(-20vh);
-  }
-}
-
-/* Para pantallas extra grandes (xl: 1280px) */
-@media (min-width: 1280px) {
-    .calendarr {
-        transform: translateY(-15rem);
-    }
-}
