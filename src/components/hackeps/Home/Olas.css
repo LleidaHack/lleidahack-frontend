@@ -45,7 +45,7 @@
 
 /* Para pantallas extra grandes (xl: 1280px) */
 @media (min-width: 1280px) {
-    .wavesea {
-        transform: translateY(-15rem);
-    }
+  .wavesea {
+    transform: translateY(-15rem);
+  }
 }
