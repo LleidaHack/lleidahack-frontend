@@ -12,8 +12,13 @@ const Mentoring = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 pr-0 md:pr-20 items-center">
           {/* Columna izquierda - Texto (más ancha) */}
           <div className="lg:col-span-3 space-y-6 pr-0 md:pr-20">
-            
-            <TitleGeneralized padTop="0" underline alignText="center" textNone className="text-primaryHackeps font-semibold pl-2">
+            <TitleGeneralized
+              padTop="0"
+              underline
+              alignText="center"
+              textNone
+              className="text-primaryHackeps font-semibold pl-2"
+            >
               Vols postular com a mentor?
             </TitleGeneralized>
 
