@@ -35,7 +35,7 @@ const Calendar = () => {
           return (
             <div
               key={idx}
-              className={`h-7 md:h-10 rounded-md shadow-md flex items-center justify-center ${bgColor} ${textColor}`}
+              className={`aspect-square rounded-md shadow-md flex items-center justify-center ${bgColor} ${textColor}`}
             >
               {day || ""}
             </div>

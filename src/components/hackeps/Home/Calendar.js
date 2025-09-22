@@ -10,14 +10,25 @@ import sirenapiedra from "src/assets/img/sirenapedruzco.png";
 
 const CalendarDates = (props) => {
   return (
-    <div className="bg-white pb-32">
-      <div className="absolute w-full h-auto overflow-hidden bottom-[0%] md:top-[25%] ">
+    <div className="bg-white md:pb-24 flex flex-col">
+      {/* <div className="absolute w-full h-auto overflow-hidden bottom-0 md:top-[25%] ">
         <img src={Seapointed} alt="Seapointed" className="w-full h-auto " />
+      </div> */}
+      <div className="separador mt-0 h-0 lg:h-36 lg:h-44 md:h-56 transform -translate-y-5 md:-translate-y-56 ">
+        <img src={Seapointed} alt="Seapointed" className=" h-auto " />
       </div>
-
-      <div className=" p-5 z-20 relative flex flex-col md:flex-row justify-between items-center mt-36 md:mt-56 ">
+      <div className=" p-5 pt-0 z-20 relative flex flex-col md:flex-col  items-center  ">
         
-        <div>
+        <div className="sirenaPiedra hidden lg:flex h-0lg:h-20 md:h-16 w-full flex-col items-end mb-5 tramsform -translate-y-72 ">
+          <div className="piedra flex justify-end transform translate-x-24 -translate-y-[17rem]">
+            <img src={sirenapiedra} alt="piedra" className="w-6/12 h-auto z-0" />
+          </div>
+          <div className="calendario z-10 -translate-y-[40rem] ">
+            <Calendar />
+          </div>
+        </div>
+        
+        <div className="mt-32 lg:mt-0">
           <TitleGeneralized padTop="0" underline alignText="left" textNone className="text-primaryHackeps font-semibold pl-2">
             Dates
           </TitleGeneralized>
@@ -44,17 +55,17 @@ const CalendarDates = (props) => {
               <Col>
               </Col>
             </Row>
+            <Row className="flex justify-center lg:hidden mt-10">
+              <div className="calendario z-10 flex justify-center lg:hidden">
+                <Calendar />
+              </div>
+            </Row>
           </Container>
         </div>
-        <div className="sirenaPiedra">
-          <div className="piedra">
-            <img src={sirenapiedra} alt="piedra" className="absolute w-6/12 h-auto left-[50%] top-[95%] md:bottom-[-15%] z-0" />
-          </div>
-          <div className="calendario md:absolute z-10 left-[30%] top-[0%] w-full ">
-             <Calendar />
-          </div>
-        </div>
+
+        
       </div>
+      
     </div>
   );
 };

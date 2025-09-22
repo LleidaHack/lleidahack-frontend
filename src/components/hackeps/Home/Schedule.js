@@ -66,18 +66,18 @@ const ScheduleItem = ({ time, title, description, align = "right" }) => {
 
 const Schedule = ({ events }) => {
   return (
-    <div className="bg-white">
-      
-      <div className="absolute w-full h-auto overflow-hidden top-[254%] md:top-[133%] ">
-        <div className="separador">
-          <img src={SandPointed} alt="Seapointed" className="w-full h-auto z-10" />
+    <div className="bg-white flex flex-col">
+
+      <div className="flex flex-col h-16">
+        <div className="estrellas">
+          <img src={Stars} alt="Seapointed" className="w-3/12 h-auto relative transform translate-y-28 md:translate-y-[0rem] z-30" />
         </div>
-        <div className="starts z-20">
-          <img src={Stars} alt="Seapointed" className="w-3/12 h-auto absolute top-20 z-20" />
+        <div className="separador2">
+          <img src={SandPointed} alt="Seapointed" className="w-full h-auto transform -translate-y-24 lg:-translate-y-[27rem] md:-translate-y-[30rem] z-10" />
         </div>
       </div>
 
-      <div className="bg-secondaryHackeps relative z-0">
+      <div className="bg-secondaryHackeps relative z-10">
         <div className="relative px-6 md:px-16 py-12 max-w-6xl mx-auto">
           {/* Título */}
           <TitleGeneralized padTop="0" underline  textNone className="text-primaryHackeps font-semibold pl-2">
