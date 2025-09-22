@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "Què és la HackEPS?",
     answer:
-      "És la vuitena edició de la hackató organitzada per l'Associació Juvenil LleidaHack. Té com a objectiu motivar la programació com a afició i forjar relacions laborals entre la universitat, els programadors i les empreses del sector.",
+      "És la novena edició de la hackató organitzada per l'Associació Juvenil LleidaHack. Té com a objectiu motivar la programació com a afició i forjar relacions laborals entre la universitat, els programadors i les empreses del sector.",
   },
   {
     question: "Quan és la HackEPS?",

@@ -19,7 +19,7 @@ const Calendar = () => {
     weeks.push(calendarDays.slice(i, i + 7));
 
   return (
-    <div className="max-w-sm mx-auto p-6 bg-[#3c3c3c] text-white rounded-xl shadow-2xl font-mono">
+    <div className="max-w-sm mx-auto p-6 bg-[#3c3c3c] text-white rounded-xl shadow-2xl font-mono shadow-lg">
       <h2 className="text-2xl text-center mb-4">Novembre</h2>
       <div className="grid grid-cols-7 gap-2 text-center text-lg mb-1">
         {daysOfWeek.map((day) => (
@@ -35,7 +35,7 @@ const Calendar = () => {
           return (
             <div
               key={idx}
-              className={`h-7 md:h-10 rounded-md shadow-md flex items-center justify-center ${bgColor} ${textColor}`}
+              className={`aspect-square rounded-md shadow-md flex items-center justify-center ${bgColor} ${textColor}`}
             >
               {day || ""}
             </div>

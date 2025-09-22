@@ -167,7 +167,12 @@ const Sponsors = () => {
     <div className="sponsors bg-secondaryHackeps">
       <div className="gostHunter" id="sponsors"></div>
       {/* Title and content for Partners */}
-      <TitleGeneralized padTop="4" underline>
+      <TitleGeneralized
+        padTop="0"
+        underline
+        textNone
+        className="text-primaryHackeps font-semibold pl-2"
+      >
         Sponsors
       </TitleGeneralized>
       <p>Vols participar?</p>
