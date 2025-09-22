@@ -71,15 +71,15 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
 
   return (
     <>
-      <div className="justify-center items-center flex flex-col gap-5 mt-2 w-full">
+      <div className="justify-center items-center flex flex-col gap-5 mt-2 w-full z-50">
         <div className="col-12 w-full flex justify-center">
           <img className="w-7/12 md:w-2/12 md:mx-auto" src={hackLogo} alt="" />
         </div>
-        <div className="join-button">
+        <div className="join-button relative z-50" style={{ zIndex: 5000 }}>
           <Button
             onClick={handleShow}
             className={
-              "bg-red-500 text-white hover:bg-primaryHackeps duration-1"
+              "bg-red-500 text-white hover:bg-primaryHackeps duration-1 relative relative z-50"
             }
             outline
           >

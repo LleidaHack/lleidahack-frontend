@@ -15,16 +15,16 @@ const CalendarDates = (props) => {
       <div className="separador mt-0 h-0 lg:h-36 lg:h-44 md:h-56 wavesea">
         <img src={Seapointed} alt="Seapointed" className=" h-auto " />
       </div>
-      <div className=" p-5 pt-0 z-20 relative flex flex-col md:flex-col  items-center  ">
-        <div className="sirenaPiedra hidden lg:flex h-0lg:h-20 md:h-16 w-full flex-col items-end mb-5 tramsform -translate-y-72 ">
-          <div className="piedra flex justify-end transform translate-x-24 -translate-y-[17rem]">
+      <div className=" p-5 pt-0 z-10 relative flex flex-col md:flex-col  items-center  ">
+        <div className="sirenaPiedra hidden lg:flex h-0lg:h-20 md:h-16 w-full flex-col items-end mb-5 tramsform  ">
+          <div className="flex justify-end items-end relative z-10">
             <img
               src={sirenapiedra}
               alt="piedra"
-              className="w-6/12 h-auto z-0"
+              className="w-6/12 h-auto transform -translate-y-[37rem] translate-x-[10rem]"
             />
           </div>
-          <div className="calendario z-10 -translate-y-[47rem] w-56 md:w-96  ">
+          <div className="calendario z-10 transform -translate-y-[67rem] w-56 md:w-96  ">
             <Calendar />
           </div>
         </div>
