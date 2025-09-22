@@ -12,7 +12,6 @@ import "./Olas.css";
 const CalendarDates = (props) => {
   return (
     <div className="bg-white md:pb-24 flex flex-col">
-
       <div className="separador mt-0 h-0 lg:h-36 lg:h-44 md:h-56 wavesea">
         <img src={Seapointed} alt="Seapointed" className=" h-auto " />
       </div>
