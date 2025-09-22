@@ -25,7 +25,7 @@ const CalendarDates = (props) => {
               className="w-6/12 h-auto z-0"
             />
           </div>
-          <div className="calendario z-10 -translate-y-[40rem] ">
+          <div className="calendario z-10 -translate-y-[47rem] w-56 md:w-96  ">
             <Calendar />
           </div>
         </div>
@@ -63,7 +63,7 @@ const CalendarDates = (props) => {
               <Col></Col>
             </Row>
             <Row className="flex justify-center lg:hidden mt-10">
-              <div className="calendario z-10 flex justify-center lg:hidden">
+              <div className="calendario z-10 flex justify-center lg:hidden ">
                 <Calendar />
               </div>
             </Row>
