@@ -7,14 +7,13 @@ import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 import Calendar from "src/components/hackeps/Calendar/Calendar";
 import Seapointed from "src/assets/img/seapointed.png";
 import sirenapiedra from "src/assets/img/sirenapedruzco.png";
+import "./Olas.css";
 
 const CalendarDates = (props) => {
   return (
     <div className="bg-white md:pb-24 flex flex-col">
-      {/* <div className="absolute w-full h-auto overflow-hidden bottom-0 md:top-[25%] ">
-        <img src={Seapointed} alt="Seapointed" className="w-full h-auto " />
-      </div> */}
-      <div className="separador mt-0 h-0 lg:h-36 lg:h-44 md:h-56 transform -translate-y-5 md:-translate-y-56 ">
+
+      <div className="separador mt-0 h-0 lg:h-36 lg:h-44 md:h-56 wavesea">
         <img src={Seapointed} alt="Seapointed" className=" h-auto " />
       </div>
       <div className=" p-5 pt-0 z-20 relative flex flex-col md:flex-col  items-center  ">

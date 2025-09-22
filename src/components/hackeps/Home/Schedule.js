@@ -2,6 +2,7 @@ import timonImg from "../../../assets/TIMON.png";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 import SandPointed from "src/assets/img/SandPointed.png";
 import Stars from "src/assets/img/Stars.png";
+import "./Olas.css";
 
 // Componente para la imagen del timón
 const TimonIcon = () => (
@@ -72,14 +73,14 @@ const Schedule = ({ events }) => {
           <img
             src={Stars}
             alt="Seapointed"
-            className="w-3/12 h-auto relative transform translate-y-28 lg:-translate-y-16 z-30"
+            className="w-3/12 h-auto relative wavesea transform translate-y-28 lg:-translate-y-16 z-30"
           />
         </div>
         <div className="separador2">
           <img
             src={SandPointed}
             alt="Seapointed"
-            className="w-full h-auto transform -translate-y-24 lg:-translate-y-[27rem] md:-translate-y-[30rem] z-10"
+            className="w-full h-auto wavearena z-10"
           />
         </div>
       </div>
