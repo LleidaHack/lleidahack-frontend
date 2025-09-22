@@ -11,11 +11,11 @@ import sirenapiedra from "src/assets/img/sirenapedruzco.png";
 const CalendarDates = (props) => {
   return (
     <div className="bg-white pb-32">
-      <div className="absolute w-full h-auto overflow-hidden top-[20%] ">
+      <div className="absolute w-full h-auto overflow-hidden bottom-[0%] md:top-[25%] ">
         <img src={Seapointed} alt="Seapointed" className="w-full h-auto " />
       </div>
 
-      <div className=" p-5 z-20 relative flex flex-row justify-between items-center mt-56 ">
+      <div className=" p-5 z-20 relative flex flex-col md:flex-row justify-between items-center mt-36 md:mt-56 ">
         
         <div>
           <TitleGeneralized padTop="0" underline alignText="left" textNone className="text-primaryHackeps font-semibold pl-2">
@@ -29,7 +29,7 @@ const CalendarDates = (props) => {
                   hackató de les terres de Lleida!
                 </p>
                 <p className="text-justify mr-5">
-                  La vuitena edició de la HackEPS tindrà lloc a l'edifici de
+                  La novena edició de la HackEPS tindrà lloc a l'edifici de
                   l'Escola Politècnica Superior de la Universitat de Lleida els dies
                   23 i 24 de novembre de 2024. Aquest és un esdeveniment que no
                   voldràs perdre't!
@@ -48,12 +48,11 @@ const CalendarDates = (props) => {
         </div>
         <div className="sirenaPiedra">
           <div className="piedra">
-            <img src={sirenapiedra} alt="piedra" className="absolute w-6/12 h-auto left-[50%] bottom-[-15%] z-0" />
+            <img src={sirenapiedra} alt="piedra" className="absolute w-6/12 h-auto left-[50%] top-[95%] md:bottom-[-15%] z-0" />
           </div>
-          <div className="calendario absolute z-10 left-[30%] top-[0%] w-full ">
+          <div className="calendario md:absolute z-10 left-[30%] top-[0%] w-full ">
              <Calendar />
           </div>
-
         </div>
       </div>
     </div>

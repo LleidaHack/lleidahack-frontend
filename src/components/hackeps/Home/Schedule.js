@@ -68,7 +68,7 @@ const Schedule = ({ events }) => {
   return (
     <div className="bg-white">
       
-      <div className="absolute w-full h-auto overflow-hidden top-[140%] ">
+      <div className="absolute w-full h-auto overflow-hidden top-[254%] md:top-[133%] ">
         <div className="separador">
           <img src={SandPointed} alt="Seapointed" className="w-full h-auto z-10" />
         </div>

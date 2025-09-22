@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import MentorImage from "src/assets/Mentor.png";
 import TimonImage from "src/assets/TIMON.png";
 import Button from "src/components/buttons/Button";
+import TitleGeneralized from "src/components/hackeps/TitleGeneralized/TitleGeneralized";
 
 const Mentoring = () => {
   return (
@@ -11,9 +12,10 @@ const Mentoring = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 pr-0 md:pr-20 items-center">
           {/* Columna izquierda - Texto (más ancha) */}
           <div className="lg:col-span-3 space-y-6 pr-0 md:pr-20">
-            <h2 className=" text-2xl md:text-5xl font-bold text-center leading-relaxed text-primaryHackeps mb-8 px-3">
+            
+            <TitleGeneralized padTop="0" underline alignText="center" textNone className="text-primaryHackeps font-semibold pl-2">
               Vols postular com a mentor?
-            </h2>
+            </TitleGeneralized>
 
             <div className="space-y-4 text-grayStrongHackeps leading-relaxed text-left md:text-base text-sm text-justify">
               <p>
