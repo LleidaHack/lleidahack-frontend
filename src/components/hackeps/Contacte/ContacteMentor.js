@@ -23,12 +23,12 @@ const ContacteMentorPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-const onSubmit = async (data) => {
-  const formattedData = {
-    name: data.name,
-    title: `Proposta de Mentor - ${data.name}`,
-    email: data.email,
-    message: `
+  const onSubmit = async (data) => {
+    const formattedData = {
+      name: data.name,
+      title: `Proposta de Mentor - ${data.name}`,
+      email: data.email,
+      message: `
       Àrea d'especialització: ${data.specialization}
       Anys d'experiència: ${data.experience}
       Empresa/Organització: ${data.company || "No especificat"}
@@ -36,13 +36,12 @@ const onSubmit = async (data) => {
       Motivació: ${data.motivation}
       Disponibilitat: ${data.availability}
     `,
+    };
+
+    const success = await contacte(formattedData);
+    setMailStatus(success);
+    setMailSended(true);
   };
-
-  const success = await contacte(formattedData);
-  setMailStatus(success);
-  setMailSended(true);
-};
-
 
   return (
     <div className="min-h-screen bg-secondaryHackeps pb-8">
@@ -52,18 +51,23 @@ const onSubmit = async (data) => {
 
           {/* Texto pirata arriba */}
           <div className="mx-auto text-left mb-10 px-20">
-            <p className="text-lg font-semibold mb-3">Ah del vaixell, futur mentor!</p>
+            <p className="text-lg font-semibold mb-3">
+              Ah del vaixell, futur mentor!
+            </p>
             <p className="text-base mb-2">
-              Els vents ens porten bones noves, i tu has decidit embarcar-te en la gran aventura
-              de la HackEPS. Necessitem mariners valents com tu per guiar la tripulació
-              en la recerca de tresors tecnològics i projectes innovadors.
+              Els vents ens porten bones noves, i tu has decidit embarcar-te en
+              la gran aventura de la HackEPS. Necessitem mariners valents com tu
+              per guiar la tripulació en la recerca de tresors tecnològics i
+              projectes innovadors.
             </p>
             <p className="text-base opacity-90">
-              Els teus coneixements seran el mapa que obrirà nous camins als participants,
-              i el teu esperit serà la brúixola que els guiarà enmig de la tempesta de codis.
+              Els teus coneixements seran el mapa que obrirà nous camins als
+              participants, i el teu esperit serà la brúixola que els guiarà
+              enmig de la tempesta de codis.
             </p>
             <p className="text-sm mt-3 opacity-75 italic">
-              Omple el pergamí de sota i uneix-te a la nostra tripulació de mentors!
+              Omple el pergamí de sota i uneix-te a la nostra tripulació de
+              mentors!
             </p>
           </div>
 
@@ -71,7 +75,11 @@ const onSubmit = async (data) => {
           <div className="flex flex-col md:flex-row items-center justify-center min-h-[80vh] mx-4 gap-8">
             {/* Imagen a la izquierda */}
             <div className="md:basis-1/3 flex justify-center">
-              <img src={MentorImage} alt="Mentor" className="w-2/3 md:w-full max-w-sm" />
+              <img
+                src={MentorImage}
+                alt="Mentor"
+                className="w-2/3 md:w-full max-w-sm"
+              />
             </div>
 
             {/* Formulario a la derecha (sin cambiar estilos) */}
@@ -100,7 +108,8 @@ const onSubmit = async (data) => {
                     className={`${errors.email ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base`}
                     placeholder="el_teu_correu@exemple.com"
                     {...register("email", {
-                      required: "Et falta indicar-nos el teu correu de contacte",
+                      required:
+                        "Et falta indicar-nos el teu correu de contacte",
                       pattern: {
                         value: /^\S+@\S+$/i,
                         message: "El correu no és vàlid",
@@ -117,7 +126,8 @@ const onSubmit = async (data) => {
                   <select
                     className={`${errors.specialization ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base`}
                     {...register("specialization", {
-                      required: "Si us plau, selecciona la teva àrea d'especialització",
+                      required:
+                        "Si us plau, selecciona la teva àrea d'especialització",
                     })}
                   >
                     <option value="">Selecciona una àrea...</option>
@@ -134,7 +144,9 @@ const onSubmit = async (data) => {
                     <option value="other">Altres</option>
                   </select>
                   {errors.specialization && (
-                    <span className="text-red-400">{errors.specialization.message}</span>
+                    <span className="text-red-400">
+                      {errors.specialization.message}
+                    </span>
                   )}
                 </label>
 
@@ -143,7 +155,8 @@ const onSubmit = async (data) => {
                   <select
                     className={`${errors.experience ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base`}
                     {...register("experience", {
-                      required: "Si us plau, indica els teus anys d'experiència",
+                      required:
+                        "Si us plau, indica els teus anys d'experiència",
                     })}
                   >
                     <option value="">Selecciona...</option>
@@ -154,7 +167,9 @@ const onSubmit = async (data) => {
                     <option value="10+">Més de 10 anys</option>
                   </select>
                   {errors.experience && (
-                    <span className="text-red-400">{errors.experience.message}</span>
+                    <span className="text-red-400">
+                      {errors.experience.message}
+                    </span>
                   )}
                 </label>
 
@@ -173,7 +188,8 @@ const onSubmit = async (data) => {
                     className={`${errors.mentorExperience ? "bg-pink-100" : "bg-white"} px-2 text-base min-h-20`}
                     placeholder="Explica'ns si has fet de mentor abans i en quins contexts..."
                     {...register("mentorExperience", {
-                      required: "Si us plau, explica'ns la teva experiència com a mentor",
+                      required:
+                        "Si us plau, explica'ns la teva experiència com a mentor",
                     })}
                   />
                   {errors.mentorExperience && (
