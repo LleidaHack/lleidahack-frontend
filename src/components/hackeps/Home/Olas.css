@@ -1,6 +1,6 @@
 .wavearena {
   /* Estilo por defecto para pantallas pequeñas */
-  transform: translateY(-6rem); /* -24 en rem es aproximadamente -6rem */
+  transform: translateY(-5rem); /* -24 en rem es aproximadamente -6rem */
   z-index: 10;
   width: 100%;
   height: auto;
@@ -9,7 +9,7 @@
 /* Para pantallas medianas (md: 768px) */
 @media (min-width: 768px) {
   .wavearena {
-    transform: translateY(-30rem);
+    transform: translateY(-20rem);
   }
 }
 

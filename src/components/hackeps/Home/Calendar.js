@@ -13,7 +13,7 @@ const CalendarDates = (props) => {
   return (
     <div className="bg-white md:pb-24 flex flex-col relative z-0">
   {/* Piedra en esquina superior derecha */}
-  <div className="absolute bottom-96 right-0 w-[200px] md:w-[400px] lg:w-[550px] z-40">
+  <div className="absolute bottom-96 right-0 w-[200px] md:w-[400px] lg:w-[550px] z-40 hidden lg:block">
     <div className="relative">
       <img
         src={sirenapiedra}
@@ -47,7 +47,7 @@ const CalendarDates = (props) => {
       </TitleGeneralized>
 
       <Container>
-        <Row className="flex flex-col gap-4 md:flex-row md:gap-0">
+        <Row className="flex flex-col gap-4 lg:flex-row md:gap-0">
           <Col className="calendar-content">
             <p className="text-justify mr-5">
               Lleidahack et dona la benvinguda a la HackEPS 2024, la primera

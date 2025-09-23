@@ -103,14 +103,12 @@ const HeroSection = ({
               <MainTitle />
             )}
           </div>
-          <div className="countdown md:h-1/3  flex justify-start items-end mt-5">
-            <div className="transform md:translate-y-5 scale-75">
+          <div className="countdown flex justify-start items-end mt-5">
               <CountdownTimer
                 startTime={startDate}
                 endTime={endDate}
                 timerActive={timerActive}
               />
-            </div>
           </div>
         </div>
         <div className="bubbles"></div>

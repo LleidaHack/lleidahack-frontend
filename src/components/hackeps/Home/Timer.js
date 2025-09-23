@@ -61,7 +61,7 @@ const CountdownTimer = (props) => {
 
   if (timestampDay >= nowDay && active) {
     return (
-      <div className="countdown-timer text-primaryHackeps md:scale-50 ">
+      <div className="countdown-timer text-primaryHackeps">
         {remainingTime.months ? (
           <span className="">{remainingTime.months}</span>
         ) : (
