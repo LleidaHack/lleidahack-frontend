@@ -82,7 +82,7 @@ const Mentoring = () => {
               />
             </div>
 
-            <Link to={"/contacteMentor"}>
+            <Link to={"/contacte-mentor"}>
               <Button
                 className="bg-secondaryColorButton text-white border-none"
                 lg
