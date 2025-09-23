@@ -96,7 +96,9 @@ const HeroSection = ({
         <div className="logo&countdown flex flex-col justify-center items-center gap-2z-30">
           <div className="logoSection w-full md:h-2/3 ">
             {animationSection ? (
-              <MainTitle buttonText={"Descobreix més"} refresh={true} />
+              <MainTitle buttonText={"Descobreix més"} refresh={true} startTime={startDate}
+                endTime={endDate}
+                timerActive={timerActive}/>
             ) : (
               <MainTitle />
             )}
