@@ -11,7 +11,7 @@ import "./Olas.css";
 
 const CalendarDates = (props) => {
   return (
-    <div className="bg-white md:pb-24 flex flex-col relative z-0">
+    <div className="bg-white md:pb-24 flex flex-col relative z-0" id="dates">
   {/* Piedra en esquina superior derecha */}
   <div className="absolute bottom-96 right-0 w-[200px] md:w-[400px] lg:w-[550px] z-40 hidden lg:block">
     <div className="relative">

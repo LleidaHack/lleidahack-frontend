@@ -67,7 +67,7 @@ const ScheduleItem = ({ time, title, description, align = "right" }) => {
 
 const Schedule = ({ events }) => {
   return (
-    <div className="bg-white flex flex-col">
+    <div className="bg-white flex flex-col" id="schedule">
       <div className="flex flex-col h-16">
         <div className="estrellas">
           <img

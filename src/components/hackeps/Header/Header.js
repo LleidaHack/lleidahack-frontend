@@ -58,10 +58,10 @@ const Header = () => {
         </li>
         <li className="mr-[4vw] list-none text-xl">
           <Link
-            to="/#activitats"
+            to="/#schedule"
             className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
           >
-            Activitats
+            Horari
           </Link>
         </li>
         <li className="mr-[4vw] list-none text-xl">

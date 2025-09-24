@@ -76,7 +76,7 @@ const HeroSection = ({
 
   return (
     <div className="overflow-hidden relative z-10">
-      <div className="w-full h-[70vh] bg-blueSea flex flex-row relative">
+      <div className="w-full h-[70vh] bg-blueSea flex flex-row relative justify-center">
         {/* Fish container absolutely positioned over the whole section */}
         <div className="fish-container pointer-events-none absolute inset-0 w-full h-full z-40">
           {fish.map((fishProps, idx) => (

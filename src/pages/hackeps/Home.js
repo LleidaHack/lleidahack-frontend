@@ -33,6 +33,7 @@ const Home = () => {
       const start = new Date(response.start_date);
       start.setMonth(start.getMonth());
       const end = new Date(response.end_date);
+      localStorage.setItem("event", response);
       end.setMonth(end.getMonth());
       setStartDate(start);
       setEndDate(end);
