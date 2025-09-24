@@ -39,7 +39,10 @@ const Home = () => {
       setStartDate(start);
       setEndDate(end);
       if (localStorage.getItem("userID") !== null) {
-        const isRegistered = await getEventIsHackerRegistered(response.id, localStorage.getItem("userID"));
+        const isRegistered = await getEventIsHackerRegistered(
+          response.id,
+          localStorage.getItem("userID"),
+        );
         if (isRegistered) {
           localStorage.setItem("registeredOnEvent", "true");
         }
