@@ -74,10 +74,10 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
       <div className="justify-center items-center flex flex-col gap-5 mt-2 w-full z-50">
         <div className="col-12 w-full flex justify-center">
           <img
-  src={hackLogo}
-  alt="Hack Logo"
-  className="w-[70%] max-w-[200px] md:max-w-[250px] lg:max-w-[300px] mx-auto"
-/>
+            src={hackLogo}
+            alt="Hack Logo"
+            className="w-[70%] max-w-[200px] md:max-w-[250px] lg:max-w-[300px] mx-auto"
+          />
         </div>
         <div className="join-button relative z-50" style={{ zIndex: 5000 }}>
           <Button

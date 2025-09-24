@@ -96,19 +96,23 @@ const HeroSection = ({
         <div className="logo&countdown flex flex-col justify-center items-center gap-2z-30">
           <div className="logoSection w-full md:h-2/3 ">
             {animationSection ? (
-              <MainTitle buttonText={"Descobreix més"} refresh={true} startTime={startDate}
+              <MainTitle
+                buttonText={"Descobreix més"}
+                refresh={true}
+                startTime={startDate}
                 endTime={endDate}
-                timerActive={timerActive}/>
+                timerActive={timerActive}
+              />
             ) : (
               <MainTitle />
             )}
           </div>
           <div className="countdown flex justify-start items-end mt-5">
-              <CountdownTimer
-                startTime={startDate}
-                endTime={endDate}
-                timerActive={timerActive}
-              />
+            <CountdownTimer
+              startTime={startDate}
+              endTime={endDate}
+              timerActive={timerActive}
+            />
           </div>
         </div>
         <div className="bubbles"></div>

@@ -190,7 +190,7 @@ export const HackerStepperForm = () => {
                               value: 8,
                               message: "Ha de tenir almenys 8 caràcters",
                             },
-                            
+
                             validate: {
                               hasUpperCase: (value) =>
                                 /[A-Z]/.test(value) ||
@@ -199,8 +199,8 @@ export const HackerStepperForm = () => {
                                 /[a-z]/.test(value) ||
                                 "Ha de tenir almenys una minúscula",
                               hasNumber: (value) =>
-                              /\d/.test(value) ||
-                              "Ha de tenir almenys un número",
+                                /\d/.test(value) ||
+                                "Ha de tenir almenys un número",
                             },
                           })}
                         />
