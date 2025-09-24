@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "Quan és la HackEPS?",
     answer:
-      "El cap de setmana del 23 i 24 de novembre del 2024. 24h de pura programació!",
+      "El cap de setmana del 22 i 23 de novembre del 2025. 24h de pura programació!",
   },
   {
     question: "On serà la HackEPS?",

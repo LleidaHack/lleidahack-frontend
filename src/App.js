@@ -36,7 +36,7 @@ import WorkGroupsSection from "./components/lleidahacker/Sections/WorkGroupsSect
 import EventsSection from "./components/lleidahacker/Sections/EventsSection";
 import AdminSection from "./components/lleidahacker/Sections/AdminSection";
 import WaitingPage from "./pages/hackeps/WaitingPage";
-import ContacteMentorPage from "./components/hackeps/Contacte/ContacteMentor";
+import ContacteMentor from "./pages/hackeps/ContacteMentor";
 
 export default function App() {
   useEffect(() => {
@@ -63,7 +63,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/contacte" element={<Contacte />} />
-            <Route path="/contacte-mentor" element={<ContacteMentorPage />} />
+            <Route path="/contacte-mentor" element={<ContacteMentor />} />
             <Route path="/home" element={<Home />} />
             <Route
               path="/perfil"

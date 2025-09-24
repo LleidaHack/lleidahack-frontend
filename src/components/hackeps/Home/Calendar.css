@@ -172,3 +172,31 @@
   position: relative;
   top: -13.2vh;
 }
+
+/* .calendario {
+  width: 90%;
+  max-width: 25rem;
+  transform: translateY(-85rem);
+}
+
+
+@media (min-width: 768px) {
+  .calendario {
+    width: 70%;
+    max-width: 20rem;
+    transform: translateY(-60rem);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .calendario {
+    width: 40%;
+    scale: 0.8;
+    max-width: 30rem;
+    transform: translateY(-40rem);
+    position: absolute;
+    top: 20rem;
+    right: 2rem;
+  }
+} */

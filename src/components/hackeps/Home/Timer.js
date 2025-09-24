@@ -8,10 +8,16 @@ const CountdownTimer = (props) => {
   const nowDay = new Date();
   const active = Boolean(props.timerActive);
   let countdown;
-  if (timestampDay >= eventendDay) {
-    countdown = timestampDay;
+  const defaultStartTime = new Date(new Date().getFullYear(), 10, 22); // 22nd November of the current year
+  const defaultEndTime = new Date(new Date().getFullYear(), 10, 23); // 23rd November of the current year
+
+  const startTime = props.startTime || defaultStartTime;
+  const endTime = props.endTime || defaultEndTime;
+
+  if (startTime >= endTime) {
+    countdown = startTime;
   } else {
-    countdown = eventendDay;
+    countdown = endTime;
   }
 
   function getRemainingTimeUntilMsTimestamp(countdown, nowDay) {
@@ -61,7 +67,7 @@ const CountdownTimer = (props) => {
 
   if (timestampDay >= nowDay && active) {
     return (
-      <div className="countdown-timer text-primaryHackeps md:scale-50 ">
+      <div className="countdown-timer text-primaryHackeps">
         {remainingTime.months ? (
           <span className="">{remainingTime.months}</span>
         ) : (

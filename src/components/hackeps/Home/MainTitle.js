@@ -16,6 +16,10 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
       window.location.reload();
       return;
     }
+    if (localStorage.getItem("registeredOnEvent") === "true") {
+      navigate("/perfil");
+      return;
+    }
 
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
@@ -52,8 +56,8 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
     const today = new Date();
     const eventDays = [
       // Aqui es fiquen les dates dels dies de la Hack.
-      new Date("2024-11-23"),
-      new Date("2024-11-24"),
+      new Date("2025-11-22"),
+      new Date("2025-11-23"),
     ];
 
     if (
@@ -73,7 +77,11 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
     <>
       <div className="justify-center items-center flex flex-col gap-5 mt-2 w-full z-50">
         <div className="col-12 w-full flex justify-center">
-          <img className="w-7/12 md:w-2/12 md:mx-auto" src={hackLogo} alt="" />
+          <img
+            src={hackLogo}
+            alt="Hack Logo"
+            className="w-[70%] max-w-[200px] md:max-w-[250px] lg:max-w-[300px] mx-auto"
+          />
         </div>
         <div className="join-button relative z-50" style={{ zIndex: 5000 }}>
           <Button

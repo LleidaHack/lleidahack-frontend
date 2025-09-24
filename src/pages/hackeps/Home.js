@@ -8,6 +8,7 @@ import HeroSection from "src/components/hackeps/Home/HeroSection/HeroSection.js"
 import Mentoring from "src/components/hackeps/Home/Mentoring.js";
 import { getHackeps } from "src/services/EventService";
 import Animation from "src/pages/hackeps/Animation.js";
+import { getEventIsHackerRegistered } from "src/services/EventService";
 
 const Home = () => {
   const [startDate, setStartDate] = useState(undefined);
@@ -33,9 +34,19 @@ const Home = () => {
       const start = new Date(response.start_date);
       start.setMonth(start.getMonth());
       const end = new Date(response.end_date);
+      localStorage.setItem("event", response);
       end.setMonth(end.getMonth());
       setStartDate(start);
       setEndDate(end);
+      if (localStorage.getItem("userID") !== null) {
+        const isRegistered = await getEventIsHackerRegistered(
+          response.id,
+          localStorage.getItem("userID"),
+        );
+        if (isRegistered) {
+          localStorage.setItem("registeredOnEvent", "true");
+        }
+      }
     }
     getDates();
   }, []);

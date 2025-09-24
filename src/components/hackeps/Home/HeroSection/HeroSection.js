@@ -76,7 +76,7 @@ const HeroSection = ({
 
   return (
     <div className="overflow-hidden relative z-10">
-      <div className="w-full h-[70vh] bg-blueSea flex flex-row relative">
+      <div className="w-full h-[70vh] bg-blueSea flex flex-row relative justify-center">
         {/* Fish container absolutely positioned over the whole section */}
         <div className="fish-container pointer-events-none absolute inset-0 w-full h-full z-40">
           {fish.map((fishProps, idx) => (
@@ -96,19 +96,23 @@ const HeroSection = ({
         <div className="logo&countdown flex flex-col justify-center items-center gap-2z-30">
           <div className="logoSection w-full md:h-2/3 ">
             {animationSection ? (
-              <MainTitle buttonText={"Descobreix més"} refresh={true} />
-            ) : (
-              <MainTitle />
-            )}
-          </div>
-          <div className="countdown md:h-1/3  flex justify-start items-end mt-5">
-            <div className="transform md:translate-y-5 scale-75">
-              <CountdownTimer
+              <MainTitle
+                buttonText={"Descobreix més"}
+                refresh={true}
                 startTime={startDate}
                 endTime={endDate}
                 timerActive={timerActive}
               />
-            </div>
+            ) : (
+              <MainTitle />
+            )}
+          </div>
+          <div className="countdown flex justify-start items-end mt-5">
+            <CountdownTimer
+              startTime={startDate}
+              endTime={endDate}
+              timerActive={timerActive}
+            />
           </div>
         </div>
         <div className="bubbles"></div>

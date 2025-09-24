@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "src/components/hackeps/Header/Header";
 import Footer from "src/components/hackeps/Footer/Footer";
-import ContactPage from "src/components/hackeps/Contacte/Contacte";
+import ContacteMentorPage from "src/components/hackeps/Contacte/ContacteMentor";
 
 const ContacteMentor = () => {
   return (
