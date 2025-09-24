@@ -7,8 +7,8 @@ import TitleGeneralized from "src/components/hackeps/TitleGeneralized/TitleGener
 
 const Mentoring = () => {
   return (
-    <section className="p-5 pb-32 bg-secondaryHackeps">
-      <div className="container mx-auto">
+    <section className="p-5 pb-32 bg-secondaryHackeps ">
+      <div className="container mx-auto mb-20 mt-5">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 pr-0 md:pr-20 items-center">
           {/* Columna izquierda - Texto (más ancha) */}
           <div className="lg:col-span-3 space-y-6 pr-0 md:pr-20">
