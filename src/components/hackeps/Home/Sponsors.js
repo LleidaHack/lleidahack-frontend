@@ -40,6 +40,7 @@ const Sponsors = () => {
     // Simulamos la carga de datos sin backend
     const event = localStorage.getItem("event");
     async function fetchData() {
+      if (!event) return;
       await getEventSponsors(event.id);
     }
     fetchData();

@@ -105,6 +105,7 @@ const InscripcioForm = () => {
     if (registered) {
       data.id = parseInt(previousRegistration.id, 10);
       registration = await updateHacker(data);
+
     } else {
       registration = await registerHackerToEvent(
         parseInt(hackepsEvent.id, 10),

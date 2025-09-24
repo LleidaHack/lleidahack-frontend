@@ -118,7 +118,7 @@ const Team = (props) => {
       <>
         {is_user && (
           <div className="p-bg-grey text-center mt-5 m-0 p-3 contss flex md:flex-row flex-col">
-            <TitleGeneralized marginBot="2" padTop="0" primary>
+            <TitleGeneralized marginBot="2" padTop="0" secondary>
               Inscripcions
             </TitleGeneralized>
             <div className="gap-2 flex ">

@@ -11,11 +11,18 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
   const [hackDay, setHackDay] = useState(false);
   const handleClose = () => setShow(false);
 
+
+
   async function handleShow() {
     if (refresh) {
       window.location.reload();
       return;
     }
+    if (localStorage.getItem("registeredOnEvent") === "true") {
+      navigate("/perfil");
+      return;
+    }
+
 
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
