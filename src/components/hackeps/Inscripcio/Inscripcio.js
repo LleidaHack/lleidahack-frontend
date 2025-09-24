@@ -54,6 +54,7 @@ const InscripcioForm = () => {
     github: "",
     devpost: "",
     checkboxterms: "",
+    food_restrictions: "",
   });
   const [registered, setRegistered] = useState(false);
 
@@ -85,8 +86,8 @@ const InscripcioForm = () => {
 
   const submit = async (values) => {
     const data = {
-      shirt_size: values.size,
-      food_restrictions: values.food,
+      shirt_size: values.size === undefined ? "" : values.size,
+      food_restrictions: values.food === undefined ? "" : values.food,
       cv: cvFile,
       description: values.cvinfo_links,
       github: values.github,
