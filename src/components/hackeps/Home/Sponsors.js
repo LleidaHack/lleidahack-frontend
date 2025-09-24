@@ -26,7 +26,6 @@ import { getEventSponsors } from "src/services/EventService";
 
 // Datos mock para pruebas sin backend
 
-
 function redirectToURL(url) {
   if (url) {
     window.open(url, "_blank", "noopener,noreferrer");
@@ -39,7 +38,7 @@ const Sponsors = () => {
 
   useEffect(() => {
     // Simulamos la carga de datos sin backend
-    const event = localStorage.getItem("event")
+    const event = localStorage.getItem("event");
     async function fetchData() {
       await getEventSponsors(event.id);
     }
@@ -61,18 +60,21 @@ const Sponsors = () => {
       <div>
         <section className="justify-center w-full">
           <TitleGeneralized
-              
-              textNone
-              className="text-primaryHackeps font-semibold text-left"
+            textNone
+            className="text-primaryHackeps font-semibold text-left"
           >
-              Reptes Proposats per...
+            Reptes Proposats per...
           </TitleGeneralized>
           <p className="mt-4 mb-8 max-w-2xl mx-auto text-base text-gray-600">
-              Descobreix els reptes tècnics i creatius que les següents empreses han proposat per a la nostra hackathon.
+            Descobreix els reptes tècnics i creatius que les següents empreses
+            han proposat per a la nostra hackathon.
           </p>
           <div className="flex flex-col pt-8 gap-y-6 text-xs">
             {challenger.map((group, tier) => (
-              <div key={tier} className="flex flex-wrap justify-center gap-4 p-4">
+              <div
+                key={tier}
+                className="flex flex-wrap justify-center gap-4 p-4"
+              >
                 {group.map((company, index) => (
                   <div
                     key={company.id || index}
@@ -93,18 +95,21 @@ const Sponsors = () => {
 
         <section className="justify-center w-full">
           <TitleGeneralized
-              
-              textNone
-              className="text-primaryHackeps font-semibold text-left"
+            textNone
+            className="text-primaryHackeps font-semibold text-left"
           >
-              Amb la col·laboració de...
+            Amb la col·laboració de...
           </TitleGeneralized>
           <p className="mt-4 mb-8 max-w-2xl mx-auto text-base text-gray-600">
-              Volem agrair especialment a les empreses que han col·laborat amb nosaltres per fer possible aquest esdeveniment.
+            Volem agrair especialment a les empreses que han col·laborat amb
+            nosaltres per fer possible aquest esdeveniment.
           </p>
           <div className="flex flex-col pt-8 gap-y-6 text-xs">
             {sponsors.map((group, tier) => (
-              <div key={tier} className="flex flex-wrap justify-center gap-4 p-4">
+              <div
+                key={tier}
+                className="flex flex-wrap justify-center gap-4 p-4"
+              >
                 {group.map((company, index) => (
                   <div
                     key={company.id || index}
@@ -123,8 +128,10 @@ const Sponsors = () => {
           </div>
         </section>
       </div>
-      
-      <p>T'agradaria ser un dels nostres col·laboradors o presentar un repte?</p>
+
+      <p>
+        T'agradaria ser un dels nostres col·laboradors o presentar un repte?
+      </p>
       <p>No ho dubtis, contacta amb nosaltres!</p>
       <Link to={"/contacte"}>
         <Button className="bg-secondaryColorButton text-white border-none" lg>
