@@ -52,8 +52,8 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
     const today = new Date();
     const eventDays = [
       // Aqui es fiquen les dates dels dies de la Hack.
-      new Date("2024-11-23"),
-      new Date("2024-11-24"),
+      new Date("2025-11-22"),
+      new Date("2025-11-23"),
     ];
 
     if (

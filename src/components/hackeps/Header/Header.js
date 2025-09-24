@@ -185,7 +185,7 @@ const Header = () => {
       {String(process.env.REACT_APP_MAIN) === "0" && (
         <nav className="py-2 shadow-md sticky top-0 z-[100] secondaryHackeps text-2xl">
           <div className="ml-0 mr-0 max-w-full break-words">
-            Aquesta pàgina és de proves. La pàgina de la HackEPS 2024 és{" "}
+            Aquesta pàgina és de proves. La pàgina de la HackEPS 2025 és{" "}
             <a
               className="primaryHackeps"
               href="https://www.lleidahack.dev/hackeps"

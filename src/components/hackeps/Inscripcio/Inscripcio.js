@@ -157,7 +157,7 @@ const InscripcioForm = () => {
           <br />
           <div className="w-2/3 items-center">
             <TitleGeneralized underline>
-              Inscripció HackEPS 2024
+              Inscripció HackEPS 2025
             </TitleGeneralized>
             <div className="w-full flex flex-col justify-center items-center animate-[fadeIn_0.5s_ease-in-out]">
               <form className="flex flex-col gap-3">
