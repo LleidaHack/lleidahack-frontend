@@ -22,123 +22,10 @@ import alumni from "src/icons/sponsors logos/2nd/alumni.jpg";
 import fruilar from "src/icons/sponsors logos/2nd/fruilar-gran-3.png";
 import plusfresc from "src/icons/sponsors logos/2nd/plusfresc-logo.jpg";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
+import { getEventSponsors } from "src/services/EventService";
+import { getCompanyByTier } from "src/services/CompanyService";
 
 // Datos mock para pruebas sin backend
-const mockSponsorsData = [
-  // Tier 1 (Principales)
-  [
-    {
-      id: 1,
-      image: useit,
-      importance: 1,
-      url: "https://example.com",
-      name: "UseIT",
-    },
-    {
-      id: 2,
-      image: insdo,
-      importance: 1,
-      url: "https://example.com",
-      name: "INSDO",
-    },
-    {
-      id: 3,
-      image: GFT,
-      importance: 1,
-      url: "https://example.com",
-      name: "GFT",
-    },
-    {
-      id: 4,
-      image: eCityclic,
-      importance: 1,
-      url: "https://example.com",
-      name: "eCityclic",
-    },
-    {
-      id: 5,
-      image: uniLleida,
-      importance: 1,
-      url: "https://example.com",
-      name: "Universitat de Lleida",
-    },
-    {
-      id: 6,
-      image: escolaPolitecnica,
-      importance: 1,
-      url: "https://example.com",
-      name: "Escola Politècnica",
-    },
-    {
-      id: 7,
-      image: paeria,
-      importance: 1,
-      url: "https://example.com",
-      name: "Paeria",
-    },
-  ],
-  // Tier 2 (Secundarios)
-  [
-    {
-      id: 8,
-      image: Alter,
-      importance: 2,
-      url: "https://example.com",
-      name: "Alter Software",
-    },
-    {
-      id: 9,
-      image: actium,
-      importance: 2,
-      url: "https://example.com",
-      name: "Actium",
-    },
-    {
-      id: 10,
-      image: VallCompanys,
-      importance: 2,
-      url: "https://example.com",
-      name: "Vall Companys",
-    },
-    {
-      id: 11,
-      image: Cosantex,
-      importance: 2,
-      url: "https://example.com",
-      name: "Cosantex",
-    },
-    {
-      id: 12,
-      image: intech3d,
-      importance: 2,
-      url: "https://example.com",
-      name: "Intech3D",
-    },
-    {
-      id: 13,
-      image: alumni,
-      importance: 2,
-      url: "https://example.com",
-      name: "Alumni",
-    },
-    {
-      id: 14,
-      image: fruilar,
-      importance: 2,
-      url: "https://example.com",
-      name: "Fruilar",
-    },
-    {
-      id: 15,
-      image: plusfresc,
-      importance: 2,
-      url: "https://example.com",
-      name: "PlusFresc",
-    },
-  ],
-  // Tier 3 (si tienes más sponsors)
-  [],
-];
 
 function redirectToURL(url) {
   if (url) {
@@ -147,57 +34,113 @@ function redirectToURL(url) {
 }
 
 const Sponsors = () => {
-  const [groups, setGroups] = useState([[], [], []]);
+  const [challenger, setChallenger] = useState([[]]);
+  const [sponsors, setSponsors] = useState([[]]);
 
   useEffect(() => {
     // Simulamos la carga de datos sin backend
-    const loadMockData = () => {
-      try {
-        // Usamos los datos mock directamente
-        setGroups(mockSponsorsData);
-      } catch (error) {
-        console.log("Error cargando datos mock:", error);
-      }
-    };
-
-    loadMockData();
+    const event = localStorage.getItem("event");
+    async function fetchData() {
+      if (!event) return;
+      setChallenger(await getCompanyByTier(2));
+      const data = [await getCompanyByTier(1), await getCompanyByTier(3)]
+      setSponsors(data)
+    }
+    fetchData();
   }, []);
 
   return (
     <div className="sponsors bg-secondaryHackeps">
       <div className="gostHunter" id="sponsors"></div>
       {/* Title and content for Partners */}
-      <TitleGeneralized padTop="4" underline>
+      <TitleGeneralized
+        padTop="0"
+        underline
+        textNone
+        className="text-primaryHackeps font-semibold pl-2"
+      >
         Sponsors
       </TitleGeneralized>
-      <p>Vols participar?</p>
+      <div>
+        <section className="justify-center w-full">
+          <TitleGeneralized
+            textNone
+            className="text-primaryHackeps font-semibold text-left"
+          >
+            Reptes Proposats per...
+          </TitleGeneralized>
+          <p className="mt-4 mb-8 max-w-2xl mx-auto text-base text-gray-600">
+            Descobreix els reptes tècnics i creatius que les següents empreses
+            han proposat per a la nostra hackathon.
+          </p>
+          <div className="flex flex-col pt-8 gap-y-6 text-xs">
+            
+              <div
+                className="flex flex-wrap justify-center gap-4 p-4"
+              >
+                {challenger.map((company, index) => (
+                  <div
+                    key={company.id || index}
+                    className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
+                    onClick={() => redirectToURL(`sponsors/${company.id}`)}
+                  >
+                    <LogoSponsors
+                      image={company.image}
+                      name={company.name || `Empresa ${index + 1}`}
+                      small={false}
+                    />
+                  </div>
+                ))}
+              </div>
+          </div>
+        </section>
+
+        <section className="justify-center w-full">
+          <TitleGeneralized
+            textNone
+            className="text-primaryHackeps font-semibold text-left"
+          >
+            Amb la col·laboració de...
+          </TitleGeneralized>
+          <p className="mt-4 mb-8 max-w-2xl mx-auto text-base text-gray-600">
+            Volem agrair especialment a les empreses que han col·laborat amb
+            nosaltres per fer possible aquest esdeveniment.
+          </p>
+          <div className="flex flex-col pt-8 gap-y-6 text-xs">
+            {sponsors.map((group, tier) => (
+              <div
+                key={tier}
+                className="flex flex-wrap justify-center gap-4 p-4"
+              >
+                {group.map((company, index) => (
+                  <div
+                    key={company.id || index}
+                    className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
+                    onClick={() => redirectToURL(`sponsors/${company.id}`)}
+                  >
+                    <LogoSponsors
+                      image={company.image}
+                      name={company.name || `Empresa ${index + 1}`}
+                      small={company.tier === 3}
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <p>
+        T'agradaria ser un dels nostres col·laboradors o presentar un repte?
+      </p>
       <p>No ho dubtis, contacta amb nosaltres!</p>
       <Link to={"/contacte"}>
         <Button className="bg-secondaryColorButton text-white border-none" lg>
           Contacta
         </Button>
       </Link>
-      <section className="justify-center w-full">
-        <div className="flex flex-col pt-8 gap-y-6 text-xs">
-          {groups.map((group, tier) => (
-            <div key={tier} className="flex flex-wrap justify-center gap-4 p-4">
-              {group.map((company, index) => (
-                <div
-                  key={company.id || index}
-                  className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
-                  onClick={() => redirectToURL(company.url)}
-                >
-                  <LogoSponsors
-                    image={company.image}
-                    name={company.name || `Empresa ${index + 1}`}
-                    small={company.importance === 2}
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </section>
+
       <br />
     </div>
   );

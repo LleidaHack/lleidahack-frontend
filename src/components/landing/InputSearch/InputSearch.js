@@ -34,7 +34,7 @@ const InputSearch = ({ placeholder, searchtype }) => {
   }, []);
 
   return (
-    <div className="input-search  border-grayColor h-9 relative bg-white rounded flex flex-row gap-3">
+    <div className="input-search  border-grayColor h-9 relative bg-white rounded flex flex-row">
       <input
         type="text"
         placeholder={placeholder}

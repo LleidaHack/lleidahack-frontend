@@ -25,7 +25,9 @@ import { refreshToken } from "./services/AuthenticationService";
 import LoginVerify from "./pages/hackeps/LoginVerify";
 import EventsLanding from "./pages/Landing/EventsLanding";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
+import ContactLanding from "./pages/Landing/ContactLanding";
 import Error404Landing from "./pages/Landing/Error404Landing";
+import NoticiesLanding from "./pages/Landing/NoticiesLanding";
 import "src/styles/styles.css";
 import ConfirmAssistancePage from "./pages/hackeps/Confirm";
 import Hacking from "./pages/hackeps/Hacking";
@@ -33,9 +35,8 @@ import LleidaHackerHome from "./components/lleidahacker/Sections/LleidaHackerHom
 import WorkGroupsSection from "./components/lleidahacker/Sections/WorkGroupsSection";
 import EventsSection from "./components/lleidahacker/Sections/EventsSection";
 import AdminSection from "./components/lleidahacker/Sections/AdminSection";
-import EventDetail from "./components/lleidahacker/Sections/EventDetail";
-import EventParticipant from "./components/lleidahacker/Sections/EventParticipant";
 import WaitingPage from "./pages/hackeps/WaitingPage";
+import ContacteMentor from "./pages/hackeps/ContacteMentor";
 
 export default function App() {
   useEffect(() => {
@@ -51,7 +52,7 @@ export default function App() {
   console.log(process.env.REACT_APP_LAUNCH_PENDING);
 
   return (
-    <div className="App">
+    <div className="App overflow-x-hidden">
       <Router basename="/hackeps">
         {process.env.REACT_APP_LAUNCH_PENDING == 1 ? (
           <Routes>
@@ -62,6 +63,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/contacte" element={<Contacte />} />
+            <Route path="/contacte-mentor" element={<ContacteMentor />} />
             <Route path="/home" element={<Home />} />
             <Route
               path="/perfil"
@@ -105,17 +107,19 @@ export default function App() {
           </Routes>
         )}
       </Router>
-      {/*
-      <Router basename="/lleidahack">
+
+      {/*       <Router basename="/lleidahack">
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />
-          <Route path="*" element={<Error404Landing />} />
+          <Route path="/*" element={<Error404Landing />} />
+          <Route path="/contacte" element={<ContactLanding />} />
           <Route path="/events" element={<EventsLanding />} />
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
+          <Route path="/noticies" element={<NoticiesLanding />} />
         </Routes>
-      </Router>*/}
-      {/* <Router basename="/admin">
+      </Router>
+      <Router basename="/admin">
         <Routes>
           <Route
             path="/"
@@ -130,19 +134,11 @@ export default function App() {
             element={<Dashboard section={<EventsSection />} />}
           />
           <Route
-            path="/events/:eventId"
-            element={<Dashboard section={<EventDetail />} />}
-          />
-          <Route
-            path="/events/:eventId/participants"
-            element={<Dashboard section={<EventParticipant />} />}
-          />
-          <Route
             path="/administration"
             element={<Dashboard section={<AdminSection />} />}
           />
         </Routes>
-      </Router> */}
+      </Router>*/}
     </div>
   );
 }

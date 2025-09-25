@@ -58,10 +58,10 @@ const Header = () => {
         </li>
         <li className="mr-[4vw] list-none text-xl">
           <Link
-            to="/#activitats"
+            to="/#schedule"
             className="text-20 no-underline transition-colors duration-300 font-bold  !text-textPrimaryHackeps  "
           >
-            Activitats
+            Horari
           </Link>
         </li>
         <li className="mr-[4vw] list-none text-xl">
@@ -185,7 +185,7 @@ const Header = () => {
       {String(process.env.REACT_APP_MAIN) === "0" && (
         <nav className="py-2 shadow-md sticky top-0 z-[100] secondaryHackeps text-2xl">
           <div className="ml-0 mr-0 max-w-full break-words">
-            Aquesta pàgina és de proves. La pàgina de la HackEPS 2024 és{" "}
+            Aquesta pàgina és de proves. La pàgina de la HackEPS 2025 és{" "}
             <a
               className="primaryHackeps"
               href="https://www.lleidahack.dev/hackeps"

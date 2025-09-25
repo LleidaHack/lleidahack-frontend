@@ -101,8 +101,9 @@ const LoginForm = ({ nextScreen, textWhite = false }) => {
               : { primaryHackeps: true })}
             lg
             onClick={handleSubmit(submit)}
-            className={` ${!isValid ? "opacity-50 hover:none bg-secondaryLanding" : "hover:bg-secondaryLanding"}`}
+            className={` ${!isValid ? "opacity-50 hover:none bg-secondaryLanding" : "hover:bg-secondaryHackeps"}`}
             disabled={!isValid}
+            light
           >
             {isSubmitting ? "Iniciant sessió..." : "Inicia sessió"}
           </Button>
