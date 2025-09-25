@@ -23,6 +23,7 @@ import fruilar from "src/icons/sponsors logos/2nd/fruilar-gran-3.png";
 import plusfresc from "src/icons/sponsors logos/2nd/plusfresc-logo.jpg";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 import { getEventSponsors } from "src/services/EventService";
+import { getCompanyByTier } from "src/services/CompanyService";
 
 // Datos mock para pruebas sin backend
 
@@ -41,7 +42,9 @@ const Sponsors = () => {
     const event = localStorage.getItem("event");
     async function fetchData() {
       if (!event) return;
-      await getEventSponsors(event.id);
+      setChallenger(await getCompanyByTier(2));
+      const data = [await getCompanyByTier(1), await getCompanyByTier(3)]
+      setSponsors(data)
     }
     fetchData();
   }, []);
@@ -71,26 +74,24 @@ const Sponsors = () => {
             han proposat per a la nostra hackathon.
           </p>
           <div className="flex flex-col pt-8 gap-y-6 text-xs">
-            {challenger.map((group, tier) => (
+            
               <div
-                key={tier}
                 className="flex flex-wrap justify-center gap-4 p-4"
               >
-                {group.map((company, index) => (
+                {challenger.map((company, index) => (
                   <div
                     key={company.id || index}
                     className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
-                    onClick={() => redirectToURL(company.url)}
+                    onClick={() => redirectToURL(`sponsors/${company.id}`)}
                   >
                     <LogoSponsors
                       image={company.image}
                       name={company.name || `Empresa ${index + 1}`}
-                      small={company.importance === 2}
+                      small={false}
                     />
                   </div>
                 ))}
               </div>
-            ))}
           </div>
         </section>
 
@@ -115,12 +116,12 @@ const Sponsors = () => {
                   <div
                     key={company.id || index}
                     className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
-                    onClick={() => redirectToURL(company.url)}
+                    onClick={() => redirectToURL(`sponsors/${company.id}`)}
                   >
                     <LogoSponsors
                       image={company.image}
                       name={company.name || `Empresa ${index + 1}`}
-                      small={company.importance === 2}
+                      small={company.tier === 3}
                     />
                   </div>
                 ))}
