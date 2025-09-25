@@ -10,7 +10,7 @@ const ConfirmAssistance = ({ confirm, token }) => {
   useEffect(() => {
     const fetchData = async () => {
       if (confirm) {
-        const res = await confirmAssistance(confirm, token);
+        const res = await confirmAssistance(token);
         setResult(res);
         setSending(false);
       }
