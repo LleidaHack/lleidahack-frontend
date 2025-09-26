@@ -83,7 +83,7 @@ const ContacteMentorPage = () => {
             </div>
 
             {/* Formulario a la derecha (sin cambiar estilos) */}
-            <div className="md:basis-2/3 w-full pr-32">
+            <div className="md:basis-2/3 w-full px-20">
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col gap-3"
