@@ -110,10 +110,10 @@ const Header = () => {
         </li>
         <li className=" list-none">
           <Link
-            to="/#activities"
+            to="/#schedule"
             className="text-xl list-none no-underline text-black"
           >
-            <p>Activitats</p>
+            <p>Horari</p>
           </Link>
         </li>
         <li className=" list-none no-underline">
