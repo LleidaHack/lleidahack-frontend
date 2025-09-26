@@ -43,8 +43,8 @@ const Sponsors = () => {
     async function fetchData() {
       if (!event) return;
       setChallenger(await getCompanyByTier(2));
-      const data = [await getCompanyByTier(1), await getCompanyByTier(3)]
-      setSponsors(data)
+      const data = [await getCompanyByTier(1), await getCompanyByTier(3)];
+      setSponsors(data);
     }
     fetchData();
   }, []);
@@ -74,24 +74,21 @@ const Sponsors = () => {
             han proposat per a la nostra hackathon.
           </p>
           <div className="flex flex-col pt-8 gap-y-6 text-xs">
-            
-              <div
-                className="flex flex-wrap justify-center gap-4 p-4"
-              >
-                {challenger.map((company, index) => (
-                  <div
-                    key={company.id || index}
-                    className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
-                    onClick={() => redirectToURL(`sponsors/${company.id}`)}
-                  >
-                    <LogoSponsors
-                      image={company.image}
-                      name={company.name || `Empresa ${index + 1}`}
-                      small={false}
-                    />
-                  </div>
-                ))}
-              </div>
+            <div className="flex flex-wrap justify-center gap-4 p-4">
+              {challenger.map((company, index) => (
+                <div
+                  key={company.id || index}
+                  className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
+                  onClick={() => redirectToURL(`sponsors/${company.id}`)}
+                >
+                  <LogoSponsors
+                    image={company.image}
+                    name={company.name || `Empresa ${index + 1}`}
+                    small={false}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
