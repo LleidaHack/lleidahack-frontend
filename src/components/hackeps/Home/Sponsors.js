@@ -45,12 +45,15 @@ const Sponsors = () => {
         setLoading(false);
         return;
       }
-      
+
       try {
         setLoading(true);
         const challengerData = await getCompanyByTier(2);
-        const sponsorsData = [await getCompanyByTier(1), await getCompanyByTier(3)];
-        
+        const sponsorsData = [
+          await getCompanyByTier(1),
+          await getCompanyByTier(3),
+        ];
+
         setChallenger(challengerData || []);
         setSponsors(sponsorsData || []);
       } catch (error) {
@@ -133,7 +136,7 @@ const Sponsors = () => {
               <div className="text-center text-gray-500 py-8">
                 Carregant sponsors...
               </div>
-            ) : sponsors.some(group => group.length > 0) ? (
+            ) : sponsors.some((group) => group.length > 0) ? (
               sponsors.map((group, tier) => (
                 <div
                   key={tier}

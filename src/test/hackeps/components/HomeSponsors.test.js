@@ -10,13 +10,13 @@ jest.mock("../../../services/CompanyService");
 describe("Home Sponsors Component", () => {
   beforeEach(() => {
     // Mock localStorage
-    Object.defineProperty(window, 'localStorage', {
+    Object.defineProperty(window, "localStorage", {
       value: {
-        getItem: jest.fn(() => 'test-event'),
+        getItem: jest.fn(() => "test-event"),
         setItem: jest.fn(),
         removeItem: jest.fn(),
       },
-      writable: true
+      writable: true,
     });
   });
 
@@ -26,26 +26,30 @@ describe("Home Sponsors Component", () => {
 
   test("shows loading state initially", () => {
     // Mock API calls to never resolve
-    CompanyService.getCompanyByTier.mockImplementation(() => new Promise(() => {}));
+    CompanyService.getCompanyByTier.mockImplementation(
+      () => new Promise(() => {}),
+    );
 
     render(
       <MemoryRouter>
         <Sponsors />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    expect(screen.getByText("Carregant reptes de sponsors...")).toBeInTheDocument();
+    expect(
+      screen.getByText("Carregant reptes de sponsors..."),
+    ).toBeInTheDocument();
     expect(screen.getByText("Carregant sponsors...")).toBeInTheDocument();
   });
 
   test("displays sponsors and challengers when data loads successfully", async () => {
     // Mock successful API responses
     const mockChallenger = [
-      { id: 1, name: "Challenger Company", image: "test-image.jpg", tier: 2 }
+      { id: 1, name: "Challenger Company", image: "test-image.jpg", tier: 2 },
     ];
     const mockSponsors = [
       [{ id: 2, name: "Sponsor Tier 1", image: "sponsor1.jpg", tier: 1 }],
-      [{ id: 3, name: "Sponsor Tier 3", image: "sponsor3.jpg", tier: 3 }]
+      [{ id: 3, name: "Sponsor Tier 3", image: "sponsor3.jpg", tier: 3 }],
     ];
 
     CompanyService.getCompanyByTier
@@ -56,16 +60,20 @@ describe("Home Sponsors Component", () => {
     render(
       <MemoryRouter>
         <Sponsors />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     // Wait for loading to complete
     await waitFor(() => {
-      expect(screen.queryByText("Carregant reptes de sponsors...")).not.toBeInTheDocument();
+      expect(
+        screen.queryByText("Carregant reptes de sponsors..."),
+      ).not.toBeInTheDocument();
     });
 
     await waitFor(() => {
-      expect(screen.queryByText("Carregant sponsors...")).not.toBeInTheDocument();
+      expect(
+        screen.queryByText("Carregant sponsors..."),
+      ).not.toBeInTheDocument();
     });
 
     // Check that sponsor sections are rendered (titles should be present)
@@ -80,15 +88,19 @@ describe("Home Sponsors Component", () => {
     render(
       <MemoryRouter>
         <Sponsors />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => {
-      expect(screen.getByText("No hi ha reptes disponibles actualment.")).toBeInTheDocument();
+      expect(
+        screen.getByText("No hi ha reptes disponibles actualment."),
+      ).toBeInTheDocument();
     });
 
     await waitFor(() => {
-      expect(screen.getByText("No hi ha sponsors disponibles actualment.")).toBeInTheDocument();
+      expect(
+        screen.getByText("No hi ha sponsors disponibles actualment."),
+      ).toBeInTheDocument();
     });
   });
 
@@ -102,15 +114,19 @@ describe("Home Sponsors Component", () => {
     render(
       <MemoryRouter>
         <Sponsors />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => {
-      expect(screen.getByText("No hi ha reptes disponibles actualment.")).toBeInTheDocument();
+      expect(
+        screen.getByText("No hi ha reptes disponibles actualment."),
+      ).toBeInTheDocument();
     });
 
     await waitFor(() => {
-      expect(screen.getByText("No hi ha sponsors disponibles actualment.")).toBeInTheDocument();
+      expect(
+        screen.getByText("No hi ha sponsors disponibles actualment."),
+      ).toBeInTheDocument();
     });
   });
 
@@ -119,24 +135,33 @@ describe("Home Sponsors Component", () => {
     CompanyService.getCompanyByTier.mockRejectedValue(new Error("API Error"));
 
     // Mock console.error to avoid noise in test output
-    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const consoleSpy = jest
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
 
     render(
       <MemoryRouter>
         <Sponsors />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => {
-      expect(screen.getByText("No hi ha reptes disponibles actualment.")).toBeInTheDocument();
+      expect(
+        screen.getByText("No hi ha reptes disponibles actualment."),
+      ).toBeInTheDocument();
     });
 
     await waitFor(() => {
-      expect(screen.getByText("No hi ha sponsors disponibles actualment.")).toBeInTheDocument();
+      expect(
+        screen.getByText("No hi ha sponsors disponibles actualment."),
+      ).toBeInTheDocument();
     });
 
-    expect(consoleSpy).toHaveBeenCalledWith("Error fetching sponsors data:", expect.any(Error));
-    
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "Error fetching sponsors data:",
+      expect.any(Error),
+    );
+
     consoleSpy.mockRestore();
   });
 });
