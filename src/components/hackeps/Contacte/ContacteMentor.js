@@ -15,6 +15,7 @@ const ContacteMentorPage = () => {
   } = useForm();
   const [mailSended, setMailSended] = useState(false);
   const [mailStatus, setMailStatus] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const handleButtonClick = () => {
     window.location.reload();
   };
@@ -24,23 +25,31 @@ const ContacteMentorPage = () => {
   }, []);
 
   const onSubmit = async (data) => {
-    const formattedData = {
-      name: data.name,
-      title: `Proposta de Mentor - ${data.name}`,
-      email: data.email,
-      message: `
-      Àrea d'especialització: ${data.specialization}
-      Anys d'experiència: ${data.experience}
-      Empresa/Organització: ${data.company || "No especificat"}
-      Experiència prèvia com a mentor: ${data.mentorExperience}
-      Motivació: ${data.motivation}
-      Disponibilitat: ${data.availability}
-    `,
-    };
+    setIsLoading(true);
+    try {
+      const formattedData = {
+        name: data.name,
+        title: `Proposta de Mentor - ${data.name}`,
+        email: data.email,
+        message: `
+        Àrea d'especialització: ${data.specialization}
+        Anys d'experiència: ${data.experience}
+        Empresa/Organització: ${data.company || "No especificat"}
+        Experiència prèvia com a mentor: ${data.mentorExperience}
+        Motivació: ${data.motivation}
+        Disponibilitat: ${data.availability}
+      `,
+      };
 
-    const success = await contacte(formattedData);
-    setMailStatus(success);
-    setMailSended(true);
+      const success = await contacte(formattedData);
+      setMailStatus(success);
+      setMailSended(true);
+    } catch (error) {
+      setMailStatus(false);
+      setMailSended(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -96,6 +105,7 @@ const ContacteMentorPage = () => {
                     {...register("name", {
                       required: "El nom no pot estar buit",
                     })}
+                    disabled={isLoading}
                   />
                   {errors.name && (
                     <span className="text-red-400">{errors.name.message}</span>
@@ -115,6 +125,7 @@ const ContacteMentorPage = () => {
                         message: "El correu no és vàlid",
                       },
                     })}
+                    disabled={isLoading}
                   />
                   {errors.email && (
                     <span className="text-red-400">{errors.email.message}</span>
@@ -129,6 +140,7 @@ const ContacteMentorPage = () => {
                       required:
                         "Si us plau, selecciona la teva àrea d'especialització",
                     })}
+                    disabled={isLoading}
                   >
                     <option value="">Selecciona una àrea...</option>
                     <option value="frontend">Desenvolupament Frontend</option>
@@ -158,6 +170,7 @@ const ContacteMentorPage = () => {
                       required:
                         "Si us plau, indica els teus anys d'experiència",
                     })}
+                    disabled={isLoading}
                   >
                     <option value="">Selecciona...</option>
                     <option value="0-1">0-1 anys</option>
@@ -179,6 +192,7 @@ const ContacteMentorPage = () => {
                     className="bg-white min-h-10 px-2 text-base"
                     placeholder="On treballes o estudies actualment"
                     {...register("company")}
+                    disabled={isLoading}
                   />
                 </label>
 
@@ -191,6 +205,7 @@ const ContacteMentorPage = () => {
                       required:
                         "Si us plau, explica'ns la teva experiència com a mentor",
                     })}
+                    disabled={isLoading}
                   />
                   {errors.mentorExperience && (
                     <span className="text-red-400">
@@ -207,6 +222,7 @@ const ContacteMentorPage = () => {
                     {...register("motivation", {
                       required: "Si us plau, explica'ns la teva motivació",
                     })}
+                    disabled={isLoading}
                   />
                   {errors.motivation && (
                     <span className="text-red-400">
@@ -223,6 +239,7 @@ const ContacteMentorPage = () => {
                     {...register("availability", {
                       required: "Si us plau, indica la teva disponibilitat",
                     })}
+                    disabled={isLoading}
                   />
                   {errors.availability && (
                     <span className="text-red-400">
@@ -232,9 +249,14 @@ const ContacteMentorPage = () => {
                 </label>
 
                 <input
-                  className="hover:bg-primaryHackeps hover:text-white transition ease-in-out delay-100 min-h-10 cursor-pointer"
+                  className={`${
+                    isLoading 
+                      ? "bg-gray-400 text-white cursor-not-allowed"
+                      : "hover:bg-primaryHackeps hover:text-white cursor-pointer"
+                  } transition ease-in-out delay-100 min-h-10`}
                   type="submit"
-                  value="Enviar candidatura"
+                  value={isLoading ? "Enviant candidatura..." : "Enviar candidatura"}
+                  disabled={isLoading}
                 />
               </form>
             </div>
