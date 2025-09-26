@@ -34,17 +34,32 @@ function redirectToURL(url) {
 }
 
 const Sponsors = () => {
-  const [challenger, setChallenger] = useState([[]]);
-  const [sponsors, setSponsors] = useState([[]]);
+  const [challenger, setChallenger] = useState([]);
+  const [sponsors, setSponsors] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulamos la carga de datos sin backend
     const event = localStorage.getItem("event");
     async function fetchData() {
-      if (!event) return;
-      setChallenger(await getCompanyByTier(2));
-      const data = [await getCompanyByTier(1), await getCompanyByTier(3)];
-      setSponsors(data);
+      if (!event) {
+        setLoading(false);
+        return;
+      }
+      
+      try {
+        setLoading(true);
+        const challengerData = await getCompanyByTier(2);
+        const sponsorsData = [await getCompanyByTier(1), await getCompanyByTier(3)];
+        
+        setChallenger(challengerData || []);
+        setSponsors(sponsorsData || []);
+      } catch (error) {
+        console.error("Error fetching sponsors data:", error);
+        setChallenger([]);
+        setSponsors([]);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchData();
   }, []);
@@ -75,19 +90,29 @@ const Sponsors = () => {
           </p>
           <div className="flex flex-col pt-8 gap-y-6 text-xs">
             <div className="flex flex-wrap justify-center gap-4 p-4">
-              {challenger.map((company, index) => (
-                <div
-                  key={company.id || index}
-                  className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
-                  onClick={() => redirectToURL(`sponsors/${company.id}`)}
-                >
-                  <LogoSponsors
-                    image={company.image}
-                    name={company.name || `Empresa ${index + 1}`}
-                    small={false}
-                  />
+              {loading ? (
+                <div className="text-center text-gray-500 py-8">
+                  Carregant reptes de sponsors...
                 </div>
-              ))}
+              ) : challenger.length > 0 ? (
+                challenger.map((company, index) => (
+                  <div
+                    key={company.id || index}
+                    className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
+                    onClick={() => redirectToURL(`sponsors/${company.id}`)}
+                  >
+                    <LogoSponsors
+                      image={company.image}
+                      name={company.name || `Empresa ${index + 1}`}
+                      small={false}
+                    />
+                  </div>
+                ))
+              ) : (
+                <div className="text-center text-gray-500 py-8">
+                  No hi ha reptes disponibles actualment.
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -104,26 +129,36 @@ const Sponsors = () => {
             nosaltres per fer possible aquest esdeveniment.
           </p>
           <div className="flex flex-col pt-8 gap-y-6 text-xs">
-            {sponsors.map((group, tier) => (
-              <div
-                key={tier}
-                className="flex flex-wrap justify-center gap-4 p-4"
-              >
-                {group.map((company, index) => (
-                  <div
-                    key={company.id || index}
-                    className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
-                    onClick={() => redirectToURL(`sponsors/${company.id}`)}
-                  >
-                    <LogoSponsors
-                      image={company.image}
-                      name={company.name || `Empresa ${index + 1}`}
-                      small={company.tier === 3}
-                    />
-                  </div>
-                ))}
+            {loading ? (
+              <div className="text-center text-gray-500 py-8">
+                Carregant sponsors...
               </div>
-            ))}
+            ) : sponsors.some(group => group.length > 0) ? (
+              sponsors.map((group, tier) => (
+                <div
+                  key={tier}
+                  className="flex flex-wrap justify-center gap-4 p-4"
+                >
+                  {group.map((company, index) => (
+                    <div
+                      key={company.id || index}
+                      className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110 hover:-translate-x-[3px] hover:-translate-y-[4px]"
+                      onClick={() => redirectToURL(`sponsors/${company.id}`)}
+                    >
+                      <LogoSponsors
+                        image={company.image}
+                        name={company.name || `Empresa ${index + 1}`}
+                        small={company.tier === 3}
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))
+            ) : (
+              <div className="text-center text-gray-500 py-8">
+                No hi ha sponsors disponibles actualment.
+              </div>
+            )}
           </div>
         </section>
       </div>
