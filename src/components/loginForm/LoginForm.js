@@ -101,7 +101,7 @@ const LoginForm = ({ nextScreen, textWhite = false }) => {
               : { primaryHackeps: true })}
             lg
             onClick={handleSubmit(submit)}
-            className={` ${!isValid ? "opacity-50 hover:none bg-secondaryLanding" : "hover:bg-secondaryHackeps"}`}
+            className={` ${!isValid ? "opacity-50 hover:none bg-secondaryHackeps" : "hover:bg-secondaryHackeps"}`}
             disabled={!isValid}
             light
           >
