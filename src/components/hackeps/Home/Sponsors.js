@@ -5,22 +5,6 @@ import Button from "src/components/buttons/Button";
 import LogoSponsors from "../Sponsors/LogoSponsors";
 
 /*IMAGES IMPORTS*/
-import useit from "src/icons/sponsors logos/1st/aww8G0J7_400x400.jpg";
-import insdo from "src/icons/sponsors logos/1st/Logo INSDO_transparente.png";
-import GFT from "src/icons/sponsors logos/1st/GFT_Logo_CMYK.jpg";
-import eCityclic from "src/icons/sponsors logos/1st/Logo eCityclic OK.png";
-import uniLleida from "src/icons/sponsors logos/1st/Logo_Universitat_de_Lleida.png";
-import escolaPolitecnica from "src/icons/sponsors logos/1st/Logo-nou-eps.jpg";
-import paeria from "src/icons/sponsors logos/1st/paeria_0.png";
-/*----...---2nds--..-..-----*/
-import Alter from "src/icons/sponsors logos/2nd/Alter Software.jpeg";
-import actium from "src/icons/sponsors logos/2nd/logo-actium.jpg";
-import VallCompanys from "src/icons/sponsors logos/2nd/Vall Companys.png";
-import Cosantex from "src/icons/sponsors logos/2nd/logo-cosantex-com.jpg";
-import intech3d from "src/icons/sponsors logos/2nd/intech3D_logo.png";
-import alumni from "src/icons/sponsors logos/2nd/alumni.jpg";
-import fruilar from "src/icons/sponsors logos/2nd/fruilar-gran-3.png";
-import plusfresc from "src/icons/sponsors logos/2nd/plusfresc-logo.jpg";
 import TitleGeneralized from "../TitleGeneralized/TitleGeneralized";
 import { getEventSponsors } from "src/services/EventService";
 import { getCompanyByTier } from "src/services/CompanyService";
@@ -28,9 +12,22 @@ import { getCompanyByTier } from "src/services/CompanyService";
 // Datos mock para pruebas sin backend
 
 function redirectToURL(url) {
-  if (url) {
+  if (!url) return;
+
+  // Si la url es absoluta, ábrela directamente
+  if (/^https?:\/\//i.test(url)) {
     window.open(url, "_blank", "noopener,noreferrer");
+    return;
   }
+
+  // Si ya empieza por "/hackeps/", no lo duplicamos
+  let path = url.startsWith("/hackeps/")
+    ? url
+    : "/hackeps/" + url.replace(/^\/+/, ""); // Quita posibles barras iniciales
+
+  // Construye la URL absoluta con el mismo dominio
+  const absoluteUrl = `${window.location.origin}${path}`;
+  window.open(absoluteUrl, "_blank", "noopener,noreferrer");
 }
 
 const Sponsors = () => {
