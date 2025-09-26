@@ -140,7 +140,7 @@ const ContactePage = () => {
 
                 <input
                   className={`${
-                    isLoading 
+                    isLoading
                       ? "bg-gray-400 text-white cursor-not-allowed"
                       : "hover:bg-primaryHackeps hover:text-white"
                   } transition ease-in-out delay-100 min-h-10`}
