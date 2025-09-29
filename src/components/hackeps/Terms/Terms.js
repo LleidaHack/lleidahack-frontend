@@ -31,7 +31,7 @@ const TermsComponent = () => {
         <p className="text-justify ml-4">
           La HACKATÓ es realitzarà a Lleida, a l'Escola Politècnica Superior de
           la Universitat de Lleida, al carrer Jaume II número 69, els dies 22 i
-          23 de novembre de 2022.
+          23 de novembre de 2025.
           <br />
           L'inici de la HACKATÓ es durà a terme el dissabte 22 de novembre a les
           9 hores i acabarà el diumenge 23 de novembre a les 16 hores.
