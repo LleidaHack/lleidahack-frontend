@@ -30,11 +30,11 @@ const TermsComponent = () => {
         <h4>Àmbit</h4>
         <p className="text-justify ml-4">
           La HACKATÓ es realitzarà a Lleida, a l'Escola Politècnica Superior de
-          la Universitat de Lleida, al carrer Jaume II número 69, els dies 26 i
-          27 de novembre de 2022.
+          la Universitat de Lleida, al carrer Jaume II número 69, els dies 22 i
+          23 de novembre de 2025.
           <br />
-          L'inici de la HACKATÓ es durà a terme el dissabte 25 de novembre a les
-          9 hores i acabarà el diumenge 26 de novembre a les 16 hores.
+          L'inici de la HACKATÓ es durà a terme el dissabte 22 de novembre a les
+          9 hores i acabarà el diumenge 23 de novembre a les 16 hores.
           <br />
           La informació actualitzada sobre l'agenda i els patrocinadors de
           l'esdeveniment és farà pública al seu degut temps en la WEB DE
@@ -60,9 +60,9 @@ const TermsComponent = () => {
           termes i condicions, i es farà des de la WEB DE L'ESDEVENIMENT
           anteriorment esmentada.
           <br />
-          El període d'inscripció es tancarà el 10 de novembre, podent aquesta
+          El període d'inscripció es tancarà el 17 de novembre, podent aquesta
           data ser avançada en cas que s'hagi cobert el contingent de
-          participants abans del dia 10 de novembre.
+          participants abans del dia 17 de novembre.
           <br />
           No existeix cap cost associat a la participació en la HACKATÓ, sent
           totalment gratuïta la inscripció, encara que sí obligatòria. A més,
@@ -70,7 +70,7 @@ const TermsComponent = () => {
           obligatori mostrar l'acreditació cada vegada que s'entri a l'espai de
           l'esdeveniment.
           <br />
-          El nombre de participants serà com a màxim de 200 persones. Si se
+          El nombre de participants serà com a màxim de 250 persones. Si se
           supera el nombre d'inscrits, l'ORGANITZACIÓ gestionarà l'assistència
           en cas d'ampliar el nombre de places per rigorós ordre d'inscripció.
           <br />

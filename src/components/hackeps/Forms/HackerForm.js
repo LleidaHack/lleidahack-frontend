@@ -190,6 +190,7 @@ export const HackerStepperForm = () => {
                               value: 8,
                               message: "Ha de tenir almenys 8 caràcters",
                             },
+
                             validate: {
                               hasUpperCase: (value) =>
                                 /[A-Z]/.test(value) ||
@@ -197,9 +198,17 @@ export const HackerStepperForm = () => {
                               hasLowerCase: (value) =>
                                 /[a-z]/.test(value) ||
                                 "Ha de tenir almenys una minúscula",
+                              hasNumber: (value) =>
+                                /\d/.test(value) ||
+                                "Ha de tenir almenys un número",
                             },
                           })}
                         />
+                        <span className="text-xs text-gray-500">
+                          La contrasenya ha de tenir almenys 8 caràcters, una
+                          majúscula, una minúscula i un número.
+                        </span>
+                        <br />
                         {errors.password && (
                           <span className="text-red-400">
                             {errors.password.message}

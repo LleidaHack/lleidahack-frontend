@@ -3,43 +3,61 @@ import { Link } from "react-router-dom";
 import MentorImage from "src/assets/Mentor.png";
 import TimonImage from "src/assets/TIMON.png";
 import Button from "src/components/buttons/Button";
+import TitleGeneralized from "src/components/hackeps/TitleGeneralized/TitleGeneralized";
 
 const Mentoring = () => {
   return (
-    <section className="p-5 pb-32 bg-secondaryHackeps">
-      <div className="container mx-auto">
+    <section className="p-5 pb-32 bg-secondaryHackeps ">
+      <div className="container mx-auto mb-20 mt-5">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 pr-0 md:pr-20 items-center">
           {/* Columna izquierda - Texto (más ancha) */}
           <div className="lg:col-span-3 space-y-6 pr-0 md:pr-20">
-            <h2 className=" text-2xl md:text-5xl font-bold text-center leading-relaxed text-primaryHackeps mb-8 px-3">
+            <TitleGeneralized
+              padTop="0"
+              underline
+              alignText="center"
+              textNone
+              className="text-primaryHackeps font-semibold pl-2"
+            >
               Vols postular com a mentor?
-            </h2>
+            </TitleGeneralized>
 
             <div className="space-y-4 text-grayStrongHackeps leading-relaxed text-left md:text-base text-sm text-justify">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
-                metus nec fringilla accumsan, risus sem sollicitudin lacus, ut
-                interdum tellus elit sed risus. Maecenas eget condimentum velit.
-                Sit amet feugiat lectus. Duis autem lacus sodales eu libero
-                blandit per consectetur nulla. Sed aliquam pharetra, faucibus
-                feugiat nec, dictum lectus. Ut vel odio vel orci rutrum
-                vehicula. Donec ut rhoncus ex. Suspendisse eu rhoncus nisl, eu
-                tempor urna. Curabitur vel bibendum lorem. Morbi convallis
-                convallis diam sit amet lacinia. Aliquam in elementum.
+                A la nostra hackató, els mentors són el motor de la creativitat
+                i el creixement. Són les persones que, amb la seva experiència i
+                coneixements, ajuden els participants a trobar el camí correcte
+                i a fer realitat els seus projectes més ambiciosos.
               </p>
-
               <p>
-                Curabitur tempor quis eros tempus lacinia. Nam bibendum
-                pellentesque quam in convallis. Sed at vulputate nisl. Integer
-                in vehicula leo. Praesent ac arcu eget leo luctus vehicula. Sed
-                rhoncus feugiat et ex vestibulum vestibulum. Morbi a eleifend
-                magna. Nam metus lorem, porttitor eu mauris a, blandit ultrices
-                nibh. Mauris sit amet magna non ligula vestibulum eleifend.
-                Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus
-                lobortis eleifend. Sed nec ante dictum sem condimentum
-                ullamcorper quis venenatis nisl. Proin vitae facilisis nisl, at
-                commodo leo.
+                Si et consideres una persona proactiva i t'agrada acompanyar els
+                altres en els seus reptes, et convidem a formar part de la
+                nostra comunitat de mentors. No es tracta només d'oferir
+                solucions, sinó de fer les <b>preguntes adequades</b> i ajudar
+                els equips a descobrir el seu propi potencial.
+              </p>
+              <p>El teu rol serà fonamental per:</p>
+              <ul>
+                <li>
+                  <b>Inspirar:</b> Serveix de guia i motivació per als equips.
+                </li>
+                <li>
+                  <b>Guiar:</b> Ajuda a organitzar les idees i a trobar
+                  solucions a problemes tècnics o de disseny.
+                </li>
+                <li>
+                  <b>Connectar:</b> Crea sinergies entre participants i fomenta
+                  un ambient de col·laboració.
+                </li>
+              </ul>
+              <p>
+                Si estàs preparat per a una experiència enriquidora on podràs
+                donar i rebre coneixement, t'esperem!
+              </p>
+              <p>
+                <strong>
+                  [Contacta'ns i explica'ns per què vols ser mentor]
+                </strong>
               </p>
             </div>
           </div>
@@ -64,7 +82,7 @@ const Mentoring = () => {
               />
             </div>
 
-            <Link to={"/contacte"}>
+            <Link to={"/contacte-mentor"}>
               <Button
                 className="bg-secondaryColorButton text-white border-none"
                 lg

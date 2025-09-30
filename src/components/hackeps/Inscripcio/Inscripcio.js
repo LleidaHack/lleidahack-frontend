@@ -54,6 +54,7 @@ const InscripcioForm = () => {
     github: "",
     devpost: "",
     checkboxterms: "",
+    food_restrictions: "",
   });
   const [registered, setRegistered] = useState(false);
 
@@ -85,8 +86,8 @@ const InscripcioForm = () => {
 
   const submit = async (values) => {
     const data = {
-      shirt_size: values.size,
-      food_restrictions: values.food,
+      shirt_size: values.size === undefined ? "" : values.size,
+      food_restrictions: values.food === undefined ? "" : values.food,
       cv: cvFile,
       description: values.cvinfo_links,
       github: values.github,
@@ -157,7 +158,7 @@ const InscripcioForm = () => {
           <br />
           <div className="w-2/3 items-center">
             <TitleGeneralized underline>
-              Inscripció HackEPS 2024
+              Inscripció HackEPS 2025
             </TitleGeneralized>
             <div className="w-full flex flex-col justify-center items-center animate-[fadeIn_0.5s_ease-in-out]">
               <form className="flex flex-col gap-3">

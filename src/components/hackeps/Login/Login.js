@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "src/icons/hackLogoWellDone.png";
+import logo from "src/assets/img/logoHackeps2025.png";
 import LoginForm from "src/components/loginForm/LoginForm";
 
 const LoginPage = ({ nextScreen }) => {

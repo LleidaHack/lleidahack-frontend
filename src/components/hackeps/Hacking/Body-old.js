@@ -8,7 +8,7 @@ import "./Waiting.css";
 
 const Body = () => {
   const [profile, setProfile] = useState("Hacking");
-  const [title, setTitle] = useState("HackEPS 2024");
+  const [title, setTitle] = useState("HackEPS 2025");
   const [midSideElement, setMidSideElement] = useState(
     <div className="midSideElement">MidSideElement</div>,
   );

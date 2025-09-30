@@ -18,6 +18,7 @@ const ContactePage = () => {
   } = useForm();
   const [mailSended, setMailSended] = useState(false);
   const [mailStatus, setMailStatus] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const handleButtonClick = () => {
     window.location.reload();
   };
@@ -28,9 +29,17 @@ const ContactePage = () => {
   }, []);
 
   const onSubmit = async (data) => {
-    const success = await contacte(data);
-    setMailStatus(success);
-    setMailSended(true);
+    setIsLoading(true);
+    try {
+      const success = await contacte(data);
+      setMailStatus(success);
+      setMailSended(true);
+    } catch (error) {
+      setMailStatus(false);
+      setMailSended(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -70,6 +79,7 @@ const ContactePage = () => {
                     {...register("name", {
                       required: "El nom no pot estar buit",
                     })}
+                    disabled={isLoading}
                   />
                   {errors.name && (
                     <span className="text-red-400">{errors.name.message}</span>
@@ -89,6 +99,7 @@ const ContactePage = () => {
                         message: "El correu no és vàlid",
                       },
                     })}
+                    disabled={isLoading}
                   />
                   {errors.email && (
                     <span className="text-red-400">{errors.email.message}</span>
@@ -103,6 +114,7 @@ const ContactePage = () => {
                     {...register("title", {
                       required: "El titol no pot estar buit",
                     })}
+                    disabled={isLoading}
                   />
                   {errors.title && (
                     <span className="text-red-400">{errors.title.message}</span>
@@ -117,6 +129,7 @@ const ContactePage = () => {
                     {...register("message", {
                       required: "El missatge no pot estar buit",
                     })}
+                    disabled={isLoading}
                   />
                   {errors.message && (
                     <span className="text-red-400">
@@ -126,8 +139,14 @@ const ContactePage = () => {
                 </label>
 
                 <input
-                  className="hover:bg-primaryHackeps hover:text-white transition ease-in-out delay-100 min-h-10"
+                  className={`${
+                    isLoading
+                      ? "bg-gray-400 text-white cursor-not-allowed"
+                      : "hover:bg-primaryHackeps hover:text-white"
+                  } transition ease-in-out delay-100 min-h-10`}
                   type="submit"
+                  value={isLoading ? "Enviant..." : "Enviar"}
+                  disabled={isLoading}
                 />
               </form>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { SuccessFeedback, FailFeedback } from "./Feedback";
+import { contacte } from "src/services/AuthenticationService";
 
 export default function ContactForm() {
   const {
@@ -23,11 +24,7 @@ export default function ContactForm() {
         message: data.missatge,
       };
 
-      // Simulació de envío
-      const success = await new Promise((resolve) => {
-        setTimeout(() => resolve(Math.random() > 0.3), 1500);
-      });
-
+      const success = await contacte(formData);
       setMailStatus(success);
       setMailSended(true);
 
