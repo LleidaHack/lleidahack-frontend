@@ -52,7 +52,7 @@ const MainTitle = () => {
         (eventDay) =>
           today.getFullYear() === eventDay.getFullYear() &&
           today.getMonth() === eventDay.getMonth() &&
-          today.getDate() === eventDay.getDate()
+          today.getDate() === eventDay.getDate(),
       )
     ) {
       setTextButton("Hacking..");
