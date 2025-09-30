@@ -1,3 +1,4 @@
+import "src/components/hackeps/Home/MainTitle.css";
 import Modal from "react-bootstrap/Modal";
 import { useEffect, useState } from "react";
 import Button from "src/components/buttons/Button";
@@ -5,22 +6,13 @@ import hackLogo from "src/icons/banner_home_icon.png";
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
 
-const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
+const MainTitle = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [hackDay, setHackDay] = useState(false);
   const handleClose = () => setShow(false);
-
+  const [textButton, setTextButton] = useState("Apunta't!");
   async function handleShow() {
-    if (refresh) {
-      window.location.reload();
-      return;
-    }
-    if (localStorage.getItem("registeredOnEvent") === "true") {
-      navigate("/perfil");
-      return;
-    }
-
     if (localStorage.getItem("userToken") === null) {
       setShow(true);
     } else if (
@@ -41,11 +33,6 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
       }
     }
   }
-  const [textButton, setTextButton] = useState(buttonText);
-
-  useEffect(() => {
-    setTextButton(buttonText);
-  }, [buttonText]);
 
   const handleSignUp = () => navigate("/hacker-form");
   const handleSignIn = () => {
@@ -56,8 +43,8 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
     const today = new Date();
     const eventDays = [
       // Aqui es fiquen les dates dels dies de la Hack.
-      new Date("2025-11-22"),
-      new Date("2025-11-23"),
+      new Date("2024-11-23"),
+      new Date("2024-11-24"),
     ];
 
     if (
@@ -65,7 +52,7 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
         (eventDay) =>
           today.getFullYear() === eventDay.getFullYear() &&
           today.getMonth() === eventDay.getMonth() &&
-          today.getDate() === eventDay.getDate(),
+          today.getDate() === eventDay.getDate()
       )
     ) {
       setTextButton("Hacking..");
@@ -75,22 +62,15 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
 
   return (
     <>
-      <div className="justify-center items-center flex flex-col gap-5 mt-2 w-full z-50">
-        <div className="col-12 w-full flex justify-center">
-          <img
-            src={hackLogo}
-            alt="Hack Logo"
-            className="w-[70%] max-w-[200px] md:max-w-[250px] lg:max-w-[300px] mx-auto"
-          />
+      <div className="backgrounder bg-primaryHackeps bg-center">
+        <div className="fantasma" id="home"></div>
+        <div className="col-12">
+          <div className="rowe">
+            <img className="imagelogo" src={hackLogo} alt="" />
+          </div>
         </div>
-        <div className="join-button relative z-50" style={{ zIndex: 5000 }}>
-          <Button
-            onClick={handleShow}
-            className={
-              "bg-red-500 text-white hover:bg-primaryHackeps duration-1 relative relative z-50"
-            }
-            outline
-          >
+        <div className="join-button">
+          <Button onClick={handleShow} secondary outline>
             {textButton}
           </Button>
         </div>
