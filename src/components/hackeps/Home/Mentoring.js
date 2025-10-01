@@ -7,7 +7,7 @@ import TitleGeneralized from "src/components/hackeps/TitleGeneralized/TitleGener
 
 const Mentoring = () => {
   return (
-    <section className="p-5 pb-32 bg-secondaryHackeps ">
+    <section className="px-6 md:px-16 pb-32 pt-5 bg-secondaryHackeps">
       <div className="container mx-auto mb-20 mt-5">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 pr-0 md:pr-20 items-center">
           {/* Columna izquierda - Texto (más ancha) */}
@@ -17,7 +17,7 @@ const Mentoring = () => {
               underline
               alignText="center"
               textNone
-              className="text-primaryHackeps font-semibold pl-2"
+              className="text-primaryHackeps font-semibold"
             >
               Vols postular com a mentor?
             </TitleGeneralized>
@@ -74,7 +74,7 @@ const Mentoring = () => {
           {/* Columna derecha - Mentor e imagen */}
           <div className="lg:col-span-1 flex flex-col items-center space-y-8 lg:ml-64">
             {/* Imagen de mentor */}
-            <div className="md:mt-0 mt-5 w-36 md:w-48  flex items-center justify-center">
+            <div className="md:mt-0 mt-5 w-36 md:w-48 flex items-center justify-center">
               <img
                 src={MentorImage}
                 alt="Mentor ilustración"

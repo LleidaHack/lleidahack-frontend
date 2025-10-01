@@ -65,14 +65,14 @@ const Sponsors = () => {
   }, []);
 
   return (
-    <div className="sponsors bg-secondaryHackeps">
+    <div className="sponsors bg-secondaryHackeps px-6 md:px-16">
       <div className="gostHunter" id="sponsors"></div>
       {/* Title and content for Partners */}
       <TitleGeneralized
         padTop="0"
         underline
         textNone
-        className="text-primaryHackeps font-semibold pl-2"
+        className="text-primaryHackeps font-semibold"
       >
         Sponsors
       </TitleGeneralized>
@@ -80,7 +80,7 @@ const Sponsors = () => {
         <section className="justify-center w-full">
           <TitleGeneralized
             textNone
-            className="text-primaryHackeps font-semibold text-left"
+            className="text-primaryHackeps font-semibold text-left text-2xl md:text-3xl"
           >
             Reptes Proposats per...
           </TitleGeneralized>
@@ -120,7 +120,7 @@ const Sponsors = () => {
         <section className="justify-center w-full">
           <TitleGeneralized
             textNone
-            className="text-primaryHackeps font-semibold text-left"
+            className="text-primaryHackeps font-semibold text-left text-2xl md:text-3xl"
           >
             Amb la col·laboració de...
           </TitleGeneralized>
