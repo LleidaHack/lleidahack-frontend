@@ -18,7 +18,7 @@ const TimonIcon = () => (
 const ScheduleItem = ({ time, title, description, align = "right" }) => {
   const isRight = align === "right";
   const alignmentClass = isRight ? "text-left" : "text-right";
-  
+
   return (
     <article
       className={`flex flex-col md:flex-row gap-4 py-6 md:items-center ${
