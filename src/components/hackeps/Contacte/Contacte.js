@@ -69,7 +69,7 @@ const ContactePage = () => {
             <div className="basis-1/2 ">
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col gap-3"
+                className="flex flex-col gap-3 mr-4"
               >
                 <label>
                   Nom:
