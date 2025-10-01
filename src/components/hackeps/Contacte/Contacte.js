@@ -90,7 +90,7 @@ const ContactePage = () => {
                   Correu:
                   <input
                     className={`${errors.name ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base`}
-                    placeholder="correu"
+                    placeholder="Correu"
                     {...register("email", {
                       required:
                         "Et falta indicar-nos el teu correu de contacte",
@@ -110,7 +110,7 @@ const ContactePage = () => {
                   Títol:
                   <input
                     className={`${errors.name ? "bg-pink-100" : "bg-white"} min-h-10 px-2 text-base`}
-                    placeholder="Titol del missatge"
+                    placeholder="Títol del missatge"
                     {...register("title", {
                       required: "El titol no pot estar buit",
                     })}
