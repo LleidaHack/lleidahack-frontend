@@ -33,17 +33,17 @@ const HeroSection = ({
     detectZoom();
 
     // Escuchar cambios de tamaño de ventana (incluye zoom)
-    window.addEventListener('resize', detectZoom);
-    
+    window.addEventListener("resize", detectZoom);
+
     // Detectar zoom con visualViewport API (más preciso)
     if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', detectZoom);
+      window.visualViewport.addEventListener("resize", detectZoom);
     }
 
     return () => {
-      window.removeEventListener('resize', detectZoom);
+      window.removeEventListener("resize", detectZoom);
       if (window.visualViewport) {
-        window.visualViewport.removeEventListener('resize', detectZoom);
+        window.visualViewport.removeEventListener("resize", detectZoom);
       }
     };
   }, []);
