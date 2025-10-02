@@ -20,6 +20,33 @@ const HeroSection = ({
   const [timerActive, setTimerActive] = useState(activeTimer);
   const [animationSection, setAnimationSection] = useState(animSection);
   const [starfish, setStarfish] = useState([]);
+  const [zoomLevel, setZoomLevel] = useState(1);
+
+  // Detectar cambios de zoom
+  useEffect(() => {
+    const detectZoom = () => {
+      const zoom = window.devicePixelRatio || 1;
+      setZoomLevel(zoom);
+    };
+
+    // Detectar zoom inicial
+    detectZoom();
+
+    // Escuchar cambios de tamaño de ventana (incluye zoom)
+    window.addEventListener('resize', detectZoom);
+    
+    // Detectar zoom con visualViewport API (más preciso)
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', detectZoom);
+    }
+
+    return () => {
+      window.removeEventListener('resize', detectZoom);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', detectZoom);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     setAnimationSection(animSection);
@@ -42,7 +69,7 @@ const HeroSection = ({
       duration: isMobile
         ? Math.random() * 10 + 30 // 30s to 40s on mobile
         : Math.random() * 50 + 80, // 80s to 130s on desktop
-      width: calculatedWidth, // 10vw to 20vw (doubled on mobile above)
+      width: calculatedWidth * zoomLevel, // Ajustar al nivel de zoom (mayor zoom = más pequeños)
       top: Math.random() * 100 - 42,
       zIndex: Math.random() < 0.5 ? 10 : 40,
     };
@@ -72,7 +99,7 @@ const HeroSection = ({
         name: fishData.name,
       };
     });
-  }, []); // se ejecuta solo al montar
+  }, [zoomLevel]); // Regenerar cuando cambie el zoom
 
   return (
     <div className="overflow-hidden relative z-10">
