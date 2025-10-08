@@ -69,8 +69,14 @@ const MainTitle = () => {
             <img className="imagelogo" src={hackLogo} alt="" />
           </div>
         </div>
-        <div className="join-button">
-          <Button onClick={handleShow} secondary outline>
+        <div className="join-button relative z-50" style={{ zIndex: 5000 }}>
+          <Button
+            onClick={handleShow}
+            className={
+              "bg-red-500 text-white hover:bg-primaryHackeps duration-1 relative z-50"
+            }
+            outline
+          >
             {textButton}
           </Button>
         </div>
