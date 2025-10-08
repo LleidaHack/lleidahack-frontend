@@ -42,16 +42,49 @@ const ContactePage = () => {
     }
   };
 
+  const MD_BREAKPOINT = 768; 
+
+  const [orderItem, setOrderItem] = useState(
+    window.innerWidth >= MD_BREAKPOINT ? 'order-first' : 'order-last'
+  );
+
+  // 2. useEffect para manejar el evento resize
+  useEffect(() => {
+    // Función para actualizar SOLO la clase de orden
+    const handleResize = () => {
+      const newWidth = window.innerWidth;
+      const newOrderClass = newWidth >= MD_BREAKPOINT ? 'order-first' : 'order-last';
+      
+      // Actualiza el estado de la clase solo si ha cambiado
+      setOrderItem(prevOrder => {
+        if (prevOrder !== newOrderClass) {
+          return newOrderClass;
+        }
+        return prevOrder;
+      });
+    };
+    
+    // Configuración del listener
+    window.addEventListener('resize', handleResize);
+    
+    // Limpieza
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
+
+
   return (
-    <div className="h-screen bg-secondaryHackeps">
+    <div className="min-h-screen bg-secondaryHackeps">
       {!mailSended ? (
         <>
           <TitleGeneralized underline>Contacte</TitleGeneralized>
-          <div className="flex flex-row justify-center gap-2 mx-4 ">
-            <div className="  basis-1/2 justify-items-center content-center">
+          <div className="flex flex-col md:flex-row justify-between gap-5 md:gap-2 mx-4 h-auto">
+            <div className={` basis-1/2 justify-items-center content-center ${orderItem} mb-5 `}>
               <img src={logo} alt="logo" className="w-1/3" />
               <p className="text-xl mt-3">
-                Esdeveniment organitzat per LleidaHack
+                Esdeveniment organitzat per LleidaHack 
               </p>
               <div className="flex flex-row gap-3 mt-2">
                 <a href="https://twitter.com/lleidahack">
@@ -125,7 +158,7 @@ const ContactePage = () => {
                   Missatge:
                   <textarea
                     className={`${errors.name ? "bg-pink-100" : "bg-white"} px-2 text-base`}
-                    placeholder="Indicans en que et podem ajudar."
+                    placeholder="Indicans en què et podem ajudar."
                     {...register("message", {
                       required: "El missatge no pot estar buit",
                     })}
