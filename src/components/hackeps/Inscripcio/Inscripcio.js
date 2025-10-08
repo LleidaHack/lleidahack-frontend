@@ -180,7 +180,7 @@ const InscripcioForm = () => {
                   Centre d'estudis:
                   <input
                     className={`${errors.center ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
-                    placeholder="Udl"
+                    placeholder="UdL"
                     {...register("center", {
                       required: "Aquest camp és obligatori",
                     })}
