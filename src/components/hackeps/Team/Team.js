@@ -249,7 +249,7 @@ const Team = (props) => {
                     ) : (
                       <>
                         <Button
-                          className="my-2"
+                          className="my-2 min-w-full"
                           primary
                           sm
                           href={
@@ -270,12 +270,13 @@ const Team = (props) => {
                               primary
                               sm
                               onClick={() => handleKick(member)}
+                              className="my-2 min-w-full"
                             >
                               Expulsar
                             </Button>
 
                             <Button
-                              className="my-2"
+                              className="my-2 min-w-full"
                               sm
                               primary
                               onClick={() => handleMakeLeader(member)}
