@@ -87,7 +87,7 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
           <Button
             onClick={handleShow}
             className={
-              "bg-red-500 text-white hover:bg-primaryHackeps duration-1 relative relative z-50"
+              "bg-red-500 text-white hover:bg-primaryHackeps duration-1 relative z-50"
             }
             outline
           >
