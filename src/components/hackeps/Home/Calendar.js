@@ -30,19 +30,19 @@ const CalendarDates = (props) => {
         <img src={Seapointed} alt="Seapointed" className="h-auto" />
       </div>
 
-      <div className="px-6 md:px-16 pt-0 z-10 relative flex flex-col md:flex-col items-center">
-        <div className="mt-32 my-20 w-full">
+      <div className="p-5 pt-0 z-10 relative flex flex-col md:flex-col items-center">
+        <div className="mt-32  my-20">
           <TitleGeneralized
             padTop="0"
             underline
             alignText="left"
             textNone
-            className="text-primaryHackeps font-semibold"
+            className="text-primaryHackeps font-semibold pl-2"
           >
             Dates
           </TitleGeneralized>
 
-          <Container fluid className="px-0">
+          <Container>
             <Row className="flex flex-col gap-4 lg:flex-row md:gap-0">
               <Col className="calendar-content">
                 <p className="text-justify mr-5">
