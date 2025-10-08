@@ -383,7 +383,7 @@ const InscripcioForm = () => {
                       {...register("checkboxcredit")}
                     />
                     <p>
-                      Vull1 crèdit ETCS de matèria transversal (només aplicable
+                      Vull 1 crèdit ETCS de matèria transversal (només aplicable
                       a alumnes de la UDL)
                     </p>
                   </label>
