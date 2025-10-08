@@ -36,32 +36,55 @@ const Sponsors = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const event = localStorage.getItem("event");
-    async function fetchData() {
-      if (!event) {
-        setLoading(false);
-        return;
-      }
+  const event = localStorage.getItem("event");
+  
+  async function fetchData() {
+    if (!event) {
+      setLoading(false);
+      return;
+    }
 
+    setLoading(true);
+
+    // Intentaremos un máximo de 2 veces (Intento 1 y un Reintento)
+    for (let attempt = 1; attempt <= 2; attempt++) {
       try {
-        setLoading(true);
+        // 1. OBTENCIÓN DE DATOS COMPLETA
         const challengerData = await getCompanyByTier(2);
-        const sponsorsData = [
-          await getCompanyByTier(1),
-          await getCompanyByTier(3),
-        ];
+        const [tier1, tier3] = await Promise.all([
+          getCompanyByTier(1),
+          getCompanyByTier(3),
+        ]);
+        const sponsorsData = [tier1, tier3];
 
+        // 2. COMPROBACIÓN
+        const dataIsEmpty = challengerData.length === 0 || sponsorsData.every(group => group.length === 0);
+
+        if (dataIsEmpty && attempt < 2) {
+          console.warn(`Intento ${attempt} fallido. Reintentando...`);
+
+          continue; 
+        }
+
+        // 3. ACTUALIZACIÓN DE ESTADO Y SALIDA
         setChallenger(challengerData || []);
         setSponsors(sponsorsData || []);
-      } catch (error) {
-        console.error("Error fetching sponsors data:", error);
-        setChallenger([]);
-        setSponsors([]);
-      } finally {
+        
+        if (dataIsEmpty && attempt === 2) {
+          console.error("Los datos siguen vacíos tras el último reintento.");
+        }
+        
         setLoading(false);
+        return; 
+
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        break; 
       }
     }
-    fetchData();
+    setLoading(false);
+  }
+  fetchData();
   }, []);
 
   return (
