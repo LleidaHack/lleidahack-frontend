@@ -133,7 +133,6 @@ const Team = (props) => {
         )}
 
         <PopupBody
-          crossColor="gray-300"
           isOpen={showJoinTeam}
           onClose={handleCloseJoinTeam}
           children={
@@ -174,7 +173,6 @@ const Team = (props) => {
         />
 
         <PopupBody
-          crossColor="gray-300"
           isOpen={showCreateTeam}
           onClose={handleCloseCreateTeam}
           children={
