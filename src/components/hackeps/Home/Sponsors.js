@@ -36,66 +36,67 @@ const Sponsors = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  const event = localStorage.getItem("event");
-  
-  async function fetchData() {
-    if (!event) {
-      setLoading(false);
-      return;
-    }
+    const event = localStorage.getItem("event");
 
-    setLoading(true);
-
-    // Intentaremos un máximo de 2 veces (Intento 1 y un Reintento)
-    for (let attempt = 1; attempt <= 2; attempt++) {
-      try {
-        // 1. OBTENCIÓN DE DATOS COMPLETA
-        const challengerData = await getCompanyByTier(2);
-        const [tier1, tier3] = await Promise.all([
-          getCompanyByTier(1),
-          getCompanyByTier(3),
-        ]);
-        const sponsorsData = [tier1, tier3];
-
-        // 2. COMPROBACIÓN
-        const dataIsEmpty = challengerData.length === 0 || sponsorsData.every(group => group.length === 0);
-
-        if (dataIsEmpty && attempt < 2) {
-          console.warn(`Intento ${attempt} fallido. Reintentando...`);
-
-          continue; 
-        }
-
-        // 3. ACTUALIZACIÓN DE ESTADO Y SALIDA
-        setChallenger(challengerData || []);
-        setSponsors(sponsorsData || []);
-        
-        if (dataIsEmpty && attempt === 2) {
-          console.error("Los datos siguen vacíos tras el último reintento.");
-        }
-        
+    async function fetchData() {
+      if (!event) {
         setLoading(false);
-        return; 
-
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        break; 
+        return;
       }
+
+      setLoading(true);
+
+      // Intentaremos un máximo de 2 veces (Intento 1 y un Reintento)
+      for (let attempt = 1; attempt <= 2; attempt++) {
+        try {
+          // 1. OBTENCIÓN DE DATOS COMPLETA
+          const challengerData = await getCompanyByTier(2);
+          const [tier1, tier3] = await Promise.all([
+            getCompanyByTier(1),
+            getCompanyByTier(3),
+          ]);
+          const sponsorsData = [tier1, tier3];
+
+          // 2. COMPROBACIÓN
+          const dataIsEmpty =
+            challengerData.length === 0 ||
+            sponsorsData.every((group) => group.length === 0);
+
+          if (dataIsEmpty && attempt < 2) {
+            console.warn(`Intento ${attempt} fallido. Reintentando...`);
+
+            continue;
+          }
+
+          // 3. ACTUALIZACIÓN DE ESTADO Y SALIDA
+          setChallenger(challengerData || []);
+          setSponsors(sponsorsData || []);
+
+          if (dataIsEmpty && attempt === 2) {
+            console.error("Los datos siguen vacíos tras el último reintento.");
+          }
+
+          setLoading(false);
+          return;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          break;
+        }
+      }
+      setLoading(false);
     }
-    setLoading(false);
-  }
-  fetchData();
+    fetchData();
   }, []);
 
   return (
-    <div className="sponsors bg-secondaryHackeps">
+    <div className="sponsors bg-secondaryHackeps px-6 md:px-16">
       <div className="gostHunter" id="sponsors"></div>
       {/* Title and content for Partners */}
       <TitleGeneralized
         padTop="0"
         underline
         textNone
-        className="text-primaryHackeps font-semibold pl-2"
+        className="text-primaryHackeps font-semibold"
       >
         Sponsors
       </TitleGeneralized>
@@ -103,7 +104,7 @@ const Sponsors = () => {
         <section className="justify-center w-full">
           <TitleGeneralized
             textNone
-            className="text-primaryHackeps font-semibold text-left"
+            className="text-primaryHackeps font-semibold text-left text-2xl md:text-3xl"
           >
             Reptes Proposats per...
           </TitleGeneralized>
@@ -143,7 +144,7 @@ const Sponsors = () => {
         <section className="justify-center w-full">
           <TitleGeneralized
             textNone
-            className="text-primaryHackeps font-semibold text-left"
+            className="text-primaryHackeps font-semibold text-left text-2xl md:text-3xl"
           >
             Amb la col·laboració de...
           </TitleGeneralized>
