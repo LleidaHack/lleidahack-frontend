@@ -224,7 +224,7 @@ const EditProfile = ({ hackerObj }) => {
                   </div>
                   <div className="w-full flex flex-col mb-5">
                     <Button
-                      className="text-white bg-primaryHackeps hover:bg-primaryHackepsDark transition ease-in-out delay-100 min-h-10"
+                      className="text-white bg-primaryHackeps hover:bg-blueSea transition ease-in-out delay-100 min-h-10"
                       onClick={handleSubmit(onSubmit)}
                     >
                       {" "}

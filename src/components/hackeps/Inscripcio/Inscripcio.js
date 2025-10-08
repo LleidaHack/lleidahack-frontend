@@ -391,7 +391,7 @@ const InscripcioForm = () => {
                 <div className="flex flex-col gap-0 mb-20 ">
                   <Button
                     onClick={handleSubmit(submit)}
-                    className={`bg-primaryHackeps text-white mb-2  ${!isValid ? "opacity-50" : "opacity-100 hover:bg-primaryHackepsDark"}`}
+                    className={`bg-primaryHackeps text-white mb-2  ${!isValid ? "opacity-50" : "opacity-100 hover:bg-blueSea"}`}
                   >
                     Enviar
                   </Button>
