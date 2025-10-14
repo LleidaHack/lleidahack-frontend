@@ -180,7 +180,7 @@ const InscripcioForm = () => {
                   Centre d'estudis:
                   <input
                     className={`${errors.center ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
-                    placeholder="Udl"
+                    placeholder="UdL"
                     {...register("center", {
                       required: "Aquest camp és obligatori",
                     })}
@@ -383,7 +383,7 @@ const InscripcioForm = () => {
                       {...register("checkboxcredit")}
                     />
                     <p>
-                      Vull1 crèdit ETCS de matèria transversal (només aplicable
+                      Vull 1 crèdit ETCS de matèria transversal (només aplicable
                       a alumnes de la UDL)
                     </p>
                   </label>
@@ -391,7 +391,7 @@ const InscripcioForm = () => {
                 <div className="flex flex-col gap-0 mb-20 ">
                   <Button
                     onClick={handleSubmit(submit)}
-                    className={`bg-primaryHackeps text-white mb-2  ${!isValid ? "opacity-50" : "opacity-100 hover:bg-primaryHackepsDark"}`}
+                    className={`bg-primaryHackeps text-white mb-2  ${!isValid ? "opacity-50" : "opacity-100 hover:bg-blueSea"}`}
                   >
                     Enviar
                   </Button>

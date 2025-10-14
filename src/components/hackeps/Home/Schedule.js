@@ -17,8 +17,8 @@ const TimonIcon = () => (
 
 const ScheduleItem = ({ time, title, description, align = "right" }) => {
   const isRight = align === "right";
-
   const alignmentClass = isRight ? "text-left" : "text-right";
+
   return (
     <article
       className={`flex flex-col md:flex-row gap-4 py-6 md:items-center ${
@@ -29,30 +29,28 @@ const ScheduleItem = ({ time, title, description, align = "right" }) => {
       {!isRight && <TimonIcon />}
 
       {/* Caja: time + title i Caja description */}
-      <div className=" md:w-1/2 space-y-2 ">
+      <div className="md:w-1/2 space-y-2">
         {/* Caja: time + title */}
         <div
-          className={`flex  ${isRight ? "items-start" : "items-end"} md:gap-7 md:flex-row flex-col w-full`}
+          className={`flex ${isRight ? "items-start" : "items-end"} md:gap-7 md:flex-row flex-col w-full`}
         >
-          <>
-            <time
-              dateTime={time}
-              className={`${alignmentClass} text-xl font-mono text-textSecondaryHackeps`}
-            >
-              {time}
-            </time>
+          <time
+            dateTime={time}
+            className={`${alignmentClass} text-xl font-mono text-textSecondaryHackeps`}
+          >
+            {time}
+          </time>
 
-            <h2
-              className={`md:text-2xl text-lg font-semibold w-fit m-0 p-0 ${alignmentClass} md:text-left`}
-            >
-              {title}
-            </h2>
-          </>
+          <h2
+            className={`md:text-2xl text-lg font-semibold w-fit m-0 p-0 ${alignmentClass} md:text-left`}
+          >
+            {title}
+          </h2>
         </div>
 
         {description && (
           <p
-            className={`${alignmentClass}  text-textSecondaryHackeps md:items-left md:text-base text-sm`}
+            className={`${alignmentClass} text-textSecondaryHackeps md:items-left md:text-base text-sm`}
           >
             {description}
           </p>
@@ -92,7 +90,7 @@ const Schedule = ({ events }) => {
             padTop="0"
             underline
             textNone
-            className="text-primaryHackeps font-semibold pl-2"
+            className="text-primaryHackeps font-semibold"
           >
             Horari
           </TitleGeneralized>
