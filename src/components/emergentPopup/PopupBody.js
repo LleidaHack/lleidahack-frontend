@@ -2,7 +2,6 @@ import { React, useState, useEffect } from "react";
 
 const PopupBody = ({ isOpen, onClose, children }) => {
   const [open, setOpen] = useState(isOpen);
-  const [textColorCross, setTextColorCross] = useState("text-black");
   console.log(isOpen);
   if (!isOpen) return null;
   return (
