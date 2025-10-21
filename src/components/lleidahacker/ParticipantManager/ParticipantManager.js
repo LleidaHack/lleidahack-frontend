@@ -120,8 +120,6 @@ const ParticipantManager = ({ eventId }) => {
   return (
     <div className="w-full flex flex-col">
       <div className="flex justify-between mb-4 gap-4">
-        {" "}
-        {/* <-- Añadido gap para separar */}
         {/* Dropdown de FILTROS */}
         <select
           className="border border-gray-300 px-2 py-1 rounded"
