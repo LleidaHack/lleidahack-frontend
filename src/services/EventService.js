@@ -285,3 +285,10 @@ export async function getPendingHackersGruped(event_id) {
     hasUserauth: true,
   });
 }
+
+export async function hackers_participants_grouped_list(event_id) {
+  return fetchPlus({
+    Url: `/event/${event_id}/hackers_participants_grouped_list`,
+    hasUserauth: true,
+  });
+}
