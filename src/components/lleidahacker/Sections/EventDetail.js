@@ -104,7 +104,7 @@ const EventDetail = () => {
             </p>
 
             <p>
-              <strong>Rebudjats:</strong> {event?.rejectedUsers}
+              <strong>Rebutjats:</strong> {event?.rejectedUsers}
             </p>
 
             <p>
