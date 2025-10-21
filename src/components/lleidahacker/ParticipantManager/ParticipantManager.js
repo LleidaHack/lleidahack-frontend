@@ -8,7 +8,6 @@ import {
 
 const ParticipantManager = ({ eventId }) => {
   // --- Estados ---
-  // const [showFiltered, setshowFiltered] = useState(true); // <-- Quitado (no se usaba)
   const [allParticipants, setAllParticipants] = useState([]);
   const [filter, setFilter] = useState("none"); // <-- Estado solo para FILTROS
   const [sort, setSort] = useState("none"); // <-- NUEVO estado solo para ORDENACIÓN
