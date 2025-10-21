@@ -1,12 +1,7 @@
 import { React, useState, useEffect } from "react";
 
-const PopupBody = ({ isOpen, onClose, children, crossColor }) => {
+const PopupBody = ({ isOpen, onClose, children }) => {
   const [open, setOpen] = useState(isOpen);
-  const [textColorCross, setTextColorCross] = useState("text-black");
-  useEffect(() => {
-    const color = "text-" + crossColor;
-    setTextColorCross(color);
-  }, [crossColor]);
   console.log(isOpen);
   if (!isOpen) return null;
   return (
@@ -18,7 +13,7 @@ const PopupBody = ({ isOpen, onClose, children, crossColor }) => {
               setOpen(false);
               onClose();
             }}
-            className={`text-4xl cursor-pointer ${textColorCross} hover:text-red-500`}
+            className={`text-4xl cursor-pointer text-red-700 hover:text-red-500`}
           >
             &times;
           </div>

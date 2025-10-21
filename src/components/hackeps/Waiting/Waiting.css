@@ -1,0 +1,46 @@
+@keyframes cloud-move {
+  0% {
+    left: -25vw;
+  }
+  100% {
+    left: 110vw;
+  }
+}
+
+@keyframes cloud-move-reverse {
+  0% {
+    left: 110vw;
+  }
+  100% {
+    left: -25vw;
+  }
+}
+
+@keyframes ship-rock {
+  0% {
+    transform: translate(10%, 2.2rem) rotate(0deg);
+  }
+  25% {
+    transform: translate(5%, 2rem) rotate(1deg);
+  }
+  50% {
+    transform: translate(15%, 1.9rem) rotate(0deg);
+  }
+  75% {
+    transform: translate(8%, 2rem) rotate(-1deg);
+  }
+  100% {
+    transform: translate(10%, 2.2rem) rotate(0deg);
+  }
+}
+
+.shipMovement {
+  animation: ship-rock 8s ease-in-out infinite;
+  transform-origin: center bottom; /* Pivote del balanceo */
+}
+
+.wavesSeaAnim {
+  background-image: url("/src/assets/img/marAncho.png");
+  background-size: cover !important;
+  width: 10000vw !important;
+}

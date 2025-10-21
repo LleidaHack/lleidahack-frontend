@@ -118,7 +118,7 @@ const Team = (props) => {
       <>
         {is_user && (
           <div className="p-bg-grey text-center mt-5 m-0 p-3 contss flex md:flex-row flex-col">
-            <TitleGeneralized marginBot="2" padTop="0" primary>
+            <TitleGeneralized marginBot="2" padTop="0" secondary>
               Inscripcions
             </TitleGeneralized>
             <div className="gap-2 flex ">
@@ -133,7 +133,6 @@ const Team = (props) => {
         )}
 
         <PopupBody
-          crossColor="gray-300"
           isOpen={showJoinTeam}
           onClose={handleCloseJoinTeam}
           children={
@@ -174,7 +173,6 @@ const Team = (props) => {
         />
 
         <PopupBody
-          crossColor="gray-300"
           isOpen={showCreateTeam}
           onClose={handleCloseCreateTeam}
           children={
@@ -251,7 +249,7 @@ const Team = (props) => {
                     ) : (
                       <>
                         <Button
-                          className="my-2"
+                          className="my-2 min-w-full"
                           primary
                           sm
                           href={
@@ -272,12 +270,13 @@ const Team = (props) => {
                               primary
                               sm
                               onClick={() => handleKick(member)}
+                              className="my-2 min-w-full"
                             >
                               Expulsar
                             </Button>
 
                             <Button
-                              className="my-2"
+                              className="my-2 min-w-full"
                               sm
                               primary
                               onClick={() => handleMakeLeader(member)}

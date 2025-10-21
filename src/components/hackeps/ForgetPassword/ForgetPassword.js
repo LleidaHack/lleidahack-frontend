@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import logo from "src/icons/hackLogoWellDone.png";
+import logo from "src/assets/img/logoHackeps2025.png";
 import { resetPassword } from "src/services/AuthenticationService";
 import SuccessFeedback from "../Feedbacks/SuccesFeedback";
 
@@ -23,10 +23,10 @@ const ForgetPassword = ({ nextScreen }) => {
         <div className="flex min-h-screen bg-loginPage ">
           <div className="flex-1 w-full flex flex-col items-center mt-36">
             <div className="logoBox place-items-center">
-              <img src={logo} alt="logo" className="w-2/5" />
+              <img src={logo} alt="logo" className="w-1/5" />
             </div>
             <div className="w-1/3 mt-4">
-              <p className="text-5xl text-white text-center">
+              <p className="text-4xl text-white text-center">
                 Necesites ajuda per a iniciar sessió?
               </p>
             </div>

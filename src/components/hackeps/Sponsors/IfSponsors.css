@@ -27,18 +27,26 @@
 
 .Imagecontener {
   width: 40%;
-  height: 40%;
+  max-width: 600px; /* Límite máximo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Imagecontener2 {
-  width: 20%;
-  height: 20%;
+  width: 40%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .peperoni {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto; /* Cambiado de 100% a auto */
+  object-fit: contain; /* Cambiado de cover a contain */
+  max-width: 100%;
+  display: block;
 }
 
 .redesYOthers {
@@ -129,11 +137,15 @@
     width: 87%;
   }
 
+  .Imagecontener2 {
+    width: 87%;
+  }
+
   .redesYOthers {
     width: 87%;
   }
 
-  .businesActivity {
+  .bussinesActivity {
     width: 87%;
   }
 

@@ -44,7 +44,7 @@ const Navbar = () => {
         </li>
         <li className="text-xl list-none	">
           <a
-            href="/contact"
+            href="/lleidahack/contacte"
             className={`no-underline text-CTALanding hover:text-secondaryLanding text-black md:text-white duration-300 ${location.pathname === "/contact" ? "font-bold" : ""}`}
           >
             <p className="md:text-white">Contacte</p>

@@ -54,6 +54,7 @@ const InscripcioForm = () => {
     github: "",
     devpost: "",
     checkboxterms: "",
+    food_restrictions: "",
   });
   const [registered, setRegistered] = useState(false);
 
@@ -85,8 +86,8 @@ const InscripcioForm = () => {
 
   const submit = async (values) => {
     const data = {
-      shirt_size: values.size,
-      food_restrictions: values.food,
+      shirt_size: values.size === undefined ? "" : values.size,
+      food_restrictions: values.food === undefined ? "" : values.food,
       cv: cvFile,
       description: values.cvinfo_links,
       github: values.github,
@@ -157,7 +158,7 @@ const InscripcioForm = () => {
           <br />
           <div className="w-2/3 items-center">
             <TitleGeneralized underline>
-              Inscripció HackEPS 2024
+              Inscripció HackEPS 2025
             </TitleGeneralized>
             <div className="w-full flex flex-col justify-center items-center animate-[fadeIn_0.5s_ease-in-out]">
               <form className="flex flex-col gap-3">
@@ -179,7 +180,7 @@ const InscripcioForm = () => {
                   Centre d'estudis:
                   <input
                     className={`${errors.center ? "bg-pink-100" : "bg-white"} py-2 min-h-10 px-2 text-base mt-2`}
-                    placeholder="Udl"
+                    placeholder="UdL"
                     {...register("center", {
                       required: "Aquest camp és obligatori",
                     })}
@@ -382,7 +383,7 @@ const InscripcioForm = () => {
                       {...register("checkboxcredit")}
                     />
                     <p>
-                      Vull1 crèdit ETCS de matèria transversal (només aplicable
+                      Vull 1 crèdit ETCS de matèria transversal (només aplicable
                       a alumnes de la UDL)
                     </p>
                   </label>
@@ -390,7 +391,7 @@ const InscripcioForm = () => {
                 <div className="flex flex-col gap-0 mb-20 ">
                   <Button
                     onClick={handleSubmit(submit)}
-                    className={`bg-primaryHackeps text-white mb-2  ${!isValid ? "opacity-50" : "opacity-100 hover:bg-primaryHackepsDark"}`}
+                    className={`bg-primaryHackeps text-white mb-2  ${!isValid ? "opacity-50" : "opacity-100 hover:bg-blueSea"}`}
                   >
                     Enviar
                   </Button>

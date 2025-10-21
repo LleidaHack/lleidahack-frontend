@@ -4,6 +4,15 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      keyframes: {
+        "olas-scroll": {
+          "0%": { backgroundPosition: "100% " },
+          "100%": { backgroundPosition: "0% " },
+        },
+      },
+      animation: {
+        "olas-scroll": "olas-scroll 4000s linear infinite", //infinite
+      },
       colors: {
         primaryLanding: "#FF7430",
         secondaryLanding: "#232323",
@@ -22,9 +31,12 @@ module.exports = {
         grayLightHackeps: "#bbb8b8",
         grayLightHackepsDark: "#8c8787",
         grayStrongHackeps: "#444343",
-        loginPage: "#211f1f",
+        loginPage: "#77b1c9",
         successGreen: "#4caf50",
+        blueSea: "#77b1c9",
         errorRed: "#f44336",
+        blueSky: "#bdfffe",
+        secondaryColorButton: "#237090",
       },
       screens: {
         sm: "576px",

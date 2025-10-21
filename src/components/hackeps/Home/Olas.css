@@ -1,0 +1,51 @@
+.wavearena {
+  /* Estilo por defecto para pantallas pequeñas */
+  transform: translateY(-5rem); /* -24 en rem es aproximadamente -6rem */
+  z-index: 10;
+  width: 100%;
+  height: auto;
+}
+
+/* Para pantallas medianas (md: 768px) */
+@media (min-width: 768px) {
+  .wavearena {
+    transform: translateY(-20rem);
+  }
+}
+
+/* Para pantallas grandes (lg: 1024px) */
+@media (min-width: 1024px) {
+  .wavearena {
+    transform: translateY(-28rem);
+  }
+}
+
+/* Para pantallas extra grandes (xl: 1280px) */
+@media (min-width: 1280px) {
+  .wavearena {
+    transform: translateY(-37rem);
+  }
+}
+
+.wavesea {
+  transform: translateY(-1.25rem);
+}
+
+@media (min-width: 768px) {
+  .wavesea {
+    transform: translateY(-2.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .wavesea {
+    transform: translateY(-20vh);
+  }
+}
+
+/* Para pantallas extra grandes (xl: 1280px) */
+@media (min-width: 1280px) {
+  .wavesea {
+    transform: translateY(-15rem);
+  }
+}
