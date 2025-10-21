@@ -37,7 +37,7 @@ import EventsSection from "./components/lleidahacker/Sections/EventsSection";
 import AdminSection from "./components/lleidahacker/Sections/AdminSection";
 import WaitingPage from "./pages/hackeps/WaitingPage";
 import ContacteMentor from "./pages/hackeps/ContacteMentor";
-
+import LoginAdmin from "src/pages/Administrator/LoginAdmin";
 export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
@@ -118,27 +118,33 @@ export default function App() {
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
           <Route path="/noticies" element={<NoticiesLanding />} />
         </Routes>
-      </Router>
+      </Router>*/}
       <Router basename="/admin">
         <Routes>
-          <Route
-            path="/"
-            element={<Dashboard section={<LleidaHackerHome />} />}
-          />
-          <Route
-            path="/workgroups"
-            element={<Dashboard section={<WorkGroupsSection />} />}
-          />
-          <Route
-            path="/events"
-            element={<Dashboard section={<EventsSection />} />}
-          />
-          <Route
-            path="/administration"
-            element={<Dashboard section={<AdminSection />} />}
-          />
+          
+            <Route
+              path="/"
+              element={<Dashboard section={<LleidaHackerHome />} />}
+            />
+            <Route
+              path="/workgroups"
+              element={<Dashboard section={<WorkGroupsSection />} />}
+            />
+            <Route
+              path="/events"
+              element={<Dashboard section={<EventsSection />} />}
+            />
+            <Route
+              path="/administration"
+              element={<Dashboard section={<AdminSection />} />}
+            />
+            <Route
+              path="/login"
+              element={<LoginAdmin />}
+            />
+          
         </Routes>
-      </Router>*/}
+      </Router>
     </div>
   );
 }
