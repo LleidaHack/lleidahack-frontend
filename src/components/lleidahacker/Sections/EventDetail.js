@@ -22,15 +22,20 @@ const EventDetail = () => {
     const fetchEvent = async () => {
       const fetchedEvent = await getEventById(eventId);
       const eventStatus = await getEventStatus(eventId);
-      fetchedEvent.status = eventStatus.groups;
+      fetchedEvent.groups = eventStatus.groups;
       fetchedEvent.registeredUsers = eventStatus.registratedUsers;
+      fetchedEvent.acceptedUsers = eventStatus.acceptedUsers;
+      fetchedEvent.rejectedUsers = eventStatus.rejectedUsers;
       fetchedEvent.participants = eventStatus.participatingUsers;
       fetchedEvent.acceptedAndConfirmedUsers = eventStatus.acceptedAndConfirmedUsers;
+      fetchedEvent.dinarDissabte = eventStatus["Dinar Dissabte"];
+      fetchedEvent.soparDissabte = eventStatus["Sopar Dissabte"];
+      fetchedEvent.dinarDiumenge = eventStatus["Dinar Diumenge"];
       setEvent(fetchedEvent);
       setImg(fetchedEvent.image);
       setTitle(fetchedEvent.name);
       setDescription(fetchedEvent.description);
-      console.log(fetchedEvent);
+      console.log(eventStatus);
     };
 
     fetchEvent();
@@ -73,15 +78,20 @@ const EventDetail = () => {
             </p>
 
             <p>
+              <strong>Max.sponsors:</strong>
+              {event?.max_sponsors}
+            </p>
+
+            <p>
+              <strong>Preu:</strong> {event?.price} €
+            </p>
+
+            <p>
               <strong>Max.Participants:</strong> {event?.max_participants}
             </p>
 
             <p>
               <strong>Registered Users:</strong> {event?.registeredUsers}
-            </p>
-
-            <p>
-              <strong>Participants:</strong> {event?.participants}
             </p>
             
             <p>
@@ -89,16 +99,30 @@ const EventDetail = () => {
             </p>
 
             <p>
-              <strong>Accepted and Confirmed Users:</strong>{" "}
-              {event?.acceptedAndConfirmedUsers}
-            </p>
-            <p>
-              <strong>Max.sponsors:</strong>
-              {event?.max_sponsors}
+              <strong>Acceptats:</strong>{" "}
+              {event?.acceptedUsers}
             </p>
 
             <p>
-              <strong>Preu:</strong> {event?.price} €
+              <strong>Rebudjats:</strong>{" "}
+              {event?.rejectedUsers}
+            </p>
+
+            <p>
+              <strong>Accepted and Confirmed Users:</strong>{" "}
+              {event?.acceptedAndConfirmedUsers}
+            </p>
+
+            <p>
+              <strong>Dinar Dissabte:</strong> {event?.dinarDissabte}
+            </p>
+
+            <p>
+              <strong>Sopar Dissabte:</strong> {event?.soparDissabte}
+            </p>
+
+            <p>
+              <strong>Dinar Diumenge:</strong> {event?.dinarDiumenge}
             </p>
 
           </div>
