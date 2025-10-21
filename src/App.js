@@ -49,8 +49,10 @@ export default function App() {
   // } //comentada autoredirección a /hackeps
 
   // Simulación de detección de token caducado
-  setInterval(refreshToken, 1000 * 60 * 12);
-  console.log(process.env.REACT_APP_LAUNCH_PENDING);
+  useEffect(() => {
+    const intervalId = setInterval(refreshToken, 1000 * 60 * 12);
+    return () => clearInterval(intervalId); // Clear interval on component unmount
+  }, []);
 
   return (
     <div className="App overflow-x-hidden">
