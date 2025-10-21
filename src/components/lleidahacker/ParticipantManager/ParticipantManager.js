@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"; // <-- Quitado 'use' (no se usaba)
+import React, { useEffect, useState } from "react";
 import {
   hackers_participants_grouped_list,
   acceptHackerToEvent,
