@@ -19,7 +19,6 @@ const ParticipantManager = ({ eventId }) => {
         await hackers_participants_grouped_list(eventId);
 
       const calculateAge = (birthdate) => {
-        // ... (tu función de calcular edad va aquí)
         const birthDate = new Date(birthdate);
         const today = new Date();
         let age = today.getFullYear() - birthDate.getFullYear();
