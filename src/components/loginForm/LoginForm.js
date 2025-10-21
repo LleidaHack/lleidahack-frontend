@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Button from "src/components/buttons/Button";
 
-const LoginForm = ({ nextScreen, textWhite = false}) => {
+const LoginForm = ({ nextScreen, textWhite = false }) => {
   const {
     register,
     handleSubmit,

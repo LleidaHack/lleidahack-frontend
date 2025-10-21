@@ -121,28 +121,23 @@ export default function App() {
       </Router>*/}
       <Router basename="/admin">
         <Routes>
-          
-            <Route
-              path="/"
-              element={<Dashboard section={<LleidaHackerHome />} />}
-            />
-            <Route
-              path="/workgroups"
-              element={<Dashboard section={<WorkGroupsSection />} />}
-            />
-            <Route
-              path="/events"
-              element={<Dashboard section={<EventsSection />} />}
-            />
-            <Route
-              path="/administration"
-              element={<Dashboard section={<AdminSection />} />}
-            />
-            <Route
-              path="/login"
-              element={<LoginAdmin />}
-            />
-          
+          <Route
+            path="/"
+            element={<Dashboard section={<LleidaHackerHome />} />}
+          />
+          <Route
+            path="/workgroups"
+            element={<Dashboard section={<WorkGroupsSection />} />}
+          />
+          <Route
+            path="/events"
+            element={<Dashboard section={<EventsSection />} />}
+          />
+          <Route
+            path="/administration"
+            element={<Dashboard section={<AdminSection />} />}
+          />
+          <Route path="/login" element={<LoginAdmin />} />
         </Routes>
       </Router>
     </div>
