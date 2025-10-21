@@ -70,8 +70,7 @@ const Dashboard = ({ section }) => {
   }
   if (!isLoading) {
     if (!isVerified) {
-      //This condition normaly is !isVerified but deleted to test the login
-      navigate("login");
+      navigate("/login");
     } else {
       return (
         <div className="overflow-hidden h-screen">
