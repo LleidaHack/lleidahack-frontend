@@ -16,7 +16,7 @@ const EventsSection = () => {
               id: event.id,
               name: event.name,
               image:
-                typeof event.image === "" && event.image !== null
+                event.image !== "" && event.image !== null
                   ? event.image
                   : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFKgvarWlqKjAQnDri0VqZC2XlyuOl_L8HVQ&s",
               type: event.type || "hackeps",
