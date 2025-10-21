@@ -37,7 +37,8 @@ import EventsSection from "./components/lleidahacker/Sections/EventsSection";
 import AdminSection from "./components/lleidahacker/Sections/AdminSection";
 import WaitingPage from "./pages/hackeps/WaitingPage";
 import ContacteMentor from "./pages/hackeps/ContacteMentor";
-import LoginAdmin from "src/pages/Administrator/LoginAdmin";
+import LoginAdmin from "src/pages/Administrator/LoginAdmin";import EventDetail from "src/components/lleidahacker/Sections/EventDetail";
+
 export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0); // Hace el scroll hacia arriba cuando cambia de página
@@ -122,7 +123,7 @@ export default function App() {
       <Router basename="/admin">
         <Routes>
           <Route
-            path="/"
+            index
             element={<Dashboard section={<LleidaHackerHome />} />}
           />
           <Route
@@ -132,6 +133,10 @@ export default function App() {
           <Route
             path="/events"
             element={<Dashboard section={<EventsSection />} />}
+          />
+          <Route
+            path="/event/:eventId"
+            element={<Dashboard section={<EventDetail />} />}
           />
           <Route
             path="/administration"

@@ -4,11 +4,12 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import PopupBody from "src/components/emergentPopup/PopupBody";
 import ParticipantManager from "src/components/lleidahacker/ParticipantManager/ParticipantManager";
+import { getEventById, getEventStatus } from "src/services/EventService";
 
 const EventDetail = () => {
   // Get eventId from URL params
   const navigate = useNavigate();
-  const { eventId: eventId } = useParams();
+  const { eventId } = useParams();
   const [event, setEvent] = useState(null);
   const [img, setImg] = useState(null);
   const [title, setTitle] = useState(null);
@@ -18,19 +19,22 @@ const EventDetail = () => {
 
   useEffect(() => {
     // Simulate fetching event data
-    const fetchedEvent = {
-      id: 1,
-      title: "Hackeps 2023",
-      description: "Hackeps 2023 esdeveniment de programació",
-      creationDate: "2023-10-01",
-      img: "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/637/629/datas/original.png",
+    const fetchEvent = async () => {
+      const fetchedEvent = await getEventById(eventId);
+      const eventStatus = await getEventStatus(eventId);
+      fetchedEvent.status = eventStatus.groups;
+      fetchedEvent.registeredUsers = eventStatus.registratedUsers;
+      fetchedEvent.participants = eventStatus.participatingUsers;
+      fetchedEvent.acceptedAndConfirmedUsers = eventStatus.acceptedAndConfirmedUsers;
+      setEvent(fetchedEvent);
+      setImg(fetchedEvent.image);
+      setTitle(fetchedEvent.name);
+      setDescription(fetchedEvent.description);
+      console.log(fetchedEvent);
     };
 
-    setEvent(fetchedEvent);
-    setImg(fetchedEvent.img);
-    setTitle(fetchedEvent.title);
-    setDescription(fetchedEvent.description);
-  }, []);
+    fetchEvent();
+  }, [eventId]);
 
   function openPopup() {
     // Aquí puedes abrir el popup para crear un nuevo evento
@@ -65,33 +69,38 @@ const EventDetail = () => {
               Detalls de l'esdeveniment
             </h2>
             <p>
-              <strong>Data de creació:</strong> {event?.creationDate}
-            </p>
-            <p>
               <strong>Ubicació:</strong> {event?.location}
             </p>
+
             <p>
-              <strong>Durada:</strong> {event?.duration}
+              <strong>Max.Participants:</strong> {event?.max_participants}
             </p>
+
             <p>
-              <strong>Max Participants:</strong> {event?.maxParticipants}
+              <strong>Registered Users:</strong> {event?.registeredUsers}
             </p>
+
             <p>
               <strong>Participants:</strong> {event?.participants}
             </p>
+            
             <p>
-              <strong>Max sponsors</strong>
-              {event?.maxSponsors}
+              <strong>Groups:</strong> {event?.groups}
+            </p>
+
+            <p>
+              <strong>Accepted and Confirmed Users:</strong>{" "}
+              {event?.acceptedAndConfirmedUsers}
             </p>
             <p>
-              <strong>Sponsors:</strong> {event?.sponsors}
+              <strong>Max.sponsors:</strong>
+              {event?.max_sponsors}
             </p>
+
             <p>
-              <strong>Data Inici inscripcions:</strong> {event?.joindDate}
+              <strong>Preu:</strong> {event?.price} €
             </p>
-            <p>
-              <strong>Data Fi inscripcions:</strong> {event?.endJoinDate}
-            </p>
+
           </div>
           <div className="participants my-8">
             <h2 className="text-3xl font-bold mb-4">Participants</h2>

@@ -46,50 +46,59 @@ const ParticipantManager = ({eventId}) => {
             return (
               <tr key={participant.id}>
               <td className="py-2 px-4 border-b text-center">
-                <span
-                className={`inline-block px-3 py-1 rounded font-semibold ${boxColor}`}
-                style={{ color: "#000" }}
-                >
-                {participant.status.charAt(0).toUpperCase() + participant.status.slice(1)}
-                </span>
+              <span
+              className={`inline-block px-3 py-1 rounded font-semibold ${boxColor}`}
+              style={{ color: "#000" }}
+              >
+              {participant.status.charAt(0).toUpperCase() + participant.status.slice(1)}
+              </span>
               </td>
               <td className="py-2 px-4 border-b text-left">{participant.name}</td>
               <td
-                className={`py-2 px-4 border-b text-right ${participant.age < 18 ? "text-red-500" : ""}`}
+              className={`py-2 px-4 border-b text-right ${participant.age < 18 ? "text-red-500" : ""}`}
               >
-                {participant.age}
+              {participant.age}
               </td>
               <td className="py-2 px-4 border-b text-center">
-                {participant.foodRestrictions && participant.foodRestrictions !== "None" ? "Yes" : "No"}
+              {participant.foodRestrictions && participant.foodRestrictions !== "None" ? (
+                <span
+                className="cursor-pointer underline"
+                title={participant.foodRestrictions}
+                >
+                Yes
+                </span>
+              ) : (
+                "No"
+              )}
               </td>
               <td className="py-2 px-4 border-b text-left">{participant.group || "-"}</td>
               <td className="py-2 px-4 border-b text-center">
-                <div className="flex justify-center gap-2">
-                  <button
-                    className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded"
-                    onClick={() => {
-                      setAllParticipants(prev =>
-                        prev.map(p =>
-                          p.id === participant.id ? { ...p, status: "accepted" } : p
-                        )
-                      );
-                    }}
-                  >
-                    Accept
-                  </button>
-                  <button
-                    className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded"
-                    onClick={() => {
-                      setAllParticipants(prev =>
-                        prev.map(p =>
-                          p.id === participant.id ? { ...p, status: "rejected" } : p
-                        )
-                      );
-                    }}
-                  >
-                    Reject
-                  </button>
-                </div>
+              <div className="flex justify-center gap-2">
+                <button
+                className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded"
+                onClick={() => {
+                  setAllParticipants(prev =>
+                  prev.map(p =>
+                    p.id === participant.id ? { ...p, status: "accepted" } : p
+                  )
+                  );
+                }}
+                >
+                Accept
+                </button>
+                <button
+                className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded"
+                onClick={() => {
+                  setAllParticipants(prev =>
+                  prev.map(p =>
+                    p.id === participant.id ? { ...p, status: "rejected" } : p
+                  )
+                  );
+                }}
+                >
+                Reject
+                </button>
+              </div>
               </td>
               </tr>
             );
