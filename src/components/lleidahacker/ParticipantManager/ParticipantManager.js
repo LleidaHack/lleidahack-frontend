@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"; // <-- Quitado 'use' (no se usaba)
-import { hackers_participants_grouped_list } from "src/services/EventService";
+import { hackers_participants_grouped_list, acceptHackerToEvent, rejectHackerToEvent, unacceptHackerToEvent } from "src/services/EventService";
+
 
 const ParticipantManager = ({ eventId }) => {
   // --- Estados ---
@@ -153,61 +154,73 @@ const ParticipantManager = ({ eventId }) => {
             else if (participant.status === "rejected") boxColor = "bg-red-400";
             return (
               <tr key={participant.id}>
-                <td className="py-2 px-4 border-b text-center">
-                  <span
-                    className={`inline-block px-3 py-1 rounded font-semibold ${boxColor}`}
-                    style={{ color: "#000" }}
-                  >
-                    {participant.status.charAt(0).toUpperCase() + participant.status.slice(1)}
-                  </span>
-                </td>
-                <td className="py-2 px-4 border-b text-left">{participant.name}</td>
-                <td
-                  className={`py-2 px-4 border-b text-right ${participant.age < 18 ? "text-red-500" : ""}`}
+              <td className="py-2 px-4 border-b text-center">
+                <span
+                className={`inline-block px-3 py-1 rounded font-semibold ${boxColor}`}
+                style={{ color: "#000" }}
                 >
-                  {participant.age}
-                </td>
-                <td className="py-2 px-4 border-b text-center">
-                  {participant.foodRestrictions && participant.foodRestrictions !== "None" ? (
-                    <span
-                      className="cursor-pointer underline"
-                      title={participant.foodRestrictions}
-                    >
-                      Yes
-                    </span>
-                  ) : (
-                    "No"
-                  )}
-                </td>
-                <td className="py-2 px-4 border-b text-left">{participant.group || "-"}</td>
-                <td className="py-2 px-4 border-b text-center">
-                  <div className="flex justify-center gap-2">
-                    <button
-                      className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded"
-                      onClick={() => {
-                        setAllParticipants(prev =>
-                          prev.map(p =>
-                            p.id === participant.id ? { ...p, status: "accepted" } : p
-                          )
-                        );
-                      }}
-                    >
-                      Accept
-                    </button>
-                    <button
-                      className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded"
-                      onClick={() => {
-                        setAllParticipants(prev =>
-                          prev.map(p =>
-                            p.id === participant.id ? { ...p, status: "rejected" } : p
-                          )
-                        );
-                      }}
-                    >
-                      Reject
-                    </button>
-                  </div>
-                </td>
+                {participant.status.charAt(0).toUpperCase() + participant.status.slice(1)}
+                </span>
+              </td>
+              <td className="py-2 px-4 border-b text-left">{participant.name}</td>
+              <td
+                className={`py-2 px-4 border-b text-right ${participant.age < 18 ? "text-red-500" : ""}`}
+              >
+                {participant.age}
+              </td>
+              <td className="py-2 px-4 border-b text-center">
+                {participant.foodRestrictions && participant.foodRestrictions !== "None" ? (
+                <span
+                  className="cursor-pointer underline"
+                  title={participant.foodRestrictions}
+                >
+                  Yes
+                </span>
+                ) : (
+                "No"
+                )}
+              </td>
+              <td className="py-2 px-4 border-b text-left">{participant.group || "-"}</td>
+              <td className="py-2 px-4 border-b text-center">
+                <div className="flex justify-center gap-2">
+                <button
+                  className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded"
+                  onClick={async () => {
+                  const success = await acceptHackerToEvent(participant.id, eventId);
+                  if (success) {
+                    setAllParticipants(prev =>
+                    prev.map(p =>
+                      p.id === participant.id ? { ...p, status: "accepted" } : p
+                    )
+                    );
+                  }
+                  }}
+                >
+                  Accept
+                </button>
+                <button
+                  className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded"
+                  onClick={async () => {
+                    let success = true;
+                    if (participant.status === "accepted") {
+                      success = await unacceptHackerToEvent(participant.id, eventId);
+                    }
+                    if (success) {
+                      success = await rejectHackerToEvent(participant.id, eventId);
+                    }
+                  if (success) {
+                    setAllParticipants(prev =>
+                    prev.map(p =>
+                      p.id === participant.id ? { ...p, status: "rejected" } : p
+                    )
+                    );
+                  }
+                  }}
+                >
+                  Reject
+                </button>
+                </div>
+              </td>
               </tr>
             );
           })}

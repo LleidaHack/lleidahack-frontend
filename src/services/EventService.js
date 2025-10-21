@@ -229,6 +229,14 @@ export async function acceptHackerToEvent(hacker_id, event_id) {
   });
 }
 
+export async function unacceptHackerToEvent(hacker_id, event_id) {
+  return fetchPlus({
+    Url: `/event/${event_id}/unaccept/${hacker_id}`,
+    Method: "PUT",
+    hasUserauth: true,
+  });
+}
+
 export async function rejectHackerToEvent(hacker_id, event_id) {
   return fetchPlus({
     Url: `/event/${event_id}/reject/${hacker_id}`,
