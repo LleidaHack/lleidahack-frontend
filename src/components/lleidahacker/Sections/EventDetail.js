@@ -27,7 +27,8 @@ const EventDetail = () => {
       fetchedEvent.acceptedUsers = eventStatus.acceptedUsers;
       fetchedEvent.rejectedUsers = eventStatus.rejectedUsers;
       fetchedEvent.participants = eventStatus.participatingUsers;
-      fetchedEvent.acceptedAndConfirmedUsers = eventStatus.acceptedAndConfirmedUsers;
+      fetchedEvent.acceptedAndConfirmedUsers =
+        eventStatus.acceptedAndConfirmedUsers;
       fetchedEvent.dinarDissabte = eventStatus["Dinar Dissabte"];
       fetchedEvent.soparDissabte = eventStatus["Sopar Dissabte"];
       fetchedEvent.dinarDiumenge = eventStatus["Dinar Diumenge"];
@@ -93,19 +94,17 @@ const EventDetail = () => {
             <p>
               <strong>Registered Users:</strong> {event?.registeredUsers}
             </p>
-            
+
             <p>
               <strong>Groups:</strong> {event?.groups}
             </p>
 
             <p>
-              <strong>Acceptats:</strong>{" "}
-              {event?.acceptedUsers}
+              <strong>Acceptats:</strong> {event?.acceptedUsers}
             </p>
 
             <p>
-              <strong>Rebudjats:</strong>{" "}
-              {event?.rejectedUsers}
+              <strong>Rebudjats:</strong> {event?.rejectedUsers}
             </p>
 
             <p>
@@ -124,7 +123,6 @@ const EventDetail = () => {
             <p>
               <strong>Dinar Diumenge:</strong> {event?.dinarDiumenge}
             </p>
-
           </div>
           <div className="participants my-8">
             <h2 className="text-3xl font-bold mb-4">Participants</h2>
@@ -133,13 +131,13 @@ const EventDetail = () => {
               white
               onClick={() => setShowParticipants(!showParticipants)}
             >
-              {showParticipants ? "Ocultar Participants" : "Mostrar Participants"}
+              {showParticipants
+                ? "Ocultar Participants"
+                : "Mostrar Participants"}
             </ButtonLleidahack>
             {showParticipants && (
               <div className="w-full px-4 py-5">
-                <ParticipantManager
-                  eventId={eventId}
-                />
+                <ParticipantManager eventId={eventId} />
               </div>
             )}
           </div>

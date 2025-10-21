@@ -37,7 +37,8 @@ import EventsSection from "./components/lleidahacker/Sections/EventsSection";
 import AdminSection from "./components/lleidahacker/Sections/AdminSection";
 import WaitingPage from "./pages/hackeps/WaitingPage";
 import ContacteMentor from "./pages/hackeps/ContacteMentor";
-import LoginAdmin from "src/pages/Administrator/LoginAdmin";import EventDetail from "src/components/lleidahacker/Sections/EventDetail";
+import LoginAdmin from "src/pages/Administrator/LoginAdmin";
+import EventDetail from "src/components/lleidahacker/Sections/EventDetail";
 
 export default function App() {
   useEffect(() => {
@@ -124,10 +125,7 @@ export default function App() {
       </Router>*/}
       <Router basename="/admin">
         <Routes>
-          <Route
-            index
-            element={<Dashboard section={<LleidaHackerHome />} />}
-          />
+          <Route index element={<Dashboard section={<LleidaHackerHome />} />} />
           <Route
             path="/workgroups"
             element={<Dashboard section={<WorkGroupsSection />} />}
