@@ -37,6 +37,8 @@ import EventsSection from "./components/lleidahacker/Sections/EventsSection";
 import AdminSection from "./components/lleidahacker/Sections/AdminSection";
 import WaitingPage from "./pages/hackeps/WaitingPage";
 import ContacteMentor from "./pages/hackeps/ContacteMentor";
+import LoginAdmin from "src/pages/Administrator/LoginAdmin";
+import EventDetail from "src/components/lleidahacker/Sections/EventDetail";
 
 export default function App() {
   useEffect(() => {
@@ -48,8 +50,10 @@ export default function App() {
   // } //comentada autoredirección a /hackeps
 
   // Simulación de detección de token caducado
-  setInterval(refreshToken, 1000 * 60 * 12);
-  console.log(process.env.REACT_APP_LAUNCH_PENDING);
+  useEffect(() => {
+    const intervalId = setInterval(refreshToken, 1000 * 60 * 12);
+    return () => clearInterval(intervalId); // Clear interval on component unmount
+  }, []);
 
   return (
     <div className="App overflow-x-hidden">
@@ -118,13 +122,10 @@ export default function App() {
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
           <Route path="/noticies" element={<NoticiesLanding />} />
         </Routes>
-      </Router>
+      </Router>*/}
       <Router basename="/admin">
         <Routes>
-          <Route
-            path="/"
-            element={<Dashboard section={<LleidaHackerHome />} />}
-          />
+          <Route index element={<Dashboard section={<LleidaHackerHome />} />} />
           <Route
             path="/workgroups"
             element={<Dashboard section={<WorkGroupsSection />} />}
@@ -134,11 +135,16 @@ export default function App() {
             element={<Dashboard section={<EventsSection />} />}
           />
           <Route
+            path="/event/:eventId"
+            element={<Dashboard section={<EventDetail />} />}
+          />
+          <Route
             path="/administration"
             element={<Dashboard section={<AdminSection />} />}
           />
+          <Route path="/login" element={<LoginAdmin />} />
         </Routes>
-      </Router>*/}
+      </Router>
     </div>
   );
 }

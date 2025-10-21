@@ -34,10 +34,8 @@ const LoginForm = ({ nextScreen, textWhite = false }) => {
         if (nextScreen) {
           navigate(nextScreen);
         } else navigate("/home");
-      } else if (a.errCode === 401) {
-        setErrorText("Contrasenya incorrecta");
-      } else if (a.errCode === 404) {
-        setErrorText("E-mail no trobat");
+      } else if (a.errCode === 401 || a.errCode === 404) {
+        setErrorText("Contrasenya o correu incorrectes");
       }
     } catch (error) {
       console.error("Login error:", error);
