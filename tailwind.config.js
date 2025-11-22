@@ -59,6 +59,7 @@ module.exports = {
       "background-cartellB": "url('/src/assets/Cartell B.png')",
       "background-cartellC": "url('/src/assets/Cartell C.png')",
       "background-cartellD": "url('/src/assets/Cartell D.png')",
+      'background-garabato': "url('/src/assets/img/garabato.png')",
     },
   },
   plugins: [],
