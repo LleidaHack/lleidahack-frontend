@@ -2,6 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import { useEffect, useState } from "react";
 import Button from "src/components/buttons/Button";
 import hackLogo from "src/icons/banner_home_icon.png";
+import garabato from "src/assets/img/garabato.png";
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
 
@@ -12,6 +13,12 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
   const handleClose = () => setShow(false);
 
   async function handleShow() {
+
+    if (hackDay) {
+      window.location.href = "https://live.lleidahack.dev";
+      return;
+    }
+
     if (refresh) {
       window.location.reload();
       return;
@@ -68,7 +75,7 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
           today.getDate() === eventDay.getDate(),
       )
     ) {
-      setTextButton("Hacking..");
+      setTextButton("Live Page..");
       setHackDay(true);
     }
   }, []);
@@ -87,11 +94,26 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
           <Button
             onClick={handleShow}
             className={
-              "bg-red-500 text-white hover:bg-primaryHackeps duration-1 relative z-50"
+              "bg-transparent text-white hover:bg-transparent duration-1 relative z-50"
             }
             outline
           >
-            {textButton}
+            <div
+              className="bg-no-repeat w-72 flex items-end justify-center hover:scale-105 duration-300"
+              style={{
+                backgroundImage: `url(${garabato})`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                scale: "1.7",
+
+              }}
+            >
+              <p className="px-4 mt-3 py-3">
+                {textButton}
+
+              </p>
+            </div>
           </Button>
         </div>
       </div>
