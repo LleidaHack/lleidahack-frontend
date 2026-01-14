@@ -1,134 +1,157 @@
-.valerre {
-  width: 100%;
-  min-height: 100vh;
-  justify-content: center;
+/* Animación personalizada para la barra de loading - MÁXIMO 75% con reset */
+.loading-bar-fill {
+  width: 0%;
+  animation: loadingProgress 6s ease-out infinite;
 }
 
-.valerre .loader {
-  display: flex;
-  justify-content: center;
-}
-.valerre .loader:before {
-  content: "";
-  display: block;
-}
-
-.circular-loader {
-  -webkit-animation: rotate 2s linear infinite;
-  animation: rotate 2s linear infinite;
-
-  -webkit-transform-origin: center center;
-  -ms-transform-origin: center center;
-  transform-origin: center center;
-  width: 15%;
-
-  margin: 5% auto;
-}
-
-.loader-path {
-  stroke-dasharray: 150, 200;
-  stroke-dashoffset: -10;
-  -webkit-animation:
-    dash 1.5s ease-in-out infinite,
-    color 6s ease-in-out infinite;
-  animation:
-    dash 1.5s ease-in-out infinite,
-    color 6s ease-in-out infinite;
-  stroke-linecap: round;
-}
-
-@-webkit-keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes dash {
+@keyframes loadingProgress {
   0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124;
-  }
-}
-@keyframes dash {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124;
-  }
-}
-@-webkit-keyframes color {
-  0% {
-    stroke: var(--primary);
-  }
-  40% {
-    stroke: var(--primary);
-  }
-  66% {
-    stroke: var(--primary);
-  }
-  80%,
-  90% {
-    stroke: var(--primary);
-  }
-}
-@keyframes color {
-  0% {
-    stroke: var(--primary);
-  }
-  40% {
-    stroke: var(--primary);
-  }
-  66% {
-    stroke: var(--primary);
-  }
-  80%,
-  90% {
-    stroke: var(--primary);
-  }
-}
-
-@keyframes ellipsis {
-  0%,
-  20% {
-    content: ".";
-  }
-  40% {
-    content: "..";
+    width: 0%;
   }
   60% {
-    content: "...";
+    width: 65%;
   }
-  80%,
+  85% {
+    width: 75%;
+  }
   100% {
-    content: "   ";
+    width: 0%; /* Se resetea al final */
   }
 }
 
-.ellipsis-dots::after {
-  content: "";
-  display: inline-block;
-  width: 3em; /* Ajusta según sea necesario */
-  animation: ellipsis 4s infinite steps(4);
+/* Animación para que la ola se desplace horizontalmente */
+.ola-movement {
+  animation: ola-move 6s linear infinite;
+}
+
+@keyframes ola-move {
+  0% {
+    transform: translateX(-25vw);
+  }
+  100% {
+    transform: translateX(95vw);
+  }
+}
+
+/* Animación individual para cada pato cuando les llega la ola */
+.duck-bounce-1 {
+  animation: duck-jump-1 6s linear infinite;
+}
+
+.duck-bounce-2 {
+  animation: duck-jump-2 6s linear infinite;
+}
+
+.duck-bounce-3 {
+  animation: duck-jump-3 6s linear infinite;
+}
+
+@keyframes duck-jump-1 {
+  0% {
+    transform: translateY(0px);
+  }
+  18% {
+    transform: translateY(0px);
+  }
+  29% {
+    transform: translateY(-65px); /* Primer pato salta primero */
+  }
+  39% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes duck-jump-2 {
+  0% {
+    transform: translateY(0px);
+  }
+  28% {
+    transform: translateY(0px);
+  }
+  36% {
+    transform: translateY(-68px); /* Pato central salta en el medio */
+  }
+  46% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes duck-jump-3 {
+  0% {
+    transform: translateY(0px);
+  }
+  35% {
+    transform: translateY(0px);
+  }
+  44% {
+    transform: translateY(-70px); /* Tercer pato salta al final */
+  }
+  55% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 768px) {
+  @keyframes duck-jump-1 {
+    0% {
+      transform: translateY(0px);
+    }
+    9% {
+      transform: translateY(0px);
+    }
+    20% {
+      transform: translateY(-28px); /* Menos salto en móvil */
+    }
+    34% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes duck-jump-2 {
+    0% {
+      transform: translateY(0px);
+    }
+    27% {
+      transform: translateY(0px);
+    }
+    40% {
+      transform: translateY(-29px);
+    }
+    53% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes duck-jump-3 {
+    0% {
+      transform: translateY(0px);
+    }
+    46% {
+      transform: translateY(0px);
+    }
+    59% {
+      transform: translateY(-33px);
+    }
+    73% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
 }
