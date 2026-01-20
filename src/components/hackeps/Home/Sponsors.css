@@ -1,0 +1,40 @@
+.sponsors {
+  width: 100vw;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  font-size: 50px;
+  font-family: "space mono";
+  justify-content: center;
+  text-align: center;
+}
+
+.sponsors p {
+  font-size: 0.3em;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.gostHunter {
+  position: relative;
+  top: -9.4vh;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ajusta la imagen al formato de la caja */
+}
+
+.sponsor-group-group-1 {
+  max-width: 20rem;
+}
+
+.sponsor-group-group-2 {
+  max-width: 13rem;
+}
+
+.sponsor-group-group-3 {
+  max-width: 10rem;
+}

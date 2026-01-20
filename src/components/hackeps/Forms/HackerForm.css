@@ -1,0 +1,58 @@
+.custom-form {
+  justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: top;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 576px) {
+  .custom-form {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+}
+
+label {
+  color: var(--text-secondary);
+}
+
+.stepper-horizontal {
+  color: var(--text-secondary);
+}
+.stepper-step.active-step {
+  color: var(--primary);
+}
+
+.stepper-horizontal .stepper-step.active-step .stepper-title {
+  color: var(--primary) !important;
+}
+
+.hacker-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hacker-panel-title {
+  text-align: center;
+  padding: 20px 0 10px 0;
+  color: var(--text-secondary);
+  font-size: 30px;
+  font-weight: regular;
+}
+
+.input-error {
+  color: red !important;
+}
+
+.avatar-image {
+  border-style: solid;
+  border-color: var(--primary);
+  border-width: 5px;
+}
+
+.stepper-horizontal > .stepper-step {
+  flex-shrink: 0;
+}

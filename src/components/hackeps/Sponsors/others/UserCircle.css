@@ -1,0 +1,81 @@
+.circle-item {
+  position: relative;
+  width: 28%;
+  height: auto;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 3%;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  white-space: normal;
+  text-align: center;
+  flex: 0 0 auto;
+  margin-left: 30px;
+  margin-right: 5px;
+  transition:
+    transform 0.6s ease,
+    scale 0.6s ease; /* Combina ambas transiciones */
+  cursor: default;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  min-width: 210px;
+}
+
+@media (max-width: 768px) {
+  .circle-item {
+    width: 35%; /* Ancho mayor en pantallas más pequeñas */
+    margin-left: 10px; /* Ajustar margen para centrar en pantallas pequeñas */
+    margin-right: 10px; /* Ajustar margen para centrar en pantallas pequeñas */
+    margin-top: 10px; /* Reducir margen superior en pantallas pequeñas */
+    margin-bottom: 10px; /* Reducir margen inferior en pantallas pequeñas */
+    min-width: none;
+    scale: 0.9;
+  }
+}
+
+.circle-item:hover {
+  transform: translate(-10px, -10px);
+  z-index: 1000;
+  scale: 1.2;
+  transition-delay: 0.2s; /* No hay retraso para el elemento activo */
+}
+
+.popup-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  align-content: center;
+  display: inline-flex;
+  margin-top: 10px;
+  cursor: default;
+}
+
+.popup-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  cursor: default;
+}
+
+.popup-description {
+  text-align: center;
+  font-size: 0.8rem;
+  margin: 10px;
+}
+
+.popup::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilos para el "track" (fondo de la barra de desplazamiento) */
+.popup::-webkit-scrollbar-track {
+  background-color: transparent; /* Fondo transparente */
+}
+
+/* Estilos para el "thumb" (la parte arrastrable de la barra de desplazamiento) */
+.popup::-webkit-scrollbar-thumb {
+  background-color: #ff9900; /* Color de la barra de desplazamiento */
+  border-radius: 10px; /* Hace que la barra sea redondeada */
+}

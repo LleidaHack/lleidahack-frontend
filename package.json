@@ -6,8 +6,8 @@
     "@emotion/css": "^11.10.6",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@gsap/react": "^2.1.2",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "10.4.5",
     "base-64": "^1.0.0",
@@ -17,18 +17,17 @@
     "dayjs": "^1.11.5",
     "dotenv": "^16.3.1",
     "events": "^3.3.0",
-    "formik": "^2.2.9",
-    "formik-stepper": "^2.2.1",
+    "gsap": "^3.13.0",
     "lodash.debounce": "^4.0.8",
     "moment": "^2.29.4",
     "prettier": "^3.0.1",
     "qrcode.react": "^3.1.0",
     "react": "^18.1.0",
     "react-bootstrap": "^2.8.0",
-    "react-calendar": "^3.7.0",
     "react-content-loader": "^6.2.1",
     "react-dom": "^18.1.0",
     "react-file-base64": "^1.0.3",
+    "react-hook-form": "^7.54.2",
     "react-icons": "^4.4.0",
     "react-loading-skeleton": "^3.3.1",
     "react-router-dom": "^6.3.0",
@@ -36,9 +35,9 @@
     "react-scripts": "^5.0.1",
     "react-scroll": "^1.8.7",
     "react-select": "^5.7.4",
-    "react-vertical-timeline-component": "^3.5.2",
-    "web-vitals": "^2.1.4",
-    "yup": "^1.2.0"
+    "react-vertical-timeline-component": "^3.6.0",
+    "tailwind": "^4.0.0",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -65,5 +64,10 @@
       "last 1 safari version"
     ]
   },
-  "homePage": "/hackeps"
+  "homePage": "/hackeps",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.2.0",
+    "tailwindcss": "^3.4.3"
+  }
 }

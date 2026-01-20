@@ -1,0 +1,11 @@
+.valerr {
+  max-width: 100%;
+  min-height: 100vh;
+  padding: 0.1vh;
+}
+
+.iconBox {
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}

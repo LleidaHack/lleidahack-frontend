@@ -1,0 +1,59 @@
+@media (min-width: 576px) {
+  .qr-container {
+    height: 100%;
+    width: 40% !important;
+  }
+
+  .qr-container img {
+    padding-top: 30px;
+    width: 70%;
+  }
+
+  .bottom-container {
+    width: 50%;
+  }
+
+  .join-container {
+    width: 35% !important;
+  }
+}
+
+.qr-container:hover {
+  cursor: pointer;
+}
+
+.editSpace {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.editAjust {
+  width: 50%;
+}
+
+.sort-horizontally {
+  display: flex;
+  justify-content: center;
+}
+
+.main-screen {
+  min-height: 100vh;
+}
+
+.file-input-container input[type="file" i]::-webkit-file-upload-button {
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .peter {
+    max-width: 90%;
+    text-align: center;
+  }
+  .sort-horizontally {
+    display: inline;
+  }
+  .editAjust {
+    width: 100%;
+  }
+}

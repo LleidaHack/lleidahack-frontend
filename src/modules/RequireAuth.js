@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { checkToken } from "src/services/AuthenticationService";
-import Header from "src/components/Header/Header";
-import Footer from "src/components/Footer/Footer";
-import LoadSection from "src/components/LoadSection/Loadsection";
+import Header from "src/components/hackeps/Header/Header";
+import Footer from "src/components/hackeps/Footer/Footer";
+import LoadSection from "src/components/hackeps/LoadSection/Loadsection";
 
 export default function RequireAuth({ children, originalRoute }) {
   let { hacker_id } = useParams();

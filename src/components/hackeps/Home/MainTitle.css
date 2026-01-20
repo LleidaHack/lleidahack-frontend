@@ -1,0 +1,83 @@
+.main-title {
+  width: 100vw;
+  max-width: 100%;
+  height: 20vh;
+  max-height: 50%;
+}
+
+.main-title-image {
+  width: 50px;
+  height: auto;
+}
+
+.no-border {
+  border: none;
+}
+
+.center-elements {
+  display: flex;
+  justify-content: center;
+}
+
+.fantasma {
+  position: relative;
+  top: -1000px;
+}
+
+.backgrounder {
+  background-image: url(src/icons/banner_home.png);
+  background-size: cover;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.imagelogo {
+  justify-content: center;
+  text-align: center;
+}
+
+.rowe {
+  display: flex; /* O cualquier otro estilo que necesites */
+  justify-content: center;
+  margin-bottom: 1vw;
+  height: 38vh;
+  margin-bottom: 2rem;
+}
+
+.join-button {
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .rowe {
+    height: 24vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .imagelogo {
+    height: 36vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .join-button {
+    justify-content: flex-end; /* Empuja el botón hacia la parte inferior */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding-top: 10vh;
+  }
+}
+
+.magic_div {
+  padding-top: 5vh;
+  width: 100%;
+  overflow: hidden;
+  max-height: 50vh;
+}

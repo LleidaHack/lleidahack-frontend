@@ -1,0 +1,100 @@
+import React, { useState, useEffect } from "react";
+import isla from "src/assets/img/isla.png";
+import barco from "src/assets/img/barco.png";
+import hackLogo from "src/assets/img/logoHackeps2025.png";
+import nube from "src/assets/img/nuve.png";
+import nubeClouding from "src/assets/img/nuveClouding.png";
+import "./Waiting.css";
+
+const Waiting = () => {
+  // Helper to generate random speed and width
+  const [isPhone, setIsPhone] = useState(false);
+
+  useEffect(() => {
+    const checkIsPhone = () => {
+      setIsPhone(window.innerWidth <= 768);
+    };
+    checkIsPhone();
+  });
+
+  const getRandomProps = (phone) => {
+    let calculatedWidth = Math.random() * 10 + 10;
+    if (phone) {
+      calculatedWidth = calculatedWidth * 2;
+    }
+    return {
+      duration: Math.random() * 50 + 80, // 80s to 130s
+      width: calculatedWidth, // 10vw to 20vw
+      top: Math.random() * 10 + 3, // 5vh to 35vh
+    };
+  };
+
+  // Generate clouds with random props
+  const clouds = Array.from({ length: 4 }).map((_, i) =>
+    getRandomProps(isPhone),
+  );
+
+  return (
+    <div className="w-full h-screen flex bg-blueSky overflow-hidden scrollbar-hide relative">
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        {clouds.map((cloud, idx) => (
+          <Cloud
+            key={idx}
+            src={idx === clouds.length - 1 ? nubeClouding : nube}
+            duration={cloud.duration}
+            width={cloud.width}
+            top={cloud.top}
+            delay={Math.random() * cloud.duration}
+          />
+        ))}
+      </div>
+
+      {/* Logo centrado */}
+      <div className="absolute inset-0 flex flex-col gap-4 items-center justify-center z-10">
+        <img className="w-4/12 md:w-2/12" src={hackLogo} alt="logo hackeps" />
+        <p className="text-3xl md:text-5xl font-bold text-primaryHackeps">
+          Pròximament...
+        </p>
+      </div>
+
+      {/* Isla en el lado derecho */}
+      <div className="absolute bottom-20 md:bottom-28 lg:bottom-24 right-0 hidden md:flex items-end justify-end h-full z-10">
+        <img src={isla} className="w-3/12" alt="isla" />
+      </div>
+
+      {/* Barco */}
+      <div className="absolute bottom-32 sm:bottom-32 md:bottom-36 lg:bottom-32 flex items-end h-full z-20 pointer-events-none">
+        <img
+          src={barco}
+          className="w-7/12 sm:w-5/12 md:w-3/12 shipMovement"
+          alt="barco"
+        />
+      </div>
+
+      {/* Olas */}
+      <div className="absolute bottom-0 left-0 overflow-hidden w-full z-[50] h-28 md:h-32">
+        <div className="w-full h-36 absolute bottom-0 bg-repeat-x overflow-hidden wavesSeaAnim animate-olas-scroll transform translate-y-3 md:translate-y-0 bg-contain"></div>
+      </div>
+    </div>
+  );
+};
+
+// Cloud component
+function Cloud({ src, duration, width, top, delay }) {
+  const style = {
+    position: "absolute",
+    left: "-25vw",
+    top: `${top}vh`,
+    width: `${width}vw`,
+    animation: `cloud-move ${duration}s linear infinite`,
+    animationDelay: `-${delay}s`,
+  };
+  return <img src={src} style={style} alt="nube" className=" md:w-auto" />;
+}
+
+// Add this to your CSS (e.g., Waiting.css or global styles)
+/*
+
+*/
+
+export default Waiting;

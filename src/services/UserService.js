@@ -1,5 +1,12 @@
 import { fetchPlus } from "src/modules/fetchModule";
 
+export async function getUserCount() {
+  return fetchPlus({
+    Url: "/user/count",
+    hasUserauth: true,
+  });
+}
+
 export async function getAllUsers() {
   return fetchPlus({
     Url: "/user/all",

@@ -1,3 +1,14 @@
+function b64EncodeUnicode(str) {
+  return btoa(
+    encodeURIComponent(str).replace(
+      /%([0-9A-F]{2})/g,
+      function toSolidBytes(match, p1) {
+        return String.fromCharCode("0x" + p1);
+      },
+    ),
+  );
+}
+
 export async function fetchPlus({
   Url,
   Method = "GET",
@@ -5,13 +16,22 @@ export async function fetchPlus({
   Query,
   hasUserauth = false,
   saveLoginInfo = false,
+  refresh_token = false,
   loginAuth,
+  apiVersion = 1,
+  token,
+  forceDebug = false,
 }) {
   const headers = { "Content-Type": "application/json" };
-  if (hasUserauth || loginAuth)
+  if (hasUserauth || refresh_token || loginAuth || token)
     headers.Authorization = loginAuth
-      ? "Basic " + btoa(`${loginAuth.email}:${loginAuth.password}`)
-      : "Bearer " + localStorage.getItem("userToken");
+      ? "Basic " + b64EncodeUnicode(`${loginAuth.email}:${loginAuth.password}`)
+      : "Bearer " +
+        (hasUserauth
+          ? localStorage.getItem("userToken")
+          : refresh_token
+            ? localStorage.getItem("refreshToken")
+            : token);
   const args = {
     method: Method,
     headers: headers,
@@ -20,17 +40,32 @@ export async function fetchPlus({
   let query = "";
   if (Query)
     query = `?${Object.entries(Query)
-      .map(([key, value]) => `${key}=${value}`)
+      .map(
+        ([key, value]) =>
+          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
+      )
       .join("&")}`;
-  if (process.env.REACT_APP_DEBUG === "true") console.log("headers: ", args);
-  return fetch(process.env.REACT_APP_DOMAIN + Url + query, args)
-    .then((response) => {
-      if (process.env.REACT_APP_DEBUG === "true")
+  if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
+    console.log("headers: ", args);
+  return fetch(
+    process.env.REACT_APP_DOMAIN + `/v${apiVersion}` + Url + query,
+    args,
+  )
+    .then(async (response) => {
+      if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
         console.log("response: ", response);
+      if (!response.ok) {
+        const error = await response.json();
+        return {
+          errCode: response.status,
+          errMssg: error.message,
+        };
+      }
       return response.json();
     })
     .then((data) => {
-      if (process.env.REACT_APP_DEBUG === "true") console.log("data: ", data);
+      if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
+        console.log("data: ", data);
       if (saveLoginInfo) {
         localStorage.setItem("userToken", data.access_token);
         localStorage.setItem("userID", data.user_id);
@@ -39,7 +74,13 @@ export async function fetchPlus({
       return data;
     })
     .catch((error) => {
+      if (error.message.includes("Failed to fetch")) {
+        return {
+          errCode: -1,
+          errMssg: "Network error or request failed",
+        };
+      }
       console.warn(error);
-      return [];
+      return error;
     });
 }
