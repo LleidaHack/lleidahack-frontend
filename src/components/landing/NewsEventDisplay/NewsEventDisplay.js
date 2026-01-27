@@ -1,5 +1,5 @@
 import React from "react";
-import logoLleidaHack from "../../../imgs/hackers_group.jpg";
+import logoLleidaHack from "../../../imgs/hackers_group.webp";
 import { Link } from "react-router-dom";
 const NewsEventDisplay = ({ title, imgPath, name }) => {
   // const imagePath = require(`../../../assets/img/news/${imgPath}`).default;

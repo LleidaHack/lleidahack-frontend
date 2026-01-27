@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 import logo from "src/assets/img/logo_text_llh.svg";
-import image from "src/imgs/hackers_group.jpg";
+import image from "src/imgs/hackers_group.webp";
 
 const HeroSectionHeader = () => {
   return (
