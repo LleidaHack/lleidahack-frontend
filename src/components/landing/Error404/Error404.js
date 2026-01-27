@@ -11,7 +11,7 @@ const Error404 = () => {
         La pàgina que estàs buscant no existeix als nostres servidors :({" "}
       </p>
       <Link to="/home">
-        <ButtonLleidahack primary className="py-3">
+        <ButtonLleidahack primary className="">
           Tornar a la pàgina principal
         </ButtonLleidahack>
       </Link>
