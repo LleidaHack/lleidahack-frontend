@@ -1,6 +1,5 @@
 import lleidaHackLogo from "../../../icons/imagotip_lleidahack_blanc.png";
 
-
 // Falta redirigir a las redes sociales de LleidaHack
 // Falta rediidigir politiques de privacitat, avís legal i política de cookies
 const Footer = () => {
@@ -22,12 +21,12 @@ const Footer = () => {
             </a>
           </li>
           <li className="list-none font-bold text-CTALanding text-base ">
-            Powered by {" "}
+            Powered by{" "}
             <a
-            className=" text-CTALanding text-base "
-            href="https://clouding.io/?gad_campaignid=293396317"
+              className=" text-CTALanding text-base "
+              href="https://clouding.io/?gad_campaignid=293396317"
             >
-                Clouding.io
+              Clouding.io
             </a>
           </li>
         </div>
