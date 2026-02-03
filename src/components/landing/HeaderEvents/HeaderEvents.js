@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import InputSearch from "src/components/landing/InputSearch/InputSearch";
+/*import InputSearch from "src/components/landing/InputSearch/InputSearch";*/
 import FiltersComponent from "src/components/landing/FiltersComponent/FiltersComponent";
 import HeaderEventsLinks from "src/components/landing/HeaderEvents/HeaderEventsLinks";
 
@@ -35,15 +35,16 @@ const HeaderEvents = () => {
         <h1 className="header-events__title font-medium	text-4xl">
           Esdeveniments
         </h1>
-        <div className="searcher_div my-6">
+        {/*<div className="searcher_div my-6">
           <InputSearch
             placeholder={"Cerca esdeveniments"}
             searchtype={"events"}
           />
         </div>
+
         <div className="filters_div mb-12">
           <FiltersComponent />
-        </div>
+        </div>*/}
       </div>
 
       {!onMobile && <HeaderEventsLinks />}

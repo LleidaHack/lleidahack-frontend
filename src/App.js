@@ -112,17 +112,19 @@ export default function App() {
         )}
       </Router>
 
-      {/*       <Router basename="/lleidahack">
-        <Routes>
-          <Route path="/" element={<HomeLanding />} />
-          <Route path="/home" element={<HomeLanding />} />
-          <Route path="/*" element={<Error404Landing />} />
-          <Route path="/contacte" element={<ContactLanding />} />
-          <Route path="/events" element={<EventsLanding />} />
-          <Route path="/legalinfo" element={<LegalInfoLanding />} />
-          <Route path="/noticies" element={<NoticiesLanding />} />
-        </Routes>
-      </Router>*/}
+      {
+        <Router basename="/lleidahack">
+          <Routes>
+            <Route path="/" element={<HomeLanding />} />
+            <Route path="/home" element={<HomeLanding />} />
+            <Route path="/*" element={<Error404Landing />} />
+            <Route path="/contacte" element={<ContactLanding />} />
+            <Route path="/events" element={<EventsLanding />} />
+            <Route path="/legalinfo" element={<LegalInfoLanding />} />
+            <Route path="/noticies" element={<NoticiesLanding />} />
+          </Routes>
+        </Router>
+      }
       <Router basename="/admin">
         <Routes>
           <Route index element={<Dashboard section={<LleidaHackerHome />} />} />

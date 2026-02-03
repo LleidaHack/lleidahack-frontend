@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+/*import { React, useState, useEffect } from "react";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 
 const InputSearch = ({ placeholder, searchtype }) => {
@@ -43,9 +43,11 @@ const InputSearch = ({ placeholder, searchtype }) => {
       <ButtonLleidahack primary white className="px-12">
         {itemTextButtonSearch}
       </ButtonLleidahack>
-      {/* @jonas boto reemplazar.Falta cambiar el boto per el component que hauria de ser i ficarli la funcio onclick per configurar busqueda i tal */}
+      {/* @jonas boto reemplazar.Falta cambiar el boto per el component que hauria de ser i ficarli la funcio onclick per configurar busqueda i tal }
     </div>
   );
 };
 
+/*
 export default InputSearch;
+*/
