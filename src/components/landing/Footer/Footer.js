@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className="bg-primaryLanding w-full h-auto md:px-10 py-4 md:items-center">
       <div className="flex flex-col md:flex-row justify-between md:items-center ml-5 md:ml-0">
-        <div className="hidden md:flex flex-row gap-4">
+        <div className="hidden md:block">
           <a href="/lleidahack">
             <img src={lleidaHackLogo} className="h-14 w-52" />
           </a>
