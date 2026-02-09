@@ -8,9 +8,11 @@ const HeroSectionHeader = () => {
     <div className="hero-container flex flex-col w-full bg-background-hero static min-h-0 bg-cover bg-no-repeat bg-center ">
       <div className="brightness-100 bg-black bg-opacity-50 hero-section-container z-20 px-3">
         <div className="md:px-9">
+          {/*
           <div className="logo flex-1 h-20 my-16">
             <img src={logo} alt="logo + text" />
           </div>
+          */}
           <div className="hero-content flex-1 my-16 h-32 text-CTALanding text-xl">
             <p>
               Lleidahack és una associació d’estudiants de la Universitat de
