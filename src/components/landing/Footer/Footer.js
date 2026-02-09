@@ -23,7 +23,7 @@ const Footer = () => {
           <li className="list-none font-bold text-CTALanding text-base ">
             Powered by{" "}
             <a
-              className=" text-CTALanding text-base "
+              className=" text-CTALanding text-base no-underline"
               href="https://clouding.io/?gad_campaignid=293396317"
             >
               Clouding.io
