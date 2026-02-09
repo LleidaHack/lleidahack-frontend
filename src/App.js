@@ -112,7 +112,7 @@ export default function App() {
         )}
       </Router>
 
-      {
+      {/*
         <Router basename="/lleidahack">
           <Routes>
             <Route path="/" element={<HomeLanding />} />
@@ -124,7 +124,7 @@ export default function App() {
             <Route path="/noticies" element={<NoticiesLanding />} />
           </Routes>
         </Router>
-      }
+      */}
       <Router basename="/admin">
         <Routes>
           <Route index element={<Dashboard section={<LleidaHackerHome />} />} />
