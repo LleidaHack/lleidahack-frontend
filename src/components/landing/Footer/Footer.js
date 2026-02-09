@@ -1,22 +1,32 @@
 import lleidaHackLogo from "../../../icons/imagotip_lleidahack_blanc.png";
+
 // Falta redirigir a las redes sociales de LleidaHack
 // Falta rediidigir politiques de privacitat, avís legal i política de cookies
 const Footer = () => {
   return (
-    <div className="bg-primaryLanding w-full h-36 md:px-10 py-4 md:items-center">
+    <div className="bg-primaryLanding w-full h-auto md:px-10 py-4 md:items-center">
       <div className="flex flex-col md:flex-row justify-between md:items-center ml-5 md:ml-0">
         <div className="hidden md:block">
           <a href="/lleidahack">
             <img src={lleidaHackLogo} className="h-14 w-52" />
           </a>
         </div>
-        <div className="flex flex-col md:flex-row md:gap-40">
+        <div className="flex flex-col md:flex-col text-center md:gap-4">
           <li className="list-none text-base md:text-xl">
             <a
               className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
               href="/lleidahack/legalinfo"
             >
               Informació legal
+            </a>
+          </li>
+          <li className="list-none font-bold text-CTALanding text-base ">
+            Powered by{" "}
+            <a
+              className=" text-CTALanding text-base no-underline"
+              href="https://clouding.io/?gad_campaignid=293396317"
+            >
+              Clouding.io
             </a>
           </li>
         </div>
