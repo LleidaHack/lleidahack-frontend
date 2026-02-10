@@ -1,8 +1,6 @@
-import { React, useState, useEffect } from "react";
+import React from "react";
 
 const PopupBody = ({ isOpen, onClose, children }) => {
-  const [open, setOpen] = useState(isOpen);
-  console.log(isOpen);
   if (!isOpen) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-700 bg-opacity-70 ">
@@ -10,7 +8,6 @@ const PopupBody = ({ isOpen, onClose, children }) => {
         <div className="flex justify-end">
           <div
             onClick={() => {
-              setOpen(false);
               onClose();
             }}
             className={`text-4xl cursor-pointer text-red-700 hover:text-red-500`}

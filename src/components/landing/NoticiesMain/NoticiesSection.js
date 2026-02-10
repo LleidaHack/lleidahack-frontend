@@ -1,5 +1,4 @@
 import React from "react";
-import EventCard3 from "../ImageCards/EventCard3.js";
 import EventCard1 from "../ImageCards/EventCard1.js";
 
 const NoticiesSection = () => {

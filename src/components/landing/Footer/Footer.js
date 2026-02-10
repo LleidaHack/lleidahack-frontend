@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between md:items-center ml-5 md:ml-0">
         <div className="hidden md:block">
           <a href="/lleidahack">
-            <img src={lleidaHackLogo} className="h-14 w-52" />
+            <img src={lleidaHackLogo} alt="LleidaHack logo" className="h-14 w-52" />
           </a>
         </div>
         <div className="flex flex-col md:flex-row md:gap-40">
@@ -26,7 +26,7 @@ const Footer = () => {
         <div className="items-center flex md:flex-row justify-between mr-5 md:mr-0 mb-2 md:mb-0">
           <div className="block md:hidden">
             <a href="/lleidahack">
-              <img src={lleidaHackLogo} className="h-14 w-36" />
+              <img src={lleidaHackLogo} alt="LleidaHack logo" className="h-14 w-36" />
             </a>
           </div>
           <div className="block  ">
@@ -39,6 +39,7 @@ const Footer = () => {
                   className="mx-2 h-fit-content block"
                   href="https://es.linkedin.com/company/lleidahack"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <svg
                     width="32"
@@ -59,6 +60,7 @@ const Footer = () => {
                   className="mx-2 h-fit-content block"
                   href="https://www.instagram.com/LleidaHack/?hl=es"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <svg
                     width="32"
@@ -68,8 +70,8 @@ const Footer = () => {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M0.88501 8.93103C0.88501 4.48736 4.48731 0.885056 8.93099 0.885056H33.0689C37.5125 0.885056 41.1149 4.48736 41.1149 8.93103V33.069C41.1149 37.5126 37.5125 41.1149 33.0689 41.1149H8.93099C4.48731 41.1149 0.88501 37.5126 0.88501 33.069V8.93103ZM8.93099 4.90804C6.70915 4.90804 4.908 6.7092 4.908 8.93103V33.069C4.908 35.2909 6.70915 37.0919 8.93099 37.0919H33.0689C35.2908 37.0919 37.0919 35.2909 37.0919 33.069V8.93103C37.0919 6.7092 35.2908 4.90804 33.0689 4.90804H8.93099ZM21 14.9655C17.6671 14.9655 14.9655 17.6672 14.9655 21C14.9655 24.3328 17.6671 27.0345 21 27.0345C24.3328 27.0345 27.0344 24.3328 27.0344 21C27.0344 17.6672 24.3328 14.9655 21 14.9655ZM10.9425 21C10.9425 15.4454 15.4454 10.9425 21 10.9425C26.5545 10.9425 31.0574 15.4454 31.0574 21C31.0574 26.5545 26.5545 31.0575 21 31.0575C15.4454 31.0575 10.9425 26.5545 10.9425 21ZM32.0632 12.954C33.7295 12.954 35.0804 11.6032 35.0804 9.93678C35.0804 8.2704 33.7295 6.91954 32.0632 6.91954C30.3968 6.91954 29.0459 8.2704 29.0459 9.93678C29.0459 11.6032 30.3968 12.954 32.0632 12.954Z"
                       fill="#F7F7F7"
                     />
@@ -81,6 +83,7 @@ const Footer = () => {
                   className="mx-2 h-fit-content block"
                   href="https://twitter.com/lleidahack"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <svg
                     width="32"
@@ -89,7 +92,7 @@ const Footer = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g clip-path="url(#clip0_23_290)">
+                    <g clipPath="url(#clip0_23_290)">
                       <path
                         d="M31.4666 0H37.5999L24.1333 15.3333L39.8666 36.1333H27.5199L17.8533 23.4933L6.78661 36.1333H0.653272L14.9199 19.7333L-0.146729 0H12.5066L21.2399 11.5467L31.4666 0ZM29.3199 32.5333H32.7199L10.7199 3.46667H7.06661L29.3199 32.5333Z"
                         fill="#F7F7F7"

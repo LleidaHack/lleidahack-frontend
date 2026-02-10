@@ -5,19 +5,15 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Button from "src/components/buttons/Button";
 
-const LoginForm = ({ nextScreen, textWhite = false }) => {
+const LoginForm = ({ nextScreen, textWhite = false, showRegistrationLinks = false }) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors, isValid },
-    trigger,
   } = useForm({
     mode: "onChange",
   });
-  const [textColor, setTextColor] = useState(
-    textWhite ? "text-white" : "text-grayColor",
-  );
+  const [textColor] = useState(textWhite ? "text-white" : "text-grayColor");
   const navigate = useNavigate();
   const [isSubmitting, setSubmitting] = useState(false);
   const [errorText, setErrorText] = useState("");
@@ -79,29 +75,28 @@ const LoginForm = ({ nextScreen, textWhite = false }) => {
           )}
         </div>
 
-        <div className="my-3 md:my-7 text-base md:text-xl text-center">
-          <p className="mb-1">
-            <Link to="/forgot-password" className={` ${textColor}`}>
-              Has oblidat les teves credencials?
-            </Link>
-          </p>
-          <p className="mb-0">
-            <Link to="/hacker-form" className={` ${textColor}`}>
-              Encara no tens compte?
-            </Link>
-          </p>
-        </div>
+        {showRegistrationLinks && (
+          <div className="my-3 md:my-7 text-base md:text-xl text-center">
+            <p className="mb-1">
+              <Link to="/forgot-password" className={` ${textColor}`}>
+                Has oblidat les teves credencials?
+              </Link>
+            </p>
+            <p className="mb-0">
+              <Link to="/hacker-form" className={` ${textColor}`}>
+                Encara no tens compte?
+              </Link>
+            </p>
+          </div>
+        )}
         <div className="flex flex-col justify-center mt-3">
           <Button
             type="submit"
-            {...(textWhite
-              ? { secondaryLanding: true }
-              : { primaryHackeps: true })}
+            {...(textWhite ? { secondaryLanding: true } : { primaryLanding: true })}
             lg
             onClick={handleSubmit(submit)}
-            className={` ${!isValid ? "opacity-50 hover:none bg-secondaryHackeps" : "hover:bg-secondaryHackeps"}`}
+            className={`${!isValid ? "opacity-50 hover:none bg-grayColor" : ""}`}
             disabled={!isValid}
-            light
           >
             {isSubmitting ? "Iniciant sessió..." : "Inicia sessió"}
           </Button>

@@ -1,12 +1,9 @@
 import { React, useEffect, useState } from "react";
-import LoginForm from "src/components/loginForm/LoginForm";
-import logoLleidaHack from "src/icons/isotip_lleidahack_blanc.png";
-import { login, me } from "src/services/AuthenticationService";
+import { me } from "src/services/AuthenticationService";
 import { getUserById } from "src/services/UserService";
 import LleidaHackerHome from "src/components/lleidahacker/Sections/LleidaHackerHomeSection";
-import LoadSection from "src/components/hackeps/LoadSection/Loadsection";
+import LoadingScreen from "src/components/common/LoadingScreen";
 import Header from "src/components/lleidahacker/header/header";
-import LoginAdmin from "./LoginAdmin";
 import { useNavigate } from "react-router-dom";
 
 const checkAuthStatus = async () => {
@@ -40,15 +37,6 @@ const Dashboard = ({ section }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [subSection, setSubSection] = useState(section || <LleidaHackerHome />);
   const navigate = useNavigate();
-  async function checkLleidaHacker() {
-    let a = localStorage.getItem("userID");
-    let myuser = await me(a);
-    if (myuser) {
-      setIsLoading(false);
-    }
-    return myuser && myuser.type === "lleida_hacker";
-  }
-
   useEffect(() => {
     if (localStorage.getItem("userToken")) {
       const checkVerify = async () => {
@@ -63,9 +51,6 @@ const Dashboard = ({ section }) => {
     setSubSection(section || <LleidaHackerHome />);
   }, [section]);
 
-  function callbackFunction(childData) {
-    setIsVerified(childData);
-  }
   if (!isLoading) {
     if (!isVerified) {
       navigate("/login");
@@ -78,11 +63,7 @@ const Dashboard = ({ section }) => {
       );
     }
   } else {
-    return (
-      <div>
-        <LoadSection />
-      </div>
-    );
+    return <LoadingScreen />;
   }
 };
 

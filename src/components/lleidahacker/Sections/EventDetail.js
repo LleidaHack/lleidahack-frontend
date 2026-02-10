@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import PopupBody from "src/components/emergentPopup/PopupBody";
 import ParticipantManager from "src/components/lleidahacker/ParticipantManager/ParticipantManager";
 import { getEventById, getEventStatus } from "src/services/EventService";
 
 const EventDetail = () => {
-  // Get eventId from URL params
-  const navigate = useNavigate();
   const { eventId } = useParams();
   const [event, setEvent] = useState(null);
   const [img, setImg] = useState(null);
@@ -36,16 +33,12 @@ const EventDetail = () => {
       setImg(fetchedEvent.image);
       setTitle(fetchedEvent.name);
       setDescription(fetchedEvent.description);
-      console.log(eventStatus);
     };
 
     fetchEvent();
   }, [eventId]);
 
   function openPopup() {
-    // Aquí puedes abrir el popup para crear un nuevo evento
-    // Por ejemplo, usando un estado para controlar la visibilidad del popup
-    console.log("Open event creation popup");
     setPopUpOpen(!popUpOpen);
   }
 

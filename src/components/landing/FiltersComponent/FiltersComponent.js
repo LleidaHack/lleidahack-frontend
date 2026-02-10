@@ -3,9 +3,9 @@ import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 
 const FiltersComponent = ({ categoryType }) => {
   const [onMobile, setOnMobile] = useState(false);
-  if (categoryType == "events") {
+  if (categoryType === "events") {
     //Configurar los filtros de los eventos
-  } else if (categoryType == "news") {
+  } else if (categoryType === "news") {
     //Configurar los filtros de las noticias
   }
 

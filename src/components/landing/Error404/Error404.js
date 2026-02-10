@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TitleGeneralized from "src/components/hackeps/TitleGeneralized/TitleGeneralized";
 import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 
 const Error404 = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center	items-center gap-4 py-24 px-[10%]">
-      <TitleGeneralized big>404</TitleGeneralized>
+      <h1 className="text-7xl font-bold text-secondaryLanding">404</h1>
       <p className="text-2xl text-black justify-center text-center">
         La pàgina que estàs buscant no existeix als nostres servidors :({" "}
       </p>

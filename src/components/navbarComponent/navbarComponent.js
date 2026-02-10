@@ -4,14 +4,13 @@ const NavbarComponent = ({
   centerContent,
   endContent,
   bgColor,
-  textColor,
+  textColor = "white",
   logoimg,
   dropEndContent,
   showCenterContentOnlyOnDrop,
   logoRedirect,
 }) => {
   const [navStatus, setNavStatus] = useState(false);
-  const [bgColor2, setBgColor2] = useState(bgColor);
   const [navDrop, setNavDrop] = useState(window.innerWidth > 768);
 
   const changeNavStatus = () => {
@@ -25,13 +24,11 @@ const NavbarComponent = ({
   useEffect(() => {
     if (window.innerWidth <= 768) {
       setNavStatus(false);
-      setBgColor2("primaryHackeps");
     } else {
       setNavStatus(true);
-      setBgColor2(bgColor);
     }
     setNavDrop(window.innerWidth > 768);
-  }, [bgColor]);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,14 +36,10 @@ const NavbarComponent = ({
 
       if (window.innerWidth <= 768) {
         setNavStatus(false);
-        setBgColor2("primaryHackeps");
-        // Do something when window width is less than or equal to 768
       } else {
         setNavStatus(true);
-        setBgColor2(bgColor);
         document.body.style.overflow = "auto";
         document.body.style.overflowX = "hidden";
-        // Do something when window width is greater than 768
       }
     };
 
@@ -58,8 +51,8 @@ const NavbarComponent = ({
   }, [bgColor]);
 
   return (
-    <nav className={`flex flex-col !sticky top-0 z-50 shadow-[primaryHackeps]`}>
-      <div className={`w-full h-16 px-4 py-2 items-center bg-primaryHackeps`}>
+    <nav className="flex flex-col !sticky top-0 z-50 shadow-md">
+      <div className="w-full h-16 px-4 py-2 items-center" style={{ backgroundColor: bgColor }}>
         <div
           className="md:hidden flex flex-row justify-between mt-0"
           id="header-points"
@@ -69,18 +62,19 @@ const NavbarComponent = ({
               <img src={logoimg} alt="logo" className="h-12 w-12 flex-none " />
             </a>
           </div>
-          <div className="text-white text-3xl" onClick={changeNavStatus}>
+          <div className="text-3xl" style={{ color: textColor }} onClick={changeNavStatus}>
             <i className="fa-solid fa-bars"></i>
           </div>
         </div>
 
         {navStatus ? (
           <div
-            className="absolute h-full max-md:h-56 w-screen bg-white z-50 inset-x-0 md:relative appear-animation mt-2 md:mt-3 md:w-full flex border-b-[1] border-gray-300"
+            className="absolute h-56 md:h-full w-screen bg-white z-50 inset-x-0 md:relative appear-animation mt-2 md:mt-3 md:w-full flex border-b-[1] border-gray-300"
             id="container-points"
           >
             <div
-              className={`flex md:justify-between items-center bg-background-patron h-full w-full md:bg-background-none pb-3 md:bg-primaryHackeps`}
+              className="flex md:justify-between items-center bg-background-patron h-full w-full pb-3"
+              style={{ backgroundColor: navDrop ? bgColor : undefined }}
             >
               <div className="hidden md:block items-center  ">
                 <div className="flex items-center h-full relative">

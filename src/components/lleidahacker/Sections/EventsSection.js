@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import EventDetail from "./EventDetail";
 import { useNavigate } from "react-router-dom";
 import { getEvents } from "src/services/EventService";
 
@@ -19,7 +18,7 @@ const EventsSection = () => {
                 event.image !== "" && event.image !== null
                   ? event.image
                   : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFKgvarWlqKjAQnDri0VqZC2XlyuOl_L8HVQ&s",
-              type: event.type || "hackeps",
+              type: event.type || "event",
             }))
           : [];
 

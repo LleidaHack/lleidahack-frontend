@@ -3,9 +3,9 @@ import ButtonLleidahack from "src/components/buttons/ButtonLleidahack";
 
 const InputSearch = ({ placeholder, searchtype }) => {
   const [itemTextButtonSearch, setItemTextButtonSearch] = useState("Cercar");
-  if (searchtype == "events") {
+  if (searchtype === "events") {
     //buscador de events
-  } else if (searchtype == "news") {
+  } else if (searchtype === "news") {
     //buscador de news
   }
 

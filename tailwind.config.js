@@ -41,10 +41,6 @@ module.exports = {
       screens: {
         sm: "576px",
         md: "768px",
-        "max-md": { max: "768px" },
-        "max-lg": { max: "998px" },
-        "max-ml": { max: "1170px" },
-        "max-xl": { max: "1400px" },
       },
       height: {
         128: "37rem",
@@ -54,12 +50,11 @@ module.exports = {
     backgroundImage: {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",
       "background-patron": "url('/src/imgs/patron_imagen.png')",
-      "background-none": "url()",
       "background-cartellA": "url('/src/assets/Cartell A.png')",
       "background-cartellB": "url('/src/assets/Cartell B.png')",
       "background-cartellC": "url('/src/assets/Cartell C.png')",
       "background-cartellD": "url('/src/assets/Cartell D.png')",
-      'background-garabato': "url('/src/assets/img/garabato.png')",
+      "background-garabato": "url('/src/assets/img/garabato.png')",
     },
   },
   plugins: [],

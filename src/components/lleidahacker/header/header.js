@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from "react";
-import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { me } from "src/services/AuthenticationService";
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [userID, setUserID] = useState(null);
-
-  async function getId() {
-    const id = await me();
-    return id.id;
-  }
 
   useEffect(() => {
-    const fetchId = async () => {
-      const id = await getId();
-      setUserID(id);
-    };
-    fetchId();
-  }, []);
+    me().catch(() => {
+      localStorage.removeItem("userToken");
+      localStorage.removeItem("userID");
+      localStorage.removeItem("refreshToken");
+      navigate("/admin/login");
+    });
+  }, [navigate]);
 
-  function Navigate(url) {
-    navigate(url);
-  }
+  const logout = () => {
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("userID");
+    localStorage.removeItem("refreshToken");
+    navigate("/admin/login");
+  };
 
   return (
     <div>
@@ -41,25 +38,23 @@ const Header = () => {
             <li className="mx-8 text-xl list-none	">
               <a
                 href="/admin/events"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/lleidahack/qui-som" ? "font-bold" : ""}`}
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname.includes("/admin/events") ? "font-bold" : ""}`}
               >
                 Esdeveniments
               </a>
             </li>
           </div>
           <div className="flex">
-            <button className="bg-primaryLanding text-xl p-0 mx-2 ">
-              <i class="fa-solid fa-arrow-right-from-bracket text-white"></i>
+            <button className="bg-primaryLanding text-xl p-0 mx-2 " onClick={logout}>
+              <i className="fa-solid fa-arrow-right-from-bracket text-white"></i>
             </button>
 
-            <div>
-              <button
-                className="bg-primaryLanding text-xl p-0 mx-2 text-CTALanding"
-                onClick={() => Navigate("/lleidahacker/" + userID)}
-              >
-                <i class="fa-solid fa-user"></i>
-              </button>
-            </div>
+            <a
+              href="/admin/administration"
+              className={`bg-primaryLanding text-xl p-0 mx-2 text-CTALanding no-underline ${location.pathname.includes("/admin/administration") ? "font-bold" : ""}`}
+            >
+              <i className="fa-solid fa-user-shield"></i>
+            </a>
           </div>
         </div>
       </div>
