@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <div className="App overflow-x-hidden">
-      <Router basename="/lleidahack">
+      <Router>
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />
@@ -36,29 +36,27 @@ export default function App() {
           <Route path="/events" element={<EventsLanding />} />
           <Route path="/legalinfo" element={<LegalInfoLanding />} />
           <Route path="/noticies" element={<NoticiesLanding />} />
-          <Route path="*" element={<Error404Landing />} />
-        </Routes>
-      </Router>
-      <Router basename="/admin">
-        <Routes>
-          <Route index element={<Dashboard section={<LleidaHackerHome />} />} />
+
+          <Route path="/admin" element={<Dashboard section={<LleidaHackerHome />} />} />
           <Route
-            path="/workgroups"
+            path="/admin/workgroups"
             element={<Dashboard section={<WorkGroupsSection />} />}
           />
           <Route
-            path="/events"
+            path="/admin/events"
             element={<Dashboard section={<EventsSection />} />}
           />
           <Route
-            path="/event/:eventId"
+            path="/admin/event/:eventId"
             element={<Dashboard section={<EventDetail />} />}
           />
           <Route
-            path="/administration"
+            path="/admin/administration"
             element={<Dashboard section={<AdminSection />} />}
           />
-          <Route path="/login" element={<LoginAdmin />} />
+          <Route path="/admin/login" element={<LoginAdmin />} />
+
+          <Route path="*" element={<Error404Landing />} />
         </Routes>
       </Router>
     </div>

@@ -43,7 +43,7 @@ export default function ContactForm() {
   };
 
   const handleGoHome = () => {
-    window.location.href = "/lleidahack/#home";
+    window.location.href = "/";
   };
 
   const handleButtonClick = () => {

@@ -53,7 +53,7 @@ const Dashboard = ({ section }) => {
 
   if (!isLoading) {
     if (!isVerified) {
-      navigate("/login");
+      navigate("/admin/login");
     } else {
       return (
         <div className="overflow-hidden h-screen">

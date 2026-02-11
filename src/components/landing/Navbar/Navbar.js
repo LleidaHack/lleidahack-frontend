@@ -3,11 +3,11 @@ import { useLocation } from "react-router-dom";
 import NavbarComponent from "src/components/navbarComponent/navbarComponent";
 
 const links = [
-  { href: "/lleidahack/home", label: "Inici" },
-  { href: "/lleidahack/events", label: "Events" },
-  { href: "/lleidahack/noticies", label: "Noticies" },
-  { href: "/lleidahack/contacte", label: "Contacte" },
-  { href: "/lleidahack/legalinfo", label: "Legal" },
+  { href: "/", label: "Inici" },
+  { href: "/events", label: "Events" },
+  { href: "/noticies", label: "Noticies" },
+  { href: "/contacte", label: "Contacte" },
+  { href: "/legalinfo", label: "Legal" },
 ];
 
 const Navbar = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
       endContent={<></>}
       dropEndContent={<></>}
       showCenterContentOnlyOnDrop={false}
-      logoRedirect="/lleidahack"
+      logoRedirect="/"
     />
   );
 };

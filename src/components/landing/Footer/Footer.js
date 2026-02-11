@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="bg-primaryLanding w-full h-36 md:px-10 py-4 md:items-center">
       <div className="flex flex-col md:flex-row justify-between md:items-center ml-5 md:ml-0">
         <div className="hidden md:block">
-          <a href="/lleidahack">
+          <a href="/">
             <img src={lleidaHackLogo} alt="LleidaHack logo" className="h-14 w-52" />
           </a>
         </div>
@@ -14,7 +14,7 @@ const Footer = () => {
           <li className="list-none text-base md:text-xl">
             <a
               className="no-underline text-CTALanding hover:text-secondaryLanding duration-300"
-              href="/lleidahack/legalinfo"
+              href="/legalinfo"
             >
               Informació legal
             </a>
@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
         <div className="items-center flex md:flex-row justify-between mr-5 md:mr-0 mb-2 md:mb-0">
           <div className="block md:hidden">
-            <a href="/lleidahack">
+            <a href="/">
               <img src={lleidaHackLogo} alt="LleidaHack logo" className="h-14 w-36" />
             </a>
           </div>
