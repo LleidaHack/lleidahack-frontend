@@ -1,5 +1,4 @@
 import "@testing-library/jest-dom/extend-expect";
-import { mockEventService, mockHackerService } from "./test/services";
 
 // Mock de IntersectionObserver
 beforeAll(() => {
@@ -20,12 +19,6 @@ jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"), // Conserva las funciones reales
   useLocation: jest.fn(), // Mockea useLocation
 }));
-
-beforeAll(() => {
-  // Service mocks:
-  jest.mock("src/services/EventService", () => mockEventService);
-  jest.mock("src/services/HackerService", () => mockHackerService);
-});
 
 // Mock de localStorage.getItem
 beforeAll(() => {

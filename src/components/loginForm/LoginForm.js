@@ -13,7 +13,7 @@ const LoginForm = ({ nextScreen, textWhite = false, showRegistrationLinks = fals
   } = useForm({
     mode: "onChange",
   });
-  const [textColor] = useState(textWhite ? "text-white" : "text-grayColor");
+  const textColor = textWhite ? "text-white" : "text-grayColor";
   const navigate = useNavigate();
   const [isSubmitting, setSubmitting] = useState(false);
   const [errorText, setErrorText] = useState("");
