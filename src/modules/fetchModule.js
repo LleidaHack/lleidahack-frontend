@@ -22,6 +22,13 @@ export async function fetchPlus({
   token,
   forceDebug = false,
 }) {
+  const rawDomain = (process.env.REACT_APP_DOMAIN || "").trim();
+  const normalizedDomain = rawDomain
+    ? /^https?:\/\//i.test(rawDomain)
+      ? rawDomain
+      : `https://${rawDomain}`
+    : "";
+
   const headers = { "Content-Type": "application/json" };
   if (hasUserauth || refresh_token || loginAuth || token)
     headers.Authorization = loginAuth
@@ -45,20 +52,29 @@ export async function fetchPlus({
           `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
       )
       .join("&")}`;
+  const requestUrl = `${normalizedDomain}/v${apiVersion}${Url}${query}`;
   if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
     console.log("headers: ", args);
-  return fetch(
-    process.env.REACT_APP_DOMAIN + `/v${apiVersion}` + Url + query,
-    args,
-  )
+  return fetch(requestUrl, args)
     .then(async (response) => {
       if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
         console.log("response: ", response);
+      const contentType = response.headers.get("content-type") || "";
+      const isJson = contentType.includes("application/json");
       if (!response.ok) {
-        const error = await response.json();
+        const error = isJson
+          ? await response.json()
+          : { message: await response.text() };
         return {
           errCode: response.status,
           errMssg: error.message,
+        };
+      }
+      if (!isJson) {
+        return {
+          errCode: -2,
+          errMssg:
+            "Invalid API response format (expected JSON). Check REACT_APP_DOMAIN and backend route.",
         };
       }
       return response.json();
@@ -66,7 +82,7 @@ export async function fetchPlus({
     .then((data) => {
       if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
         console.log("data: ", data);
-      if (saveLoginInfo) {
+      if (saveLoginInfo && !data?.errCode) {
         localStorage.setItem("userToken", data.access_token);
         localStorage.setItem("userID", data.user_id);
         localStorage.setItem("refreshToken", data.refresh_token);
@@ -74,7 +90,7 @@ export async function fetchPlus({
       return data;
     })
     .catch((error) => {
-      if (error.message.includes("Failed to fetch")) {
+      if (error?.message?.includes("Failed to fetch")) {
         return {
           errCode: -1,
           errMssg: "Network error or request failed",

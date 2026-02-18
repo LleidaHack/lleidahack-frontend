@@ -28,7 +28,9 @@ export default function App() {
 
   return (
     <div className="App overflow-x-hidden">
-      <Router>
+      <Router
+        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+      >
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />

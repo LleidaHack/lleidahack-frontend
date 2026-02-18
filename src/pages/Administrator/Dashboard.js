@@ -4,7 +4,7 @@ import { getUserById } from "src/services/UserService";
 import LleidaHackerHome from "src/components/lleidahacker/Sections/LleidaHackerHomeSection";
 import LoadingScreen from "src/components/common/LoadingScreen";
 import Header from "src/components/lleidahacker/header/header";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const checkAuthStatus = async () => {
   let userId = localStorage.getItem("userID");
@@ -36,7 +36,7 @@ const Dashboard = ({ section }) => {
   const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [subSection, setSubSection] = useState(section || <LleidaHackerHome />);
-  const navigate = useNavigate();
+
   useEffect(() => {
     if (localStorage.getItem("userToken")) {
       const checkVerify = async () => {
@@ -53,7 +53,7 @@ const Dashboard = ({ section }) => {
 
   if (!isLoading) {
     if (!isVerified) {
-      navigate("/admin/login");
+      return <Navigate to="/admin/login" replace />;
     } else {
       return (
         <div className="overflow-hidden h-screen">

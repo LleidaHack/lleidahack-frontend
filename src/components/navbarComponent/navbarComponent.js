@@ -73,7 +73,7 @@ const NavbarComponent = ({
             id="container-points"
           >
             <div
-              className="flex md:justify-between items-center bg-background-patron h-full w-full pb-3"
+              className={`flex md:justify-between items-center h-full w-full pb-3 ${navDrop ? "" : "bg-background-patron"}`}
               style={{ backgroundColor: navDrop ? bgColor : undefined }}
             >
               <div className="hidden md:block items-center  ">
