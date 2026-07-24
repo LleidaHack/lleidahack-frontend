@@ -1,8 +1,102 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { SuccessFeedback, FailFeedback } from "./Feedback";
 import { contacte } from "src/services/AuthenticationService";
 
+/* ── Feedback states ── */
+const SuccessState = ({ onGoHome }) => (
+  <div className="flex flex-col items-center justify-center text-center py-16 px-6">
+    <div
+      className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
+      style={{ background: "rgba(20, 212, 85, 0.12)" }}
+    >
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14D455" strokeWidth="2.5">
+        <polyline points="20 6 9 17 4 12" />
+      </svg>
+    </div>
+    <h2 className="text-2xl font-bold mb-3" style={{ color: "#232323" }}>
+      Missatge enviat!
+    </h2>
+    <p className="text-base leading-relaxed mb-8 max-w-sm" style={{ color: "#777" }}>
+      Gràcies per contactar amb LleidaHack. Et respondrem al correu que ens has proporcionat.
+    </p>
+    <button
+      onClick={onGoHome}
+      className="px-8 py-3 rounded-xl font-semibold text-white transition-all duration-200"
+      style={{ background: "#FF7430" }}
+      onMouseEnter={(e) => (e.currentTarget.style.background = "#e55010")}
+      onMouseLeave={(e) => (e.currentTarget.style.background = "#FF7430")}
+    >
+      Tornar al inici
+    </button>
+  </div>
+);
+
+const ErrorState = ({ onRetry }) => (
+  <div className="flex flex-col items-center justify-center text-center py-16 px-6">
+    <div
+      className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
+      style={{ background: "rgba(229, 80, 16, 0.12)" }}
+    >
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E55010" strokeWidth="2.5">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="12" y1="8" x2="12" y2="12" />
+        <line x1="12" y1="16" x2="12.01" y2="16" />
+      </svg>
+    </div>
+    <h2 className="text-2xl font-bold mb-3" style={{ color: "#232323" }}>
+      Quelcom ha fallat
+    </h2>
+    <p className="text-base leading-relaxed mb-2 max-w-sm" style={{ color: "#777" }}>
+      No hem pogut enviar el teu missatge. Torna-ho a intentar o contacta'ns directament.
+    </p>
+    <p className="text-sm mb-8" style={{ color: "#aaa" }}>
+      Alternativament, escriu-nos a{" "}
+      <a href="mailto:info@lleidahack.dev" className="no-underline" style={{ color: "#FF7430" }}>
+        info@lleidahack.dev
+      </a>
+    </p>
+    <button
+      onClick={onRetry}
+      className="px-8 py-3 rounded-xl font-semibold text-white transition-all duration-200"
+      style={{ background: "#E55010" }}
+      onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+      onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+    >
+      Tornar a intentar
+    </button>
+  </div>
+);
+
+/* ── Input helper ── */
+const Field = ({ label, required, error, children }) => (
+  <div>
+    <label
+      className="block text-sm font-medium mb-1.5"
+      style={{ color: "#374151" }}
+    >
+      {label}
+      {required && <span className="ml-1" style={{ color: "#FF7430" }}>*</span>}
+    </label>
+    {children}
+    {error && (
+      <p className="mt-1.5 text-xs flex items-center gap-1" style={{ color: "#E55010" }}>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        {error.message}
+      </p>
+    )}
+  </div>
+);
+
+const inputClass = (hasError) =>
+  `w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200 outline-none focus:ring-2 ${
+    hasError
+      ? "border-red-300 bg-red-50 focus:ring-red-200"
+      : "border-gray-200 bg-gray-50 focus:border-orange-400 focus:ring-orange-100 focus:bg-white"
+  }`;
+
+/* ── Main form ── */
 export default function ContactForm() {
   const {
     register,
@@ -23,11 +117,9 @@ export default function ContactForm() {
         title: data.assumpte,
         message: data.missatge,
       };
-
       const success = await contacte(formData);
       setMailStatus(success);
       setMailSended(true);
-
       if (success) reset();
     } catch {
       setMailStatus(false);
@@ -37,238 +129,152 @@ export default function ContactForm() {
     }
   };
 
-  const handleRetry = () => {
-    setMailSended(false);
-    setMailStatus(false);
-  };
-
-  const handleGoHome = () => {
-    window.location.href = "/lleidahack/#home";
-  };
-
-  const handleButtonClick = () => {
-    handleRetry();
-  };
+  const handleRetry = () => { setMailSended(false); setMailStatus(false); };
+  const handleGoHome = () => { window.location.href = "/lleidahack/"; };
 
   if (mailSended) {
-    return mailStatus ? (
-      <SuccessFeedback
-        title="Missatge enviat correctament."
-        text={`Gràcies per contactar amb LleidaHack. El teu missatge s'ha enviat correctament. \n En cas que necessitem ficar-nos en contacte amb tu, ho farem amb el correu 
-        que ens has proporcionat.`}
-        hasButton={true}
-        buttonText="Tornar al inici"
-        onButtonClick={handleGoHome}
-      />
-    ) : (
-      <FailFeedback
-        title={`Error enviant el teu missatge.`}
-        text={`Sembla que algo ha fallat mentre registràvem el teu missatge.`}
-        hasButton={true}
-        buttonText={`Intentar novament`}
-        italic={`Torna a intentar-ho novament. En cas que segueixi fallant, contacta amb nosaltres utilitzant \n les nostres xarxes socials que trobaràs a la part inferior de la pantalla.`}
-        onButtonClick={handleButtonClick}
-      />
-    );
+    return mailStatus
+      ? <SuccessState onGoHome={handleGoHome} />
+      : <ErrorState onRetry={handleRetry} />;
   }
 
   return (
-    <div className="px-16 py-16 p-6 bg-white">
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Primera fila */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Nom */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Nom <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Nom"
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.nom
-                  ? "bg-pink-100 border-red-300"
-                  : "bg-white border-gray-300"
-              }`}
-              {...register("nom", {
-                required: "El nom no pot estar buit",
-                minLength: {
-                  value: 2,
-                  message: "El nom ha de tenir almenys 2 caràcters",
-                },
-              })}
-              disabled={isLoading}
-            />
-            {errors.nom && (
-              <p className="mt-1 text-sm text-red-400">{errors.nom.message}</p>
-            )}
-          </div>
-
-          {/* Cognoms */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Cognoms <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Cognoms"
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.cognoms
-                  ? "bg-pink-100 border-red-300"
-                  : "bg-white border-gray-300"
-              }`}
-              {...register("cognoms", {
-                required: "Els cognoms no poden estar buits",
-                minLength: {
-                  value: 2,
-                  message: "Els cognoms han de tenir almenys 2 caràcters",
-                },
-              })}
-              disabled={isLoading}
-            />
-            {errors.cognoms && (
-              <p className="mt-1 text-sm text-red-400">
-                {errors.cognoms.message}
-              </p>
-            )}
-          </div>
-        </div>
-
-        {/* Segunda fila */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Email */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Correu electrònic <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="email"
-              placeholder="Correu electrònic"
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.email
-                  ? "bg-pink-100 border-red-300"
-                  : "bg-white border-gray-300"
-              }`}
-              {...register("email", {
-                required: "Et falta indicar-nos el teu correu de contacte",
-                pattern: {
-                  value: /^\S+@\S+$/i,
-                  message: "El correu no és vàlid",
-                },
-              })}
-              disabled={isLoading}
-            />
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-400">
-                {errors.email.message}
-              </p>
-            )}
-          </div>
-
-          {/* Assumpte */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Assumpte <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Assumpte"
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.assumpte
-                  ? "bg-pink-100 border-red-300"
-                  : "bg-white border-gray-300"
-              }`}
-              {...register("assumpte", {
-                required: "El títol no pot estar buit",
-                minLength: {
-                  value: 3,
-                  message: "El títol ha de tenir almenys 3 caràcters",
-                },
-              })}
-              disabled={isLoading}
-            />
-            {errors.assumpte && (
-              <p className="mt-1 text-sm text-red-400">
-                {errors.assumpte.message}
-              </p>
-            )}
-          </div>
-        </div>
-
-        {/* Missatge */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Missatge <span className="text-red-500">*</span>
-          </label>
-          <textarea
-            placeholder="Indica'ns en què et podem ajudar."
-            rows="6"
-            className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-vertical ${
-              errors.missatge
-                ? "bg-pink-100 border-red-300"
-                : "bg-white border-gray-300"
-            }`}
-            {...register("missatge", {
-              required: "El missatge no pot estar buit",
-              minLength: {
-                value: 10,
-                message: "El missatge ha de tenir almenys 10 caràcters",
-              },
-            })}
-            disabled={isLoading}
-          />
-          {errors.missatge && (
-            <p className="mt-1 text-sm text-red-400">
-              {errors.missatge.message}
-            </p>
-          )}
-        </div>
-
-        {/* Info legal */}
-        <div className="text-xs text-gray-500 leading-relaxed">
-          T'informem que les dades personals que facilitis passaran a formar
-          part d'un fitxer responsabilitat de Lleidahack per a gestionar la teva
-          petició. Pots exercir els drets d'accès, rectificació, cancel·lació o
-          oposició al tractament de les teves dades a l'adreça de correu
-          senyalada example@lleidahack.dev.
-        </div>
-
-        {/* Checkbox */}
-        <div className="flex items-start space-x-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+      {/* Nom + Cognoms */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Field label="Nom" required error={errors.nom}>
           <input
-            type="checkbox"
-            id="acceptConditions"
-            className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-            {...register("acceptConditions", {
-              required: "Has de llegir i acceptar les condicions",
+            type="text"
+            placeholder="El teu nom"
+            className={inputClass(errors.nom)}
+            {...register("nom", {
+              required: "El nom no pot estar buit",
+              minLength: { value: 2, message: "Mínim 2 caràcters" },
             })}
             disabled={isLoading}
           />
-          <label htmlFor="acceptConditions" className="text-sm text-gray-700">
-            He llegit i accepto les condicions...
-          </label>
-        </div>
-        {errors.acceptConditions && (
-          <p className="text-sm text-red-400">
-            {errors.acceptConditions.message}
-          </p>
-        )}
-
-        {/* Botón */}
-        <div>
-          <button
-            type="submit"
+        </Field>
+        <Field label="Cognoms" required error={errors.cognoms}>
+          <input
+            type="text"
+            placeholder="Els teus cognoms"
+            className={inputClass(errors.cognoms)}
+            {...register("cognoms", {
+              required: "Els cognoms no poden estar buits",
+              minLength: { value: 2, message: "Mínim 2 caràcters" },
+            })}
             disabled={isLoading}
-            className={`px-6 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors duration-200 ${
-              isLoading
-                ? "bg-gray-400 text-white cursor-not-allowed"
-                : "bg-gray-800 text-white hover:bg-gray-700"
-            }`}
-          >
-            {isLoading ? "Enviant..." : "Enviar"}
-          </button>
-        </div>
-      </form>
-    </div>
+          />
+        </Field>
+      </div>
+
+      {/* Email + Assumpte */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Field label="Correu electrònic" required error={errors.email}>
+          <input
+            type="email"
+            placeholder="correu@exemple.com"
+            className={inputClass(errors.email)}
+            {...register("email", {
+              required: "El correu és obligatori",
+              pattern: { value: /^\S+@\S+$/i, message: "El correu no és vàlid" },
+            })}
+            disabled={isLoading}
+          />
+        </Field>
+        <Field label="Assumpte" required error={errors.assumpte}>
+          <input
+            type="text"
+            placeholder="Sobre què ens escrius?"
+            className={inputClass(errors.assumpte)}
+            {...register("assumpte", {
+              required: "L'assumpte no pot estar buit",
+              minLength: { value: 3, message: "Mínim 3 caràcters" },
+            })}
+            disabled={isLoading}
+          />
+        </Field>
+      </div>
+
+      {/* Missatge */}
+      <Field label="Missatge" required error={errors.missatge}>
+        <textarea
+          placeholder="Explica'ns en detall en què et podem ajudar..."
+          rows="6"
+          className={`${inputClass(errors.missatge)} resize-y`}
+          {...register("missatge", {
+            required: "El missatge no pot estar buit",
+            minLength: { value: 10, message: "Mínim 10 caràcters" },
+          })}
+          disabled={isLoading}
+        />
+      </Field>
+
+      {/* LOPD */}
+      <p className="text-xs leading-relaxed" style={{ color: "#9ca3af" }}>
+        T'informem que les dades facilitades s'usaran exclusivament per gestionar
+        la teva petició, d'acord amb la normativa LOPD vigent.
+        Pots exercir els teus drets escrivint a{" "}
+        <a href="mailto:info@lleidahack.dev" className="no-underline" style={{ color: "#FF7430" }}>
+          info@lleidahack.dev
+        </a>.
+      </p>
+
+      {/* Checkbox */}
+      <div className="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="acceptConditions"
+          className="mt-0.5 h-4 w-4 flex-shrink-0 rounded"
+          style={{ accentColor: "#FF7430" }}
+          {...register("acceptConditions", {
+            required: "Has d'acceptar les condicions per continuar",
+          })}
+          disabled={isLoading}
+        />
+        <label htmlFor="acceptConditions" className="text-sm cursor-pointer" style={{ color: "#374151" }}>
+          He llegit i accepto la{" "}
+          <a href="/lleidahack/legalinfo" className="no-underline font-medium" style={{ color: "#FF7430" }}>
+            política de privadesa
+          </a>
+        </label>
+      </div>
+      {errors.acceptConditions && (
+        <p className="text-xs" style={{ color: "#E55010" }}>
+          {errors.acceptConditions.message}
+        </p>
+      )}
+
+      {/* Submit */}
+      <button
+        type="submit"
+        disabled={isLoading}
+        className="mt-2 w-full sm:w-auto px-10 py-3.5 rounded-xl font-semibold text-white text-sm transition-all duration-200 flex items-center justify-center gap-2"
+        style={{
+          background: isLoading ? "#d1d5db" : "#FF7430",
+          cursor: isLoading ? "not-allowed" : "pointer",
+          boxShadow: isLoading ? "none" : "0 4px 20px rgba(255,116,48,0.35)",
+        }}
+        onMouseEnter={(e) => { if (!isLoading) e.currentTarget.style.background = "#e55010"; }}
+        onMouseLeave={(e) => { if (!isLoading) e.currentTarget.style.background = "#FF7430"; }}
+      >
+        {isLoading ? (
+          <>
+            <svg className="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+            </svg>
+            Enviant...
+          </>
+        ) : (
+          <>
+            Enviar missatge
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </>
+        )}
+      </button>
+    </form>
   );
 }
