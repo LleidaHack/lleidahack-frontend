@@ -76,7 +76,8 @@ const EventsPreviewSection = () => {
               className="text-base md:text-lg max-w-sm md:text-right leading-relaxed"
               style={{ color: "#757575" }}
             >
-              Organitzem events únics que connecten estudiants, professionals i la comunitat tech de Lleida.
+              Organitzem events únics que connecten estudiants, professionals i
+              la comunitat tech de Lleida.
             </p>
           </div>
         </div>
@@ -94,14 +95,21 @@ const EventsPreviewSection = () => {
               }}
             >
               {/* Image */}
-              <div className="relative overflow-hidden" style={{ height: "200px" }}>
+              <div
+                className="relative overflow-hidden"
+                style={{ height: "200px" }}
+              >
                 <img
                   src={ev.image}
                   alt={ev.title}
                   className="w-full h-full object-cover transition-transform duration-500"
                   style={{ transform: "scale(1)" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.transform = "scale(1.05)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.transform = "scale(1)")
+                  }
                 />
                 {/* Overlay gradient */}
                 <div
@@ -166,14 +174,23 @@ const EventsPreviewSection = () => {
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-sm no-underline transition-all duration-200"
                     style={{ background: ev.accent, color: "white" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.88")}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.opacity = "0.88")
+                    }
                     onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
                   >
                     {ev.ctaLabel}
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                      <polyline points="15 3 21 3 21 9"/>
-                      <line x1="10" y1="14" x2="21" y2="3"/>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
                     </svg>
                   </a>
                 ) : (
@@ -195,9 +212,16 @@ const EventsPreviewSection = () => {
                     }}
                   >
                     {ev.ctaLabel}
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <line x1="5" y1="12" x2="19" y2="12"/>
-                      <polyline points="12 5 19 12 12 19"/>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
                     </svg>
                   </a>
                 )}

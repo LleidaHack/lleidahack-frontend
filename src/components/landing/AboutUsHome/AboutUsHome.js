@@ -25,7 +25,9 @@ const AboutUsHome = () => {
             >
               <div className="text-white">
                 <div className="text-2xl font-extrabold leading-none">+10</div>
-                <div className="text-xs opacity-80 mt-0.5 uppercase tracking-wide">anys actius</div>
+                <div className="text-xs opacity-80 mt-0.5 uppercase tracking-wide">
+                  anys actius
+                </div>
               </div>
               <div
                 className="w-px self-stretch opacity-30"
@@ -33,7 +35,9 @@ const AboutUsHome = () => {
               />
               <div className="text-white">
                 <div className="text-2xl font-extrabold leading-none">UdL</div>
-                <div className="text-xs opacity-80 mt-0.5 uppercase tracking-wide">Lleida</div>
+                <div className="text-xs opacity-80 mt-0.5 uppercase tracking-wide">
+                  Lleida
+                </div>
               </div>
             </div>
           </div>
@@ -54,7 +58,8 @@ const AboutUsHome = () => {
                 lineHeight: "1.2",
               }}
             >
-              Estudiant avui,<br />
+              Estudiant avui,
+              <br />
               <span className="gradient-text">construint el futur</span>
             </h2>
 
@@ -62,17 +67,18 @@ const AboutUsHome = () => {
               className="text-lg leading-relaxed mb-6"
               style={{ color: "#555" }}
             >
-              LleidaHack és una associació d'estudiants de la Universitat de Lleida
-              que des del 2016 promou l'aprenentatge i l'ús de les noves tecnologies.
+              LleidaHack és una associació d'estudiants de la Universitat de
+              Lleida que des del 2016 promou l'aprenentatge i l'ús de les noves
+              tecnologies.
             </p>
 
             <p
               className="text-base leading-relaxed mb-10"
               style={{ color: "#777" }}
             >
-              Organitzem events, workshops i hackathons on la comunitat tecnològica de
-              Lleida es reuneix per aprendre, col·laborar i créixer. Més de 30 membres
-              actius conformen avui l'associació.
+              Organitzem events, workshops i hackathons on la comunitat
+              tecnològica de Lleida es reuneix per aprendre, col·laborar i
+              créixer. Més de 30 membres actius conformen avui l'associació.
             </p>
 
             {/* Pillars */}

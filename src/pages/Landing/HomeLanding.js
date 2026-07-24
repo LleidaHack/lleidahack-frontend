@@ -31,14 +31,17 @@ const ContactCTA = () => (
         className="text-lg mb-10 leading-relaxed"
         style={{ color: "rgba(255,255,255,0.65)" }}
       >
-        Som una associació oberta. Si ets estudiant de la UdL i t'apassiona la tecnologia,
-        t'esperem!
+        Som una associació oberta. Si ets estudiant de la UdL i t'apassiona la
+        tecnologia, t'esperem!
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/lleidahack/contacte"
           className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white no-underline transition-all duration-200"
-          style={{ background: "#FF7430", boxShadow: "0 4px 24px rgba(255,116,48,0.4)" }}
+          style={{
+            background: "#FF7430",
+            boxShadow: "0 4px 24px rgba(255,116,48,0.4)",
+          }}
           onMouseEnter={(e) => (e.currentTarget.style.background = "#e55010")}
           onMouseLeave={(e) => (e.currentTarget.style.background = "#FF7430")}
         >
@@ -52,8 +55,12 @@ const ContactCTA = () => (
             border: "1.5px solid rgba(255,255,255,0.2)",
             color: "white",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.15)")}
-          onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.15)")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.08)")
+          }
         >
           Coneix-nos
         </a>

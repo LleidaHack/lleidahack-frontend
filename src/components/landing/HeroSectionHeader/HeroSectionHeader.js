@@ -70,11 +70,7 @@ const HeroSectionHeader = () => {
           </div>
 
           {/* Logo */}
-          <img
-            src={logo}
-            alt="LleidaHack"
-            className="h-12 md:h-16 mb-6"
-          />
+          <img src={logo} alt="LleidaHack" className="h-12 md:h-16 mb-6" />
 
           {/* Headline */}
           <h1
@@ -97,9 +93,9 @@ const HeroSectionHeader = () => {
               maxWidth: "520px",
             }}
           >
-            Impulsem l'aprenentatge, la innovació i els events tecnològics
-            des de l'Escola Politècnica Superior. Any rere any construïm
-            el futur digital de Lleida.
+            Impulsem l'aprenentatge, la innovació i els events tecnològics des
+            de l'Escola Politècnica Superior. Any rere any construïm el futur
+            digital de Lleida.
           </p>
 
           {/* CTAs */}
@@ -121,7 +117,14 @@ const HeroSectionHeader = () => {
               }}
             >
               Descobreix els events
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
@@ -184,10 +187,16 @@ const HeroSectionHeader = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-28 right-10 hidden md:flex flex-col items-center gap-2 scroll-indicator">
-        <span className="text-xs tracking-widest" style={{ color: "rgba(255,255,255,0.4)", writingMode: "vertical-rl" }}>
+        <span
+          className="text-xs tracking-widest"
+          style={{ color: "rgba(255,255,255,0.4)", writingMode: "vertical-rl" }}
+        >
           scroll
         </span>
-        <div className="w-px h-12" style={{ background: "rgba(255,116,48,0.5)" }} />
+        <div
+          className="w-px h-12"
+          style={{ background: "rgba(255,116,48,0.5)" }}
+        />
       </div>
     </div>
   );

@@ -9,15 +9,26 @@ const SuccessState = ({ onGoHome }) => (
       className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
       style={{ background: "rgba(20, 212, 85, 0.12)" }}
     >
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14D455" strokeWidth="2.5">
+      <svg
+        width="36"
+        height="36"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#14D455"
+        strokeWidth="2.5"
+      >
         <polyline points="20 6 9 17 4 12" />
       </svg>
     </div>
     <h2 className="text-2xl font-bold mb-3" style={{ color: "#232323" }}>
       Missatge enviat!
     </h2>
-    <p className="text-base leading-relaxed mb-8 max-w-sm" style={{ color: "#777" }}>
-      Gràcies per contactar amb LleidaHack. Et respondrem al correu que ens has proporcionat.
+    <p
+      className="text-base leading-relaxed mb-8 max-w-sm"
+      style={{ color: "#777" }}
+    >
+      Gràcies per contactar amb LleidaHack. Et respondrem al correu que ens has
+      proporcionat.
     </p>
     <button
       onClick={onGoHome}
@@ -37,7 +48,14 @@ const ErrorState = ({ onRetry }) => (
       className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
       style={{ background: "rgba(229, 80, 16, 0.12)" }}
     >
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E55010" strokeWidth="2.5">
+      <svg
+        width="36"
+        height="36"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#E55010"
+        strokeWidth="2.5"
+      >
         <circle cx="12" cy="12" r="10" />
         <line x1="12" y1="8" x2="12" y2="12" />
         <line x1="12" y1="16" x2="12.01" y2="16" />
@@ -46,12 +64,20 @@ const ErrorState = ({ onRetry }) => (
     <h2 className="text-2xl font-bold mb-3" style={{ color: "#232323" }}>
       Quelcom ha fallat
     </h2>
-    <p className="text-base leading-relaxed mb-2 max-w-sm" style={{ color: "#777" }}>
-      No hem pogut enviar el teu missatge. Torna-ho a intentar o contacta'ns directament.
+    <p
+      className="text-base leading-relaxed mb-2 max-w-sm"
+      style={{ color: "#777" }}
+    >
+      No hem pogut enviar el teu missatge. Torna-ho a intentar o contacta'ns
+      directament.
     </p>
     <p className="text-sm mb-8" style={{ color: "#aaa" }}>
       Alternativament, escriu-nos a{" "}
-      <a href="mailto:info@lleidahack.dev" className="no-underline" style={{ color: "#FF7430" }}>
+      <a
+        href="mailto:info@lleidahack.dev"
+        className="no-underline"
+        style={{ color: "#FF7430" }}
+      >
         info@lleidahack.dev
       </a>
     </p>
@@ -75,13 +101,29 @@ const Field = ({ label, required, error, children }) => (
       style={{ color: "#374151" }}
     >
       {label}
-      {required && <span className="ml-1" style={{ color: "#FF7430" }}>*</span>}
+      {required && (
+        <span className="ml-1" style={{ color: "#FF7430" }}>
+          *
+        </span>
+      )}
     </label>
     {children}
     {error && (
-      <p className="mt-1.5 text-xs flex items-center gap-1" style={{ color: "#E55010" }}>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+      <p
+        className="mt-1.5 text-xs flex items-center gap-1"
+        style={{ color: "#E55010" }}
+      >
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
         </svg>
         {error.message}
       </p>
@@ -129,13 +171,20 @@ export default function ContactForm() {
     }
   };
 
-  const handleRetry = () => { setMailSended(false); setMailStatus(false); };
-  const handleGoHome = () => { window.location.href = "/lleidahack/"; };
+  const handleRetry = () => {
+    setMailSended(false);
+    setMailStatus(false);
+  };
+  const handleGoHome = () => {
+    window.location.href = "/lleidahack/";
+  };
 
   if (mailSended) {
-    return mailStatus
-      ? <SuccessState onGoHome={handleGoHome} />
-      : <ErrorState onRetry={handleRetry} />;
+    return mailStatus ? (
+      <SuccessState onGoHome={handleGoHome} />
+    ) : (
+      <ErrorState onRetry={handleRetry} />
+    );
   }
 
   return (
@@ -177,7 +226,10 @@ export default function ContactForm() {
             className={inputClass(errors.email)}
             {...register("email", {
               required: "El correu és obligatori",
-              pattern: { value: /^\S+@\S+$/i, message: "El correu no és vàlid" },
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: "El correu no és vàlid",
+              },
             })}
             disabled={isLoading}
           />
@@ -212,12 +264,17 @@ export default function ContactForm() {
 
       {/* LOPD */}
       <p className="text-xs leading-relaxed" style={{ color: "#9ca3af" }}>
-        T'informem que les dades facilitades s'usaran exclusivament per gestionar
-        la teva petició, d'acord amb la normativa LOPD vigent.
-        Pots exercir els teus drets escrivint a{" "}
-        <a href="mailto:info@lleidahack.dev" className="no-underline" style={{ color: "#FF7430" }}>
+        T'informem que les dades facilitades s'usaran exclusivament per
+        gestionar la teva petició, d'acord amb la normativa LOPD vigent. Pots
+        exercir els teus drets escrivint a{" "}
+        <a
+          href="mailto:info@lleidahack.dev"
+          className="no-underline"
+          style={{ color: "#FF7430" }}
+        >
           info@lleidahack.dev
-        </a>.
+        </a>
+        .
       </p>
 
       {/* Checkbox */}
@@ -232,9 +289,17 @@ export default function ContactForm() {
           })}
           disabled={isLoading}
         />
-        <label htmlFor="acceptConditions" className="text-sm cursor-pointer" style={{ color: "#374151" }}>
+        <label
+          htmlFor="acceptConditions"
+          className="text-sm cursor-pointer"
+          style={{ color: "#374151" }}
+        >
           He llegit i accepto la{" "}
-          <a href="/lleidahack/legalinfo" className="no-underline font-medium" style={{ color: "#FF7430" }}>
+          <a
+            href="/lleidahack/legalinfo"
+            className="no-underline font-medium"
+            style={{ color: "#FF7430" }}
+          >
             política de privadesa
           </a>
         </label>
@@ -255,12 +320,24 @@ export default function ContactForm() {
           cursor: isLoading ? "not-allowed" : "pointer",
           boxShadow: isLoading ? "none" : "0 4px 20px rgba(255,116,48,0.35)",
         }}
-        onMouseEnter={(e) => { if (!isLoading) e.currentTarget.style.background = "#e55010"; }}
-        onMouseLeave={(e) => { if (!isLoading) e.currentTarget.style.background = "#FF7430"; }}
+        onMouseEnter={(e) => {
+          if (!isLoading) e.currentTarget.style.background = "#e55010";
+        }}
+        onMouseLeave={(e) => {
+          if (!isLoading) e.currentTarget.style.background = "#FF7430";
+        }}
       >
         {isLoading ? (
           <>
-            <svg className="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="animate-spin"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M21 12a9 9 0 1 1-6.219-8.56" />
             </svg>
             Enviant...
@@ -268,7 +345,14 @@ export default function ContactForm() {
         ) : (
           <>
             Enviar missatge
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+            >
               <line x1="22" y1="2" x2="11" y2="13" />
               <polygon points="22 2 15 22 11 13 2 9 22 2" />
             </svg>

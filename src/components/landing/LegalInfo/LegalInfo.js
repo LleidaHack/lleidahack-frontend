@@ -33,11 +33,16 @@ const LegalInfo = () => {
       {/* Hero */}
       <div
         className="relative pt-32 pb-16 px-4 sm:px-6 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #232323 0%, #1a1a1a 100%)" }}
+        style={{
+          background: "linear-gradient(135deg, #232323 0%, #1a1a1a 100%)",
+        }}
       >
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 80% 50%, rgba(255,116,48,0.18) 0%, transparent 60%)" }}
+          style={{
+            background:
+              "radial-gradient(ellipse at 80% 50%, rgba(255,116,48,0.18) 0%, transparent 60%)",
+          }}
         />
         <div className="max-w-4xl mx-auto relative z-10">
           <span
@@ -77,7 +82,10 @@ const LegalInfo = () => {
                 </div>
                 <h2
                   className="font-bold leading-tight"
-                  style={{ color: "#232323", fontSize: "clamp(1.1rem, 2vw, 1.3rem)" }}
+                  style={{
+                    color: "#232323",
+                    fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
+                  }}
                 >
                   {s.title}
                 </h2>
@@ -96,7 +104,11 @@ const LegalInfo = () => {
         <div className="mt-10 text-center">
           <p className="text-sm" style={{ color: "#aaa" }}>
             Per qualsevol dubte, pots contactar amb nosaltres a{" "}
-            <a href="mailto:info@lleidahack.dev" className="no-underline font-medium" style={{ color: "#FF7430" }}>
+            <a
+              href="mailto:info@lleidahack.dev"
+              className="no-underline font-medium"
+              style={{ color: "#FF7430" }}
+            >
               info@lleidahack.dev
             </a>
           </p>
