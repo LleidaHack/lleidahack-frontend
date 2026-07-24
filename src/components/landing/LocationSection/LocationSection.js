@@ -255,7 +255,7 @@ const LocationSection = () => {
             >
               <iframe
                 title="Escola Politècnica Superior - Universitat de Lleida"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2982.1234567890!2d0.6260!3d41.6149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd13fffe7f5d6c69%3A0x4b5e5ee4b4b4b4b4!2sEscola%20Polit%C3%A8cnica%20Superior%20-%20Universitat%20de%20Lleida!5e0!3m2!1sca!2ses!4v1234567890"
+                src={`https://www.google.com/maps?q=${encodeURIComponent("Escola Politècnica Superior - Universitat de Lleida")}&output=embed`}
                 width="100%"
                 height="100%"
                 style={{ border: 0, display: "block", minHeight: "300px" }}
