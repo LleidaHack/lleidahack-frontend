@@ -159,10 +159,13 @@ export default function ContactForm() {
         title: data.assumpte,
         message: data.missatge,
       };
-      const success = await contacte(formData);
-      setMailStatus(success);
+
+      const result = await contacte(formData);
+      const ok = Boolean(result && !result.errCode);
+      setMailStatus(ok);
       setMailSended(true);
-      if (success) reset();
+
+      if (ok) reset();
     } catch {
       setMailStatus(false);
       setMailSended(true);
