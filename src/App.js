@@ -4,7 +4,6 @@ import SplashScreen from "./components/SplashScreen/SplashScreen";
 import PacManEasterEgg from "./components/PacManEasterEgg/PacManEasterEgg";
 import HomeLanding from "./pages/Landing/HomeLanding";
 import Dashboard from "./pages/Administrator/Dashboard";
-import "src/utils/ensure-basename";
 import { refreshToken } from "./services/AuthenticationService";
 import LegalInfoLanding from "./pages/Landing/LegalInfoLanding";
 import ContactLanding from "./pages/Landing/ContactLanding";
