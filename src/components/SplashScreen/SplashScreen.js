@@ -45,12 +45,10 @@ export default function SplashScreen({ onFinish }) {
       {/* Contingut central */}
       <div className="splash-content">
         {/* Logo: llisca de dreta a centre */}
-        <div className={`splash-logo-wrap ${phase !== "logo" ? "splash-logo-settled" : ""}`}>
-          <img
-            src={logoSvg}
-            alt="LleidaHack logo"
-            className="splash-logo"
-          />
+        <div
+          className={`splash-logo-wrap ${phase !== "logo" ? "splash-logo-settled" : ""}`}
+        >
+          <img src={logoSvg} alt="LleidaHack logo" className="splash-logo" />
         </div>
 
         {/* Nom "LleidaHack" amb fade-in */}

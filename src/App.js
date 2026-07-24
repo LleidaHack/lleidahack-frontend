@@ -18,7 +18,7 @@ import AdminSection from "./components/lleidahacker/Sections/AdminSection";
 import LoginAdmin from "src/pages/Administrator/LoginAdmin";
 import EventDetail from "src/components/lleidahacker/Sections/EventDetail";
 
-const SPLASH_KEY      = 'llh_splash_ts';
+const SPLASH_KEY = "llh_splash_ts";
 const SPLASH_COOLDOWN = 24 * 60 * 60 * 1000; // 24 h en ms
 
 function shouldShowSplash() {
@@ -37,15 +37,19 @@ export default function App() {
   // Bloqueja/desbloqueja el scroll del document durant la splash
   useEffect(() => {
     if (showSplash) {
-      document.documentElement.classList.add('no-scroll');
+      document.documentElement.classList.add("no-scroll");
     } else {
-      document.documentElement.classList.remove('no-scroll');
+      document.documentElement.classList.remove("no-scroll");
     }
-    return () => { document.documentElement.classList.remove('no-scroll'); };
+    return () => {
+      document.documentElement.classList.remove("no-scroll");
+    };
   }, [showSplash]);
 
   const handleSplashFinish = useCallback(() => {
-    try { localStorage.setItem(SPLASH_KEY, Date.now().toString()); } catch {}
+    try {
+      localStorage.setItem(SPLASH_KEY, Date.now().toString());
+    } catch {}
     setShowSplash(false);
     window.scrollTo(0, 0);
   }, []);
