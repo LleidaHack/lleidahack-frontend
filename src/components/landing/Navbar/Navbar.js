@@ -122,7 +122,7 @@ const Navbar = () => {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none"
+            className="md:hidden flex flex-col gap-1.5 p-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menú"
           >
