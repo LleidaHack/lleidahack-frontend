@@ -35,6 +35,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Bloqueja scroll (splash, pacman…) ── */
+html.no-scroll,
+html.no-scroll body {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
 /* ── Line clamp ── */
 .line-clamp-3 {
   display: -webkit-box;

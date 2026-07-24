@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import SplashScreen from "./components/SplashScreen/SplashScreen";
+import PacManEasterEgg from "./components/PacManEasterEgg/PacManEasterEgg";
 import HomeLanding from "./pages/Landing/HomeLanding";
 import Dashboard from "./pages/Administrator/Dashboard";
 import "src/utils/ensure-basename";
@@ -16,7 +18,38 @@ import AdminSection from "./components/lleidahacker/Sections/AdminSection";
 import LoginAdmin from "src/pages/Administrator/LoginAdmin";
 import EventDetail from "src/components/lleidahacker/Sections/EventDetail";
 
+const SPLASH_KEY      = 'llh_splash_ts';
+const SPLASH_COOLDOWN = 24 * 60 * 60 * 1000; // 24 h en ms
+
+function shouldShowSplash() {
+  try {
+    const last = localStorage.getItem(SPLASH_KEY);
+    if (!last) return true;
+    return Date.now() - parseInt(last, 10) > SPLASH_COOLDOWN;
+  } catch {
+    return true;
+  }
+}
+
 export default function App() {
+  const [showSplash, setShowSplash] = useState(() => shouldShowSplash());
+
+  // Bloqueja/desbloqueja el scroll del document durant la splash
+  useEffect(() => {
+    if (showSplash) {
+      document.documentElement.classList.add('no-scroll');
+    } else {
+      document.documentElement.classList.remove('no-scroll');
+    }
+    return () => { document.documentElement.classList.remove('no-scroll'); };
+  }, [showSplash]);
+
+  const handleSplashFinish = useCallback(() => {
+    try { localStorage.setItem(SPLASH_KEY, Date.now().toString()); } catch {}
+    setShowSplash(false);
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -29,6 +62,7 @@ export default function App() {
 
   return (
     <div className="App overflow-x-hidden">
+      {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
       <Router basename="/lleidahack">
         <Routes>
           <Route path="/" element={<HomeLanding />} />
@@ -62,6 +96,7 @@ export default function App() {
           <Route path="/login" element={<LoginAdmin />} />
         </Routes>
       </Router>
+      <PacManEasterEgg />
     </div>
   );
 }

@@ -1,0 +1,235 @@
+/* ═══════════════════════════════════════════
+   PAC-MAN EASTER EGG – LleidaHack
+   ═══════════════════════════════════════════ */
+
+/* ── Floating action button ── */
+.pacman-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1000;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #FF7430, #c04a0c);
+  box-shadow: 0 4px 20px rgba(255,116,48,0.55), 0 2px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.pacman-fab:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 28px rgba(255,116,48,0.75), 0 3px 12px rgba(0,0,0,0.35);
+}
+
+.pacman-fab:active {
+  transform: scale(0.96);
+}
+
+/* Variant: botó de tancament amb el logo */
+.pacman-fab--close {
+  z-index: 9999;           /* per sobre de l'overlay (z-index: 9998) */
+  background: linear-gradient(135deg, #1a0800, #2d1000);
+  border: 2px solid rgba(255,116,48,0.6);
+}
+
+.pacman-fab--close:hover {
+  background: linear-gradient(135deg, #2d1200, #3d1800);
+  box-shadow: 0 6px 28px rgba(255,116,48,0.6), 0 3px 12px rgba(0,0,0,0.4);
+}
+
+.pacman-fab-logo {
+  width: 34px;
+  height: auto;
+  filter: invert(1) brightness(1.8);
+  pointer-events: none;
+}
+
+.pacman-fab-icon {
+  animation: pacFabChomp 0.6s steps(2) infinite;
+}
+
+@keyframes pacFabChomp {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ── Full-screen overlay ── */
+.pacman-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pmOverlayIn 0.3s ease forwards;
+}
+
+@keyframes pmOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Game wrapper ── */
+.pacman-game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  user-select: none;
+}
+
+/* ── HUD bar ── */
+.pacman-hud {
+  width: 100%;
+  max-width: 546px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, #1a0800, #110500, #1a0800);
+  border: 1px solid rgba(255,116,48,0.3);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+.pacman-hud-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 90px;
+}
+
+.pacman-hud-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(255,116,48,0.7);
+  text-transform: uppercase;
+}
+
+.pacman-hud-score {
+  font-family: 'Inter', monospace, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #FF7430;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.pacman-hud-logo {
+  width: 100px;
+  height: auto;
+  filter: invert(1) brightness(1.8);
+  opacity: 0.9;
+}
+
+.pacman-hud-lives {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.pacman-hud-lives svg {
+  filter: drop-shadow(0 0 4px rgba(255,116,48,0.6));
+}
+
+/* ── Canvas ── */
+.pacman-canvas {
+  display: block;
+  border-left: 1px solid rgba(255,116,48,0.3);
+  border-right: 1px solid rgba(255,116,48,0.3);
+  image-rendering: pixelated;
+}
+
+.pacman-canvas--powered {
+  box-shadow: 0 0 24px rgba(255,116,48,0.4) inset;
+}
+
+/* ── Close button (logo to return) ── */
+.pacman-close-btn {
+  width: 100%;
+  max-width: 546px;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, #1a0800, #110500, #1a0800);
+  border: 1px solid rgba(255,116,48,0.3);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.2s ease;
+  outline: none;
+}
+
+.pacman-close-btn:hover {
+  background: linear-gradient(90deg, #2a1200, #1f0c00, #2a1200);
+}
+
+.pacman-close-btn img {
+  width: 80px;
+  height: auto;
+  filter: invert(1) brightness(1.5);
+  opacity: 0.8;
+}
+
+.pacman-close-btn span {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(255,180,100,0.7);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Mobile D-pad ── */
+.pacman-dpad {
+  margin-top: 16px;
+  display: grid;
+  grid-template-areas:
+    ". up ."
+    "left . right"
+    ". down .";
+  gap: 6px;
+}
+
+.pacman-dpad-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,116,48,0.4);
+  background: rgba(255,116,48,0.12);
+  color: #FF7430;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pacman-dpad-btn:active {
+  background: rgba(255,116,48,0.35);
+}
+
+.pacman-dpad-btn--up    { grid-area: up; }
+.pacman-dpad-btn--down  { grid-area: down; }
+.pacman-dpad-btn--left  { grid-area: left; }
+.pacman-dpad-btn--right { grid-area: right; }
+
+/* Hide dpad on desktop, show on touch */
+@media (pointer: fine) {
+  .pacman-dpad { display: none; }
+}
