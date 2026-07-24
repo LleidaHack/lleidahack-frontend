@@ -81,10 +81,7 @@ const Colaborations = () => {
         </div>
 
         {/* Bottom text */}
-        <p
-          className="text-center mt-12 text-base"
-          style={{ color: "#aaa" }}
-        >
+        <p className="text-center mt-12 text-base" style={{ color: "#aaa" }}>
           Vols col·laborar amb LleidaHack?{" "}
           <a
             href="/lleidahack/contacte"

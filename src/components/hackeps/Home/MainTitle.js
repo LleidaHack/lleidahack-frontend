@@ -13,7 +13,6 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
   const handleClose = () => setShow(false);
 
   async function handleShow() {
-
     if (hackDay) {
       window.location.href = "https://live.lleidahack.dev";
       return;
@@ -106,13 +105,9 @@ const MainTitle = ({ buttonText = "Apunta't!", refresh = false }) => {
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 scale: "1.7",
-
               }}
             >
-              <p className="px-4 mt-3 py-3">
-                {textButton}
-
-              </p>
+              <p className="px-4 mt-3 py-3">{textButton}</p>
             </div>
           </Button>
         </div>

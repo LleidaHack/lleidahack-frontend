@@ -9,11 +9,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Logo */}
         <a href="/lleidahack" className="flex-shrink-0">
-          <img
-            src={lleidaHackLogo}
-            alt="LleidaHack"
-            className="h-12 w-auto"
-          />
+          <img src={lleidaHackLogo} alt="LleidaHack" className="h-12 w-auto" />
         </a>
 
         {/* Links */}
@@ -23,7 +19,9 @@ const Footer = () => {
             className="no-underline font-medium transition-colors duration-200"
             style={{ color: "rgba(255,255,255,0.85)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.color = "rgba(255,255,255,0.85)")
+            }
           >
             Informació legal
           </a>
@@ -32,7 +30,9 @@ const Footer = () => {
             className="no-underline font-medium transition-colors duration-200"
             style={{ color: "rgba(255,255,255,0.85)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.color = "rgba(255,255,255,0.85)")
+            }
           >
             Contacte
           </a>
@@ -41,7 +41,9 @@ const Footer = () => {
             className="no-underline font-medium transition-colors duration-200"
             style={{ color: "rgba(255,255,255,0.85)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.color = "rgba(255,255,255,0.85)")
+            }
           >
             Qui som?
           </a>
@@ -60,9 +62,14 @@ const Footer = () => {
               label: "LinkedIn",
               href: "https://es.linkedin.com/company/lleidahack",
               svg: (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
-                  <circle cx="4" cy="4" r="2"/>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+                  <circle cx="4" cy="4" r="2" />
                 </svg>
               ),
             },
@@ -70,10 +77,17 @@ const Footer = () => {
               label: "Instagram",
               href: "https://www.instagram.com/LleidaHack/?hl=es",
               svg: (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                 </svg>
               ),
             },
@@ -81,8 +95,13 @@ const Footer = () => {
               label: "Twitter/X",
               href: "https://twitter.com/lleidahack",
               svg: (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               ),
             },
@@ -95,8 +114,12 @@ const Footer = () => {
               aria-label={s.label}
               className="w-9 h-9 rounded-lg flex items-center justify-center no-underline transition-all duration-200"
               style={{ background: "rgba(255,255,255,0.15)", color: "white" }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.3)")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.15)")}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.background = "rgba(255,255,255,0.3)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.background = "rgba(255,255,255,0.15)")
+              }
             >
               {s.svg}
             </a>
@@ -112,7 +135,10 @@ const Footer = () => {
           color: "rgba(255,255,255,0.6)",
         }}
       >
-        <span>© {new Date().getFullYear()} LleidaHack · Associació d'estudiants de la UdL</span>
+        <span>
+          © {new Date().getFullYear()} LleidaHack · Associació d'estudiants de
+          la UdL
+        </span>
         <span>Lleida, Catalunya 🇪🇸</span>
       </div>
     </div>
