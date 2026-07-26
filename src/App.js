@@ -48,7 +48,7 @@ export default function App() {
   const handleSplashFinish = useCallback(() => {
     try {
       localStorage.setItem(SPLASH_KEY, Date.now().toString());
-    } catch { }
+    } catch {}
     setShowSplash(false);
     window.scrollTo(0, 0);
   }, []);
