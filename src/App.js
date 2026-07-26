@@ -48,7 +48,7 @@ export default function App() {
   const handleSplashFinish = useCallback(() => {
     try {
       localStorage.setItem(SPLASH_KEY, Date.now().toString());
-    } catch {}
+    } catch { }
     setShowSplash(false);
     window.scrollTo(0, 0);
   }, []);
@@ -66,7 +66,7 @@ export default function App() {
   return (
     <div className="App overflow-x-hidden">
       {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
-      <Router basename="/lleidahack">
+      <Router basename="/">
         <Routes>
           <Route path="/" element={<HomeLanding />} />
           <Route path="/home" element={<HomeLanding />} />
