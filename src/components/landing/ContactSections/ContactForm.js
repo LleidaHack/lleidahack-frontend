@@ -132,10 +132,9 @@ const Field = ({ label, required, error, children }) => (
 );
 
 const inputClass = (hasError) =>
-  `w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200 outline-none focus:ring-2 ${
-    hasError
-      ? "border-red-300 bg-red-50 focus:ring-red-200"
-      : "border-gray-200 bg-gray-50 focus:border-orange-400 focus:ring-orange-100 focus:bg-white"
+  `w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200 outline-none focus:ring-2 ${hasError
+    ? "border-red-300 bg-red-50 focus:ring-red-200"
+    : "border-gray-200 bg-gray-50 focus:border-orange-400 focus:ring-orange-100 focus:bg-white"
   }`;
 
 /* ── Main form ── */
@@ -179,7 +178,7 @@ export default function ContactForm() {
     setMailStatus(false);
   };
   const handleGoHome = () => {
-    window.location.href = "/lleidahack/";
+    window.location.href = "/";
   };
 
   if (mailSended) {
@@ -299,7 +298,7 @@ export default function ContactForm() {
         >
           He llegit i accepto la{" "}
           <a
-            href="/lleidahack/legalinfo"
+            href="/legalinfo"
             className="no-underline font-medium"
             style={{ color: "#FF7430" }}
           >

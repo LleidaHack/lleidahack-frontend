@@ -364,7 +364,7 @@ const QuiSom = () => {
           Ens encantaria comptar amb tu. Contacta'ns i t'expliquem com unir-te.
         </p>
         <a
-          href="/lleidahack/contacte"
+          href="/contacte"
           className="inline-block bg-white text-primaryLanding font-bold px-8 py-4 rounded-xl text-lg hover:bg-gray-100 transition-colors duration-300 no-underline"
           style={{ color: "#FF7430" }}
         >

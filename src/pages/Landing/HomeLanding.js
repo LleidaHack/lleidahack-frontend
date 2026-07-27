@@ -36,7 +36,7 @@ const ContactCTA = () => (
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/lleidahack/contacte"
+          href="/contacte"
           className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white no-underline transition-all duration-200"
           style={{
             background: "#FF7430",
@@ -48,7 +48,7 @@ const ContactCTA = () => (
           Contacta'ns
         </a>
         <a
-          href="/lleidahack/qui-som"
+          href="/qui-som"
           className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold no-underline transition-all duration-200"
           style={{
             background: "rgba(255,255,255,0.08)",

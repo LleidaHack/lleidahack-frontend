@@ -131,7 +131,7 @@ const HeroSectionHeader = () => {
             </a>
 
             <a
-              href="/lleidahack/contacte"
+              href="/contacte"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold no-underline transition-all duration-200"
               style={{
                 background: "rgba(255,255,255,0.1)",

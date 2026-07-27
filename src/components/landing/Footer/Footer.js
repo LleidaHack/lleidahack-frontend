@@ -15,7 +15,7 @@ const Footer = () => {
         {/* Links */}
         <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
           <a
-            href="/lleidahack/legalinfo"
+            href="/legalinfo"
             className="no-underline font-medium transition-colors duration-200"
             style={{ color: "rgba(255,255,255,0.85)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
@@ -26,7 +26,7 @@ const Footer = () => {
             Informació legal
           </a>
           <a
-            href="/lleidahack/contacte"
+            href="/contacte"
             className="no-underline font-medium transition-colors duration-200"
             style={{ color: "rgba(255,255,255,0.85)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
@@ -37,7 +37,7 @@ const Footer = () => {
             Contacte
           </a>
           <a
-            href="/lleidahack/qui-som"
+            href="/qui-som"
             className="no-underline font-medium transition-colors duration-200"
             style={{ color: "rgba(255,255,255,0.85)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "white")}

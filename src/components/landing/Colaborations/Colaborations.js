@@ -84,7 +84,7 @@ const Colaborations = () => {
         <p className="text-center mt-12 text-base" style={{ color: "#aaa" }}>
           Vols col·laborar amb LleidaHack?{" "}
           <a
-            href="/lleidahack/contacte"
+            href="/contacte"
             className="no-underline font-semibold transition-colors duration-200"
             style={{ color: "#FF7430" }}
           >
