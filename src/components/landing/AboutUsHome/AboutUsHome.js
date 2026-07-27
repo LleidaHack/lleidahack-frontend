@@ -123,7 +123,7 @@ const AboutUsHome = () => {
             </div>
 
             <a
-              href="/lleidahack/qui-som"
+              href="/qui-som"
               className="inline-flex items-center gap-2 mt-10 font-semibold text-sm no-underline transition-colors duration-200 group"
               style={{ color: "#FF7430" }}
             >

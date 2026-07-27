@@ -9,7 +9,7 @@ const collaborators = [
   },
   {
     name: "Makers Lleida",
-    desc: "Co-organitzadors de la Fira Maker anual, un espai de creació i innovació obert a tota la comunitat.",
+    desc: "Participants i col·laboradors de la Fira Maker anual, un espai de creació i innovació obert a tota la comunitat.",
     emoji: "🔧",
     color: "#10b981",
   },
