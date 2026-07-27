@@ -35,8 +35,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "navbar-scrolled shadow-2xl" : "bg-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "navbar-scrolled shadow-2xl" : "bg-transparent"
+      }`}
       style={
         !scrolled
           ? { background: "rgba(35,35,35,0.6)", backdropFilter: "blur(8px)" }
@@ -101,15 +102,17 @@ const Navbar = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors duration-200 no-underline relative group ${isActive(link.href)
+                  className={`text-sm font-medium transition-colors duration-200 no-underline relative group ${
+                    isActive(link.href)
                       ? "text-white font-bold"
                       : "text-white opacity-80 hover:opacity-100"
-                    }`}
+                  }`}
                 >
                   {link.label}
                   <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-orange-400 transition-all duration-300 ${isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-orange-400 transition-all duration-300 ${
+                      isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
                     style={{ backgroundColor: "#FF7430" }}
                   />
                 </a>
@@ -173,8 +176,9 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className={`text-base font-medium no-underline transition-colors duration-200 ${isActive(link.href) ? "font-bold" : "opacity-80"
-                  }`}
+                className={`text-base font-medium no-underline transition-colors duration-200 ${
+                  isActive(link.href) ? "font-bold" : "opacity-80"
+                }`}
                 style={{ color: isActive(link.href) ? "#FF7430" : "white" }}
               >
                 {link.label}

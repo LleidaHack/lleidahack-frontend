@@ -173,10 +173,11 @@ const ContactePage = () => {
                 </label>
 
                 <input
-                  className={`${isLoading
+                  className={`${
+                    isLoading
                       ? "bg-gray-400 text-white cursor-not-allowed"
                       : "hover:bg-primaryHackeps hover:text-white"
-                    } transition ease-in-out delay-100 min-h-10`}
+                  } transition ease-in-out delay-100 min-h-10`}
                   type="submit"
                   value={isLoading ? "Enviant..." : "Enviar"}
                   disabled={isLoading}
