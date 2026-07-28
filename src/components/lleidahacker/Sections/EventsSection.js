@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import EventDetail from "./EventDetail";
 import { useNavigate } from "react-router-dom";
 import { getEvents } from "src/services/EventService";
 

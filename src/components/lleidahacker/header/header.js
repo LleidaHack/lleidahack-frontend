@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { me } from "src/services/AuthenticationService";

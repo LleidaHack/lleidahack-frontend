@@ -1,16 +1,10 @@
 import React from "react";
-import Header from "src/components/lleidahacker/header/header";
-import image1 from "src/assets/img/programmersen.png";
 import eventsImage from "src/assets/img/events.jpg";
 import groupImage from "src/assets/img/workgroups.jpg";
 import administrator from "src/assets/img/administrator.jpg";
-import { useNavigate } from "react-router-dom";
 import GrupsCardBox from "src/components/lleidahacker/GrupsCardBox/grupsCardBox";
-// import { Button } from "react-bootstrap";
-import Button from "src/components/buttons/Button";
 
 const LleidaHackerHome = () => {
-  const navigate = useNavigate();
   const categories = [
     {
       title: "Grups de treball",

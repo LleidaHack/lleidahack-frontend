@@ -54,7 +54,7 @@ module.exports = {
     backgroundImage: {
       "background-hero": "url('/src/imgs/hackers_group.jpg')",
       "background-patron": "url('/src/imgs/patron_imagen.png')",
-      "background-none": "url()",
+      "background-none": "none",
       "background-cartellA": "url('/src/assets/Cartell A.png')",
       "background-cartellB": "url('/src/assets/Cartell B.png')",
       "background-cartellC": "url('/src/assets/Cartell C.png')",
