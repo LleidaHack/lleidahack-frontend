@@ -94,7 +94,7 @@ const ContactePage = () => {
                 <a href="https://www.linkedin.com/company/lleidahack">
                   <img src={linkedinLogo} alt="linkedin" className="w-12" />
                 </a>
-                <a href="https://www.instagram.com/lleidahack/">
+                <a href="https://www.instagram.com/">
                   <img src={instagramLogo} alt="instagram" className="w-12" />
                 </a>
               </div>

@@ -9,15 +9,11 @@ const LoginForm = ({ nextScreen, textWhite = false }) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors, isValid },
-    trigger,
   } = useForm({
     mode: "onChange",
   });
-  const [textColor, setTextColor] = useState(
-    textWhite ? "text-white" : "text-grayColor",
-  );
+  const [textColor] = useState(textWhite ? "text-white" : "text-grayColor");
   const navigate = useNavigate();
   const [isSubmitting, setSubmitting] = useState(false);
   const [errorText, setErrorText] = useState("");

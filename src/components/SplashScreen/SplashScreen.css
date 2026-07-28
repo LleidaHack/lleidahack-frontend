@@ -1,0 +1,186 @@
+/* ═══════════════════════════════════════════════
+   SPLASH SCREEN – LleidaHack
+   Paleta: #FF7430 (taronja LH), #1a0a00, #fff
+   ═══════════════════════════════════════════════ */
+
+/* ── Contenidor arrel ── */
+.splash-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a0a00;
+  overflow: hidden;
+  transition:
+    opacity 0.7s ease,
+    visibility 0.7s ease;
+}
+
+.splash-exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ── Paret de maons ── */
+.splash-bricks {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  overflow: hidden;
+}
+
+/* Cada fila és un flex row */
+.splash-brick-row {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  flex: 1;
+}
+
+/* Files senars: desplaades mig maó cap a l'esquerra (alternance clàssica) */
+.splash-brick-row--offset {
+  margin-left: -44px; /* la meitat de la amplada del maó (~80px) + meitat del gap */
+}
+
+.splash-brick {
+  /* Raó 2:1 → tipic maó de construcció */
+  flex: 0 0 84px;
+  border-radius: 3px;
+  background: linear-gradient(160deg, #d95510 0%, #c04a0c 45%, #a83d09 100%);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 140, 60, 0.2),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.35),
+    inset 2px 0 0 rgba(255, 120, 40, 0.1),
+    inset -2px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ── Overlay fosc semitransparent ── */
+.splash-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+}
+
+/* ── Contingut central ── */
+.splash-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  padding: 0 24px;
+}
+
+/* ── Logo ── */
+.splash-logo-wrap {
+  /* Estat inicial: fora de pantalla per la dreta */
+  transform: translateX(120vw);
+  opacity: 0;
+  transition:
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s ease;
+  will-change: transform, opacity;
+}
+
+/* Estat final: centrat */
+.splash-logo-settled {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.splash-logo {
+  width: clamp(180px, 40vw, 340px);
+  height: auto;
+  /* Invertim el SVG (negre → blanc) per contrast sobre fons fosc */
+  filter: invert(1) brightness(2);
+  display: block;
+}
+
+/* ── Títol "LleidaHack" ── */
+.splash-title {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(2rem, 7vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  /* Gradient taronja */
+  background: linear-gradient(135deg, #ff7430 0%, #ffaa70 60%, #ff7430 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Animació gradient */
+  animation: gradientShift 3s linear infinite;
+
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.7s ease 0.1s,
+    transform 0.7s ease 0.1s;
+  margin: 0;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* ── Subtítol ── */
+.splash-subtitle {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.7s ease 0.1s,
+    transform 0.7s ease 0.1s;
+  margin: 0;
+
+  /* Separador decoratiu */
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 116, 48, 0.35);
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ── Classe activadora de fade-in ── */
+.splash-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ── Parpelleig pulse suau al logo quan ja és al centre ── */
+.splash-logo-settled .splash-logo {
+  animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%,
+  100% {
+    filter: invert(1) brightness(2);
+  }
+  50% {
+    filter: invert(1) brightness(2.4)
+      drop-shadow(0 0 12px rgba(255, 116, 48, 0.7));
+  }
+}

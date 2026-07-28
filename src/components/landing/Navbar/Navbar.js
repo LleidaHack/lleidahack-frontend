@@ -1,200 +1,194 @@
 import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
+import logoTextLleidaHack from "../../../assets/img/logo_text_llh.svg";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import NavbarComponent from "src/components/navbarComponent/navbarComponent";
 
-// Remarcar a la pagina on ets, quan tinguem les urls definitives caldra canviar-ho
-// Falta implementar els coponentes dels botons que falten
-// Falta implementar el responsive
 const Navbar = () => {
   const location = useLocation();
-  const [navStatus, setNavStatus] = useState(false);
-  const [colorVectors1, setColorVector1] = useState("#F7F7F7");
-  const [colorVectors2, setColorVector2] = useState("#000000");
-  const [centerContent, setCenterContent] = useState(<></>);
-  const [endContent, setEndContent] = useState(<></>);
-  const [dropEndContent, setDropEndContent] = useState(<></>);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    setCenterContent(
-      <>
-        <li className=" text-xl list-none	md:text-white">
-          <a
-            href="/hackeps"
-            className={`no-underline text-CTALanding hover:text-secondaryLanding text-black  duration-300 ${location.pathname === "/hackeps" ? "font-bold" : ""}`}
-          >
-            <p className="md:text-white">HackEPS</p>
-          </a>
-        </li>
-        <li className=" text-xl list-none	">
-          <a
-            href="/lleidahack/events"
-            className="no-underline text-CTALanding hover:text-secondaryLanding duration-300 text-black  md:text-white"
-          >
-            <p className="md:text-white">Events</p>
-          </a>
-        </li>
-        <li className="text-xl list-none	">
-          <a
-            href="/lleidahack/noticies"
-            className={`no-underline text-CTALanding hover:text-secondaryLanding text-black md:text-white duration-300 ${location.pathname === "/lleidahack/noticies" ? "font-bold" : ""}`}
-          >
-            <p className="md:text-white">Noticies</p>
-          </a>
-        </li>
-        <li className="text-xl list-none	">
-          <a
-            href="/lleidahack/contacte"
-            className={`no-underline text-CTALanding hover:text-secondaryLanding text-black md:text-white duration-300 ${location.pathname === "/contact" ? "font-bold" : ""}`}
-          >
-            <p className="md:text-white">Contacte</p>
-          </a>
-        </li>
-        <li className="text-xl list-none	">
-          <a
-            href="/lleidahack/qui-som"
-            className={`no-underline text-CTALanding hover:text-secondaryLanding text-black md:text-white duration-300 ${location.pathname === "/lleidahack/qui-som" ? "font-bold" : ""}`}
-          >
-            <p className="md:text-white">Qui som?</p>
-          </a>
-        </li>
-      </>,
-    );
-
-    setEndContent(
-      <>
-        <button className="text-xl bg-transparent p-0 mx-2 ">
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28.8269 17.2192C28.2632 16.6583 27.3514 16.6605 26.7904 17.2243C26.2295 17.7881 26.2318 18.6998 26.7955 19.2608L28.8269 17.2192ZM32.5844 25.0209C33.1481 25.5817 34.0599 25.5794 34.6209 25.0157C35.1817 24.452 35.1794 23.5401 34.6157 22.9791L32.5844 25.0209ZM34.6157 25.0209C35.1794 24.4598 35.1817 23.548 34.6209 22.9843C34.0599 22.4206 33.1481 22.4183 32.5844 22.9791L34.6157 25.0209ZM26.7955 28.7391C26.2318 29.3001 26.2295 30.212 26.7904 30.7757C27.3514 31.3394 28.2632 31.3417 28.8269 30.7809L26.7955 28.7391ZM33.6 25.44C34.3953 25.44 35.04 24.7953 35.04 24C35.04 23.2047 34.3953 22.56 33.6 22.56V25.44ZM6.72003 22.56C5.92475 22.56 5.28003 23.2047 5.28003 24C5.28003 24.7953 5.92475 25.44 6.72003 25.44V22.56ZM26.7955 19.2608L32.5844 25.0209L34.6157 22.9791L28.8269 17.2192L26.7955 19.2608ZM32.5844 22.9791L26.7955 28.7391L28.8269 30.7809L34.6157 25.0209L32.5844 22.9791ZM33.6 22.56H6.72003V25.44H33.6V22.56Z"
-              fill={colorVectors1}
-            />
-            <path
-              d="M18.24 29.76C18.24 34.0015 21.6785 37.44 25.92 37.44H33.6C37.8415 37.44 41.28 34.0015 41.28 29.76V18.24C41.28 13.9984 37.8415 10.56 33.6 10.56H25.92C21.6785 10.56 18.24 13.9984 18.24 18.24"
-              stroke={colorVectors1}
-              stroke-width="3.84"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M28.8269 17.2192C28.2632 16.6583 27.3514 16.6605 26.7904 17.2243C26.2295 17.7881 26.2318 18.6998 26.7955 19.2608L28.8269 17.2192ZM32.5844 25.0209C33.1481 25.5817 34.0599 25.5794 34.6209 25.0157C35.1817 24.452 35.1794 23.5401 34.6157 22.9791L32.5844 25.0209ZM34.6157 25.0209C35.1794 24.4598 35.1817 23.548 34.6209 22.9843C34.0599 22.4206 33.1481 22.4183 32.5844 22.9791L34.6157 25.0209ZM26.7955 28.7391C26.2318 29.3001 26.2295 30.212 26.7904 30.7757C27.3514 31.3394 28.2632 31.3417 28.8269 30.7809L26.7955 28.7391ZM33.6 25.44C34.3953 25.44 35.04 24.7953 35.04 24C35.04 23.2047 34.3953 22.56 33.6 22.56V25.44ZM6.72003 22.56C5.92475 22.56 5.28003 23.2047 5.28003 24C5.28003 24.7953 5.92475 25.44 6.72003 25.44V22.56ZM26.7955 19.2608L32.5844 25.0209L34.6157 22.9791L28.8269 17.2192L26.7955 19.2608ZM32.5844 22.9791L26.7955 28.7391L28.8269 30.7809L34.6157 25.0209L32.5844 22.9791ZM33.6 22.56H6.72003V25.44H33.6V22.56Z"
-              fill={colorVectors1}
-            />
-            <path
-              d="M18.24 29.76C18.24 34.0015 21.6785 37.44 25.92 37.44H33.6C37.8415 37.44 41.28 34.0015 41.28 29.76V18.24C41.28 13.9984 37.8415 10.56 33.6 10.56H25.92C21.6785 10.56 18.24 13.9984 18.24 18.24"
-              stroke={colorVectors1}
-              stroke-width="3.84"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-        <button className="bg-transparent text-black text-xl p-0 mx-2 text-CTALanding">
-          <svg
-            width="36"
-            height="34"
-            viewBox="0 0 36 34"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M35.16 31.74L29.18 15.02C28.76 13.92 27.82 13.24 26.74 13.24C25.66 13.24 24.74 13.92 24.28 15.06L18.32 31.74C18.04 32.52 18.44 33.38 19.22 33.66C20 33.94 20.86 33.54 21.14 32.76L22.38 29.3H31.08L32.32 32.76C32.54 33.38 33.12 33.76 33.74 33.76C33.9 33.76 34.08 33.74 34.24 33.68C35.02 33.4 35.42 32.54 35.14 31.76L35.16 31.74ZM23.48 26.28L26.76 17.1L30.04 26.28H23.48ZM18.38 8.70001C13.86 15.84 9.77999 20.16 4.81999 23.04C4.57999 23.18 4.31999 23.24 4.07999 23.24C3.55999 23.24 3.05999 22.98 2.77999 22.5C2.35999 21.78 2.59999 20.86 3.31999 20.46C7.51997 18.02 10.96 14.52 14.82 8.72001H2.23999C1.41999 8.72001 0.73999 8.04001 0.73999 7.22001C0.73999 6.40001 1.41999 5.72001 2.23999 5.72001H9.73999V1.76001C9.73999 0.94001 10.42 0.26001 11.24 0.26001C12.06 0.26001 12.74 0.94001 12.74 1.76001V5.72001H20.24C21.06 5.72001 21.74 6.40001 21.74 7.22001C21.74 8.04001 21.06 8.72001 20.24 8.72001H18.36L18.38 8.70001ZM18.46 23.24C18.2 23.24 17.94 23.18 17.7 23.04C16.4 22.28 15.14 21.44 13.96 20.56C13.3 20.06 13.16 19.12 13.66 18.46C14.16 17.8 15.1 17.66 15.76 18.16C16.84 18.98 18.02 19.74 19.22 20.44C19.94 20.86 20.18 21.78 19.76 22.5C19.48 22.98 18.98 23.24 18.46 23.24Z"
-              fill={colorVectors1}
-            />
-          </svg>
-        </button>
-      </>,
-    );
-
-    setDropEndContent(
-      <>
-        <button className="text-xl bg-transparent p-0 mx-2 ">
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28.8269 17.2192C28.2632 16.6583 27.3514 16.6605 26.7904 17.2243C26.2295 17.7881 26.2318 18.6998 26.7955 19.2608L28.8269 17.2192ZM32.5844 25.0209C33.1481 25.5817 34.0599 25.5794 34.6209 25.0157C35.1817 24.452 35.1794 23.5401 34.6157 22.9791L32.5844 25.0209ZM34.6157 25.0209C35.1794 24.4598 35.1817 23.548 34.6209 22.9843C34.0599 22.4206 33.1481 22.4183 32.5844 22.9791L34.6157 25.0209ZM26.7955 28.7391C26.2318 29.3001 26.2295 30.212 26.7904 30.7757C27.3514 31.3394 28.2632 31.3417 28.8269 30.7809L26.7955 28.7391ZM33.6 25.44C34.3953 25.44 35.04 24.7953 35.04 24C35.04 23.2047 34.3953 22.56 33.6 22.56V25.44ZM6.72003 22.56C5.92475 22.56 5.28003 23.2047 5.28003 24C5.28003 24.7953 5.92475 25.44 6.72003 25.44V22.56ZM26.7955 19.2608L32.5844 25.0209L34.6157 22.9791L28.8269 17.2192L26.7955 19.2608ZM32.5844 22.9791L26.7955 28.7391L28.8269 30.7809L34.6157 25.0209L32.5844 22.9791ZM33.6 22.56H6.72003V25.44H33.6V22.56Z"
-              fill={colorVectors2}
-            />
-            <path
-              d="M18.24 29.76C18.24 34.0015 21.6785 37.44 25.92 37.44H33.6C37.8415 37.44 41.28 34.0015 41.28 29.76V18.24C41.28 13.9984 37.8415 10.56 33.6 10.56H25.92C21.6785 10.56 18.24 13.9984 18.24 18.24"
-              stroke={colorVectors2}
-              stroke-width="3.84"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M28.8269 17.2192C28.2632 16.6583 27.3514 16.6605 26.7904 17.2243C26.2295 17.7881 26.2318 18.6998 26.7955 19.2608L28.8269 17.2192ZM32.5844 25.0209C33.1481 25.5817 34.0599 25.5794 34.6209 25.0157C35.1817 24.452 35.1794 23.5401 34.6157 22.9791L32.5844 25.0209ZM34.6157 25.0209C35.1794 24.4598 35.1817 23.548 34.6209 22.9843C34.0599 22.4206 33.1481 22.4183 32.5844 22.9791L34.6157 25.0209ZM26.7955 28.7391C26.2318 29.3001 26.2295 30.212 26.7904 30.7757C27.3514 31.3394 28.2632 31.3417 28.8269 30.7809L26.7955 28.7391ZM33.6 25.44C34.3953 25.44 35.04 24.7953 35.04 24C35.04 23.2047 34.3953 22.56 33.6 22.56V25.44ZM6.72003 22.56C5.92475 22.56 5.28003 23.2047 5.28003 24C5.28003 24.7953 5.92475 25.44 6.72003 25.44V22.56ZM26.7955 19.2608L32.5844 25.0209L34.6157 22.9791L28.8269 17.2192L26.7955 19.2608ZM32.5844 22.9791L26.7955 28.7391L28.8269 30.7809L34.6157 25.0209L32.5844 22.9791ZM33.6 22.56H6.72003V25.44H33.6V22.56Z"
-              fill={colorVectors2}
-            />
-            <path
-              d="M18.24 29.76C18.24 34.0015 21.6785 37.44 25.92 37.44H33.6C37.8415 37.44 41.28 34.0015 41.28 29.76V18.24C41.28 13.9984 37.8415 10.56 33.6 10.56H25.92C21.6785 10.56 18.24 13.9984 18.24 18.24"
-              stroke={colorVectors2}
-              stroke-width="3.84"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-        <button className="bg-transparent text-black text-xl p-0 mx-2 text-CTALanding">
-          <svg
-            width="36"
-            height="34"
-            viewBox="0 0 36 34"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M35.16 31.74L29.18 15.02C28.76 13.92 27.82 13.24 26.74 13.24C25.66 13.24 24.74 13.92 24.28 15.06L18.32 31.74C18.04 32.52 18.44 33.38 19.22 33.66C20 33.94 20.86 33.54 21.14 32.76L22.38 29.3H31.08L32.32 32.76C32.54 33.38 33.12 33.76 33.74 33.76C33.9 33.76 34.08 33.74 34.24 33.68C35.02 33.4 35.42 32.54 35.14 31.76L35.16 31.74ZM23.48 26.28L26.76 17.1L30.04 26.28H23.48ZM18.38 8.70001C13.86 15.84 9.77999 20.16 4.81999 23.04C4.57999 23.18 4.31999 23.24 4.07999 23.24C3.55999 23.24 3.05999 22.98 2.77999 22.5C2.35999 21.78 2.59999 20.86 3.31999 20.46C7.51997 18.02 10.96 14.52 14.82 8.72001H2.23999C1.41999 8.72001 0.73999 8.04001 0.73999 7.22001C0.73999 6.40001 1.41999 5.72001 2.23999 5.72001H9.73999V1.76001C9.73999 0.94001 10.42 0.26001 11.24 0.26001C12.06 0.26001 12.74 0.94001 12.74 1.76001V5.72001H20.24C21.06 5.72001 21.74 6.40001 21.74 7.22001C21.74 8.04001 21.06 8.72001 20.24 8.72001H18.36L18.38 8.70001ZM18.46 23.24C18.2 23.24 17.94 23.18 17.7 23.04C16.4 22.28 15.14 21.44 13.96 20.56C13.3 20.06 13.16 19.12 13.66 18.46C14.16 17.8 15.1 17.66 15.76 18.16C16.84 18.98 18.02 19.74 19.22 20.44C19.94 20.86 20.18 21.78 19.76 22.5C19.48 22.98 18.98 23.24 18.46 23.24Z"
-              fill={colorVectors2}
-            />
-          </svg>
-        </button>
-      </>,
-    );
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Tanca el menú al canviar de ruta
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  const navLinks = [
+    {
+      label: "HackEPS",
+      href: "https://hackeps.dev",
+      external: true,
+      highlight: true,
+    },
+    { label: "Contacte", href: "/contacte", external: false },
+    { label: "Qui som?", href: "/qui-som", external: false },
+  ];
+
+  const isActive = (href) =>
+    location.pathname === href.replace("/lleidahack", "");
+
   return (
-    <>
-      <NavbarComponent
-        bgColor={"#FF7430"}
-        textColor={"white"}
-        logoimg={logoLleidaHack}
-        centerContent={centerContent}
-        endContent={endContent}
-        dropEndContent={dropEndContent}
-        showCenterContentOnlyOnDrop={false}
-        logoRedirect={"/lleidahack"}
-      />
-      {String(process.env.REACT_APP_MAIN) === "0" && (
-        <nav
-          className="navbar"
-          style={{ backgroundColor: "red", fontSize: "1.5em" }}
-        >
-          <div className="container">
-            <div style={{ maxWidth: "100%", wordWrap: "break-word" }}>
-              Aquesta pàgina és de proves. La pàgina de la HackEPS 2024 és{" "}
-              <a
-                style={{ color: "var(--primary)" }}
-                href="https://www.lleidahack.dev/hackeps"
-              >
-                https://www.lleidahack.dev/hackeps
-              </a>
-            </div>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "navbar-scrolled shadow-2xl" : "bg-transparent"
+      }`}
+      style={
+        !scrolled
+          ? { background: "rgba(35,35,35,0.6)", backdropFilter: "blur(8px)" }
+          : {}
+      }
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <a
+            href="/lleidahack"
+            className="flex items-center gap-3 flex-shrink-0"
+          >
+            <img
+              src={logoLleidaHack}
+              alt="LleidaHack logo"
+              className="h-9 w-9"
+            />
+            <img
+              src={logoTextLleidaHack}
+              alt="LleidaHack"
+              className="h-6 hidden sm:block"
+            />
+          </a>
+
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) =>
+              link.external ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 no-underline"
+                  style={{
+                    background: "#FF7430",
+                    color: "white",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.background = "#e55010")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.background = "#FF7430")
+                  }
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  {link.label}
+                </a>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors duration-200 no-underline relative group ${
+                    isActive(link.href)
+                      ? "text-white font-bold"
+                      : "text-white opacity-80 hover:opacity-100"
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-orange-400 transition-all duration-300 ${
+                      isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                    style={{ backgroundColor: "#FF7430" }}
+                  />
+                </a>
+              ),
+            )}
           </div>
-        </nav>
-      )}
-    </>
+
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden flex flex-col gap-1.5 p-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menú"
+          >
+            <span
+              className={`block h-0.5 w-6 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile dropdown */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-64" : "max-h-0"}`}
+        style={{
+          background: "rgba(35,35,35,0.98)",
+          backdropFilter: "blur(16px)",
+        }}
+      >
+        <div className="px-6 py-4 flex flex-col gap-4">
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 w-fit px-4 py-2 rounded-full text-sm font-semibold no-underline"
+                style={{ background: "#FF7430", color: "white" }}
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                {link.label}
+              </a>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`text-base font-medium no-underline transition-colors duration-200 ${
+                  isActive(link.href) ? "font-bold" : "opacity-80"
+                }`}
+                style={{ color: isActive(link.href) ? "#FF7430" : "white" }}
+              >
+                {link.label}
+              </a>
+            ),
+          )}
+        </div>
+      </div>
+    </nav>
   );
 };
+
 export default Navbar;

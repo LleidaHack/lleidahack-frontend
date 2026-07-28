@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logoLleidaHack from "../../../icons/isotip_lleidahack_blanc.png";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { me } from "src/services/AuthenticationService";
@@ -41,7 +40,7 @@ const Header = () => {
             <li className="mx-8 text-xl list-none	">
               <a
                 href="/admin/events"
-                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/lleidahack/qui-som" ? "font-bold" : ""}`}
+                className={`no-underline text-CTALanding hover:text-secondaryLanding duration-300 ${location.pathname === "/qui-som" ? "font-bold" : ""}`}
               >
                 Esdeveniments
               </a>

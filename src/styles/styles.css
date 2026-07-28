@@ -1,7 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* ── Animacions generals ── */
 .appear-animation {
   animation-name: appear;
   animation-duration: 0.3s;
@@ -19,6 +30,35 @@
   }
 }
 
+/* ── Fade in up per seccions ── */
+.fade-in-up {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Scroll suau global ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Bloqueja scroll (splash, pacman…) ── */
+html.no-scroll,
+html.no-scroll body {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+/* ── Line clamp ── */
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -27,6 +67,56 @@
   text-overflow: ellipsis;
 }
 
+/* ── Cards hover ── */
+.event-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Navbar glassmorphism scroll ── */
+.navbar-scrolled {
+  background: rgba(35, 35, 35, 0.95) !important;
+  backdrop-filter: blur(12px);
+}
+
+/* ── Hero scroll indicator ── */
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #ff7430, #ff9a6c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Stats counter ── */
+.stat-number {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: #ff7430;
+  line-height: 1;
+}
+
+/* ── Oswald legacy ── */
 .oswald-700 {
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;

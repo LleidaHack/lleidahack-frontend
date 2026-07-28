@@ -1,8 +1,7 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 
 const PopupBody = ({ isOpen, onClose, children }) => {
-  const [open, setOpen] = useState(isOpen);
-  console.log(isOpen);
+  const [, setOpen] = useState(isOpen);
   if (!isOpen) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-700 bg-opacity-70 ">
