@@ -73,3 +73,23 @@ export async function contacte(mail) {
     Body: mail,
   });
 }
+
+export async function localVerificationAvailable() {
+  if (
+    !["localhost", "127.0.0.1", "::1", "[::1]"].includes(
+      window.location.hostname,
+    )
+  ) {
+    return false;
+  }
+  const response = await fetchPlus({ Url: "/auth/local-verification" });
+  return response.enabled === true;
+}
+
+export async function verifyLocalAccount(email) {
+  return fetchPlus({
+    Url: "/auth/local-verification",
+    Method: "POST",
+    Body: { email },
+  });
+}
