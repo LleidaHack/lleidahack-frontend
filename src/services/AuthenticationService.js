@@ -20,7 +20,7 @@ export async function confirmResetPassword(Token, Password) {
   return fetchPlus({
     Url: "/auth/confirm-reset-password",
     Method: "POST",
-    Query: {
+    Body: {
       token: Token,
       password: Password,
     },

@@ -46,14 +46,14 @@ export async function fetchPlus({
       )
       .join("&")}`;
   if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
-    console.log("headers: ", args);
+    console.log("API request:", Method, Url);
   return fetch(
     process.env.REACT_APP_DOMAIN + `/v${apiVersion}` + Url + query,
     args,
   )
     .then(async (response) => {
       if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
-        console.log("response: ", response);
+        console.log("API response status:", response.status);
       if (!response.ok) {
         const error = await response.json();
         return {
@@ -64,8 +64,6 @@ export async function fetchPlus({
       return response.json();
     })
     .then((data) => {
-      if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
-        console.log("data: ", data);
       if (saveLoginInfo) {
         localStorage.setItem("userToken", data.access_token);
         localStorage.setItem("userID", data.user_id);
