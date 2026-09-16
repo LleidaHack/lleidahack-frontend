@@ -23,29 +23,33 @@ const LoginForm = ({ nextScreen, textWhite = false }) => {
   const [errorText, setErrorText] = useState("");
   const submit = async (values) => {
     setSubmitting(true);
+    setErrorText("");
     try {
-      let a = await login(values);
-      if (process.env.REACT_APP_DEBUG === "true") console.log(a);
-      if (a.errCode === 400) {
+      const result = await login(values);
+      if (result.errorCode === "EMAIL_NOT_VERIFIED") {
         navigate("/user-verification", { state: { email: values.email } });
-      } else if (localStorage.getItem("userToken") !== "undefined") {
-        if (process.env.REACT_APP_DEBUG === "true")
-          console.log("Login successful");
-        if (nextScreen) {
-          navigate(nextScreen);
-        } else navigate("/home");
-      } else if (a.errCode === 401 || a.errCode === 404) {
+      } else if (!result.errCode && result.access_token) {
+        navigate(nextScreen || "/home");
+      } else if (result.errCode === 401 || result.errCode === 404) {
         setErrorText("Contrasenya o correu incorrectes");
+      } else if (result.errCode === 429) {
+        setErrorText(
+          "Massa intents. Espera una estona abans de tornar-ho a provar.",
+        );
+      } else {
+        setErrorText(
+          "No s'ha pogut iniciar sessió. Torna-ho a provar més tard.",
+        );
       }
-    } catch (error) {
-      console.error("Login error:", error);
+    } catch {
+      setErrorText("No es pot connectar amb el servidor. Torna-ho a provar.");
     } finally {
       setSubmitting(false);
     }
   };
   return (
     <div>
-      <form className="">
+      <form className="" onSubmit={handleSubmit(submit)}>
         <div className="text-base mt-7 w-full">
           <label className="w-full text-base">
             <p className="text-white mb-1">Correu:</p>
@@ -98,14 +102,15 @@ const LoginForm = ({ nextScreen, textWhite = false }) => {
               ? { secondaryLanding: true }
               : { primaryHackeps: true })}
             lg
-            onClick={handleSubmit(submit)}
             className={` ${!isValid ? "opacity-50 hover:none bg-secondaryHackeps" : "hover:bg-secondaryHackeps"}`}
-            disabled={!isValid}
+            disabled={!isValid || isSubmitting}
             light
           >
             {isSubmitting ? "Iniciant sessió..." : "Inicia sessió"}
           </Button>
-          <p className="text-red-400 mt-2">{errorText}</p>
+          <p role="alert" className="text-red-400 mt-2">
+            {errorText}
+          </p>
         </div>
       </form>
     </div>

@@ -58,7 +58,8 @@ export async function fetchPlus({
         const error = await response.json();
         return {
           errCode: response.status,
-          errMssg: error.message,
+          errMssg: error.message || error.detail,
+          errorCode: error.code,
         };
       }
       return response.json();
@@ -66,7 +67,7 @@ export async function fetchPlus({
     .then((data) => {
       if (process.env.REACT_APP_DEBUG === "true" || forceDebug)
         console.log("data: ", data);
-      if (saveLoginInfo) {
+      if (saveLoginInfo && !data.errCode && data.access_token) {
         localStorage.setItem("userToken", data.access_token);
         localStorage.setItem("userID", data.user_id);
         localStorage.setItem("refreshToken", data.refresh_token);
